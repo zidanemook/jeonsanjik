@@ -1,6 +1,6 @@
 # 학습 진행 동기화 연결
 
-앱 코드와 모의 서버 테스트는 준비됐습니다. `firebase-config.js`가 null인 현재 배포에서는 서버 동기화가 실행되지 않습니다. 실제 Firebase 인증·보안 규칙·두 기기 검증은 프로젝트를 연결한 뒤 수행합니다.
+2026-09-09 Firebase 프로젝트 `jeonsanjik-study`에 연결했습니다. Spark 플랜, Standard Firestore의 서울 리전(`asia-northeast3`), Google 로그인, 본인 UID 허용 목록을 사용합니다. GitHub Pages 도메인 `zidanemook.github.io`를 승인했습니다. Analytics와 Gemini는 프로젝트 생성 시 활성화하지 않았습니다.
 
 ## 연결 순서
 
@@ -27,6 +27,6 @@
 
 `sync.test.cjs`: 모의 서버를 이용한 두 클라이언트 실시간 전달, 오프라인 동시 풀이, 재전송, 계정 분리. 실제 Firebase 테스트를 대신하지 않습니다.
 
-연결 후 필수 확인: 서로 다른 Edge 컨텍스트의 실제 Firestore 전달, 오프라인 후 재접속, 다른 계정 접근 거부, 미인증 REST 접근 거부, 재로그인 후 기록 복원.
+실제 서버 검증 완료: 서로 독립된 Edge 컨텍스트에서 동일 계정으로 로그인한 상태의 온라인 기록 전달, 양쪽 오프라인 동시 풀이 세 건 합집합, 재연결 후 일정 일치, 동일 이벤트 재전송 중복 없음. 타 사용자 경로 읽기·기존 이벤트 변조·삭제 및 미인증 SDK 읽기는 모두 `permission-denied`였습니다. 검증용 이벤트 세 건은 이후 관리자 콘솔에서 삭제했습니다. 이는 실제 Android 태블릿을 직접 조작한 테스트는 아닙니다.
 
 공식 문서: [웹 설정](https://firebase.google.com/docs/web/setup), [Google 로그인](https://firebase.google.com/docs/auth/web/google-signin), [실시간 구독](https://firebase.google.com/docs/firestore/query-data/listen), [보안 규칙](https://firebase.google.com/docs/firestore/security/rules-conditions). 2026-09-09 Edge에서 확인했습니다. 웹 SDK는 공식 배포 파일 12.2.1을 vendor에 고정했습니다.
