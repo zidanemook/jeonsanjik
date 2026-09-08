@@ -1,0 +1,21 @@
+const assert = require('node:assert/strict');
+const {schedule,migrate,plus}=require('./scheduler.js');
+let card={ease:2.5,interval:0,streak:0};
+const gaps=[];
+for(let i=0;i<6;i++){card=schedule(card,'correct','2026-09-08');gaps.push(card.interval);}
+assert.deepEqual(gaps,[1,3,8,22,64,192]);
+assert.equal(schedule(card,'wrong','2026-09-08').due,'2026-09-09');
+assert.equal(schedule(card,'unsure').interval,3);
+assert.equal(schedule({...card,interval:365},'correct').interval,365);
+assert.equal(schedule({ease:1.3,interval:1,streak:0},'wrong').ease,1.3);
+assert.equal(plus('2028-02-28',1),'2028-02-29');
+const original={version:1,cards:[{id:'a',stage:2,due:'2026-09-12'},{id:'b',stage:4,due:null}],history:[{cardId:'b',date:'2026-08-15',result:'correct'}]};
+const snapshot=JSON.stringify(original), converted=migrate(original,'2026-09-08');
+assert.equal(JSON.stringify(original),snapshot);
+assert.equal(converted.cards[0].due,'2026-09-12');
+assert.equal(converted.cards[1].due,'2026-09-14');
+assert.deepEqual(converted.history,original.history);
+assert.deepEqual(migrate(converted),converted);
+const relearning=schedule(schedule(card,'wrong'),'correct');
+assert.equal(relearning.interval,1);
+console.log('PASS: adaptive grades, caps, leap day, migration preservation and idempotence');
