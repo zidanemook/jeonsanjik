@@ -1,4 +1,5 @@
-const CACHE='chagog-v5-auto-cards';
-self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./','./index.html','./app.js','./core-review-pack.js','./scheduler.js','./learning.js','./style.css','./manifest.json','./icon.svg']))));
+const CACHE='chagog-v6-refresh';
+const ASSETS=['./index.html?v=6','./app.js?v=6','./core-review-pack.js?v=6','./scheduler.js?v=6','./learning.js?v=6','./style.css?v=6','./manifest.json','./icon.svg'];
+self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await Promise.all(ASSETS.map(async url=>{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw Error('Asset fetch failed');await c.put(url,r);}));await self.skipWaiting();})()));
 self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;e.respondWith(fetch(e.request).catch(()=>caches.match(e.request)));});
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;e.respondWith((async()=>{const c=await caches.open(CACHE);try{const r=await fetch(e.request,{cache:'no-store'});if(r.ok)await c.put(e.request,r.clone());return r;}catch{const cached=await c.match(e.request);if(cached)return cached;if(e.request.mode==='navigate')return (await c.match('./index.html?v=6'))||Response.error();return Response.error();}})());});
