@@ -21,12 +21,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scheduler.test.cjs
+      - run: node scheduler.test.cjs && node learning.test.cjs
       - uses: actions/configure-pages@v5
       - name: Stage app
         run: |
           mkdir _site
-          cp index.html app.js core-review-pack.js scheduler.js style.css sw.js manifest.json icon.svg _site/
+          cp index.html app.js core-review-pack.js scheduler.js learning.js style.css sw.js manifest.json icon.svg _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
