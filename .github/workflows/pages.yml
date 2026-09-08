@@ -26,7 +26,7 @@ jobs:
       - name: Stage app
         run: |
           mkdir _site
-          cp index.html app.js core-review-pack.js scheduler.js learning.js style.css sw.js manifest.json icon.svg _site/
+          cp index.html app.js core-review-pack.js quiz-options.js scheduler.js learning.js style.css sw.js manifest.json icon.svg _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

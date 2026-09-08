@@ -1,5 +1,5 @@
-const CACHE='chagog-v7-dark';
-const ASSETS=['./index.html?v=7','./app.js?v=7','./core-review-pack.js?v=7','./scheduler.js?v=7','./learning.js?v=7','./style.css?v=7','./manifest.json','./icon.svg'];
+const CACHE='chagog-v9-quiz';
+const ASSETS=['./index.html?v=9','./app.js?v=9','./quiz-options.js?v=9','./core-review-pack.js?v=9','./scheduler.js?v=9','./learning.js?v=9','./style.css?v=9','./manifest.json','./icon.svg'];
 self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await Promise.all(ASSETS.map(async url=>{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw Error('Asset fetch failed');await c.put(url,r);}));await self.skipWaiting();})()));
 self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;e.respondWith((async()=>{const c=await caches.open(CACHE);try{const r=await fetch(e.request,{cache:'no-store'});if(r.ok)await c.put(e.request,r.clone());return r;}catch{const cached=await c.match(e.request);if(cached)return cached;if(e.request.mode==='navigate')return (await c.match('./index.html?v=7'))||Response.error();return Response.error();}})());});
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;e.respondWith((async()=>{const c=await caches.open(CACHE);try{const r=await fetch(e.request,{cache:'no-store'});if(r.ok)await c.put(e.request,r.clone());return r;}catch{const cached=await c.match(e.request);if(cached)return cached;if(e.request.mode==='navigate')return (await c.match('./index.html?v=9'))||Response.error();return Response.error();}})());});
