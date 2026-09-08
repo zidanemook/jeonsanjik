@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111318">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
   <title>차곡 — 문제 복습</title>
 </head>
 <body>
@@ -35,13 +35,17 @@
         <p>문제를 불러오는 중입니다.</p>
       </article>
     </section>
+    <div class="sync-line"><span id="syncStatus" role="status">이 기기에 저장 중</span><button id="syncAccount" type="button" hidden>Google 로그인</button></div>
     <p id="message" role="status" aria-live="polite"></p>
     <footer>개념을 다시 구성한 연습 문제 · 선택 → 채점 → 해설 → 다음 문제</footer>
   </main>
-  <script src="scheduler.js?v=9"></script>
-  <script src="learning.js?v=9"></script>
-  <script src="core-review-pack.js?v=9"></script>
-  <script src="quiz-options.js?v=9"></script>
-  <script src="app.js?v=9"></script>
+  <script src="scheduler.js?v=10"></script>
+  <script src="learning.js?v=10"></script>
+  <script src="core-review-pack.js?v=10"></script>
+  <script src="quiz-options.js?v=10"></script>
+  <script src="sync-core.js?v=10"></script>
+  <script src="app.js?v=10"></script>
+  <script src="firebase-config.js?v=10"></script>
+  <script src="sync.js?v=10"></script>
 </body>
 </html>

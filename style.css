@@ -62,3 +62,6 @@ footer { margin: 40px 0 10px; font-size: 13px; }
   .question { font-size: 22px; }
   .quiz-choices button { min-height: 56px; padding: 14px; }
 }
+
+.sync-line { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:20px 0; font-size:.9rem; }
+[hidden] { display:none !important; }

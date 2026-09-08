@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict'),sync=require('./sync-core.js');
+const card={id:'c',subject:'국어',question:'q',answer:'a',created:'2026-09-01',due:'2026-09-09',ease:2.5,interval:0,streak:0};
+const state=()=>({version:2,cards:[{...card}],history:[]});
+const e=(id,date,result='correct',time='12:00:00')=>({id,cardId:'c',date,at:date+'T'+time+'+09:00',result,mode:'quiz'});
+const a=e('a','2026-09-09'),b=e('b','2026-09-10'),c=e('c','2026-09-10','correct','13:00:00');
+assert.deepEqual(sync.merge(sync.merge(state(),[a]),[b,c]),sync.merge(sync.merge(state(),[c]),[b,a]));
+let merged=sync.merge(state(),[a,b,c]);assert.equal(merged.history.length,3);assert.equal(merged.cards[0].interval,3);assert.equal(merged.history.filter(h=>h.delayedFirst).length,1);
+assert.deepEqual(sync.merge(merged,[a,b,c]),merged);
+merged=sync.merge(state(),[a,e('wrong','2026-09-10','wrong'),c]);assert.equal(merged.cards[0].interval,1);assert.equal(merged.cards[0].streak,0);assert.equal(merged.cards[0].retryAt,undefined);
+merged=sync.merge(state(),[a,e('wrong','2026-09-10','wrong')]);assert.equal(merged.cards[0].retryAt,'2026-09-10T03:05:00.000Z');
+assert.throws(()=>sync.union([a],[{...a,result:'wrong'}]),/Conflicting/);
+assert.throws(()=>sync.event({...a,date:'2026-02-30'}));
+assert.deepEqual(sync.merge(state(),[]),state());
+console.log('PASS sync: two-device convergence, idempotent replay, no same-day interval inflation, wrong/correct conflicts, retry timing, invalid events');

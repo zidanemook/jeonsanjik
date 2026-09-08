@@ -1,12 +1,14 @@
 'use strict';
-const KEY='chagog-v1', $=s=>document.querySelector(s);
+const $=s=>document.querySelector(s);
+function profileKey(uid){return uid?'chagog-user-'+uid:localStorage.getItem('chagog-owner')?'chagog-guest':'chagog-v1';}
+let KEY='chagog-v1';try{KEY=profileKey(localStorage.getItem('chagog-active-user'));}catch{}
 const {schedule,migrate}=ReviewSchedule;
 const day=(d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 function plus(date,n){const [y,m,d]=date.split('-').map(Number);return day(new Date(y,m-1,d+n));}
 let data={version:2,cards:[],history:[]}, storageOK=true;
 try{const raw=localStorage.getItem(KEY);if(raw){const parsed=JSON.parse(raw);validateBackup(parsed);data=migrate(parsed);if(parsed.version===1){if(!localStorage.getItem(KEY+'-before-adaptive'))localStorage.setItem(KEY+'-before-adaptive',raw);localStorage.setItem(KEY,JSON.stringify(data));}}}catch(e){storageOK=false;notify('저장 데이터를 읽지 못했어요. 기존 데이터를 보호하기 위해 저장을 중지했어요.');}
 function notify(t){$('#message').textContent=t;}
-function commit(next){if(!storageOK){notify('저장소를 확인해야 합니다. 새로고침 후 다시 시도하세요.');return false;}try{localStorage.setItem(KEY,JSON.stringify(next));data=next;return true;}catch(e){notify('저장 공간이 부족하거나 저장이 차단됐어요. 기록은 변경되지 않았습니다.');return false;}}
+function commit(next){if(!storageOK){notify('저장소를 확인해야 합니다. 새로고침 후 다시 시도하세요.');return false;}try{localStorage.setItem(KEY,JSON.stringify(next));data=next;window.dispatchEvent(new Event('study-progress-saved'));return true;}catch(e){notify('저장 공간이 부족하거나 저장이 차단됐어요. 기록은 변경되지 않았습니다.');return false;}}
 function elem(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
 function btn(text,fn,cls){const b=elem('button',text,cls);b.onclick=fn;return b;}
 function validDay(s){if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s))return false;return plus(s,0)===s;}
@@ -35,3 +37,18 @@ $('#subjectFilter').onchange=()=>{if(data.quizFeedback){const next=structuredClo
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)render();});render();
 setInterval(()=>{if(!document.hidden&&!$('#card .question')&&ReviewLearning.queue(data.cards.filter(c=>isPlayable(c)&&(!$('#subjectFilter').value||c.subject===$('#subjectFilter').value))).length)render();},15000);
 if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+
+globalThis.StudyProgress={
+ get:()=>structuredClone(data),
+ merge(rows){const next=ProgressSync.merge(data,rows);if(JSON.stringify(next)!==JSON.stringify(data)){if(!commit(next))throw Error('Local save failed');render();}},
+ switchUser(uid){
+  const target=profileKey(uid);if(target===KEY)return;
+  const raw=localStorage.getItem(target);let next=raw?JSON.parse(raw):{version:2,cards:[],history:[]};validateBackup(next);next=migrate(next);
+  const owner=localStorage.getItem('chagog-owner');
+  if(uid&&!owner){const guest=localStorage.getItem('chagog-v1');if(guest){const parsed=JSON.parse(guest);validateBackup(parsed);const old=migrate(parsed);const ids=new Set(next.cards.map(c=>c.id));next.cards.push(...old.cards.filter(c=>!ids.has(c.id)));next=ProgressSync.merge(next,old.history);}}
+  delete next.quizFeedback;for(const c of next.cards)delete c.pendingAttempt;
+  localStorage.setItem(target,JSON.stringify(next));
+  if(uid){if(!owner)localStorage.setItem('chagog-owner',uid);localStorage.setItem('chagog-active-user',uid);}else localStorage.removeItem('chagog-active-user');
+  KEY=target;data=next;storageOK=true;installCorePack();render();
+ }
+};
