@@ -5,6 +5,18 @@
   color: #fff;
   background: #111318;
 }
+.study-time h2 { font-size:20px; margin:0; }
+.study-credit-award { color:#b4dcc2; font-weight:700; }
+.study-time { padding:18px; border:1px solid #414854; border-radius:16px; background:#1b2028; }
+.study-time-totals { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:16px 0; }
+.study-time-totals span,.study-time-totals strong { display:block; }
+.study-time-totals span { color:#d1d7e0; margin-bottom:4px; }
+.study-time-totals strong { font-size:21px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+.study-time p { margin:10px 0; font-size:14px; }
+.study-time small { display:block; line-height:1.6; }
+.study-time details { margin-top:14px; }
+.study-time summary { cursor:pointer; min-height:32px; }
+#studyTimeHistory { padding-left:20px; line-height:1.9; font-variant-numeric:tabular-nums; }
 * { box-sizing: border-box; }
 body { margin: 0; background: #111318; color: #fff; }
 header, main { max-width: 1000px; margin: auto; padding: 24px; }

@@ -20,6 +20,21 @@ function inScope(c){const subject=$('#subjectFilter').value,topic=$('#topicFilte
 function saveDraft(){if(!storageOK)return;try{localStorage.setItem(KEY,JSON.stringify(data));}catch{notify('입력 내용을 저장하지 못했어요.');}}
 function reviewQueue(cards){const due=ReviewLearning.queue(cards);return ReviewPolicy.separate(due,data.history);}
 let historyLimit=30;
+let creditHistoryLimit=14;
+function renderStudyCredit(){
+ try{
+  const s=StudyCredit.summary(data.history,day());
+  $('#studyToday').textContent=StudyCredit.format(s.todayMinutes);$('#studyTotal').textContent=StudyCredit.format(s.totalMinutes);
+  $('#studyCreditCount').textContent='오늘 '+s.todayAttempts+'회 · 누적 '+s.attempts+'회 완료';
+  $('#studyCreditExcluded').textContent=s.excluded?'문제풀이 여부가 확인되지 않는 이전 기록 '+s.excluded+'건은 제외했어요.':'';
+  const list=$('#studyTimeHistory');list.replaceChildren();
+  for(const row of s.days.slice(0,creditHistoryLimit))list.append(elem('li',row.date+' · '+row.attempts+'회 · '+StudyCredit.format(row.minutes)));
+  if(!s.days.length)list.append(elem('li','문제를 풀고 채점하면 날짜별 환산 시간이 남아요.'));
+  $('#studyTimeMore').hidden=s.days.length<=creditHistoryLimit;
+ }catch{
+  $('#studyToday').textContent='확인 필요';$('#studyTotal').textContent='확인 필요';$('#studyCreditCount').textContent='저장된 풀이 기록을 확인해야 해요.';$('#studyTimeHistory').replaceChildren();$('#studyTimeMore').hidden=true;
+ }
+}
 function appendCorrection(parent,snapshot){const update=ContentCorrections.find(snapshot);if(!update)return;const note=elem('div',undefined,'content-correction');note.append(elem('strong','문항·해설 수정 안내'),elem('p','아래 기록은 수정 전 문항의 당시 채점 결과입니다.'),elem('p',update.note),elem('p','현재 문항: '+update.question),elem('p','현재 정답: '+update.answer),elem('p',update.explanation));parent.append(note);}
 function renderHistory(cards){
  const byId=new Map(cards.map(c=>[c.id,c]));
@@ -43,6 +58,7 @@ function render(){
  $('#date').textContent=new Date().toLocaleDateString('ko-KR',{month:'long',day:'numeric',weekday:'short'});$('#subjectCounts').textContent=subjects.map(s=>s+' '+playable.filter(c=>c.subject===s).length+'문제').join(' · ');$('#due').textContent=due.length;$('#total').textContent=chosen.length;$('#done').textContent=data.history.filter(h=>h.date===today&&chosen.some(c=>c.id===h.cardId)).length;
  const metric=ReviewLearning.metrics(chosen,data.history);$('#retention').textContent=metric.total?Math.round(metric.correct/metric.total*100)+'% ('+metric.correct+'/'+metric.total+')':'아직 기록 없음';
  renderHistory(chosen);
+ renderStudyCredit();
  const waiting=chosen.filter(c=>c.retryAt&&Date.parse(c.retryAt)>Date.now());$('#retryStatus').textContent=waiting.length?waiting.length+'문제 재시도 대기 · '+new Date(Math.min(...waiting.map(c=>Date.parse(c.retryAt)))).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+'부터 다시 풀 수 있어요.':'';
  if(queue.waiting.length)$('#retryStatus').textContent+=' '+queue.waiting.length+'개 관련 카드 · '+new Date(queue.nextAt).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+'부터 풀 수 있어요.';
  const root=$('#card');root.replaceChildren();if(!card){root.append(elem('h2',queue.waiting.length?'비슷한 규칙은 잠시 뒤 다시 풀어요':waiting.length?'잠시 뒤 틀린 문제를 다시 풀어요':data.cards.length&&!playable.length?'퀴즈 보기가 준비된 카드가 없어요':'오늘 풀 문제를 마쳤어요'));return;}
@@ -65,6 +81,7 @@ function render(){
   const f=data.quizFeedback,answer=elem('div',undefined,'answer'),correct=quiz.type==='text'?quiz.answers.join(' / '):quiz.choices[quiz.correctIndex];
   appendCorrection(answer,quiz);
   answer.append(elem('strong',f.result==='correct'?'정답입니다.':f.result==='unsure'?'정답입니다. 설명을 보고 풀어 내일 다시 연습해요.':'틀렸어요. 정답: '+correct),elem('p',quiz.explanation||card.explanation));
+  answer.append(elem('p','풀이 완료 · 환산 시간 +1분','study-credit-award'));
   if(lesson)answer.append(elem('p',lesson.hook,'hook'));
   if(lesson){const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),elem('p',lesson.rule));for(const example of lesson.examples)details.append(elem('p',example,'example'));answer.append(details);}
   const source=(CORE_REVIEW_PACK.find(c=>c.id===card.id)||card).source;
@@ -97,6 +114,7 @@ if(!data.quizUiVersion){const next=structuredClone(data);for(const c of next.car
 else if(data.cards.some(c=>c.pendingAttempt)){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;if(commit(next))data=next;}
 function changeScope(){historyLimit=30;const next=structuredClone(data);next.practiceScope={subject:$('#subjectFilter').value,topic:$('#topicFilter').value};delete next.quizFeedback;delete next.activePractice;if(commit(next))render();}
 $('#subjectFilter').onchange=changeScope;$('#topicFilter').onchange=changeScope;
+$('#studyTimeMore').onclick=()=>{creditHistoryLimit+=30;renderStudyCredit();};
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)render();});render();
 setInterval(()=>{if(!document.hidden&&!$('#card .question')&&reviewQueue(data.cards.filter(inScope)).ready.length)render();},15000);
 if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
@@ -112,6 +130,6 @@ globalThis.StudyProgress={
   delete next.quizFeedback;delete next.activePractice;for(const c of next.cards)delete c.pendingAttempt;
   localStorage.setItem(target,JSON.stringify(next));
   if(uid){if(!owner)localStorage.setItem('chagog-owner',uid);localStorage.setItem('chagog-active-user',uid);}else localStorage.removeItem('chagog-active-user');
-  KEY=target;data=next;historyLimit=30;storageOK=true;installCorePack();render();
+  KEY=target;data=next;historyLimit=30;creditHistoryLimit=14;storageOK=true;installCorePack();render();
  }
 };
