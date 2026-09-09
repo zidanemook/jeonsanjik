@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scheduler.test.cjs && node learning.test.cjs && node sync-core.test.cjs && node sync.test.cjs && node build-config.test.cjs && node practice.test.cjs && node review-policy.test.cjs && node content-audit.cjs && node study-credit.test.cjs
+      - run: node scheduler.test.cjs && node learning.test.cjs && node sync-core.test.cjs && node sync.test.cjs && node build-config.test.cjs && node practice.test.cjs && node review-policy.test.cjs && node content-audit.cjs && node study-credit.test.cjs && node sync-explanations.test.cjs
       - uses: actions/configure-pages@v5
       - name: Stage app
         env:

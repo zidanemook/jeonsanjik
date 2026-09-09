@@ -4,7 +4,7 @@ const correct=row('correct','2026-09-10','correct'),wrong=row('wrong','2026-09-1
 const before=JSON.stringify([correct,wrong,assisted,yesterday,legacy]);
 const stats=C.summary([correct,wrong,assisted,yesterday,legacy,correct],'2026-09-10');
 assert.equal(stats.totalMinutes,4);assert.equal(stats.todayMinutes,3);assert.equal(stats.attempts,4);assert.equal(stats.excluded,1);assert.equal(JSON.stringify([correct,wrong,assisted,yesterday,legacy]),before);
-assert.deepEqual(stats.days,[{date:'2026-09-10',attempts:3,minutes:3},{date:'2026-09-09',attempts:1,minutes:1}]);
+assert.deepEqual(stats.days,[{date:'2026-09-10',attempts:3,explanations:0,minutes:3},{date:'2026-09-09',attempts:1,explanations:0,minutes:1}]);
 assert.equal(C.summary([], '2026-09-10').totalMinutes,0);
 // Two offline devices, including replayed data, derive the same totals from the event union.
 const a=[correct,yesterday],b=[wrong,assisted,yesterday];assert.deepEqual(C.summary(sync.union(a,b),'2026-09-10'),C.summary(sync.union(b,a),'2026-09-10'));
@@ -13,4 +13,15 @@ assert.equal(C.summary([correct,{...correct,id:'separate-attempt'}],'2026-09-10'
 assert.equal(C.summary([correct],'2026-09-11').todayMinutes,0);assert.equal(C.summary([correct],'2026-09-11').totalMinutes,1);
 assert.equal(C.format(0),'0분');assert.equal(C.format(60),'1시간');assert.equal(C.format(125),'2시간 5분');
 assert.throws(()=>C.summary([correct,{...correct,result:'wrong'}],'2026-09-10'),/Conflicting/);
+const opened=Date.parse('2026-09-10T09:30:00+09:00');
+const views=[{id:correct.id,openedAt:opened},{id:correct.id,openedAt:opened+5000},{id:yesterday.id,openedAt:opened},{id:legacy.id,openedAt:opened},{id:'not-a-quiz',openedAt:opened}];
+const expanded=C.summary([correct,yesterday,legacy],'2026-09-10',views);
+assert.equal(expanded.attempts,2);assert.equal(expanded.explanations,2);assert.equal(expanded.todayMinutes,3);assert.equal(expanded.totalMinutes,4);
+assert.equal(expanded.days[0].explanations,2);assert.equal(expanded.days[1].minutes,1);
+const x=[{id:correct.id,openedAt:opened}],y=[{id:correct.id,openedAt:opened-86400000}];
+assert.deepEqual(C.unionExplanations(x,y),C.unionExplanations(y,x));assert.equal(C.unionExplanations(x,y)[0].openedAt,opened-86400000);
+assert.equal(C.summary([correct],'2026-09-10',C.unionExplanations(x,y)).todayExplanations,0);
+assert.equal(C.summary([correct],'2026-09-10',C.unionExplanations(x,x)).totalMinutes,2);
+assert.throws(()=>C.explanation({id:'a/b',openedAt:opened}));assert.throws(()=>C.explanation({id:'valid',openedAt:Infinity}));
 console.log('PASS credited time: correct/wrong/assisted attempts, legacy exclusion, historical dates, immutable source, offline union, replay deduplication and separate attempts');
+console.log('PASS explanation credits: one per quiz, earliest concurrent opening, opening date, orphan/legacy exclusion and invalid-record rejection');
