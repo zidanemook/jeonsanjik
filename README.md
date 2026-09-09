@@ -16,6 +16,8 @@
 
 ## 실행
 
+로컬에서는 `firebase-config.example.js`를 `firebase-config.js`로 복사한 뒤 본인 프로젝트의 웹 설정을 넣습니다. 실제 설정 파일은 Git에서 제외됩니다. GitHub 배포는 Actions Secret `STUDY_FIREBASE_CONFIG`의 JSON으로 설정 파일을 생성합니다. 웹 앱에 전달된 Firebase 설정은 브라우저에서 볼 수 있으며, 서버 접근 제어는 인증과 보안 규칙이 담당합니다.
+
 ~~~text
 python -m http.server 8766 --bind 127.0.0.1
 ~~~
@@ -29,6 +31,7 @@ node scheduler.test.cjs
 node learning.test.cjs
 node sync-core.test.cjs
 node sync.test.cjs
+node build-config.test.cjs
 ~~~
 
 복습 간격은 학습 기록을 위한 단순한 운영 규칙이며, 시험 점수나 기억률을 보장하지 않습니다.

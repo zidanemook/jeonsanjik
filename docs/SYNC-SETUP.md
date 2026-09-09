@@ -5,7 +5,7 @@
 ## 연결 순서
 
 1. 소유자의 Firebase 콘솔에서 Spark 프로젝트를 만들거나 기존 프로젝트를 선택합니다. Analytics와 유료 플랜은 필요하지 않습니다.
-2. 웹 앱을 등록하고 공개 웹 설정(apiKey, authDomain, projectId, appId)을 `firebase-config.js`에 넣습니다. 서비스 계정 키나 비밀번호를 넣지 않습니다.
+2. 웹 앱을 등록하고 공개 웹 설정(apiKey, authDomain, projectId, appId)을 로컬 `firebase-config.js`에 넣습니다. 이 파일은 `.gitignore`로 제외합니다. 같은 설정 JSON을 GitHub Actions Secret `STUDY_FIREBASE_CONFIG`에 보관하면 배포 작업이 런타임 파일을 생성합니다. 서비스 계정 키나 비밀번호를 넣지 않습니다.
 3. Authentication에서 Google 로그인을 활성화하고 `zidanemook.github.io`를 승인 도메인에 추가합니다.
 4. Cloud Firestore를 만들고 저장소의 `firestore.rules`를 게시합니다. 테스트 모드의 공개 접근 규칙을 사용하지 않습니다.
 5. 소유자가 앱에서 처음 로그인하면 Authentication에 UID가 생성됩니다. 콘솔에서 `allowedUsers/{그 UID}` 문서를 생성합니다. 이 문서는 관리자만 생성할 수 있습니다. 다른 계정은 학습 기록 읽기와 쓰기가 모두 거부됩니다.
@@ -30,3 +30,9 @@
 실제 서버 검증 완료: 서로 독립된 Edge 컨텍스트에서 동일 계정으로 로그인한 상태의 온라인 기록 전달, 양쪽 오프라인 동시 풀이 세 건 합집합, 재연결 후 일정 일치, 동일 이벤트 재전송 중복 없음. 타 사용자 경로 읽기·기존 이벤트 변조·삭제 및 미인증 SDK 읽기는 모두 `permission-denied`였습니다. 검증용 이벤트 세 건은 이후 관리자 콘솔에서 삭제했습니다. 이는 실제 Android 태블릿을 직접 조작한 테스트는 아닙니다.
 
 공식 문서: [웹 설정](https://firebase.google.com/docs/web/setup), [Google 로그인](https://firebase.google.com/docs/auth/web/google-signin), [실시간 구독](https://firebase.google.com/docs/firestore/query-data/listen), [보안 규칙](https://firebase.google.com/docs/firestore/security/rules-conditions). 2026-09-09 Edge에서 확인했습니다. 웹 SDK는 공식 배포 파일 12.2.1을 vendor에 고정했습니다.
+
+## 공개 키 탐지 알림 대응
+
+GitHub에서 Firebase 브라우저 키를 Google API Key로 탐지했습니다. Firebase 웹 API 키는 프로젝트 식별용 공개 설정이며, 비공개 서버 자격 증명이 아닙니다. 최신 소스에서는 실제 설정을 제외하고 Actions 빌드에서 생성하도록 변경했습니다. 이전 커밋의 문자열이나 배포된 웹 설정이 비밀로 바뀌는 것은 아닙니다. 과거 커밋은 재작성하지 않았습니다.
+
+필요한 API는 Cloud Firestore API, Identity Toolkit API, Token Service API입니다. 허용 웹사이트는 `https://zidanemook.github.io/*`와 로그인 처리용 `https://jeonsanjik-study.firebaseapp.com/*`입니다. 웹사이트 제한은 로그인·Firestore 보안 규칙을 대체하지 않습니다. [Firebase 공식 API 키 보안 안내](https://firebase.google.com/docs/projects/api-keys)를 따릅니다.

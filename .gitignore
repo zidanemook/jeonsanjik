@@ -4,3 +4,4 @@ node_modules/
 *.log
 chagog-*.json
 _site/
+/firebase-config.js
