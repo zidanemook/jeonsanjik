@@ -5,6 +5,21 @@ service cloud.firestore {
       return request.auth != null && request.auth.uid == uid
         && exists(/databases/$(database)/documents/allowedUsers/$(uid));
     }
+    function validDetail(d) {
+      return d is map
+        && d.keys().hasAll(['schema','presentation','assisted','exerciseId','conceptId','title','subject','question','options','submittedAnswer','correctAnswer','explanation'])
+        && d.keys().hasOnly(['schema','presentation','assisted','exerciseId','conceptId','title','subject','question','options','submittedAnswer','correctAnswer','explanation'])
+        && d.schema == 1 && d.presentation in ['choice','text'] && d.assisted is bool
+        && d.exerciseId is string && d.exerciseId.matches('^[A-Za-z0-9_-]{1,160}$')
+        && d.conceptId is string && d.conceptId.matches('^[A-Za-z0-9_-]{1,160}$')
+        && d.title is string && d.title.size() > 0 && d.title.size() <= 160
+        && d.subject is string && d.subject.size() > 0 && d.subject.size() <= 80
+        && d.question is string && d.question.size() > 0 && d.question.size() <= 6000
+        && d.options is string && d.options.size() <= 6000
+        && d.submittedAnswer is string && d.submittedAnswer.size() > 0 && d.submittedAnswer.size() <= 2000
+        && d.correctAnswer is string && d.correctAnswer.size() > 0 && d.correctAnswer.size() <= 2000
+        && d.explanation is string && d.explanation.size() > 0 && d.explanation.size() <= 8000;
+    }
     // Provision one allowedUsers/{owner UID} document through the admin console.
     // Clients cannot grant themselves access.
     match /allowedUsers/{uid} {
@@ -14,7 +29,7 @@ service cloud.firestore {
     match /users/{uid}/events/{id} {
       allow read: if owner(uid);
       allow create: if owner(uid)
-        && request.resource.data.keys().hasOnly(['id','cardId','date','at','result','mode'])
+        && request.resource.data.keys().hasOnly(['id','cardId','date','at','result','mode','detail'])
         && request.resource.data.keys().hasAll(['id','cardId','date','at','result','mode'])
         && request.resource.data.id == id
         && id.matches('^[A-Za-z0-9_-]{1,160}$')
@@ -24,7 +39,8 @@ service cloud.firestore {
         && request.resource.data.date.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
         && request.resource.data.at is string && request.resource.data.at.size() <= 32
         && request.resource.data.result in ['correct','wrong','unsure']
-        && request.resource.data.mode in ['quiz','legacy'];
+        && request.resource.data.mode in ['quiz','legacy']
+        && (!('detail' in request.resource.data) || validDetail(request.resource.data.detail));
       // Retrying an acknowledged event is harmless; changing/deleting it is denied.
       allow update: if owner(uid) && request.resource.data == resource.data;
       allow delete: if false;

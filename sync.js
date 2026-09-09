@@ -1,5 +1,5 @@
 'use strict';
-// Immutable review events are the shared data; quiz feedback stays on its device.
+// Immutable results include the original question and answer. Unsubmitted drafts stay local.
 (function(root){
  function connect({auth,db,store,status}){
   let generation=0,unsubscribe,uid=null,known=new Set(),ready=false,uploading=false,merging=false,closed=false;
@@ -12,7 +12,7 @@
     for(;;){
      if(token!==generation)return;
      const pending=store.get().history.map(ProgressSync.event).filter(e=>!known.has(e.id));if(!pending.length)break;
-     say('학습 기록 동기화 중…');const batch=db.batch();const chunk=pending.slice(0,200);
+     say('학습 기록 동기화 중…');const batch=db.batch();const chunk=pending.slice(0,50);
      for(const e of chunk)batch.set(db.collection('users').doc(user).collection('events').doc(e.id),e);
      await batch.commit();if(token!==generation)return;chunk.forEach(e=>known.add(e.id));
     }

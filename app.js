@@ -18,27 +18,35 @@ function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.
 function isPlayable(c){return !!c&&(!!QUIZ_OPTIONS[c.id]||!!PRACTICE_BANK[c.id]);}
 function inScope(c){const subject=$('#subjectFilter').value,topic=$('#topicFilter').value;return isPlayable(c)&&(!subject||c.subject===subject)&&(!topic||PRACTICE_BANK[c.id]?.topic===topic);}
 function saveDraft(){if(!storageOK)return;try{localStorage.setItem(KEY,JSON.stringify(data));}catch{notify('입력 내용을 저장하지 못했어요.');}}
+function reviewQueue(cards){const due=ReviewLearning.queue(cards);return ReviewPolicy.separate(due,data.history);}
 let historyLimit=30;
 function renderHistory(cards){
  const byId=new Map(cards.map(c=>[c.id,c]));
+ const {counts,kinds}=ReviewPolicy.metrics(data.history,new Set(byId.keys()));
+ const score=b=>b.total?b.correct+'/'+b.total+' ('+Math.round(100*b.correct/b.total)+'%)':'아직 기록 없음';
+ $('#firstScore').textContent=score(counts.first);$('#repeatScore').textContent=score(counts.repeat);
+ $('#practiceScore').textContent='이어서 연습 '+counts.practice.total+'회 · 첫 풀이 여부를 확인할 수 없는 이전 기록 '+counts.unknown.total+'회';
  const rows=data.history.filter(h=>byId.has(h.cardId)).sort((a,b)=>b.date.localeCompare(a.date)||(b.at||'').localeCompare(a.at||'')||b.id.localeCompare(a.id));
  $('#historyTitle').textContent='학습 기록 · '+rows.length+'회';const list=$('#historyList');list.replaceChildren();
  if(!rows.length){list.append(elem('p','문제를 풀면 날짜와 채점 결과가 여기에 남아요.'));return;}
- for(const row of rows.slice(0,historyLimit)){const card=byId.get(row.cardId),item=elem('li',undefined,'history-row'),result=elem('strong',row.result==='correct'?'정답':row.result==='wrong'?'오답':'복습 필요','result-'+row.result);const content=elem('div');const label=PRACTICE_BANK[card.id]?.title||card.question.split('\n')[0];content.append(elem('div',card.subject+' · '+label));const time=row.at&&Number.isFinite(Date.parse(row.at))?new Date(row.at).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}):'';content.append(elem('small',row.date+' '+time));item.append(result,content);list.append(item);}
+ for(const row of rows.slice(0,historyLimit)){const card=byId.get(row.cardId),d=row.detail,item=elem('li',undefined,'history-row'),result=elem('strong',row.result==='correct'?'정답':row.result==='wrong'?'오답':'복습 필요','result-'+row.result);const content=elem('div');const label=d?.title||PRACTICE_BANK[card.id]?.title||card.question.split('\n')[0];content.append(elem('div',(d?.subject||card.subject)+' · '+label));const time=row.at&&Number.isFinite(Date.parse(row.at))?new Date(row.at).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}):'';const kind={first:'처음 푼 예문',repeat:'다시 푼 예문',practice:'이어서 연습',unknown:'첫 풀이 여부 확인 불가'}[kinds.get(row.id)];content.append(elem('small',row.date+' '+time+' · '+kind));
+  if(d){const details=elem('details',undefined,'answer-record');details.append(elem('summary','풀었던 문제와 내 답 보기'),elem('p',d.question,'record-question'));if(d.options)details.append(elem('p',d.options,'record-options'));details.append(elem('p','내 답: '+d.submittedAnswer),elem('p','정답: '+d.correctAnswer),elem('p',d.explanation));content.append(details);}else content.append(elem('small','이전 기록에는 예문과 입력한 답이 저장되어 있지 않아요.'));
+  item.append(result,content);list.append(item);}
  if(rows.length>historyLimit){const item=elem('li');item.append(btn('이전 기록 더 보기',()=>{historyLimit+=30;renderHistory(data.cards.filter(inScope));}));list.append(item);}
 }
 function render(){
  const hadFocus=document.activeElement?.id==='practiceInput',caret=hadFocus?document.activeElement.selectionStart:null;
  const today=day(),select=$('#subjectFilter'),selected=data.practiceScope?.subject||'',playable=data.cards.filter(isPlayable),subjects=[...new Set(playable.map(c=>c.subject))];select.replaceChildren();const all=elem('option','전체 과목');all.value='';select.append(all);for(const subject of subjects){const o=elem('option',subject);o.value=subject;select.append(o);}select.value=subjects.includes(selected)?selected:'';
  $('#topicFilter').value=data.practiceScope?.topic||'';$('#topicLabel').hidden=select.value!=='영어';if(select.value!=='영어')$('#topicFilter').value='';
- const chosen=playable.filter(inScope),due=ReviewLearning.queue(chosen),feedback=data.quizFeedback&&chosen.find(c=>c.id===data.quizFeedback.cardId),card=feedback||due[0];
+ const chosen=playable.filter(inScope),queue=reviewQueue(chosen),due=queue.ready,feedback=data.quizFeedback&&chosen.find(c=>c.id===data.quizFeedback.cardId),card=feedback||due[0];
  $('#date').textContent=new Date().toLocaleDateString('ko-KR',{month:'long',day:'numeric',weekday:'short'});$('#subjectCounts').textContent=subjects.map(s=>s+' '+playable.filter(c=>c.subject===s).length+'문제').join(' · ');$('#due').textContent=due.length;$('#total').textContent=chosen.length;$('#done').textContent=data.history.filter(h=>h.date===today&&chosen.some(c=>c.id===h.cardId)).length;
  const metric=ReviewLearning.metrics(chosen,data.history);$('#retention').textContent=metric.total?Math.round(metric.correct/metric.total*100)+'% ('+metric.correct+'/'+metric.total+')':'아직 기록 없음';
  renderHistory(chosen);
  const waiting=chosen.filter(c=>c.retryAt&&Date.parse(c.retryAt)>Date.now());$('#retryStatus').textContent=waiting.length?waiting.length+'문제 재시도 대기 · '+new Date(Math.min(...waiting.map(c=>Date.parse(c.retryAt)))).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+'부터 다시 풀 수 있어요.':'';
- const root=$('#card');root.replaceChildren();if(!card){root.append(elem('h2',waiting.length?'잠시 뒤 틀린 문제를 다시 풀어요':data.cards.length&&!playable.length?'퀴즈 보기가 준비된 카드가 없어요':'오늘 풀 문제를 마쳤어요'));return;}
+ if(queue.waiting.length)$('#retryStatus').textContent+=' '+queue.waiting.length+'개 관련 카드 · '+new Date(queue.nextAt).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+'부터 풀 수 있어요.';
+ const root=$('#card');root.replaceChildren();if(!card){root.append(elem('h2',queue.waiting.length?'비슷한 규칙은 잠시 뒤 다시 풀어요':waiting.length?'잠시 뒤 틀린 문제를 다시 풀어요':data.cards.length&&!playable.length?'퀴즈 보기가 준비된 카드가 없어요':'오늘 풀 문제를 마쳤어요'));return;}
  let active=data.activePractice;
- if(!feedback&&(!active||active.cardId!==card.id)){active={cardId:card.id,exercise:Practice.select(card,data.history,PRACTICE_BANK,QUIZ_OPTIONS),draft:'',assisted:false};data.activePractice=active;saveDraft();}
+ if(!feedback&&(!active||active.cardId!==card.id)){if(active?.draft){data.practiceDrafts??={};data.practiceDrafts[active.cardId]=active;}const canonical=CORE_REVIEW_PACK.find(c=>c.id===card.id)||card;const exercise=Practice.select(canonical,data.history,PRACTICE_BANK,QUIZ_OPTIONS),saved=data.practiceDrafts?.[card.id];active=saved?.exercise?.exerciseId===exercise.exerciseId?saved:{cardId:card.id,exercise,draft:'',assisted:false};data.activePractice=active;saveDraft();}
  const quiz=feedback?(data.quizFeedback.exercise||{...QUIZ_OPTIONS[card.id],type:'choice',question:QUIZ_OPTIONS[card.id]?.question||card.question,explanation:card.explanation}):active.exercise;
  const lesson=PRACTICE_BANK[card.id];
  root.append(elem('small',card.subject+' · '+(lesson?.title||'개념 복습')+' · '+(quiz.type==='text'?'직접 쓰기':'객관식')));
@@ -47,7 +55,7 @@ function render(){
   const choices=elem('div',undefined,'quiz-choices');quiz.choices.forEach((choice,i)=>{const button=btn((i+1)+'. '+choice,()=>answerPractice(card.id,i));if(feedback){button.disabled=true;if(i===quiz.correctIndex)button.classList.add('quiz-correct');else if(i===data.quizFeedback.selectedIndex)button.classList.add('quiz-wrong');}choices.append(button);});root.append(choices);
  }else{
   const form=elem('form',undefined,'practice-form'),label=elem('label','지정한 단어나 빈칸의 답만 입력하세요.');label.htmlFor='practiceInput';
-  const input=elem('input');input.id='practiceInput';input.type='text';input.autocomplete='off';input.autocapitalize='none';input.spellcheck=false;input.setAttribute('lang','en');input.value=feedback?data.quizFeedback.userAnswer||'':active.draft;input.disabled=!!feedback;
+  const input=elem('input');input.id='practiceInput';input.type='text';input.maxLength=2000;input.autocomplete='off';input.autocapitalize='none';input.spellcheck=false;input.setAttribute('lang','en');input.value=feedback?data.quizFeedback.userAnswer||'':active.draft;input.disabled=!!feedback;
   input.oninput=()=>{if(data.activePractice?.cardId===card.id){data.activePractice.draft=input.value;saveDraft();}};
   const submit=elem('button','채점하기','primary');submit.type='submit';submit.disabled=!!feedback;form.append(label,input,submit);form.onsubmit=e=>{e.preventDefault();answerPractice(card.id,input.value);};root.append(form);
  }
@@ -64,7 +72,7 @@ function render(){
 }
 function answerPractice(id,input){
  if(data.quizFeedback)return;const active=data.activePractice;if(active?.cardId!==id)return;const quiz=active.exercise;
- if(!ReviewLearning.queue(data.cards.filter(inScope)).some(c=>c.id===id))return;
+ if(!reviewQueue(data.cards.filter(inScope)).ready.some(c=>c.id===id))return;
  if(quiz.type==='text'&&!String(input).trim()){notify('답을 입력한 다음 채점해 주세요.');return;}
  if(quiz.type==='choice'&&(!Number.isInteger(input)||input<0||input>=quiz.choices.length))return;
  const correct=quiz.type==='text'?Practice.grade(quiz,input):input===quiz.correctIndex;
@@ -72,7 +80,10 @@ function answerPractice(id,input){
  delete c.pendingAttempt;c.pendingAttempt=ReviewLearning.begin(c,data.history,result==='correct'?'remember':result==='unsure'?'partial':'none');
  const assessed=ReviewLearning.assess(c,data.history,result);if(result==='unsure')delete assessed.card.retryAt;
  next.cards[next.cards.findIndex(c=>c.id===id)]=assessed.card;
- next.history.push({id:crypto.randomUUID(),...assessed.entry,mode:'quiz'});
+ if(!quiz.exerciseId)quiz.exerciseId=id+'-'+Practice.fingerprint(JSON.stringify([quiz.type,quiz.question,quiz.answers||quiz.choices[quiz.correctIndex]]));
+ let detail;try{detail=ReviewRecord.create(c,quiz,input,PRACTICE_BANK[id],ReviewPolicy.concept(id),active.assisted);}catch{notify('답안이나 문제 정보를 저장할 수 없어요. 입력 길이를 확인해 주세요.');return;}
+ next.history.push({id:crypto.randomUUID(),...assessed.entry,mode:'quiz',detail});
+ if(next.practiceDrafts)delete next.practiceDrafts[id];
  next.quizFeedback={cardId:id,selectedIndex:quiz.type==='choice'?input:-1,userAnswer:quiz.type==='text'?String(input):'',result,exercise:quiz};
  delete next.activePractice;notify('');if(commit(next))render();
 }
@@ -83,7 +94,7 @@ else if(data.cards.some(c=>c.pendingAttempt)){const next=structuredClone(data);f
 function changeScope(){historyLimit=30;const next=structuredClone(data);next.practiceScope={subject:$('#subjectFilter').value,topic:$('#topicFilter').value};delete next.quizFeedback;delete next.activePractice;if(commit(next))render();}
 $('#subjectFilter').onchange=changeScope;$('#topicFilter').onchange=changeScope;
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)render();});render();
-setInterval(()=>{if(!document.hidden&&!$('#card .question')&&ReviewLearning.queue(data.cards.filter(inScope)).length)render();},15000);
+setInterval(()=>{if(!document.hidden&&!$('#card .question')&&reviewQueue(data.cards.filter(inScope)).ready.length)render();},15000);
 if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 
 globalThis.StudyProgress={

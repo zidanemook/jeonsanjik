@@ -2,6 +2,7 @@
 (function(root){
  function normalize(s){return String(s).normalize('NFKC').trim().toLowerCase().replace(/[‘’]/g,"'").replace(/[.!?]+$/,'').replace(/\s+/g,' ').trim();}
  function grade(exercise,input){return exercise.type==='text'&&exercise.answers.some(a=>normalize(a)===normalize(input));}
+ function fingerprint(text){let n=2166136261;for(const c of text)n=Math.imul(n^c.charCodeAt(0),16777619)>>>0;return n.toString(16);}
  function select(card,history,bank,options){
   const lesson=bank[card.id],base=options[card.id];
   const variants=[...(base?[{...base,question:base.question||card.question,explanation:card.explanation,type:'choice'}]:[]),...(lesson?.variants||[])];
@@ -9,6 +10,7 @@
   const count=history.filter(h=>h.cardId===card.id).length;
   const index=count%variants.length,exercise=structuredClone(variants[index]);
   exercise.key=card.id+':'+index;exercise.variantIndex=index;exercise.variantCount=variants.length;
+  exercise.exerciseId=card.id+'-'+fingerprint(JSON.stringify([exercise.type,exercise.question,exercise.answers||exercise.choices[exercise.correctIndex]]));
   if(exercise.type==='choice'){
    let seed=2166136261;for(const char of card.id+':'+count)seed=Math.imul(seed^char.charCodeAt(0),16777619)>>>0;
    const correct=exercise.choices[exercise.correctIndex],choices=[...exercise.choices];
@@ -17,5 +19,5 @@
   }
   return exercise;
  }
- const api={normalize,grade,select};root.Practice=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+ const api={normalize,grade,select,fingerprint};root.Practice=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(globalThis);

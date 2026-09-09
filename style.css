@@ -82,4 +82,9 @@ footer { margin: 40px 0 10px; font-size: 13px; }
 .result-correct { color:#98e7b6; }
 .result-wrong { color:#ffb1b1; }
 .result-unsure { color:#ffe3a1; }
+.history-row > div { flex:1; }
+.answer-record { margin-top:10px; }
+.answer-record summary { cursor:pointer; min-height:32px; color:#d4e5ff; }
+.answer-record p { white-space:pre-wrap; overflow-wrap:anywhere; margin:10px 0; }
+.answer-record .record-question { padding-top:10px; border-top:1px solid #414854; }
 [hidden] { display:none !important; }

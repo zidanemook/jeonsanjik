@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111318">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="style.css?v=15">
+  <link rel="stylesheet" href="style.css?v=16">
   <title>차곡 — 문제 복습</title>
 </head>
 <body>
@@ -39,6 +39,13 @@
       </article>
     </section>
     <details class="history-panel">
+      <summary>예문별 성적</summary>
+      <p>처음 푼 예문: <strong id="firstScore"></strong></p>
+      <p>다시 푼 예문: <strong id="repeatScore"></strong></p>
+      <p id="practiceScore"></p>
+      <small>같은 규칙을 10분 안에 다시 풀거나 설명을 보고 푼 결과는 ‘이어서 연습’으로 따로 셉니다. 예전 기록으로 첫 풀이 여부를 알 수 없으면 첫 풀이 성적에 넣지 않습니다.</small>
+    </details>
+    <details class="history-panel">
       <summary id="historyTitle">학습 기록</summary>
       <ul id="historyList" aria-live="polite"></ul>
     </details>
@@ -46,15 +53,17 @@
     <p id="message" role="status" aria-live="polite"></p>
     <footer>학습용으로 만든 예문 · 풀기 → 채점과 설명 → 다른 예문으로 복습</footer>
   </main>
-  <script src="scheduler.js?v=15"></script>
-  <script src="learning.js?v=15"></script>
-  <script src="core-review-pack.js?v=15"></script>
-  <script src="quiz-options.js?v=15"></script>
-  <script src="practice-bank.js?v=15"></script>
-  <script src="practice.js?v=15"></script>
-  <script src="sync-core.js?v=15"></script>
-  <script src="app.js?v=15"></script>
-  <script src="firebase-config.js?v=15"></script>
-  <script src="sync.js?v=15"></script>
+  <script src="scheduler.js?v=16"></script>
+  <script src="learning.js?v=16"></script>
+  <script src="core-review-pack.js?v=16"></script>
+  <script src="quiz-options.js?v=16"></script>
+  <script src="practice-bank.js?v=16"></script>
+  <script src="practice.js?v=16"></script>
+  <script src="review-record.js?v=16"></script>
+  <script src="review-policy.js?v=16"></script>
+  <script src="sync-core.js?v=16"></script>
+  <script src="app.js?v=16"></script>
+  <script src="firebase-config.js?v=16"></script>
+  <script src="sync.js?v=16"></script>
 </body>
 </html>

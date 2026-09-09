@@ -1,14 +1,15 @@
 'use strict';
 (function(root){
  const schedule=typeof module!=='undefined'&&module.exports?require('./scheduler.js'):root.ReviewSchedule;
+ const record=typeof module!=='undefined'&&module.exports?require('./review-record.js'):root.ReviewRecord;
  const order=(a,b)=>a.date.localeCompare(b.date)||a.at.localeCompare(b.at)||a.id.localeCompare(b.id);
  function event(row){
   if(!row||typeof row.id!=='string'||!/^[\w-]{1,160}$/.test(row.id)||typeof row.cardId!=='string'||!/^[\w-]{1,160}$/.test(row.cardId)||!/^\d{4}-\d{2}-\d{2}$/.test(row.date)||schedule.plus(row.date,0)!==row.date||!['correct','wrong','unsure'].includes(row.result))throw Error('Invalid review event');
   const at=row.at||row.date+'T12:00:00+09:00';if(!Number.isFinite(Date.parse(at)))throw Error('Invalid event time');
-  return {id:row.id,cardId:row.cardId,date:row.date,at:new Date(at).toISOString(),result:row.result,mode:row.mode==='quiz'?'quiz':'legacy'};
+  const out={id:row.id,cardId:row.cardId,date:row.date,at:new Date(at).toISOString(),result:row.result,mode:row.mode==='quiz'?'quiz':'legacy'};if(row.detail!==undefined)out.detail=record.validate(row.detail);return out;
  }
  function union(local,remote){
-  const map=new Map();for(const input of [...local,...remote]){const row=event(input),prev=map.get(row.id);if(prev&&JSON.stringify(prev)!==JSON.stringify(row))throw Error('Conflicting review event');map.set(row.id,row);}return [...map.values()].sort(order);
+  const map=new Map();for(const input of [...local,...remote]){const row=event(input),prev=map.get(row.id);if(prev){const {detail:pd,...pb}=prev,{detail:rd,...rb}=row;if(JSON.stringify(pb)!==JSON.stringify(rb)||(pd&&rd&&JSON.stringify(pd)!==JSON.stringify(rd)))throw Error('Conflicting review event');if(pd&&!rd)continue;}map.set(row.id,row);}return [...map.values()].sort(order);
  }
  function merge(state,remote){
   const rows=union(state.history,remote),next=structuredClone(state),byCard=new Map(),derived=new Map();

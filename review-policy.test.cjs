@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict'),policy=require('./review-policy.js'),record=require('./review-record.js'),sync=require('./sync-core.js'),audit=require('./content-audit.cjs');
+const a='en-session-20260909-both-whom',b='en-session-20260909-all-whom',c='en-session-20260909-neither';const now=Date.parse('2026-09-09T10:00:00Z');
+const make=(id,cardId,exerciseId,minutes,result='correct')=>({id,cardId,date:'2026-09-09',at:new Date(now+minutes*60000).toISOString(),result,mode:'quiz',detail:record.validate({schema:1,presentation:'text',assisted:false,exerciseId,conceptId:policy.concept(cardId),title:'문법',subject:'영어',question:'I met two people, both of ___ were kind.',options:'',submittedAnswer:'whom',correctAnswer:'whom',explanation:'of의 목적어는 whom이다.'})});
+const e=make('e1',a,'example-1',0),ready=policy.separate([{id:a},{id:b},{id:c}],[e],now+60000);
+assert.deepEqual(ready.ready.map(c=>c.id),[a,c]);assert.equal(ready.waiting[0].card.id,b);assert.equal(ready.nextAt,now+policy.GAP_MS);assert.equal(policy.separate([{id:b}],[e],now+policy.GAP_MS).ready.length,1);
+const rows=[e,make('e2',a,'example-2',5),make('e3',a,'example-3',20),make('e4',a,'example-1',40,'wrong')];
+assert.deepEqual([...policy.classify(rows).values()],['first','practice','first','repeat']);
+const counts=policy.metrics(rows).counts;assert.equal(counts.first.correct,2);assert.equal(counts.repeat.correct,0);assert.equal(counts.practice.total,1);
+const old={...e,id:'legacy',at:new Date(now-86400000).toISOString(),date:'2026-09-08'};delete old.detail;assert.equal(policy.classify([old,e]).get(e.id),'unknown');
+const plain={...e};delete plain.detail;assert.deepEqual(sync.union([plain],[e]),sync.union([e],[plain]));assert.deepEqual(sync.union([plain],[e])[0].detail,record.validate(e.detail));assert.throws(()=>sync.union([e],[{...e,detail:{...e.detail,submittedAnswer:'who'}}]),/Conflicting/);
+assert.throws(()=>record.validate({...e.detail,submittedAnswer:'x'.repeat(2001)}));assert.throws(()=>record.validate({...e.detail,extra:'field'}));
+const list=audit.catalog(),ledger={schema:1,items:Object.fromEntries(list.map(x=>[x.exercise.exerciseId,audit.digest(x)]))};audit.verify(list,ledger);const changed=structuredClone(list);changed[0].exercise.question+=' modified';assert.throws(()=>audit.verify(changed,ledger),/Content changed/);
+console.log('PASS review: sibling cooldown, boundary, first/repeat/practice/unknown, richer legacy merge, immutable snapshots, size validation, unreviewed-content gate');
