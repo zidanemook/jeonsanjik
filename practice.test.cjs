@@ -1,0 +1,21 @@
+const assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs');
+const practice=require('./practice.js'),bank=require('./practice-bank.js'),ctx={};vm.createContext(ctx);
+for(const f of ['core-review-pack.js','quiz-options.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx);
+for(const [id,lesson]of Object.entries(bank)){
+ assert.ok(lesson.rule&&lesson.hook&&lesson.examples.length&&lesson.variants.length>=2,id);
+ for(const e of lesson.variants){assert.ok(e.question&&e.explanation&&e.answers.length);for(const a of e.answers){assert.ok(practice.grade(e,'  '+a.toUpperCase()+' .  '));}assert.equal(practice.grade(e,'incorrect answer'),false);}
+ const c=ctx.CORE_REVIEW_PACK.find(c=>c.id===id)||{id,question:lesson.variants[0].question};
+ const first=practice.select(c,[],bank,ctx.QUIZ_OPTIONS),second=practice.select(c,[{cardId:id}],bank,ctx.QUIZ_OPTIONS);
+ assert.notEqual(first.key,second.key);assert.notEqual(first.question,second.question);
+}
+const c=ctx.CORE_REVIEW_PACK[0],options=ctx.QUIZ_OPTIONS;
+const picks=Array.from({length:8},(_,i)=>practice.select(c,Array.from({length:i},()=>({cardId:c.id})),bank,options));
+for(const e of picks)assert.equal(e.choices[e.correctIndex],options[c.id].choices[options[c.id].correctIndex]);
+assert.ok(new Set(picks.map(e=>e.correctIndex)).size>1);
+assert.equal(practice.grade(bank['en-session-20260909-help'].variants[0],'to learn'),true);
+assert.equal(practice.grade(bank['en-session-20260909-help'].variants[0],'learning'),false);
+assert.equal(practice.normalize(" HADN’T   MISSED. "),"hadn't missed");
+const sync=require('./sync-core.js');const state={cards:[{id:'a',ease:2.5,interval:0,streak:0}],history:[]};
+const merged=sync.merge(state,[{id:'event1',cardId:'a',date:'2026-09-09',at:'2026-09-09T10:00:00Z',result:'unsure',mode:'quiz'}]);
+assert.equal(merged.cards[0].due,'2026-09-10');assert.equal(merged.cards[0].retryAt,undefined);assert.equal(merged.cards[0].streak,0);
+console.log('PASS practice: answer normalization, alternative valid answers, contrasting variants, shuffled answer mapping, assisted progress on another device');

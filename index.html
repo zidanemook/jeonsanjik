@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111318">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="style.css?v=12">
+  <link rel="stylesheet" href="style.css?v=13">
   <title>차곡 — 문제 복습</title>
 </head>
 <body>
@@ -18,15 +18,18 @@
     <label for="subjectFilter">과목
       <select id="subjectFilter"><option value="">전체 과목</option></select>
     </label>
+    <label id="topicLabel" for="topicFilter" hidden>연습 범위
+      <select id="topicFilter"><option value="">영어 전체</option><option value="수일치">수일치</option><option value="영문법">그 밖의 문법 연습</option></select>
+    </label>
     <p id="subjectCounts" class="subject-counts" aria-live="polite"></p>
     <section id="review" aria-labelledby="review-title">
       <div class="intro">
         <h2 id="review-title">문제 풀기</h2>
-        <p>선택지를 고르면 바로 채점하고 해설을 보여드려요.</p>
+        <p>답을 고르거나 직접 써보세요. 복습할 때는 다른 예문으로도 연습해요.</p>
       </div>
       <div class="stats" aria-label="복습 현황">
         <div><strong id="due">0</strong><span>풀 문제</span></div>
-        <div><strong id="total">0</strong><span>전체 문제</span></div>
+        <div><strong id="total">0</strong><span>복습 카드</span></div>
         <div><strong id="done">0</strong><span>오늘 푼 문제</span></div>
       </div>
       <p class="retention-line">지난 복습 정답률: <strong id="retention"></strong></p>
@@ -37,15 +40,17 @@
     </section>
     <div class="sync-line"><span id="syncStatus" role="status">이 기기에 저장 중</span><button id="syncAccount" type="button" hidden>Google 로그인</button></div>
     <p id="message" role="status" aria-live="polite"></p>
-    <footer>개념을 다시 구성한 연습 문제 · 선택 → 채점 → 해설 → 다음 문제</footer>
+    <footer>학습용으로 만든 예문 · 풀기 → 채점과 설명 → 다른 예문으로 복습</footer>
   </main>
-  <script src="scheduler.js?v=12"></script>
-  <script src="learning.js?v=12"></script>
-  <script src="core-review-pack.js?v=12"></script>
-  <script src="quiz-options.js?v=12"></script>
-  <script src="sync-core.js?v=12"></script>
-  <script src="app.js?v=12"></script>
-  <script src="firebase-config.js?v=12"></script>
-  <script src="sync.js?v=12"></script>
+  <script src="scheduler.js?v=13"></script>
+  <script src="learning.js?v=13"></script>
+  <script src="core-review-pack.js?v=13"></script>
+  <script src="quiz-options.js?v=13"></script>
+  <script src="practice-bank.js?v=13"></script>
+  <script src="practice.js?v=13"></script>
+  <script src="sync-core.js?v=13"></script>
+  <script src="app.js?v=13"></script>
+  <script src="firebase-config.js?v=13"></script>
+  <script src="sync.js?v=13"></script>
 </body>
 </html>

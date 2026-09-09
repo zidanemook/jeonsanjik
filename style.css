@@ -64,4 +64,13 @@ footer { margin: 40px 0 10px; font-size: 13px; }
 }
 
 .sync-line { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:20px 0; font-size:.9rem; }
+.lesson { margin-top:20px; padding:16px; border:1px solid #535d6b; border-radius:12px; }
+.lesson summary { cursor:pointer; font-weight:700; min-height:32px; }
+.lesson .example { white-space:pre-wrap; padding-left:12px; border-left:3px solid #8eacd2; }
+.hook { color:#d4e5ff; }
+.practice-form { display:grid; gap:12px; margin:20px 0; }
+.practice-form input { width:100%; min-width:0; min-height:54px; padding:14px; border:1px solid #8292a8; border-radius:12px; background:#111318; color:#fff; font:inherit; }
+.practice-form input:focus-visible { outline:3px solid #a9cfff; outline-offset:3px; }
+.practice-form input:disabled { opacity:1; color:#fff; }
+.question,.answer { overflow-wrap:anywhere; }
 [hidden] { display:none !important; }
