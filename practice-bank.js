@@ -21,14 +21,14 @@
  add(id('poor-as'),'형용사 + as의 양보','형용사 + as + 주어 + 동사는 “비록 ~하지만”이라는 뜻으로 쓸 수 있다.','형용사를 앞세워 “그렇기는 하지만”',['Tired as he was, he finished the work.'],[
  ['“비록 피곤했지만 그는 일을 마쳤다.”\nTired ___ he was, he finished the work.\nas 또는 because 중 하나를 쓰세요.','as','Tired as he was는 Although he was tired와 같은 양보 의미다.'],
  ['“비록 어리지만 그녀는 현명하다.”\n___ as she is, she is wise.\nyoung 또는 youth 중 하나를 쓰세요.','young','형용사 young을 앞에 놓는 양보 구문이다.']]);
- add(id('as-well'),'A 중심에 B 덧붙이기','격식 문법에서 A as well as B의 중심 주어는 A다. B는 덧붙임이다.','B를 괄호로 빼고 A 확인',['The teacher, as well as the students, is ready.','The students, as well as the teacher, are ready.'],[
- ['격식 문법 기준으로 현재 상태를 나타내는 빈칸에 is 또는 are를 쓰세요.\nThe students, as well as their teacher, ___ ready.','are','중심 주어 students가 복수다. teacher는 덧붙인 설명이다.'],
+ add(id('as-well'),'A 중심에 B 덧붙이기','A as well as B에서는 앞의 A가 진짜 주어다. B를 잠깐 지우고 남은 A에 동사를 맞춘다. A가 단수면 is, 복수면 are다.','B를 괄호로 빼고 A 확인',['The teacher, as well as the students, is ready.','The students, as well as the teacher, are ready.'],[
+ ['격식 문법 기준으로 현재 상태를 나타내는 빈칸에 is 또는 are를 쓰세요.\nThe students, as well as their teacher, ___ ready.','are','teacher는 덧붙인 말이다. 잠깐 지우면 The students are ready가 남는다. students가 여럿이므로 are다.'],
  ['격식 문법 기준으로 [are]만 고쳐 쓰세요.\nThe teacher, as well as the students, [are] ready.','is','덧붙인 as well as the students를 빼면 The teacher is ready가 남는다.']]);
  add(id('adverb'),'형용사를 꾸미는 부사','형용사를 “어느 정도로”라고 꾸미려면 부사를 쓴다.','놀라운 결과 / 놀라울 정도로 긴',['a surprising result / a surprisingly long trip'],[
  ['[surprising]만 고쳐 쓰세요.\nThe trip was [surprising] long.','surprisingly','형용사 long을 꾸미는 부사 surprisingly가 필요하다.'],
  ['[extreme]만 고쳐 쓰세요.\nThe water is [extreme] cold.','extremely','형용사 cold를 꾸미는 부사는 extremely다.']]);
- add(id('neither'),'대등한 선택·부정','이 예문처럼 주어 뒤에 동사가 오는 either/or, neither/nor 구문은 가까운 주어에 동사를 맞춘다.','B가 중요해서가 아니라 가까워서',['Neither the teacher nor the students are ready.','Neither the teachers nor the student is ready.'],[
- ['격식 문법의 수일치 기준으로 is 또는 are를 쓰세요.\nNeither the manager nor the workers ___ ready.','are','가까운 주어 workers가 복수이므로 are다.'],
+ add(id('neither'),'둘 중 하나 / 둘 다 아님','either A or B는 둘 중 하나, neither A nor B는 둘 다 아니라는 뜻이다. 이 예문에서는 동사에 가까운 B에 맞춘다. B가 더 중요해서가 아니다.','B가 중요해서가 아니라 가까워서',['Neither the teacher nor the students are ready.','Neither the teachers nor the student is ready.'],[
+ ['격식 문법의 수일치 기준으로 is 또는 are를 쓰세요.\nNeither the manager nor the workers ___ ready.','are','동사 바로 앞의 workers는 여러 명이다. neither … nor 구문에서는 가까운 쪽에 맞추므로 are다.'],
  ['격식 문법의 수일치 기준으로 [are]만 고쳐 쓰세요.\nNeither the workers nor the manager [are] ready.','is','판별 연습용 예문이다. 가까운 manager가 단수이므로 is다. 직접 쓸 때는 복수 주어를 뒤에 두면 더 매끄럽다.']]);
  add(id('rage'),'진행형과 수동태','rage는 여기서 주어 자체가 맹렬하게 벌어지거나 몰아친다는 자동사다.','폭풍 자체가 몰아친다',['The storm has been raging all night.','People have discussed the issue. → The issue has been discussed.'],[
  ['현재완료진행형 문장이 되도록 [raged]만 고쳐 쓰세요.\nThe storm has been [raged] all night.','raging','폭풍이 몰아치는 것이므로 진행형 raging이다. rage의 이 의미는 수동태로 쓰지 않는다.'],
@@ -36,8 +36,8 @@
  add(id('time-clause'),'미래 시간절의 현재형','미래 시간을 나타내는 부사절에서는 현재형을 쓴다. 모든 when절에 적용하는 규칙은 아니다.','언제 할지 정하는 부분은 현재형',['When she arrives, we will leave.'],[
  ['[will arrive]만 고쳐 쓰세요.\nWhen she [will arrive], we will leave.','arrives','미래 시간을 나타내는 부사절이므로 arrives를 쓴다.'],
  ['“비가 그칠 때까지 기다릴게.”\nI will wait until the rain ___.\nstop을 알맞게 바꿔 빈칸만 쓰세요.','stops','until이 이끄는 미래 시간 부사절에서 현재형 stops를 쓴다.']]);
- add(id('knowledge'),'긴 설명 속 중심 주어','수식어를 빼고 중심 명사를 확인한다. 단, some of 같은 수량 표현은 별도로 판단한다.','문들이 아니라 열쇠 하나',['The key to the front doors is missing.'],[
- ['is 또는 are를 쓰세요.\nThe key to the front doors ___ missing.','is','중심 주어 key가 단수다. doors는 열쇠가 어떤 문에 쓰이는지 설명한다.'],
+ add(id('knowledge'),'긴 설명 속 중심 주어','뒤에 붙은 설명을 잠깐 지우고, 무엇에 대한 문장인지 본다. 문들에 대한 열쇠라면 주어는 열쇠다. some of처럼 일부를 뜻하는 표현은 따로 본다.','문들이 아니라 열쇠 하나',['The key to the front doors is missing.'],[
+ ['is 또는 are를 쓰세요.\nThe key to the front doors ___ missing.','is','front doors는 어떤 문에 쓰는 열쇠인지 설명한다. 진짜 주어는 key 하나이므로 is다.'],
  ['[are]만 고쳐 쓰세요.\nKnowledge of these rules [are] useful.','is','중심 주어 knowledge는 불가산명사이므로 단수 동사를 쓴다.']]);
  add(id('help'),'help 뒤의 동사','help + 목적어 뒤에는 동사원형과 to부정사가 모두 가능하다.','help는 두 형태 허용',['This course helps students learn English.','This course helps students to learn English.'],[
  ['[learning]을 동사원형 또는 to부정사로 고쳐 쓰세요.\nThis course helps students [learning] English.',['learn','to learn'],'help students learn과 help students to learn 모두 가능하다.'],
@@ -55,18 +55,18 @@
  ['who 또는 whom 중 하나를 쓰세요.\nI met three teachers, all of ___ were kind.','whom','of 뒤의 목적격이므로 whom이다. all of whom 전체는 were의 주어다.'],
  ['who 또는 whom 중 하나를 쓰세요.\nI met three teachers ___ were kind.','who','이번에는 전치사 of가 없고 관계대명사 자체가 were의 주어이므로 who다.']]);
  const extra=(key,title,rule,hook,examples,rows)=>add('grammar-agreement-'+key,title,rule,hook,examples,rows);
- extra('each','each의 위치','Each of the students는 each에, The students each는 students에 동사를 맞춘다.','각 한 명 / 학생들이 각각',['Each of them has a book.','They each have a book.'],[
- ['has 또는 have를 쓰세요.\nEach of the students ___ a book.','has','중심 주어 each는 단수다.'],['has 또는 have를 쓰세요.\nThe students each ___ a book.','have','중심 주어 students가 복수다.'],['[have]만 고쳐 쓰세요.\nEach of them [have] a ticket.','has','each of them에서 중심은 단수 each다.']]);
+ extra('each','each의 위치','Each of the students는 학생들 중 각 한 명을 가리킨다. The students each는 학생들이 주어이고 each가 뒤에 붙는다. 진짜 주어를 보고 has인지 have인지 정한다.','각 한 명 / 학생들이 각각',['Each of them has a book.','They each have a book.'],[
+ ['has 또는 have를 쓰세요.\nEach of the students ___ a book.','has','학생들 중 각 한 명을 가리키는 each가 주어다. 단수이므로 has다.'],['has 또는 have를 쓰세요.\nThe students each ___ a book.','have','이번에는 students가 주어이고 each는 뒤에 붙었다. 학생들이 여럿이므로 have다.'],['[have]만 고쳐 쓰세요.\nEach of them [have] a ticket.','has','each of them에서 중심은 단수 each다.']]);
  extra('number','여러 학생과 학생 수','a number of는 “여러”, the number of는 “~의 수”이다.','학생들 / 숫자 하나',['A number of students are absent.','The number of students is increasing.'],[
  ['is 또는 are를 쓰세요.\nThe number of visitors ___ increasing.','is','방문객 수라는 숫자 하나를 말하므로 is다.'],['is 또는 are를 쓰세요.\nA number of visitors ___ waiting outside.','are','여러 방문객을 뜻하므로 are다.'],['[are]만 고쳐 쓰세요.\nThe number of books [are] increasing.','is','책들이 아니라 책의 수가 주어다.']]);
- extra('portion','무엇의 일부인가','some of, half of 같은 부분 표현은 대상 명사의 수·성질을 확인한다.','물 일부 / 학생 일부',['Some of the water is dirty.','Some of the students are absent.'],[
+ extra('portion','무엇의 일부인가','some of는 일부, half of는 절반이다. 무엇의 일부인지 of 뒤를 본다. 물은 is, 학생들은 are에 맞춘다.','물 일부 / 학생 일부',['Some of the water is dirty.','Some of the students are absent.'],[
  ['is 또는 are를 쓰세요.\nHalf of the water ___ gone.','is','water는 불가산명사이므로 is다.'],['is 또는 are를 쓰세요.\nHalf of the students ___ here.','are','students는 복수이므로 are다.'],['[are]만 고쳐 쓰세요.\nSome of the equipment [are] broken.','is','equipment는 불가산명사이므로 is다.']]);
- extra('pair','scissors와 pair','가위 한 개도 scissors라고 하며 복수 동사를 쓴다. a pair of scissors는 중심 명사 pair에 맞춘다.','실제 개수보다 중심 명사의 형태',['These scissors are sharp.','This pair of scissors is sharp.'],[
+ extra('pair','scissors와 pair','가위 한 개여도 scissors라고 쓰고 are를 붙인다. a pair of scissors에서는 pair가 주어의 중심이므로 is다. 실제 가위 개수가 달라진 것은 아니다.','실제 개수보다 중심 명사의 형태',['These scissors are sharp.','This pair of scissors is sharp.'],[
  ['is 또는 are를 쓰세요.\nThis pair of scissors ___ sharp.','is','중심 명사 pair가 단수다.'],['is 또는 are를 쓰세요.\nThese scissors ___ sharp.','are','scissors는 복수형으로 취급한다. 실제 가위가 한 개여도 같다.'],['is 또는 are를 쓰세요.\nTwo pairs of scissors ___ on the desk.','are','중심 명사 pairs가 복수다.']]);
- extra('identity','역할 둘과 사람 둘','and로 연결한 역할이 한 사람을 가리키는지는 문맥으로 확인한다.','역할의 개수와 사람의 개수는 다르다',['민호 한 명이 친구이면서 동료다: My friend and colleague is here.','친구 민호와 동료 지수 두 명이다: My friend and my colleague are here.'],[
- ['방문자는 민호 한 명뿐이다. 민호는 내 친구이면서 동료다.\nMy friend and colleague ___ here.\nis 또는 are를 쓰세요.','is','선행 문맥이 한 사람임을 확정했으므로 단수 is다.'],['방문자는 친구 민호와 동료 지수, 두 명이다.\nMy friend and my colleague ___ here.\nis 또는 are를 쓰세요.','are','서로 다른 두 사람을 함께 주어로 묶었으므로 are다.'],['내 남자 형제와 여자 형제가 각각 한 명씩 와 있다.\nMy brother and sister ___ here.\nis 또는 are를 쓰세요.','are','my를 한 번만 썼어도 문맥상 두 사람이므로 복수다.']]);
- extra('together','함께 온 사람은 덧붙임','A together with B, A along with B에서는 A가 중심 주어다.','동행자가 늘어도 중심은 A',['The teacher, together with the students, is here.'],[
- ['is 또는 are를 쓰세요.\nThe teacher, together with the students, ___ here.','is','중심 주어 teacher가 단수다.'],['is 또는 are를 쓰세요.\nThe players, including their captain, ___ ready.','are','중심 주어 players가 복수다.'],['[are]만 고쳐 쓰세요.\nThe box, along with the bags, [are] missing.','is','중심 주어 box가 단수다.']]);
+ extra('identity','역할 둘과 사람 둘','친구이자 동료인 한 명인지, 친구와 동료 두 명인지 앞 문장부터 읽는다. 한 명이라고 적혀 있으면 is, 두 명이면 are다.','역할의 개수와 사람의 개수는 다르다',['민호 한 명이 친구이면서 동료다: My friend and colleague is here.','친구 민호와 동료 지수 두 명이다: My friend and my colleague are here.'],[
+ ['방문자는 민호 한 명뿐이다. 민호는 내 친구이면서 동료다.\nMy friend and colleague ___ here.\nis 또는 are를 쓰세요.','is','앞 문장이 민호 한 명뿐이라고 알려 줬다. 친구와 동료는 그 한 사람의 역할이므로 is다.'],['방문자는 친구 민호와 동료 지수, 두 명이다.\nMy friend and my colleague ___ here.\nis 또는 are를 쓰세요.','are','서로 다른 두 사람을 함께 주어로 묶었으므로 are다.'],['내 남자 형제와 여자 형제가 각각 한 명씩 와 있다.\nMy brother and sister ___ here.\nis 또는 are를 쓰세요.','are','my를 한 번만 썼어도 문맥상 두 사람이므로 복수다.']]);
+ extra('together','함께 온 사람은 덧붙임','together with나 along with 뒤의 B는 함께 온 사람이나 물건을 덧붙인 말이다. 그 부분을 지우고 앞의 A에 동사를 맞춘다.','동행자가 늘어도 중심은 A',['The teacher, together with the students, is here.'],[
+ ['is 또는 are를 쓰세요.\nThe teacher, together with the students, ___ here.','is','학생들은 함께 온 사람들이다. 진짜 주어는 teacher 한 명이므로 is다.'],['is 또는 are를 쓰세요.\nThe players, including their captain, ___ ready.','are','including their captain은 주장이 포함된다는 설명이다. 진짜 주어 players는 여러 명이므로 are다.'],['[are]만 고쳐 쓰세요.\nThe box, along with the bags, [are] missing.','is','중심 주어 box가 단수다.']]);
  const agreement=['as-well','neither','knowledge','debate-head'];
  for(const [key,value]of Object.entries(bank))value.topic=key.startsWith('grammar-agreement-')||agreement.some(k=>key===id(k))?'수일치':'영문법';
  root.PRACTICE_BANK=bank;
