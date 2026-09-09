@@ -73,4 +73,13 @@ footer { margin: 40px 0 10px; font-size: 13px; }
 .practice-form input:focus-visible { outline:3px solid #a9cfff; outline-offset:3px; }
 .practice-form input:disabled { opacity:1; color:#fff; }
 .question,.answer { overflow-wrap:anywhere; }
+.history-panel { margin-top:24px; padding:18px; border:1px solid #414854; border-radius:16px; }
+.history-panel summary { cursor:pointer; font-weight:700; min-height:28px; }
+#historyList { list-style:none; padding:0; margin:12px 0 0; }
+.history-row { display:flex; align-items:start; gap:12px; padding:14px 0; border-top:1px solid #414854; line-height:1.6; }
+.history-row strong { flex:0 0 65px; }
+.history-row div { min-width:0; overflow-wrap:anywhere; }
+.result-correct { color:#98e7b6; }
+.result-wrong { color:#ffb1b1; }
+.result-unsure { color:#ffe3a1; }
 [hidden] { display:none !important; }

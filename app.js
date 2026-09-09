@@ -18,6 +18,15 @@ function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.
 function isPlayable(c){return !!c&&(!!QUIZ_OPTIONS[c.id]||!!PRACTICE_BANK[c.id]);}
 function inScope(c){const subject=$('#subjectFilter').value,topic=$('#topicFilter').value;return isPlayable(c)&&(!subject||c.subject===subject)&&(!topic||PRACTICE_BANK[c.id]?.topic===topic);}
 function saveDraft(){if(!storageOK)return;try{localStorage.setItem(KEY,JSON.stringify(data));}catch{notify('입력 내용을 저장하지 못했어요.');}}
+let historyLimit=30;
+function renderHistory(cards){
+ const byId=new Map(cards.map(c=>[c.id,c]));
+ const rows=data.history.filter(h=>byId.has(h.cardId)).sort((a,b)=>b.date.localeCompare(a.date)||(b.at||'').localeCompare(a.at||'')||b.id.localeCompare(a.id));
+ $('#historyTitle').textContent='학습 기록 · '+rows.length+'회';const list=$('#historyList');list.replaceChildren();
+ if(!rows.length){list.append(elem('p','문제를 풀면 날짜와 채점 결과가 여기에 남아요.'));return;}
+ for(const row of rows.slice(0,historyLimit)){const card=byId.get(row.cardId),item=elem('li',undefined,'history-row'),result=elem('strong',row.result==='correct'?'정답':row.result==='wrong'?'오답':'복습 필요','result-'+row.result);const content=elem('div');const label=PRACTICE_BANK[card.id]?.title||card.question.split('\n')[0];content.append(elem('div',card.subject+' · '+label));const time=row.at&&Number.isFinite(Date.parse(row.at))?new Date(row.at).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}):'';content.append(elem('small',row.date+' '+time));item.append(result,content);list.append(item);}
+ if(rows.length>historyLimit){const item=elem('li');item.append(btn('이전 기록 더 보기',()=>{historyLimit+=30;renderHistory(data.cards.filter(inScope));}));list.append(item);}
+}
 function render(){
  const hadFocus=document.activeElement?.id==='practiceInput',caret=hadFocus?document.activeElement.selectionStart:null;
  const today=day(),select=$('#subjectFilter'),selected=data.practiceScope?.subject||'',playable=data.cards.filter(isPlayable),subjects=[...new Set(playable.map(c=>c.subject))];select.replaceChildren();const all=elem('option','전체 과목');all.value='';select.append(all);for(const subject of subjects){const o=elem('option',subject);o.value=subject;select.append(o);}select.value=subjects.includes(selected)?selected:'';
@@ -25,6 +34,7 @@ function render(){
  const chosen=playable.filter(inScope),due=ReviewLearning.queue(chosen),feedback=data.quizFeedback&&chosen.find(c=>c.id===data.quizFeedback.cardId),card=feedback||due[0];
  $('#date').textContent=new Date().toLocaleDateString('ko-KR',{month:'long',day:'numeric',weekday:'short'});$('#subjectCounts').textContent=subjects.map(s=>s+' '+playable.filter(c=>c.subject===s).length+'문제').join(' · ');$('#due').textContent=due.length;$('#total').textContent=chosen.length;$('#done').textContent=data.history.filter(h=>h.date===today&&chosen.some(c=>c.id===h.cardId)).length;
  const metric=ReviewLearning.metrics(chosen,data.history);$('#retention').textContent=metric.total?Math.round(metric.correct/metric.total*100)+'% ('+metric.correct+'/'+metric.total+')':'아직 기록 없음';
+ renderHistory(chosen);
  const waiting=chosen.filter(c=>c.retryAt&&Date.parse(c.retryAt)>Date.now());$('#retryStatus').textContent=waiting.length?waiting.length+'문제 재시도 대기 · '+new Date(Math.min(...waiting.map(c=>Date.parse(c.retryAt)))).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+'부터 다시 풀 수 있어요.':'';
  const root=$('#card');root.replaceChildren();if(!card){root.append(elem('h2',waiting.length?'잠시 뒤 틀린 문제를 다시 풀어요':data.cards.length&&!playable.length?'퀴즈 보기가 준비된 카드가 없어요':'오늘 풀 문제를 마쳤어요'));return;}
  let active=data.activePractice;
@@ -32,7 +42,6 @@ function render(){
  const quiz=feedback?(data.quizFeedback.exercise||{...QUIZ_OPTIONS[card.id],type:'choice',question:QUIZ_OPTIONS[card.id]?.question||card.question,explanation:card.explanation}):active.exercise;
  const lesson=PRACTICE_BANK[card.id];
  root.append(elem('small',card.subject+' · '+(lesson?.title||'개념 복습')+' · '+(quiz.type==='text'?'직접 쓰기':'객관식')));
- if(lesson&&!feedback){const details=elem('details',undefined,'lesson');details.open=active.assisted;const summary=elem('summary','규칙과 비교 예문 보기');summary.onclick=()=>{if(!details.open&&data.activePractice?.cardId===card.id){data.activePractice.assisted=true;saveDraft();}};details.append(summary);details.append(elem('p',lesson.rule),elem('p',lesson.hook,'hook'));for(const example of lesson.examples)details.append(elem('p',example,'example'));details.append(elem('small','설명을 보고 풀면 내일 다시 연습해요.'));details.addEventListener('toggle',()=>{if(details.open&&data.activePractice?.cardId===card.id){data.activePractice.assisted=true;saveDraft();}});root.append(details);}
  root.append(elem('div',quiz.question,'question'));
  if(quiz.type==='choice'){
   const choices=elem('div',undefined,'quiz-choices');quiz.choices.forEach((choice,i)=>{const button=btn((i+1)+'. '+choice,()=>answerPractice(card.id,i));if(feedback){button.disabled=true;if(i===quiz.correctIndex)button.classList.add('quiz-correct');else if(i===data.quizFeedback.selectedIndex)button.classList.add('quiz-wrong');}choices.append(button);});root.append(choices);
@@ -46,6 +55,7 @@ function render(){
   const f=data.quizFeedback,answer=elem('div',undefined,'answer'),correct=quiz.type==='text'?quiz.answers.join(' / '):quiz.choices[quiz.correctIndex];
   answer.append(elem('strong',f.result==='correct'?'정답입니다.':f.result==='unsure'?'정답입니다. 설명을 보고 풀어 내일 다시 연습해요.':'틀렸어요. 정답: '+correct),elem('p',quiz.explanation||card.explanation));
   if(lesson)answer.append(elem('p',lesson.hook,'hook'));
+  if(lesson){const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),elem('p',lesson.rule));for(const example of lesson.examples)details.append(elem('p',example,'example'));answer.append(details);}
   answer.append(elem('small',quiz.type==='text'?'대화 학습·수일치 정리 기반 자체 제작 연습':card.source));
   const dueCard=data.cards.find(c=>c.id===card.id);answer.append(elem('small','다음 복습: '+dueCard.due+(f.result==='wrong'?' · 5분 뒤에도 다시 풀 수 있어요.':'')));
   root.append(answer,btn('다음 문제',()=>{const next=structuredClone(data);delete next.quizFeedback;delete next.activePractice;if(commit(next))render();},'primary'));
@@ -70,7 +80,7 @@ function installCorePack(){const pack='core-2026-09-09-v3';if(data.installedPack
 installCorePack();
 if(!data.quizUiVersion){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;next.quizUiVersion=1;commit(next);}
 else if(data.cards.some(c=>c.pendingAttempt)){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;if(commit(next))data=next;}
-function changeScope(){const next=structuredClone(data);next.practiceScope={subject:$('#subjectFilter').value,topic:$('#topicFilter').value};delete next.quizFeedback;delete next.activePractice;if(commit(next))render();}
+function changeScope(){historyLimit=30;const next=structuredClone(data);next.practiceScope={subject:$('#subjectFilter').value,topic:$('#topicFilter').value};delete next.quizFeedback;delete next.activePractice;if(commit(next))render();}
 $('#subjectFilter').onchange=changeScope;$('#topicFilter').onchange=changeScope;
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)render();});render();
 setInterval(()=>{if(!document.hidden&&!$('#card .question')&&ReviewLearning.queue(data.cards.filter(inScope)).length)render();},15000);
@@ -87,6 +97,6 @@ globalThis.StudyProgress={
   delete next.quizFeedback;delete next.activePractice;for(const c of next.cards)delete c.pendingAttempt;
   localStorage.setItem(target,JSON.stringify(next));
   if(uid){if(!owner)localStorage.setItem('chagog-owner',uid);localStorage.setItem('chagog-active-user',uid);}else localStorage.removeItem('chagog-active-user');
-  KEY=target;data=next;storageOK=true;installCorePack();render();
+  KEY=target;data=next;historyLimit=30;storageOK=true;installCorePack();render();
  }
 };
