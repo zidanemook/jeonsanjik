@@ -28,6 +28,15 @@ const refreshed=practice.refresh(c,stale,bank,options);
 assert.deepEqual(refreshed.choices,stale.choices);assert.equal(refreshed.correctIndex,stale.correctIndex);
 assert.equal(refreshed.explanation,c.explanation);
 assert.notEqual(refreshed.explanation,stale.explanation);
+// Adding a new leading exercise preserves an already open typed variant by identity.
+const typedCard={id:'test-stable',question:'base',explanation:'base explanation'};
+const typedBank={'test-stable':{variants:[{type:'text',question:'Write the form: old example.',answers:['old'],explanation:'Old example.'}]}};
+const savedTyped=practice.select(typedCard,[],typedBank,{});
+const insertedOptions={'test-stable':{question:'Choose a new example.',choices:['a','b','c','d'],correctIndex:2,explanation:'Dedicated MCQ explanation.'}};
+const sameTyped=practice.refresh(typedCard,savedTyped,typedBank,insertedOptions);
+assert.equal(sameTyped.exerciseId,savedTyped.exerciseId);assert.equal(sameTyped.variantIndex,1);
+const newMcq=practice.select(typedCard,[],typedBank,insertedOptions);assert.equal(newMcq.explanation,'Dedicated MCQ explanation.');
+for(const suffix of ['collective','none']){const variant=bank['grammar-agreement-'+suffix].variants[1];assert.equal(practice.grade(variant,'is'),true);assert.equal(practice.grade(variant,'are'),true);assert.equal(practice.grade(variant,'be'),false);}
 assert.equal(practice.normalize(" HADN’T   MISSED. "),"hadn't missed");
 const sync=require('./sync-core.js');const state={cards:[{id:'a',ease:2.5,interval:0,streak:0}],history:[]};
 const merged=sync.merge(state,[{id:'event1',cardId:'a',date:'2026-09-09',at:'2026-09-09T10:00:00Z',result:'unsure',mode:'quiz'}]);

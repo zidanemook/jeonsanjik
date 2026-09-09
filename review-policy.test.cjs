@@ -10,4 +10,10 @@ const old={...e,id:'legacy',at:new Date(now-86400000).toISOString(),date:'2026-0
 const plain={...e};delete plain.detail;assert.deepEqual(sync.union([plain],[e]),sync.union([e],[plain]));assert.deepEqual(sync.union([plain],[e])[0].detail,record.validate(e.detail));assert.throws(()=>sync.union([e],[{...e,detail:{...e.detail,submittedAnswer:'who'}}]),/Conflicting/);
 assert.throws(()=>record.validate({...e.detail,submittedAnswer:'x'.repeat(2001)}));assert.throws(()=>record.validate({...e.detail,extra:'field'}));
 const list=audit.catalog(),ledger={schema:1,items:Object.fromEntries(list.map(x=>[x.exercise.exerciseId,audit.digest(x)]))};audit.verify(list,ledger);const changed=structuredClone(list);changed[0].exercise.question+=' modified';assert.throws(()=>audit.verify(changed,ledger),/Content changed/);
+// Coverage checks catch missing formats/rules even if someone were to regenerate the hashes.
+const provided='en-session-20260909-provided';
+assert.throws(()=>audit.coverage(list.filter(x=>x.card.id!==provided||x.exercise.type!=='text')),/written variants/);
+assert.throws(()=>audit.coverage(list.filter(x=>x.card.id!=='grammar-agreement-pair'||x.exercise.type!=='choice')),/MCQ required/);
+assert.throws(()=>audit.coverage(list.filter(x=>x.card.id!=='grammar-agreement-both')),/Missing coverage/);
+const twoChoice=structuredClone(list);twoChoice.find(x=>x.exercise.type==='choice').exercise.choices.splice(2);assert.throws(()=>audit.coverage(twoChoice),/Four options required/);
 console.log('PASS review: sibling cooldown, boundary, first/repeat/practice/unknown, richer legacy merge, immutable snapshots, size validation, unreviewed-content gate');

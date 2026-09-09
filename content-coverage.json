@@ -1,0 +1,39 @@
+{
+ "schema":1,
+ "description":"현재 복습 범위의 누락을 검사하는 목록. 전체 공무원 시험 범위나 학습 전이를 보증하지 않음.",
+ "englishNonGrammar":["core-en-2026national-17"],
+ "requiredRules":{
+  "조건 접속사":"en-session-20260909-provided",
+  "while 축약":"en-session-20260909-while-short",
+  "부정과 원급 비교":"en-session-20260909-nothing",
+  "관계절 선행사":"en-session-20260909-debate-head",
+  "요구절 병렬":"core-en-2026national-3",
+  "관계대명사와 관계부사":"core-en-2026national-13",
+  "수동 부정사":"core-en-2026national-14",
+  "each와 every":"grammar-agreement-each",
+  "a number와 the number":"grammar-agreement-number",
+  "부분과 비율":"grammar-agreement-portion",
+  "scissors와 pair":"grammar-agreement-pair",
+  "동일인 문맥":"grammar-agreement-identity",
+  "동행자 덧붙임":"grammar-agreement-together",
+  "as well as":"en-session-20260909-as-well",
+  "either neither not only":"en-session-20260909-neither",
+  "there와 장소 도치":"grammar-agreement-existential",
+  "집합명사":"grammar-agreement-collective",
+  "불가산명사 학문명 news police":"grammar-agreement-noun-form",
+  "one of와 more than one":"grammar-agreement-one",
+  "총액과 개별 물건":"grammar-agreement-amount",
+  "none of":"grammar-agreement-none",
+  "부정대명사":"grammar-agreement-indefinite",
+  "the rich와 the poor":"grammar-agreement-rich",
+  "both 주어와 보어":"grammar-agreement-both",
+  "구와 절 주어":"grammar-agreement-unit"
+ },
+ "subjectScope":{
+  "국어":"서울시 자체출제에서 공부한 규정 적용 2개. 전산직 위탁 기출의 범위·난도를 대표하지 않음.",
+  "영어":"공부한 어법·수일치와 기존 논지 복습 1개. 전체 어휘·독해·문법 범위를 대표하지 않음.",
+  "한국사":"제79회 심화 3~10번의 복습 개념 8개. 한능검 전체 범위가 아님.",
+  "컴퓨터일반":"아직 복습 콘텐츠 없음. 진도·기출에 근거한 문제 묶음은 별도 작성 필요.",
+  "정보보호론":"아직 복습 콘텐츠 없음. 진도·기출에 근거한 문제 묶음은 별도 작성 필요."
+ }
+}

@@ -72,6 +72,24 @@ const updates={
     "explanation": "answer calls는 전화를 받는다는 뜻이다. get used to의 to는 전치사이므로 뒤의 동사 answer를 answering으로 바꾼다.",
     "answer": "answering",
     "note": "work를 명사로 읽을 여지를 없애고, 동명사를 연습한다는 지시를 명확히 했습니다."
+  },
+  "core-en-2026national-17-2b528299": {
+    "question": "글의 중심 내용은 “젊은 직원들이 관리자 역할을 피한다”이다. 이 중심 내용과 반대 방향인 문장은?",
+    "explanation": "관리자 역할을 피한다는 중심 내용에 비추면, 관리자로 승진하여 남을 감독하고 싶다는 문장이 반대 방향이다. 단어가 비슷한지보다 주장 방향을 비교한다.",
+    "answer": "그들은 남을 감독하고 싶어 관리자 승진에 적극적이다.",
+    "note": "같은 문장을 지지/반대 중에서 고르던 연습을 네 문장 중 논지에 반대되는 문장을 고르는 문제로 바꿨습니다."
+  },
+  "core-hist-79-8-9fffcaac": {
+    "question": "신문왕 때 설치된 신라의 중앙 교육기관은? 교수 담당 관직 두 가지는?",
+    "explanation": "신문왕 때 신라의 중앙 교육기관은 국학이고, 박사와 조교를 두었다. 고려 국자감과 조선 향교·성균관은 시기와 기관이 다르다. 직강·박사라는 짝 자체를 잘못된 사실로 외우지는 않는다. 고려 공민왕 때 국자감에도 직강과 박사가 있었지만, 이 문제는 신라를 묻기 때문에 오답이다.",
+    "answer": "국학 — 박사·조교",
+    "note": "고려 공민왕 때 국자감에도 직강과 박사가 있었습니다. 관직 짝 자체가 잘못된 것이 아니라 신문왕 때 신라를 묻는 문항이라 오답이라는 점을 명확히 했습니다."
+  },
+  "en-session-20260909-debate-head-7245efb5": {
+    "question": "The debate over salaries that ___ for a year remains unresolved.",
+    "explanation": "관계절의 동작 rage는 여기서 논쟁 등이 격렬하게 계속된다는 뜻이다. 후보를 넣으면 the debate has been raging은 자연스럽지만, 임금 액수들인 the salaries have been raging은 이 문맥의 뜻에 맞지 않는다. 따라서 debate를 가리키는 that에 단수 has를 쓴다. 가까운 명사나 주절 주어를 무조건 고르는 규칙은 아니다.",
+    "answer": "has been raging",
+    "note": "관계절의 동작에 후보 명사를 각각 넣어 선행사를 판단하는 절차를 보완했습니다. 정답은 그대로입니다."
   }
 };
 function find(snapshot){const u=updates[snapshot?.exerciseId];return u&&(snapshot.question!==u.question||snapshot.explanation!==u.explanation)?u:null;}

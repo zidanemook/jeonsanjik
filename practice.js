@@ -5,7 +5,8 @@
  function fingerprint(text){let n=2166136261;for(const c of text)n=Math.imul(n^c.charCodeAt(0),16777619)>>>0;return n.toString(16);}
  function select(card,history,bank,options){
   const lesson=bank[card.id],base=options[card.id];
-  const variants=[...(base?[{...base,question:base.question||card.question,explanation:card.explanation,type:'choice'}]:[]),...(lesson?.variants||[])];
+  const mcq=base?[{...base,question:base.question||card.question,explanation:base.explanation||card.explanation,type:'choice'}]:[];
+  const variants=base?.placement==='after'?[...(lesson?.variants||[]),...mcq]:[...mcq,...(lesson?.variants||[])];
   if(!variants.length)return null;
   const count=history.filter(h=>h.cardId===card.id).length;
   const index=count%variants.length,exercise=structuredClone(variants[index]);
@@ -21,7 +22,10 @@
  }
  // Refresh the same unfinished variant, even when incoming sync has advanced history.
  function refresh(card,saved,bank,options){
-  const index=Number.isInteger(saved?.variantIndex)?saved.variantIndex:0;
+  // Content insertion must not silently replace a still-open, unchanged exercise.
+  const size=(options[card.id]?1:0)+(bank[card.id]?.variants.length||0);
+  let index=Number.isInteger(saved?.variantIndex)?saved.variantIndex:0;
+  for(let i=0;i<size;i++){const candidate=select(card,Array.from({length:i},()=>({cardId:card.id})),bank,options);if(candidate.exerciseId===saved?.exerciseId){index=i;break;}}
   const current=select(card,Array.from({length:index},()=>({cardId:card.id})),bank,options);
   if(!current)return null;
   if(current.type==='choice'&&saved?.type==='choice'&&JSON.stringify([...current.choices].sort())===JSON.stringify([...saved.choices].sort())){

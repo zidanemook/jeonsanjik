@@ -3,6 +3,7 @@
  // Product policy, not an experimentally established optimal delay.
  const GAP_MS=10*60*1000;
  const groups={
+  'grammar-agreement-both':'grammar-agreement-identity',
   'en-session-20260909-while':'grammar-while-during','en-session-20260909-while-short':'grammar-while-during',
   'en-session-20260909-both-whom':'grammar-of-whom','en-session-20260909-all-whom':'grammar-of-whom',
   'core-en-2026national-14':'grammar-voice','en-session-20260909-rage':'grammar-voice',
