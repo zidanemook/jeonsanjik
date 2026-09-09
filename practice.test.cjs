@@ -14,6 +14,20 @@ for(const e of picks)assert.equal(e.choices[e.correctIndex],options[c.id].choice
 assert.ok(new Set(picks.map(e=>e.correctIndex)).size>1);
 assert.equal(practice.grade(bank['en-session-20260909-help'].variants[0],'to learn'),true);
 assert.equal(practice.grade(bank['en-session-20260909-help'].variants[0],'learning'),false);
+// Adversarial review: valid forms must not be marked wrong; future-tense distractors still fail.
+const time=bank['en-session-20260909-time-clause'].variants;
+assert.equal(practice.grade(time[0],'has arrived'),true);
+assert.equal(practice.grade(time[1],'has stopped'),true);
+assert.equal(practice.grade(time[0],'will arrive'),false);
+assert.equal(practice.grade(time[1],'will stop'),false);
+assert.equal(practice.grade(bank['en-session-20260909-difficulty'].variants[1],'in understanding'),true);
+assert.equal(practice.grade(bank['en-session-20260909-difficulty'].variants[1],'in understand'),false);
+// Updating an explanation refreshes an unfinished item without changing its shuffled options.
+const stale=structuredClone(picks[3]);stale.explanation='old explanation';
+const refreshed=practice.refresh(c,stale,bank,options);
+assert.deepEqual(refreshed.choices,stale.choices);assert.equal(refreshed.correctIndex,stale.correctIndex);
+assert.equal(refreshed.explanation,c.explanation);
+assert.notEqual(refreshed.explanation,stale.explanation);
 assert.equal(practice.normalize(" HADN’T   MISSED. "),"hadn't missed");
 const sync=require('./sync-core.js');const state={cards:[{id:'a',ease:2.5,interval:0,streak:0}],history:[]};
 const merged=sync.merge(state,[{id:'event1',cardId:'a',date:'2026-09-09',at:'2026-09-09T10:00:00Z',result:'unsure',mode:'quiz'}]);

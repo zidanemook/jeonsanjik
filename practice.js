@@ -19,5 +19,15 @@
   }
   return exercise;
  }
- const api={normalize,grade,select,fingerprint};root.Practice=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+ // Refresh the same unfinished variant, even when incoming sync has advanced history.
+ function refresh(card,saved,bank,options){
+  const index=Number.isInteger(saved?.variantIndex)?saved.variantIndex:0;
+  const current=select(card,Array.from({length:index},()=>({cardId:card.id})),bank,options);
+  if(!current)return null;
+  if(current.type==='choice'&&saved?.type==='choice'&&JSON.stringify([...current.choices].sort())===JSON.stringify([...saved.choices].sort())){
+   const correct=current.choices[current.correctIndex];current.choices=[...saved.choices];current.correctIndex=current.choices.indexOf(correct);
+  }
+  return current;
+ }
+ const api={normalize,grade,select,refresh,fingerprint};root.Practice=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(globalThis);

@@ -20,6 +20,7 @@ function inScope(c){const subject=$('#subjectFilter').value,topic=$('#topicFilte
 function saveDraft(){if(!storageOK)return;try{localStorage.setItem(KEY,JSON.stringify(data));}catch{notify('입력 내용을 저장하지 못했어요.');}}
 function reviewQueue(cards){const due=ReviewLearning.queue(cards);return ReviewPolicy.separate(due,data.history);}
 let historyLimit=30;
+function appendCorrection(parent,snapshot){const update=ContentCorrections.find(snapshot);if(!update)return;const note=elem('div',undefined,'content-correction');note.append(elem('strong','문항·해설 수정 안내'),elem('p','아래 기록은 수정 전 문항의 당시 채점 결과입니다.'),elem('p',update.note),elem('p','현재 문항: '+update.question),elem('p','현재 정답: '+update.answer),elem('p',update.explanation));parent.append(note);}
 function renderHistory(cards){
  const byId=new Map(cards.map(c=>[c.id,c]));
  const {counts,kinds}=ReviewPolicy.metrics(data.history,new Set(byId.keys()));
@@ -30,7 +31,7 @@ function renderHistory(cards){
  $('#historyTitle').textContent='학습 기록 · '+rows.length+'회';const list=$('#historyList');list.replaceChildren();
  if(!rows.length){list.append(elem('p','문제를 풀면 날짜와 채점 결과가 여기에 남아요.'));return;}
  for(const row of rows.slice(0,historyLimit)){const card=byId.get(row.cardId),d=row.detail,item=elem('li',undefined,'history-row'),result=elem('strong',row.result==='correct'?'정답':row.result==='wrong'?'오답':'복습 필요','result-'+row.result);const content=elem('div');const label=d?.title||PRACTICE_BANK[card.id]?.title||card.question.split('\n')[0];content.append(elem('div',(d?.subject||card.subject)+' · '+label));const time=row.at&&Number.isFinite(Date.parse(row.at))?new Date(row.at).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}):'';const kind={first:'처음 푼 예문',repeat:'다시 푼 예문',practice:'이어서 연습',unknown:'첫 풀이 여부 확인 불가'}[kinds.get(row.id)];content.append(elem('small',row.date+' '+time+' · '+kind));
-  if(d){const details=elem('details',undefined,'answer-record');details.append(elem('summary','풀었던 문제와 내 답 보기'),elem('p',d.question,'record-question'));if(d.options)details.append(elem('p',d.options,'record-options'));details.append(elem('p','내 답: '+d.submittedAnswer),elem('p','정답: '+d.correctAnswer),elem('p',d.explanation));content.append(details);}else content.append(elem('small','이전 기록에는 예문과 입력한 답이 저장되어 있지 않아요.'));
+  if(d){const details=elem('details',undefined,'answer-record');details.append(elem('summary','풀었던 문제와 내 답 보기'));appendCorrection(details,d);details.append(elem('p',d.question,'record-question'));if(d.options)details.append(elem('p',d.options,'record-options'));details.append(elem('p','내 답: '+d.submittedAnswer),elem('p','당시 정답: '+d.correctAnswer),elem('p',d.explanation));content.append(details);}else content.append(elem('small','이전 기록에는 예문과 입력한 답이 저장되어 있지 않아요.'));
   item.append(result,content);list.append(item);}
  if(rows.length>historyLimit){const item=elem('li');item.append(btn('이전 기록 더 보기',()=>{historyLimit+=30;renderHistory(data.cards.filter(inScope));}));list.append(item);}
 }
@@ -46,6 +47,7 @@ function render(){
  if(queue.waiting.length)$('#retryStatus').textContent+=' '+queue.waiting.length+'개 관련 카드 · '+new Date(queue.nextAt).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+'부터 풀 수 있어요.';
  const root=$('#card');root.replaceChildren();if(!card){root.append(elem('h2',queue.waiting.length?'비슷한 규칙은 잠시 뒤 다시 풀어요':waiting.length?'잠시 뒤 틀린 문제를 다시 풀어요':data.cards.length&&!playable.length?'퀴즈 보기가 준비된 카드가 없어요':'오늘 풀 문제를 마쳤어요'));return;}
  let active=data.activePractice;
+ if(!feedback&&active?.cardId===card.id){const canonical=CORE_REVIEW_PACK.find(c=>c.id===card.id)||card,current=Practice.refresh(canonical,active.exercise,PRACTICE_BANK,QUIZ_OPTIONS);if(JSON.stringify(current)!==JSON.stringify(active.exercise)){const changed=current.question!==active.exercise.question||current.type!==active.exercise.type;active={...active,exercise:current,draft:changed?'':active.draft};data.activePractice=active;saveDraft();if(changed)notify('풀던 문항의 표현이 수정됐어요. 새 문항을 확인해 주세요.');}}
  if(!feedback&&(!active||active.cardId!==card.id)){if(active?.draft){data.practiceDrafts??={};data.practiceDrafts[active.cardId]=active;}const canonical=CORE_REVIEW_PACK.find(c=>c.id===card.id)||card;const exercise=Practice.select(canonical,data.history,PRACTICE_BANK,QUIZ_OPTIONS),saved=data.practiceDrafts?.[card.id];active=saved?.exercise?.exerciseId===exercise.exerciseId?saved:{cardId:card.id,exercise,draft:'',assisted:false};data.activePractice=active;saveDraft();}
  const quiz=feedback?(data.quizFeedback.exercise||{...QUIZ_OPTIONS[card.id],type:'choice',question:QUIZ_OPTIONS[card.id]?.question||card.question,explanation:card.explanation}):active.exercise;
  const lesson=PRACTICE_BANK[card.id];
@@ -61,10 +63,12 @@ function render(){
  }
  if(feedback){
   const f=data.quizFeedback,answer=elem('div',undefined,'answer'),correct=quiz.type==='text'?quiz.answers.join(' / '):quiz.choices[quiz.correctIndex];
+  appendCorrection(answer,quiz);
   answer.append(elem('strong',f.result==='correct'?'정답입니다.':f.result==='unsure'?'정답입니다. 설명을 보고 풀어 내일 다시 연습해요.':'틀렸어요. 정답: '+correct),elem('p',quiz.explanation||card.explanation));
   if(lesson)answer.append(elem('p',lesson.hook,'hook'));
   if(lesson){const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),elem('p',lesson.rule));for(const example of lesson.examples)details.append(elem('p',example,'example'));answer.append(details);}
-  answer.append(elem('small',quiz.type==='text'?'대화 학습·수일치 정리 기반 자체 제작 연습':card.source));
+  const source=(CORE_REVIEW_PACK.find(c=>c.id===card.id)||card).source;
+  answer.append(elem('small',quiz.type==='text'?'대화 학습·수일치 정리 기반 자체 제작 연습':source));
   const dueCard=data.cards.find(c=>c.id===card.id);answer.append(elem('small','다음 복습: '+dueCard.due+(f.result==='wrong'?' · 5분 뒤에도 다시 풀 수 있어요.':'')));
   root.append(answer,btn('다음 문제',()=>{const next=structuredClone(data);delete next.quizFeedback;delete next.activePractice;if(commit(next))render();},'primary'));
  }

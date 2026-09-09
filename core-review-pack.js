@@ -5,16 +5,16 @@ globalThis.CORE_REVIEW_PACK=[
     "subject": "국어",
     "question": "공공문서에서 “지원 계획을 수립하여”를 “지원 계획 수립하여”로 고쳤다. 조사·어미를 지나치게 생략하지 않는다는 원칙에 비추어 적절한가?",
     "answer": "부적절하다. 목적격 조사 “을”을 생략했다.",
-    "explanation": "수정 전후를 대조하여 필요한 문장 성분과 조사·어미가 유지되는지 확인한다. 짧게 줄이는 것 자체가 올바른 수정은 아니다.",
-    "source": "2026 서울시 자체출제 국어 9급 D책형 1번 개념 재구성. 공식 정답 ③. 전산직 위탁 국어와 구분."
+    "explanation": "이 문제는 제시된 공공문서 작성 원칙을 적용하는 문제다. 목적어인 ‘지원 계획’ 뒤의 ‘을’을 빼는 수정은 그 원칙에 맞지 않는다. 일상 대화에서도 조사를 절대로 생략할 수 없다는 일반 규칙으로 확대하지 않는다.",
+    "source": "2026 서울시 자체출제 국어 9급 D책형 1번 개념 재구성. 원 기출 정답 ③. 전산직 위탁 국어와 구분."
   },
   {
     "id": "core-ko-2026seoul-17",
     "subject": "국어",
     "question": "“맑게”와 “젊다”를 표준 발음으로 읽고, 겹받침 처리의 차이를 설명하라.",
     "answer": "맑게 [말께], 젊다 [점ː따].",
-    "explanation": "용언 어간 끝 ㄺ은 ㄱ 앞에서 ㄹ로 발음하는 예외가 적용된다. ㄻ은 자음 앞에서 ㅁ으로 발음한다. 맑게는 된소리되기도 함께 적용된다.",
-    "source": "2026 서울시 자체출제 국어 9급 D책형 17번 제시 규정·공식 정답 ③ 기반 재구성."
+    "explanation": "맑게의 ㄺ은 용언 어간 끝에서 ㄱ 앞에 있으므로 ㄹ로 발음하고, 뒤의 ㄱ은 된소리 ㄲ이 된다. 젊다의 ㄻ은 자음 앞에서 ㅁ으로 발음하고, 어간 뒤의 ㄷ도 된소리 ㄸ이 된다. 따라서 [말께], [점ː따]다. ː는 앞 모음을 길게 발음한다는 표시다.",
+    "source": "2026 서울시 자체출제 국어 9급 D책형 17번 제시 규정·원 기출 정답 ③ 기반 재구성."
   },
   {
     "id": "core-en-2026national-3",
@@ -22,7 +22,7 @@ globalThis.CORE_REVIEW_PACK=[
     "question": "The manager requires that each worker check the file and ___ the result. (report / to report)\n정답과 이유는?",
     "answer": "report",
     "explanation": "요구를 나타내는 require의 that절에서는 주어가 단수여도 동사원형을 쓸 수 있다. and로 연결된 check와 report가 병렬이다. 모든 that절에 이 규칙을 적용하지 않는다.",
-    "source": "2026 국가직 9급 영어 가책형 3번(정답 ①) 어법 재구성."
+    "source": "2026 국가직 9급 영어 가책형 3번(원 기출 정답 ①) 어법 재구성."
   },
   {
     "id": "core-en-2026national-13",
@@ -30,7 +30,7 @@ globalThis.CORE_REVIEW_PACK=[
     "question": "This is a region ___ lies near the coast. (where / which)\n장소를 나타내는 region 뒤인데도 무엇을 써야 하는가?",
     "answer": "which (that도 가능)",
     "explanation": "뒤 절의 lies에 주어가 없으므로 주어 역할의 관계대명사가 필요하다. where는 장소 부사 역할이므로 이 자리의 주어를 대신하지 못한다. 선행사 뜻과 함께 뒤 절의 구조를 확인한다.",
-    "source": "2026 국가직 9급 영어 가책형 13번(정답 ④) 어법 재구성."
+    "source": "2026 국가직 9급 영어 가책형 13번(원 기출 정답 ④) 어법 재구성."
   },
   {
     "id": "core-en-2026national-14",
@@ -38,7 +38,7 @@ globalThis.CORE_REVIEW_PACK=[
     "question": "These problems are not guaranteed ___. (to solve / to be solved)\n정답을 고르고 주어와 동작의 관계를 설명하라.",
     "answer": "to be solved",
     "explanation": "문제는 해결하는 주체가 아니라 해결되는 대상이다. 따라서 to부정사도 수동형 to be + 과거분사로 써야 한다.",
-    "source": "2026 국가직 9급 영어 가책형 14번(정답 ④) 어법 재구성."
+    "source": "2026 국가직 9급 영어 가책형 14번(원 기출 정답 ④) 어법 재구성."
   },
   {
     "id": "core-en-2026national-17",
@@ -46,15 +46,15 @@ globalThis.CORE_REVIEW_PACK=[
     "question": "글의 중심 내용이 “젊은 직원들이 관리자 역할을 피한다”일 때, “그들은 남을 감독하고 싶어 관리자 승진에 적극적이다”라는 문장은 논지를 지지하는가?",
     "answer": "아니다. 관리자 역할 회피라는 중심 내용과 반대된다.",
     "explanation": "문장 자체의 자연스러움보다 글 전체 주장과 방향이 일치하는지 확인한다. 이 카드는 이미 틀린 문항의 복습용이며 별도 독해 훈련 확대를 뜻하지 않는다.",
-    "source": "2026 국가직 9급 영어 가책형 17번(정답 ③) 논지 판단 재구성."
+    "source": "2026 국가직 9급 영어 가책형 17번(원 기출 정답 ③) 논지 판단 재구성."
   },
   {
     "id": "core-hist-79-3",
     "subject": "한국사",
     "question": "백제의 지방 22담로에 왕족을 파견해 지방 통제를 강화한 왕은?",
     "answer": "무령왕",
-    "explanation": "삼근왕 사후의 백제 상황을 묻는 원문에서 22담로 왕족 파견이 정답이다. 이 업적을 무령왕과 연결한다.",
-    "source": "제79회 한능검 심화 3번 원문 및 공식 정답 ② 기반 재구성."
+    "explanation": "22담로에 왕족을 파견한 업적은 무령왕과 연결한다. 원문은 삼근왕 이후에 있었던 일을 묻는다. 삼근왕의 바로 다음 왕을 묻는 문제가 아니므로 두 질문을 혼동하지 않는다.",
+    "source": "제79회 한능검 심화 3번 원문 및 원 기출 정답 ② 기반 재구성."
   },
   {
     "id": "core-hist-79-4",
@@ -62,7 +62,7 @@ globalThis.CORE_REVIEW_PACK=[
     "question": "김수로왕·김해 대성동 고분군을 단서로 알 수 있는 나라와, 그 나라의 대표 교역품은?",
     "answer": "금관가야 — 철",
     "explanation": "김해와 수로왕은 금관가야를 가리킨다. 철을 생산해 낙랑과 왜 등에 수출했다.",
-    "source": "제79회 한능검 심화 4번 원문 및 공식 정답 ① 기반 재구성."
+    "source": "제79회 한능검 심화 4번 원문 및 원 기출 정답 ① 기반 재구성."
   },
   {
     "id": "core-hist-79-5",
@@ -70,7 +70,7 @@ globalThis.CORE_REVIEW_PACK=[
     "question": "강수와 설총을 구분하라. 외교 문서 작성으로 알려진 인물과 이두 정리·화왕계로 알려진 인물은 각각 누구인가?",
     "answer": "강수: 외교 문서 작성. 설총: 이두 정리·화왕계.",
     "explanation": "제79회 5번은 신라의 문장가 강수를 묻는다. 청방인문표가 정답 단서다. 비슷한 시대 인물의 업적을 묶어서 혼동하지 않는다.",
-    "source": "제79회 한능검 심화 5번 원문 및 공식 정답 ② 기반 재구성."
+    "source": "제79회 한능검 심화 5번 원문 및 원 기출 정답 ② 기반 재구성."
   },
   {
     "id": "core-hist-79-6",
@@ -78,7 +78,7 @@ globalThis.CORE_REVIEW_PACK=[
     "question": "소정방의 백제 정벌 기록 때문에 정림사지 오층석탑을 잘못 불렀던 이름은? 이 탑의 나라와 층수는?",
     "answer": "평제탑 — 백제의 5층 석탑",
     "explanation": "소정방의 글은 탑에 나중에 새겨졌다. 그 기록 때문에 당나라가 처음 세운 탑으로 오해하면 안 된다. 실제 기출은 사진 식별도 요구하므로 원문 이미지를 별도로 확인한다.",
-    "source": "제79회 한능검 심화 6번 원문 및 공식 정답 ① 기반 재구성."
+    "source": "제79회 한능검 심화 6번 원문 및 원 기출 정답 ① 기반 재구성."
   },
   {
     "id": "core-hist-79-7",
@@ -86,7 +86,7 @@ globalThis.CORE_REVIEW_PACK=[
     "question": "상경 용천부 등 5경을 두고 인안·대흥 같은 독자적인 연호를 사용한 나라는?",
     "answer": "발해",
     "explanation": "상경 용천부와 독자 연호는 발해의 단서다. 인안은 무왕, 대흥은 문왕의 연호로 연결한다.",
-    "source": "제79회 한능검 심화 7번 원문 및 공식 정답 ③ 기반 재구성."
+    "source": "제79회 한능검 심화 7번 원문 및 원 기출 정답 ③ 기반 재구성."
   },
   {
     "id": "core-hist-79-8",
@@ -94,7 +94,7 @@ globalThis.CORE_REVIEW_PACK=[
     "question": "신문왕 때 설치된 신라의 중앙 교육기관은? 교수 담당 관직 두 가지는?",
     "answer": "국학 — 박사와 조교",
     "explanation": "국학은 신라 중앙 교육기관이다. 조선 지방 교육기관 향교와 구분한다.",
-    "source": "제79회 한능검 심화 8번 원문 및 공식 정답 ② 기반 재구성."
+    "source": "제79회 한능검 심화 8번 원문 및 원 기출 정답 ② 기반 재구성."
   },
   {
     "id": "core-hist-79-9",
@@ -102,7 +102,7 @@ globalThis.CORE_REVIEW_PACK=[
     "question": "양길의 부하로 활동했고 철원에 도읍하여 국호를 태봉으로 정한 인물은? 대표 정치기구는?",
     "answer": "궁예 — 광평성",
     "explanation": "양길·철원·태봉을 궁예에 연결한다. 후백제의 견훤, 고려의 왕건과 구분한다.",
-    "source": "제79회 한능검 심화 9번 원문 및 공식 정답 ⑤ 기반 재구성."
+    "source": "제79회 한능검 심화 9번 원문 및 원 기출 정답 ⑤ 기반 재구성."
   },
   {
     "id": "core-hist-79-10",
@@ -110,7 +110,7 @@ globalThis.CORE_REVIEW_PACK=[
     "question": "혜공왕 피살과 장보고의 반란 사이에 발생한 사건은? 신라 왕위 계승 분쟁 속 웅천주에서 일어난 반란을 말하라.",
     "answer": "김헌창의 난",
     "explanation": "제79회 10번은 두 사건 사이의 시기를 판단하는 문제다. 사건 이름만 외우지 말고 신라 하대의 왕위 계승 분쟁 흐름에 연결한다.",
-    "source": "제79회 한능검 심화 10번 원문 및 공식 정답 ③ 기반 재구성."
+    "source": "제79회 한능검 심화 10번 원문 및 원 기출 정답 ③ 기반 재구성."
   },
   {
     "id": "en-session-20260909-wish",
@@ -155,9 +155,9 @@ globalThis.CORE_REVIEW_PACK=[
   {
     "id": "en-session-20260909-comparative",
     "subject": "영어",
-    "question": "___ it gets, ___ the city becomes.\n“추워질수록 도시는 더 밝아진다”에 알맞은 짝은?",
-    "answer": "The colder / the brighter",
-    "explanation": "the + 비교급 ..., the + 비교급 ...은 “~할수록 더 ...하다”라는 구문이다. The colder it gets, the brighter the city becomes.",
+    "question": "___ you drive, ___ the risk becomes.\n“더 빨리 운전할수록 위험은 더 커진다”에 알맞은 짝은?",
+    "answer": "The faster / the greater",
+    "explanation": "the + 비교급 ..., the + 비교급 ...으로 두 변화의 관계를 나타낸다. The faster you drive, the greater the risk becomes. faster는 운전하는 속도를, greater는 위험의 크기를 나타낸다.",
     "source": "2026-09-09 대화 학습 복습용 자체 제작 문항. 기출 원문 아님."
   },
   {
@@ -171,9 +171,9 @@ globalThis.CORE_REVIEW_PACK=[
   {
     "id": "en-session-20260909-poor-as",
     "subject": "영어",
-    "question": "Poor as she is, she is honest and diligent.\n앞부분을 같은 뜻으로 바꾼 것은?",
-    "answer": "Although she is poor",
-    "explanation": "형용사 + as + 주어 + 동사는 양보를 나타낼 수 있다. Poor as she is = Although she is poor. 여기서 as는 “비록 ~하지만”이다.",
+    "question": "Exhausted as she was, she kept working.\n앞부분을 같은 뜻으로 바꾼 것은?",
+    "answer": "Although she was exhausted",
+    "explanation": "여기서 Exhausted as she was는 Although she was exhausted, 즉 ‘몹시 지쳤지만’이라는 양보 의미다. 지쳤는데도 일을 계속했다는 상황이 양보 관계를 분명히 해 준다. 형용사 + as + 주어 + 동사가 항상 양보라는 뜻은 아니며 문맥도 확인한다.",
     "source": "2026-09-09 대화 학습 복습용 자체 제작 문항. 기출 원문 아님."
   },
   {
@@ -195,9 +195,9 @@ globalThis.CORE_REVIEW_PACK=[
   {
     "id": "en-session-20260909-adverb",
     "subject": "영어",
-    "question": "Bats are ___ long-lived creatures.",
+    "question": "Bats are ___ long-lived.\n“박쥐는 놀라울 정도로 오래 산다”라는 뜻이 되도록 빈칸에 알맞은 말을 고르세요.",
     "answer": "surprisingly",
-    "explanation": "long-lived는 “오래 사는”이라는 형용사다. 이를 “놀라울 정도로”라고 꾸미는 부사 surprisingly가 필요하다. surprising news에서는 형용사 surprising이 명사를 꾸민다.",
+    "explanation": "이 문장은 형용사 long-lived의 정도를 ‘놀라울 정도로’라고 꾸미므로 부사 surprisingly가 맞다. 명사 앞에서는 surprising creatures처럼 surprising이 생물을 직접 꾸밀 수도 있다. 따라서 단어의 위치와 수식 대상을 함께 확인한다.",
     "source": "2026-09-09 대화 학습 복습용 자체 제작 문항. 기출 원문 아님."
   },
   {
@@ -229,7 +229,7 @@ globalThis.CORE_REVIEW_PACK=[
     "subject": "영어",
     "question": "When I ___ home, I will call you.",
     "answer": "get",
-    "explanation": "미래 시간을 나타내는 부사절에서는 현재형으로 미래를 표현한다. When I get home, I will call you. by the time, until, as soon as로 이끄는 시간 부사절도 같은 기본 원칙을 따른다.",
+    "explanation": "집에 도착하는 미래의 때를 정하는 시간 부사절이므로 보기 중 get이 맞다. 이런 절에서는 단순한 미래 예측의 will 대신 단순현재를 쓰고, 완료를 강조하려면 현재완료도 가능하다. 모든 when절에 적용하는 규칙은 아니다.",
     "source": "2026-09-09 대화 학습 복습용 자체 제작 문항. 기출 원문 아님."
   },
   {

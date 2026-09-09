@@ -88,3 +88,4 @@ footer { margin: 40px 0 10px; font-size: 13px; }
 .answer-record p { white-space:pre-wrap; overflow-wrap:anywhere; margin:10px 0; }
 .answer-record .record-question { padding-top:10px; border-top:1px solid #414854; }
 [hidden] { display:none !important; }
+ .content-correction{border:1px solid #eab866;border-radius:12px;padding:12px;margin:10px 0;color:#fff;background:#322b20;white-space:pre-wrap;overflow-wrap:anywhere}

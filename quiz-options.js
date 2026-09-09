@@ -177,10 +177,10 @@ globalThis.QUIZ_OPTIONS={
   },
   "en-session-20260909-comparative": {
     "choices": [
-      "Colder / brighter",
-      "The colder / the brighter",
-      "The cold / the bright",
-      "The coldest / the brightest"
+      "Faster / greater",
+      "The faster / the greater",
+      "The fast / the great",
+      "The fastest / the greatest"
     ],
     "correctIndex": 1
   },
@@ -195,10 +195,10 @@ globalThis.QUIZ_OPTIONS={
   },
   "en-session-20260909-poor-as": {
     "choices": [
-      "Because she is poor",
-      "As poor as she is honest",
-      "Although she is poor",
-      "When she becomes poor"
+      "Because she was exhausted",
+      "As exhausted as she was busy",
+      "Although she was exhausted",
+      "When she became exhausted"
     ],
     "correctIndex": 2
   },
