@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 214,
+  "total": 225,
   "sets": [
     {
       "number": 1,
@@ -383,6 +383,29 @@ globalThis.STUDY_REVIEW_CATALOG={
         "summary-hist-20260910-172",
         "summary-hist-20260910-173",
         "summary-hist-20260910-174"
+      ]
+    },
+    {
+      "number": 29,
+      "title": "원본 대조 보완 1 · 통일 신라·후삼국",
+      "ids": [
+        "summary-hist-20260911-001",
+        "summary-hist-20260911-002",
+        "summary-hist-20260911-003",
+        "summary-hist-20260911-004",
+        "summary-hist-20260911-005",
+        "summary-hist-20260911-006"
+      ]
+    },
+    {
+      "number": 30,
+      "title": "원본 대조 보완 2 · 백제·신라·여러 나라·선사·발해",
+      "ids": [
+        "summary-hist-20260911-007",
+        "summary-hist-20260911-008",
+        "summary-hist-20260911-009",
+        "summary-hist-20260911-010",
+        "summary-hist-20260911-011"
       ]
     }
   ],
@@ -824,7 +847,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "section": "선사",
       "coverage": [
         "울주 반구대와 고래·사슴",
-        "천전리와 기하학적 무늬",
+        "고령 장기리와 동심원 등 추상적 도형",
         "바위그림 조성 시기 단정 금지"
       ],
       "sourceSection": "학습 노트 §2 선사 시대"
@@ -852,8 +875,8 @@ globalThis.STUDY_REVIEW_CATALOG={
       "number": 56,
       "section": "선사",
       "coverage": [
-        "단양 상시리의 정확한 표기",
-        "청원 두루봉의 정확한 표기"
+        "단양 금굴·청원 두루봉의 시대",
+        "노트의 구석기 유적 다섯 곳"
       ],
       "sourceSection": "학습 노트 §2 선사 시대"
     },
@@ -2355,6 +2378,104 @@ globalThis.STUDY_REVIEW_CATALOG={
         "견훤의 후당 외교"
       ],
       "sourceSection": "추가 학습 노트 §5 후삼국"
+    },
+    "summary-hist-20260911-001": {
+      "number": 215,
+      "section": "통일 신라",
+      "coverage": [
+        "상수리 제도와 지방 세력 견제",
+        "고려 기인 제도로 이어지는 계보"
+      ],
+      "sourceSection": "학습 노트 요약 자료(2026-09-11 원본 대조 보완)"
+    },
+    "summary-hist-20260911-002": {
+      "number": 216,
+      "section": "통일 신라",
+      "coverage": [
+        "96각간의 난",
+        "무열왕계 권력 독점에 대한 반발"
+      ],
+      "sourceSection": "학습 노트 요약 자료(2026-09-11 원본 대조 보완)"
+    },
+    "summary-hist-20260911-003": {
+      "number": 217,
+      "section": "통일 신라",
+      "coverage": [
+        "신문왕의 6두품 중용",
+        "설총"
+      ],
+      "sourceSection": "학습 노트 요약 자료(2026-09-11 원본 대조 보완)"
+    },
+    "summary-hist-20260911-004": {
+      "number": 218,
+      "section": "후삼국",
+      "coverage": [
+        "궁예의 연호 무태·성책·수덕만세·정개",
+        "국호 변경·천도와의 구별"
+      ],
+      "sourceSection": "학습 노트 요약 자료(2026-09-11 원본 대조 보완)"
+    },
+    "summary-hist-20260911-005": {
+      "number": 219,
+      "section": "후삼국",
+      "coverage": [
+        "견훤의 정개 연호와 후당·오월 외교",
+        "궁예의 정개와 혼동 주의"
+      ],
+      "sourceSection": "학습 노트 요약 자료(2026-09-11 원본 대조 보완)"
+    },
+    "summary-hist-20260911-006": {
+      "number": 220,
+      "section": "후삼국",
+      "coverage": [
+        "견훤의 금성 습격",
+        "경애왕 사망과 경순왕 옹립"
+      ],
+      "sourceSection": "학습 노트 요약 자료(2026-09-11 원본 대조 보완)"
+    },
+    "summary-hist-20260911-007": {
+      "number": 221,
+      "section": "백제",
+      "coverage": [
+        "성왕의 중앙 22부와 지방 5부 5방"
+      ],
+      "sourceSection": "학습 노트 요약 자료(2026-09-11 원본 대조 보완)"
+    },
+    "summary-hist-20260911-008": {
+      "number": 222,
+      "section": "신라",
+      "coverage": [
+        "진흥왕의 품주 설치",
+        "조세 관장 기구"
+      ],
+      "sourceSection": "학습 노트 요약 자료(2026-09-11 원본 대조 보완)"
+    },
+    "summary-hist-20260911-009": {
+      "number": 223,
+      "section": "여러 나라",
+      "coverage": [
+        "고구려의 상가·대로·패자·고추가",
+        "대가 아래의 사자·조의·선인"
+      ],
+      "sourceSection": "학습 노트 요약 자료(2026-09-11 원본 대조 보완)"
+    },
+    "summary-hist-20260911-010": {
+      "number": 224,
+      "section": "선사",
+      "coverage": [
+        "봉산 지탑리와 불에 탄 좁쌀",
+        "농경 시작의 증거"
+      ],
+      "sourceSection": "학습 노트 요약 자료(2026-09-11 원본 대조 보완)"
+    },
+    "summary-hist-20260911-011": {
+      "number": 225,
+      "section": "발해",
+      "coverage": [
+        "이불병좌상·돌사자상·석등",
+        "고구려 계승의 문화 근거"
+      ],
+      "sourceSection": "학습 노트 요약 자료(2026-09-11 원본 대조 보완)"
     }
   }
 };
