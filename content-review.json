@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "reviewedOn": "2026-09-10",
-  "notes": "Primary agent read the 146 exercises and 40 lessons, checked the structural review claims against code and representative primary/authoritative sources, and reviewed new counterexamples and accepted variants. See docs/CONTENT-COVERAGE-2026-09-10.md. No independent-agent re-review was commissioned for this expansion. Automated checks do not prove semantic correctness.",
+  "notes": "Primary agent read the 146 exercises and 40 lessons, checked the structural review claims against code and representative primary/authoritative sources, and reviewed new counterexamples and accepted variants. See docs/CONTENT-COVERAGE-2026-09-10.md. No independent-agent re-review was commissioned for this expansion. Automated checks do not prove semantic correctness. v21: Primary agent reviewed the wish MCQ tense distractors and contrastive explanation; only its fingerprint changed. See docs/CONTENT-DISTRACTORS-2026-09-10.md. Existing answer and exercise identity are unchanged.",
   "items": {
     "core-ko-2026seoul-1-e519ca9b": "ea310cd3900a23e41bae69db11bf337e8ac74f4e0ffb85d017e9782b5f841c5a",
     "core-ko-2026seoul-17-43ae156d": "00376e8d27c934612c298b18a26c85bed4fdb1efde98314a0af557faa530c406",
@@ -23,7 +23,7 @@
     "core-hist-79-8-9fffcaac": "9fcec6d25b57ca0809c58c2372f6451f5e1a07c07b120007db01149d53ddd71c",
     "core-hist-79-9-4305f59f": "553589c64eac8cf713aaf03338c9caa7ba5210df78588efd383ee127146230c4",
     "core-hist-79-10-1f7b7360": "be3486aaf662357c8d3c75b298a946da1d0a2ad19d702e57a20b07704a4b2e79",
-    "en-session-20260909-wish-5282e037": "75803ce9936315bbbcf1e48c8c5a5c474a638fcf1540a80ed941e9b7ae297982",
+    "en-session-20260909-wish-5282e037": "0c8f5575d64c9c90e4d7f5200444e86d4054374b3234f0dc5e26387f65c2afcb",
     "en-session-20260909-wish-7b6a2fb1": "d8e64e4b49142c76618f7c131b98bd28f7186960754da5724b5f9c140d4e3d4d",
     "en-session-20260909-wish-6c53a9bd": "fb9025ea69a9eb1fc6eb4c65bca02fc21d9073763c4ffc2bce61cf6bf9d902d6",
     "en-session-20260909-considering-ef22eb75": "2a23edbfcad5c329fbd15445e59d3697b24ed485cb808d746e45b0b7f5c5db76",

@@ -134,12 +134,13 @@ globalThis.QUIZ_OPTIONS={
   },
   "en-session-20260909-wish": {
     "choices": [
-      "buy",
+      "have bought",
       "bought",
       "had bought",
-      "will buy"
+      "will have bought"
     ],
-    "correctIndex": 2
+    "correctIndex": 2,
+    "explanation": "작년에 실제로 사지 않은 집을 지금 아쉬워하는 문장이다. 이미 지나간 사실과 반대되는 바람은 I wish + 주어 + had p.p.로 나타내므로 had bought가 맞다. have bought는 현재완료라 이 과거 사실에 대한 아쉬움을 나타내는 자리에 맞지 않는다. bought는 단순과거형이지만, wish 뒤의 과거형은 보통 현재의 사실과 반대되는 바람을 나타내므로 여기서는 맞지 않는다. will have bought는 미래의 기준 시점까지 완료될 일을 나타내는 미래완료라 문맥에 맞지 않는다. last year만 보고 무조건 had를 고르는 것이 아니라, wish 뒤에서 이미 지나간 일을 아쉬워한다는 뜻을 함께 본다."
   },
   "en-session-20260909-considering": {
     "choices": [
