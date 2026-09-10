@@ -1,4 +1,4 @@
-// Curated practice, not verbatim exam questions. Typed items request only the specified word.
+// Curated practice, not verbatim exam questions. Variants can be written or multiple-choice.
 (function(root){
  const bank={};
  function add(id,title,rule,hook,examples,rows){bank[id]={title,rule,hook,examples,variants:rows.map(([question,answer,explanation])=>({question,answers:Array.isArray(answer)?answer:[answer],explanation,type:'text'}))};}
@@ -130,6 +130,90 @@
  bank['grammar-agreement-portion'].variants.push(
   {type:'text',question:'is 또는 are를 쓰세요.\nMost of the furniture ___ old.',answers:['is'],explanation:'무엇의 대부분인지 보면 불가산명사 furniture다. is를 쓴다.'},
   {type:'text',question:'is 또는 are를 쓰세요.\nAll of the chairs ___ broken.',answers:['are'],explanation:'all of 뒤의 대상 chairs가 복수이므로 are다.'});
+ // New applications of the agreement document. Append to preserve existing written variants.
+ function agreementChoice(key,question,choices,correctIndex,explanation){
+  bank[key].variants.push({type:'choice',question,choices,correctIndex,explanation});
+ }
+ agreementChoice(id('as-well'),
+  '격식 문법 기준으로 두 빈칸에 들어갈 말을 순서대로 고르세요.\nThe technicians as well as their supervisor ___ access to the lab.\nThe supervisor, as well as the technicians, ___ access to the lab.',
+  ['has / have','have / have','have / has','has / has'],2,
+  '첫 문장의 중심 주어는 복수 technicians이므로 have, 둘째는 단수 supervisor이므로 has다. as well as 뒤의 덧붙임을 지우고 남는 주어를 본다. 쉼표가 있거나 없다는 이유로 일치 기준이 바뀌지는 않는다.');
+ agreementChoice(id('neither'),
+  '격식 문법 기준으로 두 빈칸에 들어갈 말을 순서대로 고르세요.\nNot only the technician but also the assistants ___ ready.\nNeither the assistants nor the technician ___ ready.',
+  ['is / are','are / are','is / is','are / is'],3,
+  '주어들을 동사 앞에서 잇는 이 두 구문은 동사에 가까운 쪽에 맞춘다. 첫 문장은 assistants가 복수라 are, 둘째는 technician이 단수라 is다. not only는 둘 다 포함하는 강조이고 neither는 둘 다 부정한다. 뜻이 같아서 같은 일치 기준을 쓰는 것은 아니다.');
+ agreementChoice(id('knowledge'),
+  '다음 문장 중 대괄호 안 동사의 수일치가 틀린 문장을 고르세요.',
+  ['The labels on these boxes [are] clear.','The list of required documents [are] on my desk.','The key to the storage rooms [is] missing.','Instructions for the new printer [are] available online.'],1,
+  'The list of required documents의 중심 주어는 list 하나이므로 are를 is로 고쳐야 한다. 나머지는 각각 labels → are, key → is, Instructions → are로 맞다. 동사와 가까운 documents·rooms·printer가 아니라 각 문장의 중심 주어를 확인한다.');
+ agreementChoice(id('debate-head'),
+  '두 빈칸에 들어갈 말을 순서대로 고르세요.\nI know a technician who ___ the servers.\nI know several technicians who ___ the servers.',
+  ['maintains / maintain','maintain / maintains','maintains / maintains','maintain / maintain'],0,
+  '첫 who는 a technician 한 명을 받아 maintains, 둘째 who는 several technicians 여러 명을 받아 maintain이다. 관계절 안에서 who를 그 앞의 명사로 바꾸면 A technician maintains와 Technicians maintain이 된다. 주절의 I나 목적어 servers에 관계절 동사를 맞추지 않는다.');
+ agreementChoice('grammar-agreement-each',
+  '격식 문법 기준으로 대괄호 안 동사의 수일치가 틀린 문장을 고르세요.',
+  ['The employees each [have] a locker.','Every driver [has] a ticket.','Each of my neighbors [has] a bicycle.','Each of the employees [have] a locker.'],3,
+  'Each of the employees에서는 each가 중심이므로 have를 has로 고친다. The employees each에서는 employees가 주어라 have가 맞다. Every driver는 한 명씩 가리키므로 has, Each of my neighbors도 each에 맞춰 has다. each라는 단어가 있는지만 보지 말고 주어 자리를 확인한다.');
+ agreementChoice('grammar-agreement-number',
+  '두 빈칸에 들어갈 말을 순서대로 고르세요.\nA number of files on this computer ___ damaged.\nThe number of damaged files ___ small.',
+  ['is / is','are / is','is / are','are / are'],1,
+  'A number of files는 여러 파일을 가리켜 are다. The number of damaged files는 손상된 파일의 수라는 숫자 하나를 가리켜 is다. 첫 문장의 computer나 둘째 문장의 files처럼 뒤에 있는 명사에 끌려가지 않는다.');
+ agreementChoice('grammar-agreement-portion',
+  '두 빈칸에 들어갈 말을 순서대로 고르세요.\nThirty percent of the equipment ___ new.\nThirty percent of the machines ___ new.',
+  ['are / is','are / are','is / is','is / are'],3,
+  '첫 문장은 불가산명사 equipment의 일부이므로 is, 둘째는 복수 machines의 일부이므로 are다. 30이라는 숫자나 percent만 보지 않고 무엇의 30%인지를 확인한다.');
+ agreementChoice('grammar-agreement-pair',
+  '다음 문장 중 대괄호 안 동사의 수일치가 틀린 문장을 고르세요.',
+  ['These scissors [is] very sharp.','A pair of trousers [is] on the bed.','Two pairs of gloves [are] in the drawer.','Those trousers [are] clean.'],0,
+  'scissors는 복수형으로 취급하므로 is를 are로 고친다. 가위가 실제로 한 개여도 scissors 자체에는 복수 동사를 쓴다. 나머지는 단수 pair → is, 복수 pairs → are, 복수형 trousers → are로 맞다.');
+ agreementChoice('grammar-agreement-identity',
+  '첫 문장에는 누나 수진과 남동생 도현, 서로 다른 두 명이 방문했습니다.\nMy sister and brother ___ here.\n둘째 문장의 방문자는 준호 한 명이며, 준호가 내 친구이면서 동료입니다.\nMy friend and colleague ___ here.\n두 빈칸에 들어갈 말을 순서대로 고르세요.',
+  ['is / are','is / is','are / is','are / are'],2,
+  '첫 문장은 서로 다른 두 사람이라 are, 둘째는 한 사람의 두 역할이라 is다. 두 문장 모두 my를 한 번만 썼지만 정답이 다르다. 소유격의 개수만으로 인원수를 정하지 말고, 제시된 문맥에서 한 명인지 두 명인지 확인한다.');
+ agreementChoice('grammar-agreement-together',
+  '격식 문법 기준으로 두 빈칸에 들어갈 말을 순서대로 고르세요.\nThe engineers, including their manager, ___ here.\nThe manager, together with the engineers, ___ here.',
+  ['are / is','is / are','are / are','is / is'],0,
+  '첫 문장은 engineers가 복수라 are, 둘째는 manager가 단수라 is다. including과 together with로 덧붙인 부분은 중심 주어를 바꾸지 않는다. 두 문장을 각각 The engineers are here와 The manager is here로 줄여 본다.');
+ agreementChoice('grammar-agreement-existential',
+  '격식 문법 기준으로 두 빈칸에 들어갈 말을 순서대로 고르세요.\nNear the door ___ two empty boxes.\nThere ___ a spare key in this drawer.',
+  ['is / are','are / are','are / is','is / is'],2,
+  '첫 문장은 장소 표현을 앞으로 보낸 도치다. 뒤의 two empty boxes가 주어이므로 are다. 둘째 there 구문에서는 뒤의 a spare key가 단수라 is다. door나 drawer는 장소를 설명하는 말이며 일치 기준이 아니다.');
+ agreementChoice('grammar-agreement-collective',
+  '영국식 용례도 포함하며 집단을 하나로 보는지 구성원 각각으로 보는지 문맥을 한정하지 않습니다. 두 빈칸에 가능한 형태를 빠짐없이 제시한 보기를 고르세요.\nThe committee ___ ready.\nThe members of the committee ___ ready.',
+  ['is만 / are','is 또는 are / are','are만 / is','is 또는 are / is'],1,
+  '첫 committee는 집합명사라 집단 하나를 뜻하는 is와 구성원들을 떠올리는 영국식 are 용례가 모두 있다. 둘째는 중심 주어 members가 분명한 복수라 are다. committee가 들어 있다는 이유만으로 두 문장에 같은 기준을 적용하지 않는다.');
+ agreementChoice('grammar-agreement-noun-form',
+  'police는 경찰관들을, physics는 학문 이름을 뜻합니다. 대괄호 안 동사의 수일치가 틀린 문장을 고르세요.',
+  ['The news [is] surprising.','The police [are] investigating the case.','Information about these courses [is] available online.','Physics [are] my favorite subject.'],3,
+  '학문 이름 Physics는 단수로 취급하므로 are를 is로 고친다. news도 단수라 is, 경찰관들을 뜻하는 police는 복수라 are다. Information은 불가산명사라 is이며 courses의 복수형에 맞추지 않는다.');
+ agreementChoice('grammar-agreement-one',
+  '일반적인 격식 문법 기준으로 대괄호 안 동사의 수일치가 틀린 문장을 고르세요.',
+  ['One of the train doors [is] open.','Several passengers [have] complained.','More than one passenger [have] complained.','The doors of the train [are] open.'],2,
+  'more than one + 단수명사 passenger는 보통 단수 동사를 쓰므로 have를 has로 고친다. 의미가 두 명 이상이어도 이 구문의 기본 일치는 단수다. 나머지는 one → is, Several passengers → have, doors → are로 맞다.');
+ agreementChoice('grammar-agreement-amount',
+  '첫 문장은 작업에 필요한 시간의 총량, 둘째는 시계 두 개의 위치를 말합니다. 두 빈칸에 들어갈 말을 순서대로 고르세요.\nTwo hours ___ enough to finish this task.\nTwo clocks ___ hanging on the wall.',
+  ['is / are','are / is','is / is','are / are'],0,
+  '첫 문장은 두 시간이라는 총량 하나가 충분한지를 말하므로 is다. 둘째는 실제 물건인 시계 두 개를 복수 명사 clocks로 세므로 are다. 숫자 two가 있다는 사실만으로 두 동사를 모두 복수로 정하지 않는다.');
+ agreementChoice('grammar-agreement-none',
+  '격식 문체와 일상 용례를 모두 포함합니다. 두 빈칸에 가능한 형태를 빠짐없이 제시한 보기를 고르세요.\nNone of the furniture ___ damaged.\nNone of the chairs ___ damaged.',
+  ['is / is만','are / are만','are / is 또는 are','is / is 또는 are'],3,
+  'furniture는 불가산명사라 첫 빈칸에는 is를 쓴다. 복수 chairs를 받는 none of에는 is와 are 용례가 모두 있다. 둘째 문장의 문체를 한쪽으로 제한하지 않았으므로 어느 하나만 가능하다고 말한 보기는 맞지 않는다.');
+ agreementChoice('grammar-agreement-indefinite',
+  '두 빈칸에 들어갈 말을 순서대로 고르세요.\nNobody in these buildings ___ access to the roof.\nSeveral of the residents ___ bicycles.',
+  ['have / has','has / have','has / has','have / have'],1,
+  'nobody는 문법상 단수라 has다. buildings는 주어를 수식하는 전치사구 안의 명사다. 둘째는 여러 주민을 가리키는 several of the residents이므로 have다. 실제 사람이 여러 명 관련돼 있다는 뜻과 문법상 주어의 수를 구별한다.');
+ agreementChoice('grammar-agreement-rich',
+  'the rich는 부유한 사람들, the poor는 가난한 사람들을 가리킵니다. 두 빈칸에 들어갈 말을 순서대로 고르세요.\nThe rich ___ not immune to illness.\nThe poor ___ not a uniform group.',
+  ['is / are','are / is','are / are','is / is'],2,
+  '두 주어 모두 사람들을 집단적으로 가리키므로 are / are다. 둘째 문장의 a uniform group은 주어가 아니라 보어다. 동사를 뒤의 단수형 group에 맞추지 않는다.');
+ agreementChoice('grammar-agreement-both',
+  '미나는 과학자이면서 소설가인 한 명이며, 편집자는 미나와 다른 사람입니다. 두 빈칸에 들어갈 말을 순서대로 고르세요.\nMina ___ both a scientist and a novelist.\nBoth Mina and her editor ___ here.',
+  ['are / is','is / are','is / is','are / are'],1,
+  '첫 문장은 주어 Mina가 한 명이라 is다. both는 동사 뒤에서 두 역할을 연결한다. 둘째는 both가 Mina와 her editor라는 두 주어를 연결하므로 are다. both라는 단어가 보이면 먼저 무엇을 연결하는지 본다.');
+ agreementChoice('grammar-agreement-unit',
+  '두 빈칸에 들어갈 말을 순서대로 고르세요.\nThat the prices have risen ___ clear.\nTo repair these machines ___ time.',
+  ['is / takes','are / take','is / take','are / takes'],0,
+  '첫 문장의 주어는 That the prices have risen이라는 절 전체라 is다. 절 안의 prices는 have risen의 주어일 뿐, 바깥 빈칸의 일치 기준이 아니다. 둘째는 To repair these machines라는 to부정사구 하나가 주어라 단수 takes를 쓴다. 목적어 machines에 맞춰 take로 바꾸지 않는다.');
  const agreement=['as-well','neither','knowledge','debate-head'];
  for(const [key,value]of Object.entries(bank))value.topic=key.startsWith('grammar-agreement-')||agreement.some(k=>key===id(k))?'수일치':'영문법';
  root.PRACTICE_BANK=bank;
