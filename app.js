@@ -31,7 +31,7 @@ function appendPaper(parent,paper){
 }
 function renderRound(){
  const visible=$('#subjectFilter').value==='한국사',select=$('#roundFilter');$('#roundLabel').hidden=!visible;
- if(!select.dataset.ready){select.replaceChildren();for(const [value,label]of [['','한국사 전체'],['core','기존 핵심 복습'],...Hanneung.rounds.map(n=>[String(n),n+'회 심화 · 50문항'])]){const o=elem('option',label);o.value=value;select.append(o);}select.dataset.ready='true';}
+ if(!select.dataset.ready){select.replaceChildren();for(const [value,label]of [['','한국사 전체'],['core','기존 핵심 복습'],...Hanneung.rounds.map(n=>{const count=Hanneung.rows.filter(r=>r.round===n&&Hanneung.hasExplanation(r.id)).length;return [String(n),n+'회 심화 · 50문항'+(count?' · 해설 '+count+'개':'')];})]){const o=elem('option',label);o.value=value;select.append(o);}select.dataset.ready='true';}
  select.value=visible?(data.practiceScope?.round||''):'';
  const numeric=Number(select.value),show=visible&&Hanneung.rounds.includes(numeric);$('#roundScore').hidden=!show;
  if(show){const s=Hanneung.stats(numeric,data.history);$('#roundScore').textContent='첫 풀이 '+s.answered+'/'+s.total+'문항 · '+(s.complete?'점수 ':'현재 획득 ')+s.points+'/100점'+(s.bonus?' (공식 오류 문항 2점 포함)':'')+(s.complete?' · '+(s.points>=60?'3급 이상 기준 도달':'3급 기준 60점 미만'):'')+' · 재풀이는 학습 기록에 따로 남아요.';}
@@ -77,7 +77,7 @@ function restoreExplanationPanels(keys){for(const node of document.querySelector
 function appendCorrection(parent,snapshot){const update=ContentCorrections.find(snapshot);if(!update)return;const note=elem('div',undefined,'content-correction');note.append(elem('strong','문항·해설 수정 안내'),elem('p','아래 기록은 수정 전 문항의 당시 채점 결과입니다.'),elem('p',update.note),elem('p','현재 문항: '+update.question),elem('p','현재 정답: '+update.answer),elem('p',update.explanation));parent.append(note);}
 function explanationText(text){
  const p=elem('p',undefined,'explanation-text');let start=0;
- for(const match of text.matchAll(/https:\/\/(?:contents\.history\.go\.kr|www\.heritage\.go\.kr)\/[^\s]+/g)){
+ for(const match of text.matchAll(/https:\/\/(?:contents\.history\.go\.kr|www\.heritage\.go\.kr|www\.museum\.go\.kr|cl\.mofa\.go\.kr|www\.kookje\.co\.kr|www\.kmdb\.or\.kr)\/[^\s]+/g)){
   p.append(document.createTextNode(text.slice(start,match.index)));const link=elem('a','근거 자료 열기');link.href=match[0];link.target='_blank';link.rel='noopener noreferrer';p.append(link);start=match.index+match[0].length;
  }
  p.append(document.createTextNode(text.slice(start)));return p;
