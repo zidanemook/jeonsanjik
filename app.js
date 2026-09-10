@@ -75,6 +75,17 @@ function feedbackReviewId(feedback){
 }
 function restoreExplanationPanels(keys){for(const node of document.querySelectorAll('[data-explanation-key]'))if(keys.has(node.dataset.explanationKey))node.open=true;}
 function appendCorrection(parent,snapshot){const update=ContentCorrections.find(snapshot);if(!update)return;const note=elem('div',undefined,'content-correction');note.append(elem('strong','문항·해설 수정 안내'),elem('p','아래 기록은 수정 전 문항의 당시 채점 결과입니다.'),elem('p',update.note),elem('p','현재 문항: '+update.question),elem('p','현재 정답: '+update.answer),elem('p',update.explanation));parent.append(note);}
+function explanationText(text){
+ const p=elem('p',undefined,'explanation-text');let start=0;
+ for(const match of text.matchAll(/https:\/\/(?:contents\.history\.go\.kr|www\.heritage\.go\.kr)\/[^\s]+/g)){
+  p.append(document.createTextNode(text.slice(start,match.index)));const link=elem('a','근거 자료 열기');link.href=match[0];link.target='_blank';link.rel='noopener noreferrer';p.append(link);start=match.index+match[0].length;
+ }
+ p.append(document.createTextNode(text.slice(start)));return p;
+}
+function appendNewPaperExplanation(parent,id,previous,reviewId,location){
+ if(!Hanneung.hasExplanation(id))return;const current=Hanneung.explanation(id);if(current===previous)return;
+ const details=elem('details',undefined,'lesson');details.append(elem('summary','추가된 상세 해설 보기'),explanationText(current));attachExplanationCredit(details,reviewId,location);parent.append(details);
+}
 function renderHistory(cards){
  const opened=new Set([...document.querySelectorAll('.answer-record[open][data-explanation-key]')].map(e=>e.dataset.explanationKey));
  const byId=new Map(cards.map(c=>[c.id,c]));
@@ -86,7 +97,7 @@ function renderHistory(cards){
  $('#historyTitle').textContent='학습 기록 · '+rows.length+'회';const list=$('#historyList');list.replaceChildren();
  if(!rows.length){list.append(elem('p','문제를 풀면 날짜와 채점 결과가 여기에 남아요.'));return;}
  for(const row of rows.slice(0,historyLimit)){const card=byId.get(row.cardId),d=row.detail,item=elem('li',undefined,'history-row'),result=elem('strong',row.result==='correct'?'정답':row.result==='wrong'?'오답':'복습 필요','result-'+row.result);const content=elem('div');const label=d?.title||PRACTICE_BANK[card.id]?.title||card.question.split('\n')[0];content.append(elem('div',(d?.subject||card.subject)+' · '+label));const time=row.at&&Number.isFinite(Date.parse(row.at))?new Date(row.at).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}):'';const kind={first:'처음 푼 예문',repeat:'다시 푼 예문',practice:'이어서 연습',unknown:'첫 풀이 여부 확인 불가'}[kinds.get(row.id)];content.append(elem('small',row.date+' '+time+' · '+kind));
-  if(d){const details=elem('details',undefined,'answer-record');details.append(elem('summary','풀었던 문제와 내 답 보기'));appendCorrection(details,d);details.append(elem('p',Hanneung.cleanQuestion(d.question),'record-question'));if(d.options)details.append(elem('p',d.options,'record-options'));details.append(elem('p','내 답: '+d.submittedAnswer),elem('p','당시 정답: '+d.correctAnswer),elem('p',d.explanation));content.append(details);}else content.append(elem('small','이전 기록에는 예문과 입력한 답이 저장되어 있지 않아요.'));
+  if(d){const details=elem('details',undefined,'answer-record');details.append(elem('summary','풀었던 문제와 내 답 보기'));appendCorrection(details,d);details.append(elem('p',Hanneung.cleanQuestion(d.question),'record-question'));if(d.options)details.append(elem('p',d.options,'record-options'));details.append(elem('p','내 답: '+d.submittedAnswer),elem('p','당시 정답: '+d.correctAnswer),explanationText(d.explanation));appendNewPaperExplanation(details,card.id,d.explanation,row.id,'history-supplement');content.append(details);}else content.append(elem('small','이전 기록에는 예문과 입력한 답이 저장되어 있지 않아요.'));
   const details=content.querySelector('.answer-record');if(details){const paper=Hanneung.recorded(card.id,d);if(paper)details.addEventListener('toggle',()=>{if(details.open&&!details.querySelector('img'))appendPaper(details,paper);});attachExplanationCredit(details,row.id,'history');}
   item.append(result,content);list.append(item);}
  if(rows.length>historyLimit){const item=elem('li');item.append(btn('이전 기록 더 보기',()=>{historyLimit+=30;renderHistory(data.cards.filter(inScope));}));list.append(item);}
@@ -126,7 +137,8 @@ function render(){
  if(feedback){
   const f=data.quizFeedback,answer=elem('div',undefined,'answer'),correct=quiz.type==='text'?quiz.answers.join(' / '):quiz.choices[quiz.correctIndex];
   appendCorrection(answer,quiz);
-  answer.append(elem('strong',f.result==='correct'?'정답입니다.':f.result==='unsure'?'정답입니다. 설명을 보고 풀어 내일 다시 연습해요.':'틀렸어요. 정답: '+correct),elem('p',quiz.explanation||card.explanation));
+  answer.append(elem('strong',f.result==='correct'?'정답입니다.':f.result==='unsure'?'정답입니다. 설명을 보고 풀어 내일 다시 연습해요.':'틀렸어요. 정답: '+correct),explanationText(quiz.explanation||card.explanation));
+  appendNewPaperExplanation(answer,card.id,quiz.explanation||card.explanation,feedbackReviewId(f),'feedback-supplement');
   answer.append(elem('p','풀이 완료 · 환산 시간 +1분','study-credit-award'));
   if(lesson)answer.append(elem('p',lesson.hook,'hook'));
   if(lesson){const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),elem('p',lesson.rule));for(const example of lesson.examples)details.append(elem('p',example,'example'));attachExplanationCredit(details,feedbackReviewId(f),'lesson');answer.append(details);}

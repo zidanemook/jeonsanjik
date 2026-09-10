@@ -67,9 +67,14 @@ node review-policy.test.cjs
 node content-audit.cjs
 node study-credit.test.cjs
 node sync-explanations.test.cjs
+node hanneung.test.cjs
 ~~~
 
 복습 간격은 학습 기록을 위한 단순한 운영 규칙이며, 시험 점수나 기억률을 보장하지 않습니다.
+
+## 한능검 상세 해설 (v24)
+
+57~79회 공식 심화 기출 1,149문항 중 79회 1~10번에 지문 단서, 정답 근거, 보기별 풀이, 기억 연결과 기관 자료 링크를 추가했습니다. 다른 문항에는 공식 정답·배점만 표시합니다. 과거 풀이와 당시 해설은 보존하며, 해설 추가 전에 푼 문제에서도 새 해설을 펼칠 수 있습니다. [검토 범위와 자료](docs/HANNEUNG-EXPLANATIONS-2026-09-10.md).
 
 
 ## 학습량 환산 시간 (v20)

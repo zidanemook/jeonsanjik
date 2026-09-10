@@ -4,6 +4,16 @@ const keys=JSON.parse(fs.readFileSync(__dirname+'/docs/hanneung-answer-keys.json
 assert.equal(h.rows.length,1150);assert.equal(new Set(h.rows.map(r=>r.id)).size,1150);
 assert.equal(h.rounds.length,23);
 const cards=[],options={};h.install(cards,options);assert.equal(cards.length,1149);assert(!options['hanneung-63-42']);
+const explanations=require('./hanneung-explanations.js');
+assert.deepEqual(Object.keys(explanations),Array.from({length:10},(_,i)=>'hanneung-79-'+String(i+1).padStart(2,'0')));
+for(const [id,e]of Object.entries(explanations)){
+ assert.equal(e.choices.length,5,id);assert(e.clue&&e.reason&&e.hook&&e.reviewedOn);
+ assert(e.sources.length>0);for(const s of e.sources){assert(s.title);const url=new URL(s.url);assert.equal(url.protocol,'https:');assert(['contents.history.go.kr','www.heritage.go.kr'].includes(url.hostname));}
+ assert(!options[id].explanation.includes('아직 제공하지 않습니다'));assert(options[id].explanation.length<8000);
+ const c=cards.find(c=>c.id===id),e2=practice.select(c,[],{},options),detail=record.create(c,e2,e2.correctIndex,null,id);assert.equal(detail.explanation,h.explanation(id));
+}
+assert(options['hanneung-79-11'].explanation.includes('아직 제공하지 않습니다'));
+assert.equal(h.explanation('hanneung-63-42'),null);
 for(const n of h.rounds){const rows=h.rows.filter(r=>r.round===n);assert.deepEqual(rows.map(r=>r.number),Array.from({length:50},(_,i)=>i+1));assert.equal(rows.reduce((s,r)=>s+r.points,0),100);}
 for(const r of h.rows){
  assert.equal(r.answer,keys[r.round].answers[r.number-1]==='0'?null:Number(keys[r.round].answers[r.number-1]));

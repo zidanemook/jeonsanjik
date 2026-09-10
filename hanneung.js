@@ -1,16 +1,23 @@
 'use strict';
 (function(root){
  const rows=typeof module!=='undefined'&&module.exports?require('./hanneung-data.js'):root.HANNEUNG_DATA;
+ const explanations=typeof module!=='undefined'&&module.exports?require('./hanneung-explanations.js'):root.HANNEUNG_EXPLANATIONS;
  const byId=new Map(rows.map(r=>[r.id,r]));
  const rounds=[...new Set(rows.map(r=>r.round))].sort((a,b)=>b-a),symbols=['①','②','③','④','⑤'];
  function title(r){return '한능검 심화 '+r.round+'회 '+r.number+'번 · '+r.points+'점';}
+ function explanation(id){
+  const r=byId.get(id);if(!r||r.answer===null)return null;
+  const intro='국사편찬위원회 공식 정답: '+symbols[r.answer-1]+' · 배점 '+r.points+'점.',e=explanations?.[id];
+  if(!e)return intro+'\n이 문항은 공식 문제와 정답표를 수록했으며, 상세 해설은 아직 제공하지 않습니다.';
+  return [intro,'지문에서 잡을 단서\n'+e.clue,'왜 정답인가\n'+e.reason,'보기별 풀이\n'+e.choices.join('\n\n'),'기억 연결\n'+e.hook,'확인한 자료 · '+e.reviewedOn+'\n'+e.sources.map(s=>s.title+'\n'+s.url).join('\n\n')].join('\n\n');
+ }
  function install(cards,options){
   for(const r of rows){
    if(r.answer===null)continue;
-   const explanation='국사편찬위원회 공식 정답: '+symbols[r.answer-1]+' · 배점 '+r.points+'점.\n이 문항은 공식 문제와 정답표를 수록했으며, 상세 해설은 아직 제공하지 않습니다.';
+   const text=explanation(r.id);
    const question=title(r)+'\n원문을 읽고 답을 고르세요.';
-   cards.push({id:r.id,subject:'한국사',question,answer:symbols[r.answer-1],explanation,source:'국사편찬위원회 공개 심화 기출 · '+r.round+'회 '+r.number+'번 (원문 '+r.page+'쪽).'});
-   options[r.id]={question,choices:symbols.slice(),correctIndex:r.answer-1,explanation,fixedOrder:true,image:r.image,imageWidth:r.width,imageHeight:r.height};
+   cards.push({id:r.id,subject:'한국사',question,answer:symbols[r.answer-1],explanation:text,source:'국사편찬위원회 공개 심화 기출 · '+r.round+'회 '+r.number+'번 (원문 '+r.page+'쪽).'});
+   options[r.id]={question,choices:symbols.slice(),correctIndex:r.answer-1,explanation:text,fixedOrder:true,image:r.image,imageWidth:r.width,imageHeight:r.height};
   }
  }
  function stats(round,history){
@@ -21,7 +28,7 @@
  }
  const imageMarker=/\n원문 이미지: (assets\/hanneung\/\d{2}-\d{2}-[a-f0-9]{10}\.webp)$/;
  function recorded(id,detail){const row=byId.get(id),image=detail?.question?.match(imageMarker)?.[1];return row&&{...row,image:image||row.image};}
- const api={rows,rounds,get:id=>byId.get(id),title,install,stats,recorded,cleanQuestion:s=>s.replace(imageMarker,'')};
+ const api={rows,rounds,get:id=>byId.get(id),title,install,stats,recorded,explanation,hasExplanation:id=>!!explanations?.[id],cleanQuestion:s=>s.replace(imageMarker,'')};
  root.Hanneung=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
  else install(root.CORE_REVIEW_PACK,root.QUIZ_OPTIONS);
 })(globalThis);

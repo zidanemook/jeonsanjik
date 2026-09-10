@@ -30,7 +30,7 @@ jobs:
           mkdir _site
           cp study-credit.js index.html app.js core-review-pack.js quiz-options.js practice-bank.js practice.js content-corrections.js review-record.js review-policy.js sync-core.js sync.js scheduler.js learning.js style.css sw.js manifest.json icon.svg _site/
           cp -r vendor _site/
-          cp hanneung-data.js hanneung.js _site/
+          cp hanneung-data.js hanneung-explanations.js hanneung.js _site/
           cp -r assets _site/
           node build-config.cjs
       - uses: actions/upload-pages-artifact@v3
