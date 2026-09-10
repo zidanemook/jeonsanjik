@@ -11,8 +11,8 @@
   const count=history.filter(h=>h.cardId===card.id).length;
   const index=count%variants.length,exercise=structuredClone(variants[index]);
   exercise.key=card.id+':'+index;exercise.variantIndex=index;exercise.variantCount=variants.length;
-  exercise.exerciseId=card.id+'-'+fingerprint(JSON.stringify([exercise.type,exercise.question,exercise.answers||exercise.choices[exercise.correctIndex]]));
-  if(exercise.type==='choice'){
+  exercise.exerciseId=card.id+'-'+fingerprint(JSON.stringify([exercise.type,exercise.question,exercise.answers||exercise.choices[exercise.correctIndex],...(exercise.image?[exercise.image]:[])]));
+  if(exercise.type==='choice'&&!exercise.fixedOrder){
    let seed=2166136261;for(const char of card.id+':'+count)seed=Math.imul(seed^char.charCodeAt(0),16777619)>>>0;
    const correct=exercise.choices[exercise.correctIndex],choices=[...exercise.choices];
    for(let i=choices.length-1;i>0;i--){seed=(Math.imul(seed,1664525)+1013904223)>>>0;const j=seed%(i+1);[choices[i],choices[j]]=[choices[j],choices[i]];}
@@ -28,7 +28,7 @@
   for(let i=0;i<size;i++){const candidate=select(card,Array.from({length:i},()=>({cardId:card.id})),bank,options);if(candidate.exerciseId===saved?.exerciseId){index=i;break;}}
   const current=select(card,Array.from({length:index},()=>({cardId:card.id})),bank,options);
   if(!current)return null;
-  if(current.type==='choice'&&saved?.type==='choice'&&JSON.stringify([...current.choices].sort())===JSON.stringify([...saved.choices].sort())){
+  if(current.type==='choice'&&!current.fixedOrder&&saved?.type==='choice'&&JSON.stringify([...current.choices].sort())===JSON.stringify([...saved.choices].sort())){
    const correct=current.choices[current.correctIndex];current.choices=[...saved.choices];current.correctIndex=current.choices.indexOf(correct);
   }
   return current;

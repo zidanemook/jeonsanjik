@@ -5,6 +5,18 @@
   color: #fff;
   background: #111318;
 }
+.paper-image { margin:18px 0; }
+.paper-image img { display:block; width:100%; height:auto; background:#fff; border-radius:6px; }
+.paper-image a { display:block; }
+.paper-image small { display:block; margin-top:6px; }
+.paper-card { padding:16px; }
+.paper-card .question { font-size:19px; }
+.paper-choices { grid-template-columns:repeat(5,minmax(0,1fr)); position:sticky; bottom:8px; padding:8px; background:#111318ee; border-radius:14px; }
+.paper-choices button { text-align:center; padding:12px 0; font-size:24px; }
+.paper-choices button:disabled:not(.quiz-correct):not(.quiz-wrong) { opacity:.6; }
+#startHanneung { margin:4px 0 12px; border-color:#8db6e8; }
+#annulledQuestion { margin:16px 0; padding:12px; border:1px solid #79704e; border-radius:12px; }
+@media (min-width:850px) { article.paper-card { padding:24px; } .paper-card .paper-image { max-width:720px; margin:20px auto; } }
 .study-time h2 { font-size:20px; margin:0; }
 .study-credit-award { color:#b4dcc2; font-weight:700; }
 .explanation-credit { display:block; margin-top:12px; color:#b4dcc2; }
