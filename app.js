@@ -25,16 +25,30 @@ function studyTopic(id){return TOPIC_BY_ID.get(id)||'';}
 // 'topic-<id>' mixes summary and official questions of one era; 'papers-<id>' keeps only the official ones.
 function topicRange(value){const match=/^(topic|papers)-([a-z-]+)$/.exec(value||'');return match&&StudyTopics.list.some(t=>t.id===match[2])?{id:match[2],papers:match[1]==='papers'}:null;}
 function topicScope(value){return topicRange(value)?.id||null;}
+// 'lecture-<id>' follows the textbook lectures (02~05강, 06강, 07·08강) over the self-made summary questions.
+const STUDY_LECTURES=STUDY_REVIEW_CATALOG.lectures||[];
+const LECTURE_BY_ID=new Map(STUDY_LECTURES.flatMap(l=>l.ids.map(id=>[id,l.id])));
+function lectureScope(value){const match=/^lecture-([0-9][0-9-]*)$/.exec(value||'');return match&&STUDY_LECTURES.some(l=>l.id===match[1])?match[1]:null;}
+function lectureTitle(id){return STUDY_LECTURES.find(l=>l.id===id)?.title||'';}
 function scopeOf(){const s=data.practiceScope||{};return {subject:s.subject||'',topic:s.topic||'',round:s.round||''};}
-function inScope(c,scope){const subject=scope.subject||'',topic=subject==='영어'?scope.topic||'':'',round=subject==='한국사'?scope.round||'':'',set=studyScope(round),t=topicRange(round);return isPlayable(c)&&(!subject||c.subject===subject)&&(!topic||PRACTICE_BANK[c.id]?.topic===topic)&&(!round||(t?studyTopic(c.id)===t.id&&(!t.papers||!!Hanneung.get(c.id)):set!==null?!!studySet(c.id)&&(!set||studySet(c.id)===set):round==='core'?!Hanneung.get(c.id)&&!studySet(c.id):Hanneung.get(c.id)?.round===Number(round)));}
+function roundMatch(c,round){
+ if(!round)return true;
+ const t=topicRange(round);if(t)return studyTopic(c.id)===t.id&&(!t.papers||!!Hanneung.get(c.id));
+ const lecture=lectureScope(round);if(lecture)return LECTURE_BY_ID.get(c.id)===lecture;
+ const set=studyScope(round);if(set!==null)return !!studySet(c.id)&&(!set||studySet(c.id)===set);
+ if(round==='core')return !Hanneung.get(c.id)&&!studySet(c.id);
+ return Hanneung.get(c.id)?.round===Number(round);
+}
+function inScope(c,scope){const subject=scope.subject||'',topic=subject==='영어'?scope.topic||'':'',round=subject==='한국사'?scope.round||'':'';return isPlayable(c)&&(!subject||c.subject===subject)&&(!topic||PRACTICE_BANK[c.id]?.topic===topic)&&roundMatch(c,round);}
+function orderedScope(round){return !!topicScope(round)||!!lectureScope(round)||studyScope(round)!==null;}
 const inCurrent=c=>inScope(c,scopeOf());
 function sameScope(a,b){return !!a&&!!b&&(a.subject||'')===(b.subject||'')&&(a.topic||'')===(b.topic||'')&&(a.round||'')===(b.round||'');}
 function scopeLabel(scope){
  const s=scope.subject;if(!s)return '전체 과목';
  if(s==='영어')return '영어 · '+({'':'전체','수일치':'수일치','영문법':'그 밖의 문법 연습'}[scope.topic||'']??scope.topic);
  if(s!=='한국사')return s+' · 전체';
- const r=scope.round||'',t=topicRange(r),set=studyScope(r);
- if(t)return '한국사 · '+StudyTopics.title(t.id)+(t.papers?' · 기출만':'');if(set===0)return '한국사 · 요약자료 전체';if(set)return '한국사 · 요약자료 '+set+'묶음';if(r==='core')return '한국사 · 기존 핵심 복습';if(r)return '한국사 · 기출 '+r+'회';return '한국사 · 전체';
+ const r=scope.round||'',t=topicRange(r),set=studyScope(r),lecture=lectureScope(r);
+ if(t)return '한국사 · '+StudyTopics.title(t.id)+(t.papers?' · 기출만':'');if(lecture)return '한국사 · '+lectureTitle(lecture);if(set===0)return '한국사 · 요약자료 전체';if(set)return '한국사 · 요약자료 '+set+'묶음';if(r==='core')return '한국사 · 기존 핵심 복습';if(r)return '한국사 · 기출 '+r+'회';return '한국사 · 전체';
 }
 // Summary questions open from the first catalog number, so a new topic starts at its first question.
 // Summary questions first (catalog order), then official papers from the newest round.
@@ -55,7 +69,7 @@ function appendPaper(parent,paper){
 function renderScopeStatus(scope){
  const r=scope.subject==='한국사'?scope.round||'':'',numeric=Number(r),isRound=!!r&&Hanneung.rounds.includes(numeric),el=$('#roundScore');el.hidden=true;el.textContent='';
  if(isRound){const s=Hanneung.stats(numeric,data.history);el.textContent='첫 풀이 '+s.answered+'/'+s.total+'문항 · '+(s.complete?'점수 ':'현재 획득 ')+s.points+'/100점'+(s.bonus?' (공식 오류 문항 2점 포함)':'')+(s.complete?' · '+(s.points>=60?'3급 이상 기준 도달':'3급 기준 60점 미만'):'');el.hidden=false;}
- else if(topicScope(r)||studyScope(r)!==null){const ids=new Set(data.cards.filter(c=>inScope(c,scope)).map(c=>c.id)),p=firstPass(ids);el.textContent='첫 풀이 '+p.answered+'/'+ids.size+'문제 · 정답 '+p.correct+'개';el.hidden=false;}
+ else if(orderedScope(r)){const ids=new Set(data.cards.filter(c=>inScope(c,scope)).map(c=>c.id)),p=firstPass(ids);el.textContent='첫 풀이 '+p.answered+'/'+ids.size+'문제 · 정답 '+p.correct+'개';el.hidden=false;}
  const cancelled=$('#annulledQuestion');cancelled.hidden=!(isRound&&numeric===63);if(!cancelled.hidden&&!cancelled.querySelector('img'))appendPaper(cancelled,Hanneung.get('hanneung-63-42'));
 }
 function saveDraft(){if(!storageOK)return;try{localStorage.setItem(KEY,JSON.stringify(data));}catch{notify('입력 내용을 저장하지 못했어요.');}}
@@ -163,6 +177,7 @@ function renderRange(){
  if(s==='한국사'){
   const mix=t=>{const inside=cards.filter(c=>studyTopic(c.id)===t.id),papers=inside.filter(c=>Hanneung.get(c.id)).length;return (inside.length-papers?'자체 제작 '+(inside.length-papers):'')+(inside.length-papers&&papers?' + ':'')+(papers?'기출 '+papers:'');};
   const topics=group('주제별 · 자체 제작 + 기출');for(const t of StudyTopics.list)option(topics,t.title,scope('topic-'+t.id),mix(t));
+  const lectures=group('교재 강별 복습');for(const l of STUDY_LECTURES)option(lectures,l.title,scope('lecture-'+l.id),'자체 제작');
   const current=topicRange(scopeOf().round),papersOnly=group('주제별 · 기출만',!current?.papers);for(const t of StudyTopics.list)option(papersOnly,t.title+' · 기출',scope('papers-'+t.id));
   const papers=group('기출 · 회차별 심화 ('+Math.min(...Hanneung.rounds)+'~'+Math.max(...Hanneung.rounds)+'회)',!Hanneung.rounds.includes(Number(scopeOf().round)));for(const n of Hanneung.rounds){const count=Hanneung.rows.filter(r=>r.round===n&&Hanneung.hasExplanation(r.id)).length;option(papers,n+'회',scope(String(n)),count?'해설 '+count+'개':'');}
   const other=group('그 밖의 범위');option(other,'요약자료 전체 · 자체 제작',scope('study-20260910'));option(other,'기존 핵심 복습',scope('core'));option(other,'한국사 전체',scope(''));
@@ -181,7 +196,7 @@ function renderProgress(){
 function renderQuiz(){
  const opened=new Set([...document.querySelectorAll('[data-explanation-key][open]')].map(e=>e.dataset.explanationKey));
  const hadFocus=document.activeElement?.id==='practiceInput',caret=hadFocus?document.activeElement.selectionStart:null;
- const scope=scopeOf(),playable=data.cards.filter(isPlayable),ordered=topicScope(scope.round)||studyScope(scope.round)!==null;
+ const scope=scopeOf(),playable=data.cards.filter(isPlayable),ordered=orderedScope(scope.round);
  $('#scopeLabel').textContent=scopeLabel(scope);renderScopeStatus(scope);
  const inside=playable.filter(c=>inScope(c,scope)),chosen=ordered?catalogOrder(inside):inside,queue=reviewQueue(chosen),due=queue.ready,feedback=data.quizFeedback&&chosen.find(c=>c.id===data.quizFeedback.cardId),card=feedback||due.find(c=>c.id===data.activePractice?.cardId)||due[0];
  const waiting=chosen.filter(c=>c.retryAt&&Date.parse(c.retryAt)>Date.now());$('#retryStatus').textContent=waiting.length?waiting.length+'문제 재시도 대기 · '+new Date(Math.min(...waiting.map(c=>Date.parse(c.retryAt)))).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+'부터 다시 풀 수 있어요.':'';
@@ -191,7 +206,9 @@ function renderQuiz(){
   root.append(elem('h2',queue.waiting.length?'비슷한 내용은 잠시 뒤 다시 풀어요':waiting.length?'잠시 뒤 틀린 문제를 다시 풀어요':data.cards.length&&!playable.length?'퀴즈 보기가 준비된 카드가 없어요':'오늘 풀 문제를 마쳤어요'));
   const t=topicRange(scope.round),index=StudyTopics.list.findIndex(x=>x.id===t?.id),set=studyScope(scope.round);
   const nextTopic=t&&StudyTopics.list.slice(index+1).find(x=>data.cards.some(c=>isPlayable(c)&&inScope(c,{subject:'한국사',round:(t.papers?'papers-':'topic-')+x.id})));
+  const lecture=STUDY_LECTURES.findIndex(l=>l.id===lectureScope(scope.round)),nextLecture=lecture>=0?STUDY_LECTURES[lecture+1]:null;
   if(nextTopic)root.append(btn('다음 주제 풀기 · '+nextTopic.title,()=>openScope({subject:'한국사',round:(t.papers?'papers-':'topic-')+nextTopic.id}),'primary'));
+  else if(nextLecture)root.append(btn('다음 강 풀기 · '+nextLecture.title,()=>openScope({subject:'한국사',round:'lecture-'+nextLecture.id}),'primary'));
   else if(set>0&&set<STUDY_SETS.length)root.append(btn('다음 묶음 풀기',()=>openScope({subject:'한국사',round:'study-20260910-'+(set+1)}),'primary'));
   if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
   return;
@@ -256,7 +273,7 @@ function answerPractice(id,input){
  next.quizFeedback={cardId:id,reviewId,selectedIndex:quiz.type==='choice'?input:-1,userAnswer:quiz.type==='text'?String(input):'',result,exercise:quiz};
  delete next.activePractice;notify('');if(commit(next)){sessionDirty=true;render();window.scrollTo(0,0);}
 }
-function installCorePack(){const pack='core-2026-09-10-v7';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id)),extras=Object.entries(PRACTICE_BANK).filter(([id])=>!CORE_REVIEW_PACK.some(c=>c.id===id)).map(([id,l])=>({id,subject:'영어',question:l.variants[0].question,answer:l.variants[0].answers[0],explanation:l.variants[0].explanation,source:'수일치 문서 기반 자체 제작 연습.'}));const cards=[...CORE_REVIEW_PACK,...extras].filter(c=>!ids.has(c.id)).map(c=>({...newCard({...c,verified:true}),id:c.id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
+function installCorePack(){const pack='core-2026-09-11-v8';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id)),extras=Object.entries(PRACTICE_BANK).filter(([id])=>!CORE_REVIEW_PACK.some(c=>c.id===id)).map(([id,l])=>({id,subject:'영어',question:l.variants[0].question,answer:l.variants[0].answers[0],explanation:l.variants[0].explanation,source:'수일치 문서 기반 자체 제작 연습.'}));const cards=[...CORE_REVIEW_PACK,...extras].filter(c=>!ids.has(c.id)).map(c=>({...newCard({...c,verified:true}),id:c.id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
 installCorePack();
 if(!data.quizUiVersion){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;next.quizUiVersion=1;commit(next);}
 else if(data.cards.some(c=>c.pendingAttempt)){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;if(commit(next))data=next;}

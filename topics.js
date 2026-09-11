@@ -7,6 +7,7 @@
   {id:'gojoseon',title:'고조선·여러 나라',sections:['고조선·여러 나라 · 기본','고조선·여러 나라','여러 나라']},
   {id:'goguryeo-gaya',title:'고구려·가야',sections:['고구려·가야 · 기본','고구려·가야']},
   {id:'baekje-silla',title:'백제·신라·삼국 통일',sections:['백제·신라 · 기본','백제·신라·통일','백제','신라']},
+  {id:'three-kingdoms',title:'삼국 공통·비교',sections:['삼국 공통·비교']},
   {id:'unified-silla',title:'통일 신라',sections:['통일 신라']},
   {id:'balhae',title:'발해',sections:['발해']},
   {id:'later-three',title:'후삼국',sections:['후삼국']},

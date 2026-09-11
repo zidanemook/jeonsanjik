@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 225,
+  "total": 281,
   "sets": [
     {
       "number": 1,
@@ -406,6 +406,405 @@ globalThis.STUDY_REVIEW_CATALOG={
         "summary-hist-20260911-009",
         "summary-hist-20260911-010",
         "summary-hist-20260911-011"
+      ]
+    },
+    {
+      "number": 31,
+      "title": "07·08강 고대 경제·사회·문화 1",
+      "ids": [
+        "lecture-hist-20260911-001",
+        "lecture-hist-20260911-002",
+        "lecture-hist-20260911-003",
+        "lecture-hist-20260911-004",
+        "lecture-hist-20260911-005",
+        "lecture-hist-20260911-006",
+        "lecture-hist-20260911-007",
+        "lecture-hist-20260911-008"
+      ]
+    },
+    {
+      "number": 32,
+      "title": "07·08강 고대 경제·사회·문화 2",
+      "ids": [
+        "lecture-hist-20260911-009",
+        "lecture-hist-20260911-010",
+        "lecture-hist-20260911-011",
+        "lecture-hist-20260911-012",
+        "lecture-hist-20260911-013",
+        "lecture-hist-20260911-014",
+        "lecture-hist-20260911-015",
+        "lecture-hist-20260911-016"
+      ]
+    },
+    {
+      "number": 33,
+      "title": "07·08강 고대 경제·사회·문화 3",
+      "ids": [
+        "lecture-hist-20260911-017",
+        "lecture-hist-20260911-018",
+        "lecture-hist-20260911-019",
+        "lecture-hist-20260911-020",
+        "lecture-hist-20260911-021",
+        "lecture-hist-20260911-022",
+        "lecture-hist-20260911-023",
+        "lecture-hist-20260911-024"
+      ]
+    },
+    {
+      "number": 34,
+      "title": "07·08강 고대 경제·사회·문화 4",
+      "ids": [
+        "lecture-hist-20260911-025",
+        "lecture-hist-20260911-026",
+        "lecture-hist-20260911-027",
+        "lecture-hist-20260911-028",
+        "lecture-hist-20260911-029",
+        "lecture-hist-20260911-030",
+        "lecture-hist-20260911-031",
+        "lecture-hist-20260911-032"
+      ]
+    },
+    {
+      "number": 35,
+      "title": "07·08강 고대 경제·사회·문화 5",
+      "ids": [
+        "lecture-hist-20260911-033",
+        "lecture-hist-20260911-034",
+        "lecture-hist-20260911-035",
+        "lecture-hist-20260911-036",
+        "lecture-hist-20260911-037",
+        "lecture-hist-20260911-038",
+        "lecture-hist-20260911-039",
+        "lecture-hist-20260911-040"
+      ]
+    },
+    {
+      "number": 36,
+      "title": "07·08강 고대 경제·사회·문화 6",
+      "ids": [
+        "lecture-hist-20260911-041",
+        "lecture-hist-20260911-042",
+        "lecture-hist-20260911-043",
+        "lecture-hist-20260911-044",
+        "lecture-hist-20260911-045",
+        "lecture-hist-20260911-046",
+        "lecture-hist-20260911-047",
+        "lecture-hist-20260911-048"
+      ]
+    },
+    {
+      "number": 37,
+      "title": "07·08강 고대 경제·사회·문화 7",
+      "ids": [
+        "lecture-hist-20260911-049",
+        "lecture-hist-20260911-050",
+        "lecture-hist-20260911-051",
+        "lecture-hist-20260911-052",
+        "lecture-hist-20260911-053",
+        "lecture-hist-20260911-054",
+        "lecture-hist-20260911-055",
+        "lecture-hist-20260911-056"
+      ]
+    }
+  ],
+  "lectures": [
+    {
+      "id": "02-05",
+      "title": "02~05강 선사 시대~삼국 통일",
+      "ids": [
+        "study-hist-20260910-01",
+        "study-hist-20260910-02",
+        "study-hist-20260910-03",
+        "study-hist-20260910-04",
+        "study-hist-20260910-05",
+        "study-hist-20260910-06",
+        "study-hist-20260910-07",
+        "study-hist-20260910-08",
+        "study-hist-20260910-09",
+        "study-hist-20260910-10",
+        "study-hist-20260910-11",
+        "study-hist-20260910-12",
+        "study-hist-20260910-13",
+        "study-hist-20260910-14",
+        "study-hist-20260910-15",
+        "study-hist-20260910-16",
+        "study-hist-20260910-17",
+        "study-hist-20260910-18",
+        "study-hist-20260910-19",
+        "study-hist-20260910-20",
+        "study-hist-20260910-21",
+        "study-hist-20260910-22",
+        "study-hist-20260910-23",
+        "study-hist-20260910-24",
+        "study-hist-20260910-25",
+        "study-hist-20260910-26",
+        "study-hist-20260910-27",
+        "study-hist-20260910-28",
+        "study-hist-20260910-29",
+        "study-hist-20260910-30",
+        "study-hist-20260910-31",
+        "study-hist-20260910-32",
+        "study-hist-20260910-33",
+        "study-hist-20260910-34",
+        "study-hist-20260910-35",
+        "study-hist-20260910-36",
+        "study-hist-20260910-37",
+        "study-hist-20260910-38",
+        "study-hist-20260910-39",
+        "study-hist-20260910-40",
+        "summary-hist-20260910-001",
+        "summary-hist-20260910-002",
+        "summary-hist-20260910-003",
+        "summary-hist-20260910-004",
+        "summary-hist-20260910-005",
+        "summary-hist-20260910-006",
+        "summary-hist-20260910-007",
+        "summary-hist-20260910-008",
+        "summary-hist-20260910-009",
+        "summary-hist-20260910-010",
+        "summary-hist-20260910-011",
+        "summary-hist-20260910-012",
+        "summary-hist-20260910-013",
+        "summary-hist-20260910-014",
+        "summary-hist-20260910-015",
+        "summary-hist-20260910-016",
+        "summary-hist-20260910-017",
+        "summary-hist-20260910-018",
+        "summary-hist-20260910-019",
+        "summary-hist-20260910-020",
+        "summary-hist-20260910-021",
+        "summary-hist-20260910-022",
+        "summary-hist-20260910-023",
+        "summary-hist-20260910-024",
+        "summary-hist-20260910-025",
+        "summary-hist-20260910-026",
+        "summary-hist-20260910-027",
+        "summary-hist-20260910-028",
+        "summary-hist-20260910-029",
+        "summary-hist-20260910-030",
+        "summary-hist-20260910-031",
+        "summary-hist-20260910-032",
+        "summary-hist-20260910-033",
+        "summary-hist-20260910-034",
+        "summary-hist-20260910-035",
+        "summary-hist-20260910-036",
+        "summary-hist-20260910-037",
+        "summary-hist-20260910-038",
+        "summary-hist-20260910-039",
+        "summary-hist-20260910-040",
+        "summary-hist-20260910-041",
+        "summary-hist-20260910-042",
+        "summary-hist-20260910-043",
+        "summary-hist-20260910-044",
+        "summary-hist-20260910-045",
+        "summary-hist-20260910-046",
+        "summary-hist-20260910-047",
+        "summary-hist-20260910-048",
+        "summary-hist-20260910-049",
+        "summary-hist-20260910-050",
+        "summary-hist-20260910-051",
+        "summary-hist-20260910-052",
+        "summary-hist-20260910-053",
+        "summary-hist-20260910-054",
+        "summary-hist-20260910-055",
+        "summary-hist-20260910-056",
+        "summary-hist-20260910-057",
+        "summary-hist-20260910-058",
+        "summary-hist-20260910-059",
+        "summary-hist-20260910-060",
+        "summary-hist-20260910-061",
+        "summary-hist-20260910-062",
+        "summary-hist-20260910-063",
+        "summary-hist-20260910-064",
+        "summary-hist-20260910-065",
+        "summary-hist-20260910-066",
+        "summary-hist-20260910-067",
+        "summary-hist-20260910-068",
+        "summary-hist-20260910-069",
+        "summary-hist-20260910-070",
+        "summary-hist-20260910-071",
+        "summary-hist-20260910-072",
+        "summary-hist-20260910-073",
+        "summary-hist-20260910-074",
+        "summary-hist-20260910-075",
+        "summary-hist-20260910-076",
+        "summary-hist-20260910-077",
+        "summary-hist-20260910-078",
+        "summary-hist-20260910-079",
+        "summary-hist-20260910-080",
+        "summary-hist-20260910-081",
+        "summary-hist-20260910-082",
+        "summary-hist-20260910-083",
+        "summary-hist-20260910-084",
+        "summary-hist-20260910-085",
+        "summary-hist-20260910-086",
+        "summary-hist-20260910-087",
+        "summary-hist-20260910-088",
+        "summary-hist-20260910-089",
+        "summary-hist-20260910-090",
+        "summary-hist-20260910-091",
+        "summary-hist-20260910-092",
+        "summary-hist-20260910-093",
+        "summary-hist-20260910-094",
+        "summary-hist-20260910-095",
+        "summary-hist-20260910-096",
+        "summary-hist-20260910-097",
+        "summary-hist-20260910-098",
+        "summary-hist-20260910-099",
+        "summary-hist-20260910-100",
+        "summary-hist-20260910-101",
+        "summary-hist-20260910-102",
+        "summary-hist-20260910-103",
+        "summary-hist-20260910-104",
+        "summary-hist-20260910-105",
+        "summary-hist-20260910-106",
+        "summary-hist-20260910-107",
+        "summary-hist-20260910-108",
+        "summary-hist-20260910-109",
+        "summary-hist-20260910-110",
+        "summary-hist-20260911-007",
+        "summary-hist-20260911-008",
+        "summary-hist-20260911-009",
+        "summary-hist-20260911-010"
+      ]
+    },
+    {
+      "id": "06",
+      "title": "06강 통일 신라·발해·후삼국",
+      "ids": [
+        "summary-hist-20260910-111",
+        "summary-hist-20260910-112",
+        "summary-hist-20260910-113",
+        "summary-hist-20260910-114",
+        "summary-hist-20260910-115",
+        "summary-hist-20260910-116",
+        "summary-hist-20260910-117",
+        "summary-hist-20260910-118",
+        "summary-hist-20260910-119",
+        "summary-hist-20260910-120",
+        "summary-hist-20260910-121",
+        "summary-hist-20260910-122",
+        "summary-hist-20260910-123",
+        "summary-hist-20260910-124",
+        "summary-hist-20260910-125",
+        "summary-hist-20260910-126",
+        "summary-hist-20260910-127",
+        "summary-hist-20260910-128",
+        "summary-hist-20260910-129",
+        "summary-hist-20260910-130",
+        "summary-hist-20260910-131",
+        "summary-hist-20260910-132",
+        "summary-hist-20260910-133",
+        "summary-hist-20260910-134",
+        "summary-hist-20260910-135",
+        "summary-hist-20260910-136",
+        "summary-hist-20260910-137",
+        "summary-hist-20260910-138",
+        "summary-hist-20260910-139",
+        "summary-hist-20260910-140",
+        "summary-hist-20260910-141",
+        "summary-hist-20260910-142",
+        "summary-hist-20260910-143",
+        "summary-hist-20260910-144",
+        "summary-hist-20260910-145",
+        "summary-hist-20260910-146",
+        "summary-hist-20260910-147",
+        "summary-hist-20260910-148",
+        "summary-hist-20260910-149",
+        "summary-hist-20260910-150",
+        "summary-hist-20260910-151",
+        "summary-hist-20260910-152",
+        "summary-hist-20260910-153",
+        "summary-hist-20260910-154",
+        "summary-hist-20260910-155",
+        "summary-hist-20260910-156",
+        "summary-hist-20260910-157",
+        "summary-hist-20260910-158",
+        "summary-hist-20260910-159",
+        "summary-hist-20260910-160",
+        "summary-hist-20260910-161",
+        "summary-hist-20260910-162",
+        "summary-hist-20260910-163",
+        "summary-hist-20260910-164",
+        "summary-hist-20260910-165",
+        "summary-hist-20260910-166",
+        "summary-hist-20260910-167",
+        "summary-hist-20260910-168",
+        "summary-hist-20260910-169",
+        "summary-hist-20260910-170",
+        "summary-hist-20260910-171",
+        "summary-hist-20260910-172",
+        "summary-hist-20260910-173",
+        "summary-hist-20260910-174",
+        "summary-hist-20260911-001",
+        "summary-hist-20260911-002",
+        "summary-hist-20260911-003",
+        "summary-hist-20260911-004",
+        "summary-hist-20260911-005",
+        "summary-hist-20260911-006",
+        "summary-hist-20260911-011"
+      ]
+    },
+    {
+      "id": "07-08",
+      "title": "07·08강 고대 경제·사회·문화",
+      "ids": [
+        "lecture-hist-20260911-001",
+        "lecture-hist-20260911-002",
+        "lecture-hist-20260911-003",
+        "lecture-hist-20260911-004",
+        "lecture-hist-20260911-005",
+        "lecture-hist-20260911-006",
+        "lecture-hist-20260911-007",
+        "lecture-hist-20260911-008",
+        "lecture-hist-20260911-009",
+        "lecture-hist-20260911-010",
+        "lecture-hist-20260911-011",
+        "lecture-hist-20260911-012",
+        "lecture-hist-20260911-013",
+        "lecture-hist-20260911-014",
+        "lecture-hist-20260911-015",
+        "lecture-hist-20260911-016",
+        "lecture-hist-20260911-017",
+        "lecture-hist-20260911-018",
+        "lecture-hist-20260911-019",
+        "lecture-hist-20260911-020",
+        "lecture-hist-20260911-021",
+        "lecture-hist-20260911-022",
+        "lecture-hist-20260911-023",
+        "lecture-hist-20260911-024",
+        "lecture-hist-20260911-025",
+        "lecture-hist-20260911-026",
+        "lecture-hist-20260911-027",
+        "lecture-hist-20260911-028",
+        "lecture-hist-20260911-029",
+        "lecture-hist-20260911-030",
+        "lecture-hist-20260911-031",
+        "lecture-hist-20260911-032",
+        "lecture-hist-20260911-033",
+        "lecture-hist-20260911-034",
+        "lecture-hist-20260911-035",
+        "lecture-hist-20260911-036",
+        "lecture-hist-20260911-037",
+        "lecture-hist-20260911-038",
+        "lecture-hist-20260911-039",
+        "lecture-hist-20260911-040",
+        "lecture-hist-20260911-041",
+        "lecture-hist-20260911-042",
+        "lecture-hist-20260911-043",
+        "lecture-hist-20260911-044",
+        "lecture-hist-20260911-045",
+        "lecture-hist-20260911-046",
+        "lecture-hist-20260911-047",
+        "lecture-hist-20260911-048",
+        "lecture-hist-20260911-049",
+        "lecture-hist-20260911-050",
+        "lecture-hist-20260911-051",
+        "lecture-hist-20260911-052",
+        "lecture-hist-20260911-053",
+        "lecture-hist-20260911-054",
+        "lecture-hist-20260911-055",
+        "lecture-hist-20260911-056"
       ]
     }
   ],
@@ -2476,6 +2875,526 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고구려 계승의 문화 근거"
       ],
       "sourceSection": "학습 노트 요약 자료(2026-09-11 원본 대조 보완)"
+    },
+    "lecture-hist-20260911-001": {
+      "number": 226,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "삼국의 조세·공물·역 구분",
+        "역=요역·군역(노동력 징발)"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 삼국의 경제"
+    },
+    "lecture-hist-20260911-002": {
+      "number": 227,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "철제 농기구·우경 장려·수리 시설·황무지 개간",
+        "농사철 부역 징발 금지"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 삼국의 경제"
+    },
+    "lecture-hist-20260911-003": {
+      "number": 228,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "관청 수공업: 수공업자 배정·무기·장신구 생산"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 삼국의 경제"
+    },
+    "lecture-hist-20260911-004": {
+      "number": 229,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "신라 지증왕 동시·동시전",
+        "백제 도시부(상업·교역·시장 업무)"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 삼국의 경제"
+    },
+    "lecture-hist-20260911-005": {
+      "number": 230,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "삼국 대외 무역: 4세기 이후·주로 공무역",
+        "고구려—남북조·유목 민족, 백제—남조·왜"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 삼국의 경제"
+    },
+    "lecture-hist-20260911-006": {
+      "number": 231,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "신라: 고구려·백제를 거친 교류 → 한강 유역 확보 후 당항성 직접 교역"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 삼국의 경제"
+    },
+    "lecture-hist-20260911-007": {
+      "number": 232,
+      "section": "통일 신라",
+      "coverage": [
+        "신문왕 관료전 지급·녹읍 폐지",
+        "성덕왕 정전 지급",
+        "경덕왕 녹읍 부활"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 남북국 시대의 경제(통일 신라)"
+    },
+    "lecture-hist-20260911-008": {
+      "number": 233,
+      "section": "통일 신라",
+      "coverage": [
+        "통일 신라 조세 1/10·공물 촌락 단위·역 16~60세 남자",
+        "지대: 수확량 1/2 이상을 주인에게"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 남북국 시대의 경제(통일 신라)"
+    },
+    "lecture-hist-20260911-009": {
+      "number": 234,
+      "section": "통일 신라",
+      "coverage": [
+        "민정 문서: 도다이사 쇼소인 발견",
+        "서원경(청주) 부근 4개 촌"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 남북국 시대의 경제(통일 신라)"
+    },
+    "lecture-hist-20260911-010": {
+      "number": 235,
+      "section": "통일 신라",
+      "coverage": [
+        "촌주가 3년마다 작성",
+        "토지·인구·소와 말·나무·특산물 기록",
+        "조세 징수·노동력 징발에 활용"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 남북국 시대의 경제(통일 신라)"
+    },
+    "lecture-hist-20260911-011": {
+      "number": 236,
+      "section": "헷갈리는 내용 비교",
+      "coverage": [
+        "지증왕 동시·동시전",
+        "통일 신라 서시·남시 추가 설치"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 삼국의 경제·남북국 시대의 경제"
+    },
+    "lecture-hist-20260911-012": {
+      "number": 237,
+      "section": "통일 신라",
+      "coverage": [
+        "신라방·신라촌(거주지)",
+        "신라소(관청)",
+        "신라원(사원)"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 남북국 시대의 경제(통일 신라)"
+    },
+    "lecture-hist-20260911-013": {
+      "number": 238,
+      "section": "통일 신라",
+      "coverage": [
+        "통일 신라 국제 무역항: 당항성·영암·울산항",
+        "울산항 아라비아 상인 왕래"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 남북국 시대의 경제(통일 신라)"
+    },
+    "lecture-hist-20260911-014": {
+      "number": 239,
+      "section": "통일 신라",
+      "coverage": [
+        "장보고 완도 청해진",
+        "신라·당·일본 해상 무역권 장악",
+        "법화원 설치"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074쪽 남북국 시대의 경제(통일 신라)"
+    },
+    "lecture-hist-20260911-015": {
+      "number": 240,
+      "section": "발해",
+      "coverage": [
+        "발해 밭농사 중심(일부 벼농사)",
+        "솔빈부의 말·막힐부의 돼지",
+        "모피·녹용·사향 수출",
+        "수공업(금속 공예·직물·도자기)·상경 상업"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 남북국 시대의 경제(발해)"
+    },
+    "lecture-hist-20260911-016": {
+      "number": 241,
+      "section": "발해",
+      "coverage": [
+        "영주도·압록조공도(당)·거란도·일본도·신라도",
+        "일본과 한 번에 수백 명이 오가는 교류",
+        "신라와 상설 교통로 신라도"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 남북국 시대의 경제(발해)"
+    },
+    "lecture-hist-20260911-017": {
+      "number": 242,
+      "section": "헷갈리는 내용 비교",
+      "coverage": [
+        "발해관: 산둥반도(당)·발해의 당 교류",
+        "신라방: 당의 신라인 거주지"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 074~075쪽 남북국 시대의 경제"
+    },
+    "lecture-hist-20260911-018": {
+      "number": 243,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "고구려 제가 회의",
+        "백제 정사암(재상 선출)",
+        "신라 화백 회의(만장일치)"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 삼국의 사회"
+    },
+    "lecture-hist-20260911-019": {
+      "number": 244,
+      "section": "고구려·가야",
+      "coverage": [
+        "고구려 지배층: 왕족 고씨·5부 출신 귀족",
+        "고국천왕 진대법(빈민 구제)"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 삼국의 사회"
+    },
+    "lecture-hist-20260911-020": {
+      "number": 245,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "백제 지배층: 왕족 부여씨·8성 귀족(진씨·해씨 왕비족)",
+        "정사암(정치 논의·재상 선출)"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 삼국의 사회"
+    },
+    "lecture-hist-20260911-021": {
+      "number": 246,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "골품제: 성골·진골·6~1두품",
+        "관직 진출 상한·일상생활 규제",
+        "통일 후 3두품 이하 평민화"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 삼국의 사회"
+    },
+    "lecture-hist-20260911-022": {
+      "number": 247,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "화랑도: 원화에서 기원",
+        "화랑(귀족)+낭도(귀족·평민) 구성",
+        "계층 간 대립·갈등 완화"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 삼국의 사회"
+    },
+    "lecture-hist-20260911-023": {
+      "number": 248,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "원광의 세속 5계를 행동 규범으로",
+        "진흥왕 때 국가 조직으로 개편"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 삼국의 사회"
+    },
+    "lecture-hist-20260911-024": {
+      "number": 249,
+      "section": "통일 신라",
+      "coverage": [
+        "백제·고구려 귀족에게 관직 제수",
+        "9서당: 신라인 외 고구려인·백제인·말갈인 포함"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 남북국 시대의 사회"
+    },
+    "lecture-hist-20260911-025": {
+      "number": 250,
+      "section": "통일 신라",
+      "coverage": [
+        "9주: 신라·고구려·백제 옛 땅에 각각 3주"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 남북국 시대의 사회"
+    },
+    "lecture-hist-20260911-026": {
+      "number": 251,
+      "section": "통일 신라",
+      "coverage": [
+        "6두품: 학문·실무로 국왕 보좌",
+        "신분 제약으로 장관 불가",
+        "신라 말 반신라적 성격",
+        "대표 6두품 설계두·설총·최치원"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 남북국 시대의 사회"
+    },
+    "lecture-hist-20260911-027": {
+      "number": 252,
+      "section": "통일 신라",
+      "coverage": [
+        "최치원: 빈공과 합격",
+        "진성 여왕에게 시무 10여 조 건의(수용 안 됨)",
+        "토황소격문·계원필경"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 남북국 시대의 사회"
+    },
+    "lecture-hist-20260911-028": {
+      "number": 253,
+      "section": "통일 신라",
+      "coverage": [
+        "신라 말 진골 귀족 간 왕위 다툼·대토지 소유",
+        "지방 호족 성장·농민 반란",
+        "중앙 정부의 지방 통제력 약화"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 남북국 시대의 사회"
+    },
+    "lecture-hist-20260911-029": {
+      "number": 254,
+      "section": "발해",
+      "coverage": [
+        "발해 주민: 고구려인+말갈인",
+        "당 제도·문화 수용+고구려·말갈 전통 유지"
+      ],
+      "sourceSection": "07강 고대(경제, 사회) · 075쪽 남북국 시대의 사회"
+    },
+    "lecture-hist-20260911-030": {
+      "number": 255,
+      "section": "고구려·가야",
+      "coverage": [
+        "태학(중앙): 소수림왕·귀족 자제에게 유교 경전·역사서",
+        "경당(지방): 유학과 무술"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 086쪽 유학의 발달"
+    },
+    "lecture-hist-20260911-031": {
+      "number": 256,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "백제 오경박사·의박사·역박사",
+        "왕인의 논어·천자문 일본 전파"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 086쪽 유학의 발달"
+    },
+    "lecture-hist-20260911-032": {
+      "number": 257,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "부여 사택지적비: 백제의 높은 한문학 수준",
+        "임신서기석: 신라 두 청년의 유학 경전 공부 맹세"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 086쪽 유학의 발달"
+    },
+    "lecture-hist-20260911-033": {
+      "number": 258,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "원광의 세속 5계",
+        "진평왕 때 수에 군사를 청하는 걸사표"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 086쪽 유학의 발달"
+    },
+    "lecture-hist-20260911-034": {
+      "number": 259,
+      "section": "통일 신라",
+      "coverage": [
+        "독서삼품과: 원성왕",
+        "국학 학생의 유교 경전 이해 정도 평가·관리 선발 참고",
+        "국학 설립은 신문왕"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 086쪽 유학의 발달"
+    },
+    "lecture-hist-20260911-035": {
+      "number": 260,
+      "section": "통일 신라",
+      "coverage": [
+        "설총: 이두 정리·화왕계(신문왕)",
+        "강수: 외교 문서·청방인문표",
+        "김대문: 진골·화랑세기·고승전·한산기"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 086쪽 유학의 발달"
+    },
+    "lecture-hist-20260911-036": {
+      "number": 261,
+      "section": "발해",
+      "coverage": [
+        "발해 6부 유교식 명칭(충·인·의·지·예·신)",
+        "주자감(유교 경전 교육)·당에 유학생 파견"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 086쪽 유학의 발달"
+    },
+    "lecture-hist-20260911-037": {
+      "number": 262,
+      "section": "헷갈리는 내용 비교",
+      "coverage": [
+        "고구려 태학·통일 신라 국학·발해 주자감 비교"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 086쪽 유학의 발달"
+    },
+    "lecture-hist-20260911-038": {
+      "number": 263,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "고구려 영양왕 이문진 신집 5권(유기 간추림)",
+        "백제 근초고왕 고흥 서기",
+        "신라 진흥왕 거칠부 국사"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 086쪽 역사서의 편찬"
+    },
+    "lecture-hist-20260911-039": {
+      "number": 264,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "도교: 산천 숭배·신선 사상 결합, 귀족 사회 중심",
+        "고구려 사신도",
+        "백제 금동 대향로(능산리)·산수무늬 벽돌(외리)"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 086쪽 도교의 발달"
+    },
+    "lecture-hist-20260911-040": {
+      "number": 265,
+      "section": "고구려·가야",
+      "coverage": [
+        "연개소문: 도교 진흥·당에 도사 파견 요청"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 086쪽 도교의 발달"
+    },
+    "lecture-hist-20260911-041": {
+      "number": 266,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "고구려 소수림왕: 전진 순도",
+        "백제 침류왕: 동진 마라난타"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불교의 발달(삼국의 불교 수용)"
+    },
+    "lecture-hist-20260911-042": {
+      "number": 267,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "신라: 눌지왕 때 고구려 승려 묵호자 전래",
+        "법흥왕 때 이차돈의 순교를 계기로 공인"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불교의 발달(삼국의 불교 수용)"
+    },
+    "lecture-hist-20260911-043": {
+      "number": 268,
+      "section": "통일 신라",
+      "coverage": [
+        "원효: 아미타 신앙(나무아미타불·극락)",
+        "무애가로 불교 대중화"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불교의 발달(통일 신라)"
+    },
+    "lecture-hist-20260911-044": {
+      "number": 269,
+      "section": "통일 신라",
+      "coverage": [
+        "원효: 일심·화쟁 사상(원융회통)",
+        "대승기신론소·십문화쟁론·금강삼매경론"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불교의 발달(통일 신라)"
+    },
+    "lecture-hist-20260911-045": {
+      "number": 270,
+      "section": "통일 신라",
+      "coverage": [
+        "의상: 당 유학·화엄종 개창·부석사 건립",
+        "관음 신앙·화엄일승법계도"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불교의 발달(통일 신라)"
+    },
+    "lecture-hist-20260911-046": {
+      "number": 271,
+      "section": "헷갈리는 내용 비교",
+      "coverage": [
+        "원효 vs 의상: 사상·저술·사찰 비교",
+        "원효 아미타 신앙 ↔ 의상 관음 신앙(요약표의 짝)"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불교의 발달(통일 신라)"
+    },
+    "lecture-hist-20260911-047": {
+      "number": 272,
+      "section": "통일 신라",
+      "coverage": [
+        "혜초: 인도·중앙아시아 순례, 왕오천축국전"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불교의 발달(통일 신라)"
+    },
+    "lecture-hist-20260911-048": {
+      "number": 273,
+      "section": "통일 신라",
+      "coverage": [
+        "선종: 실천 수행으로 깨달음",
+        "지방 호족의 사상적 배경",
+        "9산 선문 성립·승탑과 탑비 유행"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불교의 발달(통일 신라)"
+    },
+    "lecture-hist-20260911-049": {
+      "number": 274,
+      "section": "통일 신라",
+      "coverage": [
+        "도선: 풍수지리설에 큰 영향"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불교의 발달(통일 신라)"
+    },
+    "lecture-hist-20260911-050": {
+      "number": 275,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "백제 서산 용현리 마애 여래 삼존상",
+        "고구려 금동 연가 7년명 여래 입상·신라 경주 배동 석조 여래 삼존 입상"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불상과 불탑"
+    },
+    "lecture-hist-20260911-051": {
+      "number": 276,
+      "section": "헷갈리는 내용 비교",
+      "coverage": [
+        "통일 신라 석굴암 본존불",
+        "발해 이불병좌상",
+        "삼국 금동 미륵보살 반가 사유상"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불상과 불탑"
+    },
+    "lecture-hist-20260911-052": {
+      "number": 277,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "부여 정림사지 5층 석탑: 목탑 양식·평제탑",
+        "고구려 목탑(현존 X)",
+        "익산 미륵사지 석탑: 무왕·목탑→석탑 과도기"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불상과 불탑"
+    },
+    "lecture-hist-20260911-053": {
+      "number": 278,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "황룡사 9층 목탑: 선덕 여왕·자장의 건의",
+        "고려 때 몽골 침입으로 소실"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불상과 불탑"
+    },
+    "lecture-hist-20260911-054": {
+      "number": 279,
+      "section": "통일 신라",
+      "coverage": [
+        "감은사지 3층 석탑: 신문왕·쌍탑",
+        "진전사지 3층 석탑: 기단부 조각",
+        "쌍봉사 철감선사탑: 선종 영향의 승탑",
+        "불국사 다보탑"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불상과 불탑"
+    },
+    "lecture-hist-20260911-055": {
+      "number": 280,
+      "section": "통일 신라",
+      "coverage": [
+        "불국사 3층 석탑(석가탑·무영탑)",
+        "무구정광대다라니경 발견"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불상과 불탑"
+    },
+    "lecture-hist-20260911-056": {
+      "number": 281,
+      "section": "헷갈리는 내용 비교",
+      "coverage": [
+        "발해 영광탑: 벽돌 전탑·탑 아래 무덤",
+        "분황사 모전 석탑: 돌을 벽돌 모양으로"
+      ],
+      "sourceSection": "08강 고대(문화 1) · 087쪽 불상과 불탑"
     }
   }
 };
