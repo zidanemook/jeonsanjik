@@ -28,7 +28,7 @@ jobs:
           STUDY_FIREBASE_CONFIG: ${{ secrets.STUDY_FIREBASE_CONFIG }}
         run: |
           mkdir _site
-          cp study-review-catalog.js topics.js study-credit.js index.html app.js core-review-pack.js quiz-options.js practice-bank.js practice.js content-corrections.js review-record.js review-policy.js sync-core.js sync.js scheduler.js learning.js style.css sw.js manifest.json icon.svg _site/
+          cp study-review-catalog.js hanneung-topics.js topics.js study-credit.js index.html app.js core-review-pack.js quiz-options.js practice-bank.js practice.js content-corrections.js review-record.js review-policy.js sync-core.js sync.js scheduler.js learning.js style.css sw.js manifest.json icon.svg _site/
           cp -r vendor _site/
           cp hanneung-data.js hanneung-explanations.js hanneung.js _site/
           cp -r assets _site/

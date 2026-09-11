@@ -20,22 +20,25 @@ const STUDY_SETS=STUDY_REVIEW_CATALOG.sets;
 const STUDY_SET_BY_ID=new Map(STUDY_SETS.flatMap(set=>set.ids.map(id=>[id,set.number])));
 function studySet(id){return STUDY_SET_BY_ID.get(id)||0;}
 function studyScope(value){if(value==='study-20260910')return 0;const match=/^study-20260910-([1-9]\d*)$/.exec(value||'');return match&&STUDY_SETS.some(set=>set.number===Number(match[1]))?Number(match[1]):null;}
-const TOPIC_BY_ID=StudyTopics.byCard(STUDY_REVIEW_CATALOG);
+const TOPIC_BY_ID=StudyTopics.byCard(STUDY_REVIEW_CATALOG,globalThis.HANNEUNG_TOPICS||{});
 function studyTopic(id){return TOPIC_BY_ID.get(id)||'';}
-function topicScope(value){const match=/^topic-([a-z-]+)$/.exec(value||'');return match&&StudyTopics.list.some(t=>t.id===match[1])?match[1]:null;}
+// 'topic-<id>' mixes summary and official questions of one era; 'papers-<id>' keeps only the official ones.
+function topicRange(value){const match=/^(topic|papers)-([a-z-]+)$/.exec(value||'');return match&&StudyTopics.list.some(t=>t.id===match[2])?{id:match[2],papers:match[1]==='papers'}:null;}
+function topicScope(value){return topicRange(value)?.id||null;}
 function scopeOf(){const s=data.practiceScope||{};return {subject:s.subject||'',topic:s.topic||'',round:s.round||''};}
-function inScope(c,scope){const subject=scope.subject||'',topic=subject==='영어'?scope.topic||'':'',round=subject==='한국사'?scope.round||'':'',set=studyScope(round),t=topicScope(round);return isPlayable(c)&&(!subject||c.subject===subject)&&(!topic||PRACTICE_BANK[c.id]?.topic===topic)&&(!round||(t?studyTopic(c.id)===t:set!==null?!!studySet(c.id)&&(!set||studySet(c.id)===set):round==='core'?!Hanneung.get(c.id)&&!studySet(c.id):Hanneung.get(c.id)?.round===Number(round)));}
+function inScope(c,scope){const subject=scope.subject||'',topic=subject==='영어'?scope.topic||'':'',round=subject==='한국사'?scope.round||'':'',set=studyScope(round),t=topicRange(round);return isPlayable(c)&&(!subject||c.subject===subject)&&(!topic||PRACTICE_BANK[c.id]?.topic===topic)&&(!round||(t?studyTopic(c.id)===t.id&&(!t.papers||!!Hanneung.get(c.id)):set!==null?!!studySet(c.id)&&(!set||studySet(c.id)===set):round==='core'?!Hanneung.get(c.id)&&!studySet(c.id):Hanneung.get(c.id)?.round===Number(round)));}
 const inCurrent=c=>inScope(c,scopeOf());
 function sameScope(a,b){return !!a&&!!b&&(a.subject||'')===(b.subject||'')&&(a.topic||'')===(b.topic||'')&&(a.round||'')===(b.round||'');}
 function scopeLabel(scope){
  const s=scope.subject;if(!s)return '전체 과목';
  if(s==='영어')return '영어 · '+({'':'전체','수일치':'수일치','영문법':'그 밖의 문법 연습'}[scope.topic||'']??scope.topic);
  if(s!=='한국사')return s+' · 전체';
- const r=scope.round||'',t=topicScope(r),set=studyScope(r);
- if(t)return '한국사 · '+StudyTopics.title(t);if(set===0)return '한국사 · 요약자료 전체';if(set)return '한국사 · 요약자료 '+set+'묶음';if(r==='core')return '한국사 · 기존 핵심 복습';if(r)return '한국사 · 기출 '+r+'회';return '한국사 · 전체';
+ const r=scope.round||'',t=topicRange(r),set=studyScope(r);
+ if(t)return '한국사 · '+StudyTopics.title(t.id)+(t.papers?' · 기출만':'');if(set===0)return '한국사 · 요약자료 전체';if(set)return '한국사 · 요약자료 '+set+'묶음';if(r==='core')return '한국사 · 기존 핵심 복습';if(r)return '한국사 · 기출 '+r+'회';return '한국사 · 전체';
 }
 // Summary questions open from the first catalog number, so a new topic starts at its first question.
-function catalogOrder(cards){const n=c=>STUDY_REVIEW_CATALOG.questions[c.id]?.number??Infinity;return cards.map((c,i)=>[c,i]).sort((a,b)=>{const x=n(a[0]),y=n(b[0]);return x===y?a[1]-b[1]:x<y?-1:1;}).map(p=>p[0]);}
+// Summary questions first (catalog order), then official papers from the newest round.
+function catalogOrder(cards){const n=c=>{const q=STUDY_REVIEW_CATALOG.questions[c.id];if(q)return q.number;const p=Hanneung.get(c.id);return p?10000+(1000-p.round)*100+p.number:Infinity;};return cards.map((c,i)=>[c,i]).sort((a,b)=>{const x=n(a[0]),y=n(b[0]);return x===y?a[1]-b[1]:x<y?-1:1;}).map(p=>p[0]);}
 function firstPass(ids){const first=new Map();for(const row of data.history.filter(h=>h.mode==='quiz'&&ids.has(h.cardId)).sort((a,b)=>(a.at||a.date).localeCompare(b.at||b.date)||a.id.localeCompare(b.id)))if(!first.has(row.cardId))first.set(row.cardId,row);return {answered:first.size,correct:[...first.values()].filter(h=>h.result==='correct').length};}
 function appendPaper(parent,paper){
  if(!paper)return;
@@ -52,7 +55,7 @@ function appendPaper(parent,paper){
 function renderScopeStatus(scope){
  const r=scope.subject==='한국사'?scope.round||'':'',numeric=Number(r),isRound=!!r&&Hanneung.rounds.includes(numeric),el=$('#roundScore');el.hidden=true;el.textContent='';
  if(isRound){const s=Hanneung.stats(numeric,data.history);el.textContent='첫 풀이 '+s.answered+'/'+s.total+'문항 · '+(s.complete?'점수 ':'현재 획득 ')+s.points+'/100점'+(s.bonus?' (공식 오류 문항 2점 포함)':'')+(s.complete?' · '+(s.points>=60?'3급 이상 기준 도달':'3급 기준 60점 미만'):'');el.hidden=false;}
- else if(topicScope(r)||studyScope(r)!==null){const ids=new Set(data.cards.filter(c=>inScope(c,scope)).map(c=>c.id)),p=firstPass(ids);el.textContent='첫 풀이 '+p.answered+'/'+ids.size+'문제 · 정답 '+p.correct+'개 · 자체 제작 복습';el.hidden=false;}
+ else if(topicScope(r)||studyScope(r)!==null){const ids=new Set(data.cards.filter(c=>inScope(c,scope)).map(c=>c.id)),p=firstPass(ids);el.textContent='첫 풀이 '+p.answered+'/'+ids.size+'문제 · 정답 '+p.correct+'개';el.hidden=false;}
  const cancelled=$('#annulledQuestion');cancelled.hidden=!(isRound&&numeric===63);if(!cancelled.hidden&&!cancelled.querySelector('img'))appendPaper(cancelled,Hanneung.get('hanneung-63-42'));
 }
 function saveDraft(){if(!storageOK)return;try{localStorage.setItem(KEY,JSON.stringify(data));}catch{notify('입력 내용을 저장하지 못했어요.');}}
@@ -158,9 +161,11 @@ function renderRange(){
  const scope=(round,topic='')=>({subject:s,topic,round});
  const option=(g,title,sc,extra)=>{const inside=cards.filter(c=>inScope(c,sc)),p=firstPass(new Set(inside.map(c=>c.id)));if(!inside.length)return;g.append(menuItem(title,inside.length+'문제 · 첫 풀이 '+p.answered+'/'+inside.length+(p.answered?' · 정답 '+p.correct:'')+' · 풀 문제 '+reviewQueue(inside).ready.length+(extra?' · '+extra:''),()=>openScope(sc)));};
  if(s==='한국사'){
-  const topics=group('주제별 복습 · 자체 제작');for(const t of StudyTopics.list)option(topics,t.title,scope('topic-'+t.id));option(topics,'요약자료 전체',scope('study-20260910'));
+  const mix=t=>{const inside=cards.filter(c=>studyTopic(c.id)===t.id),papers=inside.filter(c=>Hanneung.get(c.id)).length;return (inside.length-papers?'자체 제작 '+(inside.length-papers):'')+(inside.length-papers&&papers?' + ':'')+(papers?'기출 '+papers:'');};
+  const topics=group('주제별 · 자체 제작 + 기출');for(const t of StudyTopics.list)option(topics,t.title,scope('topic-'+t.id),mix(t));
+  const current=topicRange(scopeOf().round),papersOnly=group('주제별 · 기출만',!current?.papers);for(const t of StudyTopics.list)option(papersOnly,t.title+' · 기출',scope('papers-'+t.id));
   const papers=group('기출 · 회차별 심화 ('+Math.min(...Hanneung.rounds)+'~'+Math.max(...Hanneung.rounds)+'회)',!Hanneung.rounds.includes(Number(scopeOf().round)));for(const n of Hanneung.rounds){const count=Hanneung.rows.filter(r=>r.round===n&&Hanneung.hasExplanation(r.id)).length;option(papers,n+'회',scope(String(n)),count?'해설 '+count+'개':'');}
-  const other=group('그 밖의 범위');option(other,'기존 핵심 복습',scope('core'));option(other,'한국사 전체',scope(''));
+  const other=group('그 밖의 범위');option(other,'요약자료 전체 · 자체 제작',scope('study-20260910'));option(other,'기존 핵심 복습',scope('core'));option(other,'한국사 전체',scope(''));
  }else if(s==='영어'){const g=group('영어');option(g,'영어 전체',scope(''));option(g,'수일치',scope('','수일치'));option(g,'그 밖의 문법 연습',scope('','영문법'));}
  else option(group(s),s+' 전체',scope(''));
 }
@@ -184,8 +189,9 @@ function renderQuiz(){
  const root=$('#card');root.replaceChildren();root.classList.toggle('paper-card',!!Hanneung.get(card?.id)&&!feedback);root.classList.toggle('feedback-card',!!feedback);
  if(!card){
   root.append(elem('h2',queue.waiting.length?'비슷한 내용은 잠시 뒤 다시 풀어요':waiting.length?'잠시 뒤 틀린 문제를 다시 풀어요':data.cards.length&&!playable.length?'퀴즈 보기가 준비된 카드가 없어요':'오늘 풀 문제를 마쳤어요'));
-  const t=topicScope(scope.round),index=StudyTopics.list.findIndex(x=>x.id===t),set=studyScope(scope.round);
-  if(t&&index<StudyTopics.list.length-1){const nextTopic=StudyTopics.list[index+1];root.append(btn('다음 주제 풀기 · '+nextTopic.title,()=>openScope({subject:'한국사',round:'topic-'+nextTopic.id}),'primary'));}
+  const t=topicRange(scope.round),index=StudyTopics.list.findIndex(x=>x.id===t?.id),set=studyScope(scope.round);
+  const nextTopic=t&&StudyTopics.list.slice(index+1).find(x=>data.cards.some(c=>isPlayable(c)&&inScope(c,{subject:'한국사',round:(t.papers?'papers-':'topic-')+x.id})));
+  if(nextTopic)root.append(btn('다음 주제 풀기 · '+nextTopic.title,()=>openScope({subject:'한국사',round:(t.papers?'papers-':'topic-')+nextTopic.id}),'primary'));
   else if(set>0&&set<STUDY_SETS.length)root.append(btn('다음 묶음 풀기',()=>openScope({subject:'한국사',round:'study-20260910-'+(set+1)}),'primary'));
   if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
   return;
@@ -195,7 +201,7 @@ function renderQuiz(){
  if(!feedback&&(!active||active.cardId!==card.id)){if(active?.draft){data.practiceDrafts??={};data.practiceDrafts[active.cardId]=active;}const canonical=CORE_REVIEW_PACK.find(c=>c.id===card.id)||card;const exercise=Practice.select(canonical,data.history,PRACTICE_BANK,QUIZ_OPTIONS),saved=data.practiceDrafts?.[card.id];active=saved?.exercise?.exerciseId===exercise.exerciseId?saved:{cardId:card.id,exercise,draft:'',assisted:false};data.activePractice=active;saveDraft();}
  const quiz=feedback?(data.quizFeedback.exercise||{...QUIZ_OPTIONS[card.id],type:'choice',question:QUIZ_OPTIONS[card.id]?.question||card.question,explanation:card.explanation}):active.exercise;
  const lesson=PRACTICE_BANK[card.id],summary=STUDY_REVIEW_CATALOG.questions[card.id];
- const label=elem('small',card.subject+' · '+(lesson?.title||(quiz.image?'공식 기출':summary?StudyTopics.title(studyTopic(card.id))+' · 복습 '+summary.number+'번 · 자체 제작':'개념 복습'))+' · '+(quiz.type==='text'?'직접 쓰기':'객관식'));
+ const label=elem('small',card.subject+' · '+(lesson?.title||(quiz.image?Hanneung.title(Hanneung.get(card.id))+(studyTopic(card.id)?' · '+StudyTopics.title(studyTopic(card.id)):''):summary?StudyTopics.title(studyTopic(card.id))+' · 복습 '+summary.number+'번 · 자체 제작':'개념 복습'))+' · '+(quiz.type==='text'?'직접 쓰기':'객관식'));
  if(feedback)renderFeedback(root,card,quiz,lesson,label);
  else{
   root.append(label,elem('div',quiz.question,'question'));
