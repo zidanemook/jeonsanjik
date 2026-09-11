@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111318">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="style.css?v=27">
+  <link rel="stylesheet" href="style.css?v=28">
   <title>차곡 — 문제 복습</title>
 </head>
 <body>
@@ -15,75 +15,74 @@
     <time id="date" aria-label="오늘 날짜"></time>
   </header>
   <main>
-    <section class="study-time" aria-labelledby="studyTimeTitle">
-      <h2 id="studyTimeTitle">학습량 환산 시간</h2>
-      <div class="study-time-totals"><div><span>오늘</span><strong id="studyToday">0분</strong></div><div><span>누적</span><strong id="studyTotal">0분</strong></div></div>
-      <p id="studyCreditCount">아직 완료한 풀이가 없어요.</p>
-      <small>풀이 채점 +1분 · 해설 펼치기 +1분. 같은 풀이의 해설은 한 번만 더해요. 실제로 잰 시간은 아니에요.</small>
-      <details><summary>날짜별 환산 시간</summary><ul id="studyTimeHistory"></ul><button id="studyTimeMore" type="button" hidden>이전 날짜 더 보기</button><small>전체 과목 · 기존 풀이도 환산해요. 해설은 처음 연 날에 더하고, 새로고침·다른 기기에서 다시 열어도 중복 가산하지 않아요.</small><small id="studyCreditExcluded"></small></details>
+    <section id="homeView" aria-labelledby="homeTitle">
+      <h2 id="homeTitle">과목 선택</h2>
+      <div id="subjectList" class="menu-list"></div>
+      <button id="openProgress" type="button" class="menu-item secondary"><strong>진행상황</strong><span>풀 문제 · 복습 카드 · 오늘 푼 문제 · 학습량</span></button>
     </section>
-    <label for="subjectFilter">과목
-      <select id="subjectFilter"><option value="">전체 과목</option></select>
-    </label>
-    <label id="topicLabel" for="topicFilter" hidden>연습 범위
-      <select id="topicFilter"><option value="">영어 전체</option><option value="수일치">수일치</option><option value="영문법">그 밖의 문법 연습</option></select>
-    </label>
-    <p id="subjectCounts" class="subject-counts" aria-live="polite"></p>
-    <button id="startStudyReview" type="button">요약자료 복습 · 최대 8문제씩</button>
-    <button id="startHanneung" type="button">한능검 기출 풀기 · 57~79회</button>
-    <label id="roundLabel" for="roundFilter" hidden>한국사 연습 범위
-      <select id="roundFilter"><option value="">한국사 전체</option></select>
-    </label>
-    <p id="roundScore" class="status" role="status" hidden></p>
-    <details id="annulledQuestion" hidden><summary>63회 42번 · 공식 오류 문항 안내</summary><p>정답 없음으로 정정되어 응시자 전원에게 2점이 부여된 문항입니다. 일반 문제풀이와 오답 복습에서 제외합니다.</p></details>
-    <section id="review" aria-labelledby="review-title">
-      <div class="intro">
-        <h2 id="review-title">문제 풀기</h2>
-        <p id="reviewIntro">답을 고르거나 직접 써보세요. 복습할 때는 다른 예문으로도 연습해요.</p>
+    <section id="subjectView" aria-labelledby="subjectTitle" hidden>
+      <button type="button" class="back" data-back>← 과목 선택</button>
+      <h2 id="subjectTitle"></h2>
+      <p id="subjectSummary" class="status"></p>
+      <div class="menu-list">
+        <button id="resumeStudy" type="button" class="menu-item primary"><strong>이어하기</strong><span id="resumeHint"></span></button>
+        <button id="chooseRange" type="button" class="menu-item"><strong>연습 범위 선택</strong><span>주제를 고르면 첫 번째 문제부터 풀어요</span></button>
       </div>
+    </section>
+    <section id="rangeView" aria-labelledby="rangeTitle" hidden>
+      <button type="button" class="back" data-back>← 뒤로</button>
+      <h2 id="rangeTitle">연습 범위 선택</h2>
+      <div id="rangeList"></div>
+    </section>
+    <section id="quizView" aria-labelledby="scopeLabel" hidden>
+      <div class="quiz-bar"><button id="quizBack" type="button" class="back">← 뒤로</button><span id="scopeLabel"></span></div>
+      <article id="card" aria-live="polite">
+        <p>문제를 불러오는 중입니다.</p>
+      </article>
+      <p id="retryStatus" class="status" role="status"></p>
+      <p id="roundScore" class="status" role="status" hidden></p>
+      <details id="annulledQuestion" hidden><summary>63회 42번 · 공식 오류 문항 안내</summary><p>정답 없음으로 정정되어 응시자 전원에게 2점이 부여된 문항입니다. 일반 문제풀이와 오답 복습에서 제외합니다.</p></details>
+    </section>
+    <section id="progressView" aria-labelledby="progressTitle" hidden>
+      <button type="button" class="back" data-back>← 과목 선택</button>
+      <h2 id="progressTitle">진행상황</h2>
       <div class="stats" aria-label="복습 현황">
         <div><strong id="due">0</strong><span>풀 문제</span></div>
         <div><strong id="total">0</strong><span>복습 카드</span></div>
         <div><strong id="done">0</strong><span>오늘 푼 문제</span></div>
       </div>
       <p class="retention-line">지난 복습 정답률: <strong id="retention"></strong></p>
-      <p id="retryStatus" class="status" role="status"></p>
-      <article id="card" aria-live="polite">
-        <p>문제를 불러오는 중입니다.</p>
-      </article>
+      <div class="table-wrap"><table class="subject-table"><thead><tr><th>과목</th><th>풀 문제</th><th>복습 카드</th><th>오늘 푼 문제</th></tr></thead><tbody id="subjectStats"></tbody></table></div>
+      <section class="study-time" aria-labelledby="studyTimeTitle">
+        <h2 id="studyTimeTitle">학습량 환산 시간</h2>
+        <div class="study-time-totals"><div><span>오늘</span><strong id="studyToday">0분</strong></div><div><span>누적</span><strong id="studyTotal">0분</strong></div></div>
+        <p id="studyCreditCount">아직 완료한 풀이가 없어요.</p>
+        <small>풀이 채점 +1분 · 해설 펼치기 +1분. 같은 풀이의 해설은 한 번만 더해요. 실제로 잰 시간은 아니에요.</small>
+        <details><summary>날짜별 환산 시간</summary><ul id="studyTimeHistory"></ul><button id="studyTimeMore" type="button" hidden>이전 날짜 더 보기</button><small>전체 과목 · 기존 풀이도 환산해요. 해설은 처음 연 날에 더하고, 새로고침·다른 기기에서 다시 열어도 중복 가산하지 않아요.</small><small id="studyCreditExcluded"></small></details>
+      </section>
     </section>
-    <details class="history-panel">
-      <summary>예문별 성적</summary>
-      <p>처음 푼 예문: <strong id="firstScore"></strong></p>
-      <p>다시 푼 예문: <strong id="repeatScore"></strong></p>
-      <p id="practiceScore"></p>
-      <small>같은 규칙을 10분 안에 다시 풀거나 설명을 보고 푼 결과는 ‘이어서 연습’으로 따로 셉니다. 예전 기록으로 첫 풀이 여부를 알 수 없으면 첫 풀이 성적에 넣지 않습니다.</small>
-    </details>
-    <details class="history-panel">
-      <summary id="historyTitle">학습 기록</summary>
-      <ul id="historyList" aria-live="polite"></ul>
-    </details>
     <div class="sync-line"><span id="syncStatus" role="status">이 기기에 저장 중</span><button id="syncAccount" type="button" hidden>Google 로그인</button></div>
     <p id="message" role="status" aria-live="polite"></p>
     <footer>자체 제작 복습 문제 · 국사편찬위원회 공개 심화 기출</footer>
   </main>
-  <script src="scheduler.js?v=27"></script>
-  <script src="learning.js?v=27"></script>
-  <script src="core-review-pack.js?v=27"></script>
-  <script src="quiz-options.js?v=27"></script>
-  <script src="hanneung-data.js?v=27"></script>
-  <script src="hanneung-explanations.js?v=27"></script>
-  <script src="hanneung.js?v=27"></script>
-  <script src="practice-bank.js?v=27"></script>
-  <script src="practice.js?v=27"></script>
-  <script src="content-corrections.js?v=27"></script>
-  <script src="review-record.js?v=27"></script>
-  <script src="review-policy.js?v=27"></script>
-  <script src="sync-core.js?v=27"></script>
-  <script src="study-credit.js?v=27"></script>
-  <script src="study-review-catalog.js?v=27"></script>
-  <script src="app.js?v=27"></script>
-  <script src="firebase-config.js?v=27"></script>
-  <script src="sync.js?v=27"></script>
+  <script src="scheduler.js?v=28"></script>
+  <script src="learning.js?v=28"></script>
+  <script src="core-review-pack.js?v=28"></script>
+  <script src="quiz-options.js?v=28"></script>
+  <script src="hanneung-data.js?v=28"></script>
+  <script src="hanneung-explanations.js?v=28"></script>
+  <script src="hanneung.js?v=28"></script>
+  <script src="practice-bank.js?v=28"></script>
+  <script src="practice.js?v=28"></script>
+  <script src="content-corrections.js?v=28"></script>
+  <script src="review-record.js?v=28"></script>
+  <script src="review-policy.js?v=28"></script>
+  <script src="sync-core.js?v=28"></script>
+  <script src="study-credit.js?v=28"></script>
+  <script src="study-review-catalog.js?v=28"></script>
+  <script src="topics.js?v=28"></script>
+  <script src="app.js?v=28"></script>
+  <script src="firebase-config.js?v=28"></script>
+  <script src="sync.js?v=28"></script>
 </body>
 </html>

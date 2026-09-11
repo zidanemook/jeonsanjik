@@ -60,5 +60,29 @@ service cloud.firestore {
         && request.resource.data.openedAt <= resource.data.openedAt;
       allow delete: if false;
     }
+    // One shared study position per owner: scope and the open question.
+    match /users/{uid}/state/{id} {
+      function optionalId(v) {
+        return v == null || (v is string && v.matches('^[A-Za-z0-9_-]{1,160}$'));
+      }
+      function validSession(d) {
+        return d.keys().hasAll(['at','subject','topic','round','cardId','exerciseId','variantIndex','type','choices'])
+          && d.keys().hasOnly(['at','subject','topic','round','cardId','exerciseId','variantIndex','type','choices'])
+          && d.at is int && d.at > 0
+          && d.subject is string && d.subject.size() <= 80
+          && d.topic is string && d.topic.size() <= 80
+          && d.round is string && d.round.size() <= 80
+          && optionalId(d.cardId) && optionalId(d.exerciseId)
+          && (d.variantIndex == null || (d.variantIndex is int && d.variantIndex >= 0 && d.variantIndex <= 99))
+          && (d.type == null || d.type in ['choice','text'])
+          && (d.choices == null || (d.choices is list && d.choices.size() > 0 && d.choices.size() <= 10));
+      }
+      allow read: if owner(uid) && id == 'session';
+      allow create: if owner(uid) && id == 'session' && validSession(request.resource.data);
+      // Only a newer position may replace the stored one.
+      allow update: if owner(uid) && id == 'session' && validSession(request.resource.data)
+        && request.resource.data.at > resource.data.at;
+      allow delete: if false;
+    }
   }
 }

@@ -13,10 +13,16 @@
   exercise.key=card.id+':'+index;exercise.variantIndex=index;exercise.variantCount=variants.length;
   exercise.exerciseId=card.id+'-'+fingerprint(JSON.stringify([exercise.type,exercise.question,exercise.answers||exercise.choices[exercise.correctIndex],...(exercise.image?[exercise.image]:[])]));
   if(exercise.type==='choice'&&!exercise.fixedOrder){
-   let seed=2166136261;for(const char of card.id+':'+count)seed=Math.imul(seed^char.charCodeAt(0),16777619)>>>0;
-   const correct=exercise.choices[exercise.correctIndex],choices=[...exercise.choices];
-   for(let i=choices.length-1;i>0;i--){seed=(Math.imul(seed,1664525)+1013904223)>>>0;const j=seed%(i+1);[choices[i],choices[j]]=[choices[j],choices[i]];}
-   exercise.choices=choices;exercise.correctIndex=choices.indexOf(correct);
+   const correct=exercise.choices[exercise.correctIndex],shuffle=n=>{
+    let seed=2166136261;for(const char of card.id+':'+n)seed=Math.imul(seed^char.charCodeAt(0),16777619)>>>0;
+    const choices=[...exercise.choices];
+    for(let i=choices.length-1;i>0;i--){seed=(Math.imul(seed,1664525)+1013904223)>>>0;const j=seed%(i+1);[choices[i],choices[j]]=[choices[j],choices[i]];}
+    return choices;
+   };
+   // A retry of the same variant never keeps the previous attempt's answer number.
+   let choices,previous=-1;
+   for(let n=index;n<=count;n+=variants.length){choices=shuffle(n);if(choices.indexOf(correct)===previous)choices.push(choices.shift());previous=choices.indexOf(correct);}
+   exercise.choices=choices;exercise.correctIndex=previous;
   }
   return exercise;
  }

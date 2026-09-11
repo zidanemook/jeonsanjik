@@ -21,14 +21,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scheduler.test.cjs && node learning.test.cjs && node sync-core.test.cjs && node sync.test.cjs && node build-config.test.cjs && node practice.test.cjs && node review-policy.test.cjs && node content-audit.cjs && node study-credit.test.cjs && node sync-explanations.test.cjs && node hanneung.test.cjs && node study-review.test.cjs
+      - run: node scheduler.test.cjs && node learning.test.cjs && node sync-core.test.cjs && node sync.test.cjs && node sync-session.test.cjs && node topics.test.cjs && node build-config.test.cjs && node practice.test.cjs && node review-policy.test.cjs && node content-audit.cjs && node study-credit.test.cjs && node sync-explanations.test.cjs && node hanneung.test.cjs && node study-review.test.cjs
       - uses: actions/configure-pages@v5
       - name: Stage app
         env:
           STUDY_FIREBASE_CONFIG: ${{ secrets.STUDY_FIREBASE_CONFIG }}
         run: |
           mkdir _site
-          cp study-review-catalog.js study-credit.js index.html app.js core-review-pack.js quiz-options.js practice-bank.js practice.js content-corrections.js review-record.js review-policy.js sync-core.js sync.js scheduler.js learning.js style.css sw.js manifest.json icon.svg _site/
+          cp study-review-catalog.js topics.js study-credit.js index.html app.js core-review-pack.js quiz-options.js practice-bank.js practice.js content-corrections.js review-record.js review-policy.js sync-core.js sync.js scheduler.js learning.js style.css sw.js manifest.json icon.svg _site/
           cp -r vendor _site/
           cp hanneung-data.js hanneung-explanations.js hanneung.js _site/
           cp -r assets _site/

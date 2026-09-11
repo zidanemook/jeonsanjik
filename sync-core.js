@@ -29,5 +29,15 @@
   });
   next.history=rows.map(r=>({...state.history.find(h=>h.id===r.id),...(derived.get(r.id)||r)}));return next;
  }
- const api={event,union,merge};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ProgressSync=api;
+ // Shared study position: the latest explicit scope and open question across devices.
+ function session(row){
+  const id=/^[\w-]{1,160}$/,text=v=>typeof v==='string'&&v.length<=80;
+  if(!row||!Number.isSafeInteger(row.at)||row.at<=0||!text(row.subject)||!text(row.topic)||!text(row.round))throw Error('Invalid session');
+  const out={at:row.at,subject:row.subject,topic:row.topic,round:row.round,cardId:null,exerciseId:null,variantIndex:null,type:null,choices:null};
+  if(row.cardId===null||row.cardId===undefined)return out;
+  if(typeof row.cardId!=='string'||!id.test(row.cardId)||typeof row.exerciseId!=='string'||!id.test(row.exerciseId)||!Number.isInteger(row.variantIndex)||row.variantIndex<0||row.variantIndex>99||!['choice','text'].includes(row.type))throw Error('Invalid session question');
+  if(row.type==='choice'&&(!Array.isArray(row.choices)||!row.choices.length||row.choices.length>10||row.choices.some(c=>typeof c!=='string'||c.length>2000)))throw Error('Invalid session choices');
+  return {...out,cardId:row.cardId,exerciseId:row.exerciseId,variantIndex:row.variantIndex,type:row.type,choices:row.type==='choice'?[...row.choices]:null};
+ }
+ const api={event,union,merge,session};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ProgressSync=api;
 })(globalThis);

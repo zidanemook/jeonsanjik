@@ -2,11 +2,20 @@
 // Immutable results include the original question and answer. Unsubmitted drafts stay local.
 (function(root){
  function connect({auth,db,store,status}){
-  const withViews=typeof store.mergeExplanations==='function';
-  let generation=0,unsubscribe,unsubscribeViews,uid=null,known=new Set(),knownViews=new Map(),reviewsReady=false,viewsReady=!withViews,ready=false,uploading=false,merging=false,closed=false;
+  const withViews=typeof store.mergeExplanations==='function',withSession=typeof store.session==='function'&&typeof store.mergeSession==='function';
+  let generation=0,unsubscribe,unsubscribeViews,unsubscribeSession,knownSession=0,sessionReady=false,sessionSending=false,uid=null,known=new Set(),knownViews=new Map(),reviewsReady=false,viewsReady=!withViews,ready=false,uploading=false,merging=false,closed=false;
   const say=text=>status(text);
   function merge(rows){merging=true;try{store.merge(rows);}finally{merging=false;}}
   function mergeViews(rows){merging=true;try{store.mergeExplanations(rows);}finally{merging=false;}}
+  function sessionRef(user){return db.collection('users').doc(user).collection('state').doc('session');}
+  // Last explicit choice wins; the rules reject a write older than the stored position.
+  async function pushSession(){
+   if(!withSession||!sessionReady||sessionSending||!uid||closed)return;const token=generation,user=uid;
+   let row;try{const local=store.session();if(!local)return;row=ProgressSync.session(local);}catch{return;}
+   if(row.at<=knownSession)return;sessionSending=true;
+   try{await sessionRef(user).set(row);if(token===generation)knownSession=Math.max(knownSession,row.at);}catch{}
+   finally{sessionSending=false;}
+  }
   async function flush(){
    if(!ready||uploading||!uid||closed)return;const token=generation,user=uid;uploading=true;
    try{
@@ -28,7 +37,7 @@
    finally{uploading=false;if(token!==generation&&ready)void flush();}
   }
   async function account(user){
-   const token=++generation;unsubscribe?.();unsubscribeViews?.();unsubscribe=null;unsubscribeViews=null;ready=false;reviewsReady=false;viewsReady=!withViews;known=new Set();knownViews=new Map();uid=null;
+   const token=++generation;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribe=null;unsubscribeViews=null;unsubscribeSession=null;knownSession=0;sessionReady=false;ready=false;reviewsReady=false;viewsReady=!withViews;known=new Set();knownViews=new Map();uid=null;
    if(!user){try{store.switchUser(null);say('이 기기에 저장 중 · 로그인하면 자동 동기화돼요.');}catch{say('이 기기의 저장 공간을 확인해 주세요.');}return;}
    say('동기화 계정 확인 중…');
    try{
@@ -52,13 +61,22 @@
       knownViews=new Map(rows.map(v=>[v.id,v.openedAt]));viewsReady=true;ready=reviewsReady&&viewsReady;void flush();
      }catch{viewsReady=false;ready=false;say('해설 열기 기록을 확인해야 해요. 기존 기록은 보관돼요.');}
     },()=>{viewsReady=false;ready=false;say('해설 기록 연결 대기 중 · 이 기기에 저장돼요.');});
+    // Position sync is independent: its failure never blocks answer records.
+    if(withSession)unsubscribeSession=sessionRef(uid).onSnapshot({includeMetadataChanges:true},doc=>{
+     if(token!==generation)return;
+     try{
+      const row=doc.exists?ProgressSync.session(doc.data()):null;if(row){merging=true;try{store.mergeSession(row);}finally{merging=false;}}
+      if(doc.metadata.fromCache||doc.metadata.hasPendingWrites)return;
+      knownSession=Math.max(knownSession,row?.at||0);sessionReady=true;void pushSession();
+     }catch{sessionReady=false;}
+    },()=>{sessionReady=false;});
    }catch(e){if(token===generation)say('연결 대기 중 · 기록은 이 기기에 저장돼요.');}
   }
   const stopAuth=auth.onAuthStateChanged(user=>{void account(user);});
-  const saved=()=>{if(!merging)void flush();},retry=()=>{if(!ready)void account(auth.currentUser);else void flush();};
+  const saved=()=>{if(!merging){void flush();void pushSession();}},retry=()=>{if(!ready)void account(auth.currentUser);else{void flush();void pushSession();}};
   root.addEventListener('study-progress-saved',saved);root.addEventListener('online',retry);
   const timer=setInterval(()=>{if(root.navigator.onLine)retry();},60000);
-  return {flush,retry,close(){closed=true;generation++;unsubscribe?.();unsubscribeViews?.();stopAuth();clearInterval(timer);root.removeEventListener('study-progress-saved',saved);root.removeEventListener('online',retry);}};
+  return {flush,retry,close(){closed=true;generation++;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();stopAuth();clearInterval(timer);root.removeEventListener('study-progress-saved',saved);root.removeEventListener('online',retry);}};
  }
  root.ProgressCloud={connect};
  async function boot(){
