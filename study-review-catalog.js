@@ -3801,7 +3801,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     "core-hist-79-3": {
       "number": 313,
-      "section": "백제·신라·삼국 통일",
+      "section": "백제·신라·통일",
       "coverage": [
         "백제 22담로에 왕족 파견",
         "무령왕과 삼근왕의 선후"
@@ -3855,7 +3855,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     "core-hist-79-6": {
       "number": 319,
-      "section": "백제·신라·삼국 통일",
+      "section": "백제·신라·통일",
       "coverage": [
         "정림사지 오층석탑의 잘못된 이름 평제탑",
         "백제의 오층석탑"
