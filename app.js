@@ -22,7 +22,7 @@ function studySet(id){return STUDY_SET_BY_ID.get(id)||0;}
 function studyScope(value){if(value==='study-20260910')return 0;const match=/^study-20260910-([1-9]\d*)$/.exec(value||'');return match&&STUDY_SETS.some(set=>set.number===Number(match[1]))?Number(match[1]):null;}
 const TOPIC_BY_ID=StudyTopics.byCard(STUDY_REVIEW_CATALOG,globalThis.HANNEUNG_TOPICS||{});
 function studyTopic(id){return TOPIC_BY_ID.get(id)||'';}
-// 'topic-<id>' is the self-made 연습문제 of one era; 'papers-<id>' is the official 기출 of the same era.
+// 'topic-<id>' is the self-made side of one era; 'papers-<id>' is the official 기출 of the same era.
 function topicRange(value){const match=/^(topic|papers)-([a-z-]+)$/.exec(value||'');return match&&StudyTopics.list.some(t=>t.id===match[2])?{id:match[2],papers:match[1]==='papers'}:null;}
 function topicScope(value){return topicRange(value)?.id||null;}
 // 'lecture-<id>' follows the textbook lectures (02~05강, 06강, 07·08강) over the self-made summary questions.
@@ -248,7 +248,7 @@ function renderRange(){
   const round=scopeOf().round;
   // 자체 제작은 교재 진도순, 기출은 회차별. 같은 문제를 여러 순서로 제공하면 어디까지 풀었는지
   // 알기 어려워진다. 문항 화면은 여전히 시대 주제를 표시하므로 분류 자체는 살아 있다.
-  const lectures=group('연습문제 · 교재 강별');for(const l of STUDY_LECTURES)option(lectures,l.title,scope('lecture-'+l.id));
+  const lectures=group('교재 강별');for(const l of STUDY_LECTURES)option(lectures,l.title,scope('lecture-'+l.id));
   const papers=group('기출 · 회차별 심화 ('+Math.min(...Hanneung.rounds)+'~'+Math.max(...Hanneung.rounds)+'회)',!Hanneung.rounds.includes(Number(round)));for(const n of Hanneung.rounds){const count=Hanneung.rows.filter(r=>r.round===n&&Hanneung.hasExplanation(r.id)).length;option(papers,n+'회',scope(String(n)),count?'해설 '+count+'개':'');}
   const other=group('그 밖의 범위',!(studyScope(round)!==null||round==='core'));option(other,'기존 핵심 복습 · 헷갈리는 것 콕 집기',scope('core'));option(other,'한국사 전체',scope(''));
  }else if(s==='영어'){const g=group('영어');option(g,'영어 전체',scope(''));option(g,'수일치',scope('','수일치'));option(g,'그 밖의 문법 연습',scope('','영문법'));}
