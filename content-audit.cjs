@@ -7,8 +7,27 @@ function catalog(){const ctx={};vm.createContext(ctx);for(const f of ['core-revi
  return items;
 }
 function digest(item){return crypto.createHash('sha256').update(JSON.stringify([item.exercise,item.lesson||null,item.conceptId])).digest('hex');}
+// 사진 보기 문항의 게이트. 사진은 공공누리 제1유형만 쓰고(제4유형은 상업적 이용·변경 금지),
+// 출처표시 문자열이 보기마다 붙어 있어야 화면에 띄울 수 있다. 근거는 docs/IMAGE-LICENSE-LEDGER.md.
+// 대체 텍스트에 국가유산 이름을 넣으면 화면 낭독기 사용자에게 정답이 그대로 새므로 금지한다.
+function photos(e){
+ if(!e.choiceImages)return;
+ assert(!e.fixedOrder,'Photo options must still shuffle: '+e.exerciseId);
+ assert.equal(Object.keys(e.choiceImages).length,e.choices.length,'Every photo option needs exactly one image: '+e.exerciseId);
+ const seen=new Set();
+ for(const choice of e.choices){
+  const meta=e.choiceImages[choice];
+  assert(meta&&typeof meta==='object','Photo option without an image: '+choice+' / '+e.exerciseId);
+  assert(/^assets\/heritage\/[\w.-]+\.webp$/.test(meta.src||''),'Photo option must point at a repository webp: '+meta.src);
+  assert(fs.existsSync(__dirname+'/'+meta.src),'Missing photo file: '+meta.src);
+  assert(!seen.has(meta.src),'Two options share one photo: '+meta.src);seen.add(meta.src);
+  assert(typeof meta.alt==='string'&&meta.alt.trim().length>=10,'Photo option needs alt text: '+choice);
+  assert(!meta.alt.includes(choice),'Alt text must describe the photo, not name the option: '+choice);
+  assert(/공공누리 제1유형/.test(meta.credit||'')&&/국가유산청/.test(meta.credit||''),'Photo option must carry its 공공누리 제1유형 attribution: '+choice);
+ }
+}
 function structural(items){const seen=new Set();for(const item of items){const e=item.exercise;assert(e.question.trim()&&e.explanation.trim(),'Missing question/explanation');assert(!seen.has(e.exerciseId),'Duplicate exercise identity');seen.add(e.exerciseId);
- if(e.type==='choice'){assert(e.choices.length>=2&&e.choices.length<=6);assert(Number.isInteger(e.correctIndex)&&e.correctIndex>=0&&e.correctIndex<e.choices.length);assert.equal(new Set(e.choices.map(practice.normalize)).size,e.choices.length,'Duplicate normalized options');}
+ if(e.type==='choice'){assert(e.choices.length>=2&&e.choices.length<=6);assert(Number.isInteger(e.correctIndex)&&e.correctIndex>=0&&e.correctIndex<e.choices.length);assert.equal(new Set(e.choices.map(practice.normalize)).size,e.choices.length,'Duplicate normalized options');photos(e);}
  else{assert(e.answers.length>0);assert.equal(new Set(e.answers.map(practice.normalize)).size,e.answers.length,'Duplicate accepted answer');for(const answer of e.answers)assert(practice.grade(e,answer),'Accepted answer rejected');}
  record.create(item.card,e,e.type==='choice'?e.correctIndex:e.answers[0],item.lesson,item.conceptId);
  if(item.card.id==='grammar-agreement-identity')assert(/한 명|두 명/.test(e.question),'Person count context required');
@@ -22,11 +41,13 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // 보기 길이로 정답을 맞히지 못하게 막는다. 4지선다에서 "가장 긴 보기"를 고르면 기대 정답률은 25%인데,
 // 정답만 조건을 정확히 서술해 길어지면 이 비율이 올라가 지식 없이도 풀린다(2026-09-12 측정 38.1%).
 // 기출(hanneung-)은 원문 표현을 그대로 보존해야 하므로 제외한다.
+// 사진 보기 문항도 제외한다. 보기 글자가 화면에 나오지 않아 '가장 긴 보기 고르기' 전략 자체가 성립하지 않고,
+// 분모에 넣으면 래칫 비율만 희석되어 검사가 헐거워진다. 대신 photos()가 네 보기 전부 사진임을 따로 강제한다.
 // LONGEST_LIMIT: 오답 보강 뒤 실측 27.8%를 상한으로 못 박은 래칫. 문항을 더하다 이 값을 넘기면 실패한다.
 // MARGIN: 실측 최대 초과폭 7자에 여유 5자를 더한 값. 후보 문항은 모두 통과하지만 24자씩 튀던 예전 문항은 걸린다.
 const LONGEST_LIMIT=0.278,MARGIN=12;
 function lengthBias(items){
- const rows=items.filter(i=>i.exercise.type==='choice'&&!i.card.id.startsWith('hanneung-'));
+ const rows=items.filter(i=>i.exercise.type==='choice'&&!i.card.id.startsWith('hanneung-')&&!i.exercise.choiceImages);
  assert(rows.length>0,'No self-made choice exercises to measure');
  let longest=0,sum=0;
  for(const item of rows){
@@ -38,8 +59,8 @@ function lengthBias(items){
  }
  const ratio=longest/rows.length;
  assert(ratio<=LONGEST_LIMIT,'Length bias regression: correct option is uniquely longest in '+longest+'/'+rows.length+' ('+(ratio*100).toFixed(1)+'%), above the '+(LONGEST_LIMIT*100).toFixed(1)+'% ratchet. Pad distractors instead of shortening correct answers.');
- return {total:rows.length,longest,ratio,delta:sum/rows.length};
+ return {total:rows.length,longest,ratio,delta:sum/rows.length,photo:items.filter(i=>i.exercise.choiceImages).length};
 }
 function verify(items,ledger){structural(items);coverage(items);lengthBias(items);assert.equal(ledger.schema,1);assert.equal(Object.keys(ledger.items).length,items.length,'Unreviewed addition/deletion');for(const item of items)assert.equal(ledger.items[item.exercise.exerciseId],digest(item),'Content changed: review meaning, alternatives and context before updating ledger: '+item.exercise.exerciseId);}
 module.exports={catalog,digest,structural,coverage,lengthBias,verify};
-if(require.main===module){const items=catalog();verify(items,JSON.parse(fs.readFileSync(__dirname+'/content-review.json','utf8')));const bias=lengthBias(items);console.log('PASS content audit: '+items.length+' reviewed exercises; structure, answer acceptance, context regression and review fingerprints; length bias '+bias.longest+'/'+bias.total+' ('+(bias.ratio*100).toFixed(1)+'%, limit '+(LONGEST_LIMIT*100).toFixed(1)+'%, chance 25%) self-made choice answers uniquely longest, mean +'+bias.delta.toFixed(1)+' chars vs distractor average, per-question margin <='+MARGIN);}
+if(require.main===module){const items=catalog();verify(items,JSON.parse(fs.readFileSync(__dirname+'/content-review.json','utf8')));const bias=lengthBias(items);console.log('PASS content audit: '+items.length+' reviewed exercises; structure, answer acceptance, context regression and review fingerprints; length bias '+bias.longest+'/'+bias.total+' ('+(bias.ratio*100).toFixed(1)+'%, limit '+(LONGEST_LIMIT*100).toFixed(1)+'%, chance 25%) self-made choice answers uniquely longest, mean +'+bias.delta.toFixed(1)+' chars vs distractor average, per-question margin <='+MARGIN+'; '+bias.photo+' photo-option exercises gated by image/licence checks instead of option length');}

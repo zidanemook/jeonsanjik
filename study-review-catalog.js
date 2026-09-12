@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 305,
+  "total": 312,
   "sets": [
     {
       "number": 1,
@@ -553,6 +553,19 @@ globalThis.STUDY_REVIEW_CATALOG={
         "daily-hist-20260912-05",
         "daily-hist-20260912-06"
       ]
+    },
+    {
+      "number": 42,
+      "title": "고대 문화유산 사진 판별 · 탑",
+      "ids": [
+        "photo-hist-20260912-01",
+        "photo-hist-20260912-02",
+        "photo-hist-20260912-03",
+        "photo-hist-20260912-04",
+        "photo-hist-20260912-05",
+        "photo-hist-20260912-06",
+        "photo-hist-20260912-07"
+      ]
     }
   ],
   "lectures": [
@@ -876,7 +889,14 @@ globalThis.STUDY_REVIEW_CATALOG={
         "heritage-hist-20260912-07",
         "heritage-hist-20260912-08",
         "heritage-hist-20260912-09",
-        "heritage-hist-20260912-10"
+        "heritage-hist-20260912-10",
+        "photo-hist-20260912-01",
+        "photo-hist-20260912-02",
+        "photo-hist-20260912-03",
+        "photo-hist-20260912-04",
+        "photo-hist-20260912-05",
+        "photo-hist-20260912-06",
+        "photo-hist-20260912-07"
       ]
     }
   ],
@@ -3692,6 +3712,69 @@ globalThis.STUDY_REVIEW_CATALOG={
         "반달 돌칼—청동기 / 거푸집—철기"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 02~05강 선사 시대 도구와 주거"
+    },
+    "photo-hist-20260912-01": {
+      "number": 306,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "백제 탑 사진 판별: 부여 정림사지 5층 석탑",
+        "신라·통일 신라 탑과의 시각적 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑 · 사진 보기(공공누리 제1유형)"
+    },
+    "photo-hist-20260912-02": {
+      "number": 307,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "현존 최고(最古) 석탑 사진 판별: 익산 미륵사지 석탑",
+        "목탑 양식 석탑의 시각적 특징"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑 · 사진 보기(공공누리 제1유형)"
+    },
+    "photo-hist-20260912-03": {
+      "number": 308,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "무구정광대다라니경 발견 탑 사진 판별: 경주 불국사 3층 석탑",
+        "석가탑과 다보탑의 시각적 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑 · 사진 보기(공공누리 제1유형)"
+    },
+    "photo-hist-20260912-04": {
+      "number": 309,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "모전 석탑 사진 판별: 경주 분황사 모전 석탑",
+        "선덕 여왕 시기 탑과 통일 신라 탑의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑 · 사진 보기(공공누리 제1유형)"
+    },
+    "photo-hist-20260912-05": {
+      "number": 310,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "승탑 사진 판별: 화순 쌍봉사 철감선사탑",
+        "팔각원당형 승탑과 석탑의 시각적 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑 · 사진 보기(공공누리 제1유형)"
+    },
+    "photo-hist-20260912-06": {
+      "number": 311,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "황룡사 9층 목탑 소실과 목탑 터 사진 판별",
+        "선덕 여왕·자장·몽골 침입 연결"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑 · 사진 보기(공공누리 제1유형)"
+    },
+    "photo-hist-20260912-07": {
+      "number": 312,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "쌍탑 사진 판별: 경주 감은사지 동·서 3층 석탑",
+        "통일 신라 신문왕 시기 탑"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑 · 사진 보기(공공누리 제1유형)"
     }
   }
 };

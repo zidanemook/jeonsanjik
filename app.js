@@ -66,6 +66,37 @@ function appendPaper(parent,paper){
  img.onerror=()=>{error.hidden=false;update();};img.onload=()=>{error.hidden=true;update();};
  error.append(btn('이미지 다시 불러오기',()=>{img.src=paper.image+'?retry='+Date.now();}));wrap.append(error);parent.append(wrap);
 }
+// 사진 보기 문항: 보기 자체가 사진이라 이름을 붙이면 답이 그대로 드러난다. 채점 전에는 번호만, 채점 뒤에는 이름을 붙인다.
+// 공공누리 제1유형은 출처표시가 의무인데 출처 문구에 국가유산 이름이 들어 있다. 보기마다 붙이면 정답이 노출되므로
+// 네 장의 출처를 보기 순서와 무관한 고정 순서(가나다순)로 문제 아래에 한 번만 모아 띄운다. 사진이 보이는 화면에는 언제나 함께 나온다.
+function photoCredits(quiz){
+ const box=elem('div',undefined,'photo-credits');
+ box.append(elem('p','사진 출처 · 공공누리 제1유형 (보기 순서와 무관하게 가나다순으로 적었습니다)','photo-credit-head'));
+ for(const name of Object.keys(quiz.choiceImages).sort((a,b)=>a.localeCompare(b,'ko')))box.append(elem('p',quiz.choiceImages[name].credit,'photo-credit'));
+ return box;
+}
+function appendPhotoChoices(parent,quiz,pick,selected){
+ const wrap=elem('div',undefined,'quiz-choices photo-choices'),imgs=[],buttons=[];
+ quiz.choices.forEach((choice,i)=>{
+  const meta=quiz.choiceImages[choice],cell=elem('div',undefined,'photo-cell'),button=elem('button');
+  button.type='button';button.className='photo-choice';button.disabled=true;
+  const img=elem('img');img.src=meta.src;img.alt=(i+1)+'번 사진 · '+meta.alt;img.loading='lazy';img.decoding='async';
+  button.append(img,elem('span',(i+1)+'번','photo-number'));
+  if(pick){button.onclick=()=>pick(i);button.setAttribute('aria-label',(i+1)+'번 사진 고르기 · '+meta.alt);}
+  else{if(i===quiz.correctIndex)button.classList.add('quiz-correct');else if(i===selected)button.classList.add('quiz-wrong');}
+  cell.append(button);if(!pick)cell.append(elem('small',(i+1)+'. '+choice,'photo-name'));
+  wrap.append(cell);imgs.push(img);buttons.push(button);
+ });
+ parent.append(wrap);
+ if(pick){
+  const error=elem('p','보기 사진을 불러오지 못했어요. 인터넷 연결을 확인하고 다시 불러오세요.','photo-error');error.hidden=true;
+  const update=()=>{const ready=imgs.every(x=>x.complete&&x.naturalWidth);for(const b of buttons)b.disabled=!ready||!!data.quizFeedback;error.hidden=!imgs.some(x=>x.complete&&!x.naturalWidth);};
+  for(const img of imgs){img.onload=update;img.onerror=update;}
+  error.append(btn('사진 다시 불러오기',()=>{for(const img of imgs)if(!img.naturalWidth)img.src=img.src.split('?')[0]+'?retry='+Date.now();}));
+  parent.append(error);update();
+ }
+ parent.append(photoCredits(quiz));
+}
 function renderScopeStatus(scope){
  const r=scope.subject==='한국사'?scope.round||'':'',numeric=Number(r),isRound=!!r&&Hanneung.rounds.includes(numeric),el=$('#roundScore');el.hidden=true;el.textContent='';
  if(isRound){const s=Hanneung.stats(numeric,data.history);el.textContent='첫 시도 '+s.answered+'/'+s.total+'문항 · '+(s.complete?'점수 ':'현재 획득 ')+s.points+'/100점'+(s.bonus?' (공식 오류 문항 2점 포함)':'')+(s.complete?' · '+(s.points>=60?'3급 이상 기준 도달':'3급 기준 60점 미만'):'');el.hidden=false;}
@@ -257,12 +288,13 @@ function renderQuiz(){
  if(!feedback&&(!active||active.cardId!==card.id)){if(active?.draft){data.practiceDrafts??={};data.practiceDrafts[active.cardId]=active;}const canonical=CORE_REVIEW_PACK.find(c=>c.id===card.id)||card;const exercise=Practice.select(canonical,data.history,PRACTICE_BANK,QUIZ_OPTIONS),saved=data.practiceDrafts?.[card.id];active=saved?.exercise?.exerciseId===exercise.exerciseId?saved:{cardId:card.id,exercise,draft:'',assisted:false};data.activePractice=active;saveDraft();}
  const quiz=feedback?(data.quizFeedback.exercise||{...QUIZ_OPTIONS[card.id],type:'choice',question:QUIZ_OPTIONS[card.id]?.question||card.question,explanation:card.explanation}):active.exercise;
  const lesson=PRACTICE_BANK[card.id],summary=STUDY_REVIEW_CATALOG.questions[card.id];
- const label=elem('small',card.subject+' · '+(lesson?.title||(quiz.image?Hanneung.title(Hanneung.get(card.id))+(studyTopic(card.id)?' · '+StudyTopics.title(studyTopic(card.id)):''):summary?StudyTopics.title(studyTopic(card.id))+' · 복습 '+summary.number+'번 · 자체 제작':'개념 복습'))+' · '+(quiz.type==='text'?'직접 쓰기':'객관식'));
+ const label=elem('small',card.subject+' · '+(lesson?.title||(quiz.image?Hanneung.title(Hanneung.get(card.id))+(studyTopic(card.id)?' · '+StudyTopics.title(studyTopic(card.id)):''):summary?StudyTopics.title(studyTopic(card.id))+' · 복습 '+summary.number+'번 · 자체 제작':'개념 복습'))+' · '+(quiz.type==='text'?'직접 쓰기':quiz.choiceImages?'사진 객관식':'객관식'));
  if(feedback)renderFeedback(root,card,quiz,lesson,label);
  else{
   root.append(label,elem('div',quiz.question,'question'));
   appendPaper(root,Hanneung.get(card.id));
-  if(quiz.type==='choice'){
+  if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(root,quiz,i=>answerPractice(card.id,i));
+  else if(quiz.type==='choice'){
    const choices=elem('div',undefined,'quiz-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const button=btn(quiz.fixedOrder?choice:(i+1)+'. '+choice,()=>answerPractice(card.id,i));button.disabled=!!quiz.image;choices.append(button);});root.append(choices);
   }else{
    const form=elem('form',undefined,'practice-form'),hint=elem('label','지정한 단어나 빈칸의 답만 입력하세요.');hint.htmlFor='practiceInput';
@@ -287,7 +319,8 @@ function renderFeedback(root,card,quiz,lesson,label){
  appendNewPaperExplanation(root,card.id,quiz.explanation||card.explanation,reviewId,'feedback-supplement');
  if(lesson){root.append(elem('p',lesson.hook,'hook'));const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),elem('p',lesson.rule));for(const example of lesson.examples)details.append(elem('p',example,'example'));attachExplanationCredit(details,reviewId,'lesson');root.append(details);}
  const recap=elem('details',undefined,'lesson recap');recap.append(elem('summary','문제 다시 보기'),label,elem('div',quiz.question,'question'));appendPaper(recap,Hanneung.get(card.id));
- if(quiz.type==='choice'){const choices=elem('div',undefined,'quiz-choices recap-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const b=elem('button',quiz.fixedOrder?choice:(i+1)+'. '+choice);b.type='button';b.disabled=true;if(i===quiz.correctIndex)b.classList.add('quiz-correct');else if(i===f.selectedIndex)b.classList.add('quiz-wrong');choices.append(b);});recap.append(choices);}
+ if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(recap,quiz,null,f.selectedIndex);
+ else if(quiz.type==='choice'){const choices=elem('div',undefined,'quiz-choices recap-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const b=elem('button',quiz.fixedOrder?choice:(i+1)+'. '+choice);b.type='button';b.disabled=true;if(i===quiz.correctIndex)b.classList.add('quiz-correct');else if(i===f.selectedIndex)b.classList.add('quiz-wrong');choices.append(b);});recap.append(choices);}
  root.append(recap);
  const dueCard=data.cards.find(c=>c.id===card.id),concept=ReviewPolicy.concept(card.id),siblings=data.cards.some(c=>c.id!==card.id&&isPlayable(c)&&ReviewPolicy.concept(c.id)===concept);
  root.append(elem('p','풀이 완료 · 환산 시간 +1분','study-credit-award'),elem('small','다음 복습: '+dueCard.due+(f.result==='wrong'?' · 5분 뒤 다시 풀 수 있어요.'+(siblings?' 같은 개념의 다른 문제도 10분 뒤 이어서 나와요.':''):''),'next-review'));
@@ -297,6 +330,7 @@ function renderFeedback(root,card,quiz,lesson,label){
 function answerPractice(id,input){
  if(data.quizFeedback)return;const active=data.activePractice;if(active?.cardId!==id)return;const quiz=active.exercise;
  if(quiz.image){const img=$('#card .paper-image img');if(!img?.complete||!img.naturalWidth){notify('문제 이미지가 표시된 뒤 답을 골라 주세요.');return;}}
+ if(quiz.choiceImages&&[...document.querySelectorAll('#card .photo-choices img')].some(img=>!img.complete||!img.naturalWidth)){notify('보기 사진이 모두 표시된 뒤 답을 골라 주세요.');return;}
  if(!reviewQueue(data.cards.filter(inCurrent)).ready.some(c=>c.id===id))return;
  if(quiz.type==='text'&&!String(input).trim()){notify('답을 입력한 다음 채점해 주세요.');return;}
  if(quiz.type==='choice'&&(!Number.isInteger(input)||input<0||input>=quiz.choices.length))return;
@@ -312,7 +346,7 @@ function answerPractice(id,input){
  next.quizFeedback={cardId:id,reviewId,selectedIndex:quiz.type==='choice'?input:-1,userAnswer:quiz.type==='text'?String(input):'',result,exercise:quiz};
  delete next.activePractice;notify('');if(commit(next)){sessionDirty=true;render();window.scrollTo(0,0);}
 }
-function installCorePack(){const pack='core-2026-09-12-v10';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id)),extras=Object.entries(PRACTICE_BANK).filter(([id])=>!CORE_REVIEW_PACK.some(c=>c.id===id)).map(([id,l])=>({id,subject:'영어',question:l.variants[0].question,answer:l.variants[0].answers[0],explanation:l.variants[0].explanation,source:'수일치 문서 기반 자체 제작 연습.'}));const cards=[...CORE_REVIEW_PACK,...extras].filter(c=>!ids.has(c.id)).map(c=>({...newCard({...c,verified:true}),id:c.id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
+function installCorePack(){const pack='core-2026-09-12-v11';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id)),extras=Object.entries(PRACTICE_BANK).filter(([id])=>!CORE_REVIEW_PACK.some(c=>c.id===id)).map(([id,l])=>({id,subject:'영어',question:l.variants[0].question,answer:l.variants[0].answers[0],explanation:l.variants[0].explanation,source:'수일치 문서 기반 자체 제작 연습.'}));const cards=[...CORE_REVIEW_PACK,...extras].filter(c=>!ids.has(c.id)).map(c=>({...newCard({...c,verified:true}),id:c.id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
 installCorePack();
 if(!data.quizUiVersion){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;next.quizUiVersion=1;commit(next);}
 else if(data.cards.some(c=>c.pendingAttempt)){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;if(commit(next))data=next;}
