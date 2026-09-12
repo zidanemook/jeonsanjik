@@ -68,8 +68,8 @@ function appendPaper(parent,paper){
 }
 function renderScopeStatus(scope){
  const r=scope.subject==='한국사'?scope.round||'':'',numeric=Number(r),isRound=!!r&&Hanneung.rounds.includes(numeric),el=$('#roundScore');el.hidden=true;el.textContent='';
- if(isRound){const s=Hanneung.stats(numeric,data.history);el.textContent='첫 풀이 '+s.answered+'/'+s.total+'문항 · '+(s.complete?'점수 ':'현재 획득 ')+s.points+'/100점'+(s.bonus?' (공식 오류 문항 2점 포함)':'')+(s.complete?' · '+(s.points>=60?'3급 이상 기준 도달':'3급 기준 60점 미만'):'');el.hidden=false;}
- else if(orderedScope(r)){const ids=new Set(data.cards.filter(c=>inScope(c,scope)).map(c=>c.id)),p=firstPass(ids);el.textContent='첫 풀이 '+p.answered+'/'+ids.size+'문제 · 정답 '+p.correct+'개';el.hidden=false;}
+ if(isRound){const s=Hanneung.stats(numeric,data.history);el.textContent='첫 시도 '+s.answered+'/'+s.total+'문항 · '+(s.complete?'점수 ':'현재 획득 ')+s.points+'/100점'+(s.bonus?' (공식 오류 문항 2점 포함)':'')+(s.complete?' · '+(s.points>=60?'3급 이상 기준 도달':'3급 기준 60점 미만'):'');el.hidden=false;}
+ else if(orderedScope(r)){const ids=new Set(data.cards.filter(c=>inScope(c,scope)).map(c=>c.id)),p=firstPass(ids);el.textContent='첫 시도 '+p.answered+'/'+ids.size+'문제 · 정답 '+p.correct+'개';el.hidden=false;}
  const cancelled=$('#annulledQuestion');cancelled.hidden=!(isRound&&numeric===63);if(!cancelled.hidden&&!cancelled.querySelector('img'))appendPaper(cancelled,Hanneung.get('hanneung-63-42'));
 }
 function saveDraft(){if(!storageOK)return;try{localStorage.setItem(KEY,JSON.stringify(data));}catch{notify('입력 내용을 저장하지 못했어요.');}}
@@ -78,7 +78,43 @@ function reviewQueue(cards){
  const due=ReviewLearning.queue(cards),ids=new Set(due.map(c=>c.id)),today=day(),missed=new Map(),last=new Map();
  for(const h of data.history){const at=h.at||h.date;if((last.get(h.cardId)||'')<at)last.set(h.cardId,at);if(h.mode==='quiz'&&h.result==='wrong'&&h.date===today){const k=ReviewPolicy.concept(h.cardId);if((missed.get(k)||'')<at)missed.set(k,at);}}
  const extra=missed.size?cards.filter(c=>{if(ids.has(c.id))return false;const at=missed.get(ReviewPolicy.concept(c.id));return !!at&&(last.get(c.id)||'')<at;}):[];
- return ReviewPolicy.separate([...due,...extra],data.history);
+ const queue=ReviewPolicy.separate([...due,...extra],data.history);
+ return {...queue,ready:withNewCards(cards,queue.ready)};
+}
+// 하루에 끼워 넣는 "한 번도 안 푼" 문제 수. 바꿀 곳은 이 한 줄뿐이고, 0으로 두면 기능이 꺼진다.
+const NEW_CARDS_PER_DAY=5;
+// 새 문제 하나를 복습 문제 몇 개 뒤에 끼울지. 복습 카드는 하나도 빠지지 않고 서로의 순서도 그대로다.
+const NEW_CARD_GAP=3;
+let firstAttemptCache=null;
+// 카드별 최초 시도 날짜를 기존 history에서만 읽는다. 새 저장 필드가 없으므로 새로고침·기기 간 동기화에도 그대로 남는다.
+function firstAttemptDays(){
+ if(firstAttemptCache?.rows===data.history)return firstAttemptCache.map;
+ const map=new Map();
+ for(const h of data.history){const d=h.date||'';const prev=map.get(h.cardId);if(prev===undefined||d<prev)map.set(h.cardId,d);}
+ firstAttemptCache={rows:data.history,map};return map;
+}
+// 오늘 이 범위에서 앞으로 꺼낼 수 있는 미풀이 문제 수. 한 번 풀면 그날의 몫으로 계산된다.
+function newCardRoom(cards){
+ if(NEW_CARDS_PER_DAY<=0)return 0;
+ const first=firstAttemptDays(),today=day();let used=0,fresh=0;
+ for(const c of cards){const d=first.get(c.id);if(d===undefined)fresh++;else if(d===today)used++;}
+ return Math.max(0,Math.min(NEW_CARDS_PER_DAY-used,fresh));
+}
+// 복습 대기열을 그대로 두고 미풀이 문제만 사이에 끼운다. 카드가 빠지지도, 없던 카드가 due가 되지도 않는 순서 변경뿐이다.
+function withNewCards(order,ready){
+ const room=newCardRoom(order);if(!room)return ready;
+ const first=firstAttemptDays(),rank=new Map(order.map((c,i)=>[c.id,i]));
+ const fresh=ready.filter(c=>!first.has(c.id)).sort((a,b)=>(rank.get(a.id)??0)-(rank.get(b.id)??0)).slice(0,room);
+ if(!fresh.length)return ready;
+ const picked=new Set(fresh.map(c=>c.id)),rest=ready.filter(c=>!picked.has(c.id)),out=[];
+ let i=0;
+ for(const card of rest){
+  out.push(card);
+  // 같은 개념의 형제 문항이 연달아 나오면 한 칸 뒤로 미룬다 (ReviewPolicy.separate의 형제 간격과 같은 기준).
+  if(i<fresh.length&&out.length%(NEW_CARD_GAP+1)===NEW_CARD_GAP&&ReviewPolicy.concept(card.id)!==ReviewPolicy.concept(fresh[i].id))out.push(fresh[i++]);
+ }
+ while(i<fresh.length)out.push(fresh[i++]);
+ return out;
 }
 let creditHistoryLimit=14;
 function renderStudyCredit(){
@@ -164,7 +200,8 @@ function renderHome(){
 function renderSubject(){
  const s=viewSubject,cards=data.cards.filter(c=>isPlayable(c)&&c.subject===s),ids=new Set(cards.map(c=>c.id)),today=day();
  $('#subjectTitle').textContent=s;
- $('#subjectSummary').textContent=questionCount(cards)+'문항 · 풀 문제 '+reviewQueue(cards).ready.length+'개 · 오늘 푼 문제 '+data.history.filter(h=>h.date===today&&ids.has(h.cardId)).length+'개';
+ const newRoom=newCardRoom(cards);
+ $('#subjectSummary').textContent=questionCount(cards)+'문항 · 풀 문제 '+reviewQueue(cards).ready.length+'개'+(newRoom?' (새 문제 '+newRoom+'개 포함)':'')+' · 오늘 푼 문제 '+data.history.filter(h=>h.date===today&&ids.has(h.cardId)).length+'개';
  const last=lastScope(s),open=sameScope(scopeOf(),last)&&(data.activePractice||data.quizFeedback);
  $('#resumeHint').textContent=last?scopeLabel(last)+(open?' · 풀던 문제부터':' · 이어서 풀기'):s+' 전체의 첫 문제부터 시작해요';
 }
@@ -173,7 +210,7 @@ function renderRange(){
  $('#rangeTitle').textContent=s+' · 연습 범위';root.replaceChildren();
  const group=(title,folded)=>{const g=elem('div',undefined,'menu-list');if(folded){const d=elem('details',undefined,'range-fold');d.append(elem('summary',title,'range-heading'),g);root.append(d);}else root.append(elem('h3',title,'range-heading'),g);return g;};
  const scope=(round,topic='')=>({subject:s,topic,round});
- const option=(g,title,sc,extra)=>{const inside=cards.filter(c=>inScope(c,sc)),p=firstPass(new Set(inside.map(c=>c.id)));if(!inside.length)return;g.append(menuItem(title,inside.length+'문제 · 첫 풀이 '+p.answered+'/'+inside.length+(p.answered?' · 정답 '+p.correct:'')+' · 풀 문제 '+reviewQueue(inside).ready.length+(extra?' · '+extra:''),()=>openScope(sc)));};
+ const option=(g,title,sc,extra)=>{const inside=cards.filter(c=>inScope(c,sc)),p=firstPass(new Set(inside.map(c=>c.id)));if(!inside.length)return;g.append(menuItem(title,inside.length+'문제 · 첫 시도 '+p.answered+'/'+inside.length+(p.answered?' · 정답 '+p.correct:'')+' · 풀 문제 '+reviewQueue(inside).ready.length+(newCardRoom(inside)?' · 새 문제 '+newCardRoom(inside):'')+(extra?' · '+extra:''),()=>openScope(sc)));};
  if(s==='한국사'){
   const mix=t=>{const inside=cards.filter(c=>studyTopic(c.id)===t.id),papers=inside.filter(c=>Hanneung.get(c.id)).length;return (inside.length-papers?'자체 제작 '+(inside.length-papers):'')+(inside.length-papers&&papers?' + ':'')+(papers?'기출 '+papers:'');};
   const topics=group('주제별 · 자체 제작 + 기출');for(const t of StudyTopics.list)option(topics,t.title,scope('topic-'+t.id),mix(t));
