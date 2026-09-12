@@ -5,12 +5,14 @@ service cloud.firestore {
       return request.auth != null && request.auth.uid == uid
         && exists(/databases/$(database)/documents/allowedUsers/$(uid));
     }
-    // The owner is marked by `admin: true` on their own allowedUsers document, added once by
-    // hand in the console. No UID is written into these rules or into the client.
+    // The owner is the account whose own allowedUsers document already carries role: 'owner',
+    // written when the allowlist was first provisioned through the console. Accounts approved
+    // from inside the app get only { at, email }, so they can never be owners. No UID is written
+    // into these rules or into the client.
     function isAdmin() {
       return request.auth != null
         && exists(/databases/$(database)/documents/allowedUsers/$(request.auth.uid))
-        && get(/databases/$(database)/documents/allowedUsers/$(request.auth.uid)).data.get('admin', false) == true;
+        && get(/databases/$(database)/documents/allowedUsers/$(request.auth.uid)).data.get('role', '') == 'owner';
     }
     function validDetail(d) {
       return d is map
@@ -33,10 +35,9 @@ service cloud.firestore {
     match /allowedUsers/{uid} {
       function validAllowed(d) {
         return d.keys().hasAll(['at'])
-          && d.keys().hasOnly(['at','email','admin'])
+          && d.keys().hasOnly(['at','email'])
           && d.at is int && d.at > 0 && d.at <= request.time.toMillis() + 300000
-          && (!('email' in d) || (d.email is string && d.email.size() <= 320))
-          && (!('admin' in d) || d.admin is bool);
+          && (!('email' in d) || (d.email is string && d.email.size() <= 320));
       }
       allow get: if request.auth != null && request.auth.uid == uid;
       allow list: if isAdmin();

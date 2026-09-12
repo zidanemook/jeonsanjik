@@ -7,7 +7,7 @@ const SRC=fs.readFileSync(__dirname+'/sync.js','utf8');
 const now=()=>Date.now();
 
 // ---- shared mock server -------------------------------------------------------------------
-const allowed=new Map([['owner',{at:1,email:'owner@example.invalid',admin:true}],['member',{at:2,email:'member@example.invalid'}]]);
+const allowed=new Map([['owner',{at:1,email:'owner@example.invalid',role:'owner'}],['member',{at:2,email:'member@example.invalid'}]]);
 const requests=new Map(),events=new Map();
 const counts={requestGet:0,requestList:0,requestListen:0,allowedGet:0,eventListen:0};
 const deny=m=>Object.assign(Error(m),{code:'permission-denied'});

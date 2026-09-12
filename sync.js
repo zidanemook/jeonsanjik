@@ -120,7 +120,7 @@
     store.switchUser(user.uid);uid=user.uid;
     // The rules mark the owner on their own allowlist document, which was just read: the admin
     // section costs no extra read, and an approved account without the flag renders nothing.
-    if(allowed.data?.()?.admin===true)access?.admin(gate);
+    if(allowed.data?.()?.role==='owner')access?.admin(gate);
     unsubscribe=db.collection('users').doc(uid).collection('events').onSnapshot({includeMetadataChanges:true},snapshot=>{
      if(token!==generation)return;
      try{
