@@ -20,15 +20,22 @@ for(const [id,q]of Object.entries(catalog.questions)){const expected=LECTURE_10.
 const newIds=Object.keys(catalog.questions).filter(id=>LECTURE_0708.test(id));assert.equal(newIds.length,73);assert.deepEqual(lectures[2].ids,newIds);
 assert(newIds.every(id=>catalog.questions[id].number>225),'New questions continue after the earlier catalog numbers');
 assert(catalog.sets.filter(s=>s.title.startsWith('07·08강 고대 경제·사회·문화')).length===7);
-const ids09=Object.keys(catalog.questions).filter(id=>LECTURE_09.test(id));assert.equal(ids09.length,10,'09강 문항 수');assert.deepEqual(lectures[3].ids,ids09);
-const ids10=Object.keys(catalog.questions).filter(id=>LECTURE_10.test(id));assert.equal(ids10.length,14,'10강 문항 수');assert.deepEqual(lectures[4].ids,ids10);
+const ids09=Object.keys(catalog.questions).filter(id=>LECTURE_09.test(id));assert.equal(ids09.length,33,'09강 문항 수');assert.deepEqual(lectures[3].ids,ids09);
+const ids10=Object.keys(catalog.questions).filter(id=>LECTURE_10.test(id));assert.equal(ids10.length,52,'10강 문항 수');assert.deepEqual(lectures[4].ids,ids10);
 assert([...ids09,...ids10].every(id=>catalog.questions[id].number>320),'09·10강 문항은 기존 catalog 번호 뒤에 이어진다');
 // 10강은 topics.js의 goryeo 주제가 유일하게 연결하는 단원 이름만 써야 한다. 단원 이름이 어긋나면 주제 없는 문항이 된다.
 for(const id of ids10)assert.equal(catalog.questions[id].section,'고려 초기 정치','10강 question outside the 고려 section: '+id);
 // 09강은 고대 단원 문항이므로 고려 단원 이름이 섞여 들어오면 안 된다.
 for(const id of ids09)assert(catalog.questions[id].section!=='고려 초기 정치','09강 question inside the 고려 section: '+id);
-assert.equal(catalog.sets.filter(s=>s.title.startsWith('09강 고대(문화 2)')).length,2);
-assert.equal(catalog.sets.filter(s=>s.title.startsWith('10강 고려(초기 정치)')).length,2);
+// 단원 이름은 topics.js가 실제로 들고 있는 이름이어야 한다. 주제 제목('백제·신라·삼국 통일')을 단원 이름 자리에 적으면
+// 주제에 연결되지 않는 문항이 되어 화면에서 시대 표시가 사라진다. 카탈로그 전체를 대상으로 막는다.
+const topics=require(__dirname+'/topics.js'),sectionNames=new Set(topics.list.flatMap(t=>t.sections));
+for(const [id,q]of Object.entries(catalog.questions))assert(sectionNames.has(q.section),'Section is not a topics.js section name: '+id+' / '+q.section);
+assert(!sectionNames.has('백제·신라·삼국 통일'),'The topic title must never become a section name');
+// 09강이 실제로 여러 시대 단원에 걸쳐 있는지도 확인한다. 한 단원에 몰리면 교재 범위를 다 덮지 못한 것이다.
+assert(new Set(ids09.map(id=>catalog.questions[id].section)).size>=5,'09강 covers several ancient sections');
+assert.equal(catalog.sets.filter(s=>s.title.startsWith('09강 고대(문화 2)')).length,5);
+assert.equal(catalog.sets.filter(s=>s.title.startsWith('10강 고려(초기 정치)')).length,7);
 // Earlier saved selections retain the same membership after the expansion.
 for(let set=1;set<=5;set++)assert.deepEqual(Array.from(catalog.sets[set-1].ids),Array.from({length:8},(_,i)=>'study-hist-20260910-'+String((set-1)*8+i+1).padStart(2,'0')));
 // 사진 보기 문항: 네 보기가 모두 사진이고, 저장된 파일을 가리키며, 화면에 띄울 출처표시를 보기마다 들고 있어야 한다.

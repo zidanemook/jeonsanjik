@@ -43,9 +43,9 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // 기출(hanneung-)은 원문 표현을 그대로 보존해야 하므로 제외한다.
 // 사진 보기 문항도 제외한다. 보기 글자가 화면에 나오지 않아 '가장 긴 보기 고르기' 전략 자체가 성립하지 않고,
 // 분모에 넣으면 래칫 비율만 희석되어 검사가 헐거워진다. 대신 photos()가 네 보기 전부 사진임을 따로 강제한다.
-// LONGEST_LIMIT: 오답 보강 뒤 실측 27.8%를 상한으로 못 박은 래칫. 문항을 더하다 이 값을 넘기면 실패한다.
+// LONGEST_LIMIT: 09·10강 확장 뒤 실측 21.1%를 상한으로 다시 조인 래칫(이전 27.8%). 문항을 더하다 이 값을 넘기면 실패한다.
 // MARGIN: 실측 최대 초과폭 7자에 여유 5자를 더한 값. 후보 문항은 모두 통과하지만 24자씩 튀던 예전 문항은 걸린다.
-const LONGEST_LIMIT=0.278,MARGIN=12;
+const LONGEST_LIMIT=0.212,MARGIN=12;
 function lengthBias(items){
  const rows=items.filter(i=>i.exercise.type==='choice'&&!i.card.id.startsWith('hanneung-')&&!i.exercise.choiceImages);
  assert(rows.length>0,'No self-made choice exercises to measure');

@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 344,
+  "total": 405,
   "sets": [
     {
       "number": 1,
@@ -566,8 +566,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "photo-hist-20260912-06",
         "photo-hist-20260912-07"
       ]
-    }
-  ,
+    },
     {
       "number": 43,
       "title": "79회 기출 복습 · 헷갈리는 것 콕 집기",
@@ -590,22 +589,63 @@ globalThis.STUDY_REVIEW_CATALOG={
         "culture-hist-20260912-02",
         "culture-hist-20260912-03",
         "culture-hist-20260912-04",
-        "culture-hist-20260912-05"
+        "culture-hist-20260912-05",
+        "culture-hist-20260912-06",
+        "culture-hist-20260912-07"
       ]
     },
     {
       "number": 45,
       "title": "09강 고대(문화 2) 2",
       "ids": [
-        "culture-hist-20260912-06",
-        "culture-hist-20260912-07",
         "culture-hist-20260912-08",
         "culture-hist-20260912-09",
-        "culture-hist-20260912-10"
+        "culture-hist-20260912-10",
+        "culture-hist-20260912-11",
+        "culture-hist-20260912-12",
+        "culture-hist-20260912-13",
+        "culture-hist-20260912-14"
       ]
     },
     {
       "number": 46,
+      "title": "09강 고대(문화 2) 3",
+      "ids": [
+        "culture-hist-20260912-15",
+        "culture-hist-20260912-16",
+        "culture-hist-20260912-17",
+        "culture-hist-20260912-18",
+        "culture-hist-20260912-19",
+        "culture-hist-20260912-20",
+        "culture-hist-20260912-21"
+      ]
+    },
+    {
+      "number": 47,
+      "title": "09강 고대(문화 2) 4",
+      "ids": [
+        "culture-hist-20260912-22",
+        "culture-hist-20260912-23",
+        "culture-hist-20260912-24",
+        "culture-hist-20260912-25",
+        "culture-hist-20260912-26",
+        "culture-hist-20260912-27"
+      ]
+    },
+    {
+      "number": 48,
+      "title": "09강 고대(문화 2) 5",
+      "ids": [
+        "culture-hist-20260912-28",
+        "culture-hist-20260912-29",
+        "culture-hist-20260912-30",
+        "culture-hist-20260912-31",
+        "culture-hist-20260912-32",
+        "culture-hist-20260912-33"
+      ]
+    },
+    {
+      "number": 49,
       "title": "10강 고려(초기 정치) 1",
       "ids": [
         "goryeo-hist-20260912-01",
@@ -614,20 +654,88 @@ globalThis.STUDY_REVIEW_CATALOG={
         "goryeo-hist-20260912-04",
         "goryeo-hist-20260912-05",
         "goryeo-hist-20260912-06",
-        "goryeo-hist-20260912-07"
+        "goryeo-hist-20260912-07",
+        "goryeo-hist-20260912-08"
       ]
     },
     {
-      "number": 47,
+      "number": 50,
       "title": "10강 고려(초기 정치) 2",
       "ids": [
-        "goryeo-hist-20260912-08",
         "goryeo-hist-20260912-09",
         "goryeo-hist-20260912-10",
         "goryeo-hist-20260912-11",
         "goryeo-hist-20260912-12",
         "goryeo-hist-20260912-13",
-        "goryeo-hist-20260912-14"
+        "goryeo-hist-20260912-14",
+        "goryeo-hist-20260912-15",
+        "goryeo-hist-20260912-16"
+      ]
+    },
+    {
+      "number": 51,
+      "title": "10강 고려(초기 정치) 3",
+      "ids": [
+        "goryeo-hist-20260912-17",
+        "goryeo-hist-20260912-18",
+        "goryeo-hist-20260912-19",
+        "goryeo-hist-20260912-20",
+        "goryeo-hist-20260912-21",
+        "goryeo-hist-20260912-22",
+        "goryeo-hist-20260912-23",
+        "goryeo-hist-20260912-24"
+      ]
+    },
+    {
+      "number": 52,
+      "title": "10강 고려(초기 정치) 4",
+      "ids": [
+        "goryeo-hist-20260912-25",
+        "goryeo-hist-20260912-26",
+        "goryeo-hist-20260912-27",
+        "goryeo-hist-20260912-28",
+        "goryeo-hist-20260912-29",
+        "goryeo-hist-20260912-30",
+        "goryeo-hist-20260912-31"
+      ]
+    },
+    {
+      "number": 53,
+      "title": "10강 고려(초기 정치) 5",
+      "ids": [
+        "goryeo-hist-20260912-32",
+        "goryeo-hist-20260912-33",
+        "goryeo-hist-20260912-34",
+        "goryeo-hist-20260912-35",
+        "goryeo-hist-20260912-36",
+        "goryeo-hist-20260912-37",
+        "goryeo-hist-20260912-38"
+      ]
+    },
+    {
+      "number": 54,
+      "title": "10강 고려(초기 정치) 6",
+      "ids": [
+        "goryeo-hist-20260912-39",
+        "goryeo-hist-20260912-40",
+        "goryeo-hist-20260912-41",
+        "goryeo-hist-20260912-42",
+        "goryeo-hist-20260912-43",
+        "goryeo-hist-20260912-44",
+        "goryeo-hist-20260912-45"
+      ]
+    },
+    {
+      "number": 55,
+      "title": "10강 고려(초기 정치) 7",
+      "ids": [
+        "goryeo-hist-20260912-46",
+        "goryeo-hist-20260912-47",
+        "goryeo-hist-20260912-48",
+        "goryeo-hist-20260912-49",
+        "goryeo-hist-20260912-50",
+        "goryeo-hist-20260912-51",
+        "goryeo-hist-20260912-52"
       ]
     }
   ],
@@ -983,7 +1091,30 @@ globalThis.STUDY_REVIEW_CATALOG={
         "culture-hist-20260912-07",
         "culture-hist-20260912-08",
         "culture-hist-20260912-09",
-        "culture-hist-20260912-10"
+        "culture-hist-20260912-10",
+        "culture-hist-20260912-11",
+        "culture-hist-20260912-12",
+        "culture-hist-20260912-13",
+        "culture-hist-20260912-14",
+        "culture-hist-20260912-15",
+        "culture-hist-20260912-16",
+        "culture-hist-20260912-17",
+        "culture-hist-20260912-18",
+        "culture-hist-20260912-19",
+        "culture-hist-20260912-20",
+        "culture-hist-20260912-21",
+        "culture-hist-20260912-22",
+        "culture-hist-20260912-23",
+        "culture-hist-20260912-24",
+        "culture-hist-20260912-25",
+        "culture-hist-20260912-26",
+        "culture-hist-20260912-27",
+        "culture-hist-20260912-28",
+        "culture-hist-20260912-29",
+        "culture-hist-20260912-30",
+        "culture-hist-20260912-31",
+        "culture-hist-20260912-32",
+        "culture-hist-20260912-33"
       ]
     },
     {
@@ -1003,7 +1134,45 @@ globalThis.STUDY_REVIEW_CATALOG={
         "goryeo-hist-20260912-11",
         "goryeo-hist-20260912-12",
         "goryeo-hist-20260912-13",
-        "goryeo-hist-20260912-14"
+        "goryeo-hist-20260912-14",
+        "goryeo-hist-20260912-15",
+        "goryeo-hist-20260912-16",
+        "goryeo-hist-20260912-17",
+        "goryeo-hist-20260912-18",
+        "goryeo-hist-20260912-19",
+        "goryeo-hist-20260912-20",
+        "goryeo-hist-20260912-21",
+        "goryeo-hist-20260912-22",
+        "goryeo-hist-20260912-23",
+        "goryeo-hist-20260912-24",
+        "goryeo-hist-20260912-25",
+        "goryeo-hist-20260912-26",
+        "goryeo-hist-20260912-27",
+        "goryeo-hist-20260912-28",
+        "goryeo-hist-20260912-29",
+        "goryeo-hist-20260912-30",
+        "goryeo-hist-20260912-31",
+        "goryeo-hist-20260912-32",
+        "goryeo-hist-20260912-33",
+        "goryeo-hist-20260912-34",
+        "goryeo-hist-20260912-35",
+        "goryeo-hist-20260912-36",
+        "goryeo-hist-20260912-37",
+        "goryeo-hist-20260912-38",
+        "goryeo-hist-20260912-39",
+        "goryeo-hist-20260912-40",
+        "goryeo-hist-20260912-41",
+        "goryeo-hist-20260912-42",
+        "goryeo-hist-20260912-43",
+        "goryeo-hist-20260912-44",
+        "goryeo-hist-20260912-45",
+        "goryeo-hist-20260912-46",
+        "goryeo-hist-20260912-47",
+        "goryeo-hist-20260912-48",
+        "goryeo-hist-20260912-49",
+        "goryeo-hist-20260912-50",
+        "goryeo-hist-20260912-51",
+        "goryeo-hist-20260912-52"
       ]
     }
   ],
@@ -4046,7 +4215,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
     },
     "goryeo-hist-20260912-01": {
-      "number": 331,
+      "number": 354,
       "section": "고려 초기 정치",
       "coverage": [
         "왕건: 궁예의 부하로 금성(나주) 점령 → 추대로 즉위",
@@ -4055,7 +4224,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-02": {
-      "number": 332,
+      "number": 355,
       "section": "고려 초기 정치",
       "coverage": [
         "태조의 사심관 제도와 기인 제도",
@@ -4064,7 +4233,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-03": {
-      "number": 333,
+      "number": 356,
       "section": "고려 초기 정치",
       "coverage": [
         "태조의 취민유도(세율 1/10)와 흑창",
@@ -4073,7 +4242,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-04": {
-      "number": 334,
+      "number": 357,
       "section": "고려 초기 정치",
       "coverage": [
         "태조의 북진 정책(서경 전진 기지)과 만부교 사건",
@@ -4082,7 +4251,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-05": {
-      "number": 335,
+      "number": 358,
       "section": "고려 초기 정치",
       "coverage": [
         "정종: 왕규의 난 진압과 광군 창설",
@@ -4091,7 +4260,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-06": {
-      "number": 336,
+      "number": 359,
       "section": "고려 초기 정치",
       "coverage": [
         "광종: 노비안검법·과거제(쌍기)·공복 제정·칭제건원",
@@ -4100,7 +4269,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-07": {
-      "number": 337,
+      "number": 360,
       "section": "고려 초기 정치",
       "coverage": [
         "경종의 시정 전시과가 태조의 역분전을 대신함",
@@ -4109,7 +4278,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-08": {
-      "number": 338,
+      "number": 361,
       "section": "고려 초기 정치",
       "coverage": [
         "성종: 최승로 시무 28조·12목과 지방관·국자감",
@@ -4118,7 +4287,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-09": {
-      "number": 339,
+      "number": 362,
       "section": "고려 초기 정치",
       "coverage": [
         "중서문하성: 재신(2품 이상, 정책 심의·결정)과 낭사(3품 이하, 비판)",
@@ -4127,7 +4296,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-10": {
-      "number": 340,
+      "number": 363,
       "section": "고려 초기 정치",
       "coverage": [
         "중추원: 추밀(2품 이상, 군사 기밀)과 승선(3품, 왕명 출납)",
@@ -4136,7 +4305,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-11": {
-      "number": 341,
+      "number": 364,
       "section": "고려 초기 정치",
       "coverage": [
         "도병마사(국방·군사)와 식목도감(대내적 법제와 격식)",
@@ -4145,7 +4314,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-12": {
-      "number": 342,
+      "number": 365,
       "section": "고려 초기 정치",
       "coverage": [
         "고려 삼사는 화폐·곡식의 출납과 회계(조선 삼사는 언론)",
@@ -4154,7 +4323,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-13": {
-      "number": 343,
+      "number": 366,
       "section": "고려 초기 정치",
       "coverage": [
         "5도에 안찰사, 양계(동계·북계)에 병마사 파견",
@@ -4163,11 +4332,560 @@ globalThis.STUDY_REVIEW_CATALOG={
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-14": {
-      "number": 344,
+      "number": 367,
       "section": "고려 초기 정치",
       "coverage": [
         "중앙군 2군(응양군·용호군, 국왕 친위)과 6위(수도 경비·국경 방어)",
         "주현군(5도, 예비군)과 주진군(양계, 상비군)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "culture-hist-20260912-11": {
+      "number": 331,
+      "section": "백제",
+      "coverage": [
+        "백제 칠지도: 제철·금속 주조 기술과 왜와의 교류",
+        "삼국 금속 공예 유물의 나라 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-12": {
+      "number": 332,
+      "section": "신라",
+      "coverage": [
+        "신라 금관·금귀고리: 금·은 세공 기술",
+        "백제·고구려·발해 유물과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-13": {
+      "number": 333,
+      "section": "통일 신라",
+      "coverage": [
+        "상원사 동종: 통일 신라 성덕왕",
+        "성덕대왕 신종과 만든 왕의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-14": {
+      "number": 334,
+      "section": "백제",
+      "coverage": [
+        "익산 왕궁리 유적: 백제 무왕",
+        "안학궁·상경성·동궁과 월지의 나라 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-15": {
+      "number": 335,
+      "section": "신라",
+      "coverage": [
+        "황룡사: 신라 진흥왕",
+        "미륵사·불국사·안학궁의 나라와 시기 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-16": {
+      "number": 336,
+      "section": "통일 신라",
+      "coverage": [
+        "불국사: 불국토의 이상 / 석굴암: 인공 석굴의 비례와 균형",
+        "상경성·안학궁과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-17": {
+      "number": 337,
+      "section": "고구려·가야",
+      "coverage": [
+        "고구려 돌무지무덤(장군총, 벽화 없음) → 굴식 돌방무덤(벽화 있음)",
+        "강서대묘·무용총·각저총은 굴식 돌방무덤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-18": {
+      "number": 338,
+      "section": "고구려·가야",
+      "coverage": [
+        "김해 대성동 고분군: 금관가야",
+        "고령 지산동 고분군: 대가야"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-19": {
+      "number": 339,
+      "section": "발해",
+      "coverage": [
+        "정혜 공주 묘: 굴식 돌방무덤·모줄임천장·돌사자상",
+        "정효 공주 묘: 벽돌무덤·벽화"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-20": {
+      "number": 340,
+      "section": "발해",
+      "coverage": [
+        "정효 공주 묘: 당의 영향(벽돌무덤·벽화) + 고구려식 천장",
+        "정혜 공주 묘와의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-21": {
+      "number": 341,
+      "section": "고구려·가야",
+      "coverage": [
+        "혜자: 쇼토쿠 태자의 스승 / 혜관: 불교 전파",
+        "담징·노리사치계와의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-22": {
+      "number": 342,
+      "section": "백제",
+      "coverage": [
+        "아직기: 한자 / 왕인: 천자문·논어",
+        "노리사치계·담징과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-23": {
+      "number": 343,
+      "section": "백제",
+      "coverage": [
+        "노리사치계: 불경·불상 전달",
+        "아직기·왕인·혜자와의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-24": {
+      "number": 344,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "호류사 금당 벽화: 고구려 담징",
+        "호류사 백제 관음상"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-25": {
+      "number": 345,
+      "section": "신라",
+      "coverage": [
+        "신라: 조선술·축제술 전파, 한인의 연못",
+        "백제·고구려·발해 전파 내용과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-26": {
+      "number": 346,
+      "section": "고구려·가야",
+      "coverage": [
+        "가야: 철기·토기 기술 전파와 스에키",
+        "고구려·남북국 전파와의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-27": {
+      "number": 347,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "삼국 → 아스카 문화",
+        "남북국 → 하쿠호 문화"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-28": {
+      "number": 348,
+      "section": "고구려·가야",
+      "coverage": [
+        "강서 수산리 고분 벽화 ↔ 일본 다카마쓰 고분 벽화",
+        "강서대묘 사신도·각저총 서역인과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-29": {
+      "number": 349,
+      "section": "신라",
+      "coverage": [
+        "신라 고분의 유리그릇·유리구슬·금제 장식 보검",
+        "통일 신라 범종·백제 금속 유물과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-30": {
+      "number": 350,
+      "section": "통일 신라",
+      "coverage": [
+        "원성왕릉(괘릉) 무인석: 통일 신라의 서역 교류",
+        "김유신 묘 둘레돌·성덕대왕 신종과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-31": {
+      "number": 351,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "고구려: 북조·북방 민족 교류, 강건한 문화",
+        "백제: 남조 교류, 우아하고 세련된 문화"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-32": {
+      "number": 352,
+      "section": "신라",
+      "coverage": [
+        "신라: 고구려·백제를 통한 중국 문물 수용",
+        "한강 점령 뒤 중국과 직접 교류"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "culture-hist-20260912-33": {
+      "number": 353,
+      "section": "발해",
+      "coverage": [
+        "통일 신라: 당과 사신·유학생·승려·상인의 활발한 교류",
+        "발해: 문왕 이후 당과 친선"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 09강 고대(문화 2) 099쪽 과학 기술·건축·고분·일본 전파"
+    },
+    "goryeo-hist-20260912-15": {
+      "number": 368,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "국호 고려(고구려 계승)·연호 천수·송악(개경) 천도",
+        "궁예의 국호·광종의 연호와의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-16": {
+      "number": 369,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "사심관: 출신 지역의 일을 맡김",
+        "기인: 호족의 자제를 개경에 둠"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-17": {
+      "number": 370,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "태조의 혼인 정책과 사성 정책",
+        "광종·성종의 호족 대책과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-18": {
+      "number": 371,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "태조의 역분전",
+        "경종의 시정 전시과·흑창·상평창과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-19": {
+      "number": 372,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "서경(평양)을 북진의 전진 기지로 삼음",
+        "청천강에서 영흥에 이르는 국경"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-20": {
+      "number": 373,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "『정계』·『계백료서』: 관리의 규범",
+        "시무 28조·훈요 10조와의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-21": {
+      "number": 374,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "훈요 10조: 태조가 후대 왕에게 남긴 가르침",
+        "최승로의 시무 28조와의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-22": {
+      "number": 375,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "논산 개태사: 태조의 후삼국 통일 기념 사찰",
+        "국자감·미륵사·불국사와의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-23": {
+      "number": 376,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "정종의 광군 창설(거란 대비)",
+        "2군 6위·주현군·주진군과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-24": {
+      "number": 377,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "정종: 왕규의 난 진압",
+        "태조·광종·성종과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-25": {
+      "number": 378,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "노비안검법의 목적: 공신·호족 기반 약화, 국가 재정 확충",
+        "역분전·12목·전시과와의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-26": {
+      "number": 379,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "과거제: 쌍기의 건의, 유교적 소양의 신진 등용",
+        "최승로·역분전·12목과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-27": {
+      "number": 380,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "광종: 백관의 공복 제정(관리의 기강)",
+        "성종의 의창·12목·경학박사와의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-28": {
+      "number": 381,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "태조의 연호 천수",
+        "광종의 칭제건원과 연호 광덕·준풍"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-29": {
+      "number": 382,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "광종: 후주와 사신 교환",
+        "태조의 만부교 사건·발해 유민 포용과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-30": {
+      "number": 383,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "성종: 2성 6부 정비",
+        "2군 6위·5도 양계·도병마사와의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-31": {
+      "number": 384,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "성종의 향리 제도 정비, 호족 → 향리 전환",
+        "태조·광종의 호족 대책과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-32": {
+      "number": 385,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "성종: 국자감(개경)과 경학박사·의학박사(지방)",
+        "백제 박사 제도·지방관·호족 통제책과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-33": {
+      "number": 386,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "성종: 흑창을 의창으로 고치고 상평창 설치",
+        "태조의 흑창·취민유도, 정종의 광군과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-34": {
+      "number": 387,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "성종: 연등회 축소·팔관회 폐지",
+        "국가적 불교 행사 억제와 국자감 설치의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-35": {
+      "number": 388,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "상서성: 정책 집행, 아래에 6부",
+        "중서문하성·도병마사·삼사와의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-36": {
+      "number": 389,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "중서문하성: 국정 총괄 최고 관서, 장관은 문하시중",
+        "상서성·중추원·지방관과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-37": {
+      "number": 390,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "도병마사: 재신+추밀 구성, 임시 → 상설",
+        "원 간섭기에 도평의사사로 개편"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-38": {
+      "number": 391,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "식목도감: 대내적 법제와 격식",
+        "도병마사·어사대·중추원과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-39": {
+      "number": 392,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "대간: 어사대 관원 + 중서문하성 낭사",
+        "대간의 간쟁·봉박·서경 권한"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-40": {
+      "number": 393,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "어사대: 관리 감찰·풍기 단속",
+        "삼사(회계)·식목도감(법제)·중추원과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-41": {
+      "number": 394,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "낭사(3품 이하): 비판 / 승선(3품): 왕명 출납",
+        "재신·추밀과의 품계별 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-42": {
+      "number": 395,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "성종 12목 → 5도 양계",
+        "3경 4도호부 8목"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-43": {
+      "number": 396,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "지방관이 파견된 주현보다 속현이 더 많음",
+        "속현의 실제 행정은 향리가 담당"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-44": {
+      "number": 397,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "향·부곡·소: 주현을 통한 간접 지배",
+        "안찰사·병마사·진과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-45": {
+      "number": 398,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "5도: 행정 구역, 안찰사",
+        "양계: 동계·북계의 군사 구역, 병마사와 진"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-46": {
+      "number": 399,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "2군: 응양군·용호군(국왕 친위)",
+        "주현군·주진군·광군과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-47": {
+      "number": 400,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "중앙군: 직업 군인, 군인전, 직역 세습",
+        "주현군·주진군과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-48": {
+      "number": 401,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "군역 대상: 16~59세 양인 장정",
+        "중앙군·지방군 편성과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-49": {
+      "number": 402,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "주현군: 5도, 평상시 농업, 예비군",
+        "주진군: 양계, 국경 수비, 상비군"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-50": {
+      "number": 403,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "광종: 노비안검법 / 성종: 12목 설치",
+        "태조 역분전·경종 시정 전시과·정종 광군의 왕 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-51": {
+      "number": 404,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "삼사(회계)·어사대(감찰)·식목도감(법제)",
+        "도병마사·중추원·상서성과의 기능 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeo-hist-20260912-52": {
+      "number": 405,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "태조: 거란 배척과 만부교 사건, 발해 유민 포용",
+        "정종: 거란 대비 광군 창설"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
     }
