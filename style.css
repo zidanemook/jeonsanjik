@@ -87,6 +87,8 @@ footer { margin: 40px 0 10px; font-size: 13px; }
 }
 
 .sync-line { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:20px 0; font-size:.9rem; }
+/* 로그인·동기화·승인 관리는 과목 선택 화면에서만 보인다. 문제를 푸는 동안에는 방해가 되지 않는다. */
+body:not([data-view="home"]) .sync-line { display:none; }
 .admin-panel { margin:16px 0; padding:14px; border:1px solid #2c333f; border-radius:12px; }
 .admin-panel h2 { font-size:1rem; margin:0 0 8px; }
 .request-item { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; padding:10px 0; border-top:1px solid #2c333f; }

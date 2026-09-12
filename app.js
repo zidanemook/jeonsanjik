@@ -190,6 +190,8 @@ function renderView(){
  $('#date').textContent=new Date().toLocaleDateString('ko-KR',{month:'long',day:'numeric',weekday:'short'});
  if((view==='subject'||view==='range')&&!viewSubject)view='home';
  for(const v of VIEWS)$('#'+v+'View').hidden=v!==view;document.body.dataset.view=view;
+ // 과목 선택 화면을 벗어나면 승인 관리는 닫는다: 다시 돌아왔을 때 오래된 목록이 남지 않는다.
+ if(view!=='home')$('#adminPanel').hidden=true;
  if(view==='home')renderHome();else if(view==='subject')renderSubject();else if(view==='range')renderRange();else if(view==='progress')renderProgress();else renderQuiz();
 }
 function renderHome(){
