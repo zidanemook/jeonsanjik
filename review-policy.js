@@ -292,6 +292,14 @@
   "lecture-hist-20260911-056": "history-brick-pagodas"
 });
  // END LECTURE 0708 GROUPS
+ // BEGIN LATE SILLA KINGS GROUPS
+ Object.assign(groups,{
+  "summary-hist-20260912-04": "history-silla-kim-heonchang-revolt",
+  "summary-hist-20260912-05": "history-silla-jang-bogo-cheonghaejin",
+  "summary-hist-20260912-06": "history-silla-jang-bogo-cheonghaejin",
+  "summary-hist-20260912-08": "history-silla-kim-heonchang-revolt"
+ });
+ // END LATE SILLA KINGS GROUPS
  const concept=id=>groups[id]||id;
  const order=(a,b)=>at(a)-at(b)||a.id.localeCompare(b.id);
  const at=row=>Date.parse(row.at||row.date+'T12:00:00+09:00');

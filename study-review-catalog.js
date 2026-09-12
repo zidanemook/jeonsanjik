@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 281,
+  "total": 289,
   "sets": [
     {
       "number": 1,
@@ -505,6 +505,20 @@ globalThis.STUDY_REVIEW_CATALOG={
         "lecture-hist-20260911-055",
         "lecture-hist-20260911-056"
       ]
+    },
+    {
+      "number": 38,
+      "title": "통일 신라 · 중대·하대 왕과 사건",
+      "ids": [
+        "summary-hist-20260912-01",
+        "summary-hist-20260912-02",
+        "summary-hist-20260912-03",
+        "summary-hist-20260912-04",
+        "summary-hist-20260912-05",
+        "summary-hist-20260912-06",
+        "summary-hist-20260912-07",
+        "summary-hist-20260912-08"
+      ]
     }
   ],
   "lectures": [
@@ -742,7 +756,15 @@ globalThis.STUDY_REVIEW_CATALOG={
         "summary-hist-20260911-004",
         "summary-hist-20260911-005",
         "summary-hist-20260911-006",
-        "summary-hist-20260911-011"
+        "summary-hist-20260911-011",
+        "summary-hist-20260912-01",
+        "summary-hist-20260912-02",
+        "summary-hist-20260912-03",
+        "summary-hist-20260912-04",
+        "summary-hist-20260912-05",
+        "summary-hist-20260912-06",
+        "summary-hist-20260912-07",
+        "summary-hist-20260912-08"
       ]
     },
     {
@@ -2749,8 +2771,9 @@ globalThis.STUDY_REVIEW_CATALOG={
       "section": "후삼국",
       "coverage": [
         "926년 발해 멸망",
-        "935년 신라 항복",
-        "936년 후삼국 통일"
+        "927년 공산 전투",
+        "935년 경순왕 귀순",
+        "936년 일리천 전투"
       ],
       "sourceSection": "추가노트 §5·§7 후삼국·발해"
     },
@@ -3395,6 +3418,85 @@ globalThis.STUDY_REVIEW_CATALOG={
         "분황사 모전 석탑: 돌을 벽돌 모양으로"
       ],
       "sourceSection": "08강 고대(문화 1) · 087쪽 불상과 불탑"
+    },
+    "summary-hist-20260912-01": {
+      "number": 282,
+      "section": "통일 신라",
+      "coverage": [
+        "하대 축약 사슬: 선덕·원성·헌덕·흥덕·문성·진성",
+        "사건 없는 왕 건너뛰기"
+      ],
+      "sourceSection": "06강 통일 신라 중대·하대 왕과 사건"
+    },
+    "summary-hist-20260912-02": {
+      "number": 283,
+      "section": "통일 신라",
+      "coverage": [
+        "혜공왕: 대공의 난",
+        "혜공왕 피살로 중대 종료",
+        "신문왕·성덕왕·효소왕과의 구분"
+      ],
+      "sourceSection": "06강 통일 신라 중대·하대 왕과 사건"
+    },
+    "summary-hist-20260912-03": {
+      "number": 284,
+      "section": "통일 신라",
+      "coverage": [
+        "신문왕: 관료전·녹읍 폐지",
+        "성덕왕: 정전 지급",
+        "경덕왕: 녹읍 부활"
+      ],
+      "sourceSection": "06강 통일 신라 중대·하대 왕과 사건"
+    },
+    "summary-hist-20260912-04": {
+      "number": 285,
+      "section": "통일 신라",
+      "coverage": [
+        "헌덕왕: 김헌창의 난",
+        "웅천주 도독·진골 지방관",
+        "김주원의 왕위 계승 불만"
+      ],
+      "sourceSection": "06강 통일 신라 중대·하대 왕과 사건"
+    },
+    "summary-hist-20260912-05": {
+      "number": 286,
+      "section": "통일 신라",
+      "coverage": [
+        "흥덕왕: 장보고 청해진 설치",
+        "신무왕 즉위 개입",
+        "문성왕 때 암살"
+      ],
+      "sourceSection": "06강 통일 신라 중대·하대 왕과 사건"
+    },
+    "summary-hist-20260912-06": {
+      "number": 287,
+      "section": "통일 신라",
+      "coverage": [
+        "희강·민애·신무왕 왕위 쟁탈전",
+        "장보고의 신무왕 즉위 개입",
+        "문성왕 때 장보고 암살"
+      ],
+      "sourceSection": "06강 통일 신라 중대·하대 왕과 사건"
+    },
+    "summary-hist-20260912-07": {
+      "number": 288,
+      "section": "통일 신라",
+      "coverage": [
+        "진성여왕: 삼대목",
+        "진성여왕: 원종과 애노의 난·적고적의 난",
+        "진성여왕: 최치원 시무 10여 조"
+      ],
+      "sourceSection": "06강 통일 신라 중대·하대 왕과 사건"
+    },
+    "summary-hist-20260912-08": {
+      "number": 289,
+      "section": "통일 신라",
+      "coverage": [
+        "김흠돌의 난: 중대·진골 귀족",
+        "김헌창의 난: 하대·진골 지방관",
+        "원종과 애노의 난: 하대·농민"
+      ],
+      "sourceSection": "06강 통일 신라 중대·하대 왕과 사건"
     }
   }
 };
