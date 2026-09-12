@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 312,
+  "total": 320,
   "sets": [
     {
       "number": 1,
@@ -567,6 +567,21 @@ globalThis.STUDY_REVIEW_CATALOG={
         "photo-hist-20260912-07"
       ]
     }
+  ,
+    {
+      "number": 43,
+      "title": "79회 기출 복습 · 헷갈리는 것 콕 집기",
+      "ids": [
+        "core-hist-79-3",
+        "core-hist-79-4",
+        "core-hist-79-7",
+        "core-hist-79-9",
+        "core-hist-79-10",
+        "core-hist-79-5",
+        "core-hist-79-6",
+        "core-hist-79-8"
+      ]
+    }
   ],
   "lectures": [
     {
@@ -732,7 +747,10 @@ globalThis.STUDY_REVIEW_CATALOG={
         "daily-hist-20260912-03",
         "daily-hist-20260912-04",
         "daily-hist-20260912-05",
-        "daily-hist-20260912-06"
+        "daily-hist-20260912-06",
+        "core-hist-79-3",
+        "core-hist-79-4",
+        "core-hist-79-6"
       ]
     },
     {
@@ -817,7 +835,12 @@ globalThis.STUDY_REVIEW_CATALOG={
         "summary-hist-20260912-05",
         "summary-hist-20260912-06",
         "summary-hist-20260912-07",
-        "summary-hist-20260912-08"
+        "summary-hist-20260912-08",
+        "core-hist-79-7",
+        "core-hist-79-9",
+        "core-hist-79-10",
+        "core-hist-79-5",
+        "core-hist-79-8"
       ]
     },
     {
@@ -3775,6 +3798,78 @@ globalThis.STUDY_REVIEW_CATALOG={
         "통일 신라 신문왕 시기 탑"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑 · 사진 보기(공공누리 제1유형)"
+    },
+    "core-hist-79-3": {
+      "number": 313,
+      "section": "백제·신라·삼국 통일",
+      "coverage": [
+        "백제 22담로에 왕족 파견",
+        "무령왕과 삼근왕의 선후"
+      ],
+      "sourceSection": "79회 기출 복습에서 뽑은 헷갈리는 지점"
+    },
+    "core-hist-79-4": {
+      "number": 314,
+      "section": "고구려·가야",
+      "coverage": [
+        "김수로왕·김해 대성동 고분군 = 금관가야",
+        "금관가야의 대표 교역품 철"
+      ],
+      "sourceSection": "79회 기출 복습에서 뽑은 헷갈리는 지점"
+    },
+    "core-hist-79-7": {
+      "number": 315,
+      "section": "발해",
+      "coverage": [
+        "발해 5경과 상경 용천부",
+        "인안·대흥 등 독자 연호"
+      ],
+      "sourceSection": "79회 기출 복습에서 뽑은 헷갈리는 지점"
+    },
+    "core-hist-79-9": {
+      "number": 316,
+      "section": "후삼국",
+      "coverage": [
+        "궁예: 양길의 부하 → 철원 도읍 → 태봉",
+        "광평성"
+      ],
+      "sourceSection": "79회 기출 복습에서 뽑은 헷갈리는 지점"
+    },
+    "core-hist-79-10": {
+      "number": 317,
+      "section": "통일 신라",
+      "coverage": [
+        "혜공왕 피살과 장보고 사이의 사건",
+        "웅천주 김헌창의 난"
+      ],
+      "sourceSection": "79회 기출 복습에서 뽑은 헷갈리는 지점"
+    },
+    "core-hist-79-5": {
+      "number": 318,
+      "section": "통일 신라",
+      "coverage": [
+        "강수: 외교 문서 작성",
+        "설총: 이두 정리·화왕계"
+      ],
+      "sourceSection": "79회 기출 복습에서 뽑은 헷갈리는 지점"
+    },
+    "core-hist-79-6": {
+      "number": 319,
+      "section": "백제·신라·삼국 통일",
+      "coverage": [
+        "정림사지 오층석탑의 잘못된 이름 평제탑",
+        "백제의 오층석탑"
+      ],
+      "sourceSection": "79회 기출 복습에서 뽑은 헷갈리는 지점"
+    },
+    "core-hist-79-8": {
+      "number": 320,
+      "section": "통일 신라",
+      "coverage": [
+        "신문왕의 국학 설치",
+        "교수 담당 관직 박사·조교"
+      ],
+      "sourceSection": "79회 기출 복습에서 뽑은 헷갈리는 지점"
     }
   }
 };

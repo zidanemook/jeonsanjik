@@ -250,7 +250,7 @@ function renderRange(){
   // 알기 어려워진다. 문항 화면은 여전히 시대 주제를 표시하므로 분류 자체는 살아 있다.
   const lectures=group('교재 강별');for(const l of STUDY_LECTURES)option(lectures,l.title,scope('lecture-'+l.id));
   const papers=group('기출 · 회차별 심화 ('+Math.min(...Hanneung.rounds)+'~'+Math.max(...Hanneung.rounds)+'회)',!Hanneung.rounds.includes(Number(round)));for(const n of Hanneung.rounds){const count=Hanneung.rows.filter(r=>r.round===n&&Hanneung.hasExplanation(r.id)).length;option(papers,n+'회',scope(String(n)),count?'해설 '+count+'개':'');}
-  const other=group('그 밖의 범위',!(studyScope(round)!==null||round==='core'));option(other,'기존 핵심 복습 · 헷갈리는 것 콕 집기',scope('core'));option(other,'한국사 전체',scope(''));
+  const other=group('그 밖의 범위',!(studyScope(round)!==null||round==='core'));option(other,'한국사 전체',scope(''));
  }else if(s==='영어'){const g=group('영어');option(g,'영어 전체',scope(''));option(g,'수일치',scope('','수일치'));option(g,'그 밖의 문법 연습',scope('','영문법'));}
  else option(group(s),s+' 전체',scope(''));
 }
