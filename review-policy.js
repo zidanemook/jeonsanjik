@@ -327,6 +327,34 @@
   "summary-hist-20260912-08": "history-silla-kim-heonchang-revolt"
  });
  // END LATE SILLA KINGS GROUPS
+ // BEGIN LECTURE 09-10 GROUPS
+ Object.assign(groups,{
+  "culture-hist-20260912-01": "history-goguryeo-astronomy-chart",
+  "culture-hist-20260912-02": "history-silla-cheomseongdae",
+  "culture-hist-20260912-03": "history-unified-silla-bells",
+  "culture-hist-20260912-04": "history-ancient-palaces-temples",
+  "culture-hist-20260912-05": "history-unified-silla-donggung-wolji",
+  "culture-hist-20260912-06": "history-balhae-sanggyeongseong",
+  "culture-hist-20260912-07": "history-ancient-tomb-styles",
+  "culture-hist-20260912-08": "history-ancient-tomb-styles",
+  "culture-hist-20260912-09": "history-japan-transmission",
+  "culture-hist-20260912-10": "history-western-region-exchange",
+  "goryeo-hist-20260912-01": "history-goryeo-founding",
+  "goryeo-hist-20260912-02": "history-goryeo-taejo",
+  "goryeo-hist-20260912-03": "history-goryeo-taejo",
+  "goryeo-hist-20260912-04": "history-goryeo-taejo",
+  "goryeo-hist-20260912-05": "history-goryeo-jeongjong",
+  "goryeo-hist-20260912-06": "history-goryeo-gwangjong",
+  "goryeo-hist-20260912-07": "history-goryeo-jeonsigwa",
+  "goryeo-hist-20260912-08": "history-goryeo-seongjong",
+  "goryeo-hist-20260912-09": "history-goryeo-central-organs",
+  "goryeo-hist-20260912-10": "history-goryeo-central-organs",
+  "goryeo-hist-20260912-11": "history-goryeo-unique-organs",
+  "goryeo-hist-20260912-12": "history-goryeo-unique-organs",
+  "goryeo-hist-20260912-13": "history-goryeo-local-administration",
+  "goryeo-hist-20260912-14": "history-goryeo-military"
+ });
+ // END LECTURE 09-10 GROUPS
  const concept=id=>groups[id]||id;
  const order=(a,b)=>at(a)-at(b)||a.id.localeCompare(b.id);
  const at=row=>Date.parse(row.at||row.date+'T12:00:00+09:00');
