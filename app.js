@@ -245,11 +245,10 @@ function renderRange(){
  const scope=(round,topic='')=>({subject:s,topic,round});
  const option=(g,title,sc,extra)=>{const inside=cards.filter(c=>inScope(c,sc)),p=firstPass(new Set(inside.map(c=>c.id)));if(!inside.length)return;g.append(menuItem(title,inside.length+'문제 · 첫 시도 '+p.answered+'/'+inside.length+(p.answered?' · 정답 '+p.correct:'')+' · 풀 문제 '+reviewQueue(inside).ready.length+(newCardRoom(inside)?' · 새 문제 '+newCardRoom(inside):'')+(extra?' · '+extra:''),()=>openScope(sc)));};
  if(s==='한국사'){
-  const round=scopeOf().round,current=topicRange(round);
-  // 자체 제작은 교재 진도순 하나로 통일하고, 기출만 주제별과 회차별로 나눈다. 같은 문제를 여러 순서로
-  // 제공하면 어디까지 풀었는지 알기 어려워진다.
+  const round=scopeOf().round;
+  // 자체 제작은 교재 진도순, 기출은 회차별. 같은 문제를 여러 순서로 제공하면 어디까지 풀었는지
+  // 알기 어려워진다. 문항 화면은 여전히 시대 주제를 표시하므로 분류 자체는 살아 있다.
   const lectures=group('연습문제 · 교재 강별');for(const l of STUDY_LECTURES)option(lectures,l.title,scope('lecture-'+l.id));
-  const papersOnly=group('기출 · 주제별',!current?.papers);for(const t of StudyTopics.list)option(papersOnly,t.title+' · 기출',scope('papers-'+t.id));
   const papers=group('기출 · 회차별 심화 ('+Math.min(...Hanneung.rounds)+'~'+Math.max(...Hanneung.rounds)+'회)',!Hanneung.rounds.includes(Number(round)));for(const n of Hanneung.rounds){const count=Hanneung.rows.filter(r=>r.round===n&&Hanneung.hasExplanation(r.id)).length;option(papers,n+'회',scope(String(n)),count?'해설 '+count+'개':'');}
   const other=group('그 밖의 범위',!(studyScope(round)!==null||round==='core'));option(other,'기존 핵심 복습 · 헷갈리는 것 콕 집기',scope('core'));option(other,'한국사 전체',scope(''));
  }else if(s==='영어'){const g=group('영어');option(g,'영어 전체',scope(''));option(g,'수일치',scope('','수일치'));option(g,'그 밖의 문법 연습',scope('','영문법'));}
