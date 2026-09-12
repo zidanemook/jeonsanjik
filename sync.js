@@ -9,13 +9,34 @@
   function mergeViews(rows){merging=true;try{store.mergeExplanations(rows);}finally{merging=false;}}
   function sessionRef(user){return db.collection('users').doc(user).collection('state').doc('session');}
   // Last explicit choice wins; the rules reject a write older than the stored position.
-  async function pushSession(){
-   if(!withSession||!sessionReady||sessionSending||!uid||closed)return;const token=generation,user=uid;
-   let row;try{const local=store.session();if(!local)return;row=ProgressSync.session(local);}catch{return;}
-   if(row.at<=knownSession)return;sessionSending=true;
-   try{await sessionRef(user).set(row);if(token===generation)knownSession=Math.max(knownSession,row.at);}catch{}
+  // One write goes out at once; further choices inside the cooldown coalesce into a single
+  // trailing write, so a burst of taps costs one billed write instead of one per tap.
+  const SESSION_COOLDOWN_MS=4000,later=typeof root.setTimeout==='function'?root.setTimeout.bind(root):null,cancel=typeof root.clearTimeout==='function'?root.clearTimeout.bind(root):()=>{};
+  let sessionCooldown=null,sessionPending=false,sentPosition='';
+  // `at` advances on every stamp, so an unchanged position is recognised by its body alone.
+  function positionOf(row){const {at,...rest}=row;return JSON.stringify(rest);}
+  function sessionDue(){
+   if(!withSession||!sessionReady||!uid||closed)return null;
+   let row;try{const local=store.session();if(!local)return null;row=ProgressSync.session(local);}catch{return null;}
+   return row.at>knownSession&&positionOf(row)!==sentPosition?row:null;
+  }
+  async function sendSession(){
+   if(sessionSending)return;const row=sessionDue();if(!row)return;const token=generation,user=uid;sessionSending=true;
+   try{await sessionRef(user).set(row);if(token===generation){knownSession=Math.max(knownSession,row.at);sentPosition=positionOf(row);}}
+   catch{if(token===generation)sessionPending=true;}
    finally{sessionSending=false;}
   }
+  function armSession(){
+   if(!later)return;
+   sessionCooldown=later(()=>{sessionCooldown=null;const wanted=sessionPending;sessionPending=false;if(wanted&&sessionDue()){void sendSession();armSession();}},SESSION_COOLDOWN_MS);
+  }
+  function pushSession(){
+   if(!sessionDue())return;
+   if(sessionCooldown||sessionSending){sessionPending=true;return;}
+   sessionPending=false;void sendSession();armSession();
+  }
+  // Closing or hiding the tab must not drop the coalesced last position.
+  function flushSession(){if(!sessionPending&&!sessionDue())return;sessionPending=false;cancel(sessionCooldown);sessionCooldown=null;void sendSession();}
   async function flush(){
    if(!ready||uploading||!uid||closed)return;const token=generation,user=uid;uploading=true;
    try{
@@ -37,7 +58,7 @@
    finally{uploading=false;if(token!==generation&&ready)void flush();}
   }
   async function account(user){
-   const token=++generation;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribe=null;unsubscribeViews=null;unsubscribeSession=null;knownSession=0;sessionReady=false;ready=false;reviewsReady=false;viewsReady=!withViews;known=new Set();knownViews=new Map();uid=null;
+   const token=++generation;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribe=null;unsubscribeViews=null;unsubscribeSession=null;cancel(sessionCooldown);sessionCooldown=null;sessionPending=false;sentPosition='';knownSession=0;sessionReady=false;ready=false;reviewsReady=false;viewsReady=!withViews;known=new Set();knownViews=new Map();uid=null;
    if(!user){try{store.switchUser(null);say('이 기기에 저장 중 · 로그인하면 자동 동기화돼요.');}catch{say('이 기기의 저장 공간을 확인해 주세요.');}return;}
    say('동기화 계정 확인 중…');
    try{
@@ -74,9 +95,11 @@
   }
   const stopAuth=auth.onAuthStateChanged(user=>{void account(user);});
   const saved=()=>{if(!merging){void flush();void pushSession();}},retry=()=>{if(!ready)void account(auth.currentUser);else{void flush();void pushSession();}};
+  const hidden=()=>{if(!root.document||root.document.visibilityState!=='visible')flushSession();};
   root.addEventListener('study-progress-saved',saved);root.addEventListener('online',retry);
+  root.addEventListener('visibilitychange',hidden);root.addEventListener('pagehide',flushSession);
   const timer=setInterval(()=>{if(root.navigator.onLine)retry();},60000);
-  return {flush,retry,close(){closed=true;generation++;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();stopAuth();clearInterval(timer);root.removeEventListener('study-progress-saved',saved);root.removeEventListener('online',retry);}};
+  return {flush,retry,close(){closed=true;generation++;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();stopAuth();clearInterval(timer);cancel(sessionCooldown);sessionCooldown=null;root.removeEventListener('study-progress-saved',saved);root.removeEventListener('online',retry);root.removeEventListener('visibilitychange',hidden);root.removeEventListener('pagehide',flushSession);}};
  }
  root.ProgressCloud={connect};
  async function boot(){
@@ -86,6 +109,11 @@
   try{
    for(const file of ['firebase-app-compat.js','firebase-auth-compat.js','firebase-firestore-compat.js'])await new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='./vendor/'+file;script.onload=resolve;script.onerror=reject;document.head.append(script);});
    firebase.initializeApp(config);const auth=firebase.auth(),db=firebase.firestore();
+   // Persist the Firestore cache before the first query runs: onSnapshot then resumes from its
+   // stored resume token and is billed for changed documents only, instead of re-reading the
+   // whole event log on every load. A second tab, private window or blocked storage rejects
+   // here; that is swallowed so the app keeps working exactly as it does without a cache.
+   try{db.enablePersistence({synchronizeTabs:true}).catch(()=>{});}catch{}
    button.hidden=false;auth.onAuthStateChanged(user=>{button.textContent=user?'로그아웃':'Google 로그인';});
    button.onclick=async()=>{button.disabled=true;try{if(auth.currentUser)await auth.signOut();else await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());}catch(e){output.textContent=e.code==='auth/popup-closed-by-user'?'로그인이 취소됐어요.':'로그인하지 못했어요. 다시 시도해 주세요.';}finally{button.disabled=false;}};
    connect({auth,db,store:root.StudyProgress,status:text=>{output.textContent=text;}});
