@@ -292,6 +292,26 @@
   "lecture-hist-20260911-056": "history-brick-pagodas"
 });
  // END LECTURE 0708 GROUPS
+ // BEGIN ANCIENT HERITAGE GROUPS
+ Object.assign(groups,{
+  "heritage-hist-20260912-01": "history-three-kingdoms-pagodas",
+  "heritage-hist-20260912-02": "history-three-kingdoms-pagodas",
+  "heritage-hist-20260912-03": "history-silla-hwangnyongsa",
+  "heritage-hist-20260912-04": "history-unified-silla-pagodas",
+  "heritage-hist-20260912-05": "history-ancient-buddha-statues",
+  "heritage-hist-20260912-06": "history-ancient-buddha-statues",
+  "heritage-hist-20260912-07": "history-ancient-buddha-statues",
+  "heritage-hist-20260912-08": "history-ancient-taoism",
+  "heritage-hist-20260912-09": "history-baekje-tombs",
+  "heritage-hist-20260912-10": "history-ancient-tomb-murals",
+  "daily-hist-20260912-01": "history-prehistoric-agriculture-tools",
+  "daily-hist-20260912-02": "history-prehistoric-iron-artifacts",
+  "daily-hist-20260912-03": "history-prehistoric-dwellings",
+  "daily-hist-20260912-04": "history-prehistoric-stone-tools",
+  "daily-hist-20260912-05": "history-prehistoric-bronze-artifacts",
+  "daily-hist-20260912-06": "history-prehistoric-tool-periods"
+ });
+ // END ANCIENT HERITAGE GROUPS
  // BEGIN LATE SILLA KINGS GROUPS
  Object.assign(groups,{
   "summary-hist-20260912-04": "history-silla-kim-heonchang-revolt",

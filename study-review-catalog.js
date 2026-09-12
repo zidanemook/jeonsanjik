@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 289,
+  "total": 305,
   "sets": [
     {
       "number": 1,
@@ -519,6 +519,40 @@ globalThis.STUDY_REVIEW_CATALOG={
         "summary-hist-20260912-07",
         "summary-hist-20260912-08"
       ]
+    },
+    {
+      "number": 39,
+      "title": "고대 문화유산 판별 1 · 탑과 불상",
+      "ids": [
+        "heritage-hist-20260912-01",
+        "heritage-hist-20260912-02",
+        "heritage-hist-20260912-03",
+        "heritage-hist-20260912-04",
+        "heritage-hist-20260912-05",
+        "heritage-hist-20260912-06",
+        "heritage-hist-20260912-07"
+      ]
+    },
+    {
+      "number": 40,
+      "title": "고대 문화유산 판별 2 · 공예와 고분",
+      "ids": [
+        "heritage-hist-20260912-08",
+        "heritage-hist-20260912-09",
+        "heritage-hist-20260912-10"
+      ]
+    },
+    {
+      "number": 41,
+      "title": "선사 시대 생활 도구와 주거",
+      "ids": [
+        "daily-hist-20260912-01",
+        "daily-hist-20260912-02",
+        "daily-hist-20260912-03",
+        "daily-hist-20260912-04",
+        "daily-hist-20260912-05",
+        "daily-hist-20260912-06"
+      ]
     }
   ],
   "lectures": [
@@ -679,7 +713,13 @@ globalThis.STUDY_REVIEW_CATALOG={
         "summary-hist-20260911-007",
         "summary-hist-20260911-008",
         "summary-hist-20260911-009",
-        "summary-hist-20260911-010"
+        "summary-hist-20260911-010",
+        "daily-hist-20260912-01",
+        "daily-hist-20260912-02",
+        "daily-hist-20260912-03",
+        "daily-hist-20260912-04",
+        "daily-hist-20260912-05",
+        "daily-hist-20260912-06"
       ]
     },
     {
@@ -826,7 +866,17 @@ globalThis.STUDY_REVIEW_CATALOG={
         "lecture-hist-20260911-053",
         "lecture-hist-20260911-054",
         "lecture-hist-20260911-055",
-        "lecture-hist-20260911-056"
+        "lecture-hist-20260911-056",
+        "heritage-hist-20260912-01",
+        "heritage-hist-20260912-02",
+        "heritage-hist-20260912-03",
+        "heritage-hist-20260912-04",
+        "heritage-hist-20260912-05",
+        "heritage-hist-20260912-06",
+        "heritage-hist-20260912-07",
+        "heritage-hist-20260912-08",
+        "heritage-hist-20260912-09",
+        "heritage-hist-20260912-10"
       ]
     }
   ],
@@ -3497,6 +3547,151 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원종과 애노의 난: 하대·농민"
       ],
       "sourceSection": "06강 통일 신라 중대·하대 왕과 사건"
+    },
+    "heritage-hist-20260912-01": {
+      "number": 290,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "익산 미륵사지 석탑: 백제 무왕·현존 最古 석탑",
+        "목탑 양식을 돌로 옮긴 과도기 석탑"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑"
+    },
+    "heritage-hist-20260912-02": {
+      "number": 291,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "백제 탑: 익산 미륵사지 석탑·부여 정림사지 5층 석탑",
+        "신라 탑·통일 신라 탑과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑"
+    },
+    "heritage-hist-20260912-03": {
+      "number": 292,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "선덕 여왕: 분황사 모전 석탑·황룡사 9층 목탑",
+        "무왕·신문왕 탑과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑"
+    },
+    "heritage-hist-20260912-04": {
+      "number": 293,
+      "section": "통일 신라",
+      "coverage": [
+        "화순 쌍봉사 철감선사탑: 통일 신라 하대 팔각원당형 승탑",
+        "선종 유행과 승탑"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑"
+    },
+    "heritage-hist-20260912-05": {
+      "number": 294,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "금동 연가 7년명 여래 입상: 고구려·명문 ‘연가 7년’",
+        "백제·신라·발해 불상과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑"
+    },
+    "heritage-hist-20260912-06": {
+      "number": 295,
+      "section": "헷갈리는 내용 비교",
+      "coverage": [
+        "금동 미륵보살 반가 사유상: 삼국 시대·제작국 단정 어려움",
+        "일본 고류사 목조 미륵보살 반가 사유상과의 유사성"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑"
+    },
+    "heritage-hist-20260912-07": {
+      "number": 296,
+      "section": "발해",
+      "coverage": [
+        "이불병좌상: 발해·고구려 불상 양식 계승",
+        "석굴암 본존불·연가 7년명 불상과의 구분"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 087쪽 불상과 불탑"
+    },
+    "heritage-hist-20260912-08": {
+      "number": 297,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "백제 금동 대향로: 부여 능산리 절터",
+        "도교(신선·산악)와 불교(연꽃) 요소가 함께"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 086~087쪽 도교·고분"
+    },
+    "heritage-hist-20260912-09": {
+      "number": 298,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "한성기 서울 석촌동 계단식 돌무지무덤(고구려 양식과 관련)",
+        "웅진기 공주 무령왕릉 벽돌무덤(중국 남조 영향)·지석 출토"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 086~087쪽 도교·고분"
+    },
+    "heritage-hist-20260912-10": {
+      "number": 299,
+      "section": "헷갈리는 내용 비교",
+      "coverage": [
+        "고구려 굴식 돌방무덤: 무용총 수렵도·강서대묘 사신도 벽화",
+        "신라 돌무지덧널무덤: 천마총 천마도는 말다래에 그린 그림"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 08강 고대(문화 1) 086~087쪽 도교·고분"
+    },
+    "daily-hist-20260912-01": {
+      "number": 300,
+      "section": "선사 시대 · 기본",
+      "coverage": [
+        "갈돌·갈판: 신석기 조리 도구",
+        "반달 돌칼: 청동기 수확 도구"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 02~05강 선사 시대 도구와 주거"
+    },
+    "daily-hist-20260912-02": {
+      "number": 301,
+      "section": "선사 시대 · 기본",
+      "coverage": [
+        "거푸집: 청동기를 한반도에서 직접 제작한 증거",
+        "명도전·오수전: 중국과의 교역",
+        "창원 다호리 붓: 한자 사용"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 02~05강 선사 시대 도구와 주거"
+    },
+    "daily-hist-20260912-03": {
+      "number": 302,
+      "section": "선사 시대 · 기본",
+      "coverage": [
+        "신석기 움집: 원형·중앙 화덕",
+        "청동기 움집: 직사각형·벽 쪽 화덕"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 02~05강 선사 시대 도구와 주거"
+    },
+    "daily-hist-20260912-04": {
+      "number": 303,
+      "section": "선사 시대 · 기본",
+      "coverage": [
+        "뗀석기: 구석기·돌을 깨뜨려 제작(주먹도끼·슴베찌르개)",
+        "간석기: 신석기·돌을 갈아 제작"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 02~05강 선사 시대 도구와 주거"
+    },
+    "daily-hist-20260912-05": {
+      "number": 304,
+      "section": "선사 시대 · 기본",
+      "coverage": [
+        "청동기: 비파형 동검·거친무늬 거울",
+        "철기: 세형 동검·잔무늬 거울(한반도 독자 양식)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 02~05강 선사 시대 도구와 주거"
+    },
+    "daily-hist-20260912-06": {
+      "number": 305,
+      "section": "선사 시대 · 기본",
+      "coverage": [
+        "주먹도끼—구석기 / 가락바퀴—신석기",
+        "반달 돌칼—청동기 / 거푸집—철기"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 02~05강 선사 시대 도구와 주거"
     }
   }
 };
