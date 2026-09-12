@@ -121,6 +121,9 @@ body:not([data-view="home"]) .sync-line { display:none; }
 .quiz-bar { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
 .quiz-bar .back { margin:0; flex:0 0 auto; }
 #scopeLabel { color:#d1d7e0; font-size:15px; overflow-wrap:anywhere; }
+.drill-toggle { margin:0 0 0 auto; flex:0 0 auto; min-height:40px; padding:8px 12px; font-size:14px; }
+.drill-toggle[aria-pressed="true"] { border-color:#789ac4; background:#344963; font-weight:700; }
+.drill-status { color:#d4e5ff; font-weight:700; }
 #quizView article { min-height:0; }
 #quizView .status { margin:12px 4px; }
 .eyebrow { margin:0 0 10px; color:#d1d7e0; font-size:14px; }
