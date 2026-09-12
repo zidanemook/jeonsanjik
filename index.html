@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111318">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="style.css?v=33">
+  <link rel="stylesheet" href="style.css?v=34">
   <title>차곡 — 문제 복습</title>
 </head>
 <body>
@@ -61,29 +61,35 @@
         <details><summary>날짜별 환산 시간</summary><ul id="studyTimeHistory"></ul><button id="studyTimeMore" type="button" hidden>이전 날짜 더 보기</button><small>전체 과목 · 기존 풀이도 환산해요. 해설은 처음 연 날에 더하고, 새로고침·다른 기기에서 다시 열어도 중복 가산하지 않아요.</small><small id="studyCreditExcluded"></small></details>
       </section>
     </section>
-    <div class="sync-line"><span id="syncStatus" role="status">이 기기에 저장 중</span><button id="syncAccount" type="button" hidden>Google 로그인</button></div>
+    <div class="sync-line"><span id="syncStatus" role="status">이 기기에 저장 중</span><button id="syncRequest" type="button" hidden>승인 요청</button><button id="adminOpen" type="button" hidden>승인 관리</button><button id="syncAccount" type="button" hidden>Google 로그인</button></div>
+    <section id="adminPanel" class="admin-panel" aria-labelledby="adminTitle" hidden>
+      <h2 id="adminTitle">승인 관리</h2>
+      <p id="adminStatus" class="status" role="status"></p>
+      <div id="adminRequests"></div>
+      <small>승인하면 그 계정의 학습 기록이 이 프로젝트에 동기화돼요. 거절해도 요청 기록은 남아, 다시 요청하면 이전에 거절한 계정임을 알 수 있어요.</small>
+    </section>
     <p id="message" role="status" aria-live="polite"></p>
     <footer>자체 제작 복습 문제 · 국사편찬위원회 공개 심화 기출</footer>
   </main>
-  <script src="scheduler.js?v=33"></script>
-  <script src="learning.js?v=33"></script>
-  <script src="core-review-pack.js?v=33"></script>
-  <script src="quiz-options.js?v=33"></script>
-  <script src="hanneung-data.js?v=33"></script>
-  <script src="hanneung-explanations.js?v=33"></script>
-  <script src="hanneung.js?v=33"></script>
-  <script src="practice-bank.js?v=33"></script>
-  <script src="practice.js?v=33"></script>
-  <script src="content-corrections.js?v=33"></script>
-  <script src="review-record.js?v=33"></script>
-  <script src="review-policy.js?v=33"></script>
-  <script src="sync-core.js?v=33"></script>
-  <script src="study-credit.js?v=33"></script>
-  <script src="study-review-catalog.js?v=33"></script>
-  <script src="hanneung-topics.js?v=33"></script>
-  <script src="topics.js?v=33"></script>
-  <script src="app.js?v=33"></script>
-  <script src="firebase-config.js?v=33"></script>
-  <script src="sync.js?v=33"></script>
+  <script src="scheduler.js?v=34"></script>
+  <script src="learning.js?v=34"></script>
+  <script src="core-review-pack.js?v=34"></script>
+  <script src="quiz-options.js?v=34"></script>
+  <script src="hanneung-data.js?v=34"></script>
+  <script src="hanneung-explanations.js?v=34"></script>
+  <script src="hanneung.js?v=34"></script>
+  <script src="practice-bank.js?v=34"></script>
+  <script src="practice.js?v=34"></script>
+  <script src="content-corrections.js?v=34"></script>
+  <script src="review-record.js?v=34"></script>
+  <script src="review-policy.js?v=34"></script>
+  <script src="sync-core.js?v=34"></script>
+  <script src="study-credit.js?v=34"></script>
+  <script src="study-review-catalog.js?v=34"></script>
+  <script src="hanneung-topics.js?v=34"></script>
+  <script src="topics.js?v=34"></script>
+  <script src="app.js?v=34"></script>
+  <script src="firebase-config.js?v=34"></script>
+  <script src="sync.js?v=34"></script>
 </body>
 </html>

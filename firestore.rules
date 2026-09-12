@@ -5,6 +5,13 @@ service cloud.firestore {
       return request.auth != null && request.auth.uid == uid
         && exists(/databases/$(database)/documents/allowedUsers/$(uid));
     }
+    // The owner is marked by `admin: true` on their own allowedUsers document, added once by
+    // hand in the console. No UID is written into these rules or into the client.
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/allowedUsers/$(request.auth.uid))
+        && get(/databases/$(database)/documents/allowedUsers/$(request.auth.uid)).data.get('admin', false) == true;
+    }
     function validDetail(d) {
       return d is map
         && d.keys().hasAll(['schema','presentation','assisted','exerciseId','conceptId','title','subject','question','options','submittedAnswer','correctAnswer','explanation'])
@@ -20,11 +27,61 @@ service cloud.firestore {
         && d.correctAnswer is string && d.correctAnswer.size() > 0 && d.correctAnswer.size() <= 2000
         && d.explanation is string && d.explanation.size() > 0 && d.explanation.size() <= 8000;
     }
-    // Provision one allowedUsers/{owner UID} document through the admin console.
-    // Clients cannot grant themselves access.
+    // The first allowedUsers/{owner UID} document is provisioned through the admin console and
+    // carries `admin: true`. After that the owner approves accounts from inside the app; no one
+    // else can grant themselves access, and no one but the owner may enumerate the collection.
     match /allowedUsers/{uid} {
+      function validAllowed(d) {
+        return d.keys().hasAll(['at'])
+          && d.keys().hasOnly(['at','email','admin'])
+          && d.at is int && d.at > 0 && d.at <= request.time.toMillis() + 300000
+          && (!('email' in d) || (d.email is string && d.email.size() <= 320))
+          && (!('admin' in d) || d.admin is bool);
+      }
       allow get: if request.auth != null && request.auth.uid == uid;
-      allow list, write: if false;
+      allow list: if isAdmin();
+      // The owner's own document stays console-managed, so an approval flow can never drop the
+      // `admin` flag or delete the grant it depends on: the owner cannot lock themselves out.
+      allow create, update: if isAdmin() && uid != request.auth.uid
+        && validAllowed(request.resource.data);
+      allow delete: if isAdmin() && uid != request.auth.uid;
+    }
+    // A signed-in account that is not on the allowlist may file one request for approval, carrying
+    // only the identity it already signed in with. A refusal is recorded on the same document
+    // (`rejectedAt`) instead of erasing it, so the requester may ask again and the owner can still
+    // tell a repeat ask from a first one.
+    match /accessRequests/{uid} {
+      function bounded(v) {
+        return v is int && v > 0 && v <= request.time.toMillis() + 300000;
+      }
+      function validRequest(d) {
+        return d.keys().hasAll(['uid','email','displayName','at'])
+          && d.keys().hasOnly(['uid','email','displayName','at','rejectedAt'])
+          && d.uid == uid && uid.matches('^[A-Za-z0-9_-]{1,160}$')
+          && d.email is string && d.email.size() > 0 && d.email.size() <= 320
+          && d.displayName is string && d.displayName.size() <= 160
+          && bounded(d.at)
+          && (!('rejectedAt' in d) || bounded(d.rejectedAt));
+      }
+      function mine() {
+        return request.auth != null && request.auth.uid == uid;
+      }
+      function changed(keys) {
+        return request.resource.data.diff(resource.data).affectedKeys().hasOnly(keys);
+      }
+      allow get: if request.auth != null && (request.auth.uid == uid || isAdmin());
+      allow list: if isAdmin();
+      // A refusal is never self-inflicted: the requester cannot file one on themselves.
+      allow create: if mine() && validRequest(request.resource.data)
+        && !('rejectedAt' in request.resource.data);
+      // Asking again only moves `at` forward. The identity is frozen once filed, and `rejectedAt`
+      // is untouchable by the requester, so a refusal cannot be cleared from the requester side.
+      allow update: if mine() && validRequest(request.resource.data)
+        && changed(['at']) && request.resource.data.at > resource.data.at;
+      // Refusing only records the decision; it may not rewrite the request it is answering.
+      allow update: if isAdmin() && validRequest(request.resource.data)
+        && changed(['rejectedAt']) && bounded(request.resource.data.rejectedAt);
+      allow delete: if isAdmin();
     }
     match /users/{uid}/events/{id} {
       allow read: if owner(uid);

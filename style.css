@@ -87,6 +87,12 @@ footer { margin: 40px 0 10px; font-size: 13px; }
 }
 
 .sync-line { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:20px 0; font-size:.9rem; }
+.admin-panel { margin:16px 0; padding:14px; border:1px solid #2c333f; border-radius:12px; }
+.admin-panel h2 { font-size:1rem; margin:0 0 8px; }
+.request-item { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; padding:10px 0; border-top:1px solid #2c333f; }
+.request-item strong { display:block; word-break:break-all; }
+.request-item span { display:block; font-size:.85rem; opacity:.8; }
+.request-actions { display:flex; gap:8px; }
 .lesson { margin-top:20px; padding:16px; border:1px solid #535d6b; border-radius:12px; }
 .lesson summary { cursor:pointer; font-weight:700; min-height:32px; }
 .lesson .example { white-space:pre-wrap; padding-left:12px; border-left:3px solid #8eacd2; }
