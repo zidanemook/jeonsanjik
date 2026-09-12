@@ -1,5 +1,5 @@
 {
-  "note": "공무원 9급 공식 정답표를 그대로 옮긴 표다. 앱은 이 값 말고 다른 정답을 쓰지 않는다. answers의 n번째 글자가 n번 문항의 공식 정답 번호다. 원문 정답표 PDF는 research/exam-papers/local-g9/local-g9-2026-final-answers.pdf (= research/exam-papers/2026/official-local-2026-final-answer-extracted.pdf, md5 6220ddb920c2942e09f68c0933b3bd3f)에 있고, 이 파일은 그 PDF의 해당 행을 기계로 추출해 만들었다.",
+  "note": "공무원 9급 공식 정답표를 그대로 옮긴 표다. 앱은 이 값 말고 다른 정답을 쓰지 않는다. answers의 n번째 글자가 n번 문항의 공식 정답 번호다. 각 행은 정답표 PDF에서 기계로 추출했다(PyMuPDF 텍스트와 pdftotext -layout 두 추출기가 같은 20자리를 낸 행만 싣는다). 지방직: research/exam-papers/local-g9/local-g9-2026-final-answers.pdf (= research/exam-papers/2026/official-local-2026-final-answer-extracted.pdf, md5 6220ddb920c2942e09f68c0933b3bd3f). 국가직: research/exam-papers/2026/official-national-2026-final-answer-extracted.pdf (= national-2026-{korean,english}-final-answer.pdf, md5 1e748c899e488aeb7dfc8ab6990c9481).",
   "source": "2026년도 지방공무원 9급 공개경쟁임용 등 필기시험 정답표(6월 20일 시행) · 인사혁신처 · D책형",
   "keys": {
     "local9-2026-computer": {
@@ -13,6 +13,28 @@
     "local9-2026-history": {
       "row": "33 한국사",
       "answers": "41424113334321442432"
+    },
+    "local9-2026-korean": {
+      "row": "7 국어",
+      "answers": "21332114231324344433"
+    },
+    "local9-2026-english": {
+      "row": "14 영어",
+      "answers": "11224431313434324233"
+    },
+    "national9-2026-korean": {
+      "source": "national9",
+      "row": "9 국어",
+      "answers": "31432314422342421431"
+    },
+    "national9-2026-english": {
+      "source": "national9",
+      "row": "22 영어",
+      "answers": "23112433321144423124"
     }
+  },
+  "sources": {
+    "local9": "2026년도 지방공무원 9급 공개경쟁임용 등 필기시험 정답표(6월 20일 시행) · 인사혁신처 · D책형",
+    "national9": "2026년도 국가공무원 9급 공개경쟁채용 필기시험 정답표(4월 4일 시행) · 인사혁신처 · 가책형"
   }
 }

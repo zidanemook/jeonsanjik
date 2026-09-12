@@ -1,7 +1,7 @@
 {
  "schema":1,
  "description":"현재 복습 범위의 누락을 검사하는 목록. 전체 공무원 시험 범위나 학습 전이를 보증하지 않음.",
- "englishNonGrammar":["core-en-2026national-17"],
+ "englishNonGrammar":["core-en-2026national-17","gichul-local9-2026-english-01","gichul-local9-2026-english-02","gichul-local9-2026-english-03","gichul-local9-2026-english-05","gichul-local9-2026-english-08","gichul-local9-2026-english-09","gichul-local9-2026-english-10","gichul-local9-2026-english-15","gichul-local9-2026-english-16","gichul-local9-2026-english-17","gichul-local9-2026-english-18","gichul-local9-2026-english-19","gichul-local9-2026-english-20","gichul-national9-2026-english-01","gichul-national9-2026-english-02","gichul-national9-2026-english-03","gichul-national9-2026-english-05","gichul-national9-2026-english-08","gichul-national9-2026-english-09","gichul-national9-2026-english-10","gichul-national9-2026-english-12","gichul-national9-2026-english-15","gichul-national9-2026-english-16","gichul-national9-2026-english-17","gichul-national9-2026-english-18","gichul-national9-2026-english-19","gichul-national9-2026-english-20"],
  "requiredRules":{
   "조건 접속사":"en-session-20260909-provided",
   "while 축약":"en-session-20260909-while-short",
@@ -42,8 +42,8 @@
   "It takes 시간 to do":"grammar-verb-it-takes"
  },
  "subjectScope":{
-  "국어":"서울시 자체출제에서 공부한 규정 적용 2개. 전산직 위탁 기출의 범위·난도를 대표하지 않음.",
-  "영어":"공부한 어법·수일치, 문제집 PART 01 문장의 구조·동사 유형에서 정리한 동사 규칙 12묶음, 기존 논지 복습 1개. 전체 어휘·독해·문법 범위를 대표하지 않음.",
+  "국어":"서울시 자체출제에서 공부한 규정 적용 2개와 인사혁신처 9급 기출 원문 37문항(2026 지방직 18문항 — 밑줄 범위가 판단 대상인 13·16번 제외, 2026 국가직 19문항 — 같은 이유로 8번 제외). 전산직 국어 전체 범위를 대표하지 않음.",
+  "영어":"공부한 어법·수일치, 문제집 PART 01 문장의 구조·동사 유형에서 정리한 동사 규칙 12묶음, 기존 논지 복습 1개, 인사혁신처 9급 기출 원문 27문항(2026 지방직 13문항·2026 국가직 14문항 — 그림으로만 실린 지문과 밑줄 범위 어법 문항 제외). 전체 어휘·독해·문법 범위를 대표하지 않음.",
   "한국사":"제79회 심화 3~10번의 복습 개념 8개와 2026 지방직 9급 기출 원문 20문항. 한능검·공무원 한국사 전체 범위가 아님.",
   "컴퓨터일반":"2026 지방직 9급 기출 원문 19문항(20문항 중 표 기반 16번 제외). 자체 제작 개념 복습은 아직 없고, 컴퓨터일반 전체 범위를 대표하지 않음.",
   "정보보호론":"2026 지방직 9급 기출 원문 19문항(20문항 중 표 기반 3번 제외). 자체 제작 개념 복습은 아직 없고, 정보보호론 전체 범위를 대표하지 않음."
