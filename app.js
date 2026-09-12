@@ -22,7 +22,7 @@ function studySet(id){return STUDY_SET_BY_ID.get(id)||0;}
 function studyScope(value){if(value==='study-20260910')return 0;const match=/^study-20260910-([1-9]\d*)$/.exec(value||'');return match&&STUDY_SETS.some(set=>set.number===Number(match[1]))?Number(match[1]):null;}
 const TOPIC_BY_ID=StudyTopics.byCard(STUDY_REVIEW_CATALOG,globalThis.HANNEUNG_TOPICS||{});
 function studyTopic(id){return TOPIC_BY_ID.get(id)||'';}
-// 'topic-<id>' mixes summary and official questions of one era; 'papers-<id>' keeps only the official ones.
+// 'topic-<id>' is the self-made 연습문제 of one era; 'papers-<id>' is the official 기출 of the same era.
 function topicRange(value){const match=/^(topic|papers)-([a-z-]+)$/.exec(value||'');return match&&StudyTopics.list.some(t=>t.id===match[2])?{id:match[2],papers:match[1]==='papers'}:null;}
 function topicScope(value){return topicRange(value)?.id||null;}
 // 'lecture-<id>' follows the textbook lectures (02~05강, 06강, 07·08강) over the self-made summary questions.
@@ -33,7 +33,7 @@ function lectureTitle(id){return STUDY_LECTURES.find(l=>l.id===id)?.title||'';}
 function scopeOf(){const s=data.practiceScope||{};return {subject:s.subject||'',topic:s.topic||'',round:s.round||''};}
 function roundMatch(c,round){
  if(!round)return true;
- const t=topicRange(round);if(t)return studyTopic(c.id)===t.id&&(!t.papers||!!Hanneung.get(c.id));
+ const t=topicRange(round);if(t)return studyTopic(c.id)===t.id&&(t.papers?!!Hanneung.get(c.id):!Hanneung.get(c.id));
  const lecture=lectureScope(round);if(lecture)return LECTURE_BY_ID.get(c.id)===lecture;
  const set=studyScope(round);if(set!==null)return !!studySet(c.id)&&(!set||studySet(c.id)===set);
  if(round==='core')return !Hanneung.get(c.id)&&!studySet(c.id);
@@ -245,12 +245,13 @@ function renderRange(){
  const scope=(round,topic='')=>({subject:s,topic,round});
  const option=(g,title,sc,extra)=>{const inside=cards.filter(c=>inScope(c,sc)),p=firstPass(new Set(inside.map(c=>c.id)));if(!inside.length)return;g.append(menuItem(title,inside.length+'문제 · 첫 시도 '+p.answered+'/'+inside.length+(p.answered?' · 정답 '+p.correct:'')+' · 풀 문제 '+reviewQueue(inside).ready.length+(newCardRoom(inside)?' · 새 문제 '+newCardRoom(inside):'')+(extra?' · '+extra:''),()=>openScope(sc)));};
  if(s==='한국사'){
-  const mix=t=>{const inside=cards.filter(c=>studyTopic(c.id)===t.id),papers=inside.filter(c=>Hanneung.get(c.id)).length;return (inside.length-papers?'자체 제작 '+(inside.length-papers):'')+(inside.length-papers&&papers?' + ':'')+(papers?'기출 '+papers:'');};
-  const topics=group('주제별 · 자체 제작 + 기출');for(const t of StudyTopics.list)option(topics,t.title,scope('topic-'+t.id),mix(t));
-  const lectures=group('교재 강별 복습');for(const l of STUDY_LECTURES)option(lectures,l.title,scope('lecture-'+l.id),'자체 제작');
-  const current=topicRange(scopeOf().round),papersOnly=group('주제별 · 기출만',!current?.papers);for(const t of StudyTopics.list)option(papersOnly,t.title+' · 기출',scope('papers-'+t.id));
-  const papers=group('기출 · 회차별 심화 ('+Math.min(...Hanneung.rounds)+'~'+Math.max(...Hanneung.rounds)+'회)',!Hanneung.rounds.includes(Number(scopeOf().round)));for(const n of Hanneung.rounds){const count=Hanneung.rows.filter(r=>r.round===n&&Hanneung.hasExplanation(r.id)).length;option(papers,n+'회',scope(String(n)),count?'해설 '+count+'개':'');}
-  const other=group('그 밖의 범위');option(other,'요약자료 전체 · 자체 제작',scope('study-20260910'));option(other,'기존 핵심 복습',scope('core'));option(other,'한국사 전체',scope(''));
+  const round=scopeOf().round,current=topicRange(round);
+  // 연습문제는 자체 제작을 주제별로, 기출은 같은 주제와 회차별로 따로 푼다. 두 축을 섞지 않는다.
+  const topics=group('연습문제 · 주제별');for(const t of StudyTopics.list)option(topics,t.title,scope('topic-'+t.id));
+  const lectures=group('연습문제 · 교재 강별',!lectureScope(round));for(const l of STUDY_LECTURES)option(lectures,l.title,scope('lecture-'+l.id));
+  const papersOnly=group('기출 · 주제별',!current?.papers);for(const t of StudyTopics.list)option(papersOnly,t.title+' · 기출',scope('papers-'+t.id));
+  const papers=group('기출 · 회차별 심화 ('+Math.min(...Hanneung.rounds)+'~'+Math.max(...Hanneung.rounds)+'회)',!Hanneung.rounds.includes(Number(round)));for(const n of Hanneung.rounds){const count=Hanneung.rows.filter(r=>r.round===n&&Hanneung.hasExplanation(r.id)).length;option(papers,n+'회',scope(String(n)),count?'해설 '+count+'개':'');}
+  const other=group('그 밖의 범위',!(studyScope(round)!==null||round==='core'));option(other,'요약자료 전체 · 자체 제작',scope('study-20260910'));option(other,'기존 핵심 복습',scope('core'));option(other,'한국사 전체',scope(''));
  }else if(s==='영어'){const g=group('영어');option(g,'영어 전체',scope(''));option(g,'수일치',scope('','수일치'));option(g,'그 밖의 문법 연습',scope('','영문법'));}
  else option(group(s),s+' 전체',scope(''));
 }
