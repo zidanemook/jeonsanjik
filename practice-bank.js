@@ -279,7 +279,9 @@
  ['“그가 내 메시지에 답하는 데 이틀이 걸렸다.”\nIt took him two days ___ to my message.\nreply를 to부정사 두 단어로 쓰세요.','to reply','이 구문에서 실제 내용은 to부정사가 맡는다. It took him two days for replying처럼 전치사 + 동명사로 바꾸지 않는다.']]);
  judge('it-takes',['It takes about two hours to get to the airport by shuttle.','It takes about three days for finishing all the paperwork.','It took the whole team a month to finish the final report.','It will take quite a while to repair the roof of this house.'],1,'이 구문에서 실제 내용은 to부정사가 맡으므로 It takes about three days to finish all the paperwork로 고친다. 뜻이 통한다고 for + 동명사로 바꾸지 않는다. 나머지 세 문장은 모두 It + take + (사람) + 시간 + to부정사 구조를 지켰고, 셋째처럼 사람을 넣으면 It took the whole team a month가 된다.');
  const agreement=['as-well','neither','knowledge','debate-head'];
- for(const [key,value]of Object.entries(bank))value.topic=key.startsWith('grammar-agreement-')||agreement.some(k=>key===id(k))?'수일치':'영문법';
+ // 문제집에서 옮겨 온 카드는 진도(Day) 단위로 묶고, 그 밖의 카드는 기존 분류를 유지한다.
+ for(const [key,value]of Object.entries(bank))value.topic=key.startsWith('grammar-verb-')?'Day 1'
+  :key.startsWith('grammar-agreement-')||agreement.some(k=>key===id(k))?'수일치':'영문법';
  root.PRACTICE_BANK=bank;
  if(typeof module!=='undefined'&&module.exports)module.exports=bank;
 })(globalThis);
