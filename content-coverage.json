@@ -27,11 +27,23 @@
   "부정대명사":"grammar-agreement-indefinite",
   "the rich와 the poor":"grammar-agreement-rich",
   "both 주어와 보어":"grammar-agreement-both",
-  "구와 절 주어":"grammar-agreement-unit"
+  "구와 절 주어":"grammar-agreement-unit",
+  "4형식 불가 동사와 타동사 전치사":"grammar-verb-preposition",
+  "lie lay와 find found":"grammar-verb-lookalike",
+  "자동사 수동태 불가":"grammar-verb-no-passive",
+  "목적격보어의 태":"grammar-verb-object-voice",
+  "목적어 뒤 to부정사 원형 from -ing":"grammar-verb-object-form",
+  "감각동사와 remain의 보어":"grammar-verb-linking",
+  "accuse of와 regard as":"grammar-verb-prep-pair",
+  "간접의문문과 부가의문문":"grammar-verb-question-form",
+  "동명사만 취하는 동사":"grammar-verb-gerund-only",
+  "forget regret stop의 의미 차이":"grammar-verb-infinitive-gerund",
+  "명사 demand의 전치사와 본동사":"grammar-verb-finite",
+  "It takes 시간 to do":"grammar-verb-it-takes"
  },
  "subjectScope":{
   "국어":"서울시 자체출제에서 공부한 규정 적용 2개. 전산직 위탁 기출의 범위·난도를 대표하지 않음.",
-  "영어":"공부한 어법·수일치와 기존 논지 복습 1개. 전체 어휘·독해·문법 범위를 대표하지 않음.",
+  "영어":"공부한 어법·수일치, 문제집 PART 01 문장의 구조·동사 유형에서 정리한 동사 규칙 12묶음, 기존 논지 복습 1개. 전체 어휘·독해·문법 범위를 대표하지 않음.",
   "한국사":"제79회 심화 3~10번의 복습 개념 8개. 한능검 전체 범위가 아님.",
   "컴퓨터일반":"아직 복습 콘텐츠 없음. 진도·기출에 근거한 문제 묶음은 별도 작성 필요.",
   "정보보호론":"아직 복습 콘텐츠 없음. 진도·기출에 근거한 문제 묶음은 별도 작성 필요."

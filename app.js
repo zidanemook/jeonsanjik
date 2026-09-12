@@ -324,7 +324,7 @@ function renderFeedback(root,card,quiz,lesson,label){
  root.append(recap);
  const dueCard=data.cards.find(c=>c.id===card.id),concept=ReviewPolicy.concept(card.id),siblings=data.cards.some(c=>c.id!==card.id&&isPlayable(c)&&ReviewPolicy.concept(c.id)===concept);
  root.append(elem('p','풀이 완료 · 환산 시간 +1분','study-credit-award'),elem('small','다음 복습: '+dueCard.due+(f.result==='wrong'?' · 5분 뒤 다시 풀 수 있어요.'+(siblings?' 같은 개념의 다른 문제도 10분 뒤 이어서 나와요.':''):''),'next-review'));
- const source=(CORE_REVIEW_PACK.find(c=>c.id===card.id)||card).source;if(quiz.type==='text'||source)root.append(elem('small',quiz.type==='text'?'대화 학습·수일치 정리 기반 자체 제작 연습':source,'source-line'));
+ const source=(CORE_REVIEW_PACK.find(c=>c.id===card.id)||card).source;if(quiz.type==='text'||source)root.append(elem('small',quiz.type==='text'?(card.id.startsWith('grammar-verb-')?'문제집 PART 01 문장의 구조·동사 유형 정리 기반 자체 제작 연습':'대화 학습·수일치 정리 기반 자체 제작 연습'):source,'source-line'));
  const next=btn(nextLabel(reviewId),()=>{const state=structuredClone(data);delete state.quizFeedback;delete state.activePractice;if(commit(state)){sessionDirty=true;render();window.scrollTo(0,0);}},'primary next-question');next.id='nextQuestion';next.dataset.review=reviewId||'';root.append(next);
 }
 function answerPractice(id,input){
@@ -346,7 +346,7 @@ function answerPractice(id,input){
  next.quizFeedback={cardId:id,reviewId,selectedIndex:quiz.type==='choice'?input:-1,userAnswer:quiz.type==='text'?String(input):'',result,exercise:quiz};
  delete next.activePractice;notify('');if(commit(next)){sessionDirty=true;render();window.scrollTo(0,0);}
 }
-function installCorePack(){const pack='core-2026-09-12-v12';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id)),extras=Object.entries(PRACTICE_BANK).filter(([id])=>!CORE_REVIEW_PACK.some(c=>c.id===id)).map(([id,l])=>({id,subject:'영어',question:l.variants[0].question,answer:l.variants[0].answers[0],explanation:l.variants[0].explanation,source:'수일치 문서 기반 자체 제작 연습.'}));const cards=[...CORE_REVIEW_PACK,...extras].filter(c=>!ids.has(c.id)).map(c=>({...newCard({...c,verified:true}),id:c.id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
+function installCorePack(){const pack='core-2026-09-12-v13';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id)),extras=Object.entries(PRACTICE_BANK).filter(([id])=>!CORE_REVIEW_PACK.some(c=>c.id===id)).map(([id,l])=>({id,subject:'영어',question:l.variants[0].question,answer:l.variants[0].answers[0],explanation:l.variants[0].explanation,source:id.startsWith('grammar-verb-')?'문제집 PART 01 문장의 구조·동사 유형 정리 기반 자체 제작 연습.':'수일치 문서 기반 자체 제작 연습.'}));const cards=[...CORE_REVIEW_PACK,...extras].filter(c=>!ids.has(c.id)).map(c=>({...newCard({...c,verified:true}),id:c.id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
 installCorePack();
 if(!data.quizUiVersion){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;next.quizUiVersion=1;commit(next);}
 else if(data.cards.some(c=>c.pendingAttempt)){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;if(commit(next))data=next;}

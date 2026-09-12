@@ -8,7 +8,12 @@
   'en-session-20260909-both-whom':'grammar-of-whom','en-session-20260909-all-whom':'grammar-of-whom',
   'core-en-2026national-14':'grammar-voice','en-session-20260909-rage':'grammar-voice',
   'core-en-2026national-13':'grammar-relative-slot',
-  'en-session-20260909-knowledge':'grammar-head-agreement','en-session-20260909-debate-head':'grammar-head-agreement'
+  'en-session-20260909-knowledge':'grammar-head-agreement','en-session-20260909-debate-head':'grammar-head-agreement',
+  // PART 01 동사 유형 카드. 한쪽을 풀면 다른 쪽 정답이 그대로 드러나는 짝만 묶는다.
+  'grammar-verb-lookalike':'grammar-verb-transitivity','grammar-verb-no-passive':'grammar-verb-transitivity',
+  'grammar-verb-object-voice':'grammar-verb-object-complement','grammar-verb-object-form':'grammar-verb-object-complement',
+  'grammar-verb-gerund-only':'grammar-verb-nonfinite-object','grammar-verb-infinitive-gerund':'grammar-verb-nonfinite-object',
+  'grammar-verb-preposition':'grammar-verb-preposition-choice','grammar-verb-prep-pair':'grammar-verb-preposition-choice'
  };
  // BEGIN STUDY REVIEW GROUPS
  Object.assign(groups,{
