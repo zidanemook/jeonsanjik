@@ -35,7 +35,7 @@
  }
  function label(state){
   if(!state)return '';
-  if(finished(state))return '전부 풀기 완료 · '+state.total+'문항을 모두 맞혔어요';
+  if(finished(state))return '전부 풀기 완료 · '+state.total+'문제를 모두 맞혔어요';
   return state.round+'회차 '+Math.min(state.done+1,state.roundTotal)+'/'+state.roundTotal+(state.round>1?' · 틀린 문제만':' · 이 범위 전부 풀기');
  }
  // 같은 날 두 번째부터의 답은 복습 간격을 다시 올리지 않는다. 틀리면 내려가기만 한다.

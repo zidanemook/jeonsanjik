@@ -1,36 +1,48 @@
 const assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs');
 const practice=require('./practice.js'),bank=require('./practice-bank.js'),ctx={};vm.createContext(ctx);
 for(const f of ['core-review-pack.js','quiz-options.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx);
+// 문제 하나 = 항목 하나(v57). 예전에는 카드마다 변형 2개 이상을 요구하고 다시 풀면 다른 문장이 나오는지 검사했다(한 카드가 여러 문제를 돌려 냄).
+// 이제는 각 항목이 문제 하나다: 연습 문장 1개이거나, 문장 없이 그 규칙의 4지선다(quiz-options.js) 하나만 가진다.
 for(const [id,lesson]of Object.entries(bank)){
- assert.ok(lesson.rule&&lesson.hook&&lesson.examples.length&&lesson.variants.length>=2,id);
+ assert.ok(lesson.rule&&lesson.hook&&lesson.examples.length&&lesson.ruleId&&lesson.topic,id);
+ assert.equal(lesson.variants.length+(ctx.QUIZ_OPTIONS[id]?1:0),1,'one question per practice entry: '+id);
  for(const e of lesson.variants){assert.ok(e.question&&e.explanation);if(e.type==='text'){assert.ok(e.answers.length);for(const a of e.answers){assert.ok(practice.grade(e,'  '+a.toUpperCase()+' .  '));}assert.equal(practice.grade(e,'incorrect answer'),false);}else{assert.equal(e.type,'choice');assert.equal(e.choices.length,4);assert.ok(e.choices[e.correctIndex]);}}
- const c=ctx.CORE_REVIEW_PACK.find(c=>c.id===id)||{id,question:lesson.variants[0].question};
+ const c=ctx.CORE_REVIEW_PACK.find(c=>c.id===id)||{id,question:'',explanation:''};
  const first=practice.select(c,[],bank,ctx.QUIZ_OPTIONS),second=practice.select(c,[{cardId:id}],bank,ctx.QUIZ_OPTIONS);
- assert.notEqual(first.key,second.key);assert.notEqual(first.question,second.question);
+ // 다시 풀면 같은 문제가 다시 나온다. 다른 문장으로 바뀌지 않고, 객관식은 정답 번호만 직전과 다른 자리로 옮긴다.
+ assert.equal(first.variantCount,1);assert.equal(first.exerciseId,second.exerciseId);assert.equal(first.question,second.question);
+ if(first.type==='choice'){assert.notEqual(first.correctIndex,second.correctIndex);assert.equal(first.choices[first.correctIndex],second.choices[second.correctIndex]);}
+ // 나뉜 문제는 원래 규칙의 정리를 그대로 들고 있어 해설 화면이 규칙을 가르친다.
+ if(bank[lesson.ruleId]&&lesson.ruleId!==id)for(const k of ['title','rule','hook','examples','topic'])assert.deepEqual(lesson[k],bank[lesson.ruleId][k],id+' '+k);
 }
+// 영어 범위별 문제 수: 문제집 Day 1은 준비된 60문제(4지선다 40 · 직접 쓰기 20), 수일치 95문제, 그 밖의 문법 60문제이고 모두 한 문제씩이다.
+{const count=(topic,type)=>Object.entries(bank).filter(([id,l])=>l.topic===topic&&(!type||(l.variants[0]?.type||'choice')===type)).length;
+ assert.equal(count('Day 1'),60);assert.equal(count('Day 1','choice'),40);assert.equal(count('Day 1','text'),20);assert.equal(count('수일치'),95);assert.equal(count('영문법'),60);
+ assert.equal(Object.keys(bank).filter(id=>id.startsWith('grammar-verb-')).length,0,'Day 1 규칙 묶음 카드는 없어졌다');
+ assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='Day 1').map(l=>l.point)).size,24);}
 const c=ctx.CORE_REVIEW_PACK[0],options=ctx.QUIZ_OPTIONS;
 const picks=Array.from({length:8},(_,i)=>practice.select(c,Array.from({length:i},()=>({cardId:c.id})),bank,options));
 for(const e of picks)assert.equal(e.choices[e.correctIndex],options[c.id].choices[options[c.id].correctIndex]);
 assert.ok(new Set(picks.map(e=>e.correctIndex)).size>1);
 // Choice variants inside a lesson keep their own key/explanation through shuffle and refresh.
 for(const [id,lesson]of Object.entries(bank)){
- const card=ctx.CORE_REVIEW_PACK.find(c=>c.id===id)||{id,question:lesson.variants[0].question};
+ const card=ctx.CORE_REVIEW_PACK.find(c=>c.id===id)||{id,question:'',explanation:''};
  for(const row of lesson.variants.filter(e=>e.type==='choice')){
   const n=lesson.variants.length+(options[id]?1:0);
   const shown=Array.from({length:n*2},(_,i)=>practice.select(card,Array.from({length:i},()=>({cardId:id})),bank,options)).filter(e=>e.question===row.question);
   assert.equal(shown.length,2);for(const e of shown){assert.equal(e.choices[e.correctIndex],row.choices[row.correctIndex]);assert.equal(e.explanation,row.explanation);const fresh=practice.refresh(card,e,bank,options);assert.equal(fresh.exerciseId,e.exerciseId);assert.deepEqual(fresh.choices,e.choices);}
  }
 }
-assert.equal(practice.grade(bank['en-session-20260909-help'].variants[0],'to learn'),true);
-assert.equal(practice.grade(bank['en-session-20260909-help'].variants[0],'learning'),false);
+assert.equal(practice.grade(bank['en-session-20260909-help-v1'].variants[0],'to learn'),true);
+assert.equal(practice.grade(bank['en-session-20260909-help-v1'].variants[0],'learning'),false);
 // Adversarial review: valid forms must not be marked wrong; future-tense distractors still fail.
-const time=bank['en-session-20260909-time-clause'].variants;
+const time=[bank['en-session-20260909-time-clause-v1'].variants[0],bank['en-session-20260909-time-clause-v2'].variants[0]];
 assert.equal(practice.grade(time[0],'has arrived'),true);
 assert.equal(practice.grade(time[1],'has stopped'),true);
 assert.equal(practice.grade(time[0],'will arrive'),false);
 assert.equal(practice.grade(time[1],'will stop'),false);
-assert.equal(practice.grade(bank['en-session-20260909-difficulty'].variants[1],'in understanding'),true);
-assert.equal(practice.grade(bank['en-session-20260909-difficulty'].variants[1],'in understand'),false);
+assert.equal(practice.grade(bank['en-session-20260909-difficulty-v2'].variants[0],'in understanding'),true);
+assert.equal(practice.grade(bank['en-session-20260909-difficulty-v2'].variants[0],'in understand'),false);
 // Updating an explanation refreshes an unfinished item without changing its shuffled options.
 const stale=structuredClone(picks[3]);stale.explanation='old explanation';
 const refreshed=practice.refresh(c,stale,bank,options);
@@ -45,7 +57,7 @@ const insertedOptions={'test-stable':{question:'Choose a new example.',choices:[
 const sameTyped=practice.refresh(typedCard,savedTyped,typedBank,insertedOptions);
 assert.equal(sameTyped.exerciseId,savedTyped.exerciseId);assert.equal(sameTyped.variantIndex,1);
 const newMcq=practice.select(typedCard,[],typedBank,insertedOptions);assert.equal(newMcq.explanation,'Dedicated MCQ explanation.');
-for(const suffix of ['collective','none']){const variant=bank['grammar-agreement-'+suffix].variants[1];assert.equal(practice.grade(variant,'is'),true);assert.equal(practice.grade(variant,'are'),true);assert.equal(practice.grade(variant,'be'),false);}
+for(const suffix of ['collective','none']){const variant=bank['grammar-agreement-'+suffix+'-v2'].variants[0];assert.equal(practice.grade(variant,'is'),true);assert.equal(practice.grade(variant,'are'),true);assert.equal(practice.grade(variant,'be'),false);}
 assert.equal(practice.normalize(" HADN’T   MISSED. "),"hadn't missed");
 const sync=require('./sync-core.js');const state={cards:[{id:'a',ease:2.5,interval:0,streak:0}],history:[]};
 const merged=sync.merge(state,[{id:'event1',cardId:'a',date:'2026-09-09',at:'2026-09-09T10:00:00Z',result:'unsure',mode:'quiz'}]);
@@ -88,4 +100,4 @@ assert.equal(plainDetail.submittedAnswer,'1. 가');assert.equal(plainDetail.corr
 const plainText={type:'text',question:'q',answers:['ans'],explanation:'e',exerciseId:'plain-2'};
 const textDetail=record.create(plainCard,plainText,'ans',null,'concept-plain');
 assert.equal(textDetail.options,'');assert.equal(textDetail.submittedAnswer,'ans');assert.equal(textDetail.correctAnswer,'ans');
-console.log('PASS practice: answer normalization, alternative valid answers, contrasting variants, shuffled answer mapping, photo options (shuffle, grading, history snapshot), unchanged text records, assisted progress on another device');
+console.log('PASS practice: one question per practice entry (Day 1 60, 수일치 95, 영문법 60), same question on retry with a moved answer number, split questions keep their rule text, answer normalization, alternative valid answers, contrasting variants, shuffled answer mapping, photo options (shuffle, grading, history snapshot), unchanged text records, assisted progress on another device');

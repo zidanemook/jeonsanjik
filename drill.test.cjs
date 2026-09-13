@@ -5,11 +5,11 @@ const ctx={};vm.createContext(ctx);for(const f of ['core-review-pack.js','quiz-o
 const OPTIONS=ctx.QUIZ_OPTIONS,PACK=ctx.CORE_REVIEW_PACK;
 const size=id=>(OPTIONS[id]?1:0)+(bank[id]?.variants.length||0);
 const scope={subject:'영어',topic:'Day 1',round:''};
-// 문제집 Day 1 범위: 카드 12장에 문항 129개. 드릴은 카드가 아니라 문항 단위로 돈다.
+// 문제집 Day 1 범위: 문제 60개이고 문제 하나가 카드 하나다(v56까지는 카드 12장이 129문항을 돌려 냈다). 드릴은 문제 단위로 돈다.
 const day1=Object.keys(bank).filter(id=>bank[id].topic==='Day 1');
 const cards=day1.map(id=>PACK.find(c=>c.id===id)||{id,subject:'영어',question:bank[id].variants[0].question});
 const total=day1.reduce((n,id)=>n+size(id),0);
-assert.equal(cards.length,12);assert.equal(total,129);
+assert.equal(cards.length,60);assert.equal(total,60);assert.ok(day1.every(id=>size(id)===1),'Day 1의 모든 카드는 문제 하나');
 
 // 1) 범위의 모든 문항을 정확히 한 번씩, 카드 순서 그대로 펼친다.
 let state=Drill.create(scope,cards,size);
@@ -27,7 +27,7 @@ for(const card of cards){
 }
 
 // 2) 회차 루프: 1회차 전체 → 2회차는 틀린 문항만, 순서 그대로 → 다 맞히면 끝.
-const wrongKeys=new Set([state.order[3].key,state.order[7].key,state.order[100].key]);
+const wrongKeys=new Set([state.order[3].key,state.order[7].key,state.order[50].key]);
 const served=[];
 while(Drill.current(state)){const item=Drill.current(state);served.push({key:item.key,round:state.round});state=Drill.answer(state,item.cardId,item.index,!(state.round===1&&wrongKeys.has(item.key)));}
 assert.equal(served.filter(s=>s.round===1).length,total,'1회차는 범위 전체를 한 번씩');
@@ -36,7 +36,7 @@ assert.deepEqual(served.filter(s=>s.round===2).map(s=>s.key),state.order.filter(
 assert.equal(served.filter(s=>s.round>2).length,0);
 assert.equal(state.total,total,'반복은 1회차 총량을 늘리지 않는다');
 assert.ok(Drill.finished(state));
-assert.equal(Drill.label(state),'전부 풀기 완료 · 129문항을 모두 맞혔어요');
+assert.equal(Drill.label(state),'전부 풀기 완료 · 60문제를 모두 맞혔어요');
 // 계속 틀리면 같은 문항만 회차를 거듭한다.
 let stuck=Drill.create(scope,cards.slice(0,1),size);
 for(let i=0;i<size(day1[0])*3;i++){const item=Drill.current(stuck);stuck=Drill.answer(stuck,item.cardId,item.index,false);}
@@ -44,10 +44,10 @@ assert.equal(stuck.round,4);assert.equal(stuck.roundTotal,size(day1[0]));
 assert.equal(Drill.label(stuck),'4회차 1/'+size(day1[0])+' · 틀린 문제만');
 // 진행 표시: 1회차는 범위 전체 기준, 2회차부터는 남은 오답 기준.
 let shown=Drill.create(scope,cards,size);
-assert.equal(Drill.label(shown),'1회차 1/129 · 이 범위 전부 풀기');
+assert.equal(Drill.label(shown),'1회차 1/60 · 이 범위 전부 풀기');
 for(let i=0;i<36;i++){const item=Drill.current(shown);shown=Drill.answer(shown,item.cardId,item.index,true);}
-assert.equal(Drill.label(shown),'1회차 37/129 · 이 범위 전부 풀기');
-assert.deepEqual(Drill.progress(shown),{round:1,done:36,roundTotal:129,total:129,finished:false,left:93});
+assert.equal(Drill.label(shown),'1회차 37/60 · 이 범위 전부 풀기');
+assert.deepEqual(Drill.progress(shown),{round:1,done:36,roundTotal:60,total:60,finished:false,left:24});
 // 차례가 아닌 문항의 채점은 진행을 움직이지 못한다.
 assert.equal(Drill.answer(shown,'other-card',0,true),shown);
 assert.equal(Drill.answer(shown,Drill.current(shown).cardId,99,true),shown);
@@ -70,8 +70,9 @@ assert.ok(scheduled.some(c=>c.retryAt&&Date.parse(c.retryAt)>clock.getTime()));
 const openAll=Drill.create(scope,scheduled,size);
 assert.equal(openAll.order.length,total,'드릴은 due·retryAt·형제 간격과 무관하게 전 문항을 낸다');
 assert.deepEqual(new Set(openAll.order.map(i=>i.cardId)),new Set(cards.map(c=>c.id)));
-// 형제 간격(ReviewPolicy.separate)이 잡아 두는 같은 개념 카드도 드릴에서는 이어서 나온다.
-const siblings=scheduled.filter(c=>policy.concept(c.id)===policy.concept('grammar-verb-lookalike'));
+// 형제 간격(ReviewPolicy.separate)이 잡아 두는 같은 개념의 문제(여기서는 문법 포인트 '타동사에 전치사 금지'의 5문제)도 드릴에서는 이어서 나온다.
+const siblings=scheduled.filter(c=>policy.concept(c.id)===policy.concept('en-day1-03'));
+assert.equal(siblings.length,5);
 assert.ok(siblings.length>1,'형제 카드 묶음이 있어야 한다');
 assert.ok(policy.separate(siblings,box.data.history,clock.getTime()).waiting.length>0,'형제 간격이 실제로 걸려 있어야 한다');
 assert.equal(openAll.order.filter(i=>siblings.some(s=>s.id===i.cardId)).length,siblings.reduce((n,c)=>n+size(c.id),0));
@@ -85,8 +86,10 @@ assert.deepEqual(base.ready.map(c=>c.id),cards.slice(0,6).map(c=>c.id),'due 카�
 assert.deepEqual(base.waiting.map(w=>w.card.id),[]);
 box.data.history=[...seen,{id:'w',cardId:cards[0].id,date:stamp,at:new Date(clock.getTime()-60*1000).toISOString(),result:'wrong',mode:'quiz'}];
 const after=box.reviewQueue(plain.map(c=>c.id===cards[0].id?{...c,retryAt:new Date(clock.getTime()+60000).toISOString()}:c));
-assert.deepEqual(after.ready.map(c=>c.id),cards.slice(1,6).map(c=>c.id),'재시도 대기 카드만 빠지고 나머지 순서는 그대로');
-assert.deepEqual(after.waiting.map(w=>w.card.id),['grammar-verb-prep-pair'],'오답의 형제 카드는 10분 간격으로 대기한다');
+// cards[0](en-day1-01)을 틀렸다. 같은 문법 포인트(4형식 불가)의 문제는 en-day1-02(어제 due)와 en-day1-41(내일 due)이다.
+assert.equal(policy.concept('en-day1-02'),policy.concept('en-day1-01'));assert.equal(policy.concept('en-day1-41'),policy.concept('en-day1-01'));
+assert.deepEqual(after.ready.map(c=>c.id),cards.slice(2,6).map(c=>c.id),'재시도 대기 문제와 같은 포인트의 문제만 빠지고 나머지 순서는 그대로');
+assert.deepEqual(after.waiting.map(w=>w.card.id),['en-day1-02','en-day1-41'],'오답과 같은 포인트의 다른 문제는 오늘 due가 아니어도(41) 불려 와 10분 간격 뒤에 나온다');
 assert.equal(Drill.sameScope(null,{subject:'',topic:'',round:''}),true);
 assert.equal(Drill.sameScope(scope,{subject:'영어',topic:'Day 1'}),true);
 assert.equal(Drill.sameScope(scope,{subject:'영어',topic:'수일치'}),false);

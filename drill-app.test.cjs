@@ -1,5 +1,6 @@
 // app.js를 가짜 DOM 위에서 실제로 돌려, "이 범위 전부 풀기"가 화면·기록·일정에서 어떻게 동작하는지 확인한다.
-// 평소 모드는 그대로 막히고(사용자가 겪던 상태), 드릴을 켜면 범위의 모든 문항이 나오고, 틀린 문항만 다음 회차로 돈다.
+// 문제 하나가 카드 하나다. 평소 모드는 문법 포인트마다 한 문제씩 낸 뒤 같은 포인트의 나머지를 형제 간격 뒤로 미루고,
+// 드릴을 켜면 범위의 모든 문제가 나오고, 틀린 문제만 다음 회차로 돈다. 화면의 모든 수는 "문제" 한 단위다.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 function el(tag='div'){
  const node={tag,children:[],attrs:{},dataset:{},classes:new Set(),_text:'',hidden:false,disabled:false,open:false,
@@ -47,15 +48,38 @@ const answerCurrent=wrong=>{
  next();
 };
 
-// 1) 평소 모드: 문제집 Day 1 범위를 풀 수 있는 데까지 푼다. 곧 막히고, 범위의 대부분은 손도 못 댄다.
+// 1) 평소 모드: 문제집 Day 1 범위를 풀 수 있는 데까지 푼다(전부 맞힌다).
 run("openScope({subject:'영어',topic:'Day 1'})");
 const total=run("questionCount(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)))");
 const cardCount=run("data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).length");
-assert.ok(total>100&&cardCount>=12,'Day 1 범위: 카드 '+cardCount+'장 · 문항 '+total+'개');
+assert.equal(total,60,'Day 1 범위는 준비된 60문제');
+assert.equal(cardCount,total,'문제 하나가 카드 하나: 카드 '+cardCount+'장 · 문제 '+total+'개');
+const countNow=()=>run("countLine(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)))");
+assert.equal(countNow(),'전체 60문제 · 지금 풀 차례 60문제','처음에는 60문제가 모두 지금 풀 차례');
+const points=run("new Set(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).map(c=>ReviewPolicy.concept(c.id))).size");
+assert.equal(points,24,'Day 1 문법 포인트 24개');
 let normal=0;while(run('data.activePractice')&&normal<total){answerCurrent(false);normal++;}
-assert.ok(normal<cardCount,'평소 모드는 카드 수보다도 적게 풀고 막힌다 ('+normal+'문제)');
-assert.ok(/잠시 뒤|마쳤어요/.test(screen()),'막힌 화면: '+screen().slice(0,60));
-assert.ok(screen().includes('이 범위 전부 풀기 · '+total+'문항'),'막힌 화면에서 드릴을 권한다');
+// v56까지는 카드 12장이 129문항을 돌려 내서 8문제 만에 막혔고 나머지 121문항에는 닿을 길이 없었다(이 검사가 그 증상을 고정했다).
+// 지금은 문법 포인트마다 한 문제씩 24문제가 나오고, 남은 36문제는 같은 포인트라 형제 간격(10분) 뒤에 이어서 나온다.
+assert.equal(normal,points,'평소 모드는 문법 포인트마다 한 문제씩 낸다 ('+normal+'문제)');
+assert.ok(/잠시 뒤/.test(screen()),'형제 간격 화면: '+screen().slice(0,60));
+assert.equal(countNow(),'전체 60문제 · 지금 풀 차례 0문제','지금 풀 차례는 지금 실제로 낼 수 있는 문제 수다');
+assert.ok(nodes.get('#retryStatus')._text.includes('같은 개념의 문제 36개'),'남은 36문제가 간격 뒤에 나온다고 알린다: '+nodes.get('#retryStatus')._text);
+assert.ok(screen().includes('이 범위 전부 풀기 · '+total+'문제'),'막힌 화면에서 드릴을 권한다');
+// 첫 화면·과목·범위·진행상황의 수도 같은 단위("문제")다. 어느 화면에도 "문항"·"카드"라는 말이 나오지 않는다.
+{
+ const texts=sel=>[nodes.get(sel)._text,...nodes.get(sel).all.map(n=>n._text)].filter(Boolean).join(' | ');
+ const menuDetail=(sel,title)=>{const b=nodes.get(sel).all.find(n=>n.tag==='button'&&n.children[0]?._text===title);return b?.children[1]?._text;};
+ const en="data.cards.filter(c=>isPlayable(c)&&c.subject==='영어')";
+ const enLine='전체 '+run('questionCount('+en+')')+'문제 · 지금 풀 차례 '+run('questionCount(reviewQueue('+en+').ready)')+'문제';
+ run("go('home')");assert.equal(menuDetail('#subjectList','영어'),enLine,'첫 화면 과목 줄');
+ run("go('subject','영어')");assert.equal(nodes.get('#subjectSummary')._text,enLine+' · 오늘 푼 문제 24개','과목 화면 요약(오늘 푼 문제는 서로 다른 문제 수)');
+ run("go('range','영어')");assert.equal(menuDetail('#rangeList','Day 1 문장의 구조·동사 유형'),'전체 60문제 · 첫 시도 24/60 · 정답 24 · 지금 풀 차례 0문제','범위 줄');
+ run("go('progress')");assert.equal(nodes.get('#total')._text,String(run('questionCount(data.cards.filter(isPlayable))')),'진행상황의 전체 문제');
+ assert.equal(nodes.get('#done')._text,'24','진행상황의 오늘 푼 문제');
+ for(const sel of ['#subjectList','#subjectSummary','#rangeList','#subjectStats','#card','#retryStatus'])assert.ok(!/문항|카드/.test(texts(sel)),sel+'에 문항/카드라는 말이 보인다: '+texts(sel).slice(0,120));
+ run("go('quiz')");
+}
 assert.equal(run('drill'),null,'사용자가 켜기 전에는 드릴이 없다');
 assert.equal(nodes.get('#drillStatus').hidden,true);
 assert.equal(nodes.get('#drillToggle')._text,'이 범위 전부 풀기');
@@ -82,7 +106,7 @@ assert.equal(served.length,total+1,'1회차 전체 + 틀린 1문항');
 assert.equal(new Set(served.slice(0,total)).size,total,'1회차에 범위의 모든 문항이 한 번씩');
 assert.deepEqual(served.slice(total),[missed],'2회차는 이 드릴에서 틀린 문항만');
 assert.ok(screen().includes('이 범위를 전부 풀었어요'),'끝 화면: '+screen().slice(0,60));
-assert.ok(screen().includes(total+'문항을 모두 한 번 이상 맞혔어요'));
+assert.ok(screen().includes(total+'문제를 모두 한 번 이상 맞혔어요'));
 
 // 3) 답안은 평소와 똑같이 기록되고, 같은 날 반복이 복습 간격을 부풀리지 않는다.
 const data=run('structuredClone(data)'),today=run('day()'),tomorrow=run('plus(day(),1)');
@@ -192,5 +216,5 @@ assert.equal(fetched.filter(u=>u.includes(englishPaper)).length,2,'실패한 회
 // 회차가 아닌 범위는 예전 그대로 복습 대기열을 따른다.
 run("openScope({subject:'한국사',round:'lecture-02-05'})");
 assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에서는 전부 풀기 버튼이 그대로 있다');
-console.log('PASS drill in app: normal mode stops at '+normal+'/'+total+', drill serves all '+total+' exercises then repeats only the missed one, records stay normal, no same-day interval inflation; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
+console.log('PASS drill in app: every card is one question (Day 1 '+total+'), home/subject/range/progress counts read "전체 N문제 · 지금 풀 차례 M문제" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, drill serves all '+total+' questions then repeats only the missed one, records stay normal, no same-day interval inflation; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
 })().catch(e=>{console.error(e);process.exit(1);});
