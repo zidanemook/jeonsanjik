@@ -222,5 +222,35 @@ assert.equal(fetched.filter(u=>u.includes(englishPaper)).length,2,'실패한 회
 // 회차가 아닌 범위는 예전 그대로 복습 대기열을 따른다.
 run("openScope({subject:'한국사',round:'lecture-02-05'})");
 assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에서는 전부 풀기 버튼이 그대로 있다');
-console.log('PASS drill in app: every card is one question (Day 1 '+total+'), home/subject/range/progress counts read "전체 N문제 · 지금 풀 차례 M문제" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, drill serves all '+total+' questions then repeats only the missed one, records stay normal, no same-day interval inflation; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
+// 국어 범위 화면: 『사고의 힘 논리』 묶음이 맨 위에 1장 → 2장 순서로 나오고, 둘 다 아직 풀지 않은 4지선다 문제다.
+// 2장을 열면 국어 문제만 나오고, 틀린 뒤 해설 화면에 정리·출처·같은 개념 안내가 나오며 문항/카드라는 말은 없다.
+{
+ const rangeRows=()=>nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text);
+ const rowDetail=title=>nodes.get('#rangeList').all.find(n=>n.tag==='button'&&n.children[0]?._text===title)?.children[1]?._text;
+ run("go('range','국어')");
+ const heads=nodes.get('#rangeList').all.filter(n=>String(n.className||'').split(' ').includes('range-heading')).map(n=>n._text);
+ assert.equal(heads[0],'사고의 힘 논리','국어 범위 화면의 첫 묶음: '+heads.slice(0,3).join(' / '));
+ const rows=rangeRows();
+ assert.deepEqual(rows.slice(0,2),['1장 논증의 개념과 유형','2장 명제 논리'],'사고의 힘 논리는 1장 다음에 2장: '+rows.slice(0,3).join(' / '));
+ assert.equal(rowDetail('1장 논증의 개념과 유형'),'전체 31문제 · 첫 시도 0/31 · 지금 풀 차례 31문제 (새 문제 5개 포함)','1장 범위 줄');
+ assert.equal(rowDetail('2장 명제 논리'),'전체 112문제 · 첫 시도 0/112 · 지금 풀 차례 112문제 (새 문제 5개 포함)','2장 범위 줄');
+ assert.ok(rows.includes('국어 전체')&&heads.some(h=>h.startsWith('기출 · 회차별')),'국어 기출과 국어 전체 범위는 그대로 있다');
+ const rangeText=[...nodes.get('#rangeList').all.map(n=>n._text)].join(' | ');assert.ok(!/문항|카드/.test(rangeText),'국어 범위 화면에 문항/카드라는 말이 없다');
+ run("openScope({subject:'국어',topic:'논리 2장'})");
+ assert.equal(nodes.get('#scopeLabel')._text,'국어 · 사고의 힘 논리 2장 명제 논리','범위 이름');
+ assert.equal(run("data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).length"),112,'2장 범위는 112문제(문제 하나 = 카드 하나)');
+ assert.ok(run("data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).every(c=>c.subject==='국어'&&PRACTICE_BANK[c.id].topic==='논리 2장')"),'2장 범위에는 국어 2장 문제만 있다');
+ const koId=run('data.activePractice.cardId'),koQuiz=run('data.activePractice.exercise');
+ assert.ok(koId.startsWith('ko-logic2-'),'2장 범위의 첫 문제: '+koId);assert.equal(koQuiz.type,'choice');assert.equal(koQuiz.choices.length,4);
+ run('answerPractice('+JSON.stringify(koId)+','+((koQuiz.correctIndex+1)%4)+')');
+ assert.equal(run('data.quizFeedback.result'),'wrong','일부러 틀린 답');
+ const shown=screen(),lesson=run('PRACTICE_BANK['+JSON.stringify(koId)+']');
+ assert.ok(shown.includes('국어 · '+lesson.title+' · 객관식'),'문제 머리말: 과목 · 정리 제목 · 객관식');
+ assert.ok(shown.includes(lesson.hook),'해설 화면에 정리 한 줄(hook)이 나온다');
+ assert.ok(shown.includes('사고의 힘 논리 제1편 개념 기반 자체 제작 문제'),'출처 줄이 자체 제작임을 밝힌다');
+ assert.ok(shown.includes('같은 개념의 다른 문제도 10분 뒤 이어서 나와요'),'같은 개념 문제가 이어서 나온다는 안내');
+ assert.ok(!/문항|카드/.test(shown),'국어 해설 화면에 문항/카드라는 말이 없다: '+shown.slice(0,120));
+ next();
+}
+console.log('PASS drill in app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 112 and a four-option feedback screen with lesson, source and same-concept notice), home/subject/range/progress counts read "전체 N문제 · 지금 풀 차례 M문제" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, drill serves all '+total+' questions then repeats only the missed one, records stay normal, no same-day interval inflation; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
 })().catch(e=>{console.error(e);process.exit(1);});

@@ -47,7 +47,10 @@ function roundMatch(c,round){
  if(round==='core')return !Hanneung.get(c.id)&&!Gichul.get(c.id)&&!studySet(c.id);
  return Hanneung.get(c.id)?.round===Number(round);
 }
-function inScope(c,scope){const subject=scope.subject||'',topic=subject==='영어'?scope.topic||'':'',round=hasRanges(subject)?scope.round||'':'';return isPlayable(c)&&(!subject||c.subject===subject)&&(!topic||PRACTICE_BANK[c.id]?.topic===topic)&&roundMatch(c,round);}
+// 교재 진도(topic) 범위를 가진 과목: 영어는 문제집 Day, 국어는 『사고의 힘 논리』의 장.
+const TOPIC_SUBJECTS=new Set(['영어','국어']);
+const KOREAN_TOPICS={'논리 1장':'1장 논증의 개념과 유형','논리 2장':'2장 명제 논리'};
+function inScope(c,scope){const subject=scope.subject||'',topic=TOPIC_SUBJECTS.has(subject)?scope.topic||'':'',round=hasRanges(subject)?scope.round||'':'';return isPlayable(c)&&(!subject||c.subject===subject)&&(!topic||PRACTICE_BANK[c.id]?.topic===topic)&&roundMatch(c,round);}
 function orderedScope(round){return !!topicScope(round)||!!lectureScope(round)||studyScope(round)!==null||!!paperScope(round)||Hanneung.rounds.includes(Number(round));}
 const inCurrent=c=>inScope(c,scopeOf());
 function sameScope(a,b){return !!a&&!!b&&(a.subject||'')===(b.subject||'')&&(a.topic||'')===(b.topic||'')&&(a.round||'')===(b.round||'');}
@@ -55,6 +58,7 @@ function scopeLabel(scope){
  const s=scope.subject;if(!s)return '전체 과목';
  const paper=hasRanges(s)?paperScope(scope.round):null;if(paper)return s+' · 기출 '+Gichul.paper(paper).range;
  if(s==='영어')return '영어 · '+({'':'전체','수일치':'수일치','영문법':'그 밖의 문법 연습'}[scope.topic||'']??scope.topic);
+ if(s==='국어'&&KOREAN_TOPICS[scope.topic])return '국어 · 사고의 힘 논리 '+KOREAN_TOPICS[scope.topic];
  if(s!=='한국사')return s+' · 전체';
  const r=scope.round||'',t=topicRange(r),set=studyScope(r),lecture=lectureScope(r);
  if(t)return '한국사 · '+StudyTopics.title(t.id)+(t.papers?' · 기출만':'');if(lecture)return '한국사 · '+lectureTitle(lecture);if(set===0)return '한국사 · 요약자료 전체';if(set)return '한국사 · 요약자료 '+set+'묶음';if(r==='core')return '한국사 · 기존 핵심 복습';if(r)return '한국사 · 기출 '+r+'회';return '한국사 · 전체';
@@ -251,7 +255,7 @@ function solvedOn(ids,date){return new Set(data.history.filter(h=>h.date===date&
 function menuItem(title,detail,fn,cls='menu-item'){const b=btn('',fn,cls);b.type='button';b.append(elem('strong',title));if(detail)b.append(elem('span',detail));return b;}
 function lastScope(subject){const s=data.lastScopes?.[subject]||(data.practiceScope?.subject===subject?data.practiceScope:null);return s?{subject,topic:s.topic||'',round:s.round||''}:null;}
 function openScope(scope,resume=false){
- scope={subject:scope.subject||'',topic:scope.subject==='영어'?scope.topic||'':'',round:hasRanges(scope.subject)?scope.round||'':''};
+ scope={subject:scope.subject||'',topic:TOPIC_SUBJECTS.has(scope.subject)?scope.topic||'':'',round:hasRanges(scope.subject)?scope.round||'':''};
  if(resume&&sameScope(scopeOf(),scope)){go('quiz');return;}
  const next=structuredClone(data);next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:scope};delete next.quizFeedback;delete next.activePractice;
  drill=null;paperCursor=null;
@@ -312,6 +316,10 @@ function renderRange(){
  }else if(s==='영어'){const g=group('문제집 진도');option(g,'Day 1 문장의 구조·동사 유형',scope('','Day 1'));option(g,'Day 2 동사의 형태·명사·일치',scope('','Day 2'));
   const exams=group('기출 · 회차별 ('+paperCount+'회차)',!paperScope(scopeOf().round));paperYears(exams,scopeOf().round);
   const rest=group('그 밖의 범위',true);option(rest,'수일치',scope('','수일치'));option(rest,'그 밖의 문법 연습',scope('','영문법'));option(rest,'영어 전체',scope(''));}
+ // 국어는 교재(사고의 힘 논리) 장별 자체 제작 문제를 먼저 두고, 기출은 영어처럼 풀던 회차가 없으면 접어 둔다.
+ else if(s==='국어'){const g=group('사고의 힘 논리');for(const [topic,title]of Object.entries(KOREAN_TOPICS))option(g,title,scope('',topic));
+  const exams=group('기출 · 회차별 ('+paperCount+'회차)',!paperScope(scopeOf().round));paperYears(exams,scopeOf().round);
+  option(group('그 밖의 범위',true),'국어 전체',scope(''));}
  else if(PAPER_SUBJECTS.has(s)){
   const exams=group('기출 · 회차별 ('+paperCount+'회차)');paperYears(exams,scopeOf().round);
   option(group('그 밖의 범위',true),s+' 전체',scope(''));
@@ -454,8 +462,9 @@ function answerPractice(id,input){
  next.quizFeedback={cardId:id,reviewId,selectedIndex:quiz.type==='choice'?input:-1,userAnswer:quiz.type==='text'?String(input):'',result,exercise:quiz};
  delete next.activePractice;notify('');if(commit(next)){if(drilling)drill=StudyDrill.answer(drill,id,item.index,result==='correct');else if(sequential)paperAdvance();sessionDirty=true;render();window.scrollTo(0,0);}
 }
-// 설치 묶음에 없는 영어 문제(나뉜 규칙 문제 · 문제집 Day 1 · Day 2)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
-function installCorePack(){const pack='core-2026-09-12-v24';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id)),extras=Object.entries(PRACTICE_BANK).filter(([id])=>!CORE_REVIEW_PACK.some(c=>c.id===id)).map(([id,l])=>{const e=Practice.select({id,question:'',explanation:''},[],PRACTICE_BANK,QUIZ_OPTIONS),rule=CORE_REVIEW_PACK.find(c=>c.id===l.ruleId);return {id,subject:'영어',question:e.question,answer:e.type==='text'?e.answers[0]:e.choices[e.correctIndex],explanation:e.explanation||'',source:id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조·동사 유형 정리 기반 자체 제작 연습.':id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습.':rule?.source||'수일치 문서 기반 자체 제작 연습.'};});const cards=[...CORE_REVIEW_PACK,...extras].filter(c=>!ids.has(c.id)).map(c=>({...newCard({...c,verified:true}),id:c.id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
+// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제 · 문제집 Day 1 · Day 2, 국어: 사고의 힘 논리 1·2장)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
+// 과목은 연습 문제에 적힌 subject를 따르고, 적혀 있지 않으면 영어다(기존 영어 문제는 subject를 따로 적지 않았다).
+function installCorePack(){const pack='core-2026-09-12-v25';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id)),extras=Object.entries(PRACTICE_BANK).filter(([id])=>!CORE_REVIEW_PACK.some(c=>c.id===id)).map(([id,l])=>{const e=Practice.select({id,question:'',explanation:''},[],PRACTICE_BANK,QUIZ_OPTIONS),rule=CORE_REVIEW_PACK.find(c=>c.id===l.ruleId);return {id,subject:l.subject||'영어',question:e.question,answer:e.type==='text'?e.answers[0]:e.choices[e.correctIndex],explanation:e.explanation||'',source:id.startsWith('ko-logic')?'사고의 힘 논리 제1편 개념 기반 자체 제작 문제(교재 문장·예문은 옮기지 않음).':id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조·동사 유형 정리 기반 자체 제작 연습.':id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습.':rule?.source||'수일치 문서 기반 자체 제작 연습.'};});const cards=[...CORE_REVIEW_PACK,...extras].filter(c=>!ids.has(c.id)).map(c=>({...newCard({...c,verified:true}),id:c.id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
 installCorePack();
 // 더는 없는 문제(v57에서 문제 하나씩으로 나눈 영어 규칙 카드 등)를 가리키던 풀이 화면·채점 화면만 비운다.
 // 그대로 두면 채점 화면이 남아 다음 답을 받지 못한다. 채점 기록(history)과 카드 일정은 한 건도 지우지 않는다.

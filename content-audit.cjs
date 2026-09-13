@@ -3,7 +3,7 @@ const practice=require('./practice.js'),bank=require('./practice-bank.js'),polic
 // 카드 하나 = 문제 하나. 복습 일정·진행 수·드릴이 모두 카드 단위로 도는데, 카드 하나가 여러 문장을 돌려 내면
 // "전체 N문제"와 "지금 풀 차례 M문제"가 서로 다른 단위가 되고 대부분의 문장에 닿지 못한다(v56까지 영어 규칙 카드). 다시 들어오지 못하게 막는다.
 const ONE_QUESTION='Every card must yield exactly one question (no multi-question bundles): ';
-function catalog(){const ctx={GICHUL_READ:require('./gichul-files.cjs').read};vm.createContext(ctx);for(const f of ['core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx);const cards=[...ctx.CORE_REVIEW_PACK];for(const id of Object.keys(bank))if(!cards.some(c=>c.id===id)){const e=practice.select({id,question:'',explanation:''},[],bank,ctx.QUIZ_OPTIONS);cards.push({id,subject:'영어',question:e?.question||'',explanation:e?.explanation||''});}
+function catalog(){const ctx={GICHUL_READ:require('./gichul-files.cjs').read};vm.createContext(ctx);for(const f of ['core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx);const cards=[...ctx.CORE_REVIEW_PACK];for(const id of Object.keys(bank))if(!cards.some(c=>c.id===id)){const e=practice.select({id,question:'',explanation:''},[],bank,ctx.QUIZ_OPTIONS);cards.push({id,subject:bank[id].subject||'영어',question:e?.question||'',explanation:e?.explanation||''});}
  for(const id of Object.keys(ctx.QUIZ_OPTIONS))assert(cards.some(c=>c.id===id),'Orphan MCQ: '+id);
  const ids=new Set(),items=[];
  for(const c of cards){assert(!ids.has(c.id),'Duplicate card');ids.add(c.id);const n=(ctx.QUIZ_OPTIONS[c.id]?1:0)+(bank[c.id]?.variants.length||0);assert.equal(n,1,ONE_QUESTION+c.id+' yields '+n);for(let i=0;i<n;i++){const exercise=practice.select(c,Array.from({length:i},()=>({cardId:c.id})),bank,ctx.QUIZ_OPTIONS);items.push({card:c,lesson:bank[c.id],exercise,conceptId:policy.concept(c.id)});}}
@@ -66,6 +66,20 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
   assert(typed.length>=floor,'At least '+floor+' written questions required: '+ruleId);
   assert(rows.some(x=>x.exercise.type==='choice'),'MCQ required: '+ruleId);
   assert.equal(new Set(typed.map(x=>practice.normalize(x.exercise.question))).size,typed.length,'Distinct written questions required: '+ruleId);
+ }
+ // 국어 교재 범위(사고의 힘 논리 1장·2장). 영어의 직접쓰기 하한은 걸지 않는다(위 반복문은 영어만 본다).
+ // 대신 장마다 문제 수 하한(koreanTextbook.floor)과 필수 개념(requiredPoints)을 요구하고, 사용자 요청에 따라 모두 4지선다여야 한다.
+ const byTopic=new Map();
+ for(const [id,rows]of byCard){const lesson=rows[0].lesson;if(rows[0].card.subject!=='국어'||!lesson)continue;
+  assert(lesson.rule&&lesson.ruleId&&lesson.point&&lesson.topic,'Korean textbook lesson required: '+id);
+  assert(policy.koreanTextbook[lesson.topic],'Unknown Korean textbook range: '+lesson.topic+' / '+id);
+  for(const x of rows)assert.equal(x.exercise.type,'choice','Korean textbook questions are four-option only: '+id);
+  if(!byTopic.has(lesson.topic))byTopic.set(lesson.topic,[]);byTopic.get(lesson.topic).push(...rows);}
+ for(const [topic,spec]of Object.entries(policy.koreanTextbook)){
+  const rows=byTopic.get(topic)||[],points=new Set(rows.map(x=>x.lesson.point));
+  assert(Number.isInteger(spec.floor)&&spec.floor>=1&&spec.requiredPoints.length>0,'Korean textbook spec required: '+topic);
+  assert(rows.length>=spec.floor,'Korean textbook floor: '+topic+' has '+rows.length+', needs '+spec.floor);
+  for(const point of spec.requiredPoints)assert(points.has(point),'Missing Korean coverage: '+topic+' / '+point);
  }
 }
 // 보기 길이로 정답을 맞히지 못하게 막는다. 4지선다에서 "가장 긴 보기"를 고르면 기대 정답률은 25%인데,

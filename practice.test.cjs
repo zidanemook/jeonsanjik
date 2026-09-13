@@ -23,7 +23,15 @@ for(const [id,lesson]of Object.entries(bank)){
  assert.equal(Object.keys(bank).filter(id=>id.startsWith('grammar-verb-')).length,0,'Day 1 규칙 묶음 카드는 없어졌다');
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='Day 1').map(l=>l.point)).size,24);
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='Day 2').map(l=>l.point)).size,30);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='Day 2').map(l=>l.ruleId)).size,11);
- {const d1=new Set(Object.values(bank).filter(l=>l.topic==='Day 1').map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='Day 2').every(l=>!d1.has(l.point)),'Day 2 문법 포인트는 Day 1 포인트와 이름이 겹치지 않는다');}}
+ {const d1=new Set(Object.values(bank).filter(l=>l.topic==='Day 1').map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='Day 2').every(l=>!d1.has(l.point)),'Day 2 문법 포인트는 Day 1 포인트와 이름이 겹치지 않는다');}
+ // 국어 사고의 힘 논리: 1장 31문제 · 2장 112문제, 모두 4지선다(직접 쓰기 없음)이고 과목은 국어다. id는 ko-logic1-01~31, ko-logic2-001~112.
+ assert.equal(count('논리 1장'),31);assert.equal(count('논리 1장','choice'),31);assert.equal(count('논리 1장','text'),0);
+ assert.equal(count('논리 2장'),112);assert.equal(count('논리 2장','choice'),112);assert.equal(count('논리 2장','text'),0);
+ assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 1장').sort(),Array.from({length:31},(_,i)=>'ko-logic1-'+String(i+1).padStart(2,'0')),'논리 1장은 ko-logic1-01~31');
+ assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 2장').sort(),Array.from({length:112},(_,i)=>'ko-logic2-'+String(i+1).padStart(3,'0')),'논리 2장은 ko-logic2-001~112');
+ assert.ok(Object.values(bank).every(l=>(l.subject==='국어')===/^논리 [12]장$/.test(l.topic)),'국어 교재 문제만 subject가 국어이고, 영어 문제에는 subject가 없다');
+ assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 1장').map(l=>l.point)).size,11);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 2장').map(l=>l.point)).size,37);
+ assert.ok(Object.entries(bank).filter(([id])=>id.startsWith('ko-logic')).every(([,l])=>!/문항|카드/.test(JSON.stringify([l.title,l.rule,l.hook,l.examples,l.variants]))),'국어 교재 문제의 문제·보기·해설·정리에 문항/카드라는 말이 없다');}
 const c=ctx.CORE_REVIEW_PACK[0],options=ctx.QUIZ_OPTIONS;
 const picks=Array.from({length:8},(_,i)=>practice.select(c,Array.from({length:i},()=>({cardId:c.id})),bank,options));
 for(const e of picks)assert.equal(e.choices[e.correctIndex],options[c.id].choices[options[c.id].correctIndex]);
@@ -104,4 +112,4 @@ assert.equal(plainDetail.submittedAnswer,'1. 가');assert.equal(plainDetail.corr
 const plainText={type:'text',question:'q',answers:['ans'],explanation:'e',exerciseId:'plain-2'};
 const textDetail=record.create(plainCard,plainText,'ans',null,'concept-plain');
 assert.equal(textDetail.options,'');assert.equal(textDetail.submittedAnswer,'ans');assert.equal(textDetail.correctAnswer,'ans');
-console.log('PASS practice: one question per practice entry (Day 1 60, Day 2 60, 수일치 95, 영문법 60), same question on retry with a moved answer number, split questions keep their rule text, answer normalization, alternative valid answers, contrasting variants, shuffled answer mapping, photo options (shuffle, grading, history snapshot), unchanged text records, assisted progress on another device');
+console.log('PASS practice: one question per practice entry (Day 1 60, Day 2 60, 수일치 95, 영문법 60, 국어 논리 1장 31 · 2장 112 four-option), same question on retry with a moved answer number, split questions keep their rule text, answer normalization, alternative valid answers, contrasting variants, shuffled answer mapping, photo options (shuffle, grading, history snapshot), unchanged text records, assisted progress on another device');
