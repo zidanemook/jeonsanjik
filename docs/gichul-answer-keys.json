@@ -28,6 +28,12 @@
       "answers": "23241214432343143212",
       "file": "research/exam-papers/bulk/2026/national-answers.pdf"
     },
+    "national9-2026-security": {
+      "source": "national9-2026",
+      "row": "30 정보보호론 가",
+      "answers": "34234122113322314441",
+      "file": "research/exam-papers/bulk/2026/national-answers.pdf"
+    },
     "national9-2026-korean": {
       "source": "national9",
       "row": "9 국어",
@@ -44,10 +50,22 @@
       "answers": "42121323312143124342",
       "file": "research/exam-papers/bulk/2025/local-answers.pdf"
     },
+    "local9-2025-security": {
+      "source": "local9-2025",
+      "row": "23 정보보호론 B",
+      "answers": "24231123422141412341",
+      "file": "research/exam-papers/bulk/2025/local-answers.pdf"
+    },
     "national9-2025-computer": {
       "source": "national9-2025",
       "row": "36 컴퓨터일반 나",
       "answers": "44244332332413243141",
+      "file": "research/exam-papers/bulk/2025/national-answers.pdf"
+    },
+    "national9-2025-security": {
+      "source": "national9-2025",
+      "row": "30 정보보호론 나",
+      "answers": "14432432412324234131",
       "file": "research/exam-papers/bulk/2025/national-answers.pdf"
     },
     "local9-2024-computer": {
@@ -56,16 +74,34 @@
       "answers": "13433342232424343112",
       "file": "research/exam-papers/bulk/2024/local-answers.pdf"
     },
+    "local9-2024-security": {
+      "source": "local9-2024",
+      "row": "23 정보보호론 C",
+      "answers": "13432414232332122144",
+      "file": "research/exam-papers/bulk/2024/local-answers.pdf"
+    },
     "national9-2024-computer": {
       "source": "national9-2024",
       "row": "36 컴퓨터일반 가",
       "answers": "43343422232123214114",
       "file": "research/exam-papers/bulk/2024/national-answers.pdf"
     },
+    "national9-2024-security": {
+      "source": "national9-2024",
+      "row": "30 정보보호론 가",
+      "answers": "14322321432244112113",
+      "file": "research/exam-papers/bulk/2024/national-answers.pdf"
+    },
     "local9-2023-computer": {
       "source": "local9-2023",
       "row": "30 컴퓨터일반 B",
       "answers": "43214133342244241331",
+      "file": "research/exam-papers/bulk/2023/local-answers.pdf"
+    },
+    "local9-2023-security": {
+      "source": "local9-2023",
+      "row": "23 정보보호론 B",
+      "answers": "21223331443143434423",
       "file": "research/exam-papers/bulk/2023/local-answers.pdf"
     },
     "national9-2023-computer": {
@@ -77,10 +113,25 @@
       },
       "file": "research/exam-papers/bulk/2023/national-answers.pdf"
     },
+    "national9-2023-security": {
+      "source": "national9-2023",
+      "row": "30 정보보호론 나",
+      "answers": "14143243411322332444",
+      "file": "research/exam-papers/bulk/2023/national-answers.pdf"
+    },
     "local9-2022-computer": {
       "source": "local9-2022",
       "row": "29 컴퓨터일반 A",
       "answers": "21321212423443321434",
+      "file": "research/exam-papers/bulk/2022/local-answers.pdf"
+    },
+    "local9-2022-security": {
+      "source": "local9-2022",
+      "row": "21 정보보호론 A",
+      "answers": "14421242432313412402",
+      "cells": {
+        "19": "1,2"
+      },
       "file": "research/exam-papers/bulk/2022/local-answers.pdf"
     },
     "national9-2022-computer": {
@@ -89,10 +140,22 @@
       "answers": "14414422144233323212",
       "file": "research/exam-papers/bulk/2022/national-answers.pdf"
     },
+    "national9-2022-security": {
+      "source": "national9-2022",
+      "row": "28 정보보호론 가",
+      "answers": "31211424334123224213",
+      "file": "research/exam-papers/bulk/2022/national-answers.pdf"
+    },
     "local9-2021-computer": {
       "source": "local9-2021",
       "row": "29 컴퓨터일반 A",
       "answers": "23113423412224134414",
+      "file": "research/exam-papers/bulk/2021/local-answers.pdf"
+    },
+    "local9-2021-security": {
+      "source": "local9-2021",
+      "row": "22 정보보호론 A",
+      "answers": "13431214134232342244",
       "file": "research/exam-papers/bulk/2021/local-answers.pdf"
     },
     "national9-2021-computer": {
@@ -101,10 +164,22 @@
       "answers": "34223441241334433124",
       "file": "research/exam-papers/bulk/2021/national-answers.pdf"
     },
+    "national9-2021-security": {
+      "source": "national9-2021",
+      "row": "31 정보보호론 나",
+      "answers": "23133422322114223414",
+      "file": "research/exam-papers/bulk/2021/national-answers.pdf"
+    },
     "local9-2020-computer": {
       "source": "local9-2020",
       "row": "29 컴퓨터일반 B",
       "answers": "24241213314322332341",
+      "file": "research/exam-papers/bulk/2020/local-answers.pdf"
+    },
+    "local9-2020-security": {
+      "source": "local9-2020",
+      "row": "22 정보보호론 B",
+      "answers": "21412143342313243313",
       "file": "research/exam-papers/bulk/2020/local-answers.pdf"
     },
     "national9-2020-computer": {
@@ -113,10 +188,22 @@
       "answers": "13323441342424214132",
       "file": "research/exam-papers/bulk/2020/national-answers.pdf"
     },
+    "national9-2020-security": {
+      "source": "national9-2020",
+      "row": "31 정보보호론 가",
+      "answers": "23411344234413112212",
+      "file": "research/exam-papers/bulk/2020/national-answers.pdf"
+    },
     "local9-2019-computer": {
       "source": "local9-2019",
       "row": "30 컴퓨터일반 A",
       "answers": "12341121334224344134",
+      "file": "research/exam-papers/bulk/2019/local-answers.pdf"
+    },
+    "local9-2019-security": {
+      "source": "local9-2019",
+      "row": "22 정보보호론 A",
+      "answers": "24422334142123112244",
       "file": "research/exam-papers/bulk/2019/local-answers.pdf"
     },
     "national9-2019-computer": {
@@ -125,10 +212,22 @@
       "answers": "24241133113233141444",
       "file": "research/exam-papers/bulk/2019/national-answers.pdf"
     },
+    "national9-2019-security": {
+      "source": "national9-2019",
+      "row": "31 정보보호론 나",
+      "answers": "23423322142421143331",
+      "file": "research/exam-papers/bulk/2019/national-answers.pdf"
+    },
     "local9-2018-computer": {
       "source": "local9-2018",
       "row": "30 컴퓨터일반 B",
       "answers": "31334314241244123323",
+      "file": "research/exam-papers/bulk/2018/local-answers.pdf"
+    },
+    "local9-2018-security": {
+      "source": "local9-2018",
+      "row": "22 정보보호론 B",
+      "answers": "44231313423421122244",
       "file": "research/exam-papers/bulk/2018/local-answers.pdf"
     },
     "national9-2018-computer": {
@@ -137,10 +236,22 @@
       "answers": "22122344313132344323",
       "file": "research/exam-papers/bulk/2018/national-answers.pdf"
     },
+    "national9-2018-security": {
+      "source": "national9-2018",
+      "row": "31 정보보호론 가",
+      "answers": "14421423332342233221",
+      "file": "research/exam-papers/bulk/2018/national-answers.pdf"
+    },
     "local9extra-2017-computer": {
       "source": "local9extra-2017",
       "row": "30 컴퓨터일반 A",
       "answers": "21121443334241422143",
+      "file": "research/exam-papers/bulk/2017/local-extra-answers.pdf"
+    },
+    "local9extra-2017-security": {
+      "source": "local9extra-2017",
+      "row": "22 정보보호론 A",
+      "answers": "13413443111224242234",
       "file": "research/exam-papers/bulk/2017/local-extra-answers.pdf"
     },
     "local9-2017-computer": {
@@ -149,10 +260,22 @@
       "answers": "12232212444114313322",
       "file": "research/exam-papers/bulk/2017/local-answers.pdf"
     },
+    "local9-2017-security": {
+      "source": "local9-2017",
+      "row": "21 정보보호론 B",
+      "answers": "44132134424134333242",
+      "file": "research/exam-papers/bulk/2017/local-answers.pdf"
+    },
     "national9-2017-computer": {
       "source": "national9-2017",
       "row": "33 컴퓨터일반 나",
       "answers": "34112423443321224331",
+      "file": "research/exam-papers/bulk/2017/national-answers.pdf"
+    },
+    "national9-2017-security": {
+      "source": "national9-2017",
+      "row": "30 정보보호론 나",
+      "answers": "23441432243242411213",
       "file": "research/exam-papers/bulk/2017/national-answers.pdf"
     },
     "local9-2016-computer": {
@@ -161,10 +284,22 @@
       "answers": "33211412442343234332",
       "file": "research/exam-papers/bulk/2016/local-answers.pdf"
     },
+    "local9-2016-security": {
+      "source": "local9-2016",
+      "row": "21 정보보호론 A",
+      "answers": "13344134234223442421",
+      "file": "research/exam-papers/bulk/2016/local-answers.pdf"
+    },
     "national9-2016-computer": {
       "source": "national9-2016",
       "row": "33 컴퓨터일반 2",
       "answers": "13124312241343442432",
+      "file": "research/exam-papers/bulk/2016/national-answers.pdf"
+    },
+    "national9-2016-security": {
+      "source": "national9-2016",
+      "row": "30 정보보호론 2",
+      "answers": "12241341141223234314",
       "file": "research/exam-papers/bulk/2016/national-answers.pdf"
     },
     "local9-2015-computer": {
@@ -173,10 +308,22 @@
       "answers": "22212442314314441313",
       "file": "research/exam-papers/bulk/2015/local-answers.pdf"
     },
+    "local9-2015-security": {
+      "source": "local9-2015",
+      "row": "15 정보보호론 A",
+      "answers": "42322332111432414341",
+      "file": "research/exam-papers/bulk/2015/local-answers.pdf"
+    },
     "national9-2015-computer": {
       "source": "national9-2015",
       "row": "31 컴퓨터일반 사",
       "answers": "12332342141412143332",
+      "file": "research/exam-papers/bulk/2015/national-answers.pdf"
+    },
+    "national9-2015-security": {
+      "source": "national9-2015",
+      "row": "29 정보보호론 사",
+      "answers": "24131441133342243212",
       "file": "research/exam-papers/bulk/2015/national-answers.pdf"
     },
     "local9-2014-computer": {
@@ -185,10 +332,22 @@
       "answers": "31222334144411233344",
       "file": "research/exam-papers/bulk/2014/local-answers.pdf"
     },
+    "local9-2014-security": {
+      "source": "local9-2014",
+      "row": "13 정보보호론 A",
+      "answers": "34433223131324212114",
+      "file": "research/exam-papers/bulk/2014/local-answers.pdf"
+    },
     "national9-2014-computer": {
       "source": "national9-2014",
       "row": "29 컴퓨터일반 S",
       "answers": "43221124113432443233",
+      "file": "research/exam-papers/bulk/2014/national-answers.pdf"
+    },
+    "national9-2014-security": {
+      "source": "national9-2014",
+      "row": "27 정보보호론 S",
+      "answers": "31334142414322431243",
       "file": "research/exam-papers/bulk/2014/national-answers.pdf"
     },
     "national9-2013-computer": {
