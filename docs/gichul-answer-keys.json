@@ -68,6 +68,12 @@
       "answers": "12343312413121341224",
       "file": "research/exam-papers/bulk/2025/local-answers.pdf"
     },
+    "local9-2025-korean": {
+      "source": "local9-2025",
+      "row": "7 국어 B",
+      "answers": "14443344121232422133",
+      "file": "research/exam-papers/bulk/2025/local-answers.pdf"
+    },
     "local9-2025-english": {
       "source": "local9-2025",
       "row": "14 영어 B",
@@ -90,6 +96,12 @@
       "source": "national9-2025",
       "row": "39 한국사 나",
       "answers": "41432241212343234233",
+      "file": "research/exam-papers/bulk/2025/national-answers.pdf"
+    },
+    "national9-2025-korean": {
+      "source": "national9-2025",
+      "row": "9 국어 나",
+      "answers": "34433222213412331244",
       "file": "research/exam-papers/bulk/2025/national-answers.pdf"
     },
     "national9-2025-english": {
@@ -116,6 +128,12 @@
       "answers": "21144331123222143423",
       "file": "research/exam-papers/bulk/2024/local-answers.pdf"
     },
+    "local9-2024-korean": {
+      "source": "local9-2024",
+      "row": "7 국어 C",
+      "answers": "22232434124313213414",
+      "file": "research/exam-papers/bulk/2024/local-answers.pdf"
+    },
     "local9-2024-english": {
       "source": "local9-2024",
       "row": "14 영어 C",
@@ -140,6 +158,12 @@
       "answers": "12344433123143341224",
       "file": "research/exam-papers/bulk/2024/national-answers.pdf"
     },
+    "national9-2024-korean": {
+      "source": "national9-2024",
+      "row": "9 국어 가",
+      "answers": "22244133123432412314",
+      "file": "research/exam-papers/bulk/2024/national-answers.pdf"
+    },
     "national9-2024-english": {
       "source": "national9-2024",
       "row": "22 영어 가",
@@ -162,6 +186,12 @@
       "source": "local9-2023",
       "row": "33 한국사 B",
       "answers": "13223134441413244334",
+      "file": "research/exam-papers/bulk/2023/local-answers.pdf"
+    },
+    "local9-2023-korean": {
+      "source": "local9-2023",
+      "row": "7 국어 B",
+      "answers": "11342443422241332211",
       "file": "research/exam-papers/bulk/2023/local-answers.pdf"
     },
     "local9-2023-english": {
@@ -194,6 +224,12 @@
       },
       "file": "research/exam-papers/bulk/2023/national-answers.pdf"
     },
+    "national9-2023-korean": {
+      "source": "national9-2023",
+      "row": "9 국어 나",
+      "answers": "31324411243122434423",
+      "file": "research/exam-papers/bulk/2023/national-answers.pdf"
+    },
     "national9-2023-english": {
       "source": "national9-2023",
       "row": "22 영어 나",
@@ -221,6 +257,12 @@
       "answers": "22313112341432432424",
       "file": "research/exam-papers/bulk/2022/local-answers.pdf"
     },
+    "local9-2022-korean": {
+      "source": "local9-2022",
+      "row": "5 국어 A",
+      "answers": "31322342443133443214",
+      "file": "research/exam-papers/bulk/2022/local-answers.pdf"
+    },
     "local9-2022-english": {
       "source": "local9-2022",
       "row": "12 영어 A",
@@ -243,6 +285,12 @@
       "source": "national9-2022",
       "row": "37 한국사 가",
       "answers": "13412342331412122324",
+      "file": "research/exam-papers/bulk/2022/national-answers.pdf"
+    },
+    "national9-2022-korean": {
+      "source": "national9-2022",
+      "row": "9 국어 가",
+      "answers": "32432412432241434131",
       "file": "research/exam-papers/bulk/2022/national-answers.pdf"
     },
     "national9-2022-english": {
@@ -269,6 +317,15 @@
       "answers": "31411233342232234412",
       "file": "research/exam-papers/bulk/2021/local-answers.pdf"
     },
+    "local9-2021-korean": {
+      "source": "local9-2021",
+      "row": "6 국어 A",
+      "answers": "23024333144223114344",
+      "cells": {
+        "3": "정답없음"
+      },
+      "file": "research/exam-papers/bulk/2021/local-answers.pdf"
+    },
     "local9-2021-english": {
       "source": "local9-2021",
       "row": "14 영어 A",
@@ -291,6 +348,12 @@
       "source": "national9-2021",
       "row": "40 한국사 나",
       "answers": "32311443314324214223",
+      "file": "research/exam-papers/bulk/2021/national-answers.pdf"
+    },
+    "national9-2021-korean": {
+      "source": "national9-2021",
+      "row": "10 국어 나",
+      "answers": "23124422343331412441",
       "file": "research/exam-papers/bulk/2021/national-answers.pdf"
     },
     "national9-2021-english": {
@@ -317,6 +380,12 @@
       "answers": "41214123342323224113",
       "file": "research/exam-papers/bulk/2020/local-answers.pdf"
     },
+    "local9-2020-korean": {
+      "source": "local9-2020",
+      "row": "6 국어 B",
+      "answers": "42113312431423233143",
+      "file": "research/exam-papers/bulk/2020/local-answers.pdf"
+    },
     "local9-2020-english": {
       "source": "local9-2020",
       "row": "14 영어 B",
@@ -339,6 +408,12 @@
       "source": "national9-2020",
       "row": "40 한국사 가",
       "answers": "34324214343121322434",
+      "file": "research/exam-papers/bulk/2020/national-answers.pdf"
+    },
+    "national9-2020-korean": {
+      "source": "national9-2020",
+      "row": "10 국어 가",
+      "answers": "31442123442123321343",
       "file": "research/exam-papers/bulk/2020/national-answers.pdf"
     },
     "national9-2020-english": {
@@ -365,6 +440,12 @@
       "answers": "31444331221322431343",
       "file": "research/exam-papers/bulk/2019/local-answers.pdf"
     },
+    "local9-2019-korean": {
+      "source": "local9-2019",
+      "row": "6 국어 A",
+      "answers": "12142123123143423143",
+      "file": "research/exam-papers/bulk/2019/local-answers.pdf"
+    },
     "local9-2019-english": {
       "source": "local9-2019",
       "row": "14 영어 A",
@@ -387,6 +468,12 @@
       "source": "national9-2019",
       "row": "38 한국사 나",
       "answers": "34334114313241341222",
+      "file": "research/exam-papers/bulk/2019/national-answers.pdf"
+    },
+    "national9-2019-korean": {
+      "source": "national9-2019",
+      "row": "10 국어 나",
+      "answers": "21341441423234331423",
       "file": "research/exam-papers/bulk/2019/national-answers.pdf"
     },
     "national9-2019-english": {
@@ -413,6 +500,12 @@
       "answers": "32331214411234431342",
       "file": "research/exam-papers/bulk/2018/local-answers.pdf"
     },
+    "local9-2018-korean": {
+      "source": "local9-2018",
+      "row": "6 국어 B",
+      "answers": "42243421113333422141",
+      "file": "research/exam-papers/bulk/2018/local-answers.pdf"
+    },
     "local9-2018-english": {
       "source": "local9-2018",
       "row": "14 영어 B",
@@ -437,6 +530,12 @@
       "answers": "13132112424324334323",
       "file": "research/exam-papers/bulk/2018/national-answers.pdf"
     },
+    "national9-2018-korean": {
+      "source": "national9-2018",
+      "row": "10 국어 가",
+      "answers": "23333444123321214231",
+      "file": "research/exam-papers/bulk/2018/national-answers.pdf"
+    },
     "national9-2018-english": {
       "source": "national9-2018",
       "row": "23 영어 가",
@@ -459,6 +558,12 @@
       "source": "local9extra-2017",
       "row": "32 한국사 A",
       "answers": "41231123342421123242",
+      "file": "research/exam-papers/bulk/2017/local-extra-answers.pdf"
+    },
+    "local9extra-2017-korean": {
+      "source": "local9extra-2017",
+      "row": "6 국어 A",
+      "answers": "43423233134241232124",
       "file": "research/exam-papers/bulk/2017/local-extra-answers.pdf"
     },
     "local9extra-2017-english": {
@@ -488,6 +593,12 @@
       },
       "file": "research/exam-papers/bulk/2017/local-answers.pdf"
     },
+    "local9-2017-korean": {
+      "source": "local9-2017",
+      "row": "6 국어 B",
+      "answers": "12443141121342232433",
+      "file": "research/exam-papers/bulk/2017/local-answers.pdf"
+    },
     "local9-2017-english": {
       "source": "local9-2017",
       "row": "13 영어 B",
@@ -510,6 +621,12 @@
       "source": "national9-2017",
       "row": "36 한국사 나",
       "answers": "42113122322442424331",
+      "file": "research/exam-papers/bulk/2017/national-answers.pdf"
+    },
+    "national9-2017-korean": {
+      "source": "national9-2017",
+      "row": "10 국어 나",
+      "answers": "24233132343241341112",
       "file": "research/exam-papers/bulk/2017/national-answers.pdf"
     },
     "national9-2017-english": {
@@ -536,6 +653,12 @@
       "answers": "14113323341324232232",
       "file": "research/exam-papers/bulk/2016/local-answers.pdf"
     },
+    "local9-2016-korean": {
+      "source": "local9-2016",
+      "row": "6 국어 A",
+      "answers": "23124344243213412332",
+      "file": "research/exam-papers/bulk/2016/local-answers.pdf"
+    },
     "local9-2016-english": {
       "source": "local9-2016",
       "row": "13 영어 A",
@@ -558,6 +681,12 @@
       "source": "national9-2016",
       "row": "36 한국사 2",
       "answers": "31114124423433234412",
+      "file": "research/exam-papers/bulk/2016/national-answers.pdf"
+    },
+    "national9-2016-korean": {
+      "source": "national9-2016",
+      "row": "10 국어 2",
+      "answers": "21412333224214332421",
       "file": "research/exam-papers/bulk/2016/national-answers.pdf"
     },
     "national9-2016-english": {
@@ -584,6 +713,12 @@
       "answers": "43412413121211324432",
       "file": "research/exam-papers/bulk/2015/local-answers.pdf"
     },
+    "local9-2015-korean": {
+      "source": "local9-2015",
+      "row": "5 국어(A/C책형) A",
+      "answers": "42132421341132234433",
+      "file": "research/exam-papers/bulk/2015/local-answers.pdf"
+    },
     "local9-2015-english": {
       "source": "local9-2015",
       "row": "11 영어 A",
@@ -594,6 +729,12 @@
       "source": "local9-2015b",
       "row": "33 한국사(B/D책형) B",
       "answers": "14313441244413112123",
+      "file": "research/exam-papers/bulk/2015/local-answers.pdf"
+    },
+    "local9-2015b-korean": {
+      "source": "local9-2015b",
+      "row": "31 국어(B/D책형) B",
+      "answers": "31414342341123211434",
       "file": "research/exam-papers/bulk/2015/local-answers.pdf"
     },
     "national9-2015-computer": {
@@ -612,6 +753,12 @@
       "source": "national9-2015",
       "row": "34 한국사 사",
       "answers": "44242333133144122413",
+      "file": "research/exam-papers/bulk/2015/national-answers.pdf"
+    },
+    "national9-2015-korean": {
+      "source": "national9-2015",
+      "row": "10 국어 사",
+      "answers": "33223313341424211444",
       "file": "research/exam-papers/bulk/2015/national-answers.pdf"
     },
     "national9-2015-english": {
@@ -638,6 +785,12 @@
       "answers": "31423213124324133122",
       "file": "research/exam-papers/bulk/2014/local-answers.pdf"
     },
+    "local9-2014-korean": {
+      "source": "local9-2014",
+      "row": "5 국어 A",
+      "answers": "41424122133432214423",
+      "file": "research/exam-papers/bulk/2014/local-answers.pdf"
+    },
     "local9-2014-english": {
       "source": "local9-2014",
       "row": "10 영어 A",
@@ -662,6 +815,12 @@
       "answers": "32244224143231121344",
       "file": "research/exam-papers/bulk/2014/national-answers.pdf"
     },
+    "national9-2014-korean": {
+      "source": "national9-2014",
+      "row": "10 국어 S",
+      "answers": "24212111343421423342",
+      "file": "research/exam-papers/bulk/2014/national-answers.pdf"
+    },
     "national9-2014-english": {
       "source": "national9-2014",
       "row": "20 영어 S",
@@ -675,6 +834,12 @@
       "source": "local9-2013",
       "row": "20 한국사 A",
       "answers": "11443132342421313332",
+      "file": "research/exam-papers/bulk/2013/local-answers.pdf"
+    },
+    "local9-2013-korean": {
+      "source": "local9-2013",
+      "row": "4 국어 A",
+      "answers": "43113424421141323223",
       "file": "research/exam-papers/bulk/2013/local-answers.pdf"
     },
     "local9-2013-english": {
@@ -693,6 +858,12 @@
       "source": "national9-2013",
       "row": "32 한국사 인",
       "answers": "24211244431243314323",
+      "file": "research/exam-papers/bulk/2013/national-answers.pdf"
+    },
+    "national9-2013-korean": {
+      "source": "national9-2013",
+      "row": "10 국어 인",
+      "answers": "43312242433233113224",
       "file": "research/exam-papers/bulk/2013/national-answers.pdf"
     },
     "national9-2013-english": {
@@ -716,6 +887,12 @@
       },
       "file": "research/exam-papers/bulk/2012/local-korean-history-answers.html"
     },
+    "local9-2012-korean": {
+      "source": "local9-2012",
+      "row": "2012년 제1회 지방직공무원 시험 국어(지방9급) (책형:A) 확정답안",
+      "answers": "43321413142123224421",
+      "file": "research/exam-papers/bulk/2012/local-korean-answers.html"
+    },
     "local9-2012-english": {
       "source": "local9-2012",
       "row": "2012년 제1회 지방직공무원 시험 영어(지방9급) (책형:A) 확정답안",
@@ -737,6 +914,12 @@
       "answers": "11122241332143124243",
       "file": "research/exam-papers/bulk/2012/national-korean-history-answers.html"
     },
+    "national9-2012-korean": {
+      "source": "national9-2012",
+      "row": "2012년 9급 공개경쟁채용시험 국어 (책형:인) 확정답안",
+      "answers": "24132414331422312343",
+      "file": "research/exam-papers/bulk/2012/national-korean-answers.html"
+    },
     "national9-2012-english": {
       "source": "national9-2012",
       "row": "2012년 9급 공개경쟁채용시험 영어 (책형:인) 확정답안",
@@ -754,6 +937,12 @@
       "row": "2011년 제1회 지방직공무원 시험 한국사(지방9급) (책형:A) 확정답안",
       "answers": "22424334122121334214",
       "file": "research/exam-papers/bulk/2011/local-korean-history-answers.html"
+    },
+    "local9-2011-korean": {
+      "source": "local9-2011",
+      "row": "2011년 제1회 지방직공무원 시험 국어(지방9급) (책형:A) 확정답안",
+      "answers": "44324132121234134231",
+      "file": "research/exam-papers/bulk/2011/local-korean-answers.html"
     },
     "local9-2011-english": {
       "source": "local9-2011",
@@ -773,6 +962,12 @@
       "answers": "34131431132142134232",
       "file": "research/exam-papers/bulk/2011/national-korean-history-answers.html"
     },
+    "national9-2011-korean": {
+      "source": "national9-2011",
+      "row": "2011년 9급 공개경쟁채용시험 국어 (책형:인) 확정답안",
+      "answers": "42121423113443442123",
+      "file": "research/exam-papers/bulk/2011/national-korean-answers.html"
+    },
     "national9-2011-english": {
       "source": "national9-2011",
       "row": "2011년 9급 공개경쟁채용시험 영어 (책형:인) 확정답안",
@@ -790,6 +985,12 @@
       "row": "2010년 제1회 지방직공무원 시험 한국사(지방9급) (책형:A) 확정답안",
       "answers": "13224213313443122341",
       "file": "research/exam-papers/bulk/2010/local-korean-history-answers.html"
+    },
+    "local9-2010-korean": {
+      "source": "local9-2010",
+      "row": "2010년 제1회 지방직공무원 시험 국어(지방9급) (책형:A) 확정답안",
+      "answers": "31214424441211323232",
+      "file": "research/exam-papers/bulk/2010/local-korean-answers.html"
     },
     "local9-2010-english": {
       "source": "local9-2010",
@@ -809,6 +1010,12 @@
       "answers": "43243312434421221331",
       "file": "research/exam-papers/bulk/2010/national-korean-history-answers.html"
     },
+    "national9-2010-korean": {
+      "source": "national9-2010",
+      "row": "2010년 9급 공개경쟁채용시험 국어 (책형:고) 확정답안",
+      "answers": "11442122144123323143",
+      "file": "research/exam-papers/bulk/2010/national-korean-answers.html"
+    },
     "national9-2010-english": {
       "source": "national9-2010",
       "row": "2010년 9급 공개경쟁채용시험 영어 (책형:고) 확정답안",
@@ -826,6 +1033,12 @@
       "row": "2009년 제1회 지방직공무원 시험 한국사(지방9급) (책형:A) 확정답안",
       "answers": "34342324314432413124",
       "file": "research/exam-papers/bulk/2009/local-korean-history-answers.html"
+    },
+    "local9-2009-korean": {
+      "source": "local9-2009",
+      "row": "2009년 제1회 지방직공무원 시험 국어(지방9급) (책형:A) 확정답안",
+      "answers": "13412133234424241341",
+      "file": "research/exam-papers/bulk/2009/local-korean-answers.html"
     },
     "local9-2009-english": {
       "source": "local9-2009",
@@ -845,6 +1058,12 @@
       "answers": "42421311421134433144",
       "file": "research/exam-papers/bulk/2009/national-korean-history-answers.html"
     },
+    "national9-2009-korean": {
+      "source": "national9-2009",
+      "row": "2009년 9급 공개경쟁채용시험 국어 (책형:녹) 확정답안",
+      "answers": "24312112442234143343",
+      "file": "research/exam-papers/bulk/2009/national-korean-answers.html"
+    },
     "national9-2009-english": {
       "source": "national9-2009",
       "row": "2009년 9급 공개경쟁채용시험 영어 (책형:녹) 확정답안",
@@ -856,6 +1075,15 @@
       "row": "2008년 제1회 지방직공무원 시험 한국사(지방9급) (책형:A) 확정답안",
       "answers": "32443134423322321412",
       "file": "research/exam-papers/bulk/2008/local-korean-history-answers.html"
+    },
+    "local9-2008-korean": {
+      "source": "local9-2008",
+      "row": "2008년 제1회 지방직공무원 시험 국어(지방9급) (책형:A) 확정답안",
+      "answers": "31222241233234110342",
+      "cells": {
+        "17": "3,4"
+      },
+      "file": "research/exam-papers/bulk/2008/local-korean-answers.html"
     },
     "local9-2008-english": {
       "source": "local9-2008",
@@ -875,6 +1103,12 @@
       "answers": "41221233413242314432",
       "file": "research/exam-papers/bulk/2008/national-korean-history-answers.html"
     },
+    "national9-2008-korean": {
+      "source": "national9-2008",
+      "row": "2008년 9급 공개경쟁채용시험 국어 (책형:안) 확정답안",
+      "answers": "14114423423211342323",
+      "file": "research/exam-papers/bulk/2008/national-korean-answers.html"
+    },
     "national9-2008-english": {
       "source": "national9-2008",
       "row": "2008년 9급 공개경쟁채용시험 영어 (책형:안) 확정답안",
@@ -892,6 +1126,12 @@
       "row": "2007년 9급 공개경쟁채용시험 한국사 (책형:국) 확정답안",
       "answers": "43214231321321444323",
       "file": "research/exam-papers/bulk/2007/national-korean-history-answers.html"
+    },
+    "national9-2007-korean": {
+      "source": "national9-2007",
+      "row": "2007년 9급 공개경쟁채용시험 국어 (책형:국) 확정답안",
+      "answers": "13442221411123242131",
+      "file": "research/exam-papers/bulk/2007/national-korean-answers.html"
     },
     "national9-2007-english": {
       "source": "national9-2007",
