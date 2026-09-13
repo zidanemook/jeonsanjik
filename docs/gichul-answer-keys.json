@@ -1,5 +1,5 @@
 {
-  "note": "공무원 9급 공식 정답표를 그대로 옮긴 표다. 앱은 이 값 말고 다른 정답을 쓰지 않는다. answers의 n번째 글자가 n번 문항의 공식 정답 번호다. 각 행은 정답표 PDF에서 기계로 추출했다(PyMuPDF 텍스트와 pdftotext -layout 두 추출기가 같은 20자리를 낸 행만 싣는다). 지방직: research/exam-papers/local-g9/local-g9-2026-final-answers.pdf (= research/exam-papers/2026/official-local-2026-final-answer-extracted.pdf, md5 6220ddb920c2942e09f68c0933b3bd3f). 국가직: research/exam-papers/2026/official-national-2026-final-answer-extracted.pdf (= national-2026-{korean,english}-final-answer.pdf, md5 1e748c899e488aeb7dfc8ab6990c9481).",
+  "note": "공무원 9급 공식 정답표를 그대로 옮긴 표다. 앱은 이 값 말고 다른 정답을 쓰지 않는다. answers의 n번째 글자가 n번 문항의 공식 정답 번호다. 각 행은 정답표 PDF에서 기계로 추출했다(PyMuPDF 텍스트와 pdftotext -layout 두 추출기가 같은 20자리를 낸 행만 싣는다). 지방직: research/exam-papers/local-g9/local-g9-2026-final-answers.pdf (= research/exam-papers/2026/official-local-2026-final-answer-extracted.pdf, md5 6220ddb920c2942e09f68c0933b3bd3f). 국가직: research/exam-papers/2026/official-national-2026-final-answer-extracted.pdf (= national-2026-{korean,english}-final-answer.pdf, md5 1e748c899e488aeb7dfc8ab6990c9481). 2007~2025 일괄 수록분: 2013~2026 최종 정답표 PDF는 PyMuPDF 낱말 좌표(표 머리 n번 열·책형·연번 행)로 뽑고 pdftotext -layout 행 또는 MuPDF 기본 텍스트 순서가 같은 20칸을 낼 때만 받았으며, 모든 행을 원본에서 잘라 렌더해 눈으로 대조했다. 2007~2012는 사이버국가고시센터 과목별 조회의 정답보기 팝업(GosiJungdap.do, 확정답안)을 저장한 .html의 cransNo1~20 값과 파싱본 .txt가 같을 때만 받았다. answers의 0은 공식 칸이 단일 정답이 아닌 문항(cells에 원문 칸)이며 수록하지 않는다. 파일 경로는 research/exam-papers/bulk/ 기준.",
   "source": "2026년도 지방공무원 9급 공개경쟁임용 등 필기시험 정답표(6월 20일 시행) · 인사혁신처 · D책형",
   "keys": {
     "local9-2026-computer": {
@@ -22,6 +22,12 @@
       "row": "14 영어",
       "answers": "11224431313434324233"
     },
+    "national9-2026-computer": {
+      "source": "national9-2026",
+      "row": "36 컴퓨터일반 가",
+      "answers": "23241214432343143212",
+      "file": "research/exam-papers/bulk/2026/national-answers.pdf"
+    },
     "national9-2026-korean": {
       "source": "national9",
       "row": "9 국어",
@@ -31,10 +37,269 @@
       "source": "national9",
       "row": "22 영어",
       "answers": "23112433321144423124"
+    },
+    "local9-2025-computer": {
+      "source": "local9-2025",
+      "row": "30 컴퓨터일반 B",
+      "answers": "42121323312143124342",
+      "file": "research/exam-papers/bulk/2025/local-answers.pdf"
+    },
+    "national9-2025-computer": {
+      "source": "national9-2025",
+      "row": "36 컴퓨터일반 나",
+      "answers": "44244332332413243141",
+      "file": "research/exam-papers/bulk/2025/national-answers.pdf"
+    },
+    "local9-2024-computer": {
+      "source": "local9-2024",
+      "row": "30 컴퓨터일반 C",
+      "answers": "13433342232424343112",
+      "file": "research/exam-papers/bulk/2024/local-answers.pdf"
+    },
+    "national9-2024-computer": {
+      "source": "national9-2024",
+      "row": "36 컴퓨터일반 가",
+      "answers": "43343422232123214114",
+      "file": "research/exam-papers/bulk/2024/national-answers.pdf"
+    },
+    "local9-2023-computer": {
+      "source": "local9-2023",
+      "row": "30 컴퓨터일반 B",
+      "answers": "43214133342244241331",
+      "file": "research/exam-papers/bulk/2023/local-answers.pdf"
+    },
+    "national9-2023-computer": {
+      "source": "national9-2023",
+      "row": "36 컴퓨터일반 나",
+      "answers": "14243433131243410211",
+      "cells": {
+        "17": "1,2"
+      },
+      "file": "research/exam-papers/bulk/2023/national-answers.pdf"
+    },
+    "local9-2022-computer": {
+      "source": "local9-2022",
+      "row": "29 컴퓨터일반 A",
+      "answers": "21321212423443321434",
+      "file": "research/exam-papers/bulk/2022/local-answers.pdf"
+    },
+    "national9-2022-computer": {
+      "source": "national9-2022",
+      "row": "34 컴퓨터일반 가",
+      "answers": "14414422144233323212",
+      "file": "research/exam-papers/bulk/2022/national-answers.pdf"
+    },
+    "local9-2021-computer": {
+      "source": "local9-2021",
+      "row": "29 컴퓨터일반 A",
+      "answers": "23113423412224134414",
+      "file": "research/exam-papers/bulk/2021/local-answers.pdf"
+    },
+    "national9-2021-computer": {
+      "source": "national9-2021",
+      "row": "37 컴퓨터일반 나",
+      "answers": "34223441241334433124",
+      "file": "research/exam-papers/bulk/2021/national-answers.pdf"
+    },
+    "local9-2020-computer": {
+      "source": "local9-2020",
+      "row": "29 컴퓨터일반 B",
+      "answers": "24241213314322332341",
+      "file": "research/exam-papers/bulk/2020/local-answers.pdf"
+    },
+    "national9-2020-computer": {
+      "source": "national9-2020",
+      "row": "37 컴퓨터일반 가",
+      "answers": "13323441342424214132",
+      "file": "research/exam-papers/bulk/2020/national-answers.pdf"
+    },
+    "local9-2019-computer": {
+      "source": "local9-2019",
+      "row": "30 컴퓨터일반 A",
+      "answers": "12341121334224344134",
+      "file": "research/exam-papers/bulk/2019/local-answers.pdf"
+    },
+    "national9-2019-computer": {
+      "source": "national9-2019",
+      "row": "35 컴퓨터일반 나",
+      "answers": "24241133113233141444",
+      "file": "research/exam-papers/bulk/2019/national-answers.pdf"
+    },
+    "local9-2018-computer": {
+      "source": "local9-2018",
+      "row": "30 컴퓨터일반 B",
+      "answers": "31334314241244123323",
+      "file": "research/exam-papers/bulk/2018/local-answers.pdf"
+    },
+    "national9-2018-computer": {
+      "source": "national9-2018",
+      "row": "35 컴퓨터일반 가",
+      "answers": "22122344313132344323",
+      "file": "research/exam-papers/bulk/2018/national-answers.pdf"
+    },
+    "local9extra-2017-computer": {
+      "source": "local9extra-2017",
+      "row": "30 컴퓨터일반 A",
+      "answers": "21121443334241422143",
+      "file": "research/exam-papers/bulk/2017/local-extra-answers.pdf"
+    },
+    "local9-2017-computer": {
+      "source": "local9-2017",
+      "row": "29 컴퓨터일반 B",
+      "answers": "12232212444114313322",
+      "file": "research/exam-papers/bulk/2017/local-answers.pdf"
+    },
+    "national9-2017-computer": {
+      "source": "national9-2017",
+      "row": "33 컴퓨터일반 나",
+      "answers": "34112423443321224331",
+      "file": "research/exam-papers/bulk/2017/national-answers.pdf"
+    },
+    "local9-2016-computer": {
+      "source": "local9-2016",
+      "row": "29 컴퓨터일반 A",
+      "answers": "33211412442343234332",
+      "file": "research/exam-papers/bulk/2016/local-answers.pdf"
+    },
+    "national9-2016-computer": {
+      "source": "national9-2016",
+      "row": "33 컴퓨터일반 2",
+      "answers": "13124312241343442432",
+      "file": "research/exam-papers/bulk/2016/national-answers.pdf"
+    },
+    "local9-2015-computer": {
+      "source": "local9-2015",
+      "row": "22 컴퓨터일반 A",
+      "answers": "22212442314314441313",
+      "file": "research/exam-papers/bulk/2015/local-answers.pdf"
+    },
+    "national9-2015-computer": {
+      "source": "national9-2015",
+      "row": "31 컴퓨터일반 사",
+      "answers": "12332342141412143332",
+      "file": "research/exam-papers/bulk/2015/national-answers.pdf"
+    },
+    "local9-2014-computer": {
+      "source": "local9-2014",
+      "row": "20 컴퓨터일반 A",
+      "answers": "31222334144411233344",
+      "file": "research/exam-papers/bulk/2014/local-answers.pdf"
+    },
+    "national9-2014-computer": {
+      "source": "national9-2014",
+      "row": "29 컴퓨터일반 S",
+      "answers": "43221124113432443233",
+      "file": "research/exam-papers/bulk/2014/national-answers.pdf"
+    },
+    "national9-2013-computer": {
+      "source": "national9-2013",
+      "row": "28 컴퓨터일반 인",
+      "answers": "14313124314343224221",
+      "file": "research/exam-papers/bulk/2013/national-answers.pdf"
+    },
+    "local9-2012-computer": {
+      "source": "local9-2012",
+      "row": "2012년 제1회 지방직공무원 시험 컴퓨터일반(지방9급) (책형:A) 확정답안",
+      "answers": "41423232312422341331",
+      "file": "research/exam-papers/bulk/2012/local-computer-general-answers.html"
+    },
+    "national9-2012-computer": {
+      "source": "national9-2012",
+      "row": "2012년 9급 공개경쟁채용시험 컴퓨터일반 (책형:인) 확정답안",
+      "answers": "33312211144232444430",
+      "cells": {
+        "20": "빈 칸"
+      },
+      "file": "research/exam-papers/bulk/2012/national-computer-general-answers.html"
+    },
+    "local9-2011-computer": {
+      "source": "local9-2011",
+      "row": "2011년 제1회 지방직공무원 시험 컴퓨터일반(지방9급) (책형:A) 확정답안",
+      "answers": "34132242334121431123",
+      "file": "research/exam-papers/bulk/2011/local-computer-general-answers.html"
+    },
+    "national9-2011-computer": {
+      "source": "national9-2011",
+      "row": "2011년 9급 공개경쟁채용시험 컴퓨터일반 (책형:인) 확정답안",
+      "answers": "22132244324331114332",
+      "file": "research/exam-papers/bulk/2011/national-computer-general-answers.html"
+    },
+    "local9-2010-computer": {
+      "source": "local9-2010",
+      "row": "2010년 제1회 지방직공무원 시험 컴퓨터일반(지방9급) (책형:A) 확정답안",
+      "answers": "14344124332321234212",
+      "file": "research/exam-papers/bulk/2010/local-computer-general-answers.html"
+    },
+    "national9-2010-computer": {
+      "source": "national9-2010",
+      "row": "2010년 9급 공개경쟁채용시험 컴퓨터일반 (책형:고) 확정답안",
+      "answers": "42341123133221423131",
+      "file": "research/exam-papers/bulk/2010/national-computer-general-answers.html"
+    },
+    "local9-2009-computer": {
+      "source": "local9-2009",
+      "row": "2009년 제1회 지방직공무원 시험 컴퓨터일반(지방9급) (책형:A) 확정답안",
+      "answers": "21342343441211314233",
+      "file": "research/exam-papers/bulk/2009/local-computer-general-answers.html"
+    },
+    "national9-2009-computer": {
+      "source": "national9-2009",
+      "row": "2009년 9급 공개경쟁채용시험 컴퓨터일반 (책형:녹) 확정답안",
+      "answers": "22221241434433324111",
+      "file": "research/exam-papers/bulk/2009/national-computer-general-answers.html"
+    },
+    "national9-2008-computer": {
+      "source": "national9-2008",
+      "row": "2008년 9급 공개경쟁채용시험 컴퓨터일반 (책형:안) 확정답안",
+      "answers": "24344411342313334422",
+      "file": "research/exam-papers/bulk/2008/national-computer-general-answers.html"
+    },
+    "national9-2007-computer": {
+      "source": "national9-2007",
+      "row": "2007년 9급 공개경쟁채용시험 컴퓨터일반 (책형:국) 확정답안",
+      "answers": "34212413131132123133",
+      "file": "research/exam-papers/bulk/2007/national-computer-general-answers.html"
     }
   },
   "sources": {
     "local9": "2026년도 지방공무원 9급 공개경쟁임용 등 필기시험 정답표(6월 20일 시행) · 인사혁신처 · D책형",
-    "national9": "2026년도 국가공무원 9급 공개경쟁채용 필기시험 정답표(4월 4일 시행) · 인사혁신처 · 가책형"
+    "national9": "2026년도 국가공무원 9급 공개경쟁채용 필기시험 정답표(4월 4일 시행) · 인사혁신처 · 가책형",
+    "national9-2026": "2026년도 국가공무원 9급 공개경쟁채용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 5993 · 2026/national-answers.pdf",
+    "local9-2025": "2025년도 지방공무원 9급 등 공개(경력)경쟁임용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 4742 · 2025/local-answers.pdf",
+    "national9-2025": "2025년도 국가공무원 9급 공개경쟁채용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 4704 · 2025/national-answers.pdf",
+    "local9-2024": "2024년도 지방공무원 9급 등 공개경쟁임용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 4531 · 2024/local-answers.pdf",
+    "national9-2024": "2024년도 국가공무원 9급 공개경쟁채용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 4464 · 2024/national-answers.pdf",
+    "local9-2023": "2023년도 지방공무원 9급 등 공개경쟁임용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 4322 · 2023/local-answers.pdf",
+    "national9-2023": "2023년도 국가공무원 9급 공개경쟁채용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 4285 · 2023/national-answers.pdf",
+    "local9-2022": "2022년도 지방공무원 9급 등 임용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 4145 · 2022/local-answers.pdf",
+    "national9-2022": "2022년도 국가공무원 9급 공개경쟁채용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 4112 · 2022/national-answers.pdf",
+    "local9-2021": "2021년도 지방공무원 9급 등 임용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 3966 · 2021/local-answers.pdf",
+    "national9-2021": "2021년도 국가공무원 9급 공개경쟁채용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 3934 · 2021/national-answers.pdf",
+    "local9-2020": "2020년도 지방공무원 9급 등 임용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 3765 · 2020/local-answers.zip",
+    "national9-2020": "2020년도 국가공무원 9급 공개경쟁채용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 3782 · 2020/national-answers.zip",
+    "local9-2019": "2019년도 지방공무원 9급 등 임용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 3574 · 2019/local-answers.pdf",
+    "national9-2019": "2019년도 국가공무원 9급 공개경쟁채용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 3535 · 2019/national-answers.pdf",
+    "local9-2018": "2018년도 지방공무원 9급 공채 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 3399 · 2018/local-answers.pdf",
+    "national9-2018": "2018년 국가공무원 9급 공개경쟁채용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 3376 · 2018/national-answers.pdf",
+    "local9extra-2017": "2017년도 9급 지방공무원 추가선발 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 3322 · 2017/local-extra-answers.pdf",
+    "local9-2017": "2017년도 9급 지방공무원 임용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 3209 · 2017/local-answers.pdf",
+    "national9-2017": "2017년 국가공무원 9급 공개경쟁채용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 3177 · 2017/national-answers.pdf",
+    "local9-2016": "2016년도 9급 등 지방공무원 임용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2997 · 2016/local-answers.pdf",
+    "national9-2016": "2016년 국가공무원 9급 공개경쟁채용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2968 · 2016/national-answers.pdf",
+    "local9-2015": "2015년 9급 지방공무원 등 임용시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2806 · 2015/local-answers.pdf",
+    "national9-2015": "2015년도 9급 국가직공무원 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2765 · 2015/national-answers.pdf",
+    "local9-2014": "2014년도 지방9급 등 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2601 · 2014/local-answers.pdf",
+    "national9-2014": "2014년도 9급 국가직공무원 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2566 · 2014/national-answers.pdf",
+    "national9-2013": "2013년도 9급 국가직공무원 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2412 · 2013/national-answers.pdf",
+    "local9-2012": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2012/local-computer-general-answers.html",
+    "national9-2012": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2012/national-computer-general-answers.html",
+    "local9-2011": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2011/local-computer-general-answers.html",
+    "national9-2011": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2011/national-computer-general-answers.html",
+    "local9-2010": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2010/local-computer-general-answers.html",
+    "national9-2010": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2010/national-computer-general-answers.html",
+    "local9-2009": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2009/local-computer-general-answers.html",
+    "national9-2009": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2009/national-computer-general-answers.html",
+    "national9-2008": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2008/national-computer-general-answers.html",
+    "national9-2007": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2007/national-computer-general-answers.html"
   }
 }
