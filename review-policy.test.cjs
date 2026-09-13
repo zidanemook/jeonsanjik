@@ -50,8 +50,8 @@ assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day1-43'?{...x,less
  };
  const siblings=family.filter(id=>id!==missed);
  const soon=queueAfter(policy,1);
- assert.deepEqual(soon.ready.map(c=>c.id),[],'1분 뒤: 아직 낼 문제가 없다');
- assert.deepEqual(soon.waiting.map(w=>w.card.id),siblings,'같은 규칙의 나머지 6문제가 5일 뒤 일정과 상관없이 불려 와 형제 간격을 기다린다');
+ assert.deepEqual(Array.from(soon.ready,c=>c.id),siblings,'1분 뒤: 풀 문제가 같은 규칙뿐이면 형제 간격으로 막지 않고 바로 이어서 낸다');
+ assert.equal(soon.waiting.length,0,'같은 규칙의 나머지 6문제가 5일 뒤 일정과 상관없이 불려 오고, 다른 문제가 없으니 기다리지 않는다');
  const gap=queueAfter(policy,11);
  assert.deepEqual(gap.ready.map(c=>c.id),[missed,...siblings],'11분 뒤: 틀린 문제의 재시도와 같은 규칙의 6문제가 이어서 나온다');
  assert.ok(!gap.ready.some(c=>other.includes(c.id)),'다른 규칙(the number)의 문제는 일정대로 쉰다');

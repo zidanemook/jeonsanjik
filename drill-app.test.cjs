@@ -59,13 +59,11 @@ assert.equal(countNow(),'전체 60문제 · 지금 풀 차례 60문제','처음�
 const points=run("new Set(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).map(c=>ReviewPolicy.concept(c.id))).size");
 assert.equal(points,24,'Day 1 문법 포인트 24개');
 let normal=0;while(run('data.activePractice')&&normal<total){answerCurrent(false);normal++;}
-// v56까지는 카드 12장이 129문항을 돌려 내서 8문제 만에 막혔고 나머지 121문항에는 닿을 길이 없었다(이 검사가 그 증상을 고정했다).
-// 지금은 문법 포인트마다 한 문제씩 24문제가 나오고, 남은 36문제는 같은 포인트라 형제 간격(10분) 뒤에 이어서 나온다.
-assert.equal(normal,points,'평소 모드는 문법 포인트마다 한 문제씩 낸다 ('+normal+'문제)');
-assert.ok(/잠시 뒤/.test(screen()),'형제 간격 화면: '+screen().slice(0,60));
-assert.equal(countNow(),'전체 60문제 · 지금 풀 차례 0문제','지금 풀 차례는 지금 실제로 낼 수 있는 문제 수다');
-assert.ok(nodes.get('#retryStatus')._text.includes('같은 개념의 문제 36개'),'남은 36문제가 간격 뒤에 나온다고 알린다: '+nodes.get('#retryStatus')._text);
-assert.ok(screen().includes('이 범위 전부 풀기 · '+total+'문제'),'막힌 화면에서 드릴을 권한다');
+// v56까지는 카드 12장이 129문항을 돌려 내서 8문제 만에 막혔다. v57에서는 문법 포인트마다 한 문제씩 24문제 뒤 형제 간격으로 막혔다.
+// 지금은 같은 개념 간격이 다른 문제가 있을 때만 사이를 벌리고, 풀 문제가 같은 개념뿐이면 막지 않는다. 60문제가 모두 이어서 나온다.
+assert.equal(normal,total,'평소 모드에서 60문제가 막힘 없이 모두 나온다 ('+normal+'문제)');
+assert.ok(!/비슷한 내용은 잠시 뒤/.test(screen()),'같은 개념 간격 때문에 막힌 화면이 뜨지 않는다: '+screen().slice(0,60));
+assert.ok(!nodes.get('#retryStatus')._text.includes('같은 개념의 문제'),'같은 개념 대기 안내가 남지 않는다: '+nodes.get('#retryStatus')._text);
 // 첫 화면·과목·범위·진행상황의 수도 같은 단위("문제")다. 어느 화면에도 "문항"·"카드"라는 말이 나오지 않는다.
 {
  const texts=sel=>[nodes.get(sel)._text,...nodes.get(sel).all.map(n=>n._text)].filter(Boolean).join(' | ');
@@ -73,10 +71,10 @@ assert.ok(screen().includes('이 범위 전부 풀기 · '+total+'문제'),'막�
  const en="data.cards.filter(c=>isPlayable(c)&&c.subject==='영어')";
  const enLine='전체 '+run('questionCount('+en+')')+'문제 · 지금 풀 차례 '+run('questionCount(reviewQueue('+en+').ready)')+'문제';
  run("go('home')");assert.equal(menuDetail('#subjectList','영어'),enLine,'첫 화면 과목 줄');
- run("go('subject','영어')");assert.equal(nodes.get('#subjectSummary')._text,enLine+' · 오늘 푼 문제 24개','과목 화면 요약(오늘 푼 문제는 서로 다른 문제 수)');
- run("go('range','영어')");assert.equal(menuDetail('#rangeList','Day 1 문장의 구조·동사 유형'),'전체 60문제 · 첫 시도 24/60 · 정답 24 · 지금 풀 차례 0문제','범위 줄');
+ run("go('subject','영어')");assert.equal(nodes.get('#subjectSummary')._text,enLine+' · 오늘 푼 문제 60개','과목 화면 요약(오늘 푼 문제는 서로 다른 문제 수)');
+ run("go('range','영어')");assert.equal(menuDetail('#rangeList','Day 1 문장의 구조·동사 유형'),'전체 60문제 · 첫 시도 60/60 · 정답 60 · 지금 풀 차례 0문제','범위 줄');
  run("go('progress')");assert.equal(nodes.get('#total')._text,String(run('questionCount(data.cards.filter(isPlayable))')),'진행상황의 전체 문제');
- assert.equal(nodes.get('#done')._text,'24','진행상황의 오늘 푼 문제');
+ assert.equal(nodes.get('#done')._text,'60','진행상황의 오늘 푼 문제');
  for(const sel of ['#subjectList','#subjectSummary','#rangeList','#subjectStats','#card','#retryStatus'])assert.ok(!/문항|카드/.test(texts(sel)),sel+'에 문항/카드라는 말이 보인다: '+texts(sel).slice(0,120));
  run("go('quiz')");
 }
@@ -123,7 +121,11 @@ run('toggleDrill()');
 assert.equal(run('drill'),null);
 assert.equal(nodes.get('#drillStatus').hidden,true);
 assert.equal(nodes.get('#drillToggle')._text,'이 범위 전부 풀기');
-assert.equal(run("reviewQueue(data.cards.filter(inCurrent)).ready.length"),0,'드릴을 꺼도 복습 대기열 규칙은 그대로다');
+// 드릴 중 일부러 틀린 한 문제 때문에 같은 개념의 문제가 오늘 다시 불려 온다. 풀 문제가 그것뿐이므로 형제 간격으로 막지 않고 바로 낸다.
+{const wrongId=rows.find(h=>h.result==='wrong').cardId,wrongConcept=run('ReviewPolicy.concept('+JSON.stringify(wrongId)+')');
+ const after=run("reviewQueue(data.cards.filter(inCurrent)).ready.map(c=>c.id)");
+ assert.ok(after.length>0,'드릴을 꺼도 평소 규칙대로 틀린 개념의 문제가 지금 풀 차례로 남는다');
+ assert.ok(after.every(id=>run('ReviewPolicy.concept('+JSON.stringify(id)+')')===wrongConcept),'지금 풀 차례에는 틀린 문제와 같은 개념의 문제만 있다: '+after.join(','));}
 // 범위를 다시 고르면 드릴은 끝난다.
 run('toggleDrill()');assert.ok(run('drill'));
 run("openScope({subject:'영어',topic:'수일치'})");
