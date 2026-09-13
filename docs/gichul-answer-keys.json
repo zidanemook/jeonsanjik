@@ -34,6 +34,12 @@
       "answers": "34234122113322314441",
       "file": "research/exam-papers/bulk/2026/national-answers.pdf"
     },
+    "national9-2026-history": {
+      "source": "national9-2026",
+      "row": "39 한국사 가",
+      "answers": "31344412244231114342",
+      "file": "research/exam-papers/bulk/2026/national-answers.pdf"
+    },
     "national9-2026-korean": {
       "source": "national9",
       "row": "9 국어",
@@ -56,6 +62,12 @@
       "answers": "24231123422141412341",
       "file": "research/exam-papers/bulk/2025/local-answers.pdf"
     },
+    "local9-2025-history": {
+      "source": "local9-2025",
+      "row": "33 한국사 B",
+      "answers": "12343312413121341224",
+      "file": "research/exam-papers/bulk/2025/local-answers.pdf"
+    },
     "national9-2025-computer": {
       "source": "national9-2025",
       "row": "36 컴퓨터일반 나",
@@ -66,6 +78,12 @@
       "source": "national9-2025",
       "row": "30 정보보호론 나",
       "answers": "14432432412324234131",
+      "file": "research/exam-papers/bulk/2025/national-answers.pdf"
+    },
+    "national9-2025-history": {
+      "source": "national9-2025",
+      "row": "39 한국사 나",
+      "answers": "41432241212343234233",
       "file": "research/exam-papers/bulk/2025/national-answers.pdf"
     },
     "local9-2024-computer": {
@@ -80,6 +98,12 @@
       "answers": "13432414232332122144",
       "file": "research/exam-papers/bulk/2024/local-answers.pdf"
     },
+    "local9-2024-history": {
+      "source": "local9-2024",
+      "row": "33 한국사 C",
+      "answers": "21144331123222143423",
+      "file": "research/exam-papers/bulk/2024/local-answers.pdf"
+    },
     "national9-2024-computer": {
       "source": "national9-2024",
       "row": "36 컴퓨터일반 가",
@@ -92,6 +116,12 @@
       "answers": "14322321432244112113",
       "file": "research/exam-papers/bulk/2024/national-answers.pdf"
     },
+    "national9-2024-history": {
+      "source": "national9-2024",
+      "row": "39 한국사 가",
+      "answers": "12344433123143341224",
+      "file": "research/exam-papers/bulk/2024/national-answers.pdf"
+    },
     "local9-2023-computer": {
       "source": "local9-2023",
       "row": "30 컴퓨터일반 B",
@@ -102,6 +132,12 @@
       "source": "local9-2023",
       "row": "23 정보보호론 B",
       "answers": "21223331443143434423",
+      "file": "research/exam-papers/bulk/2023/local-answers.pdf"
+    },
+    "local9-2023-history": {
+      "source": "local9-2023",
+      "row": "33 한국사 B",
+      "answers": "13223134441413244334",
       "file": "research/exam-papers/bulk/2023/local-answers.pdf"
     },
     "national9-2023-computer": {
@@ -119,6 +155,15 @@
       "answers": "14143243411322332444",
       "file": "research/exam-papers/bulk/2023/national-answers.pdf"
     },
+    "national9-2023-history": {
+      "source": "national9-2023",
+      "row": "39 한국사 나",
+      "answers": "12343330223442142113",
+      "cells": {
+        "8": "1,2"
+      },
+      "file": "research/exam-papers/bulk/2023/national-answers.pdf"
+    },
     "local9-2022-computer": {
       "source": "local9-2022",
       "row": "29 컴퓨터일반 A",
@@ -134,6 +179,12 @@
       },
       "file": "research/exam-papers/bulk/2022/local-answers.pdf"
     },
+    "local9-2022-history": {
+      "source": "local9-2022",
+      "row": "32 한국사 A",
+      "answers": "22313112341432432424",
+      "file": "research/exam-papers/bulk/2022/local-answers.pdf"
+    },
     "national9-2022-computer": {
       "source": "national9-2022",
       "row": "34 컴퓨터일반 가",
@@ -144,6 +195,12 @@
       "source": "national9-2022",
       "row": "28 정보보호론 가",
       "answers": "31211424334123224213",
+      "file": "research/exam-papers/bulk/2022/national-answers.pdf"
+    },
+    "national9-2022-history": {
+      "source": "national9-2022",
+      "row": "37 한국사 가",
+      "answers": "13412342331412122324",
       "file": "research/exam-papers/bulk/2022/national-answers.pdf"
     },
     "local9-2021-computer": {
@@ -158,6 +215,12 @@
       "answers": "13431214134232342244",
       "file": "research/exam-papers/bulk/2021/local-answers.pdf"
     },
+    "local9-2021-history": {
+      "source": "local9-2021",
+      "row": "31 한국사 A",
+      "answers": "31411233342232234412",
+      "file": "research/exam-papers/bulk/2021/local-answers.pdf"
+    },
     "national9-2021-computer": {
       "source": "national9-2021",
       "row": "37 컴퓨터일반 나",
@@ -168,6 +231,12 @@
       "source": "national9-2021",
       "row": "31 정보보호론 나",
       "answers": "23133422322114223414",
+      "file": "research/exam-papers/bulk/2021/national-answers.pdf"
+    },
+    "national9-2021-history": {
+      "source": "national9-2021",
+      "row": "40 한국사 나",
+      "answers": "32311443314324214223",
       "file": "research/exam-papers/bulk/2021/national-answers.pdf"
     },
     "local9-2020-computer": {
@@ -182,6 +251,12 @@
       "answers": "21412143342313243313",
       "file": "research/exam-papers/bulk/2020/local-answers.pdf"
     },
+    "local9-2020-history": {
+      "source": "local9-2020",
+      "row": "31 한국사 B",
+      "answers": "41214123342323224113",
+      "file": "research/exam-papers/bulk/2020/local-answers.pdf"
+    },
     "national9-2020-computer": {
       "source": "national9-2020",
       "row": "37 컴퓨터일반 가",
@@ -192,6 +267,12 @@
       "source": "national9-2020",
       "row": "31 정보보호론 가",
       "answers": "23411344234413112212",
+      "file": "research/exam-papers/bulk/2020/national-answers.pdf"
+    },
+    "national9-2020-history": {
+      "source": "national9-2020",
+      "row": "40 한국사 가",
+      "answers": "34324214343121322434",
       "file": "research/exam-papers/bulk/2020/national-answers.pdf"
     },
     "local9-2019-computer": {
@@ -206,6 +287,12 @@
       "answers": "24422334142123112244",
       "file": "research/exam-papers/bulk/2019/local-answers.pdf"
     },
+    "local9-2019-history": {
+      "source": "local9-2019",
+      "row": "32 한국사 A",
+      "answers": "31444331221322431343",
+      "file": "research/exam-papers/bulk/2019/local-answers.pdf"
+    },
     "national9-2019-computer": {
       "source": "national9-2019",
       "row": "35 컴퓨터일반 나",
@@ -216,6 +303,12 @@
       "source": "national9-2019",
       "row": "31 정보보호론 나",
       "answers": "23423322142421143331",
+      "file": "research/exam-papers/bulk/2019/national-answers.pdf"
+    },
+    "national9-2019-history": {
+      "source": "national9-2019",
+      "row": "38 한국사 나",
+      "answers": "34334114313241341222",
       "file": "research/exam-papers/bulk/2019/national-answers.pdf"
     },
     "local9-2018-computer": {
@@ -230,6 +323,12 @@
       "answers": "44231313423421122244",
       "file": "research/exam-papers/bulk/2018/local-answers.pdf"
     },
+    "local9-2018-history": {
+      "source": "local9-2018",
+      "row": "32 한국사 B",
+      "answers": "32331214411234431342",
+      "file": "research/exam-papers/bulk/2018/local-answers.pdf"
+    },
     "national9-2018-computer": {
       "source": "national9-2018",
       "row": "35 컴퓨터일반 가",
@@ -240,6 +339,12 @@
       "source": "national9-2018",
       "row": "31 정보보호론 가",
       "answers": "14421423332342233221",
+      "file": "research/exam-papers/bulk/2018/national-answers.pdf"
+    },
+    "national9-2018-history": {
+      "source": "national9-2018",
+      "row": "38 한국사 가",
+      "answers": "13132112424324334323",
       "file": "research/exam-papers/bulk/2018/national-answers.pdf"
     },
     "local9extra-2017-computer": {
@@ -254,6 +359,12 @@
       "answers": "13413443111224242234",
       "file": "research/exam-papers/bulk/2017/local-extra-answers.pdf"
     },
+    "local9extra-2017-history": {
+      "source": "local9extra-2017",
+      "row": "32 한국사 A",
+      "answers": "41231123342421123242",
+      "file": "research/exam-papers/bulk/2017/local-extra-answers.pdf"
+    },
     "local9-2017-computer": {
       "source": "local9-2017",
       "row": "29 컴퓨터일반 B",
@@ -264,6 +375,15 @@
       "source": "local9-2017",
       "row": "21 정보보호론 B",
       "answers": "44132134424134333242",
+      "file": "research/exam-papers/bulk/2017/local-answers.pdf"
+    },
+    "local9-2017-history": {
+      "source": "local9-2017",
+      "row": "31 한국사 B",
+      "answers": "12234423212104334344",
+      "cells": {
+        "13": "정답없음"
+      },
       "file": "research/exam-papers/bulk/2017/local-answers.pdf"
     },
     "national9-2017-computer": {
@@ -278,6 +398,12 @@
       "answers": "23441432243242411213",
       "file": "research/exam-papers/bulk/2017/national-answers.pdf"
     },
+    "national9-2017-history": {
+      "source": "national9-2017",
+      "row": "36 한국사 나",
+      "answers": "42113122322442424331",
+      "file": "research/exam-papers/bulk/2017/national-answers.pdf"
+    },
     "local9-2016-computer": {
       "source": "local9-2016",
       "row": "29 컴퓨터일반 A",
@@ -288,6 +414,12 @@
       "source": "local9-2016",
       "row": "21 정보보호론 A",
       "answers": "13344134234223442421",
+      "file": "research/exam-papers/bulk/2016/local-answers.pdf"
+    },
+    "local9-2016-history": {
+      "source": "local9-2016",
+      "row": "31 한국사 A",
+      "answers": "14113323341324232232",
       "file": "research/exam-papers/bulk/2016/local-answers.pdf"
     },
     "national9-2016-computer": {
@@ -302,6 +434,12 @@
       "answers": "12241341141223234314",
       "file": "research/exam-papers/bulk/2016/national-answers.pdf"
     },
+    "national9-2016-history": {
+      "source": "national9-2016",
+      "row": "36 한국사 2",
+      "answers": "31114124423433234412",
+      "file": "research/exam-papers/bulk/2016/national-answers.pdf"
+    },
     "local9-2015-computer": {
       "source": "local9-2015",
       "row": "22 컴퓨터일반 A",
@@ -312,6 +450,18 @@
       "source": "local9-2015",
       "row": "15 정보보호론 A",
       "answers": "42322332111432414341",
+      "file": "research/exam-papers/bulk/2015/local-answers.pdf"
+    },
+    "local9-2015-history": {
+      "source": "local9-2015",
+      "row": "24 한국사(A/C책형) A",
+      "answers": "43412413121211324432",
+      "file": "research/exam-papers/bulk/2015/local-answers.pdf"
+    },
+    "local9-2015b-history": {
+      "source": "local9-2015b",
+      "row": "33 한국사(B/D책형) B",
+      "answers": "14313441244413112123",
       "file": "research/exam-papers/bulk/2015/local-answers.pdf"
     },
     "national9-2015-computer": {
@@ -326,6 +476,12 @@
       "answers": "24131441133342243212",
       "file": "research/exam-papers/bulk/2015/national-answers.pdf"
     },
+    "national9-2015-history": {
+      "source": "national9-2015",
+      "row": "34 한국사 사",
+      "answers": "44242333133144122413",
+      "file": "research/exam-papers/bulk/2015/national-answers.pdf"
+    },
     "local9-2014-computer": {
       "source": "local9-2014",
       "row": "20 컴퓨터일반 A",
@@ -336,6 +492,12 @@
       "source": "local9-2014",
       "row": "13 정보보호론 A",
       "answers": "34433223131324212114",
+      "file": "research/exam-papers/bulk/2014/local-answers.pdf"
+    },
+    "local9-2014-history": {
+      "source": "local9-2014",
+      "row": "22 한국사 A",
+      "answers": "31423213124324133122",
       "file": "research/exam-papers/bulk/2014/local-answers.pdf"
     },
     "national9-2014-computer": {
@@ -350,10 +512,28 @@
       "answers": "31334142414322431243",
       "file": "research/exam-papers/bulk/2014/national-answers.pdf"
     },
+    "national9-2014-history": {
+      "source": "national9-2014",
+      "row": "32 한국사 S",
+      "answers": "32244224143231121344",
+      "file": "research/exam-papers/bulk/2014/national-answers.pdf"
+    },
+    "local9-2013-history": {
+      "source": "local9-2013",
+      "row": "20 한국사 A",
+      "answers": "11443132342421313332",
+      "file": "research/exam-papers/bulk/2013/local-answers.pdf"
+    },
     "national9-2013-computer": {
       "source": "national9-2013",
       "row": "28 컴퓨터일반 인",
       "answers": "14313124314343224221",
+      "file": "research/exam-papers/bulk/2013/national-answers.pdf"
+    },
+    "national9-2013-history": {
+      "source": "national9-2013",
+      "row": "32 한국사 인",
+      "answers": "24211244431243314323",
       "file": "research/exam-papers/bulk/2013/national-answers.pdf"
     },
     "local9-2012-computer": {
@@ -361,6 +541,15 @@
       "row": "2012년 제1회 지방직공무원 시험 컴퓨터일반(지방9급) (책형:A) 확정답안",
       "answers": "41423232312422341331",
       "file": "research/exam-papers/bulk/2012/local-computer-general-answers.html"
+    },
+    "local9-2012-history": {
+      "source": "local9-2012",
+      "row": "2012년 제1회 지방직공무원 시험 한국사(지방9급) (책형:A) 확정답안",
+      "answers": "13421413421340331221",
+      "cells": {
+        "14": "1,2"
+      },
+      "file": "research/exam-papers/bulk/2012/local-korean-history-answers.html"
     },
     "national9-2012-computer": {
       "source": "national9-2012",
@@ -371,11 +560,23 @@
       },
       "file": "research/exam-papers/bulk/2012/national-computer-general-answers.html"
     },
+    "national9-2012-history": {
+      "source": "national9-2012",
+      "row": "2012년 9급 공개경쟁채용시험 한국사 (책형:인) 확정답안",
+      "answers": "11122241332143124243",
+      "file": "research/exam-papers/bulk/2012/national-korean-history-answers.html"
+    },
     "local9-2011-computer": {
       "source": "local9-2011",
       "row": "2011년 제1회 지방직공무원 시험 컴퓨터일반(지방9급) (책형:A) 확정답안",
       "answers": "34132242334121431123",
       "file": "research/exam-papers/bulk/2011/local-computer-general-answers.html"
+    },
+    "local9-2011-history": {
+      "source": "local9-2011",
+      "row": "2011년 제1회 지방직공무원 시험 한국사(지방9급) (책형:A) 확정답안",
+      "answers": "22424334122121334214",
+      "file": "research/exam-papers/bulk/2011/local-korean-history-answers.html"
     },
     "national9-2011-computer": {
       "source": "national9-2011",
@@ -383,11 +584,23 @@
       "answers": "22132244324331114332",
       "file": "research/exam-papers/bulk/2011/national-computer-general-answers.html"
     },
+    "national9-2011-history": {
+      "source": "national9-2011",
+      "row": "2011년 9급 공개경쟁채용시험 한국사 (책형:인) 확정답안",
+      "answers": "34131431132142134232",
+      "file": "research/exam-papers/bulk/2011/national-korean-history-answers.html"
+    },
     "local9-2010-computer": {
       "source": "local9-2010",
       "row": "2010년 제1회 지방직공무원 시험 컴퓨터일반(지방9급) (책형:A) 확정답안",
       "answers": "14344124332321234212",
       "file": "research/exam-papers/bulk/2010/local-computer-general-answers.html"
+    },
+    "local9-2010-history": {
+      "source": "local9-2010",
+      "row": "2010년 제1회 지방직공무원 시험 한국사(지방9급) (책형:A) 확정답안",
+      "answers": "13224213313443122341",
+      "file": "research/exam-papers/bulk/2010/local-korean-history-answers.html"
     },
     "national9-2010-computer": {
       "source": "national9-2010",
@@ -395,11 +608,23 @@
       "answers": "42341123133221423131",
       "file": "research/exam-papers/bulk/2010/national-computer-general-answers.html"
     },
+    "national9-2010-history": {
+      "source": "national9-2010",
+      "row": "2010년 9급 공개경쟁채용시험 한국사 (책형:고) 확정답안",
+      "answers": "43243312434421221331",
+      "file": "research/exam-papers/bulk/2010/national-korean-history-answers.html"
+    },
     "local9-2009-computer": {
       "source": "local9-2009",
       "row": "2009년 제1회 지방직공무원 시험 컴퓨터일반(지방9급) (책형:A) 확정답안",
       "answers": "21342343441211314233",
       "file": "research/exam-papers/bulk/2009/local-computer-general-answers.html"
+    },
+    "local9-2009-history": {
+      "source": "local9-2009",
+      "row": "2009년 제1회 지방직공무원 시험 한국사(지방9급) (책형:A) 확정답안",
+      "answers": "34342324314432413124",
+      "file": "research/exam-papers/bulk/2009/local-korean-history-answers.html"
     },
     "national9-2009-computer": {
       "source": "national9-2009",
@@ -407,17 +632,41 @@
       "answers": "22221241434433324111",
       "file": "research/exam-papers/bulk/2009/national-computer-general-answers.html"
     },
+    "national9-2009-history": {
+      "source": "national9-2009",
+      "row": "2009년 9급 공개경쟁채용시험 한국사 (책형:녹) 확정답안",
+      "answers": "42421311421134433144",
+      "file": "research/exam-papers/bulk/2009/national-korean-history-answers.html"
+    },
+    "local9-2008-history": {
+      "source": "local9-2008",
+      "row": "2008년 제1회 지방직공무원 시험 한국사(지방9급) (책형:A) 확정답안",
+      "answers": "32443134423322321412",
+      "file": "research/exam-papers/bulk/2008/local-korean-history-answers.html"
+    },
     "national9-2008-computer": {
       "source": "national9-2008",
       "row": "2008년 9급 공개경쟁채용시험 컴퓨터일반 (책형:안) 확정답안",
       "answers": "24344411342313334422",
       "file": "research/exam-papers/bulk/2008/national-computer-general-answers.html"
     },
+    "national9-2008-history": {
+      "source": "national9-2008",
+      "row": "2008년 9급 공개경쟁채용시험 한국사 (책형:안) 확정답안",
+      "answers": "41221233413242314432",
+      "file": "research/exam-papers/bulk/2008/national-korean-history-answers.html"
+    },
     "national9-2007-computer": {
       "source": "national9-2007",
       "row": "2007년 9급 공개경쟁채용시험 컴퓨터일반 (책형:국) 확정답안",
       "answers": "34212413131132123133",
       "file": "research/exam-papers/bulk/2007/national-computer-general-answers.html"
+    },
+    "national9-2007-history": {
+      "source": "national9-2007",
+      "row": "2007년 9급 공개경쟁채용시험 한국사 (책형:국) 확정답안",
+      "answers": "43214231321321444323",
+      "file": "research/exam-papers/bulk/2007/national-korean-history-answers.html"
     }
   },
   "sources": {
@@ -446,9 +695,11 @@
     "local9-2016": "2016년도 9급 등 지방공무원 임용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2997 · 2016/local-answers.pdf",
     "national9-2016": "2016년 국가공무원 9급 공개경쟁채용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2968 · 2016/national-answers.pdf",
     "local9-2015": "2015년 9급 지방공무원 등 임용시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2806 · 2015/local-answers.pdf",
+    "local9-2015b": "2015년 9급 지방공무원 등 임용시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2806 · 2015/local-answers.pdf",
     "national9-2015": "2015년도 9급 국가직공무원 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2765 · 2015/national-answers.pdf",
     "local9-2014": "2014년도 지방9급 등 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2601 · 2014/local-answers.pdf",
     "national9-2014": "2014년도 9급 국가직공무원 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2566 · 2014/national-answers.pdf",
+    "local9-2013": "2013년도 지방공무원임용 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2425 · 2013/local-answers.pdf",
     "national9-2013": "2013년도 9급 국가직공무원 필기시험 최종정답 공개 · 사이버국가고시센터 문제/정답 안내 게시물 2412 · 2013/national-answers.pdf",
     "local9-2012": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2012/local-computer-general-answers.html",
     "national9-2012": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2012/national-computer-general-answers.html",
@@ -458,6 +709,7 @@
     "national9-2010": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2010/national-computer-general-answers.html",
     "local9-2009": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2009/local-computer-general-answers.html",
     "national9-2009": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2009/national-computer-general-answers.html",
+    "local9-2008": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2008/local-korean-history-answers.html",
     "national9-2008": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2008/national-computer-general-answers.html",
     "national9-2007": "사이버국가고시센터 과목별 조회 정답보기(GosiJungdap.do) 확정답안 팝업 · 2007/national-computer-general-answers.html"
   }
