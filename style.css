@@ -168,3 +168,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .photo-credits p:last-child { margin-bottom:0; }
 .photo-credit-head { font-weight:700; color:#e6ebf2; }
 @media (max-width: 540px) { .photo-choices .photo-choice { min-height:0; padding:6px; } }
+/* 공무원 기출 회차: 연도별 접기(range-fold 안의 range-fold). 휴대폰 한 화면에 연도 머리만 늘어서고, 연 연도만 회차가 보인다. */
+.menu-list > .paper-year { margin-top:0; }
+.paper-year > summary.range-heading { font-size:16px; color:#c9d9f2; min-height:44px; padding:10px 2px; }
+.paper-year > .menu-list { margin:8px 0 6px; }

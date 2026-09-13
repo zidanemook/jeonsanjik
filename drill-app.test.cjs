@@ -22,9 +22,20 @@ const ctx={document:doc,console,
  Date,JSON,Math,Set,Map,Number,String,Object,Array,Error,RegExp,Intl,Promise,Event:class{constructor(t){this.type=t;}}};
 ctx.window=ctx;ctx.self=ctx;
 vm.createContext(ctx);
-for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-data.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','drill.js','sync-core.js','study-credit.js','study-review-catalog.js','hanneung-topics.js','topics.js','app.js'])
+// 기출 회차 파일은 앱이 필요할 때 fetch로 받는다. 가짜 fetch는 저장소의 gichul/<id>.json을 돌려주고, 받은 주소를 모두 남긴다.
+const fetched=[];let failNextFetch=false;
+ctx.fetch=url=>{fetched.push(url);if(failNextFetch){failNextFetch=false;return Promise.resolve({ok:false,status:503,json:()=>Promise.reject(Error('no body'))});}
+ const m=/^gichul\/([a-z0-9-]+)\.json$/.exec(url);if(!m)return Promise.reject(Error('unexpected fetch '+url));
+ return Promise.resolve({ok:true,status:200,json:()=>Promise.resolve(require('./gichul-files.cjs').read(m[1]))});};
+const flush=()=>new Promise(r=>setImmediate(r));
+for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','drill.js','sync-core.js','study-credit.js','study-review-catalog.js','hanneung-topics.js','topics.js','app.js'])
  vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
 const run=code=>vm.runInContext(code,ctx);
+// 시작할 때는 회차 파일을 하나도 받지 않는다. 그래도 카드·과목 문항 수는 색인으로 모든 기출 문항을 센다.
+assert.deepEqual(fetched,[],'앱을 열 때 기출 회차 파일을 받지 않는다');
+const indexedComputer=run("Gichul.forSubject('컴퓨터일반').reduce((n,p)=>n+p.numbers.length,0)");
+assert.equal(run("questionCount(data.cards.filter(c=>isPlayable(c)&&c.subject==='컴퓨터일반'))"),indexedComputer,'받지 않은 회차의 문항도 과목 문항 수에 들어간다');
+assert.equal(run("Object.keys(QUIZ_OPTIONS).filter(id=>id.startsWith('gichul-')).length"),0,'받기 전에는 기출 보기가 없다');
 const screen=()=>nodes.get('#card').all.map(n=>n._text).filter(Boolean).join(' | ');
 // 채점 뒤 해설 화면에서 "다음 문제"를 누른 것과 같다.
 const next=()=>run("(()=>{const s=structuredClone(data);delete s.quizFeedback;delete s.activePractice;commit(s);render();})()");
@@ -97,9 +108,18 @@ assert.equal(run('drill'),null,'다른 범위를 열면 드릴이 남지 않는�
 // 5) 기출 회차는 앱이 문제를 고르지 않는다 — 켜야 하는 모드가 아니라 회차의 기본 동작이다.
 //    복습 일정·재시도 대기·형제 간격·하루 새 문제 몫 어느 것도 회차 안에서는 걸리지 않고,
 //    1번부터 마지막 번호까지 원문 순서 그대로 나온 뒤 멈춘다.
+(async()=>{
 const paperId=run("Gichul.forSubject('컴퓨터일반')[0].id");
 const openPaper=()=>run("openScope({subject:'컴퓨터일반',round:'paper-"+paperId+"'})");
 openPaper();
+// 처음 여는 회차: 그 회차 파일 하나만 받는다. 받는 동안에는 문제 대신 안내가 나오고 답을 받지 않는다.
+assert.ok(screen().includes('기출 문제를 불러오는 중입니다'),'회차 파일을 받는 동안의 화면: '+screen().slice(0,60));
+assert.deepEqual(fetched,['gichul/'+paperId+'.json'],'회차를 열면 그 회차 파일 하나만 받는다');
+assert.ok(!run('data.activePractice'),'받기 전에는 풀이 중인 문항이 없다');
+await flush();
+assert.equal(run("Gichul.state("+JSON.stringify(paperId)+")"),'ready');
+assert.equal(run("Object.keys(QUIZ_OPTIONS).filter(id=>id.startsWith('gichul-'+"+JSON.stringify(paperId)+"+'-')).length"),run("Gichul.paper("+JSON.stringify(paperId)+").numbers.length"),'받은 회차의 보기가 모두 채워진다');
+assert.deepEqual(Array.from(run("Gichul.papers.filter(p=>p.questions).map(p=>p.id)")),[paperId],'다른 회차는 받지 않았다');
 const paperOrder=Array.from(run("catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).map(c=>c.id)"));
 assert.equal(paperOrder.length,19,'2026 지방직 9급 컴퓨터일반 수록 문항 수');
 assert.deepEqual(paperOrder,[...paperOrder].sort(),'회차 순서는 원문 문항 번호 순이다');
@@ -118,6 +138,7 @@ assert.deepEqual(paperServed,paperOrder,'1번부터 마지막 번호까지 한 �
 assert.ok(screen().includes('이 회차를 끝까지 풀었어요'),'회차 끝 화면: '+screen().slice(0,60));
 // 어제 맞힌 문제가 아니라 방금 맞힌 문제여도, 회차를 다시 열면 제자리에 다시 나온다.
 openPaper();
+assert.equal(fetched.length,1,'이미 받은 회차는 다시 받지 않는다');
 assert.equal(run('data.activePractice.cardId'),paperOrder[0],'회차를 다시 열면 언제나 1번부터');
 assert.equal(run("reviewQueue(data.cards.filter(inCurrent)).ready.some(c=>c.id==="+JSON.stringify(paperOrder[0])+")"),false,'복습 대기열에 없는 문제도 회차에서는 제자리에 나온다');
 const secondPass=[];
@@ -153,7 +174,23 @@ assert.equal(roundStats.total,50);
 assert.ok(roundStats.points>0&&roundStats.points<100,'맞힌 문항만큼의 공식 배점: '+roundStats.points);
 run("openScope({subject:'한국사',round:'79'})");
 assert.equal(run('data.activePractice.cardId'),'hanneung-79-01','한능검 회차를 다시 열어도 1번부터');
+// 회차 파일을 받지 못하면(오프라인·서버 오류) 문제 대신 다시 불러오기 버튼을 보여 주고, 누르면 다시 받는다.
+const englishPaper=run("Gichul.forSubject('영어')[0].id");
+failNextFetch=true;
+run("openScope({subject:'영어',round:'paper-"+englishPaper+"'})");
+await flush();
+assert.equal(run("Gichul.state("+JSON.stringify(englishPaper)+")"),'error');
+assert.ok(screen().includes('기출 문제를 불러오지 못했어요'),'받기 실패 화면: '+screen().slice(0,60));
+const retry=nodes.get('#card').all.find(n=>n._text==='다시 불러오기');
+assert.ok(retry&&typeof retry.onclick==='function','다시 불러오기 버튼이 있다');
+retry.onclick();
+assert.ok(screen().includes('기출 문제를 불러오는 중입니다'));
+await flush();
+assert.equal(run("Gichul.state("+JSON.stringify(englishPaper)+")"),'ready');
+assert.equal(run('data.activePractice.cardId'),'gichul-'+englishPaper+'-'+String(run("Gichul.paper("+JSON.stringify(englishPaper)+").numbers[0]")).padStart(2,'0'),'다시 받은 뒤 1번 문항부터 나온다');
+assert.equal(fetched.filter(u=>u.includes(englishPaper)).length,2,'실패한 회차만 한 번 더 받았다');
 // 회차가 아닌 범위는 예전 그대로 복습 대기열을 따른다.
 run("openScope({subject:'한국사',round:'lecture-02-05'})");
 assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에서는 전부 풀기 버튼이 그대로 있다');
-console.log('PASS drill in app: normal mode stops at '+normal+'/'+total+', drill serves all '+total+' exercises then repeats only the missed one, records stay normal, no same-day interval inflation; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다');
+console.log('PASS drill in app: normal mode stops at '+normal+'/'+total+', drill serves all '+total+' exercises then repeats only the missed one, records stay normal, no same-day interval inflation; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
+})().catch(e=>{console.error(e);process.exit(1);});

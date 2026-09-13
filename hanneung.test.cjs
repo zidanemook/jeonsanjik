@@ -68,6 +68,23 @@ for(const paper of gichul.papers){
  gSkipped+=skipped.length;
 }
 assert.equal(gTotal,gCards.length);
+// 공식 정답표에서 단일 정답이 아닌 칸(복수 정답·정답 없음·빈 칸)은 0으로 두고, 그 문항은 반드시 제외 목록에 있다.
+for(const paper of gichul.papers){
+ const key=gichulKeys.keys[paper.id];
+ assert.equal(paper.answers,key.answers,'시작 색인의 공식 정답이 정답표와 같다: '+paper.id);
+ for(const q of paper.questions)assert.match(key.answers[q.n-1],/^[1-4]$/,'수록 문항은 단일 공식 정답이 있어야 한다: '+paper.id+' '+q.n);
+ for(const n of Object.keys(key.cells||{}))assert(key.answers[Number(n)-1]==='0'&&paper.skipped.some(x=>x.n===Number(n)),'단일 정답이 아닌 공식 칸은 채점하지 않고 제외한다: '+paper.id+' '+n);
+}
+// 회차 파일은 필요할 때만 받는다: 시작 때 싣는 색인은 작고, 서비스 워커는 회차 파일을 미리 캐시하지 않는다.
+{
+ const indexSrc=fs.readFileSync(__dirname+'/gichul-index.js','utf8'),swSrc=fs.readFileSync(__dirname+'/sw.js','utf8'),htmlSrc=fs.readFileSync(__dirname+'/index.html','utf8'),deploySrc=fs.readFileSync(__dirname+'/.github/workflows/pages.yml','utf8');
+ assert(Buffer.byteLength(indexSrc)<40000,'시작 색인이 40KB를 넘었다: '+Buffer.byteLength(indexSrc));
+ assert(!swSrc.includes('gichul/')&&!swSrc.includes('gichul-data'),'서비스 워커가 회차 파일을 미리 캐시하면 안 된다');
+ assert(/\.\/gichul-index\.js\?v=\d+/.test(swSrc)&&/src="gichul-index\.js\?v=\d+"/.test(htmlSrc),'색인은 시작 자산으로 싣고 오프라인 캐시에 넣는다');
+ assert(!htmlSrc.includes('gichul/')&&!htmlSrc.includes('gichul-data'),'시작 화면이 회차 파일을 싣지 않는다');
+ assert(deploySrc.includes('cp -r gichul _site/')&&deploySrc.includes('cp gichul-index.js gichul.js _site/'),'배포 묶음에 색인과 회차 파일이 들어간다');
+ assert.deepEqual(require('./gichul-files.cjs').ids(),gichul.papers.map(p=>p.id).sort(),'회차 파일과 색인 회차가 하나씩 대응한다');
+}
 assert.equal(new Set(gCards.map(c=>c.id)).size,gCards.length,'카드 id 중복');
 assert(gCards.every(c=>c.id.startsWith('gichul-')),'공식 기출은 gichul- 접두사로만 식별한다');
 // 접두사는 content-audit.cjs의 보기 길이 편향 면제 기준이기도 하다. 둘이 어긋나면 면제가 조용히 풀린다.

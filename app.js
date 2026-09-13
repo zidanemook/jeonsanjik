@@ -15,7 +15,8 @@ function validDay(s){if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s))retu
 function validateContent(c){if(!c||typeof c!=='object'||['subject','question','answer'].some(k=>typeof c[k]!=='string'||!c[k].trim())||['explanation','source'].some(k=>c[k]!==undefined&&typeof c[k]!=='string'))throw Error('과목·질문·정답과 텍스트 형식을 확인하세요.');}
 function validateBackup(v){if(v?.explanationViews!==undefined){if(!Array.isArray(v.explanationViews))throw Error('Invalid explanation records');StudyCredit.unionExplanations([],v.explanationViews);}if(![1,2].includes(v?.version)||!Array.isArray(v.cards)||!Array.isArray(v.history))throw Error('지원하지 않는 백업입니다.');const ids=new Set();for(const c of v.cards){validateContent(c);if(typeof c.id!=='string'||ids.has(c.id)||!validDay(c.created)||!(c.due===null||validDay(c.due))||(v.version===1?(!Number.isInteger(c.stage)||c.stage<0||c.stage>4):(!Number.isFinite(c.ease)||c.ease<1.3||c.ease>3||!Number.isInteger(c.interval)||c.interval<0||c.interval>365||!Number.isInteger(c.streak)||c.streak<0||c.due===null)))throw Error('카드 일정 또는 ID가 올바르지 않습니다.');if(c.retryAt!==undefined&&!Number.isFinite(Date.parse(c.retryAt)))throw Error('잘못된 재학습 시간');if(c.pendingAttempt!==undefined&&(!['remember','partial','none'].includes(c.pendingAttempt.recall)||!validDay(c.pendingAttempt.date)||!Number.isFinite(Date.parse(c.pendingAttempt.at))||typeof c.pendingAttempt.delayedFirst!=='boolean'))throw Error('잘못된 회상 기록');ids.add(c.id);}for(const h of v.history){if(typeof h.id!=='string'||typeof h.cardId!=='string'||!validDay(h.date)||!['correct','unsure','wrong'].includes(h.result))throw Error('복습 기록이 올바르지 않습니다.');}if(v.quizFeedback!==undefined&&(!v.quizFeedback||typeof v.quizFeedback.cardId!=='string'||!Number.isInteger(v.quizFeedback.selectedIndex)||!['correct','wrong','unsure'].includes(v.quizFeedback.result)))throw Error('퀴즈 피드백이 올바르지 않습니다.');}
 function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.subject.trim(),question:c.question.trim(),answer:c.answer.trim(),explanation:c.explanation||'',source:c.source||'',verified:c.verified===true,created:day(),due:day(),ease:2.5,interval:0,streak:0};}
-function isPlayable(c){return !!c&&(!!QUIZ_OPTIONS[c.id]||!!PRACTICE_BANK[c.id]);}
+// 공무원 기출은 회차 파일을 받기 전에도 풀 수 있는 카드다(색인에 있으면 된다). 보기는 그 회차의 문항을 처음 낼 때 받는다.
+function isPlayable(c){return !!c&&(!!QUIZ_OPTIONS[c.id]||!!PRACTICE_BANK[c.id]||Gichul.known(c.id));}
 const STUDY_SETS=STUDY_REVIEW_CATALOG.sets;
 const STUDY_SET_BY_ID=new Map(STUDY_SETS.flatMap(set=>set.ids.map(id=>[id,set.number])));
 function studySet(id){return STUDY_SET_BY_ID.get(id)||0;}
@@ -114,7 +115,7 @@ function renderScopeStatus(scope){
 function saveDraft(){if(!storageOK)return;try{localStorage.setItem(KEY,JSON.stringify(data));}catch{notify('입력 내용을 저장하지 못했어요.');}}
 // BEGIN DRILL MODE — "이 범위 전부 풀기". 저장하지 않는 세션 한정 상태라 새 저장 필드도, 새 문서도 만들지 않는다.
 let drill=null;
-function drillSize(id){return (QUIZ_OPTIONS[id]?1:0)+(PRACTICE_BANK[id]?.variants.length||0);}
+function drillSize(id){return (QUIZ_OPTIONS[id]||Gichul.known(id)?1:0)+(PRACTICE_BANK[id]?.variants.length||0);}
 function drillOn(scope){return !!drill&&StudyDrill.sameScope(drill.scope,scope);}
 function drillCards(scope){const inside=data.cards.filter(c=>isPlayable(c)&&inScope(c,scope));return orderedScope(scope.round)?catalogOrder(inside):inside;}
 // 카드의 변형은 "몇 번 풀었나"로 정해진다. 회차마다 시도 수를 한 바퀴씩 올려 같은 변형을 보기 순서만 새로 섞어 낸다.
@@ -240,7 +241,7 @@ function goBack(){if(history.state?.depth>0){history.back();return;}const parent
 try{history.replaceState({view:'home',subject:'',depth:0},'');}catch{}
 window.addEventListener('popstate',e=>{view=VIEWS.includes(e.state?.view)?e.state.view:'home';viewSubject=e.state?.subject||'';notify('');render();window.scrollTo(0,0);});
 function subjectsList(){return [...new Set(data.cards.filter(isPlayable).map(c=>c.subject))];}
-function questionCount(cards){return cards.reduce((n,c)=>n+(QUIZ_OPTIONS[c.id]?1:0)+(PRACTICE_BANK[c.id]?.variants.length||0),0);}
+function questionCount(cards){return cards.reduce((n,c)=>n+(QUIZ_OPTIONS[c.id]||Gichul.known(c.id)?1:0)+(PRACTICE_BANK[c.id]?.variants.length||0),0);}
 function menuItem(title,detail,fn,cls='menu-item'){const b=btn('',fn,cls);b.type='button';b.append(elem('strong',title));if(detail)b.append(elem('span',detail));return b;}
 function lastScope(subject){const s=data.lastScopes?.[subject]||(data.practiceScope?.subject===subject?data.practiceScope:null);return s?{subject,topic:s.topic||'',round:s.round||''}:null;}
 function openScope(scope,resume=false){
@@ -281,19 +282,32 @@ function renderRange(){
   const seen=inside.length+'문제 · 첫 시도 '+p.answered+'/'+inside.length+(p.answered?' · 정답 '+p.correct:'');
   const detail=sequentialScope(sc)?seen+' · 1번부터 순서대로':seen+' · 풀 문제 '+reviewQueue(inside).ready.length+(newCardRoom(inside)?' · 새 문제 '+newCardRoom(inside):'');
   g.append(menuItem(title,detail+(extra?' · '+extra:''),()=>openScope(sc)));};
+ // 공무원 기출은 과목마다 회차가 40개 가까이 된다. 한 줄로 늘어놓으면 휴대폰에서 원하는 회차를 찾기 어려워
+ // 연도별로 접는다(range-fold 안에 range-fold). 최신 연도가 맨 위이고, 지금 풀던 회차가 든 연도(없으면 최신 연도)만 펼쳐 둔다.
+ const paperYears=(parent,current)=>{
+  const years=new Map();for(const p of Gichul.forSubject(s)){if(!years.has(p.year))years.set(p.year,[]);years.get(p.year).push(p);}
+  const open=paperScope(current)?Gichul.paper(paperScope(current)).year:Math.max(...years.keys());
+  for(const [year,list]of years){
+   const ids=new Set(cards.filter(c=>list.some(p=>p.id===Gichul.paperOf(c.id))).map(c=>c.id)),first=firstPass(ids);
+   const fold=elem('details',undefined,'range-fold paper-year'),g=elem('div',undefined,'menu-list');fold.open=year===open;
+   fold.append(elem('summary',year+'년 · '+list.length+'회차 · 첫 시도 '+first.answered+'/'+ids.size,'range-heading'),g);parent.append(fold);
+   for(const p of list)option(g,p.range,scope('paper-'+p.id));
+  }
+ };
+ const paperCount=Gichul.forSubject(s).length;
  if(s==='한국사'){
   const round=scopeOf().round;
   // 자체 제작은 교재 진도순, 기출은 회차별. 같은 문제를 여러 순서로 제공하면 어디까지 풀었는지
   // 알기 어려워진다. 문항 화면은 여전히 시대 주제를 표시하므로 분류 자체는 살아 있다.
   const lectures=group('교재 강별');for(const l of STUDY_LECTURES)option(lectures,l.title,scope('lecture-'+l.id));
   const papers=group('기출 · 회차별 심화 ('+Math.min(...Hanneung.rounds)+'~'+Math.max(...Hanneung.rounds)+'회)',!Hanneung.rounds.includes(Number(round)));for(const n of Hanneung.rounds){const count=Hanneung.rows.filter(r=>r.round===n&&Hanneung.hasExplanation(r.id)).length;option(papers,n+'회',scope(String(n)),count?'해설 '+count+'개':'');}
-  const exams=group('기출 · 공무원 9급',!paperScope(round));for(const p of Gichul.forSubject(s))option(exams,p.range,scope('paper-'+p.id));
+  const exams=group('기출 · 공무원 9급 ('+paperCount+'회차)',!paperScope(round));paperYears(exams,round);
   const other=group('그 밖의 범위',!(studyScope(round)!==null||round==='core'));option(other,'한국사 전체',scope(''));
  }else if(s==='영어'){const g=group('문제집 진도');option(g,'Day 1 문장의 구조·동사 유형',scope('','Day 1'));
-  const exams=group('기출 · 회차별',!paperScope(scopeOf().round));for(const p of Gichul.forSubject(s))option(exams,p.range,scope('paper-'+p.id));
+  const exams=group('기출 · 회차별 ('+paperCount+'회차)',!paperScope(scopeOf().round));paperYears(exams,scopeOf().round);
   const rest=group('그 밖의 범위',true);option(rest,'수일치',scope('','수일치'));option(rest,'그 밖의 문법 연습',scope('','영문법'));option(rest,'영어 전체',scope(''));}
  else if(PAPER_SUBJECTS.has(s)){
-  const exams=group('기출 · 회차별');for(const p of Gichul.forSubject(s))option(exams,p.range,scope('paper-'+p.id));
+  const exams=group('기출 · 회차별 ('+paperCount+'회차)');paperYears(exams,scopeOf().round);
   option(group('그 밖의 범위',true),s+' 전체',scope(''));
  }
  else option(group(s),s+' 전체',scope(''));
@@ -349,6 +363,8 @@ function renderQuiz(){
   if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
   return;
  }
+ // 기출 회차 파일은 그 회차의 문항을 처음 낼 때 받는다. 받는 동안·받지 못했을 때는 문제 대신 안내만 그린다.
+ if(!feedback&&Gichul.known(card.id)&&!Gichul.ready(card.id)){renderPaperLoad(root,card,scope);return;}
  let active=data.activePractice;
  if(drilling&&!feedback){const expected=drillExercise(card,item);if(active?.cardId!==card.id||active.exercise?.exerciseId!==expected.exerciseId){active={cardId:card.id,exercise:expected,draft:'',assisted:false};data.activePractice=active;saveDraft();}}
  if(!drilling&&!feedback&&active?.cardId===card.id){const canonical=CORE_REVIEW_PACK.find(c=>c.id===card.id)||card,current=Practice.refresh(canonical,active.exercise,PRACTICE_BANK,QUIZ_OPTIONS);if(JSON.stringify(current)!==JSON.stringify(active.exercise)){const changed=current.question!==active.exercise.question||current.type!==active.exercise.type;active={...active,exercise:current,draft:changed?'':active.draft};data.activePractice=active;saveDraft();if(changed)notify('풀던 문항의 표현이 수정됐어요. 새 문항을 확인해 주세요.');}}
@@ -373,6 +389,18 @@ function renderQuiz(){
  }
  restoreExplanationPanels(opened);
  if(hadFocus&&$('#practiceInput')&&!feedback){$('#practiceInput').focus();$('#practiceInput').setSelectionRange(caret,caret);}
+}
+function renderPaperLoad(root,card,scope){
+ const paperId=Gichul.paperOf(card.id),paper=Gichul.paper(paperId),state=Gichul.state(paperId);
+ root.append(elem('small',card.subject+' · '+paper.title));
+ if(state==='error'){
+  root.append(elem('h2','기출 문제를 불러오지 못했어요'),elem('p',paper.title+' 문제 파일을 받지 못했어요. 인터넷 연결을 확인하고 다시 불러오세요. 한 번 받은 회차는 이 기기에 남아 연결 없이도 풀 수 있어요.'));
+  root.append(btn('다시 불러오기',()=>{Gichul.load(paperId).then(render,render);render();},'primary'));
+  if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
+  return;
+ }
+ root.append(elem('p','기출 문제를 불러오는 중입니다 · '+paper.title,'status'));
+ if(state==='idle')Gichul.load(paperId).then(render,render);
 }
 // Explanation page after grading: result first, explanation folded (opening it earns +1 minute), skippable.
 function renderFeedback(root,card,quiz,lesson,label){
@@ -445,7 +473,7 @@ globalThis.StudyProgress={
   drill=null;paperCursor=null;
   const next=structuredClone(data),scope={subject:remote.subject,topic:remote.topic,round:remote.round};next.session=remote;next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:scope};delete next.quizFeedback;
   const card=remote.cardId&&next.cards.find(c=>c.id===remote.cardId);let exercise=null;
-  if(card&&isPlayable(card))exercise=Practice.refresh(CORE_REVIEW_PACK.find(c=>c.id===card.id)||card,{exerciseId:remote.exerciseId,variantIndex:remote.variantIndex,type:remote.type,choices:remote.choices},PRACTICE_BANK,QUIZ_OPTIONS);
+  if(card&&isPlayable(card)&&(!Gichul.known(card.id)||Gichul.ready(card.id)))exercise=Practice.refresh(CORE_REVIEW_PACK.find(c=>c.id===card.id)||card,{exerciseId:remote.exerciseId,variantIndex:remote.variantIndex,type:remote.type,choices:remote.choices},PRACTICE_BANK,QUIZ_OPTIONS);
   if(exercise&&exercise.exerciseId===remote.exerciseId){const own=data.activePractice?.cardId===card.id&&data.activePractice.exercise?.exerciseId===exercise.exerciseId?data.activePractice:null;next.activePractice={...(own||{cardId:card.id,draft:'',assisted:false}),exercise};}else delete next.activePractice;
   if(!commit(next))throw Error('Local save failed');render();
  },
