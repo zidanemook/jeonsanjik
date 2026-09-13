@@ -33,6 +33,13 @@ assert.equal(policy.concept('en-session-20260909-while-short-v2'),policy.concept
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='grammar-agreement-each-v2'?{...x,conceptId:x.card.id}:x)),/keep its rule concept/);
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day1-43'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-day1-42').lesson.point}}:x)),/One grammar point, one concept/);
 {const day1=list.filter(x=>x.card.id.startsWith('en-day1-'));assert.equal(day1.length,60);assert.equal(new Set(day1.map(x=>x.conceptId)).size,24);}
+{const day2=list.filter(x=>x.card.id.startsWith('en-day2-'));assert.equal(day2.length,60);assert.equal(new Set(day2.map(x=>x.conceptId)).size,30);assert.ok(day2.every(x=>x.lesson.topic==='Day 2'&&x.conceptId.startsWith('grammar-day2-')));}
+// Day 2 keeps the same bars: one written + one four-option question per rule (subjunctive has one written: en-day2-46), one grammar point = one concept.
+assert.equal(list.filter(x=>ofRule(x,'grammar-part02-subjunctive')&&x.exercise.type==='text').length,1);
+assert.throws(()=>audit.coverage(list.filter(x=>x.card.id!=='en-day2-46')),/At least 1 written questions required: grammar-part02-subjunctive/);
+assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-part02-noun')||x.exercise.type!=='choice')),/MCQ required: grammar-part02-noun/);
+assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-part02-inversion-negation'))),/Missing coverage/);
+assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day2-42'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-day2-41').lesson.point}}:x)),/One grammar point, one concept/);
 // The learning behaviour the bundles used to give: a wrong answer brings back the other questions on the same rule after the sibling gap,
 // even when they are not due. Runs app.js's real review queue (reviewQueue) against the real concept groups.
 {

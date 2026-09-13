@@ -15,11 +15,15 @@ for(const [id,lesson]of Object.entries(bank)){
  // 나뉜 문제는 원래 규칙의 정리를 그대로 들고 있어 해설 화면이 규칙을 가르친다.
  if(bank[lesson.ruleId]&&lesson.ruleId!==id)for(const k of ['title','rule','hook','examples','topic'])assert.deepEqual(lesson[k],bank[lesson.ruleId][k],id+' '+k);
 }
-// 영어 범위별 문제 수: 문제집 Day 1은 준비된 60문제(4지선다 40 · 직접 쓰기 20), 수일치 95문제, 그 밖의 문법 60문제이고 모두 한 문제씩이다.
+// 영어 범위별 문제 수: 문제집 Day 1·Day 2는 각각 준비된 60문제(4지선다 40 · 직접 쓰기 20), 수일치 95문제, 그 밖의 문법 60문제이고 모두 한 문제씩이다.
 {const count=(topic,type)=>Object.entries(bank).filter(([id,l])=>l.topic===topic&&(!type||(l.variants[0]?.type||'choice')===type)).length;
  assert.equal(count('Day 1'),60);assert.equal(count('Day 1','choice'),40);assert.equal(count('Day 1','text'),20);assert.equal(count('수일치'),95);assert.equal(count('영문법'),60);
+ assert.equal(count('Day 2'),60);assert.equal(count('Day 2','choice'),40);assert.equal(count('Day 2','text'),20);
+ assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='Day 2').sort(),Array.from({length:60},(_,i)=>'en-day2-'+String(i+1).padStart(2,'0')),'Day 2는 en-day2-01~60');
  assert.equal(Object.keys(bank).filter(id=>id.startsWith('grammar-verb-')).length,0,'Day 1 규칙 묶음 카드는 없어졌다');
- assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='Day 1').map(l=>l.point)).size,24);}
+ assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='Day 1').map(l=>l.point)).size,24);
+ assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='Day 2').map(l=>l.point)).size,30);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='Day 2').map(l=>l.ruleId)).size,11);
+ {const d1=new Set(Object.values(bank).filter(l=>l.topic==='Day 1').map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='Day 2').every(l=>!d1.has(l.point)),'Day 2 문법 포인트는 Day 1 포인트와 이름이 겹치지 않는다');}}
 const c=ctx.CORE_REVIEW_PACK[0],options=ctx.QUIZ_OPTIONS;
 const picks=Array.from({length:8},(_,i)=>practice.select(c,Array.from({length:i},()=>({cardId:c.id})),bank,options));
 for(const e of picks)assert.equal(e.choices[e.correctIndex],options[c.id].choices[options[c.id].correctIndex]);
@@ -100,4 +104,4 @@ assert.equal(plainDetail.submittedAnswer,'1. 가');assert.equal(plainDetail.corr
 const plainText={type:'text',question:'q',answers:['ans'],explanation:'e',exerciseId:'plain-2'};
 const textDetail=record.create(plainCard,plainText,'ans',null,'concept-plain');
 assert.equal(textDetail.options,'');assert.equal(textDetail.submittedAnswer,'ans');assert.equal(textDetail.correctAnswer,'ans');
-console.log('PASS practice: one question per practice entry (Day 1 60, 수일치 95, 영문법 60), same question on retry with a moved answer number, split questions keep their rule text, answer normalization, alternative valid answers, contrasting variants, shuffled answer mapping, photo options (shuffle, grading, history snapshot), unchanged text records, assisted progress on another device');
+console.log('PASS practice: one question per practice entry (Day 1 60, Day 2 60, 수일치 95, 영문법 60), same question on retry with a moved answer number, split questions keep their rule text, answer normalization, alternative valid answers, contrasting variants, shuffled answer mapping, photo options (shuffle, grading, history snapshot), unchanged text records, assisted progress on another device');
