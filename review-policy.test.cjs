@@ -40,6 +40,15 @@ assert.throws(()=>audit.coverage(list.filter(x=>x.card.id!=='en-day2-46')),/At l
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-part02-noun')||x.exercise.type!=='choice')),/MCQ required: grammar-part02-noun/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-part02-inversion-negation'))),/Missing coverage/);
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day2-42'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-day2-41').lesson.point}}:x)),/One grammar point, one concept/);
+{const day3=list.filter(x=>x.card.id.startsWith('en-day3-'));assert.equal(day3.length,178);assert.equal(new Set(day3.map(x=>x.conceptId)).size,28);assert.equal(new Set(day3.map(x=>x.lesson.ruleId)).size,6);
+ assert.ok(day3.every(x=>x.lesson.topic==='Day 3'&&x.lesson.ruleId.startsWith('grammar-day3-rule-')&&x.conceptId.startsWith('grammar-day3-')&&!x.conceptId.startsWith('grammar-day3-rule-')));
+ // A wrong Day 3 answer brings back the same grammar point: its four-option (001) and written (117) questions share a concept; another point (005) does not.
+ assert.equal(policy.concept('en-day3-001'),policy.concept('en-day3-117'));assert.notEqual(policy.concept('en-day3-001'),policy.concept('en-day3-005'));}
+// Day 3 keeps the same bars: every rule needs a written and a four-option question, listed rules must exist, one grammar point = one concept.
+assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day3-rule-infinitive-use')||x.exercise.type!=='text')),/At least 1 written questions required: grammar-day3-rule-infinitive-use/);
+assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day3-rule-verbal-idiom')||x.exercise.type!=='choice')),/MCQ required: grammar-day3-rule-verbal-idiom/);
+assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day3-rule-participle-clause'))),/Missing coverage/);
+assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day3-005'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-day3-001').lesson.point}}:x)),/One grammar point, one concept/);
 // 국어 사고의 힘 논리: 개념(point) 하나가 개념 묶음 하나(48개)다. 영어의 직접쓰기 하한은 걸리지 않고, 장별 문제 수 하한·필수 개념·4지선다만을 요구한다.
 {const ko=list.filter(x=>x.card.id.startsWith('ko-logic'));assert.equal(ko.length,143);assert.ok(ko.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-logic-')));assert.equal(new Set(ko.map(x=>x.conceptId)).size,48);
  assert.equal(policy.concept('ko-logic2-087'),policy.concept('ko-logic2-091'),'대우 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic2-087'),policy.concept('ko-logic2-082'),'대우와 드모르간은 다른 개념');

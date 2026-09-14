@@ -89,9 +89,9 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // 대상은 id 접두사로만 가른다: 'hanneung-'(국사편찬위원회 심화 기출), 'gichul-'(인사혁신처 9급 기출).
 // 사진 보기 문항도 제외한다. 보기 글자가 화면에 나오지 않아 '가장 긴 보기 고르기' 전략 자체가 성립하지 않고,
 // 분모에 넣으면 래칫 비율만 희석되어 검사가 헐거워진다. 대신 photos()가 네 보기 전부 사진임을 따로 강제한다.
-// LONGEST_LIMIT: 12강 140문제 추가 뒤 실측 13.5%(125/927)를 상한으로 다시 조인 래칫(이전 15.8%, 21.2%, 27.8%). 문제를 더하다 이 값을 넘기면 실패한다.
+// LONGEST_LIMIT: 문제집 Day 3 178문제(4지선다 116) 추가 뒤 실측 12.1%(126/1043)를 상한으로 다시 조인 래칫(이전 13.5%, 15.8%, 21.2%, 27.8%). 문제를 더하다 이 값을 넘기면 실패한다.
 // MARGIN: 실측 최대 초과폭 7자에 여유 5자를 더한 값. 후보 문항은 모두 통과하지만 24자씩 튀던 예전 문항은 걸린다.
-const LONGEST_LIMIT=0.135,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
+const LONGEST_LIMIT=0.121,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
 function lengthBias(items){
  const rows=items.filter(i=>i.exercise.type==='choice'&&!VERBATIM_OFFICIAL.test(i.card.id)&&!i.exercise.choiceImages);
  assert(rows.length>0,'No self-made choice exercises to measure');
