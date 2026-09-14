@@ -12,7 +12,7 @@
   {id:'balhae',title:'발해',sections:['발해']},
   {id:'later-three',title:'후삼국',sections:['후삼국']},
   {id:'compare',title:'헷갈리는 내용 비교',sections:['헷갈리는 내용 비교']},
-  {id:'goryeo',title:'고려',sections:['고려 초기 정치','고려 문벌 사회','고려 무신 정권']},
+  {id:'goryeo',title:'고려',sections:['고려 초기 정치','고려 문벌 사회','고려 무신 정권','고려 대외 관계','고려 후기 사회 변동','고려의 멸망']},
   {id:'joseon-early',title:'조선 전기 (건국~16세기)',sections:[]},
   {id:'joseon-late',title:'조선 후기 (양난~1863)',sections:[]},
   {id:'opening',title:'개항·개화기 (1863~1894)',sections:[]},

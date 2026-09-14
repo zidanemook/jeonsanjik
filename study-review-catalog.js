@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 508,
+  "total": 648,
   "sets": [
     {
       "number": 1,
@@ -918,6 +918,254 @@ globalThis.STUDY_REVIEW_CATALOG={
         "goryeomid-hist-20260914-102",
         "goryeomid-hist-20260914-103"
       ]
+    },
+    {
+      "number": 69,
+      "title": "12강 고려(외교) 1",
+      "ids": [
+        "goryeoforeign-hist-20260914-001",
+        "goryeoforeign-hist-20260914-002",
+        "goryeoforeign-hist-20260914-003",
+        "goryeoforeign-hist-20260914-004",
+        "goryeoforeign-hist-20260914-005",
+        "goryeoforeign-hist-20260914-006",
+        "goryeoforeign-hist-20260914-007",
+        "goryeoforeign-hist-20260914-008"
+      ]
+    },
+    {
+      "number": 70,
+      "title": "12강 고려(외교) 2",
+      "ids": [
+        "goryeoforeign-hist-20260914-009",
+        "goryeoforeign-hist-20260914-010",
+        "goryeoforeign-hist-20260914-011",
+        "goryeoforeign-hist-20260914-012",
+        "goryeoforeign-hist-20260914-013",
+        "goryeoforeign-hist-20260914-014",
+        "goryeoforeign-hist-20260914-015",
+        "goryeoforeign-hist-20260914-016"
+      ]
+    },
+    {
+      "number": 71,
+      "title": "12강 고려(외교) 3",
+      "ids": [
+        "goryeoforeign-hist-20260914-017",
+        "goryeoforeign-hist-20260914-018",
+        "goryeoforeign-hist-20260914-019",
+        "goryeoforeign-hist-20260914-020",
+        "goryeoforeign-hist-20260914-021",
+        "goryeoforeign-hist-20260914-022",
+        "goryeoforeign-hist-20260914-023",
+        "goryeoforeign-hist-20260914-024"
+      ]
+    },
+    {
+      "number": 72,
+      "title": "12강 고려(외교) 4",
+      "ids": [
+        "goryeoforeign-hist-20260914-025",
+        "goryeoforeign-hist-20260914-026",
+        "goryeoforeign-hist-20260914-027",
+        "goryeoforeign-hist-20260914-028",
+        "goryeoforeign-hist-20260914-029",
+        "goryeoforeign-hist-20260914-030",
+        "goryeoforeign-hist-20260914-031",
+        "goryeoforeign-hist-20260914-032"
+      ]
+    },
+    {
+      "number": 73,
+      "title": "12강 고려(외교) 5",
+      "ids": [
+        "goryeoforeign-hist-20260914-033",
+        "goryeoforeign-hist-20260914-034",
+        "goryeoforeign-hist-20260914-035",
+        "goryeoforeign-hist-20260914-036",
+        "goryeoforeign-hist-20260914-037",
+        "goryeoforeign-hist-20260914-038",
+        "goryeoforeign-hist-20260914-039",
+        "goryeoforeign-hist-20260914-040"
+      ]
+    },
+    {
+      "number": 74,
+      "title": "12강 고려(외교) 6",
+      "ids": [
+        "goryeoforeign-hist-20260914-041",
+        "goryeoforeign-hist-20260914-042",
+        "goryeoforeign-hist-20260914-043",
+        "goryeoforeign-hist-20260914-044",
+        "goryeoforeign-hist-20260914-045",
+        "goryeoforeign-hist-20260914-046",
+        "goryeoforeign-hist-20260914-047",
+        "goryeoforeign-hist-20260914-048"
+      ]
+    },
+    {
+      "number": 75,
+      "title": "12강 고려(외교) 7",
+      "ids": [
+        "goryeoforeign-hist-20260914-049",
+        "goryeoforeign-hist-20260914-050",
+        "goryeoforeign-hist-20260914-051",
+        "goryeoforeign-hist-20260914-052",
+        "goryeoforeign-hist-20260914-053",
+        "goryeoforeign-hist-20260914-054",
+        "goryeoforeign-hist-20260914-055",
+        "goryeoforeign-hist-20260914-056"
+      ]
+    },
+    {
+      "number": 76,
+      "title": "12강 고려(외교) 8",
+      "ids": [
+        "goryeoforeign-hist-20260914-057",
+        "goryeoforeign-hist-20260914-058",
+        "goryeoforeign-hist-20260914-059",
+        "goryeoforeign-hist-20260914-060",
+        "goryeoforeign-hist-20260914-061",
+        "goryeoforeign-hist-20260914-062",
+        "goryeoforeign-hist-20260914-063",
+        "goryeoforeign-hist-20260914-064"
+      ]
+    },
+    {
+      "number": 77,
+      "title": "12강 고려(외교) 9",
+      "ids": [
+        "goryeoforeign-hist-20260914-065",
+        "goryeoforeign-hist-20260914-066",
+        "goryeoforeign-hist-20260914-067",
+        "goryeoforeign-hist-20260914-068",
+        "goryeoforeign-hist-20260914-069",
+        "goryeoforeign-hist-20260914-070",
+        "goryeoforeign-hist-20260914-071",
+        "goryeoforeign-hist-20260914-072"
+      ]
+    },
+    {
+      "number": 78,
+      "title": "12강 고려(외교) 10",
+      "ids": [
+        "goryeoforeign-hist-20260914-073",
+        "goryeoforeign-hist-20260914-074",
+        "goryeoforeign-hist-20260914-075",
+        "goryeoforeign-hist-20260914-076",
+        "goryeoforeign-hist-20260914-077",
+        "goryeoforeign-hist-20260914-078",
+        "goryeoforeign-hist-20260914-079",
+        "goryeoforeign-hist-20260914-080"
+      ]
+    },
+    {
+      "number": 79,
+      "title": "12강 고려(외교) 11",
+      "ids": [
+        "goryeoforeign-hist-20260914-081",
+        "goryeoforeign-hist-20260914-082",
+        "goryeoforeign-hist-20260914-083",
+        "goryeoforeign-hist-20260914-084",
+        "goryeoforeign-hist-20260914-085",
+        "goryeoforeign-hist-20260914-086",
+        "goryeoforeign-hist-20260914-087",
+        "goryeoforeign-hist-20260914-088"
+      ]
+    },
+    {
+      "number": 80,
+      "title": "12강 고려(외교) 12",
+      "ids": [
+        "goryeoforeign-hist-20260914-089",
+        "goryeoforeign-hist-20260914-090",
+        "goryeoforeign-hist-20260914-091",
+        "goryeoforeign-hist-20260914-092",
+        "goryeoforeign-hist-20260914-093",
+        "goryeoforeign-hist-20260914-094",
+        "goryeoforeign-hist-20260914-095",
+        "goryeoforeign-hist-20260914-096"
+      ]
+    },
+    {
+      "number": 81,
+      "title": "12강 고려(외교) 13",
+      "ids": [
+        "goryeoforeign-hist-20260914-097",
+        "goryeoforeign-hist-20260914-098",
+        "goryeoforeign-hist-20260914-099",
+        "goryeoforeign-hist-20260914-100",
+        "goryeoforeign-hist-20260914-101",
+        "goryeoforeign-hist-20260914-102",
+        "goryeoforeign-hist-20260914-103",
+        "goryeoforeign-hist-20260914-104"
+      ]
+    },
+    {
+      "number": 82,
+      "title": "12강 고려(외교) 14",
+      "ids": [
+        "goryeoforeign-hist-20260914-105",
+        "goryeoforeign-hist-20260914-106",
+        "goryeoforeign-hist-20260914-107",
+        "goryeoforeign-hist-20260914-108",
+        "goryeoforeign-hist-20260914-109",
+        "goryeoforeign-hist-20260914-110",
+        "goryeoforeign-hist-20260914-111",
+        "goryeoforeign-hist-20260914-112"
+      ]
+    },
+    {
+      "number": 83,
+      "title": "12강 고려(외교) 15",
+      "ids": [
+        "goryeoforeign-hist-20260914-113",
+        "goryeoforeign-hist-20260914-114",
+        "goryeoforeign-hist-20260914-115",
+        "goryeoforeign-hist-20260914-116",
+        "goryeoforeign-hist-20260914-117",
+        "goryeoforeign-hist-20260914-118",
+        "goryeoforeign-hist-20260914-119"
+      ]
+    },
+    {
+      "number": 84,
+      "title": "12강 고려(외교) 16",
+      "ids": [
+        "goryeoforeign-hist-20260914-120",
+        "goryeoforeign-hist-20260914-121",
+        "goryeoforeign-hist-20260914-122",
+        "goryeoforeign-hist-20260914-123",
+        "goryeoforeign-hist-20260914-124",
+        "goryeoforeign-hist-20260914-125",
+        "goryeoforeign-hist-20260914-126"
+      ]
+    },
+    {
+      "number": 85,
+      "title": "12강 고려(외교) 17",
+      "ids": [
+        "goryeoforeign-hist-20260914-127",
+        "goryeoforeign-hist-20260914-128",
+        "goryeoforeign-hist-20260914-129",
+        "goryeoforeign-hist-20260914-130",
+        "goryeoforeign-hist-20260914-131",
+        "goryeoforeign-hist-20260914-132",
+        "goryeoforeign-hist-20260914-133"
+      ]
+    },
+    {
+      "number": 86,
+      "title": "12강 고려(외교) 18",
+      "ids": [
+        "goryeoforeign-hist-20260914-134",
+        "goryeoforeign-hist-20260914-135",
+        "goryeoforeign-hist-20260914-136",
+        "goryeoforeign-hist-20260914-137",
+        "goryeoforeign-hist-20260914-138",
+        "goryeoforeign-hist-20260914-139",
+        "goryeoforeign-hist-20260914-140"
+      ]
     }
   ],
   "lectures": [
@@ -1463,6 +1711,152 @@ globalThis.STUDY_REVIEW_CATALOG={
         "goryeomid-hist-20260914-101",
         "goryeomid-hist-20260914-102",
         "goryeomid-hist-20260914-103"
+      ]
+    },
+    {
+      "id": "12",
+      "title": "12강 고려(외교)",
+      "ids": [
+        "goryeoforeign-hist-20260914-001",
+        "goryeoforeign-hist-20260914-002",
+        "goryeoforeign-hist-20260914-003",
+        "goryeoforeign-hist-20260914-004",
+        "goryeoforeign-hist-20260914-005",
+        "goryeoforeign-hist-20260914-006",
+        "goryeoforeign-hist-20260914-007",
+        "goryeoforeign-hist-20260914-008",
+        "goryeoforeign-hist-20260914-009",
+        "goryeoforeign-hist-20260914-010",
+        "goryeoforeign-hist-20260914-011",
+        "goryeoforeign-hist-20260914-012",
+        "goryeoforeign-hist-20260914-013",
+        "goryeoforeign-hist-20260914-014",
+        "goryeoforeign-hist-20260914-015",
+        "goryeoforeign-hist-20260914-016",
+        "goryeoforeign-hist-20260914-017",
+        "goryeoforeign-hist-20260914-018",
+        "goryeoforeign-hist-20260914-019",
+        "goryeoforeign-hist-20260914-020",
+        "goryeoforeign-hist-20260914-021",
+        "goryeoforeign-hist-20260914-022",
+        "goryeoforeign-hist-20260914-023",
+        "goryeoforeign-hist-20260914-024",
+        "goryeoforeign-hist-20260914-025",
+        "goryeoforeign-hist-20260914-026",
+        "goryeoforeign-hist-20260914-027",
+        "goryeoforeign-hist-20260914-028",
+        "goryeoforeign-hist-20260914-029",
+        "goryeoforeign-hist-20260914-030",
+        "goryeoforeign-hist-20260914-031",
+        "goryeoforeign-hist-20260914-032",
+        "goryeoforeign-hist-20260914-033",
+        "goryeoforeign-hist-20260914-034",
+        "goryeoforeign-hist-20260914-035",
+        "goryeoforeign-hist-20260914-036",
+        "goryeoforeign-hist-20260914-037",
+        "goryeoforeign-hist-20260914-038",
+        "goryeoforeign-hist-20260914-039",
+        "goryeoforeign-hist-20260914-040",
+        "goryeoforeign-hist-20260914-041",
+        "goryeoforeign-hist-20260914-042",
+        "goryeoforeign-hist-20260914-043",
+        "goryeoforeign-hist-20260914-044",
+        "goryeoforeign-hist-20260914-045",
+        "goryeoforeign-hist-20260914-046",
+        "goryeoforeign-hist-20260914-047",
+        "goryeoforeign-hist-20260914-048",
+        "goryeoforeign-hist-20260914-049",
+        "goryeoforeign-hist-20260914-050",
+        "goryeoforeign-hist-20260914-051",
+        "goryeoforeign-hist-20260914-052",
+        "goryeoforeign-hist-20260914-053",
+        "goryeoforeign-hist-20260914-054",
+        "goryeoforeign-hist-20260914-055",
+        "goryeoforeign-hist-20260914-056",
+        "goryeoforeign-hist-20260914-057",
+        "goryeoforeign-hist-20260914-058",
+        "goryeoforeign-hist-20260914-059",
+        "goryeoforeign-hist-20260914-060",
+        "goryeoforeign-hist-20260914-061",
+        "goryeoforeign-hist-20260914-062",
+        "goryeoforeign-hist-20260914-063",
+        "goryeoforeign-hist-20260914-064",
+        "goryeoforeign-hist-20260914-065",
+        "goryeoforeign-hist-20260914-066",
+        "goryeoforeign-hist-20260914-067",
+        "goryeoforeign-hist-20260914-068",
+        "goryeoforeign-hist-20260914-069",
+        "goryeoforeign-hist-20260914-070",
+        "goryeoforeign-hist-20260914-071",
+        "goryeoforeign-hist-20260914-072",
+        "goryeoforeign-hist-20260914-073",
+        "goryeoforeign-hist-20260914-074",
+        "goryeoforeign-hist-20260914-075",
+        "goryeoforeign-hist-20260914-076",
+        "goryeoforeign-hist-20260914-077",
+        "goryeoforeign-hist-20260914-078",
+        "goryeoforeign-hist-20260914-079",
+        "goryeoforeign-hist-20260914-080",
+        "goryeoforeign-hist-20260914-081",
+        "goryeoforeign-hist-20260914-082",
+        "goryeoforeign-hist-20260914-083",
+        "goryeoforeign-hist-20260914-084",
+        "goryeoforeign-hist-20260914-085",
+        "goryeoforeign-hist-20260914-086",
+        "goryeoforeign-hist-20260914-087",
+        "goryeoforeign-hist-20260914-088",
+        "goryeoforeign-hist-20260914-089",
+        "goryeoforeign-hist-20260914-090",
+        "goryeoforeign-hist-20260914-091",
+        "goryeoforeign-hist-20260914-092",
+        "goryeoforeign-hist-20260914-093",
+        "goryeoforeign-hist-20260914-094",
+        "goryeoforeign-hist-20260914-095",
+        "goryeoforeign-hist-20260914-096",
+        "goryeoforeign-hist-20260914-097",
+        "goryeoforeign-hist-20260914-098",
+        "goryeoforeign-hist-20260914-099",
+        "goryeoforeign-hist-20260914-100",
+        "goryeoforeign-hist-20260914-101",
+        "goryeoforeign-hist-20260914-102",
+        "goryeoforeign-hist-20260914-103",
+        "goryeoforeign-hist-20260914-104",
+        "goryeoforeign-hist-20260914-105",
+        "goryeoforeign-hist-20260914-106",
+        "goryeoforeign-hist-20260914-107",
+        "goryeoforeign-hist-20260914-108",
+        "goryeoforeign-hist-20260914-109",
+        "goryeoforeign-hist-20260914-110",
+        "goryeoforeign-hist-20260914-111",
+        "goryeoforeign-hist-20260914-112",
+        "goryeoforeign-hist-20260914-113",
+        "goryeoforeign-hist-20260914-114",
+        "goryeoforeign-hist-20260914-115",
+        "goryeoforeign-hist-20260914-116",
+        "goryeoforeign-hist-20260914-117",
+        "goryeoforeign-hist-20260914-118",
+        "goryeoforeign-hist-20260914-119",
+        "goryeoforeign-hist-20260914-120",
+        "goryeoforeign-hist-20260914-121",
+        "goryeoforeign-hist-20260914-122",
+        "goryeoforeign-hist-20260914-123",
+        "goryeoforeign-hist-20260914-124",
+        "goryeoforeign-hist-20260914-125",
+        "goryeoforeign-hist-20260914-126",
+        "goryeoforeign-hist-20260914-127",
+        "goryeoforeign-hist-20260914-128",
+        "goryeoforeign-hist-20260914-129",
+        "goryeoforeign-hist-20260914-130",
+        "goryeoforeign-hist-20260914-131",
+        "goryeoforeign-hist-20260914-132",
+        "goryeoforeign-hist-20260914-133",
+        "goryeoforeign-hist-20260914-134",
+        "goryeoforeign-hist-20260914-135",
+        "goryeoforeign-hist-20260914-136",
+        "goryeoforeign-hist-20260914-137",
+        "goryeoforeign-hist-20260914-138",
+        "goryeoforeign-hist-20260914-139",
+        "goryeoforeign-hist-20260914-140"
       ]
     }
   ],
@@ -6002,6 +6396,1126 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서경에서 일어난 일 판별: 묘청·조위총·최광수 vs 담양 이연년"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeoforeign-hist-20260914-001": {
+      "number": 509,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "거란 침입의 배경: 고려의 북진 정책과 친송 정책"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-002": {
+      "number": 510,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "거란이 송 공격에 앞서 고려에 송과의 관계 단절 요구"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-003": {
+      "number": 511,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "1차 침입: 소손녕이 군대를 이끌고 침입"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-004": {
+      "number": 512,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "3차 침입: 강동 6주 반환 등을 요구하며 소배압 침입"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-005": {
+      "number": 513,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "1차 침입: 서희의 외교 담판"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-006": {
+      "number": 514,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "1차 침입: 강동 6주 확보"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-007": {
+      "number": 515,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "1차 침입: 성종 때"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-008": {
+      "number": 516,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "2차 침입: 강조의 정변을 구실로 침입"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-009": {
+      "number": 517,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "2차 침입: 개경 함락, 현종의 나주 피란"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-010": {
+      "number": 518,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "2차 침입: 현종의 나주 피란"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-011": {
+      "number": 519,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "2차 침입: 양규의 활약"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-012": {
+      "number": 520,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "3차 침입: 강감찬의 귀주 대첩"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-013": {
+      "number": 521,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "3차 침입의 경과: 강동 6주 반환 요구, 소배압"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-014": {
+      "number": 522,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "거란 침입의 대응 순서: 서희 → 양규 → 강감찬"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-015": {
+      "number": 523,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "거란 1·2·3차 침입 당시의 왕"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-016": {
+      "number": 524,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "소손녕(1차) vs 소배압(3차)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-017": {
+      "number": 525,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "서희(1차) vs 양규(2차) vs 강감찬(3차)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-018": {
+      "number": 526,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "3차 침입의 요구: 강동 6주 반환"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-019": {
+      "number": 527,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "거란 격퇴의 영향: 고려·송·거란 세력 균형"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-020": {
+      "number": 528,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "거란 격퇴의 영향: 개경에 나성 축조"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-021": {
+      "number": 529,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "거란 격퇴의 영향: 국경 지역에 천리장성 축조"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-022": {
+      "number": 530,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "천리장성(거란) vs 동북 9성(여진)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-023": {
+      "number": 531,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "거란 격퇴의 영향: 초조대장경 제작(부처의 힘으로 거란 격퇴 염원)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-024": {
+      "number": 532,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "초조대장경(거란) vs 팔만대장경(몽골)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-025": {
+      "number": 533,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "몽골 침입의 영향: 초조대장경판 소실"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-026": {
+      "number": 534,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "숙종 때 윤관의 건의로 별무반 편성"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-027": {
+      "number": 535,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "예종 때 윤관이 별무반을 이끌고 여진 정벌"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-028": {
+      "number": 536,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "별무반의 구성: 신기군·신보군·항마군"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-029": {
+      "number": 537,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "별무반: 항마군(승병)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-030": {
+      "number": 538,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "별무반: 신기군(기병)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-031": {
+      "number": 539,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "여진족의 성장·잦은 충돌 → 별무반 편성"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-032": {
+      "number": 540,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "별무반 vs 삼별초"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-033": {
+      "number": 541,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "동북 지방에 9성 축조"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-034": {
+      "number": 542,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "여진의 반환 요청·조공 약속 → 1년여 만에 9성 반환"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-035": {
+      "number": 543,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "여진과의 관계 순서"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-036": {
+      "number": 544,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "여진이 금을 세우고 거란(요)을 멸망시킴"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-037": {
+      "number": 545,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "이자겸이 정권 유지와 전쟁 방지를 위해 금의 사대 요구 수용"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-038": {
+      "number": 546,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "금 건국 이후의 흐름: 거란 멸망 → 사대 요구 수용 → 묘청의 난"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-039": {
+      "number": 547,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "국교 수립: 몽골에 쫓긴 거란족을 함께 토벌 → 국교 체결"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-040": {
+      "number": 548,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "강동성 전투"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-041": {
+      "number": 549,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "몽골 침입의 구실: 저고여 피살"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-042": {
+      "number": 550,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "몽골 침입의 원인: 지나친 공물 요구"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-043": {
+      "number": 551,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "몽골 1차 침입 후 강화 천도(장기 항전 목적)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-044": {
+      "number": 552,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "강화 천도의 왕대: 고종(최우 집권기)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-045": {
+      "number": 553,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "귀주성 전투: 박서·송문주"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-046": {
+      "number": 554,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "귀주 대첩(강감찬, 거란) vs 귀주성 전투(박서, 몽골)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-047": {
+      "number": 555,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "처인성 전투: 김윤후, 살리타 사살"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-048": {
+      "number": 556,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "김윤후: 처인성(살리타 사살) vs 충주성(노비와 천민)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-049": {
+      "number": 557,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "죽주 전투: 송문주가 죽주성 사수"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-050": {
+      "number": 558,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "박서(귀주성) vs 김윤후(처인성·충주성)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-051": {
+      "number": 559,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "충주 다인철소 주민의 저항"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-052": {
+      "number": 560,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "몽골과의 전투 순서"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-053": {
+      "number": 561,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "몽골과의 관계 흐름: 강동성 → 강화 천도 → 개경 환도 → 삼별초"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-054": {
+      "number": 562,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "몽골과 강화 체결, 무신 정권 붕괴, 개경 환도"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-055": {
+      "number": 563,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "개경 환도의 왕대: 원종"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-056": {
+      "number": 564,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "원종 때: 개경 환도에 반발한 삼별초 봉기"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-057": {
+      "number": 565,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "몽골 침입 때 대장도감 설치, 팔만대장경 조판·간행"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-058": {
+      "number": 566,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "팔만대장경 간행 기구: 대장도감"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-059": {
+      "number": 567,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "몽골 침입의 영향: 국토 황폐화, 초조대장경판 소실"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-060": {
+      "number": 568,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "거란 vs 몽골 침입의 영향 짝"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-061": {
+      "number": 569,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "삼별초 항쟁의 원인: 개경 환도 결정에 반발"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-062": {
+      "number": 570,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "삼별초: 승화후 왕온을 왕으로 추대"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-063": {
+      "number": 571,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "삼별초: 강화도에서 배중손 지휘"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-064": {
+      "number": 572,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "삼별초: 제주도에서 김통정 지휘"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-065": {
+      "number": 573,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "배중손(강화도) vs 김통정(제주도)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-066": {
+      "number": 574,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "삼별초: 진도 용장성"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-067": {
+      "number": 575,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "삼별초: 제주도 항파두리"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-068": {
+      "number": 576,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "삼별초 근거지 이동 순서: 강화도 → 진도 → 제주도"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-069": {
+      "number": 577,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "진도–용장성 / 제주도–항파두리"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-070": {
+      "number": 578,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "삼별초 항쟁의 결과: 고려·몽골 연합군에 진압"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-071": {
+      "number": 579,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "강화도: 강화 천도와 배중손의 항쟁"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 134쪽 고려의 대외 관계"
+    },
+    "goryeoforeign-hist-20260914-072": {
+      "number": 580,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "쌍성총관부: 화주(영흥), 철령 이북 직속령"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-073": {
+      "number": 581,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "동녕부: 서경, 자비령 이북"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-074": {
+      "number": 582,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "영토 축소 3기구와 설치 지역"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-075": {
+      "number": 583,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "철령 이북(쌍성총관부) vs 자비령 이북(동녕부)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-076": {
+      "number": 584,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "탐라총관부: 삼별초 진압 후 제주도, 목마장 경영"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-077": {
+      "number": 585,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "제주도: 탐라총관부"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-078": {
+      "number": 586,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "영토 축소 기구가 아닌 것: 정동행성"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-079": {
+      "number": 587,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "고려 왕이 원의 공주와 결혼(부마국)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-080": {
+      "number": 588,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "왕실 호칭 격하: 짐→고, 폐하→전하, 조·종→왕"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-081": {
+      "number": 589,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "관제 격하: 중서문하성·상서성 → 첨의부"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-082": {
+      "number": 590,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "관제 격하: 6부 → 4사, 중추원 → 밀직사"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-083": {
+      "number": 591,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "관제 격하: 중추원 → 밀직사"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-084": {
+      "number": 592,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "원 간섭기 관제 격하 vs 공민왕 관제 복구"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-085": {
+      "number": 593,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "내정 간섭: 다루가치(감찰관) 파견"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-086": {
+      "number": 594,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "정동행성: 충렬왕 때 일본 원정 추진"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-087": {
+      "number": 595,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "여·원 연합군의 일본 원정: 충렬왕 때 두 차례, 실패"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-088": {
+      "number": 596,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "다루가치(감찰) vs 결혼도감(공녀) vs 응방(매)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-089": {
+      "number": 597,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "내정 간섭 항목"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-090": {
+      "number": 598,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "결혼도감 설치, 공녀 강제 선발 → 조혼 풍습"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-091": {
+      "number": 599,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "결혼도감"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-092": {
+      "number": 600,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "응방 설치(매 징발)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-093": {
+      "number": 601,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "특산물 징발: 금·은·베·인삼·약재"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-094": {
+      "number": 602,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "인적·물적 수탈 항목"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-095": {
+      "number": 603,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "권문세족: 도평의사사(도당)와 정방 장악"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-096": {
+      "number": 604,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "권문세족: 음서, 대농장"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-097": {
+      "number": 605,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "도평의사사(도당)를 장악한 세력: 권문세족"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-098": {
+      "number": 606,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "공민왕 개혁에서 권문세족(억압) vs 신진 사대부(등용)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-099": {
+      "number": 607,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "몽골풍(고려에 전래) vs 고려양(몽골에 전래)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-100": {
+      "number": 608,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "고려양: 두루마기 등"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-101": {
+      "number": 609,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "몽골풍·몽골 음식: 족두리·연지·소주 등"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-102": {
+      "number": 610,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "충선왕: 사림원 설치"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-103": {
+      "number": 611,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "충목왕: 정치도감 설치"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-104": {
+      "number": 612,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "충선왕(사림원) vs 충목왕(정치도감)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-105": {
+      "number": 613,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "충선왕·충목왕의 공통 개혁: 정방 폐지"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-106": {
+      "number": 614,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "공민왕: 기철 등 친원 세력 숙청"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-107": {
+      "number": 615,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "공민왕: 정동행성 이문소 폐지"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-108": {
+      "number": 616,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "공민왕: 유인우·이자춘 등을 보내 쌍성총관부 공격"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-109": {
+      "number": 617,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "쌍성총관부 공격의 결과: 철령 이북 수복"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-110": {
+      "number": 618,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "공민왕: 고려의 관제 복구"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-111": {
+      "number": 619,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "공민왕: 몽골풍 금지"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-112": {
+      "number": 620,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "공민왕: 전민변정도감 설치(신돈 등용)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-113": {
+      "number": 621,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "전민변정도감: 권문세족 억압, 재정 기반 확대"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-114": {
+      "number": 622,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "공민왕: 정방 폐지(국왕이 인사권 장악)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-115": {
+      "number": 623,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "공민왕: 신진 사대부 등용"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-116": {
+      "number": 624,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "공민왕 반원 자주 vs 왕권 강화 정책 분류"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-117": {
+      "number": 625,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "개혁의 결과: 권문세족 반발 → 신돈 제거, 공민왕 시해"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+    },
+    "goryeoforeign-hist-20260914-118": {
+      "number": 626,
+      "section": "고려의 멸망",
+      "coverage": [
+        "홍건적 침입 → 공민왕 안동 피신"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-119": {
+      "number": 627,
+      "section": "고려의 멸망",
+      "coverage": [
+        "홍건적: 한족 반란군"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-120": {
+      "number": 628,
+      "section": "고려의 멸망",
+      "coverage": [
+        "공민왕의 안동 피신"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-121": {
+      "number": 629,
+      "section": "고려의 멸망",
+      "coverage": [
+        "공민왕 때: 홍건적 침입·안동 피신"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-122": {
+      "number": 630,
+      "section": "고려의 멸망",
+      "coverage": [
+        "홍산 대첩: 최영"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-123": {
+      "number": 631,
+      "section": "고려의 멸망",
+      "coverage": [
+        "진포 대첩: 최무선·나세·심덕부"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-124": {
+      "number": 632,
+      "section": "고려의 멸망",
+      "coverage": [
+        "진포 대첩: 화포 사용"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-125": {
+      "number": 633,
+      "section": "고려의 멸망",
+      "coverage": [
+        "황산 대첩: 이성계"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-126": {
+      "number": 634,
+      "section": "고려의 멸망",
+      "coverage": [
+        "관음포 전투: 정지"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-127": {
+      "number": 635,
+      "section": "고려의 멸망",
+      "coverage": [
+        "창왕 때 박위의 쓰시마섬 토벌"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-128": {
+      "number": 636,
+      "section": "고려의 멸망",
+      "coverage": [
+        "홍산(최영)·진포(최무선)·황산(이성계)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-129": {
+      "number": 637,
+      "section": "고려의 멸망",
+      "coverage": [
+        "왜구 격퇴 순서: 홍산 → 진포 → 황산 → 관음포"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-130": {
+      "number": 638,
+      "section": "고려의 멸망",
+      "coverage": [
+        "신흥 무인 세력의 성장"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-131": {
+      "number": 639,
+      "section": "고려의 멸망",
+      "coverage": [
+        "신흥 무인 세력: 최영·이성계"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-132": {
+      "number": 640,
+      "section": "고려의 멸망",
+      "coverage": [
+        "요동 정벌의 계기: 명의 철령위 설치 통보"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-133": {
+      "number": 641,
+      "section": "고려의 멸망",
+      "coverage": [
+        "이성계의 반대(4불가론)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-134": {
+      "number": 642,
+      "section": "고려의 멸망",
+      "coverage": [
+        "요동 정벌: 최영(추진) vs 이성계(반대)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-135": {
+      "number": 643,
+      "section": "고려의 멸망",
+      "coverage": [
+        "이성계의 위화도 회군"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-136": {
+      "number": 644,
+      "section": "고려의 멸망",
+      "coverage": [
+        "위화도 회군 뒤 과전법 실시"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-137": {
+      "number": 645,
+      "section": "고려의 멸망",
+      "coverage": [
+        "고려 멸망 과정 순서"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-138": {
+      "number": 646,
+      "section": "고려의 멸망",
+      "coverage": [
+        "고려 말 사건 순서: 홍건적 → 황산 → 위화도 회군 → 쓰시마섬 토벌"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-139": {
+      "number": 647,
+      "section": "고려의 멸망",
+      "coverage": [
+        "우왕 때: 요동 정벌"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeoforeign-hist-20260914-140": {
+      "number": 648,
+      "section": "고려의 멸망",
+      "coverage": [
+        "창왕(박위의 쓰시마섬 토벌) vs 공양왕(과전법)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
     }
   }
 };
