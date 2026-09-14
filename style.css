@@ -195,3 +195,8 @@ body[data-view="quiz"] main { padding-top:14px; }
 .memorize-cell .memorize-hidden { color:#8e99a8; }
 .memorize-cell.shown { border-color:#789ac4; background:#243247; }
 @media (max-width:380px) { .memorize-pair { grid-template-columns:1fr; } }
+.choice-error { background:#5a2a30; color:#ffe3e3; text-decoration:underline wavy #ff9c9c; text-underline-offset:3px; padding:0 2px; border-radius:3px; }
+.choice-fix { color:#82d6a4; font-weight:700; }
+.choice-ok { color:#9fb3c8; font-size:.9em; }
+.marked-choices { margin:8px 0 12px; }
+.marked-choices .example { margin:6px 0; }

@@ -49,7 +49,7 @@ for(const [id,lesson]of Object.entries(bank)){
  for(const row of lesson.variants.filter(e=>e.type==='choice')){
   const n=lesson.variants.length+(options[id]?1:0);
   const shown=Array.from({length:n*2},(_,i)=>practice.select(card,Array.from({length:i},()=>({cardId:id})),bank,options)).filter(e=>e.question===row.question);
-  assert.equal(shown.length,2);for(const e of shown){assert.equal(e.choices[e.correctIndex],row.choices[row.correctIndex]);assert.equal(e.explanation,row.explanation);const fresh=practice.refresh(card,e,bank,options);assert.equal(fresh.exerciseId,e.exerciseId);assert.deepEqual(fresh.choices,e.choices);}
+  assert.equal(shown.length,2);for(const e of shown){assert.equal(e.choices[e.correctIndex],row.choices[row.correctIndex]);assert.equal(e.explanation.replace(/[①②③④]/g,'#'),row.explanation.replace(/[①②③④]/g,'#'));const fresh=practice.refresh(card,e,bank,options);assert.equal(fresh.exerciseId,e.exerciseId);assert.deepEqual(fresh.choices,e.choices);}
  }
 }
 assert.equal(practice.grade(bank['en-session-20260909-help-v1'].variants[0],'to learn'),true);
@@ -120,3 +120,21 @@ const plainText={type:'text',question:'q',answers:['ans'],explanation:'e',exerci
 const textDetail=record.create(plainCard,plainText,'ans',null,'concept-plain');
 assert.equal(textDetail.options,'');assert.equal(textDetail.submittedAnswer,'ans');assert.equal(textDetail.correctAnswer,'ans');
 console.log('PASS practice: one question per practice entry (Day 1 60, Day 2 60, Day 3 178, 수일치 95, 영문법 60, 국어 논리 1장 31 · 2장 179 · 3장 181 four-option), same question on retry with a moved answer number, split questions keep their rule text, answer normalization, alternative valid answers, contrasting variants, shuffled answer mapping, photo options (shuffle, grading, history snapshot), unchanged text records, assisted progress on another device');
+// 보기를 섞어도 해설의 ①~④와 보기별 틀린 곳 표시는 화면에 보이는 순서를 따라간다(이어 풀기로 저장된 순서도 같다).
+{
+ const choices=['Alpha one.','Bravo two.','Charlie three.','Delta four.'],marks=[null,[{wrong:'Bravo',fix:'B'}],null,[{wrong:'four',fix:'4'}]];
+ const opt={'t-order':{question:'q',choices,correctIndex:1,explanation:'① Alpha ② Bravo ③ Charlie ④ Delta',marks}};
+ const check=(e,what)=>{for(const m of e.explanation.matchAll(/([①②③④]) (\w+)/g))assert.ok(e.choices['①②③④'.indexOf(m[1])].startsWith(m[2]),what+': '+e.explanation+' / '+e.choices);e.choices.forEach((c,i)=>assert.deepEqual(e.marks[i],marks[choices.indexOf(c)],what));};
+ for(let n=0;n<8;n++){
+  const e=practice.select({id:'t-order'},Array.from({length:n},()=>({cardId:'t-order'})),{},opt);check(e,'해설 번호가 섞인 보기 자리를 가리킨다');
+  const saved={...e,choices:[...e.choices].reverse()},r=practice.refresh({id:'t-order'},saved,{},opt);
+  assert.deepEqual(r.choices,saved.choices);check(r,'이어 풀기 순서에서도 해설 번호가 맞는다');
+ }
+ assert.deepEqual(opt['t-order'].choices,choices,'원본 보기는 바뀌지 않는다');
+ for(const [id,l] of Object.entries(bank))for(const v of l.variants)if(v.marks){
+  assert.equal(v.marks.length,v.choices.length,id);
+  v.marks.forEach((ms,i)=>{if(ms)for(const m of ms){assert.ok(m.wrong&&m.fix&&m.wrong!==m.fix,id);assert.equal(v.choices[i].split(m.wrong).length,2,'틀린 곳 표시는 보기 문장 안에 한 번만 나온다: '+id);}});
+  assert.equal(new Set(v.choices).size,v.choices.length,'표시가 있는 문제의 보기는 서로 다르다: '+id);
+ }
+}
+console.log('practice: option numbers in explanations and error marks follow the shuffled order');

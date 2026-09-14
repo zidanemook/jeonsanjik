@@ -3,6 +3,12 @@
  function normalize(s){return String(s).normalize('NFKC').trim().toLowerCase().replace(/[‘’]/g,"'").replace(/[.!?]+$/,'').replace(/\s+/g,' ').trim();}
  function grade(exercise,input){return exercise.type==='text'&&exercise.answers.some(a=>normalize(a)===normalize(input));}
  function fingerprint(text){let n=2166136261;for(const c of text)n=Math.imul(n^c.charCodeAt(0),16777619)>>>0;return n.toString(16);}
+ // Explanations cite options as ①~④ and marks list each option's wrong words, both in the order they had in `from`; follow the shown order.
+ function reorder(exercise,from){
+  const nums='①②③④⑤',at=from.map(c=>exercise.choices.indexOf(c));
+  if(exercise.explanation)exercise.explanation=exercise.explanation.replace(/[①②③④⑤]/g,m=>at[nums.indexOf(m)]>=0?nums[at[nums.indexOf(m)]]:m);
+  if(exercise.marks)exercise.marks=exercise.choices.map(c=>exercise.marks[from.indexOf(c)]??null);
+ }
  function select(card,history,bank,options){
   const lesson=bank[card.id],base=options[card.id];
   const mcq=base?[{...base,question:base.question||card.question,explanation:base.explanation||card.explanation,type:'choice'}]:[];
@@ -22,7 +28,7 @@
    // A retry of the same variant never keeps the previous attempt's answer number.
    let choices,previous=-1;
    for(let n=index;n<=count;n+=variants.length){choices=shuffle(n);if(choices.indexOf(correct)===previous)choices.push(choices.shift());previous=choices.indexOf(correct);}
-   exercise.choices=choices;exercise.correctIndex=previous;
+   const from=exercise.choices;exercise.choices=choices;exercise.correctIndex=previous;reorder(exercise,from);
   }
   return exercise;
  }
@@ -35,7 +41,7 @@
   const current=select(card,Array.from({length:index},()=>({cardId:card.id})),bank,options);
   if(!current)return null;
   if(current.type==='choice'&&!current.fixedOrder&&saved?.type==='choice'&&JSON.stringify([...current.choices].sort())===JSON.stringify([...saved.choices].sort())){
-   const correct=current.choices[current.correctIndex];current.choices=[...saved.choices];current.correctIndex=current.choices.indexOf(correct);
+   const correct=current.choices[current.correctIndex],from=current.choices;current.choices=[...saved.choices];current.correctIndex=current.choices.indexOf(correct);reorder(current,from);
   }
   return current;
  }
