@@ -49,12 +49,20 @@ assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day3-rule-inf
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day3-rule-verbal-idiom')||x.exercise.type!=='choice')),/MCQ required: grammar-day3-rule-verbal-idiom/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day3-rule-participle-clause'))),/Missing coverage/);
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day3-005'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-day3-001').lesson.point}}:x)),/One grammar point, one concept/);
-// 국어 사고의 힘 논리: 개념(point) 하나가 개념 묶음 하나(48개)다. 영어의 직접쓰기 하한은 걸리지 않고, 장별 문제 수 하한·필수 개념·4지선다만을 요구한다.
-{const ko=list.filter(x=>x.card.id.startsWith('ko-logic'));assert.equal(ko.length,143);assert.ok(ko.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-logic-')));assert.equal(new Set(ko.map(x=>x.conceptId)).size,48);
+// 국어 사고의 힘 논리: 개념(point) 하나가 개념 묶음 하나(1·2장 56개 + 3장 27개 = 83개)다. 영어의 직접쓰기 하한은 걸리지 않고, 장별 문제 수 하한·필수 개념·4지선다만을 요구한다.
+{const ko=list.filter(x=>x.card.id.startsWith('ko-logic'));assert.equal(ko.length,391);assert.ok(ko.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-logic-')));assert.equal(new Set(ko.map(x=>x.conceptId)).size,83);
  assert.equal(policy.concept('ko-logic2-087'),policy.concept('ko-logic2-091'),'대우 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic2-087'),policy.concept('ko-logic2-082'),'대우와 드모르간은 다른 개념');
- assert.equal(policy.concept('ko-logic2-069'),'korean-logic-affirming-consequent');assert.equal(policy.concept('ko-logic2-035'),'korean-logic-conditional-truth');}
+ assert.equal(policy.concept('ko-logic2-069'),'korean-logic-affirming-consequent');assert.equal(policy.concept('ko-logic2-035'),'korean-logic-conditional-truth');
+ assert.equal(policy.concept('ko-logic2-138'),'korean-logic-if-vs-only-if');assert.equal(policy.concept('ko-logic2-138'),policy.concept('ko-logic2-145'),'경우·경우에만 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic2-016'),policy.concept('ko-logic2-113'),'2장 보강 충분조건의 뜻은 기존 필요조건과 충분조건과 다른 개념');
+ assert.equal(policy.concept('ko-logic3-106'),'korean-logic-undistributed-middle');assert.equal(policy.concept('ko-logic3-106'),policy.concept('ko-logic3-112'),'매개념 부주연 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic3-106'),policy.concept('ko-logic3-113'),'매개념 부주연과 대개념 부당 주연은 다른 개념');assert.equal(policy.concept('ko-logic3-079'),'korean-logic-conversion');}
 assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic1-')||Number(x.card.id.slice(-2))<=24)),/Korean textbook floor: 논리 1장 has 24, needs 25/);
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='대우')),/Missing Korean coverage: 논리 2장 \/ 대우/);
+assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic2-')||Number(x.card.id.slice(-3))<=139)),/Korean textbook floor: 논리 2장 has 139, needs 140/);
+assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic3-')||Number(x.card.id.slice(-3))<=144)),/Korean textbook floor: 논리 3장 has 144, needs 145/);
+assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='환위')),/Missing Korean coverage: 논리 3장 \/ 환위/);
+assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='조건 관계의 연결과 뒤집기')),/Missing Korean coverage: 논리 2장 \/ 조건 관계의 연결과 뒤집기/);
+assert.throws(()=>audit.coverage(list.map(x=>x.card.id==='ko-logic3-001'?{...x,exercise:{...x.exercise,type:'text',answers:['정언 논리']}}:x)),/four-option only: ko-logic3-001/);
+assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='ko-logic3-107'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='ko-logic3-113').lesson.point}}:x)),/One grammar point, one concept/);
 assert.throws(()=>audit.coverage(list.map(x=>x.card.id==='ko-logic2-001'?{...x,exercise:{...x.exercise,type:'text',answers:['명제 논리']}}:x)),/four-option only: ko-logic2-001/);
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='ko-logic2-088'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='ko-logic2-082').lesson.point}}:x)),/One grammar point, one concept/);
 // The learning behaviour the bundles used to give: a wrong answer brings back the other questions on the same rule after the sibling gap,
