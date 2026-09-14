@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 405,
+  "total": 508,
   "sets": [
     {
       "number": 1,
@@ -737,6 +737,187 @@ globalThis.STUDY_REVIEW_CATALOG={
         "goryeo-hist-20260912-51",
         "goryeo-hist-20260912-52"
       ]
+    },
+    {
+      "number": 56,
+      "title": "11강 고려(중기 정치~무신 정변) 1",
+      "ids": [
+        "goryeomid-hist-20260914-001",
+        "goryeomid-hist-20260914-002",
+        "goryeomid-hist-20260914-003",
+        "goryeomid-hist-20260914-004",
+        "goryeomid-hist-20260914-005",
+        "goryeomid-hist-20260914-006",
+        "goryeomid-hist-20260914-007",
+        "goryeomid-hist-20260914-008"
+      ]
+    },
+    {
+      "number": 57,
+      "title": "11강 고려(중기 정치~무신 정변) 2",
+      "ids": [
+        "goryeomid-hist-20260914-009",
+        "goryeomid-hist-20260914-010",
+        "goryeomid-hist-20260914-011",
+        "goryeomid-hist-20260914-012",
+        "goryeomid-hist-20260914-013",
+        "goryeomid-hist-20260914-014",
+        "goryeomid-hist-20260914-015",
+        "goryeomid-hist-20260914-016"
+      ]
+    },
+    {
+      "number": 58,
+      "title": "11강 고려(중기 정치~무신 정변) 3",
+      "ids": [
+        "goryeomid-hist-20260914-017",
+        "goryeomid-hist-20260914-018",
+        "goryeomid-hist-20260914-019",
+        "goryeomid-hist-20260914-020",
+        "goryeomid-hist-20260914-021",
+        "goryeomid-hist-20260914-022",
+        "goryeomid-hist-20260914-023",
+        "goryeomid-hist-20260914-024"
+      ]
+    },
+    {
+      "number": 59,
+      "title": "11강 고려(중기 정치~무신 정변) 4",
+      "ids": [
+        "goryeomid-hist-20260914-025",
+        "goryeomid-hist-20260914-026",
+        "goryeomid-hist-20260914-027",
+        "goryeomid-hist-20260914-028",
+        "goryeomid-hist-20260914-029",
+        "goryeomid-hist-20260914-030",
+        "goryeomid-hist-20260914-031",
+        "goryeomid-hist-20260914-032"
+      ]
+    },
+    {
+      "number": 60,
+      "title": "11강 고려(중기 정치~무신 정변) 5",
+      "ids": [
+        "goryeomid-hist-20260914-033",
+        "goryeomid-hist-20260914-034",
+        "goryeomid-hist-20260914-035",
+        "goryeomid-hist-20260914-036",
+        "goryeomid-hist-20260914-037",
+        "goryeomid-hist-20260914-038",
+        "goryeomid-hist-20260914-039",
+        "goryeomid-hist-20260914-040"
+      ]
+    },
+    {
+      "number": 61,
+      "title": "11강 고려(중기 정치~무신 정변) 6",
+      "ids": [
+        "goryeomid-hist-20260914-041",
+        "goryeomid-hist-20260914-042",
+        "goryeomid-hist-20260914-043",
+        "goryeomid-hist-20260914-044",
+        "goryeomid-hist-20260914-045",
+        "goryeomid-hist-20260914-046",
+        "goryeomid-hist-20260914-047",
+        "goryeomid-hist-20260914-048"
+      ]
+    },
+    {
+      "number": 62,
+      "title": "11강 고려(중기 정치~무신 정변) 7",
+      "ids": [
+        "goryeomid-hist-20260914-049",
+        "goryeomid-hist-20260914-050",
+        "goryeomid-hist-20260914-051",
+        "goryeomid-hist-20260914-052",
+        "goryeomid-hist-20260914-053",
+        "goryeomid-hist-20260914-054",
+        "goryeomid-hist-20260914-055",
+        "goryeomid-hist-20260914-056"
+      ]
+    },
+    {
+      "number": 63,
+      "title": "11강 고려(중기 정치~무신 정변) 8",
+      "ids": [
+        "goryeomid-hist-20260914-057",
+        "goryeomid-hist-20260914-058",
+        "goryeomid-hist-20260914-059",
+        "goryeomid-hist-20260914-060",
+        "goryeomid-hist-20260914-061",
+        "goryeomid-hist-20260914-062",
+        "goryeomid-hist-20260914-063",
+        "goryeomid-hist-20260914-064"
+      ]
+    },
+    {
+      "number": 64,
+      "title": "11강 고려(중기 정치~무신 정변) 9",
+      "ids": [
+        "goryeomid-hist-20260914-065",
+        "goryeomid-hist-20260914-066",
+        "goryeomid-hist-20260914-067",
+        "goryeomid-hist-20260914-068",
+        "goryeomid-hist-20260914-069",
+        "goryeomid-hist-20260914-070",
+        "goryeomid-hist-20260914-071",
+        "goryeomid-hist-20260914-072"
+      ]
+    },
+    {
+      "number": 65,
+      "title": "11강 고려(중기 정치~무신 정변) 10",
+      "ids": [
+        "goryeomid-hist-20260914-073",
+        "goryeomid-hist-20260914-074",
+        "goryeomid-hist-20260914-075",
+        "goryeomid-hist-20260914-076",
+        "goryeomid-hist-20260914-077",
+        "goryeomid-hist-20260914-078",
+        "goryeomid-hist-20260914-079",
+        "goryeomid-hist-20260914-080"
+      ]
+    },
+    {
+      "number": 66,
+      "title": "11강 고려(중기 정치~무신 정변) 11",
+      "ids": [
+        "goryeomid-hist-20260914-081",
+        "goryeomid-hist-20260914-082",
+        "goryeomid-hist-20260914-083",
+        "goryeomid-hist-20260914-084",
+        "goryeomid-hist-20260914-085",
+        "goryeomid-hist-20260914-086",
+        "goryeomid-hist-20260914-087",
+        "goryeomid-hist-20260914-088"
+      ]
+    },
+    {
+      "number": 67,
+      "title": "11강 고려(중기 정치~무신 정변) 12",
+      "ids": [
+        "goryeomid-hist-20260914-089",
+        "goryeomid-hist-20260914-090",
+        "goryeomid-hist-20260914-091",
+        "goryeomid-hist-20260914-092",
+        "goryeomid-hist-20260914-093",
+        "goryeomid-hist-20260914-094",
+        "goryeomid-hist-20260914-095",
+        "goryeomid-hist-20260914-096"
+      ]
+    },
+    {
+      "number": 68,
+      "title": "11강 고려(중기 정치~무신 정변) 13",
+      "ids": [
+        "goryeomid-hist-20260914-097",
+        "goryeomid-hist-20260914-098",
+        "goryeomid-hist-20260914-099",
+        "goryeomid-hist-20260914-100",
+        "goryeomid-hist-20260914-101",
+        "goryeomid-hist-20260914-102",
+        "goryeomid-hist-20260914-103"
+      ]
     }
   ],
   "lectures": [
@@ -1173,6 +1354,115 @@ globalThis.STUDY_REVIEW_CATALOG={
         "goryeo-hist-20260912-50",
         "goryeo-hist-20260912-51",
         "goryeo-hist-20260912-52"
+      ]
+    },
+    {
+      "id": "11",
+      "title": "11강 고려(중기 정치~무신 정변)",
+      "ids": [
+        "goryeomid-hist-20260914-001",
+        "goryeomid-hist-20260914-002",
+        "goryeomid-hist-20260914-003",
+        "goryeomid-hist-20260914-004",
+        "goryeomid-hist-20260914-005",
+        "goryeomid-hist-20260914-006",
+        "goryeomid-hist-20260914-007",
+        "goryeomid-hist-20260914-008",
+        "goryeomid-hist-20260914-009",
+        "goryeomid-hist-20260914-010",
+        "goryeomid-hist-20260914-011",
+        "goryeomid-hist-20260914-012",
+        "goryeomid-hist-20260914-013",
+        "goryeomid-hist-20260914-014",
+        "goryeomid-hist-20260914-015",
+        "goryeomid-hist-20260914-016",
+        "goryeomid-hist-20260914-017",
+        "goryeomid-hist-20260914-018",
+        "goryeomid-hist-20260914-019",
+        "goryeomid-hist-20260914-020",
+        "goryeomid-hist-20260914-021",
+        "goryeomid-hist-20260914-022",
+        "goryeomid-hist-20260914-023",
+        "goryeomid-hist-20260914-024",
+        "goryeomid-hist-20260914-025",
+        "goryeomid-hist-20260914-026",
+        "goryeomid-hist-20260914-027",
+        "goryeomid-hist-20260914-028",
+        "goryeomid-hist-20260914-029",
+        "goryeomid-hist-20260914-030",
+        "goryeomid-hist-20260914-031",
+        "goryeomid-hist-20260914-032",
+        "goryeomid-hist-20260914-033",
+        "goryeomid-hist-20260914-034",
+        "goryeomid-hist-20260914-035",
+        "goryeomid-hist-20260914-036",
+        "goryeomid-hist-20260914-037",
+        "goryeomid-hist-20260914-038",
+        "goryeomid-hist-20260914-039",
+        "goryeomid-hist-20260914-040",
+        "goryeomid-hist-20260914-041",
+        "goryeomid-hist-20260914-042",
+        "goryeomid-hist-20260914-043",
+        "goryeomid-hist-20260914-044",
+        "goryeomid-hist-20260914-045",
+        "goryeomid-hist-20260914-046",
+        "goryeomid-hist-20260914-047",
+        "goryeomid-hist-20260914-048",
+        "goryeomid-hist-20260914-049",
+        "goryeomid-hist-20260914-050",
+        "goryeomid-hist-20260914-051",
+        "goryeomid-hist-20260914-052",
+        "goryeomid-hist-20260914-053",
+        "goryeomid-hist-20260914-054",
+        "goryeomid-hist-20260914-055",
+        "goryeomid-hist-20260914-056",
+        "goryeomid-hist-20260914-057",
+        "goryeomid-hist-20260914-058",
+        "goryeomid-hist-20260914-059",
+        "goryeomid-hist-20260914-060",
+        "goryeomid-hist-20260914-061",
+        "goryeomid-hist-20260914-062",
+        "goryeomid-hist-20260914-063",
+        "goryeomid-hist-20260914-064",
+        "goryeomid-hist-20260914-065",
+        "goryeomid-hist-20260914-066",
+        "goryeomid-hist-20260914-067",
+        "goryeomid-hist-20260914-068",
+        "goryeomid-hist-20260914-069",
+        "goryeomid-hist-20260914-070",
+        "goryeomid-hist-20260914-071",
+        "goryeomid-hist-20260914-072",
+        "goryeomid-hist-20260914-073",
+        "goryeomid-hist-20260914-074",
+        "goryeomid-hist-20260914-075",
+        "goryeomid-hist-20260914-076",
+        "goryeomid-hist-20260914-077",
+        "goryeomid-hist-20260914-078",
+        "goryeomid-hist-20260914-079",
+        "goryeomid-hist-20260914-080",
+        "goryeomid-hist-20260914-081",
+        "goryeomid-hist-20260914-082",
+        "goryeomid-hist-20260914-083",
+        "goryeomid-hist-20260914-084",
+        "goryeomid-hist-20260914-085",
+        "goryeomid-hist-20260914-086",
+        "goryeomid-hist-20260914-087",
+        "goryeomid-hist-20260914-088",
+        "goryeomid-hist-20260914-089",
+        "goryeomid-hist-20260914-090",
+        "goryeomid-hist-20260914-091",
+        "goryeomid-hist-20260914-092",
+        "goryeomid-hist-20260914-093",
+        "goryeomid-hist-20260914-094",
+        "goryeomid-hist-20260914-095",
+        "goryeomid-hist-20260914-096",
+        "goryeomid-hist-20260914-097",
+        "goryeomid-hist-20260914-098",
+        "goryeomid-hist-20260914-099",
+        "goryeomid-hist-20260914-100",
+        "goryeomid-hist-20260914-101",
+        "goryeomid-hist-20260914-102",
+        "goryeomid-hist-20260914-103"
       ]
     }
   ],
@@ -4888,6 +5178,830 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정종: 거란 대비 광군 창설"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+    },
+    "goryeomid-hist-20260914-001": {
+      "number": 406,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "문벌 형성: 지방 호족과 6두품 출신 유학자 중심의 새 지배층"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-002": {
+      "number": 407,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "문벌의 뜻: 여러 세대에 걸쳐 중앙 고위 관직자를 배출한 가문"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-003": {
+      "number": 408,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "문벌의 정치 기반: 과거와 음서로 관직 진출, 정치권력 독점"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-004": {
+      "number": 409,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "문벌의 경제 기반: 직역의 대가인 토지·녹봉과 권력을 이용한 토지 확대"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-005": {
+      "number": 410,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "문벌의 혼인: 폐쇄적 혼인, 왕실과 혼인해 외척으로 성장"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-006": {
+      "number": 411,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "대표 문벌: 경원 이씨(이자겸)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-007": {
+      "number": 412,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "대표 문벌: 경주 김씨(김부식)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-008": {
+      "number": 413,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "대표 문벌: 해주 최씨(최충)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-009": {
+      "number": 414,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "대표 문벌: 파평 윤씨(윤관)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-010": {
+      "number": 415,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "문벌 사회 동요 배경: 과거로 진출한 지방 출신 세력과 개경 문벌의 대립"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-011": {
+      "number": 416,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "문벌 사회 동요 배경: 권력을 둘러싼 문벌 간 갈등"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-012": {
+      "number": 417,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "이자겸의 난 배경: 경원 이씨의 중첩된 왕실 혼인, 외척 이자겸의 실권 장악"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-013": {
+      "number": 418,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "이자겸의 난 경과: 국왕 측근 세력의 이자겸 제거 시도 실패"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-014": {
+      "number": 419,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "이자겸의 난 경과: 이자겸이 척준경과 난을 일으켜 권력 장악"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-015": {
+      "number": 420,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "이자겸의 난: 금의 사대 요구 수용"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-016": {
+      "number": 421,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "이자겸의 난 수습: 인종이 척준경을 회유해 이자겸 제거"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-017": {
+      "number": 422,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "이자겸 제거 후 척준경이 탄핵을 받아 축출"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-018": {
+      "number": 423,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "이자겸의 난 전개 순서"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-019": {
+      "number": 424,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "인종 때 이자겸의 난과 묘청의 서경 천도 운동"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-020": {
+      "number": 425,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "묘청의 서경 천도 운동 배경: 이자겸의 난 이후 개혁적 서경 세력과 보수적 개경 세력의 대립"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-021": {
+      "number": 426,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "개혁적 서경 세력(묘청)과 보수적 개경 세력(김부식)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-022": {
+      "number": 427,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "서경파 인물: 묘청, 정지상"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-023": {
+      "number": 428,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "개경파 인물: 김부식"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-024": {
+      "number": 429,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "서경파 사상(불교·풍수지리설) vs 개경파 사상(유교)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-025": {
+      "number": 430,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "역사의식: 서경파 고구려 계승 vs 개경파 신라 계승"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-026": {
+      "number": 431,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "개경파: 유교, 신라 계승, 금에 대한 사대 인정"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-027": {
+      "number": 432,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "대외 관계: 서경파 금 정벌 vs 개경파 금 사대 인정"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-028": {
+      "number": 433,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "칭제건원: 황제를 칭하고 연호를 사용할 것, 서경파의 주장"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-029": {
+      "number": 434,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "정지상이 속한 서경파의 주장: 금 정벌·칭제건원"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-030": {
+      "number": 435,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "이자겸(금 사대 요구 수용) vs 묘청(금 정벌) 판별"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-031": {
+      "number": 436,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "이자겸의 난과 묘청의 난 판별: 척준경 vs 서경, 인종 회유 vs 김부식 진압"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-032": {
+      "number": 437,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "묘청 등 서경 세력이 풍수지리설을 내세워 서경 천도 추진"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-033": {
+      "number": 438,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "개경 세력의 반대로 서경 천도 중단"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-034": {
+      "number": 439,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "묘청이 서경에서 난: 국호 대위, 연호 천개"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-035": {
+      "number": 440,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "묘청의 난 국호: 대위"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-036": {
+      "number": 441,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "묘청의 난 연호: 천개"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-037": {
+      "number": 442,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "김부식이 이끈 관군이 묘청의 난 진압"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-038": {
+      "number": 443,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "묘청의 서경 천도 운동 전개 순서"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-039": {
+      "number": 444,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "신채호: 묘청의 서경 천도 운동을 조선역사 일천년래 제일 대사건으로 평가"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-040": {
+      "number": 445,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "신채호의 평가가 실린 책: 조선사연구초"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-041": {
+      "number": 446,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "묘청의 서경 천도 운동 결과: 소수 문벌의 권력 독점, 사회 모순 심화, 문벌 사회 동요"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+    },
+    "goryeomid-hist-20260914-042": {
+      "number": 447,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "무신 정변 배경: 문신의 무반 고위직 독점, 무신 차별"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-043": {
+      "number": 448,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "무신 정변 배경 vs 무신 집권기 사회 동요 배경 판별"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-044": {
+      "number": 449,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "무신 정변 배경: 의종의 실정"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-045": {
+      "number": 450,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "무신 정변: 보현원에서 정중부·이의방 등이 정변"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-046": {
+      "number": 451,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "무신 정변으로 의종 폐위"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-047": {
+      "number": 452,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "무신 정변 후 무신이 중방을 중심으로 주요 관직 독점"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-048": {
+      "number": 453,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "중방(정변 직후 무신) vs 교정도감(최충헌) 판별"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-049": {
+      "number": 454,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "초기 무신 집권자 교체 순서: 이의방→정중부→경대승→이의민→최충헌"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-050": {
+      "number": 455,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "정중부 다음 집권자: 경대승"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-051": {
+      "number": 456,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "최충헌이 이의민을 제거하고 정권 장악"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-052": {
+      "number": 457,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "경대승→이의민→최충헌→최우 순서"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-053": {
+      "number": 458,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "정중부: 이의방과 보현원 정변"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-054": {
+      "number": 459,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "경대승: 정중부 다음 집권, 도방 창설"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-055": {
+      "number": 460,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "이의민: 경대승 다음 집권, 이의민 때 도방 해체"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-056": {
+      "number": 461,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "최충헌: 봉사 10조의 사회 개혁안 제시"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-057": {
+      "number": 462,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "최충헌이 아들 최우에게 권력 세습"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-058": {
+      "number": 463,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "최씨 정권: 최충헌부터 4대 60여 년간 유지"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-059": {
+      "number": 464,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "최충헌의 활동 판별: 정방은 최우"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-060": {
+      "number": 465,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "최우의 활동: 서방 설치"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-061": {
+      "number": 466,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "교정도감: 최충헌 설치"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-062": {
+      "number": 467,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "교정도감: 국정 총괄 최고 권력 기구, 우두머리 교정별감"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-063": {
+      "number": 468,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "교정별감: 교정도감 우두머리, 최고 집권자가 겸임"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-064": {
+      "number": 469,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "정방: 최우 설치, 인사 행정 기구"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-065": {
+      "number": 470,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "서방: 최우 설치, 문인 등용, 국정 자문·외교 문서 작성"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-066": {
+      "number": 471,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "정방(인사) vs 서방(문인 등용) 판별"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-067": {
+      "number": 472,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "교정도감(최충헌) vs 정방(최우) 설치자 판별"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-068": {
+      "number": 473,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "최충헌(교정도감·도방 부활) vs 최우(야별초) 판별"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-069": {
+      "number": 474,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "도방: 신변 경호를 위한 사병 집단"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-070": {
+      "number": 475,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "도방: 경대승이 처음 만듦"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-071": {
+      "number": 476,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "도방 변천: 경대승 창설→이의민 때 해체→최충헌 부활"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-072": {
+      "number": 477,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "도방이 해체된 때의 집권자: 이의민"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-073": {
+      "number": 478,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "도방: 최충헌이 부활시킴"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-074": {
+      "number": 479,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "삼별초의 출발: 최우가 설치한 야별초"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-075": {
+      "number": 480,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "야별초: 최우가 개경 치안 유지를 위해 설치"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-076": {
+      "number": 481,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "삼별초 구성: 좌별초·우별초·신의군"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-077": {
+      "number": 482,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "삼별초: 야별초에서 시작, 정권 유지에 활용"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-078": {
+      "number": 483,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "도방(경대승) vs 삼별초(최우의 야별초) 판별"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-079": {
+      "number": 484,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "무신 정권 기구 분류: 정치(교정도감·정방·서방) vs 군사(도방·삼별초)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-080": {
+      "number": 485,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "무신 집권기 사회 동요 배경: 무신 간 권력 다툼으로 지방 통제력 약화"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-081": {
+      "number": 486,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "무신 집권기 사회 동요 배경: 하층민 과도한 세금, 무신의 수탈"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-082": {
+      "number": 487,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "김보당의 난: 동북면 병마사, 동계, 의종 복위 도모"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-083": {
+      "number": 488,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "조위총의 난: 서경 유수, 서경"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-084": {
+      "number": 489,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "김보당(동북면 병마사) vs 조위총(서경 유수) 판별"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-085": {
+      "number": 490,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "의종 복위 도모: 김보당의 난"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-086": {
+      "number": 491,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "봉기 성격 분류: 반무신 난(김보당·조위총) vs 농민 저항(김사미·효심)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-087": {
+      "number": 492,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "망이·망소이의 난: 공주 명학소"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-088": {
+      "number": 493,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "망이·망소이의 난: 명학소를 충순현으로 승격해 무마 시도 후 무력 진압"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-089": {
+      "number": 494,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "망이·망소이의 난 전개: 명학소 봉기→충순현 승격 무마→무력 진압"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-090": {
+      "number": 495,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "김사미(운문)·효심(초전)의 난"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-091": {
+      "number": 496,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "농민의 저항: 망이·망소이의 난, 김사미·효심의 난"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-092": {
+      "number": 497,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "이의민 집권기: 김사미·효심의 난"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-093": {
+      "number": 498,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "집권자–봉기 연결: 정중부–망이·망소이, 최충헌–만적"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-094": {
+      "number": 499,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "만적의 신분: 사노비"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-095": {
+      "number": 500,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "만적의 난: 개경에서 봉기 시도, 신분 해방 운동의 성격"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-096": {
+      "number": 501,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "천민의 저항: 만적의 난, 전주 관노비의 난"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-097": {
+      "number": 502,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "만적(사노비·개경) vs 전주 관노비의 난 판별"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-098": {
+      "number": 503,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "삼국 부흥 운동: 경주 이비·패좌의 신라 부흥"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-099": {
+      "number": 504,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "삼국 부흥 운동: 서경 최광수의 고구려 부흥"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-100": {
+      "number": 505,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "삼국 부흥 운동: 담양 이연년 형제의 백제 부흥"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-101": {
+      "number": 506,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "삼국 부흥 운동 지역↔나라 판별"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-102": {
+      "number": 507,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "삼국 부흥 운동 나라↔인물 판별"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+    },
+    "goryeomid-hist-20260914-103": {
+      "number": 508,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "서경에서 일어난 일 판별: 묘청·조위총·최광수 vs 담양 이연년"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
     }
   }
 };
