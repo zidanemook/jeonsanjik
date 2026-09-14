@@ -181,3 +181,17 @@ body[data-view="quiz"] main { padding-top:14px; }
 .note-panel textarea { box-sizing:border-box; width:100%; min-width:0; min-height:120px; padding:12px; border:1px solid #8292a8; border-radius:12px; background:#111318; color:#fff; font:inherit; line-height:1.5; resize:vertical; }
 .note-panel textarea:focus-visible { outline:3px solid #a9cfff; outline-offset:3px; }
 .note-actions { display:flex; gap:8px; justify-content:flex-end; }
+/* 외울 것: 가려 두고 떠올린 뒤 눌러서 확인한다. */
+.memorize-bar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:12px 0; }
+.memorize-count { margin-right:auto; color:#b4dcc2; font-weight:700; }
+.memorize-bar button { min-height:40px; padding:8px 12px; font-size:14px; }
+.memorize-line { margin:20px 0 0; }
+.memorize-chant { margin:0 0 8px; font-size:20px; letter-spacing:.15em; color:#d4e5ff; overflow-wrap:anywhere; }
+.memorize-grid { display:grid; gap:8px; }
+.memorize-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:8px; }
+.memorize-cell { display:flex; flex-direction:column; align-items:flex-start; gap:4px; width:100%; min-height:52px; padding:12px 14px; text-align:left; line-height:1.5; overflow-wrap:anywhere; }
+.memorize-cell strong { font-size:17px; }
+.memorize-cell span { color:#d1d7e0; font-size:14px; }
+.memorize-cell .memorize-hidden { color:#8e99a8; }
+.memorize-cell.shown { border-color:#789ac4; background:#243247; }
+@media (max-width:380px) { .memorize-pair { grid-template-columns:1fr; } }

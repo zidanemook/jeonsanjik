@@ -242,7 +242,7 @@ function sessionSnapshot(){const s=data.practiceScope||{},a=data.activePractice,
 function stampSession(){if(!storageOK)return;let session;try{session=ProgressSync.session({at:Math.max(Date.now(),(data.session?.at||0)+1),...sessionSnapshot()});}catch{return;}data.session=session;try{localStorage.setItem(KEY,JSON.stringify(data));window.dispatchEvent(new Event('study-progress-saved'));}catch{}}
 function render(){renderView();if(sessionDirty){sessionDirty=false;stampSession();}}
 // Screens: home (subjects) → subject (resume / choose range) → range → quiz (question, then explanation). Progress is separate.
-const VIEWS=['home','subject','range','quiz','progress'];
+const VIEWS=['home','subject','range','quiz','progress','memorize'];
 let view='home',viewSubject='';
 function go(name,subject=viewSubject,replace=false){view=name;viewSubject=subject;const depth=(history.state?.depth||0)+(replace?0:1);try{history[replace?'replaceState':'pushState']({view:name,subject,depth},'');}catch{}notify('');render();window.scrollTo(0,0);}
 function goBack(){if(history.state?.depth>0){history.back();return;}const parent=view==='quiz'||view==='range'?'subject':'home';go(parent,view==='quiz'?scopeOf().subject:viewSubject,true);}
@@ -269,12 +269,43 @@ function renderView(){
  for(const v of VIEWS)$('#'+v+'View').hidden=v!==view;document.body.dataset.view=view;
  // 과목 선택 화면을 벗어나면 승인 관리는 닫는다: 다시 돌아왔을 때 오래된 목록이 남지 않는다.
  if(view!=='home')$('#adminPanel').hidden=true;
- if(view==='home')renderHome();else if(view==='subject')renderSubject();else if(view==='range')renderRange();else if(view==='progress')renderProgress();else renderQuiz();
+ if(view==='home')renderHome();else if(view==='subject')renderSubject();else if(view==='range')renderRange();else if(view==='progress')renderProgress();else if(view==='memorize')renderMemorize();else renderQuiz();
 }
 function renderHome(){
  const list=$('#subjectList'),playable=data.cards.filter(isPlayable);list.replaceChildren();
  for(const s of subjectsList()){const cards=playable.filter(c=>c.subject===s);list.append(menuItem(s,countLine(cards),()=>go('subject',s)));}
  if(!list.children.length)list.append(elem('p',data.cards.length?'풀 수 있는 문제가 아직 없어요.':'문제를 불러오는 중입니다.'));
+}
+// 외울 것: 목록 화면(viewSubject 비어 있음) → 한 목록 화면(viewSubject = 목록 id). 가림·확인은 이 화면에서만 쓰고 저장하지 않는다.
+let memorizeShown=new Set();
+function renderMemorize(){
+ const body=$('#memorizeBody'),set=MEMORIZE.get(viewSubject);body.replaceChildren();
+ $('#memorizeTitle').textContent=set?set.title:'외울 것';
+ if(!set){
+  body.append(elem('p','가려 둔 칸을 먼저 떠올린 뒤 눌러서 확인해요. 공부한 범위까지만 들어 있어요.','status'));
+  const list=elem('div',undefined,'menu-list');
+  for(const s of MEMORIZE.sets)list.append(menuItem(s.title,s.subject+' · '+MEMORIZE.size(s)+'칸'+(data.memorizeLast===s.id?' · 마지막으로 본 목록':''),()=>{memorizeShown=new Set();if(data.memorizeLast!==s.id){data.memorizeLast=s.id;saveDraft();}go('memorize',s.id);}));
+  body.append(list);return;
+ }
+ const total=MEMORIZE.size(set),keys=[];
+ const cell=(key,prompt,answer,detail)=>{keys.push(key);const open=memorizeShown.has(key),b=btn('',()=>{if(memorizeShown.has(key))memorizeShown.delete(key);else memorizeShown.add(key);render();},'memorize-cell'+(open?' shown':''));
+  b.type='button';b.setAttribute('aria-pressed',String(open));b.append(elem('strong',open&&answer?answer:prompt));
+  b.append(open?elem('span',detail||(answer?'':'—')):elem('span','눌러서 확인','memorize-hidden'));return b;};
+ const content=[];
+ if(set.lines)set.lines.forEach((line,li)=>{
+  const group=elem('div',undefined,'memorize-line'),grid=elem('div',undefined,'memorize-grid');
+  group.append(elem('p',line.chant,'memorize-chant'));
+  line.items.forEach((item,i)=>grid.append(cell(set.id+':'+li+':'+i,(i+1)+'. '+[...line.chant][i],(i+1)+'. '+item.name,item.facts.length?item.facts.join(' · '):'아직 공부하지 않은 범위')));
+  group.append(grid);content.push(group);
+ });
+ else set.pairs.forEach(([left,leftDetail,right,rightDetail],pi)=>{
+  const row=elem('div',undefined,'memorize-pair');
+  row.append(cell(set.id+':'+pi+':0',left,'',leftDetail),cell(set.id+':'+pi+':1',right,'',rightDetail));content.push(row);
+ });
+ const bar=elem('div',undefined,'memorize-bar'),shown=keys.filter(k=>memorizeShown.has(k)).length;
+ const all=btn('모두 보기',()=>{for(const k of keys)memorizeShown.add(k);render();}),none=btn('모두 가리기',()=>{memorizeShown=new Set();render();});all.type='button';none.type='button';
+ bar.append(elem('span',shown+' / '+total+' 확인','memorize-count'),all,none);
+ body.append(elem('p',set.hint,'status'),bar,...content);
 }
 function renderSubject(){
  const s=viewSubject,cards=data.cards.filter(c=>isPlayable(c)&&c.subject===s),ids=new Set(cards.map(c=>c.id)),today=day();
@@ -508,6 +539,7 @@ else if(data.cards.some(c=>c.pendingAttempt)){const next=structuredClone(data);f
 $('#resumeStudy').onclick=()=>openScope(lastScope(viewSubject)||{subject:viewSubject},true);
 $('#chooseRange').onclick=()=>go('range');
 $('#openProgress').onclick=()=>go('progress');
+$('#openMemorize').onclick=()=>go('memorize','');
 for(const b of document.querySelectorAll('[data-back]'))b.onclick=goBack;
 $('#quizBack').onclick=goBack;
 $('#drillToggle').onclick=toggleDrill;
