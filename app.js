@@ -226,9 +226,16 @@ function feedbackReviewId(feedback){
 function restoreExplanationPanels(keys){for(const node of document.querySelectorAll('[data-explanation-key]'))if(keys.has(node.dataset.explanationKey))node.open=true;}
 function appendCorrection(parent,snapshot){const update=ContentCorrections.find(snapshot);if(!update)return;const note=elem('div',undefined,'content-correction');note.append(elem('strong','문제·해설 수정 안내'),elem('p','아래 기록은 수정 전 문제의 당시 채점 결과입니다.'),elem('p',update.note),elem('p','현재 문제: '+update.question),elem('p','현재 정답: '+update.answer),elem('p',update.explanation));parent.append(note);}
 // English sentence options carry per-option marks: null when the sentence is right, else [{wrong,fix}]. Show the wrong words and the fix in place.
+// A mark may carry neighbor words for uniqueness ("tourists visited" → "tourists visiting"); highlight only the words that change.
+function narrowMark(m){
+ const w=m.wrong.split(' '),f=m.fix.split(' ');let a=0,b=0;
+ while(a<w.length-1&&a<f.length-1&&w[a]===f[a])a++;
+ while(b<w.length-a-1&&b<f.length-a-1&&w[w.length-1-b]===f[f.length-1-b])b++;
+ const lead=w.slice(0,a).join(' ');return {skip:lead?lead.length+1:0,wrong:w.slice(a,w.length-b).join(' '),fix:f.slice(a,f.length-b).join(' ')};
+}
 function markedChoice(text,marks){
  const span=elem('span');let start=0;
- const hits=(marks||[]).map(m=>({m,at:text.indexOf(m.wrong)})).filter(h=>h.at>=0).sort((a,b)=>a.at-b.at);
+ const hits=(marks||[]).map(m=>{const n=narrowMark(m),at=text.indexOf(m.wrong);return {m:n,at:at<0?-1:at+n.skip};}).filter(h=>h.at>=0).sort((a,b)=>a.at-b.at);
  for(const {m,at} of hits){if(at<start)continue;span.append(document.createTextNode(text.slice(start,at)),elem('mark',m.wrong,'choice-error'),elem('span',' → '+m.fix,'choice-fix'));start=at+m.wrong.length;}
  span.append(document.createTextNode(text.slice(start)));if(!marks)span.append(elem('span',' (어법상 옳음)','choice-ok'));return span;
 }
