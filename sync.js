@@ -39,8 +39,8 @@
   };
  }
  function connect({auth,db,store,status,access}){
-  const withViews=typeof store.mergeExplanations==='function',withSession=typeof store.session==='function'&&typeof store.mergeSession==='function';
-  let generation=0,unsubscribe,unsubscribeViews,unsubscribeSession,knownSession=0,sessionReady=false,sessionSending=false,uid=null,known=new Set(),knownViews=new Map(),reviewsReady=false,viewsReady=!withViews,ready=false,uploading=false,merging=false,closed=false;
+  const withViews=typeof store.mergeExplanations==='function',withSession=typeof store.session==='function'&&typeof store.mergeSession==='function',withNotes=typeof store.notes==='function'&&typeof store.mergeNotes==='function';
+  let generation=0,unsubscribe,unsubscribeViews,unsubscribeSession,unsubscribeNotes,knownNotes=new Set(),refusedNotes=new Set(),notesReady=false,notesLive=false,notesSending=false,notesWait=0,knownSession=0,sessionReady=false,sessionSending=false,uid=null,known=new Set(),knownViews=new Map(),reviewsReady=false,viewsReady=!withViews,ready=false,uploading=false,merging=false,closed=false;
   const say=text=>status(text),gate=accessGate(db);
   function merge(rows){merging=true;try{store.merge(rows);}finally{merging=false;}}
   function mergeViews(rows){merging=true;try{store.mergeExplanations(rows);}finally{merging=false;}}
@@ -94,6 +94,36 @@
    }catch(e){if(token===generation)say(e.code==='permission-denied'?'동기화 권한을 확인해야 해요. 기록은 이 기기에 보관돼요.':'전송 대기 중 · 기록은 이 기기에 저장됐어요.');}
    finally{uploading=false;if(token!==generation&&ready)void flush();}
   }
+  // Question notes travel on their own path: a missing rule or a failed write never holds back
+  // answer records. Each note is its own write (a batch would not save billed writes), so a note the
+  // rules refuse — a phone clock far ahead, say — is set aside for this session instead of failing
+  // a whole batch together with every note queued behind it.
+  async function flushNotes(){
+   if(!withNotes||!notesReady||notesSending||!uid||closed)return;const token=generation,user=uid;notesSending=true;
+   try{
+    for(;;){
+     const pending=[];for(const raw of store.notes()){try{const n=ProgressSync.note(raw);if(!knownNotes.has(n.id)&&!refusedNotes.has(n.id))pending.push(n);}catch{}}
+     if(!pending.length)return;
+     for(const n of pending){
+      if(token!==generation||closed)return;
+      try{await db.collection('users').doc(user).collection('notes').doc(n.id).set(n);if(token===generation)knownNotes.add(n.id);}
+      catch(e){if(e?.code!=='permission-denied')return;if(token===generation)refusedNotes.add(n.id);}
+     }
+    }
+   }finally{notesSending=false;}
+  }
+  function subscribeNotes(token){
+   if(!withNotes||!uid)return;unsubscribeNotes?.();notesLive=true;notesWait=0;
+   unsubscribeNotes=db.collection('users').doc(uid).collection('notes').onSnapshot({includeMetadataChanges:true},snapshot=>{
+    if(token!==generation)return;
+    let rows;
+    try{rows=snapshot.docs.map(d=>{const row=ProgressSync.note(d.data());if(row.id!==d.id)throw Error('Mismatched note');return row;});}catch{notesReady=false;return;}
+    // Keeping a local copy is a convenience: a full or refusing local store must not stop notes from leaving the device.
+    merging=true;try{store.mergeNotes(rows);}catch{}finally{merging=false;}
+    if(snapshot.metadata.fromCache||snapshot.metadata.hasPendingWrites)return;
+    knownNotes=new Set(rows.map(r=>r.id));notesReady=true;void flushNotes();
+   },()=>{if(token===generation){notesReady=false;notesLive=false;}});
+  }
   // Not on the allowlist: study stays local in this browser, and one read tells the requester
   // whether their ask is already filed so a repeat visit shows the confirmation, not the button.
   const FILED='요청이 접수됐습니다 · 승인되면 이 계정으로 자동 동기화돼요.';
@@ -110,7 +140,7 @@
     async submit(){await (state.filed?gate.reask(user.uid):gate.submit(user));if(token===generation)say(FILED);}});
   }
   async function account(user){
-   const token=++generation;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribe=null;unsubscribeViews=null;unsubscribeSession=null;cancel(sessionCooldown);sessionCooldown=null;sessionPending=false;sentPosition='';knownSession=0;sessionReady=false;ready=false;reviewsReady=false;viewsReady=!withViews;known=new Set();knownViews=new Map();uid=null;
+   const token=++generation;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribeNotes?.();unsubscribe=null;unsubscribeViews=null;unsubscribeSession=null;unsubscribeNotes=null;knownNotes=new Set();refusedNotes=new Set();notesReady=false;notesLive=false;notesWait=0;cancel(sessionCooldown);sessionCooldown=null;sessionPending=false;sentPosition='';knownSession=0;sessionReady=false;ready=false;reviewsReady=false;viewsReady=!withViews;known=new Set();knownViews=new Map();uid=null;
    access?.reset();
    if(!user){try{store.switchUser(null);say('이 기기에 저장 중 · 로그인하면 자동 동기화돼요.');}catch{say('이 기기의 저장 공간을 확인해 주세요.');}return;}
    say('동기화 계정 확인 중…');
@@ -147,15 +177,16 @@
       knownSession=Math.max(knownSession,row?.at||0);sessionReady=true;void pushSession();
      }catch{sessionReady=false;}
     },()=>{sessionReady=false;});
+    subscribeNotes(token);
    }catch(e){if(token===generation)say('연결 대기 중 · 기록은 이 기기에 저장돼요.');}
   }
   const stopAuth=auth.onAuthStateChanged(user=>{void account(user);});
-  const saved=()=>{if(!merging){void flush();void pushSession();}},retry=()=>{if(!ready)void account(auth.currentUser);else{void flush();void pushSession();}};
+  const saved=()=>{if(!merging){void flush();void pushSession();void flushNotes();}},retry=()=>{if(!ready)void account(auth.currentUser);else{void flush();void pushSession();void flushNotes();if(withNotes&&!notesLive&&++notesWait>=10)subscribeNotes(generation);}};
   const hidden=()=>{if(!root.document||root.document.visibilityState!=='visible')flushSession();};
   root.addEventListener('study-progress-saved',saved);root.addEventListener('online',retry);
   root.addEventListener('visibilitychange',hidden);root.addEventListener('pagehide',flushSession);
   const timer=setInterval(()=>{if(root.navigator.onLine)retry();},60000);
-  return {flush,retry,close(){closed=true;generation++;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();stopAuth();clearInterval(timer);cancel(sessionCooldown);sessionCooldown=null;root.removeEventListener('study-progress-saved',saved);root.removeEventListener('online',retry);root.removeEventListener('visibilitychange',hidden);root.removeEventListener('pagehide',flushSession);}};
+  return {flush,retry,close(){closed=true;generation++;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribeNotes?.();stopAuth();clearInterval(timer);cancel(sessionCooldown);sessionCooldown=null;root.removeEventListener('study-progress-saved',saved);root.removeEventListener('online',retry);root.removeEventListener('visibilitychange',hidden);root.removeEventListener('pagehide',flushSession);}};
  }
  root.ProgressCloud={connect};
  // Screen wiring for the approval flow. Everything starts hidden: an approved account that is

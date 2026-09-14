@@ -172,3 +172,12 @@ body[data-view="quiz"] main { padding-top:14px; }
 .menu-list > .paper-year { margin-top:0; }
 .paper-year > summary.range-heading { font-size:16px; color:#c9d9f2; min-height:44px; padding:10px 2px; }
 .paper-year > .menu-list { margin:8px 0 6px; }
+/* 문제 의견: 문제·해설 화면 아래의 버튼을 누르면 입력칸이 열린다. */
+.note-box { margin-top:20px; }
+.note-toggle { min-height:44px; padding:10px 14px; font-size:15px; border-style:dashed; }
+.note-count { display:block; margin-top:6px; color:#b4dcc2; }
+.note-panel { display:grid; gap:10px; margin-top:10px; padding:14px; border:1px solid #535d6b; border-radius:12px; }
+.note-panel label { color:#d1d7e0; font-size:14px; }
+.note-panel textarea { box-sizing:border-box; width:100%; min-width:0; min-height:120px; padding:12px; border:1px solid #8292a8; border-radius:12px; background:#111318; color:#fff; font:inherit; line-height:1.5; resize:vertical; }
+.note-panel textarea:focus-visible { outline:3px solid #a9cfff; outline-offset:3px; }
+.note-actions { display:flex; gap:8px; justify-content:flex-end; }

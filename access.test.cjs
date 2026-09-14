@@ -187,7 +187,8 @@ const tick=()=>new Promise(r=>setImmediate(r));const settle=async()=>{for(let i=
  const rules=fs.readFileSync(__dirname+'/firestore.rules','utf8');
  assert.match(rules,/function owner\(uid\) \{\s*\n\s+return request\.auth != null && request\.auth\.uid == uid/,'the owner(uid) gate stays');
  assert.match(rules,/allow update: if owner\(uid\) && request\.resource\.data == resource\.data;/,'event immutability stays');
- assert.equal((rules.match(/allow delete: if false;/g)||[]).length,3,'users/{uid} documents stay undeletable');
+ assert.equal((rules.match(/allow delete: if false;/g)||[]).length,4,'users/{uid} documents stay undeletable (events, explanationViews, notes, state)');
+ assert.match(rules,/match \/users\/\{uid\}\/notes\/\{id\} \{[\s\S]*?allow update: if owner\(uid\) && request\.resource\.data == resource\.data;[\s\S]*?allow delete: if false;/,'question notes are immutable and undeletable');
  assert.match(rules,/match \/allowedUsers\/\{uid\} \{[\s\S]*?allow list: if isAdmin\(\);/,'only the owner may enumerate the allowlist');
  assert.match(rules,/allow delete: if isAdmin\(\) && uid != request\.auth\.uid;/,'the owner cannot delete their own grant');
  assert.match(rules,/allow create, update: if isAdmin\(\) && uid != request\.auth\.uid/,'the owner cannot rewrite their own grant');

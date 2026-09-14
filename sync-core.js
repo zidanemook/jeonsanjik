@@ -39,5 +39,16 @@
   if(row.type==='choice'&&(!Array.isArray(row.choices)||!row.choices.length||row.choices.length>10||row.choices.some(c=>typeof c!=='string'||c.length>2000)))throw Error('Invalid session choices');
   return {...out,cardId:row.cardId,exerciseId:row.exerciseId,variantIndex:row.variantIndex,type:row.type,choices:row.type==='choice'?[...row.choices]:null};
  }
- const api={event,union,merge,session};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ProgressSync=api;
+ // Feedback the reader leaves on a question. Written once and kept verbatim; the same id is the same note.
+ function note(row){
+  const id=/^[\w-]{1,160}$/;
+  if(!row||typeof row.id!=='string'||!id.test(row.id)||typeof row.cardId!=='string'||!id.test(row.cardId)||typeof row.exerciseId!=='string'||row.exerciseId.length>160||!['question','explanation'].includes(row.stage))throw Error('Invalid note identity');
+  if(typeof row.subject!=='string'||row.subject.length>80||typeof row.question!=='string'||row.question.length>6000||typeof row.text!=='string'||!row.text.trim()||row.text.length>2000||!Number.isSafeInteger(row.at)||row.at<=0)throw Error('Invalid note');
+  return {id:row.id,cardId:row.cardId,exerciseId:row.exerciseId,stage:row.stage,subject:row.subject,question:row.question,text:row.text,at:row.at};
+ }
+ function unionNotes(local,remote){
+  const map=new Map();for(const input of [...local,...remote]){const row=note(input);if(!map.has(row.id))map.set(row.id,row);}
+  return [...map.values()].sort((a,b)=>a.at-b.at||a.id.localeCompare(b.id));
+ }
+ const api={event,union,merge,session,note,unionNotes};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ProgressSync=api;
 })(globalThis);

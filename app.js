@@ -6,13 +6,15 @@ const {schedule,migrate}=ReviewSchedule;
 const day=(d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 function plus(date,n){const [y,m,d]=date.split('-').map(Number);return day(new Date(y,m-1,d+n));}
 let data={version:2,cards:[],history:[]}, storageOK=true;
-try{const raw=localStorage.getItem(KEY);if(raw){const parsed=JSON.parse(raw);validateBackup(parsed);data=migrate(parsed);if(parsed.version===1){if(!localStorage.getItem(KEY+'-before-adaptive'))localStorage.setItem(KEY+'-before-adaptive',raw);localStorage.setItem(KEY,JSON.stringify(data));}}}catch(e){storageOK=false;notify('저장 데이터를 읽지 못했어요. 기존 데이터를 보호하기 위해 저장을 중지했어요.');}
+try{const raw=localStorage.getItem(KEY);if(raw){const parsed=JSON.parse(raw);validateBackup(parsed);data=migrate(parsed);if(data.notes!==undefined)data.notes=cleanNotes(data.notes);if(parsed.version===1){if(!localStorage.getItem(KEY+'-before-adaptive'))localStorage.setItem(KEY+'-before-adaptive',raw);localStorage.setItem(KEY,JSON.stringify(data));}}}catch(e){storageOK=false;notify('저장 데이터를 읽지 못했어요. 기존 데이터를 보호하기 위해 저장을 중지했어요.');}
 function notify(t){$('#message').textContent=t;}
 function commit(next){if(!storageOK){notify('저장소를 확인해야 합니다. 새로고침 후 다시 시도하세요.');return false;}try{localStorage.setItem(KEY,JSON.stringify(next));data=next;window.dispatchEvent(new Event('study-progress-saved'));return true;}catch(e){notify('저장 공간이 부족하거나 저장이 차단됐어요. 기록은 변경되지 않았습니다.');return false;}}
 function elem(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
 function btn(text,fn,cls){const b=elem('button',text,cls);b.onclick=fn;return b;}
 function validDay(s){if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s))return false;return plus(s,0)===s;}
 function validateContent(c){if(!c||typeof c!=='object'||['subject','question','answer'].some(k=>typeof c[k]!=='string'||!c[k].trim())||['explanation','source'].some(k=>c[k]!==undefined&&typeof c[k]!=='string'))throw Error('과목·질문·정답과 텍스트 형식을 확인하세요.');}
+// 의견은 학습 기록이 아니다. 형식이 맞지 않는 의견 하나 때문에 기록 불러오기(=저장 전체)가 멈추지 않도록 막지 않고 걸러낸다.
+function cleanNotes(list){const out=[];if(Array.isArray(list))for(const n of list){try{out.push(ProgressSync.note(n));}catch{}}return out;}
 function validateBackup(v){if(v?.explanationViews!==undefined){if(!Array.isArray(v.explanationViews))throw Error('Invalid explanation records');StudyCredit.unionExplanations([],v.explanationViews);}if(![1,2].includes(v?.version)||!Array.isArray(v.cards)||!Array.isArray(v.history))throw Error('지원하지 않는 백업입니다.');const ids=new Set();for(const c of v.cards){validateContent(c);if(typeof c.id!=='string'||ids.has(c.id)||!validDay(c.created)||!(c.due===null||validDay(c.due))||(v.version===1?(!Number.isInteger(c.stage)||c.stage<0||c.stage>4):(!Number.isFinite(c.ease)||c.ease<1.3||c.ease>3||!Number.isInteger(c.interval)||c.interval<0||c.interval>365||!Number.isInteger(c.streak)||c.streak<0||c.due===null)))throw Error('문제 일정 또는 ID가 올바르지 않습니다.');if(c.retryAt!==undefined&&!Number.isFinite(Date.parse(c.retryAt)))throw Error('잘못된 재학습 시간');if(c.pendingAttempt!==undefined&&(!['remember','partial','none'].includes(c.pendingAttempt.recall)||!validDay(c.pendingAttempt.date)||!Number.isFinite(Date.parse(c.pendingAttempt.at))||typeof c.pendingAttempt.delayedFirst!=='boolean'))throw Error('잘못된 회상 기록');ids.add(c.id);}for(const h of v.history){if(typeof h.id!=='string'||typeof h.cardId!=='string'||!validDay(h.date)||!['correct','unsure','wrong'].includes(h.result))throw Error('복습 기록이 올바르지 않습니다.');}if(v.quizFeedback!==undefined&&(!v.quizFeedback||typeof v.quizFeedback.cardId!=='string'||!Number.isInteger(v.quizFeedback.selectedIndex)||!['correct','wrong','unsure'].includes(v.quizFeedback.result)))throw Error('퀴즈 피드백이 올바르지 않습니다.');}
 function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.subject.trim(),question:c.question.trim(),answer:c.answer.trim(),explanation:c.explanation||'',source:c.source||'',verified:c.verified===true,created:day(),due:day(),ease:2.5,interval:0,streak:0};}
 // 공무원 기출은 회차 파일을 받기 전에도 풀 수 있는 카드다(색인에 있으면 된다). 보기는 그 회차의 문항을 처음 낼 때 받는다.
@@ -338,6 +340,7 @@ function renderProgress(){
 function renderQuiz(){
  const opened=new Set([...document.querySelectorAll('[data-explanation-key][open]')].map(e=>e.dataset.explanationKey));
  const hadFocus=document.activeElement?.id==='practiceInput',caret=hadFocus?document.activeElement.selectionStart:null;
+ const noteFocus=document.activeElement?.id==='noteInput',noteCaret=noteFocus?document.activeElement.selectionStart:null;
  const scope=scopeOf(),playable=data.cards.filter(isPlayable),ordered=orderedScope(scope.round);
  $('#scopeLabel').textContent=scopeLabel(scope);renderScopeStatus(scope);
  const inside=playable.filter(c=>inScope(c,scope)),chosen=ordered?catalogOrder(inside):inside,queue=reviewQueue(chosen),due=queue.ready;
@@ -400,9 +403,11 @@ function renderQuiz(){
    input.oninput=()=>{if(data.activePractice?.cardId===card.id){data.activePractice.draft=input.value;saveDraft();}};
    const submit=elem('button','채점하기','primary');submit.type='submit';form.append(hint,input,submit);form.onsubmit=e=>{e.preventDefault();answerPractice(card.id,input.value);};root.append(form);
   }
+  appendNoteBox(root,card,quiz,'question',label.textContent);
  }
  restoreExplanationPanels(opened);
  if(hadFocus&&$('#practiceInput')&&!feedback){$('#practiceInput').focus();$('#practiceInput').setSelectionRange(caret,caret);}
+ if(noteFocus&&$('#noteInput')){$('#noteInput').focus();$('#noteInput').setSelectionRange(noteCaret,noteCaret);}
 }
 function renderPaperLoad(root,card,scope){
  const paperId=Gichul.paperOf(card.id),paper=Gichul.paper(paperId),state=Gichul.state(paperId);
@@ -436,6 +441,35 @@ function renderFeedback(root,card,quiz,lesson,label){
  root.append(elem('p','풀이 완료 · 환산 시간 +1분','study-credit-award'),elem('small','다음 복습: '+dueCard.due+(f.result==='wrong'?' · 5분 뒤 다시 풀 수 있어요.'+(siblings?' 같은 개념의 다른 문제도 10분 뒤 이어서 나와요.':''):''),'next-review'));
  const source=(CORE_REVIEW_PACK.find(c=>c.id===card.id)||card).source;if(quiz.type==='text'||source)root.append(elem('small',quiz.type==='text'?(card.id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조·동사 유형 정리 기반 자체 제작 연습':card.id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습':'대화 학습·수일치 정리 기반 자체 제작 연습'):source,'source-line'));
  const next=btn(nextLabel(reviewId),()=>{const state=structuredClone(data);delete state.quizFeedback;delete state.activePractice;if(commit(state)){sessionDirty=true;render();window.scrollTo(0,0);}},'primary next-question');next.id='nextQuestion';next.dataset.review=reviewId||'';root.append(next);
+ appendNoteBox(root,card,quiz,'explanation',label.textContent);
+}
+// 문제 의견: 버튼을 누르면 입력칸이 열린다. 쓰던 내용은 화면을 다시 그리거나 닫았다 열어도 남고,
+// 보낸 의견은 이 기기에 먼저 저장된 뒤 로그인한 계정으로 전송된다(답안 기록 동기화와 별도).
+let noteSaveTimer=null;
+function saveNoteDraftSoon(){clearTimeout(noteSaveTimer);noteSaveTimer=setTimeout(()=>{noteSaveTimer=null;saveDraft();},600);}
+function saveNoteDraftNow(){if(noteSaveTimer){clearTimeout(noteSaveTimer);noteSaveTimer=null;saveDraft();}}
+window.addEventListener('pagehide',saveNoteDraftNow);document.addEventListener('visibilitychange',()=>{if(document.hidden)saveNoteDraftNow();});
+function appendNoteBox(root,card,quiz,stage,title){
+ const box=elem('div',undefined,'note-box'),draft=data.noteDraft?.cardId===card.id?data.noteDraft:null,open=!!draft?.open,sent=(data.notes||[]).filter(n=>n.cardId===card.id).length;
+ const toggle=btn(open?'의견 입력 닫기':'✎ 문제 의견 남기기',()=>{const d=data.noteDraft?.cardId===card.id?data.noteDraft:{cardId:card.id,text:''};d.open=!open;data.noteDraft=d;clearTimeout(noteSaveTimer);noteSaveTimer=null;saveDraft();render();if(d.open)$('#noteInput')?.focus();},'note-toggle');
+ toggle.type='button';toggle.setAttribute('aria-expanded',String(open));box.append(toggle);
+ if(sent)box.append(elem('small','이 문제에 남긴 의견 '+sent+'개','note-count'));
+ if(open){
+  const panel=elem('div',undefined,'note-panel'),hint=elem('label','틀린 곳·헷갈린 점·바라는 점을 적어 주세요.'),input=elem('textarea');
+  hint.htmlFor='noteInput';input.id='noteInput';input.maxLength=2000;input.rows=4;input.value=typeof draft.text==='string'?draft.text:'';
+  input.oninput=()=>{if(data.noteDraft?.cardId===card.id){data.noteDraft.text=input.value;saveNoteDraftSoon();}};
+  const close=btn('닫기',()=>{if(data.noteDraft?.cardId===card.id){data.noteDraft.open=false;clearTimeout(noteSaveTimer);noteSaveTimer=null;saveDraft();}render();}),send=btn('보내기',()=>sendNote(card,quiz,stage,title),'primary');
+  close.type='button';send.type='button';const actions=elem('div',undefined,'note-actions');actions.append(close,send);
+  panel.append(hint,input,actions);box.append(panel);
+ }
+ root.append(box);
+}
+function sendNote(card,quiz,stage,title){
+ const text=String(data.noteDraft?.cardId===card.id?data.noteDraft.text:'').trim();if(!text){notify('의견을 입력한 다음 보내 주세요.');return;}
+ let note;try{note=ProgressSync.note({id:crypto.randomUUID(),cardId:card.id,exerciseId:String(quiz.exerciseId||'').slice(0,160),stage,subject:String(card.subject||'').slice(0,80),question:(String(title||'')+'\n'+String(quiz.question||card.question||'')).slice(0,6000),text:text.slice(0,2000),at:Date.now()});}
+ catch{notify('의견을 저장할 수 없어요. 내용 길이를 확인해 주세요.');return;}
+ clearTimeout(noteSaveTimer);noteSaveTimer=null;const next=structuredClone(data);next.notes=[...(next.notes||[]),note];delete next.noteDraft;
+ if(commit(next)){notify('의견을 저장했어요 · 로그인돼 있으면 자동으로 전송돼요.');render();}
 }
 function answerPractice(id,input){
  if(data.quizFeedback)return;const active=data.activePractice;if(active?.cardId!==id)return;const quiz=active.exercise;
@@ -496,12 +530,14 @@ globalThis.StudyProgress={
   if(exercise&&exercise.exerciseId===remote.exerciseId){const own=data.activePractice?.cardId===card.id&&data.activePractice.exercise?.exerciseId===exercise.exerciseId?data.activePractice:null;next.activePractice={...(own||{cardId:card.id,draft:'',assisted:false}),exercise};}else delete next.activePractice;
   if(!commit(next))throw Error('Local save failed');render();
  },
+ notes:()=>structuredClone(data.notes||[]),
+ mergeNotes(rows){const notes=ProgressSync.unionNotes(cleanNotes(data.notes),rows);if(JSON.stringify(notes)!==JSON.stringify(data.notes||[])){if(!commit({...data,notes}))throw Error('Local save failed');}},
  mergeExplanations(rows){const views=StudyCredit.unionExplanations(data.explanationViews||[],rows);if(JSON.stringify(views)!==JSON.stringify(data.explanationViews||[])){if(!commit({...data,explanationViews:views}))throw Error('Local save failed');renderStudyCredit();updateExplanationCredits();}},
  switchUser(uid){
   const target=profileKey(uid);if(target===KEY)return;
-  const raw=localStorage.getItem(target);let next=raw?JSON.parse(raw):{version:2,cards:[],history:[]};validateBackup(next);next=migrate(next);
+  const raw=localStorage.getItem(target);let next=raw?JSON.parse(raw):{version:2,cards:[],history:[]};validateBackup(next);next=migrate(next);if(next.notes!==undefined)next.notes=cleanNotes(next.notes);
   const owner=localStorage.getItem('chagog-owner');
-  if(uid&&!owner){const guest=localStorage.getItem('chagog-v1');if(guest){const parsed=JSON.parse(guest);validateBackup(parsed);const old=migrate(parsed);const ids=new Set(next.cards.map(c=>c.id));next.cards.push(...old.cards.filter(c=>!ids.has(c.id)));next=ProgressSync.merge(next,old.history);next.explanationViews=StudyCredit.unionExplanations(next.explanationViews||[],old.explanationViews||[]);}}
+  if(uid&&!owner){const guest=localStorage.getItem('chagog-v1');if(guest){const parsed=JSON.parse(guest);validateBackup(parsed);const old=migrate(parsed);const ids=new Set(next.cards.map(c=>c.id));next.cards.push(...old.cards.filter(c=>!ids.has(c.id)));next=ProgressSync.merge(next,old.history);next.explanationViews=StudyCredit.unionExplanations(next.explanationViews||[],old.explanationViews||[]);next.notes=ProgressSync.unionNotes(cleanNotes(next.notes),cleanNotes(old.notes));}}
   delete next.quizFeedback;delete next.activePractice;for(const c of next.cards)delete c.pendingAttempt;
   localStorage.setItem(target,JSON.stringify(next));
   if(uid){if(!owner)localStorage.setItem('chagog-owner',uid);localStorage.setItem('chagog-active-user',uid);}else localStorage.removeItem('chagog-active-user');
