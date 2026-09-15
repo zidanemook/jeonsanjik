@@ -51,7 +51,7 @@ function roundMatch(c,round){
 }
 // 교재 진도(topic) 범위를 가진 과목: 영어는 문제집 Day, 국어는 『사고의 힘 논리』의 장.
 const TOPIC_SUBJECTS=new Set(['영어','국어']);
-const KOREAN_TOPICS={'논리 1장':'1장 논증의 개념과 유형','논리 2장':'2장 명제 논리','논리 3장':'3장 정언 논리'};
+const KOREAN_TOPICS={'논리 1장':'1장 논증의 개념과 유형','논리 2장':'2장 명제 논리','논리 3장':'3장 정언 논리','논리 4장':'4장 술어 논리','논리 5장':'5장 귀납 논증'};
 function inScope(c,scope){const subject=scope.subject||'',topic=TOPIC_SUBJECTS.has(subject)?scope.topic||'':'',round=hasRanges(subject)?scope.round||'':'';return isPlayable(c)&&(!subject||c.subject===subject)&&(!topic||PRACTICE_BANK[c.id]?.topic===topic)&&roundMatch(c,round);}
 function orderedScope(round){return !!topicScope(round)||!!lectureScope(round)||studyScope(round)!==null||!!paperScope(round)||Hanneung.rounds.includes(Number(round));}
 const inCurrent=c=>inScope(c,scopeOf());
@@ -567,9 +567,9 @@ function answerPractice(id,input){
  next.quizFeedback={cardId:id,reviewId,selectedIndex:quiz.type==='choice'?input:-1,userAnswer:quiz.type==='text'?String(input):'',result,exercise:quiz};
  delete next.activePractice;notify('');if(commit(next)){if(drilling)drill=StudyDrill.answer(drill,id,item.index,result==='correct');else if(sequential)paperAdvance();sessionDirty=true;render();window.scrollTo(0,0);}
 }
-// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제 · 문제집 Day 1 · Day 2 · Day 3 · Day 4, 국어: 사고의 힘 논리 1·2·3장)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
+// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제 · 문제집 Day 1 · Day 2 · Day 3 · Day 4, 국어: 사고의 힘 논리 1~5장)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
 // 과목은 연습 문제에 적힌 subject를 따르고, 적혀 있지 않으면 영어다(기존 영어 문제는 subject를 따로 적지 않았다).
-function installCorePack(){const pack='core-2026-09-15-v34';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id)),extras=Object.entries(PRACTICE_BANK).filter(([id])=>!CORE_REVIEW_PACK.some(c=>c.id===id)).map(([id,l])=>{const e=Practice.select({id,question:'',explanation:''},[],PRACTICE_BANK,QUIZ_OPTIONS),rule=CORE_REVIEW_PACK.find(c=>c.id===l.ruleId);return {id,subject:l.subject||'영어',question:e.question,answer:e.type==='text'?e.answers[0]:e.choices[e.correctIndex],explanation:e.explanation||'',source:id.startsWith('ko-logic')?'사고의 힘 논리 제1편 개념 기반 자체 제작 문제(교재 문장·예문은 옮기지 않음).':id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조·동사 유형 정리 기반 자체 제작 연습.':id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습.':id.startsWith('en-day3-')?'문제집 Day 3 문법 포인트 찾기 훈련 기반 자체 제작 연습.':id.startsWith('en-day4-')?'문제집 Day 4 문법 포인트 찾기 훈련 기반 자체 제작 연습.':rule?.source||'수일치 문서 기반 자체 제작 연습.'};});const cards=[...CORE_REVIEW_PACK,...extras].filter(c=>!ids.has(c.id)).map(c=>({...newCard({...c,verified:true}),id:c.id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
+function installCorePack(){const pack='core-2026-09-15-v35';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id)),extras=Object.entries(PRACTICE_BANK).filter(([id])=>!CORE_REVIEW_PACK.some(c=>c.id===id)).map(([id,l])=>{const e=Practice.select({id,question:'',explanation:''},[],PRACTICE_BANK,QUIZ_OPTIONS),rule=CORE_REVIEW_PACK.find(c=>c.id===l.ruleId);return {id,subject:l.subject||'영어',question:e.question,answer:e.type==='text'?e.answers[0]:e.choices[e.correctIndex],explanation:e.explanation||'',source:id.startsWith('ko-logic')?'사고의 힘 논리 제1편 개념 기반 자체 제작 문제(교재 문장·예문은 옮기지 않음).':id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조·동사 유형 정리 기반 자체 제작 연습.':id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습.':id.startsWith('en-day3-')?'문제집 Day 3 문법 포인트 찾기 훈련 기반 자체 제작 연습.':id.startsWith('en-day4-')?'문제집 Day 4 문법 포인트 찾기 훈련 기반 자체 제작 연습.':rule?.source||'수일치 문서 기반 자체 제작 연습.'};});const cards=[...CORE_REVIEW_PACK,...extras].filter(c=>!ids.has(c.id)).map(c=>({...newCard({...c,verified:true}),id:c.id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
 installCorePack();
 // 더는 없는 문제(v57에서 문제 하나씩으로 나눈 영어 규칙 카드 등)를 가리키던 풀이 화면·채점 화면만 비운다.
 // 그대로 두면 채점 화면이 남아 다음 답을 받지 못한다. 채점 기록(history)과 카드 일정은 한 건도 지우지 않는다.

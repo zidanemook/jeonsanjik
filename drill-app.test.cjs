@@ -230,7 +230,7 @@ assert.equal(fetched.filter(u=>u.includes(englishPaper)).length,2,'실패한 회
 // 회차가 아닌 범위는 예전 그대로 복습 대기열을 따른다.
 run("openScope({subject:'한국사',round:'lecture-02-05'})");
 assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에서는 전부 풀기 버튼이 그대로 있다');
-// 국어 범위 화면: 『사고의 힘 논리』 묶음이 맨 위에 1장 → 2장 → 3장 순서로 나오고, 모두 아직 풀지 않은 4지선다 문제다.
+// 국어 범위 화면: 『사고의 힘 논리』 묶음이 맨 위에 1장 → 2장 → 3장 → 4장 → 5장 순서로 나오고, 모두 아직 풀지 않은 4지선다 문제다.
 // 2장을 열면 국어 문제만 나오고, 틀린 뒤 해설 화면에 정리·출처·같은 개념 안내가 나오며 문항/카드라는 말은 없다.
 {
  const rangeRows=()=>nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text);
@@ -239,10 +239,12 @@ assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에�
  const heads=nodes.get('#rangeList').all.filter(n=>String(n.className||'').split(' ').includes('range-heading')).map(n=>n._text);
  assert.equal(heads[0],'사고의 힘 논리','국어 범위 화면의 첫 묶음: '+heads.slice(0,3).join(' / '));
  const rows=rangeRows();
- assert.deepEqual(rows.slice(0,3),['1장 논증의 개념과 유형','2장 명제 논리','3장 정언 논리'],'사고의 힘 논리는 1장 다음에 2장, 그다음에 3장: '+rows.slice(0,4).join(' / '));
+ assert.deepEqual(rows.slice(0,5),['1장 논증의 개념과 유형','2장 명제 논리','3장 정언 논리','4장 술어 논리','5장 귀납 논증'],'사고의 힘 논리는 1장부터 5장까지 차례로: '+rows.slice(0,6).join(' / '));
  assert.equal(rowDetail('1장 논증의 개념과 유형'),'전체 31문제 · 첫 시도 0/31 · 지금 풀 차례 31문제 (새 문제 5개 포함)','1장 범위 줄');
  assert.equal(rowDetail('2장 명제 논리'),'전체 179문제 · 첫 시도 0/179 · 지금 풀 차례 179문제 (새 문제 5개 포함)','2장 범위 줄');
  assert.equal(rowDetail('3장 정언 논리'),'전체 181문제 · 첫 시도 0/181 · 지금 풀 차례 181문제 (새 문제 5개 포함)','3장 범위 줄');
+ assert.equal(rowDetail('4장 술어 논리'),'전체 147문제 · 첫 시도 0/147 · 지금 풀 차례 147문제 (새 문제 5개 포함)','4장 범위 줄');
+ assert.equal(rowDetail('5장 귀납 논증'),'전체 128문제 · 첫 시도 0/128 · 지금 풀 차례 128문제 (새 문제 5개 포함)','5장 범위 줄');
  assert.ok(rows.includes('국어 전체')&&heads.some(h=>h.startsWith('기출 · 회차별')),'국어 기출과 국어 전체 범위는 그대로 있다');
  const rangeText=[...nodes.get('#rangeList').all.map(n=>n._text)].join(' | ');assert.ok(!/문항|카드/.test(rangeText),'국어 범위 화면에 문항/카드라는 말이 없다');
  run("openScope({subject:'국어',topic:'논리 2장'})");
@@ -273,6 +275,15 @@ assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에�
  assert.ok(shown3.includes('국어 · '+lesson3.title+' · 객관식'),'3장 문제 머리말');assert.ok(shown3.includes(lesson3.hook),'3장 해설 화면에 정리 한 줄');
  assert.ok(shown3.includes('사고의 힘 논리 제1편 개념 기반 자체 제작 문제'),'3장 출처 줄');assert.ok(!/문항|카드/.test(shown3),'3장 해설 화면에 문항/카드라는 말이 없다');
  next();
+ // 4장 술어 논리 147문제 · 5장 귀납 논증 128문제: 범위 이름·문제 수가 맞고, 범위 안의 첫 문제가 그 장의 4지선다다.
+ for(const [topic,title,n,prefix] of [['논리 4장','4장 술어 논리',147,'ko-logic4-'],['논리 5장','5장 귀납 논증',128,'ko-logic5-']]){
+  run('openScope({subject:\'국어\',topic:'+JSON.stringify(topic)+'})');
+  assert.equal(nodes.get('#scopeLabel')._text,'국어 · 사고의 힘 논리 '+title,topic+' 범위 이름');
+  assert.equal(run('data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).length'),n,topic+' 범위 문제 수');
+  assert.ok(run('data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).every(c=>c.subject===\'국어\'&&PRACTICE_BANK[c.id].topic==='+JSON.stringify(topic)+')'),topic+' 범위에는 그 장 문제만 있다');
+  const id=run('data.activePractice.cardId'),quiz=run('data.activePractice.exercise');
+  assert.ok(id.startsWith(prefix),topic+' 범위의 첫 문제: '+id);assert.equal(quiz.type,'choice');assert.equal(quiz.choices.length,4);
+ }
 }
-console.log('PASS drill in app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source), home/subject/range/progress counts read "전체 N문제 · 지금 풀 차례 M문제" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, drill serves all '+total+' questions then repeats only the missed one, records stay normal, no same-day interval inflation; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
+console.log('PASS drill in app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source), home/subject/range/progress counts read "전체 N문제 · 지금 풀 차례 M문제" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, drill serves all '+total+' questions then repeats only the missed one, records stay normal, no same-day interval inflation; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
 })().catch(e=>{console.error(e);process.exit(1);});

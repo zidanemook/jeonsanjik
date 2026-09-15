@@ -32,16 +32,22 @@ for(const [id,lesson]of Object.entries(bank)){
  {const d12=new Set(Object.values(bank).filter(l=>l.topic==='Day 1'||l.topic==='Day 2').map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='Day 3').every(l=>!d12.has(l.point)),'Day 3 문법 포인트는 Day 1·Day 2 포인트와 이름이 겹치지 않는다');}
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='Day 4').map(l=>l.point)).size,23);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='Day 4').map(l=>l.ruleId)).size,6);
  {const d123=new Set(Object.values(bank).filter(l=>['Day 1','Day 2','Day 3'].includes(l.topic)).map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='Day 4').every(l=>!d123.has(l.point)),'Day 4 문법 포인트는 Day 1~3 포인트와 이름이 겹치지 않는다');}
- // 국어 사고의 힘 논리: 1장 31문제 · 2장 179문제 · 3장 181문제, 모두 4지선다(직접 쓰기 없음)이고 과목은 국어다. id는 ko-logic1-01~31, ko-logic2-001~179, ko-logic3-001~181.
+ // 국어 사고의 힘 논리: 1장 31문제 · 2장 179문제 · 3장 181문제 · 4장 147문제 · 5장 128문제, 모두 4지선다(직접 쓰기 없음)이고 과목은 국어다. id는 ko-logic1-01~31, ko-logic2-001~179, ko-logic3-001~181, ko-logic4-001~147, ko-logic5-001~128.
  assert.equal(count('논리 1장'),31);assert.equal(count('논리 1장','choice'),31);assert.equal(count('논리 1장','text'),0);
  assert.equal(count('논리 2장'),179);assert.equal(count('논리 2장','choice'),179);assert.equal(count('논리 2장','text'),0);
  assert.equal(count('논리 3장'),181);assert.equal(count('논리 3장','choice'),181);assert.equal(count('논리 3장','text'),0);
+ assert.equal(count('논리 4장'),147);assert.equal(count('논리 4장','choice'),147);assert.equal(count('논리 4장','text'),0);
+ assert.equal(count('논리 5장'),128);assert.equal(count('논리 5장','choice'),128);assert.equal(count('논리 5장','text'),0);
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 1장').sort(),Array.from({length:31},(_,i)=>'ko-logic1-'+String(i+1).padStart(2,'0')),'논리 1장은 ko-logic1-01~31');
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 2장').sort(),Array.from({length:179},(_,i)=>'ko-logic2-'+String(i+1).padStart(3,'0')),'논리 2장은 ko-logic2-001~179');
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 3장').sort(),Array.from({length:181},(_,i)=>'ko-logic3-'+String(i+1).padStart(3,'0')),'논리 3장은 ko-logic3-001~181');
- assert.ok(Object.values(bank).every(l=>(l.subject==='국어')===/^논리 [123]장$/.test(l.topic)),'국어 교재 문제만 subject가 국어이고, 영어 문제에는 subject가 없다');
+ assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 4장').sort(),Array.from({length:147},(_,i)=>'ko-logic4-'+String(i+1).padStart(3,'0')),'논리 4장은 ko-logic4-001~147');
+ assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 5장').sort(),Array.from({length:128},(_,i)=>'ko-logic5-'+String(i+1).padStart(3,'0')),'논리 5장은 ko-logic5-001~128');
+ assert.ok(Object.values(bank).every(l=>(l.subject==='국어')===/^논리 [1-5]장$/.test(l.topic)),'국어 교재 문제만 subject가 국어이고, 영어 문제에는 subject가 없다');
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 1장').map(l=>l.point)).size,11);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 2장').map(l=>l.point)).size,45);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 3장').map(l=>l.point)).size,27);
+ assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 4장').map(l=>l.point)).size,14);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 5장').map(l=>l.point)).size,14);
  {const p12=new Set(Object.values(bank).filter(l=>l.topic==='논리 1장'||l.topic==='논리 2장').map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='논리 3장').every(l=>!p12.has(l.point)),'3장 개념은 1·2장 개념과 이름이 겹치지 않는다');}
+ {const p123=new Set(Object.values(bank).filter(l=>/^논리 [123]장$/.test(l.topic)).map(l=>l.point)),p4=new Set(Object.values(bank).filter(l=>l.topic==='논리 4장').map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='논리 4장').every(l=>!p123.has(l.point)),'4장 개념은 1~3장 개념과 이름이 겹치지 않는다');assert.ok(Object.values(bank).filter(l=>l.topic==='논리 5장').every(l=>!p123.has(l.point)&&!p4.has(l.point)),'5장 개념은 1~4장 개념과 이름이 겹치지 않는다');}
  assert.ok(Object.entries(bank).filter(([id])=>id.startsWith('ko-logic')).every(([,l])=>!/문항|카드/.test(JSON.stringify([l.title,l.rule,l.hook,l.examples,l.variants]))),'국어 교재 문제의 문제·보기·해설·정리에 문항/카드라는 말이 없다');}
 const c=ctx.CORE_REVIEW_PACK[0],options=ctx.QUIZ_OPTIONS;
 const picks=Array.from({length:8},(_,i)=>practice.select(c,Array.from({length:i},()=>({cardId:c.id})),bank,options));

@@ -58,8 +58,10 @@ assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day4-rule-ver
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day4-rule-comparison-form')||x.exercise.type!=='choice')),/MCQ required: grammar-day4-rule-comparison-form/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day4-rule-comparison-parallel'))),/Missing coverage/);
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day4-006'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-day4-001').lesson.point}}:x)),/One grammar point, one concept/);
-// 국어 사고의 힘 논리: 개념(point) 하나가 개념 묶음 하나(1·2장 56개 + 3장 27개 = 83개)다. 영어의 직접쓰기 하한은 걸리지 않고, 장별 문제 수 하한·필수 개념·4지선다만을 요구한다.
-{const ko=list.filter(x=>x.card.id.startsWith('ko-logic'));assert.equal(ko.length,391);assert.ok(ko.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-logic-')));assert.equal(new Set(ko.map(x=>x.conceptId)).size,83);
+// 국어 사고의 힘 논리: 개념(point) 하나가 개념 묶음 하나(1·2장 56개 + 3장 27개 + 4장 14개 + 5장 14개 = 111개)다. 영어의 직접쓰기 하한은 걸리지 않고, 장별 문제 수 하한·필수 개념·4지선다만을 요구한다.
+{const ko=list.filter(x=>x.card.id.startsWith('ko-logic'));assert.equal(ko.length,666);assert.ok(ko.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-logic-')));assert.equal(new Set(ko.map(x=>x.conceptId)).size,111);
+ assert.equal(policy.concept('ko-logic4-094'),'korean-logic-existential-first');assert.equal(policy.concept('ko-logic4-094'),policy.concept('ko-logic4-102'),'존재 명제 먼저 활용 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic4-102'),policy.concept('ko-logic4-103'),'존재 명제 먼저 활용과 존재 명제마다 다른 이름은 다른 개념');
+ assert.equal(policy.concept('ko-logic5-074'),'korean-logic-method-agreement');assert.equal(policy.concept('ko-logic5-074'),policy.concept('ko-logic5-083'),'일치법 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic5-083'),policy.concept('ko-logic5-084'),'일치법과 차이법은 다른 개념');
  assert.equal(policy.concept('ko-logic2-087'),policy.concept('ko-logic2-091'),'대우 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic2-087'),policy.concept('ko-logic2-082'),'대우와 드모르간은 다른 개념');
  assert.equal(policy.concept('ko-logic2-069'),'korean-logic-affirming-consequent');assert.equal(policy.concept('ko-logic2-035'),'korean-logic-conditional-truth');
  assert.equal(policy.concept('ko-logic2-138'),'korean-logic-if-vs-only-if');assert.equal(policy.concept('ko-logic2-138'),policy.concept('ko-logic2-145'),'경우·경우에만 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic2-016'),policy.concept('ko-logic2-113'),'2장 보강 충분조건의 뜻은 기존 필요조건과 충분조건과 다른 개념');
@@ -68,6 +70,10 @@ assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic1
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='대우')),/Missing Korean coverage: 논리 2장 \/ 대우/);
 assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic2-')||Number(x.card.id.slice(-3))<=139)),/Korean textbook floor: 논리 2장 has 139, needs 140/);
 assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic3-')||Number(x.card.id.slice(-3))<=144)),/Korean textbook floor: 논리 3장 has 144, needs 145/);
+assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic4-')||Number(x.card.id.slice(-3))<=117)),/Korean textbook floor: 논리 4장 has 117, needs 118/);
+assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic5-')||Number(x.card.id.slice(-3))<=102)),/Korean textbook floor: 논리 5장 has 102, needs 103/);
+assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='존재 명제 먼저 활용')),/Missing Korean coverage: 논리 4장 \/ 존재 명제 먼저 활용/);
+assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='잉여법')),/Missing Korean coverage: 논리 5장 \/ 잉여법/);
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='환위')),/Missing Korean coverage: 논리 3장 \/ 환위/);
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='조건 관계의 연결과 뒤집기')),/Missing Korean coverage: 논리 2장 \/ 조건 관계의 연결과 뒤집기/);
 assert.throws(()=>audit.coverage(list.map(x=>x.card.id==='ko-logic3-001'?{...x,exercise:{...x.exercise,type:'text',answers:['정언 논리']}}:x)),/four-option only: ko-logic3-001/);
