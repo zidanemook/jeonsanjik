@@ -539,15 +539,19 @@ function sendNote(card,quiz,stage,title){
  if(commit(next)){notify('의견을 저장했어요 · 로그인돼 있으면 자동으로 전송돼요.');render();}
 }
 function answerPractice(id,input){
- if(data.quizFeedback)return;const active=data.activePractice;if(active?.cardId!==id)return;const quiz=active.exercise;
+ if(data.quizFeedback)return;const active=data.activePractice;
+ // 화면과 기록이 어긋난 채로 누른 답은 조용히 버리지 않고 화면을 다시 그린 뒤 알려 준다.
+ const stale=()=>{render();notify('풀 차례가 바뀌어 문제를 다시 불러왔어요. 다시 골라 주세요.');};
+ if(active?.cardId!==id){stale();return;}const quiz=active.exercise;
  if(quiz.image){const img=$('#card .paper-image img');if(!img?.complete||!img.naturalWidth){notify('문제 이미지가 표시된 뒤 답을 골라 주세요.');return;}}
  if(quiz.choiceImages&&[...document.querySelectorAll('#card .photo-choices img')].some(img=>!img.complete||!img.naturalWidth)){notify('보기 사진이 모두 표시된 뒤 답을 골라 주세요.');return;}
  const drilling=drillOn(scopeOf()),item=drilling?StudyDrill.current(drill):null;
  const sequential=!drilling&&sequentialScope(scopeOf());
- if(drilling){if(!item||item.cardId!==id||item.index!==(quiz.variantIndex??0))return;}
+ if(drilling){if(!item||item.cardId!==id||item.index!==(quiz.variantIndex??0)){stale();return;}}
  // 회차에서는 대기열이 아니라 "지금 차례인 문항인가"만 본다.
- else if(sequential){if(catalogOrder(data.cards.filter(inCurrent))[paperIndex(scopeOf())]?.id!==id)return;}
- else if(!reviewQueue(data.cards.filter(inCurrent)).ready.some(c=>c.id===id))return;
+ else if(sequential){if(catalogOrder(data.cards.filter(inCurrent))[paperIndex(scopeOf())]?.id!==id){stale();return;}}
+ // 같은 개념 간격으로 기다리던 문제는 화면이 앞당겨 보여 줄 수 있다. 그사이 다른 문제의 간격이 먼저 끝나도 보여 준 문제의 답은 받는다.
+ else{const q=reviewQueue(data.cards.filter(inCurrent));if(!q.ready.some(c=>c.id===id)&&!q.waiting.some(w=>w.card.id===id)){stale();return;}}
  if(quiz.type==='text'&&!String(input).trim()){notify('답을 입력한 다음 채점해 주세요.');return;}
  if(quiz.type==='choice'&&(!Number.isInteger(input)||input<0||input>=quiz.choices.length))return;
  const correct=quiz.type==='text'?Practice.grade(quiz,input):input===quiz.correctIndex;
