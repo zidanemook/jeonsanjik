@@ -9,7 +9,7 @@ const completeRounds=[79,78,77];
 assert.deepEqual(Object.keys(explanations).sort(),completeRounds.flatMap(n=>Array.from({length:50},(_,i)=>'hanneung-'+n+'-'+String(i+1).padStart(2,'0'))).sort());
 for(const [id,e]of Object.entries(explanations)){
  assert.equal(e.choices.length,5,id);assert(e.clue&&e.reason&&e.hook&&e.reviewedOn);
- assert(e.sources.length>0);for(const s of e.sources){assert(s.title);const url=new URL(s.url);assert.equal(url.protocol,'https:');assert(['contents.history.go.kr','www.heritage.go.kr','www.museum.go.kr','cl.mofa.go.kr','www.kookje.co.kr','www.kmdb.or.kr'].includes(url.hostname));}
+ assert(e.sources.length>0);for(const s of e.sources){assert(s.title);const url=new URL(s.url);assert.equal(url.protocol,'https:');assert(['contents.history.go.kr','www.heritage.go.kr','www.museum.go.kr','encykorea.aks.ac.kr','cl.mofa.go.kr','www.kookje.co.kr','www.kmdb.or.kr'].includes(url.hostname));}
  assert(!options[id].explanation.includes('아직 제공하지 않습니다'));assert(options[id].explanation.length<8000);
  const c=cards.find(c=>c.id===id),e2=practice.select(c,[],{},options),detail=record.create(c,e2,e2.correctIndex,null,id);assert.equal(detail.explanation,h.explanation(id));
 }

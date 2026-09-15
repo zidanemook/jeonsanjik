@@ -907,7 +907,7 @@
  "hanneung-75-02":"gojoseon",
  "hanneung-75-03":"baekje-silla",
  "hanneung-75-04":"goguryeo-gaya",
- "hanneung-75-05":"gojoseon",
+ "hanneung-75-05":"goguryeo-gaya",
  "hanneung-75-06":"unified-silla",
  "hanneung-75-07":"goguryeo-gaya",
  "hanneung-75-08":"balhae",
