@@ -899,6 +899,54 @@
   "goryeoecon-hist-20260915-060": "history-goryeo-relief"
  });
  // END LECTURE 13 GROUPS
+ // BEGIN LECTURE 14 GROUPS
+ // 14강 고려(문화 I): 유학·성리학·교육·과거·역사서·불교·풍수지리를 개념으로 묶어 같은 생각을 10분 안에 두 번 묻지 않는다.
+ Object.assign(groups,{
+  "goryeoculture-hist-20260915-001": "history-goryeo-confucianism",
+  "goryeoculture-hist-20260915-002": "history-goryeo-confucianism",
+  "goryeoculture-hist-20260915-003": "history-goryeo-neo-confucianism",
+  "goryeoculture-hist-20260915-004": "history-goryeo-neo-confucianism",
+  "goryeoculture-hist-20260915-005": "history-goryeo-neo-confucianism",
+  "goryeoculture-hist-20260915-006": "history-goryeo-neo-confucianism",
+  "goryeoculture-hist-20260915-007": "history-goryeo-neo-confucianism",
+  "goryeoculture-hist-20260915-008": "history-goryeo-neo-confucianism",
+  "goryeoculture-hist-20260915-009": "history-goryeo-confucianism",
+  "goryeoculture-hist-20260915-010": "history-goryeo-confucianism",
+  "goryeoculture-hist-20260915-011": "history-goryeo-education",
+  "goryeoculture-hist-20260915-012": "history-goryeo-education",
+  "goryeoculture-hist-20260915-013": "history-goryeo-civil-exam",
+  "goryeoculture-hist-20260915-014": "history-goryeo-education",
+  "goryeoculture-hist-20260915-015": "history-goryeo-education",
+  "goryeoculture-hist-20260915-016": "history-goryeo-education",
+  "goryeoculture-hist-20260915-017": "history-goryeo-education",
+  "goryeoculture-hist-20260915-018": "history-goryeo-education",
+  "goryeoculture-hist-20260915-019": "history-goryeo-histories-early-mid",
+  "goryeoculture-hist-20260915-020": "history-goryeo-histories-early-mid",
+  "goryeoculture-hist-20260915-021": "history-goryeo-histories-late",
+  "goryeoculture-hist-20260915-022": "history-goryeo-histories-late",
+  "goryeoculture-hist-20260915-023": "history-goryeo-histories-late",
+  "goryeoculture-hist-20260915-024": "history-goryeo-histories-late",
+  "goryeoculture-hist-20260915-025": "history-goryeo-histories-late",
+  "goryeoculture-hist-20260915-026": "history-goryeo-histories-early-mid",
+  "goryeoculture-hist-20260915-027": "history-goryeo-histories-late",
+  "goryeoculture-hist-20260915-028": "history-goryeo-buddhism-policy",
+  "goryeoculture-hist-20260915-029": "history-goryeo-buddhism-policy",
+  "goryeoculture-hist-20260915-030": "history-goryeo-buddhism-policy",
+  "goryeoculture-hist-20260915-031": "history-goryeo-uicheon",
+  "goryeoculture-hist-20260915-032": "history-goryeo-uicheon",
+  "goryeoculture-hist-20260915-033": "history-goryeo-uicheon",
+  "goryeoculture-hist-20260915-034": "history-goryeo-jinul-hyesim",
+  "goryeoculture-hist-20260915-035": "history-goryeo-jinul-hyesim",
+  "goryeoculture-hist-20260915-036": "history-goryeo-jinul-hyesim",
+  "goryeoculture-hist-20260915-037": "history-goryeo-jinul-hyesim",
+  "goryeoculture-hist-20260915-038": "history-goryeo-yose-gyunyeo",
+  "goryeoculture-hist-20260915-039": "history-goryeo-yose-gyunyeo",
+  "goryeoculture-hist-20260915-040": "history-goryeo-buddhism-policy",
+  "goryeoculture-hist-20260915-041": "history-goryeo-geomancy",
+  "goryeoculture-hist-20260915-042": "history-goryeo-geomancy",
+  "goryeoculture-hist-20260915-043": "history-goryeo-geomancy"
+ });
+ // END LECTURE 14 GROUPS
  // BEGIN ENGLISH ONE-QUESTION GROUPS
  // 영어 규칙 카드를 문제 하나씩으로 나눈 뒤(v57)에도 "하나를 틀리면 같은 규칙의 다른 문제가 형제 간격 뒤에 이어서 나온다"가 그대로 동작하도록 묶는다.
  // <규칙 id>-vN은 원래 규칙 id와 같은 개념(원래 규칙이 다른 규칙과 묶여 있었다면 그 묶음)이다. 문제집 Day 1·Day 2·Day 3은 문법 포인트(point) 하나가 개념 하나다.
