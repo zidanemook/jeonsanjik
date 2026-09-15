@@ -4148,18 +4148,18 @@ globalThis.QUIZ_OPTIONS={
   "goryeomid-hist-20260914-008": {
     "choices": [
       "최충",
-      "윤관",
-      "김부식",
-      "이자겸"
+      "최충헌",
+      "최우",
+      "최승로"
     ],
     "correctIndex": 0
   },
   "goryeomid-hist-20260914-009": {
     "choices": [
-      "윤관",
-      "최충",
-      "김부식",
-      "이자겸"
+      "파평 윤씨",
+      "경원 이씨",
+      "경주 김씨",
+      "해주 최씨"
     ],
     "correctIndex": 0
   },
