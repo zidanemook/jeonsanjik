@@ -209,3 +209,5 @@ body[data-view="quiz"] main { padding-top:14px; }
 .choice-answer-tag { background:#183b2b; color:#82d6a4; }
 .choice-picked-tag { background:#49282e; color:#ff9c9c; }
 .memorize-group-title { margin:0 0 8px; font-size:18px; font-weight:700; color:#d4e5ff; }
+.question-clue { margin:14px 0 0; padding:12px 14px; border:1px solid #4a5a70; border-radius:10px; background:#1b2230; color:#e3e8ef; font-size:17px; font-weight:400; line-height:1.75; white-space:pre-wrap; overflow-wrap:anywhere; }
+.recap .question-clue { font-size:15px; }

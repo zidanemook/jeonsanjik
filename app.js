@@ -253,6 +253,8 @@ function choiceExplanations(quiz,split,picked){
  return box;
 }
 function markedList(quiz){const box=elem('div',undefined,'marked-choices');box.append(elem('strong','보기별 틀린 곳'));quiz.choices.forEach((c,i)=>{const p=elem('p',(i+1)+'. ','example');p.append(markedChoice(c,quiz.marks[i]));box.append(p);});return box;}
+// 기출형 자료 제시 문제는 발문 뒤 빈 줄 다음에 [자료 이름]으로 시작하는 자료를 둔다. 발문은 크게, 자료는 상자에 보통 글씨로 보여 준다.
+function questionNodes(text){const at=text.indexOf('\n\n[');if(at<0)return [elem('div',text,'question')];return [elem('div',text.slice(0,at),'question'),elem('div',text.slice(at+2),'question-clue')];}
 function explanationText(text){
  const p=elem('p',undefined,'explanation-text');let start=0;
  for(const match of text.matchAll(/https:\/\/(?:contents\.history\.go\.kr|www\.heritage\.go\.kr|www\.museum\.go\.kr|encykorea\.aks\.ac\.kr|cl\.mofa\.go\.kr|www\.kookje\.co\.kr|www\.kmdb\.or\.kr)\/[^\s]+/g)){
@@ -457,7 +459,7 @@ function renderQuiz(){
  const label=elem('small',card.subject+' · '+(lesson?.title||(paperRow?Gichul.title(paperRow):quiz.image?Hanneung.title(Hanneung.get(card.id))+(studyTopic(card.id)?' · '+StudyTopics.title(studyTopic(card.id)):''):summary?StudyTopics.title(studyTopic(card.id))+' · 복습 '+summary.number+'번 · 자체 제작':'개념 복습'))+' · '+(quiz.type==='text'?'직접 쓰기':quiz.choiceImages?'사진 객관식':'객관식'));
  if(feedback)renderFeedback(root,card,quiz,lesson,label);
  else{
-  root.append(label,elem('div',quiz.question,'question'));
+  root.append(label,...questionNodes(quiz.question));
   appendPaper(root,Hanneung.get(card.id));
   if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(root,quiz,i=>answerPractice(card.id,i));
   else if(quiz.type==='choice'){
@@ -498,7 +500,7 @@ function renderFeedback(root,card,quiz,lesson,label){
  const main=elem('details',undefined,'lesson explanation-main');main.append(elem('summary','해설 보기'));const byChoice=Practice.explainByChoice(quiz);if(byChoice)main.append(choiceExplanations(quiz,byChoice,f.selectedIndex));else{if(quiz.marks)main.append(markedList(quiz));main.append(explanationText(quiz.explanation||card.explanation||''));}attachExplanationCredit(main,reviewId,'feedback');root.append(main);
  appendNewPaperExplanation(root,card.id,quiz.explanation||card.explanation,reviewId,'feedback-supplement');
  if(lesson){root.append(elem('p',lesson.hook,'hook'));const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),elem('p',lesson.rule));for(const example of lesson.examples)details.append(elem('p',example,'example'));attachExplanationCredit(details,reviewId,'lesson');root.append(details);}
- const recap=elem('details',undefined,'lesson recap');recap.append(elem('summary','문제 다시 보기'),label,elem('div',quiz.question,'question'));appendPaper(recap,Hanneung.get(card.id));
+ const recap=elem('details',undefined,'lesson recap');recap.append(elem('summary','문제 다시 보기'),label,...questionNodes(quiz.question));appendPaper(recap,Hanneung.get(card.id));
  if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(recap,quiz,null,f.selectedIndex);
  else if(quiz.type==='choice'){const choices=elem('div',undefined,'quiz-choices recap-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const b=elem('button',quiz.fixedOrder?choice:(i+1)+'. '+(quiz.marks?'':choice));if(quiz.marks)b.append(markedChoice(choice,quiz.marks[i]));b.type='button';b.disabled=true;if(i===quiz.correctIndex)b.classList.add('quiz-correct');else if(i===f.selectedIndex)b.classList.add('quiz-wrong');choices.append(b);});recap.append(choices);}
  root.append(recap);
