@@ -667,6 +667,59 @@
   "goryeoforeign-hist-20260914-140": "history-goryeo-fall-joseon"
  });
  // END LECTURE 12 GROUPS
+ // BEGIN GORYEO EXAM-STYLE GROUPS
+ // 고려 기출형 연습: 왕·인물·세력·기구·시기를 가린 문제는 그 대상의 기존 개념에 묶고, 여러 시기를 잇는 사이 시기 문제는 시기별 순서 개념(history-goryeo-period-order-*)에 묶는다.
+ Object.assign(groups,{
+  "goryeostyle-hist-20260915-001": "history-goryeo-taejo",
+  "goryeostyle-hist-20260915-002": "history-goryeo-taejo",
+  "goryeostyle-hist-20260915-003": "history-goryeo-jeongjong",
+  "goryeostyle-hist-20260915-004": "history-goryeo-gwangjong",
+  "goryeostyle-hist-20260915-005": "history-goryeo-gwangjong",
+  "goryeostyle-hist-20260915-006": "history-goryeo-seongjong",
+  "goryeostyle-hist-20260915-007": "history-goryeo-seongjong",
+  "goryeostyle-hist-20260915-008": "history-goryeo-khitan-invasions",
+  "goryeostyle-hist-20260915-009": "history-goryeo-khitan-invasions",
+  "goryeostyle-hist-20260915-010": "history-goryeo-yijagyeom-revolt",
+  "goryeostyle-hist-20260915-011": "history-goryeo-myocheong-revolt",
+  "goryeostyle-hist-20260915-012": "history-goryeo-anti-military-revolts",
+  "goryeostyle-hist-20260915-013": "history-goryeo-peasant-uprisings",
+  "goryeostyle-hist-20260915-014": "history-goryeo-mongol-war",
+  "goryeostyle-hist-20260915-015": "history-goryeo-mongol-war",
+  "goryeostyle-hist-20260915-016": "history-goryeo-mongol-war",
+  "goryeostyle-hist-20260915-017": "history-goryeo-period-order-early",
+  "goryeostyle-hist-20260915-018": "history-goryeo-period-order-mid",
+  "goryeostyle-hist-20260915-019": "history-goryeo-period-order-mid",
+  "goryeostyle-hist-20260915-020": "history-goryeo-period-order-military",
+  "goryeostyle-hist-20260915-021": "history-goryeo-period-order-military",
+  "goryeostyle-hist-20260915-022": "history-goryeo-mongol-war",
+  "goryeostyle-hist-20260915-023": "history-goryeo-period-order-late",
+  "goryeostyle-hist-20260915-024": "history-goryeo-period-order-late",
+  "goryeostyle-hist-20260915-025": "history-goryeo-pre-gongmin-reform",
+  "goryeostyle-hist-20260915-026": "history-goryeo-gongmin-reform",
+  "goryeostyle-hist-20260915-027": "history-goryeo-gongmin-reform",
+  "goryeostyle-hist-20260915-028": "history-goryeo-red-turbans-wokou",
+  "goryeostyle-hist-20260915-029": "history-goryeo-fall-joseon",
+  "goryeostyle-hist-20260915-030": "history-goryeo-period-order-early",
+  "goryeostyle-hist-20260915-031": "history-goryeo-period-order-late",
+  "goryeostyle-hist-20260915-032": "history-goryeo-period-order-early",
+  "goryeostyle-hist-20260915-033": "history-goryeo-choe-regime",
+  "goryeostyle-hist-20260915-034": "history-goryeo-choe-regime",
+  "goryeostyle-hist-20260915-035": "history-goryeo-military-rulers",
+  "goryeostyle-hist-20260915-036": "history-goryeo-mongol-war",
+  "goryeostyle-hist-20260915-037": "history-goryeo-military-guards",
+  "goryeostyle-hist-20260915-038": "history-goryeo-gongmin-reform",
+  "goryeostyle-hist-20260915-039": "history-goryeo-jurchen-relations",
+  "goryeostyle-hist-20260915-040": "history-goryeo-seogyeong-gaegyeong",
+  "goryeostyle-hist-20260915-041": "history-goryeo-yuan-demotion",
+  "goryeostyle-hist-20260915-042": "history-goryeo-military-era-unrest",
+  "goryeostyle-hist-20260915-043": "history-goryeo-mongol-war",
+  "goryeostyle-hist-20260915-044": "history-goryeo-fall-joseon",
+  "goryeostyle-hist-20260915-045": "history-goryeo-yuan-territory",
+  "goryeostyle-hist-20260915-046": "history-goryeo-gwonmun-sejok",
+  "goryeostyle-hist-20260915-047": "history-goryeo-yuan-interference",
+  "goryeostyle-hist-20260915-048": "history-goryeo-period-order-mid"
+ });
+ // END GORYEO EXAM-STYLE GROUPS
  // BEGIN ENGLISH ONE-QUESTION GROUPS
  // 영어 규칙 카드를 문제 하나씩으로 나눈 뒤(v57)에도 "하나를 틀리면 같은 규칙의 다른 문제가 형제 간격 뒤에 이어서 나온다"가 그대로 동작하도록 묶는다.
  // <규칙 id>-vN은 원래 규칙 id와 같은 개념(원래 규칙이 다른 규칙과 묶여 있었다면 그 묶음)이다. 문제집 Day 1·Day 2·Day 3은 문법 포인트(point) 하나가 개념 하나다.

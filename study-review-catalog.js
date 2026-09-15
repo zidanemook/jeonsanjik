@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 648,
+  "total": 696,
   "sets": [
     {
       "number": 1,
@@ -1166,6 +1166,90 @@ globalThis.STUDY_REVIEW_CATALOG={
         "goryeoforeign-hist-20260914-139",
         "goryeoforeign-hist-20260914-140"
       ]
+    },
+    {
+      "number": 87,
+      "title": "고려 기출형 연습 1",
+      "ids": [
+        "goryeostyle-hist-20260915-001",
+        "goryeostyle-hist-20260915-002",
+        "goryeostyle-hist-20260915-003",
+        "goryeostyle-hist-20260915-004",
+        "goryeostyle-hist-20260915-005",
+        "goryeostyle-hist-20260915-006",
+        "goryeostyle-hist-20260915-007",
+        "goryeostyle-hist-20260915-008"
+      ]
+    },
+    {
+      "number": 88,
+      "title": "고려 기출형 연습 2",
+      "ids": [
+        "goryeostyle-hist-20260915-009",
+        "goryeostyle-hist-20260915-010",
+        "goryeostyle-hist-20260915-011",
+        "goryeostyle-hist-20260915-012",
+        "goryeostyle-hist-20260915-013",
+        "goryeostyle-hist-20260915-014",
+        "goryeostyle-hist-20260915-015",
+        "goryeostyle-hist-20260915-016"
+      ]
+    },
+    {
+      "number": 89,
+      "title": "고려 기출형 연습 3",
+      "ids": [
+        "goryeostyle-hist-20260915-017",
+        "goryeostyle-hist-20260915-018",
+        "goryeostyle-hist-20260915-019",
+        "goryeostyle-hist-20260915-020",
+        "goryeostyle-hist-20260915-021",
+        "goryeostyle-hist-20260915-022",
+        "goryeostyle-hist-20260915-023",
+        "goryeostyle-hist-20260915-024"
+      ]
+    },
+    {
+      "number": 90,
+      "title": "고려 기출형 연습 4",
+      "ids": [
+        "goryeostyle-hist-20260915-025",
+        "goryeostyle-hist-20260915-026",
+        "goryeostyle-hist-20260915-027",
+        "goryeostyle-hist-20260915-028",
+        "goryeostyle-hist-20260915-029",
+        "goryeostyle-hist-20260915-030",
+        "goryeostyle-hist-20260915-031",
+        "goryeostyle-hist-20260915-032"
+      ]
+    },
+    {
+      "number": 91,
+      "title": "고려 기출형 연습 5",
+      "ids": [
+        "goryeostyle-hist-20260915-033",
+        "goryeostyle-hist-20260915-034",
+        "goryeostyle-hist-20260915-035",
+        "goryeostyle-hist-20260915-036",
+        "goryeostyle-hist-20260915-037",
+        "goryeostyle-hist-20260915-038",
+        "goryeostyle-hist-20260915-039",
+        "goryeostyle-hist-20260915-040"
+      ]
+    },
+    {
+      "number": 92,
+      "title": "고려 기출형 연습 6",
+      "ids": [
+        "goryeostyle-hist-20260915-041",
+        "goryeostyle-hist-20260915-042",
+        "goryeostyle-hist-20260915-043",
+        "goryeostyle-hist-20260915-044",
+        "goryeostyle-hist-20260915-045",
+        "goryeostyle-hist-20260915-046",
+        "goryeostyle-hist-20260915-047",
+        "goryeostyle-hist-20260915-048"
+      ]
     }
   ],
   "lectures": [
@@ -1857,6 +1941,60 @@ globalThis.STUDY_REVIEW_CATALOG={
         "goryeoforeign-hist-20260914-138",
         "goryeoforeign-hist-20260914-139",
         "goryeoforeign-hist-20260914-140"
+      ]
+    },
+    {
+      "id": "10-12",
+      "title": "고려 기출형 연습",
+      "ids": [
+        "goryeostyle-hist-20260915-001",
+        "goryeostyle-hist-20260915-002",
+        "goryeostyle-hist-20260915-003",
+        "goryeostyle-hist-20260915-004",
+        "goryeostyle-hist-20260915-005",
+        "goryeostyle-hist-20260915-006",
+        "goryeostyle-hist-20260915-007",
+        "goryeostyle-hist-20260915-008",
+        "goryeostyle-hist-20260915-009",
+        "goryeostyle-hist-20260915-010",
+        "goryeostyle-hist-20260915-011",
+        "goryeostyle-hist-20260915-012",
+        "goryeostyle-hist-20260915-013",
+        "goryeostyle-hist-20260915-014",
+        "goryeostyle-hist-20260915-015",
+        "goryeostyle-hist-20260915-016",
+        "goryeostyle-hist-20260915-017",
+        "goryeostyle-hist-20260915-018",
+        "goryeostyle-hist-20260915-019",
+        "goryeostyle-hist-20260915-020",
+        "goryeostyle-hist-20260915-021",
+        "goryeostyle-hist-20260915-022",
+        "goryeostyle-hist-20260915-023",
+        "goryeostyle-hist-20260915-024",
+        "goryeostyle-hist-20260915-025",
+        "goryeostyle-hist-20260915-026",
+        "goryeostyle-hist-20260915-027",
+        "goryeostyle-hist-20260915-028",
+        "goryeostyle-hist-20260915-029",
+        "goryeostyle-hist-20260915-030",
+        "goryeostyle-hist-20260915-031",
+        "goryeostyle-hist-20260915-032",
+        "goryeostyle-hist-20260915-033",
+        "goryeostyle-hist-20260915-034",
+        "goryeostyle-hist-20260915-035",
+        "goryeostyle-hist-20260915-036",
+        "goryeostyle-hist-20260915-037",
+        "goryeostyle-hist-20260915-038",
+        "goryeostyle-hist-20260915-039",
+        "goryeostyle-hist-20260915-040",
+        "goryeostyle-hist-20260915-041",
+        "goryeostyle-hist-20260915-042",
+        "goryeostyle-hist-20260915-043",
+        "goryeostyle-hist-20260915-044",
+        "goryeostyle-hist-20260915-045",
+        "goryeostyle-hist-20260915-046",
+        "goryeostyle-hist-20260915-047",
+        "goryeostyle-hist-20260915-048"
       ]
     }
   ],
@@ -7516,6 +7654,558 @@ globalThis.STUDY_REVIEW_CATALOG={
         "창왕(박위의 쓰시마섬 토벌) vs 공양왕(과전법)"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 12강 고려(외교) 135쪽 고려의 멸망"
+    },
+    "goryeostyle-hist-20260915-001": {
+      "number": 649,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "태조 식별(추대·송악·사심관·기인·훈요 10조)",
+        "태조 만부교 사건",
+        "정종 광군",
+        "광종 노비안검법",
+        "성종 12목"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-002": {
+      "number": 650,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "태조 식별(역분전·흑창)",
+        "태조 『정계』·『계백료서』",
+        "경종 시정 전시과",
+        "광종 과거제",
+        "성종 시무 28조"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-003": {
+      "number": 651,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "정종 식별(혜종 다음·왕규의 난)",
+        "정종 광군",
+        "태조 만부교 사건",
+        "광종 공복",
+        "성종 의창·상평창"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-004": {
+      "number": 652,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "광종 식별(노비안검법·과거제)",
+        "광종 칭제건원(광덕·준풍)",
+        "태조 천수·송악",
+        "성종 국자감·경학박사",
+        "경종 시정 전시과"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-005": {
+      "number": 653,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "광종 식별(광덕·준풍·공복)",
+        "광종 노비안검법",
+        "태조 혼인·사성",
+        "성종 12목",
+        "경종 시정 전시과"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-006": {
+      "number": 654,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "성종 식별(최승로·국자감·경학박사)",
+        "성종 거란 1차 서희 담판",
+        "현종 거란 2차 나주 피란",
+        "정종 광군",
+        "광종 과거제"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-007": {
+      "number": 655,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "성종 식별(의창·연등회·팔관회·강동 6주)",
+        "성종 12목 지방관",
+        "태조 사심관",
+        "현종 귀주 대첩",
+        "광종 노비안검법"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-008": {
+      "number": 656,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "현종 식별(강조의 정변·개경 함락·나주 피란)",
+        "현종 귀주 대첩",
+        "성종 서희 담판",
+        "고종 처인성 김윤후",
+        "숙종 별무반"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-009": {
+      "number": 657,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "현종 식별(거란 3차 소배압·귀주 대첩)",
+        "현종 나주 피란",
+        "공민왕 안동 피신",
+        "고종 강화 천도",
+        "성종 서희 강동 6주"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-010": {
+      "number": 658,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "인종 식별(이자겸의 난·척준경 회유)",
+        "인종 묘청의 난(대위)",
+        "예종 동북 9성",
+        "명종 김보당의 난",
+        "의종 보현원 정변"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-011": {
+      "number": 659,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "인종 식별(묘청·정지상·대위·김부식)",
+        "인종 이자겸의 금 사대 수용",
+        "명종 조위총의 난",
+        "숙종 별무반",
+        "예종 9성 반환"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-012": {
+      "number": 660,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "명종 식별(김보당·조위총의 난)",
+        "명종 망이·망소이의 난",
+        "신종 만적의 난",
+        "인종 묘청의 난",
+        "고종(최우 집권기) 이연년 형제"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-013": {
+      "number": 661,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "명종 식별(망이·망소이·충순현)",
+        "명종 김사미·효심의 난",
+        "신종 만적의 난",
+        "고종 다인철소 저항",
+        "원종 삼별초 항쟁"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-014": {
+      "number": 662,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "고종 식별(저고여 피살·박서 귀주성)",
+        "고종 최우 강화 천도",
+        "원종 삼별초 봉기",
+        "현종 나주 피란",
+        "공민왕 안동 피신"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-015": {
+      "number": 663,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "고종 식별(처인성 김윤후·다인철소)",
+        "고종 대장도감·팔만대장경",
+        "거란 침입 때 초조대장경",
+        "우왕 진포 대첩",
+        "예종 윤관 여진 정벌"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-016": {
+      "number": 664,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "원종 식별(몽골과 강화·무신 정권 붕괴·개경 환도)",
+        "원종 삼별초 진도 용장성",
+        "충렬왕 일본 원정",
+        "고종 충주성 김윤후",
+        "공민왕 쌍성총관부 공격"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-017": {
+      "number": 665,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "서희 담판(성종) → 귀주 대첩(현종) → 동북 9성(예종)",
+        "광군(정종)은 앞",
+        "묘청의 난·금 사대 수용(인종)은 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-018": {
+      "number": 666,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "귀주 대첩(현종) → 별무반(숙종) → 이자겸의 난(인종)",
+        "서희 담판·나주 피란은 앞",
+        "묘청 서경 천도 운동은 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-019": {
+      "number": 667,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "이자겸의 난(인종) → 보현원 정변(의종) → 망이·망소이의 난(명종)",
+        "동북 9성은 앞",
+        "김사미·효심, 만적의 난은 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-020": {
+      "number": 668,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "보현원 정변 → 김사미·효심의 난(이의민) → 만적의 난(최충헌)",
+        "묘청의 난은 앞",
+        "최우 정방·처인성 전투는 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-021": {
+      "number": 669,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "경대승 도방 창설 → 만적의 난(최충헌) → 최우 정방",
+        "망이·망소이, 김보당의 난은 앞",
+        "삼별초 항쟁은 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-022": {
+      "number": 670,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "강동성 전투 → 처인성 전투(김윤후) → 개경 환도",
+        "만적의 난은 앞",
+        "삼별초 진압·일본 원정은 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-023": {
+      "number": 671,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "삼별초 제주도 항전 → 충선왕 사림원 → 공민왕 기철 숙청",
+        "강화 천도는 앞",
+        "요동 정벌·쓰시마섬 토벌은 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-024": {
+      "number": 672,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "충목왕 정치도감 → 공민왕 쌍성총관부 공격 → 황산 대첩(우왕)",
+        "일본 원정(충렬왕)은 앞",
+        "위화도 회군·쓰시마섬 토벌은 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-025": {
+      "number": 673,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "충선왕 식별(사림원)",
+        "충선왕 정방 폐지",
+        "충목왕 정치도감",
+        "공민왕 전민변정도감",
+        "충렬왕 정동행성"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-026": {
+      "number": 674,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "공민왕 식별(기철 숙청·몽골풍 금지·철령 이북 수복)",
+        "공민왕 신돈·전민변정도감",
+        "충목왕 정치도감",
+        "우왕 요동 정벌",
+        "충렬왕 일본 원정"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-027": {
+      "number": 675,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "공민왕 식별(신돈·전민변정도감·정방 폐지·신진 사대부)",
+        "공민왕 쌍성총관부 공격",
+        "충렬왕 정동행성",
+        "원종 삼별초",
+        "우왕 요동 정벌"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-028": {
+      "number": 676,
+      "section": "고려의 멸망",
+      "coverage": [
+        "우왕 식별(홍산·진포·관음포)",
+        "우왕 요동 정벌",
+        "창왕 쓰시마섬 토벌",
+        "공민왕 홍건적 안동 피신",
+        "공양왕 과전법"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-029": {
+      "number": 677,
+      "section": "고려의 멸망",
+      "coverage": [
+        "우왕 식별(철령위 통보·요동 정벌·4불가론)",
+        "우왕 진포 대첩",
+        "창왕 쓰시마섬 토벌",
+        "공민왕 쌍성총관부 공격",
+        "공양왕 과전법"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-030": {
+      "number": 678,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "시정 전시과(경종) → 서희 담판(성종) → 강조의 정변·거란 2차(현종)",
+        "과거제(광종)·만부교 사건(태조)은 앞",
+        "귀주 대첩은 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-031": {
+      "number": 679,
+      "section": "고려의 멸망",
+      "coverage": [
+        "홍산 대첩 → 위화도 회군(우왕) → 쓰시마섬 토벌(창왕)",
+        "홍건적 침입·전민변정도감(공민왕)은 앞",
+        "과전법(공양왕)은 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-032": {
+      "number": 680,
+      "section": "고려 초기 정치",
+      "coverage": [
+        "왕규의 난(정종) → 노비안검법(광종) → 시무 28조(성종)",
+        "사심관(태조)은 앞",
+        "나주 피란(현종)·동북 9성(예종)은 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-033": {
+      "number": 681,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "최우 식별(최충헌에게 세습·강화 천도·정방)",
+        "최우 서방",
+        "최충헌 봉사 10조",
+        "경대승 도방 창설",
+        "정중부·이의방 보현원 정변"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-034": {
+      "number": 682,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "최충헌 식별(이의민 제거·봉사 10조)",
+        "최충헌 교정도감",
+        "최우 정방",
+        "경대승 도방 창설",
+        "김보당 의종 복위"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-035": {
+      "number": 683,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "이의민 식별(경대승 다음 집권·도방 해체·최충헌에게 제거)",
+        "이의민 집권기 김사미·효심의 난",
+        "정중부 집권기 망이·망소이",
+        "최충헌 집권기 만적",
+        "최우 집권기 이연년 형제"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-036": {
+      "number": 684,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "김윤후 식별(처인성·살리타 사살)",
+        "김윤후 충주성 전투",
+        "박서 귀주성",
+        "배중손 삼별초",
+        "강감찬 귀주 대첩"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-037": {
+      "number": 685,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "삼별초 식별(최우 야별초·좌우별초·신의군)",
+        "삼별초 개경 환도 반발 항전",
+        "별무반 여진 정벌(오답)",
+        "도방 해체·부활(오답)",
+        "광군 거란 대비(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-038": {
+      "number": 686,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "신돈 식별(공민왕 등용·권문세족 반발로 제거)",
+        "신돈 전민변정도감",
+        "이자춘 쌍성총관부 공격",
+        "최영 요동 정벌",
+        "최무선 진포 대첩"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-039": {
+      "number": 687,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "윤관 식별(파평 윤씨·동북 9성)",
+        "윤관 별무반 편성 건의",
+        "서희 강동 6주",
+        "강감찬 귀주 대첩",
+        "김부식 묘청의 난 진압"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-040": {
+      "number": 688,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "김부식 식별(서경 천도 반대·경주 김씨·유교·신라 계승)",
+        "김부식 묘청의 난 진압",
+        "조위총 서경 유수의 난",
+        "척준경 이자겸의 난",
+        "윤관 여진 정벌"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-041": {
+      "number": 689,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "원 간섭기 식별(왕실 호칭 격하·첨의부)",
+        "원 간섭기 공녀·조혼 풍습",
+        "무신 정변 직후 중방",
+        "문벌 사회 경원 이씨 외척",
+        "인종 때 서경·개경 세력 대립"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-042": {
+      "number": 690,
+      "section": "고려 무신 정권",
+      "coverage": [
+        "무신 집권기 식별(무신 간 권력 다툼·지방 통제력 약화·수탈)",
+        "무신 집권기 천민의 신분 해방 운동",
+        "원 간섭기 몽골풍",
+        "문벌 사회 동요기 지방 출신 세력",
+        "고려 말 신흥 무인 세력"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-043": {
+      "number": 691,
+      "section": "고려 대외 관계",
+      "coverage": [
+        "강화도 도읍 시기 식별(몽골 1차 침입 뒤 천도 ~ 개경 환도)",
+        "충주성 김윤후",
+        "강동성 전투는 앞",
+        "삼별초 제주도 항전은 뒤",
+        "만적의 난은 앞"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-044": {
+      "number": 692,
+      "section": "고려의 멸망",
+      "coverage": [
+        "이성계 식별(아버지 이자춘·황산 대첩·신흥 무인)",
+        "이성계 4불가론",
+        "최영 요동 정벌",
+        "최무선 진포 대첩",
+        "박위 쓰시마섬 토벌"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-045": {
+      "number": 693,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "쌍성총관부 식별(화주·철령 이북 직속령)",
+        "공민왕의 쌍성총관부 공격",
+        "정동행성 일본 원정(오답)",
+        "결혼도감 공녀(오답)",
+        "탐라총관부 목마장(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-046": {
+      "number": 694,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "권문세족 식별(도평의사사·정방 장악·공민왕 억압 대상)",
+        "권문세족 음서·대농장",
+        "신흥 무인 세력(오답)",
+        "서경파(오답)",
+        "문벌 사회 동요기 지방 출신 세력(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-047": {
+      "number": 695,
+      "section": "고려 후기 사회 변동",
+      "coverage": [
+        "정동행성 식별(충렬왕·일본 원정·내정 간섭)",
+        "공민왕의 이문소 폐지",
+        "교정도감 교정별감(오답)",
+        "결혼도감 공녀(오답)",
+        "대장도감 팔만대장경(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "goryeostyle-hist-20260915-048": {
+      "number": 696,
+      "section": "고려 문벌 사회",
+      "coverage": [
+        "동북 9성 반환(예종) → 묘청 서경 천도 운동(인종) → 보현원 정변(의종)",
+        "별무반·귀주 대첩은 앞",
+        "김보당의 난은 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
     }
   }
 };
