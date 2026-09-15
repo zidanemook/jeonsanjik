@@ -110,6 +110,14 @@ function lengthBias(items){
  assert(ratio<=LONGEST_LIMIT,'Length bias regression: correct option is uniquely longest in '+longest+'/'+rows.length+' ('+(ratio*100).toFixed(1)+'%), above the '+(LONGEST_LIMIT*100).toFixed(1)+'% ratchet. Pad distractors instead of shortening correct answers.');
  return {total:rows.length,longest,ratio,delta:sum/rows.length,photo:items.filter(i=>i.exercise.choiceImages).length};
 }
-function verify(items,ledger){single(items);structural(items);concepts(items);coverage(items);lengthBias(items);assert.equal(ledger.schema,1);assert.equal(Object.keys(ledger.items).length,items.length,'Unreviewed addition/deletion');for(const item of items)assert.equal(ledger.items[item.exercise.exerciseId],digest(item),'Content changed: review meaning, alternatives and context before updating ledger: '+item.exercise.exerciseId);}
-module.exports={catalog,digest,single,concepts,structural,coverage,lengthBias,verify};
+// 순서 배열 문항: 항목을 실제 순서대로 적으면 정답이 늘 '가 → 나 → 다 → 라'가 되어 지식 없이 풀린다(2026-09-15 사용자 지적, 23문제 중 12개).
+// 자체 제작 문항에서는 가나다(라) 차례 그대로인 배열을 정답으로도 오답으로도 두지 않는다. 정답 하나를 늘 빼 두면 그것도 요령이 되기 때문이다.
+function sequenceBias(items){
+ const seq=/^[가나다라마](?: → [가나다라마])+$/,labels='가나다라마';let checked=0;
+ for(const item of items){const e=item.exercise;if(e.type!=='choice'||VERBATIM_OFFICIAL.test(item.card.id)||!e.choices.every(c=>seq.test(c)))continue;checked++;
+  for(const c of e.choices){const parts=c.split(' → ');assert(parts.join('')!==labels.slice(0,parts.length),'Label-order question offers the listing order '+c+' as a choice (list the items out of order): '+e.exerciseId);}}
+ return checked;
+}
+function verify(items,ledger){single(items);structural(items);concepts(items);coverage(items);lengthBias(items);sequenceBias(items);assert.equal(ledger.schema,1);assert.equal(Object.keys(ledger.items).length,items.length,'Unreviewed addition/deletion');for(const item of items)assert.equal(ledger.items[item.exercise.exerciseId],digest(item),'Content changed: review meaning, alternatives and context before updating ledger: '+item.exercise.exerciseId);}
+module.exports={catalog,digest,single,concepts,structural,coverage,lengthBias,sequenceBias,verify};
 if(require.main===module){const items=catalog();verify(items,JSON.parse(fs.readFileSync(__dirname+'/content-review.json','utf8')));const bias=lengthBias(items);console.log('PASS content audit: '+items.length+' reviewed exercises, every card exactly one question; structure, answer acceptance, context regression and review fingerprints; length bias '+bias.longest+'/'+bias.total+' ('+(bias.ratio*100).toFixed(1)+'%, limit '+(LONGEST_LIMIT*100).toFixed(1)+'%, chance 25%) self-made choice answers uniquely longest, mean +'+bias.delta.toFixed(1)+' chars vs distractor average, per-question margin <='+MARGIN+'; '+bias.photo+' photo-option exercises gated by image/licence checks instead of option length');}
