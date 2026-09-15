@@ -92,8 +92,9 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // LONGEST_LIMIT: 국어 사고의 힘 논리 2장 보강 67·3장 181문제(모두 4지선다, 정답이 가장 긴 보기 12개) 추가 뒤 실측 10.7%(138/1291)를 상한으로 다시 조인 래칫(이전 12.1%, 13.5%, 15.8%, 21.2%, 27.8%). 문제를 더하다 이 값을 넘기면 실패한다.
 // 2026-09-15: 한국사 자체 제작 165문제의 정답 노출(성씨·글자·종류·중심 보기)을 고친 뒤 실측 10.3%(133/1291, 0.10302)를 소수 셋째 자리에서 올린 0.104로 다시 조였다.
 // 2026-09-15: 고려 10~12강 기반 기출형 48문제를 더하면서 정답이 유일하게 가장 긴 15문제의 오답 하나씩을 정확한 내용으로 늘려, 실측 133/1339(0.09933)를 소수 셋째 자리에서 올린 0.100로 다시 조였다.
+// 2026-09-15: 선사~삼국·가야 55문제·통일 신라·발해·후삼국 53문제 기출형 연습을 더했다(새 108문제 중 정답이 유일하게 가장 긴 보기는 0개). 실측 133/1447(0.09191)을 소수 셋째 자리에서 올린 0.092로 다시 조였다.
 // MARGIN: 실측 최대 초과폭 7자에 여유 5자를 더한 값. 후보 문항은 모두 통과하지만 24자씩 튀던 예전 문항은 걸린다.
-const LONGEST_LIMIT=0.100,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
+const LONGEST_LIMIT=0.092,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
 function lengthBias(items){
  const rows=items.filter(i=>i.exercise.type==='choice'&&!VERBATIM_OFFICIAL.test(i.card.id)&&!i.exercise.choiceImages);
  assert(rows.length>0,'No self-made choice exercises to measure');

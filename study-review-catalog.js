@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 696,
+  "total": 804,
   "sets": [
     {
       "number": 1,
@@ -1250,6 +1250,198 @@ globalThis.STUDY_REVIEW_CATALOG={
         "goryeostyle-hist-20260915-047",
         "goryeostyle-hist-20260915-048"
       ]
+    },
+    {
+      "number": 93,
+      "title": "선사~삼국·가야 기출형 연습 1",
+      "ids": [
+        "ancientstyle-hist-20260915-001",
+        "ancientstyle-hist-20260915-002",
+        "ancientstyle-hist-20260915-003",
+        "ancientstyle-hist-20260915-004",
+        "ancientstyle-hist-20260915-005",
+        "ancientstyle-hist-20260915-006",
+        "ancientstyle-hist-20260915-007",
+        "ancientstyle-hist-20260915-008"
+      ]
+    },
+    {
+      "number": 94,
+      "title": "선사~삼국·가야 기출형 연습 2",
+      "ids": [
+        "ancientstyle-hist-20260915-009",
+        "ancientstyle-hist-20260915-010",
+        "ancientstyle-hist-20260915-011",
+        "ancientstyle-hist-20260915-012",
+        "ancientstyle-hist-20260915-013",
+        "ancientstyle-hist-20260915-014",
+        "ancientstyle-hist-20260915-015",
+        "ancientstyle-hist-20260915-016"
+      ]
+    },
+    {
+      "number": 95,
+      "title": "선사~삼국·가야 기출형 연습 3",
+      "ids": [
+        "ancientstyle-hist-20260915-017",
+        "ancientstyle-hist-20260915-018",
+        "ancientstyle-hist-20260915-019",
+        "ancientstyle-hist-20260915-020",
+        "ancientstyle-hist-20260915-021",
+        "ancientstyle-hist-20260915-022",
+        "ancientstyle-hist-20260915-023",
+        "ancientstyle-hist-20260915-024"
+      ]
+    },
+    {
+      "number": 96,
+      "title": "선사~삼국·가야 기출형 연습 4",
+      "ids": [
+        "ancientstyle-hist-20260915-025",
+        "ancientstyle-hist-20260915-026",
+        "ancientstyle-hist-20260915-027",
+        "ancientstyle-hist-20260915-028",
+        "ancientstyle-hist-20260915-029",
+        "ancientstyle-hist-20260915-030",
+        "ancientstyle-hist-20260915-031",
+        "ancientstyle-hist-20260915-032"
+      ]
+    },
+    {
+      "number": 97,
+      "title": "선사~삼국·가야 기출형 연습 5",
+      "ids": [
+        "ancientstyle-hist-20260915-033",
+        "ancientstyle-hist-20260915-034",
+        "ancientstyle-hist-20260915-035",
+        "ancientstyle-hist-20260915-036",
+        "ancientstyle-hist-20260915-037",
+        "ancientstyle-hist-20260915-038",
+        "ancientstyle-hist-20260915-039",
+        "ancientstyle-hist-20260915-040"
+      ]
+    },
+    {
+      "number": 98,
+      "title": "선사~삼국·가야 기출형 연습 6",
+      "ids": [
+        "ancientstyle-hist-20260915-041",
+        "ancientstyle-hist-20260915-042",
+        "ancientstyle-hist-20260915-043",
+        "ancientstyle-hist-20260915-044",
+        "ancientstyle-hist-20260915-045",
+        "ancientstyle-hist-20260915-046",
+        "ancientstyle-hist-20260915-047",
+        "ancientstyle-hist-20260915-048"
+      ]
+    },
+    {
+      "number": 99,
+      "title": "선사~삼국·가야 기출형 연습 7",
+      "ids": [
+        "ancientstyle-hist-20260915-049",
+        "ancientstyle-hist-20260915-050",
+        "ancientstyle-hist-20260915-051",
+        "ancientstyle-hist-20260915-052",
+        "ancientstyle-hist-20260915-053",
+        "ancientstyle-hist-20260915-054",
+        "ancientstyle-hist-20260915-055"
+      ]
+    },
+    {
+      "number": 100,
+      "title": "통일 신라·발해·후삼국 기출형 연습 1",
+      "ids": [
+        "nanbukstyle-hist-20260915-001",
+        "nanbukstyle-hist-20260915-002",
+        "nanbukstyle-hist-20260915-003",
+        "nanbukstyle-hist-20260915-004",
+        "nanbukstyle-hist-20260915-005",
+        "nanbukstyle-hist-20260915-006",
+        "nanbukstyle-hist-20260915-007",
+        "nanbukstyle-hist-20260915-008"
+      ]
+    },
+    {
+      "number": 101,
+      "title": "통일 신라·발해·후삼국 기출형 연습 2",
+      "ids": [
+        "nanbukstyle-hist-20260915-009",
+        "nanbukstyle-hist-20260915-010",
+        "nanbukstyle-hist-20260915-011",
+        "nanbukstyle-hist-20260915-012",
+        "nanbukstyle-hist-20260915-013",
+        "nanbukstyle-hist-20260915-014",
+        "nanbukstyle-hist-20260915-015",
+        "nanbukstyle-hist-20260915-016"
+      ]
+    },
+    {
+      "number": 102,
+      "title": "통일 신라·발해·후삼국 기출형 연습 3",
+      "ids": [
+        "nanbukstyle-hist-20260915-017",
+        "nanbukstyle-hist-20260915-018",
+        "nanbukstyle-hist-20260915-019",
+        "nanbukstyle-hist-20260915-020",
+        "nanbukstyle-hist-20260915-021",
+        "nanbukstyle-hist-20260915-022",
+        "nanbukstyle-hist-20260915-023",
+        "nanbukstyle-hist-20260915-024"
+      ]
+    },
+    {
+      "number": 103,
+      "title": "통일 신라·발해·후삼국 기출형 연습 4",
+      "ids": [
+        "nanbukstyle-hist-20260915-025",
+        "nanbukstyle-hist-20260915-026",
+        "nanbukstyle-hist-20260915-027",
+        "nanbukstyle-hist-20260915-028",
+        "nanbukstyle-hist-20260915-029",
+        "nanbukstyle-hist-20260915-030",
+        "nanbukstyle-hist-20260915-031",
+        "nanbukstyle-hist-20260915-032"
+      ]
+    },
+    {
+      "number": 104,
+      "title": "통일 신라·발해·후삼국 기출형 연습 5",
+      "ids": [
+        "nanbukstyle-hist-20260915-033",
+        "nanbukstyle-hist-20260915-034",
+        "nanbukstyle-hist-20260915-035",
+        "nanbukstyle-hist-20260915-036",
+        "nanbukstyle-hist-20260915-037",
+        "nanbukstyle-hist-20260915-038",
+        "nanbukstyle-hist-20260915-039",
+        "nanbukstyle-hist-20260915-040"
+      ]
+    },
+    {
+      "number": 105,
+      "title": "통일 신라·발해·후삼국 기출형 연습 6",
+      "ids": [
+        "nanbukstyle-hist-20260915-041",
+        "nanbukstyle-hist-20260915-042",
+        "nanbukstyle-hist-20260915-043",
+        "nanbukstyle-hist-20260915-044",
+        "nanbukstyle-hist-20260915-045",
+        "nanbukstyle-hist-20260915-046",
+        "nanbukstyle-hist-20260915-047",
+        "nanbukstyle-hist-20260915-048"
+      ]
+    },
+    {
+      "number": 106,
+      "title": "통일 신라·발해·후삼국 기출형 연습 7",
+      "ids": [
+        "nanbukstyle-hist-20260915-049",
+        "nanbukstyle-hist-20260915-050",
+        "nanbukstyle-hist-20260915-051",
+        "nanbukstyle-hist-20260915-052",
+        "nanbukstyle-hist-20260915-053"
+      ]
     }
   ],
   "lectures": [
@@ -1628,6 +1820,126 @@ globalThis.STUDY_REVIEW_CATALOG={
         "culture-hist-20260912-31",
         "culture-hist-20260912-32",
         "culture-hist-20260912-33"
+      ]
+    },
+    {
+      "id": "02-03-04-05",
+      "title": "선사~삼국·가야 기출형 연습",
+      "ids": [
+        "ancientstyle-hist-20260915-001",
+        "ancientstyle-hist-20260915-002",
+        "ancientstyle-hist-20260915-003",
+        "ancientstyle-hist-20260915-004",
+        "ancientstyle-hist-20260915-005",
+        "ancientstyle-hist-20260915-006",
+        "ancientstyle-hist-20260915-007",
+        "ancientstyle-hist-20260915-008",
+        "ancientstyle-hist-20260915-009",
+        "ancientstyle-hist-20260915-010",
+        "ancientstyle-hist-20260915-011",
+        "ancientstyle-hist-20260915-012",
+        "ancientstyle-hist-20260915-013",
+        "ancientstyle-hist-20260915-014",
+        "ancientstyle-hist-20260915-015",
+        "ancientstyle-hist-20260915-016",
+        "ancientstyle-hist-20260915-017",
+        "ancientstyle-hist-20260915-018",
+        "ancientstyle-hist-20260915-019",
+        "ancientstyle-hist-20260915-020",
+        "ancientstyle-hist-20260915-021",
+        "ancientstyle-hist-20260915-022",
+        "ancientstyle-hist-20260915-023",
+        "ancientstyle-hist-20260915-024",
+        "ancientstyle-hist-20260915-025",
+        "ancientstyle-hist-20260915-026",
+        "ancientstyle-hist-20260915-027",
+        "ancientstyle-hist-20260915-028",
+        "ancientstyle-hist-20260915-029",
+        "ancientstyle-hist-20260915-030",
+        "ancientstyle-hist-20260915-031",
+        "ancientstyle-hist-20260915-032",
+        "ancientstyle-hist-20260915-033",
+        "ancientstyle-hist-20260915-034",
+        "ancientstyle-hist-20260915-035",
+        "ancientstyle-hist-20260915-036",
+        "ancientstyle-hist-20260915-037",
+        "ancientstyle-hist-20260915-038",
+        "ancientstyle-hist-20260915-039",
+        "ancientstyle-hist-20260915-040",
+        "ancientstyle-hist-20260915-041",
+        "ancientstyle-hist-20260915-042",
+        "ancientstyle-hist-20260915-043",
+        "ancientstyle-hist-20260915-044",
+        "ancientstyle-hist-20260915-045",
+        "ancientstyle-hist-20260915-046",
+        "ancientstyle-hist-20260915-047",
+        "ancientstyle-hist-20260915-048",
+        "ancientstyle-hist-20260915-049",
+        "ancientstyle-hist-20260915-050",
+        "ancientstyle-hist-20260915-051",
+        "ancientstyle-hist-20260915-052",
+        "ancientstyle-hist-20260915-053",
+        "ancientstyle-hist-20260915-054",
+        "ancientstyle-hist-20260915-055"
+      ]
+    },
+    {
+      "id": "05-06",
+      "title": "통일 신라·발해·후삼국 기출형 연습",
+      "ids": [
+        "nanbukstyle-hist-20260915-001",
+        "nanbukstyle-hist-20260915-002",
+        "nanbukstyle-hist-20260915-003",
+        "nanbukstyle-hist-20260915-004",
+        "nanbukstyle-hist-20260915-005",
+        "nanbukstyle-hist-20260915-006",
+        "nanbukstyle-hist-20260915-007",
+        "nanbukstyle-hist-20260915-008",
+        "nanbukstyle-hist-20260915-009",
+        "nanbukstyle-hist-20260915-010",
+        "nanbukstyle-hist-20260915-011",
+        "nanbukstyle-hist-20260915-012",
+        "nanbukstyle-hist-20260915-013",
+        "nanbukstyle-hist-20260915-014",
+        "nanbukstyle-hist-20260915-015",
+        "nanbukstyle-hist-20260915-016",
+        "nanbukstyle-hist-20260915-017",
+        "nanbukstyle-hist-20260915-018",
+        "nanbukstyle-hist-20260915-019",
+        "nanbukstyle-hist-20260915-020",
+        "nanbukstyle-hist-20260915-021",
+        "nanbukstyle-hist-20260915-022",
+        "nanbukstyle-hist-20260915-023",
+        "nanbukstyle-hist-20260915-024",
+        "nanbukstyle-hist-20260915-025",
+        "nanbukstyle-hist-20260915-026",
+        "nanbukstyle-hist-20260915-027",
+        "nanbukstyle-hist-20260915-028",
+        "nanbukstyle-hist-20260915-029",
+        "nanbukstyle-hist-20260915-030",
+        "nanbukstyle-hist-20260915-031",
+        "nanbukstyle-hist-20260915-032",
+        "nanbukstyle-hist-20260915-033",
+        "nanbukstyle-hist-20260915-034",
+        "nanbukstyle-hist-20260915-035",
+        "nanbukstyle-hist-20260915-036",
+        "nanbukstyle-hist-20260915-037",
+        "nanbukstyle-hist-20260915-038",
+        "nanbukstyle-hist-20260915-039",
+        "nanbukstyle-hist-20260915-040",
+        "nanbukstyle-hist-20260915-041",
+        "nanbukstyle-hist-20260915-042",
+        "nanbukstyle-hist-20260915-043",
+        "nanbukstyle-hist-20260915-044",
+        "nanbukstyle-hist-20260915-045",
+        "nanbukstyle-hist-20260915-046",
+        "nanbukstyle-hist-20260915-047",
+        "nanbukstyle-hist-20260915-048",
+        "nanbukstyle-hist-20260915-049",
+        "nanbukstyle-hist-20260915-050",
+        "nanbukstyle-hist-20260915-051",
+        "nanbukstyle-hist-20260915-052",
+        "nanbukstyle-hist-20260915-053"
       ]
     },
     {
@@ -8206,6 +8518,1304 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김보당의 난은 뒤"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 고려 10~12강 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-001": {
+      "number": 697,
+      "section": "선사",
+      "coverage": [
+        "구석기 식별(전곡리·석장리·주먹도끼·슴베찌르개)",
+        "구석기 불 이용·동굴과 막집",
+        "신석기 가락바퀴·뼈바늘",
+        "청동기 반달 돌칼",
+        "철기 거푸집·세형 동검"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-002": {
+      "number": 698,
+      "section": "선사",
+      "coverage": [
+        "신석기 식별(암사동 집터·빗살무늬 토기·지탑리 탄 좁쌀)",
+        "신석기 가락바퀴·뼈바늘",
+        "구석기 뗀석기·이동 생활",
+        "청동기 고인돌",
+        "철기 명도전 등 중국 화폐"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-003": {
+      "number": 699,
+      "section": "선사 시대 · 기본",
+      "coverage": [
+        "신석기 식별(오산리·동삼동 조개더미·갈돌과 갈판)",
+        "신석기 강가·바닷가 원형 움집",
+        "청동기 반달 돌칼",
+        "구석기 동굴·막집 이동",
+        "철기 철제 농기구"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-004": {
+      "number": 700,
+      "section": "선사 시대 · 기본",
+      "coverage": [
+        "청동기 식별(송국리·비파형 동검·민무늬 토기·벼 수확)",
+        "청동기 고인돌(지배층 무덤)",
+        "신석기 빗살무늬 토기",
+        "구석기 뗀석기",
+        "철기 다호리 붓"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-005": {
+      "number": 701,
+      "section": "선사",
+      "coverage": [
+        "청동기 식별(반달 돌칼·흔암리·고창 고인돌·미송리식 토기)",
+        "청동기 구릉 직사각형 움집",
+        "신석기 빗살무늬 토기",
+        "구석기 이동 생활",
+        "철기 널무덤·독무덤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-006": {
+      "number": 702,
+      "section": "선사",
+      "coverage": [
+        "철기 식별(세형 동검·잔무늬 거울·거푸집)",
+        "철기 명도전·반량전과 중국 교류",
+        "청동기 비파형 동검·거친무늬 거울",
+        "신석기 빗살무늬 토기",
+        "구석기 뗀석기"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-007": {
+      "number": 703,
+      "section": "선사",
+      "coverage": [
+        "철기 식별(다호리 붓·오수전·덧띠 토기·검은 간토기)",
+        "철기 널무덤·독무덤",
+        "청동기 고인돌",
+        "신석기 원형 움집",
+        "구석기 동굴·막집"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-008": {
+      "number": 704,
+      "section": "선사 시대 · 기본",
+      "coverage": [
+        "구석기 식별(수양개·두루봉 동굴·농경 없음)",
+        "구석기 주먹도끼·슴베찌르개",
+        "청동기 반달 돌칼(간석기)",
+        "신석기 가락바퀴·뼈바늘",
+        "철기 거푸집·세형 동검"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-009": {
+      "number": 705,
+      "section": "고조선·여러 나라",
+      "coverage": [
+        "부여 식별(송화강 평야·마가·우가·저가·구가·사출도)",
+        "부여 1책 12법",
+        "동예 족외혼",
+        "옥저 민며느리제",
+        "삼한 소도"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-010": {
+      "number": 706,
+      "section": "고조선·여러 나라 · 기본",
+      "coverage": [
+        "부여 식별(영고·순장·말·주옥·모피)",
+        "부여 여러 가·사출도",
+        "옥저·동예 읍군·삼로",
+        "고구려 대가의 사자·조의·선인",
+        "삼한 신지·읍차"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-011": {
+      "number": 707,
+      "section": "고조선·여러 나라",
+      "coverage": [
+        "고구려 식별(동가강 산악 지대·부경·서옥제)",
+        "고구려 제가 회의",
+        "부여 사출도",
+        "삼한 천군·소도",
+        "옥저·동예 읍군·삼로"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-012": {
+      "number": 708,
+      "section": "고조선·여러 나라",
+      "coverage": [
+        "고구려 식별(사자·조의·선인·옥저 공납·동맹)",
+        "고구려 서옥제",
+        "옥저 민며느리제",
+        "동예 족외혼",
+        "부여 순장"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-013": {
+      "number": 709,
+      "section": "고조선·여러 나라 · 기본",
+      "coverage": [
+        "옥저 식별(함경도·소금·어물 공납·가족 공동 무덤)",
+        "옥저 민며느리제",
+        "고구려 서옥제",
+        "동예 책화",
+        "부여 1책 12법"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-014": {
+      "number": 710,
+      "section": "고조선·여러 나라 · 기본",
+      "coverage": [
+        "동예 식별(강원도 북부 동해안·무천·단궁·과하마·반어피)",
+        "동예 책화",
+        "삼한 소도",
+        "부여 사출도",
+        "옥저 민며느리제"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-015": {
+      "number": 711,
+      "section": "고조선·여러 나라",
+      "coverage": [
+        "동예 식별(족외혼·책화)",
+        "동예 단궁·과하마·반어피",
+        "부여 말·주옥·모피",
+        "옥저 소금·어물 공납",
+        "삼한 변한 철 생산"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-016": {
+      "number": 712,
+      "section": "고조선·여러 나라",
+      "coverage": [
+        "삼한 식별(신지·읍차·5월 수릿날·10월 계절제·벼농사와 저수지)",
+        "삼한 천군·소도",
+        "부여 사출도",
+        "고구려 제가 회의",
+        "옥저 가족 공동 무덤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-017": {
+      "number": 713,
+      "section": "고조선·여러 나라",
+      "coverage": [
+        "삼한 식별(천군·소도·제정분리)",
+        "삼한 벼농사·저수지",
+        "부여 순장",
+        "옥저 소금·어물 공납",
+        "고구려 서옥제"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-018": {
+      "number": 714,
+      "section": "고조선·여러 나라",
+      "coverage": [
+        "고조선 식별(요동→대동강·비파형 동검·탁자식 고인돌·단군 건국 이야기)",
+        "고조선 8조법(상해 곡식 배상)",
+        "부여 1책 12법",
+        "동예 책화",
+        "삼한 천군·소도"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-019": {
+      "number": 715,
+      "section": "고조선·여러 나라 · 기본",
+      "coverage": [
+        "고조선 식별(8조법 상해 배상·도둑 노비·사유 재산과 신분 사회)",
+        "위만 조선 한과 진의 중계 무역",
+        "부여 사출도",
+        "고구려 제가 회의",
+        "옥저·동예 읍군·삼로"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-020": {
+      "number": 716,
+      "section": "고구려·가야",
+      "coverage": [
+        "금관가야 식별(수로왕 건국 이야기·대성동 고분군·철 수출)",
+        "금관가야 광개토 태왕 공격으로 타격",
+        "대가야 진흥왕 때 병합",
+        "대가야 고령·후기 가야 연맹 중심",
+        "백제 정사암"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-021": {
+      "number": 717,
+      "section": "고구려·가야",
+      "coverage": [
+        "대가야 식별(고령·후기 가야 연맹·지산동 고분군·내륙 농업과 제철)",
+        "대가야 진흥왕 때 병합",
+        "금관가야 전기 연맹·해상 교역",
+        "금관가야 광개토 태왕 공격으로 타격",
+        "금관가야 수로왕 가락국기"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-022": {
+      "number": 718,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "백제 식별(부여씨와 8성 귀족·정사암·도시부)",
+        "백제 오경박사·의박사·역박사",
+        "고구려 경당",
+        "신라 임신서기석",
+        "신라 화백 회의"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-023": {
+      "number": 719,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "신라 식별(골품제·6두품 아찬·생활 규제·화백 회의)",
+        "신라 화랑도(화랑과 낭도)",
+        "고구려 태학",
+        "백제 정사암",
+        "고구려 진대법"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-024": {
+      "number": 720,
+      "section": "고구려·가야 · 기본",
+      "coverage": [
+        "소수림왕 식별(고국원왕 전사 뒤 즉위·전진 순도·율령)",
+        "소수림왕 태학 설립",
+        "고국천왕 진대법",
+        "미천왕 서안평·낙랑군",
+        "장수왕 평양 천도"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-025": {
+      "number": 721,
+      "section": "고구려·가야 · 기본",
+      "coverage": [
+        "광개토 태왕 식별(영락 연호·거란·후연 공격·요동 진출)",
+        "광개토 태왕 신라 지원·왜 격퇴",
+        "장수왕 한성 함락",
+        "소수림왕 불교·율령",
+        "고국천왕 진대법"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-026": {
+      "number": 722,
+      "section": "고구려·가야",
+      "coverage": [
+        "장수왕 식별(안학궁·광개토 태왕릉비·남북조 교류)",
+        "장수왕 한성 함락",
+        "광개토 태왕 영락 연호",
+        "동천왕 환도성 함락",
+        "태조왕 옥저 정복·고씨 세습"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-027": {
+      "number": 723,
+      "section": "고구려·가야",
+      "coverage": [
+        "고국천왕 식별(부자 상속·행정적 5부)",
+        "고국천왕 을파소 진대법",
+        "태조왕 옥저 정복·고씨 세습",
+        "소수림왕 태학",
+        "미천왕 서안평·낙랑군·대방군"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-028": {
+      "number": 724,
+      "section": "백제·신라 · 기본",
+      "coverage": [
+        "근초고왕 식별(마한 정복·부자 상속·고흥 서기)",
+        "근초고왕 평양성 공격·고국원왕 전사",
+        "무령왕 22담로",
+        "성왕 사비 천도·남부여",
+        "침류왕 마라난타 불교 수용"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-029": {
+      "number": 725,
+      "section": "백제·신라 · 기본",
+      "coverage": [
+        "근초고왕 식별(평양성 공격·고구려 왕 전사·왜에 칠지도)",
+        "근초고왕 고흥 서기",
+        "비유왕 나·제 동맹",
+        "무왕 익산 미륵사",
+        "개로왕 북위 국서"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-030": {
+      "number": 726,
+      "section": "백제·신라 · 기본",
+      "coverage": [
+        "무령왕 식별(웅진 시기·남조 영향 벽돌무덤·지석)",
+        "무령왕 22담로 왕족 파견",
+        "동성왕 혼인 동맹",
+        "성왕 관산성 전사",
+        "고이왕 6좌평·16관등·공복"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-031": {
+      "number": 727,
+      "section": "백제",
+      "coverage": [
+        "성왕 식별(사비 천도·남부여 국호)",
+        "성왕 중앙 22부·지방 5부 5방",
+        "무령왕 22담로",
+        "개로왕 한성에서 전사",
+        "의자왕 대야성 함락"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-032": {
+      "number": 728,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "의자왕 식별(황산벌 계백·사비성 함락·항복)",
+        "의자왕 윤충 대야성 함락",
+        "무왕 익산 미륵사·궁궐",
+        "성왕 관산성 전사",
+        "동성왕 혼인 동맹"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-033": {
+      "number": 729,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "개로왕 식별(북위 국서·뒤이어 문주왕 웅진 천도)",
+        "개로왕 때 장수왕 공격으로 한성 함락",
+        "성왕 사비 천도·남부여",
+        "근초고왕 평양성 공격",
+        "비유왕 나·제 동맹"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-034": {
+      "number": 730,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "내물 마립간 식별(김씨 왕위 세습·마립간 왕호 확립)",
+        "내물 마립간 고구려에 지원 요청·왜 격퇴",
+        "지증왕 우산국 정복",
+        "법흥왕 율령·병부",
+        "눌지 마립간 나·제 동맹"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-035": {
+      "number": 731,
+      "section": "백제·신라 · 기본",
+      "coverage": [
+        "지증왕 식별(국호 신라·왕 칭호·순장 금지)",
+        "지증왕 이사부 우산국 정복",
+        "진흥왕 거칠부 국사",
+        "법흥왕 율령·공복",
+        "내물 마립간 김씨 세습"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-036": {
+      "number": 732,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "지증왕 식별(우산국 정복·우경 장려)",
+        "지증왕 동시·동시전",
+        "법흥왕 병부·상대등",
+        "진흥왕 품주",
+        "소지 마립간 혼인 동맹"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-037": {
+      "number": 733,
+      "section": "백제·신라 · 기본",
+      "coverage": [
+        "법흥왕 식별(이차돈 순교·불교 공인·건원 연호)",
+        "법흥왕 금관가야 병합",
+        "진흥왕 한강 유역·대가야 정복",
+        "지증왕 국호·왕 칭호",
+        "내물 마립간 고구려에 지원 요청"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-038": {
+      "number": 734,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "법흥왕 식별(병부·상대등 설치·금관가야 병합)",
+        "법흥왕 율령 반포·공복 제정",
+        "진흥왕 거칠부 국사",
+        "지증왕 동시전",
+        "선덕 여왕 첨성대"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-039": {
+      "number": 735,
+      "section": "백제·신라 · 기본",
+      "coverage": [
+        "진흥왕 식별(북한산비·창녕비·단양 적성비)",
+        "진흥왕 거칠부 국사",
+        "법흥왕 이차돈 순교·불교 공인",
+        "지증왕 순장 금지·우경",
+        "선덕 여왕 황룡사 9층 목탑"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-040": {
+      "number": 736,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "선덕 여왕 식별(첨성대·자장 건의 황룡사 9층 목탑)",
+        "선덕 여왕 분황사 모전 석탑",
+        "무왕 익산 미륵사",
+        "진흥왕 황룡사 건립·화랑도",
+        "진평왕 때 원광 걸사표"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-041": {
+      "number": 737,
+      "section": "신라",
+      "coverage": [
+        "진흥왕 식별(화랑도 국가 조직화·품주·개국·대창·홍제 연호)",
+        "진흥왕 대가야 정복",
+        "법흥왕 금관가야·건원",
+        "지증왕 동시전",
+        "선덕 여왕 첨성대"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-042": {
+      "number": 738,
+      "section": "고구려·가야",
+      "coverage": [
+        "광개토 태왕 식별(신라 지원·왜 격퇴·금관가야 타격)",
+        "광개토 태왕 영락 연호",
+        "진흥왕 개국 연호",
+        "법흥왕 건원 연호",
+        "소수림왕 순도 불교 수용"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-043": {
+      "number": 739,
+      "section": "고구려·가야",
+      "coverage": [
+        "고국원왕 평양성 전사(가)",
+        "장수왕 평양 천도(나)",
+        "광개토 태왕 신라 지원(사이)",
+        "미천왕 낙랑군·대방군 축출(이전)",
+        "한성 함락·살수 대첩(이후)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-044": {
+      "number": 740,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "한성 함락·개로왕 전사(가)",
+        "성왕 관산성 전사(나)",
+        "법흥왕 금관가야 병합(사이)",
+        "진흥왕 대가야 병합(이후)",
+        "근초고왕 평양성 공격·비유왕 나·제 동맹(이전)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-045": {
+      "number": 741,
+      "section": "백제",
+      "coverage": [
+        "문주왕 웅진 천도(가)",
+        "성왕 사비 천도·남부여(나)",
+        "무령왕 22담로(사이)",
+        "근초고왕 칠지도(이전)",
+        "무왕 미륵사·의자왕 대야성(이후)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-046": {
+      "number": 742,
+      "section": "고구려·가야",
+      "coverage": [
+        "살수 대첩(가)",
+        "안시성 전투(나)",
+        "연개소문 정변·보장왕 즉위(사이)",
+        "김춘추 당과 동맹·백제 멸망(이후)",
+        "진흥왕 대가야 정복(이전)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-047": {
+      "number": 743,
+      "section": "고조선·여러 나라",
+      "coverage": [
+        "연의 공격·서쪽 상실(가)",
+        "한 무제 침략·왕검성 함락(나)",
+        "위만 집권(사이)",
+        "단군왕검 건국 전승(이전)",
+        "박혁거세 신라 건국·미천왕 낙랑군 축출(이후)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-048": {
+      "number": 744,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "백제 식별(무령왕릉 벽돌무덤·지석·능산리 금동 대향로)",
+        "백제 서산 용현리 마애 여래 삼존상",
+        "고구려 금동 연가 7년명 여래 입상",
+        "신라 배동 석조 여래 삼존 입상",
+        "통일 신라 석굴암 본존불"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-049": {
+      "number": 745,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "고구려 식별(강서대묘 사신도·무용총 수렵도·굴식 돌방무덤 벽화)",
+        "고구려 금동 연가 7년명 여래 입상",
+        "신라 천마총 천마도",
+        "백제 산수무늬 벽돌",
+        "백제 금동 대향로"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-050": {
+      "number": 746,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "신라 식별(돌무지덧널무덤·천마총 천마도·금관과 금귀고리)",
+        "신라 분황사 모전 석탑",
+        "백제 정림사지 5층 석탑",
+        "백제 미륵사지 석탑",
+        "고구려 강서대묘 사신도"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-051": {
+      "number": 747,
+      "section": "고구려·가야",
+      "coverage": [
+        "가야 식별(철 수출·낙랑과 왜·일본 스에키 토기 영향)",
+        "금관가야 김해 대성동 고분군",
+        "백제 서울 석촌동 돌무지무덤",
+        "백제 공주 무령왕릉",
+        "신라 천마총"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-052": {
+      "number": 748,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "고구려 식별(담징 종이·먹·호류사 금당 벽화, 혜자 쇼토쿠 태자 스승)",
+        "고구려 평양 안학궁",
+        "백제 익산 왕궁리 유적",
+        "신라 황룡사지 목탑 터",
+        "백제 공주 무령왕릉"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-053": {
+      "number": 749,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "신라 식별(한인의 연못·유리그릇·금제 장식 보검)",
+        "신라 경주 첨성대",
+        "고구려 평양 안학궁",
+        "백제 익산 미륵사지 석탑",
+        "백제 공주 무령왕릉"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-054": {
+      "number": 750,
+      "section": "삼국 공통·비교",
+      "coverage": [
+        "백제 식별(아직기 한자·왕인 천자문과 논어·노리사치계 불경과 불상)",
+        "백제 익산 미륵사지 석탑",
+        "신라 분황사 모전 석탑",
+        "고구려 강서대묘 사신도",
+        "대가야 고령 지산동 고분군"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "ancientstyle-hist-20260915-055": {
+      "number": 751,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "눌지·비유왕 나·제 동맹(가)",
+        "법흥왕 불교 공인(나)",
+        "동성왕·소지 마립간 혼인 동맹(사이)",
+        "광개토 태왕 백제 공격(이전)",
+        "진흥왕 대가야·선덕 여왕 첨성대(이후)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 선사~삼국·가야 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-001": {
+      "number": 752,
+      "section": "통일 신라",
+      "coverage": [
+        "태종 무열왕 식별(고구려 요청 결렬·나·당 동맹·최초의 진골 왕·직계 세습)",
+        "무열왕 재위 중 백제 멸망",
+        "문무왕 매소성·기벌포",
+        "신문왕 김흠돌의 난",
+        "경덕왕 녹읍 부활"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-002": {
+      "number": 753,
+      "section": "통일 신라",
+      "coverage": [
+        "문무왕 식별(고구려 멸망·외사정·감은사로 기림)",
+        "문무왕 매소성·기벌포 승리",
+        "무열왕 최초의 진골 왕",
+        "신문왕 달구벌 천도 시도",
+        "원성왕 독서삼품과"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-003": {
+      "number": 754,
+      "section": "통일 신라",
+      "coverage": [
+        "신문왕 식별(김흠돌의 난·달구벌 천도 시도·감은사와 만파식적)",
+        "신문왕 관료전 지급·녹읍 폐지",
+        "성덕왕 정전",
+        "경덕왕 녹읍 부활",
+        "원성왕 독서삼품과"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-004": {
+      "number": 755,
+      "section": "통일 신라",
+      "coverage": [
+        "신문왕 식별(관료전·녹읍 폐지·설총 중용과 화왕계)",
+        "신문왕 국학 설치",
+        "문무왕 외사정",
+        "경덕왕 녹읍 부활",
+        "원성왕 독서삼품과"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-005": {
+      "number": 756,
+      "section": "통일 신라",
+      "coverage": [
+        "성덕왕 식별(상원사 동종·성덕대왕 신종의 이름)",
+        "성덕왕 정전 지급",
+        "경덕왕 녹읍 부활",
+        "신문왕 관료전·녹읍 폐지",
+        "원성왕 독서삼품과"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-006": {
+      "number": 757,
+      "section": "통일 신라",
+      "coverage": [
+        "경덕왕 식별(불국사·석굴암 착공·성덕대왕 신종 제작 시작)",
+        "경덕왕 녹읍 부활",
+        "성덕왕 정전",
+        "신문왕 관료전·녹읍 폐지",
+        "혜공왕 피살과 중대 종료"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-007": {
+      "number": 758,
+      "section": "통일 신라",
+      "coverage": [
+        "혜공왕 식별(대공의 난·피살·중대 종료)",
+        "혜공왕 때 성덕대왕 신종 완성",
+        "성덕왕 상원사 동종",
+        "신문왕 감은사 완성",
+        "경덕왕 불국사·석굴암 착공"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-008": {
+      "number": 759,
+      "section": "통일 신라",
+      "coverage": [
+        "원성왕 식별(괘릉 서역인 무인석·김주원을 누르고 즉위)",
+        "원성왕 독서삼품과",
+        "헌덕왕 김헌창의 난",
+        "흥덕왕 청해진",
+        "진성 여왕 원종·애노의 난"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-009": {
+      "number": 760,
+      "section": "통일 신라",
+      "coverage": [
+        "진성 여왕 식별(삼대목·최치원의 개혁안)",
+        "진성 여왕 원종·애노의 난",
+        "헌덕왕 김헌창의 난",
+        "흥덕왕 청해진",
+        "혜공왕 대공의 난"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-010": {
+      "number": 761,
+      "section": "통일 신라",
+      "coverage": [
+        "진성 여왕 식별(삼대목·원종과 애노의 난·적고적의 난)",
+        "최치원 시무 10여 조",
+        "신문왕 때 설총 화왕계",
+        "경덕왕 때 김대성 불국사·석굴암",
+        "헌덕왕 김헌창의 난"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-011": {
+      "number": 762,
+      "section": "발해",
+      "coverage": [
+        "대조영 식별(고구려 유민·말갈인·동모산 건국)",
+        "대조영 발해 군왕 책봉",
+        "무왕 등주 공격",
+        "문왕 신라도",
+        "선왕 해동성국"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-012": {
+      "number": 763,
+      "section": "발해",
+      "coverage": [
+        "무왕 식별(인안·대문예 망명·일본·돌궐 교류)",
+        "무왕 장문휴의 등주 공격",
+        "문왕 상경 천도",
+        "대조영 동모산 건국",
+        "선왕 요동 진출"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-013": {
+      "number": 764,
+      "section": "발해",
+      "coverage": [
+        "문왕 식별(당과 친선·당 제도 수용·대흥)",
+        "문왕 신라도 개설",
+        "무왕 대문예 망명",
+        "선왕 해동성국",
+        "대조영 동모산 건국"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-014": {
+      "number": 765,
+      "section": "발해",
+      "coverage": [
+        "문왕 식별(일본 국서 '고려 국왕'·신라도·대흥)",
+        "문왕 중경→상경→동경 천도",
+        "무왕 등주 공격",
+        "선왕 해동성국",
+        "무왕 대문예 망명"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-015": {
+      "number": 766,
+      "section": "발해",
+      "coverage": [
+        "선왕 식별(건흥·5경 15부 62주·해동성국)",
+        "선왕 요동 진출",
+        "문왕 신라도",
+        "무왕 등주 공격",
+        "대조영 동모산 건국"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-016": {
+      "number": 767,
+      "section": "통일 신라",
+      "coverage": [
+        "원효 식별(아미타 신앙·무애가)",
+        "원효 일심·화쟁 사상",
+        "의상 화엄종",
+        "혜초 순례",
+        "도선 풍수지리설"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-017": {
+      "number": 768,
+      "section": "통일 신라",
+      "coverage": [
+        "의상 식별(당 유학·부석사)",
+        "의상 화엄일승법계도",
+        "원효 대승기신론소",
+        "혜초 왕오천축국전",
+        "최치원 계원필경"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-018": {
+      "number": 769,
+      "section": "통일 신라",
+      "coverage": [
+        "설총 식별(신문왕의 6두품 중용·화왕계)",
+        "설총 이두 정리",
+        "강수 청방인문표",
+        "김대문 화랑세기",
+        "최치원 빈공과·토황소격문"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-019": {
+      "number": 770,
+      "section": "통일 신라",
+      "coverage": [
+        "최치원 식별(6두품·당 유학·토황소격문·계원필경)",
+        "최치원 진성 여왕에게 시무 10여 조",
+        "설총 화왕계",
+        "강수 청방인문표",
+        "김대문 화랑세기·고승전"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-020": {
+      "number": 771,
+      "section": "통일 신라",
+      "coverage": [
+        "최치원 식별(진성 여왕에게 시무 10여 조·6두품의 한계)",
+        "최치원 빈공과·계원필경",
+        "강수 청방인문표",
+        "설총 화왕계",
+        "김대문 화랑세기"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-021": {
+      "number": 772,
+      "section": "통일 신라",
+      "coverage": [
+        "장보고 식별(흥덕왕 때 완도 거점·해상 무역·법화원)",
+        "장보고 신무왕 즉위 지원",
+        "김헌창의 난",
+        "최치원 시무 10여 조",
+        "견훤 금성 습격"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-022": {
+      "number": 773,
+      "section": "통일 신라",
+      "coverage": [
+        "장보고 식별(신무왕 즉위 지원·문성왕 때 암살)",
+        "장보고 청해진·해상 무역",
+        "원종·애노의 난",
+        "견훤 후당·오월 외교",
+        "궁예 철원 천도·태봉"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-023": {
+      "number": 774,
+      "section": "통일 신라",
+      "coverage": [
+        "원효 식별(당 유학 안 함·일심·화쟁·대승기신론소·금강삼매경론)",
+        "원효 아미타 신앙",
+        "의상 당 유학·화엄종·부석사",
+        "혜초 왕오천축국전",
+        "풍수지리설"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-024": {
+      "number": 775,
+      "section": "후삼국",
+      "coverage": [
+        "견훤 식별(완산주·정개 연호·후당·오월 외교)",
+        "견훤 공산 전투 승리",
+        "궁예 철원 천도",
+        "궁예 광평성",
+        "왕건 고창 전투 승리"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-025": {
+      "number": 776,
+      "section": "후삼국",
+      "coverage": [
+        "견훤 식별(신검의 정변·고려 귀순)",
+        "견훤 금성 습격·경애왕 죽음",
+        "궁예 미륵불 자처",
+        "왕건 추대·즉위",
+        "궁예 국호 마진·태봉"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-026": {
+      "number": 777,
+      "section": "후삼국",
+      "coverage": [
+        "궁예 식별(양길의 부하·미륵불 자처·신하들에게 축출)",
+        "궁예 광평성 설치",
+        "견훤 후당·오월 외교",
+        "견훤 금성 습격",
+        "왕건 고창 전투"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-027": {
+      "number": 778,
+      "section": "후삼국",
+      "coverage": [
+        "궁예 식별(후고구려 건국·마진과 무태 연호·태봉)",
+        "궁예 송악→철원 천도",
+        "견훤 완산주 후백제 건국",
+        "왕건 경순왕 항복 받음",
+        "견훤 공산 전투 승리"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-028": {
+      "number": 779,
+      "section": "후삼국",
+      "coverage": [
+        "왕건 식별(궁예 축출·추대·공산 전투 패배와 신숭겸 전사)",
+        "왕건 고창 전투 승리",
+        "궁예 철원 천도·태봉",
+        "견훤 후당·오월 외교",
+        "궁예 미륵불 자처"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-029": {
+      "number": 780,
+      "section": "후삼국",
+      "coverage": [
+        "후백제 식별(완산주 건국·신검의 정변·일리천 패배)",
+        "후백제 후당·오월 외교",
+        "궁예 광평성",
+        "궁예 철원 천도",
+        "궁예 국호 마진·태봉"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-030": {
+      "number": 781,
+      "section": "후삼국",
+      "coverage": [
+        "후백제 건국과 고려 건국 사이",
+        "궁예 철원 천도",
+        "공산 전투(이후)",
+        "경순왕 항복(이후)",
+        "원종·애노의 난(이전)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-031": {
+      "number": 782,
+      "section": "후삼국",
+      "coverage": [
+        "발해 멸망과 경순왕 항복 사이",
+        "고창 전투",
+        "일리천 전투(이후)",
+        "궁예 태봉 국호(이전)",
+        "왕건 즉위(이전)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-032": {
+      "number": 783,
+      "section": "발해",
+      "coverage": [
+        "발해 식별(3성 6부·정당성과 대내상·6부 유교식 명칭)",
+        "발해 주자감",
+        "통일 신라 국학",
+        "통일 신라 사정부",
+        "통일 신라 민정 문서"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-033": {
+      "number": 784,
+      "section": "발해",
+      "coverage": [
+        "발해 식별(밭농사·목축·솔빈부의 말·모피·녹용·사향 수출)",
+        "발해 교통로(영주도·일본도 등)",
+        "통일 신라 울산항",
+        "통일 신라 신라방·신라소·신라원",
+        "통일 신라 서시·남시"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-034": {
+      "number": 785,
+      "section": "발해",
+      "coverage": [
+        "발해 식별(국서의 '고려 국왕'·고구려인과 말갈인·온돌과 굴식 돌방무덤)",
+        "발해 상경 주작대로(당 장안성 영향)",
+        "통일 신라 동궁과 월지",
+        "통일 신라 상수리 제도",
+        "통일 신라 울산항"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-035": {
+      "number": 786,
+      "section": "통일 신라",
+      "coverage": [
+        "통일 신라 식별(9주·군현·5소경·상수리 제도)",
+        "통일 신라 집사부 시중 강화",
+        "발해 중정대",
+        "발해 정당성 대내상",
+        "발해 문적원"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-036": {
+      "number": 787,
+      "section": "통일 신라",
+      "coverage": [
+        "통일 신라 식별(민정 문서: 쇼소인·서원경·촌주·3년마다)",
+        "통일 신라 울산항 아라비아 상인",
+        "발해 솔빈부의 말",
+        "발해 영주도·압록조공도",
+        "발해 모피·녹용·사향 수출"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-037": {
+      "number": 788,
+      "section": "통일 신라",
+      "coverage": [
+        "통일 신라 식별(9서당 다종족 구성·백제·고구려 귀족에게 관직)",
+        "통일 신라 국제 무역항",
+        "발해 주자감",
+        "발해 좌사정·우사정",
+        "발해 국서의 '고려 국왕'"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-038": {
+      "number": 789,
+      "section": "헷갈리는 내용 비교",
+      "coverage": [
+        "(가) 통일 신라 식별(국학·박사와 조교)",
+        "(나) 발해 식별(주자감·당 유학생)",
+        "통일 신라 사정부",
+        "발해 솔빈부 말",
+        "통일 신라 상수리 제도·집사부 시중"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-039": {
+      "number": 790,
+      "section": "헷갈리는 내용 비교",
+      "coverage": [
+        "(가) 발해 식별(5경 15부 62주·10위)",
+        "(나) 통일 신라 식별(9주 5소경·9서당·10정)",
+        "통일 신라 원성왕릉 서역인 무인석",
+        "통일 신라 울산항",
+        "통일 신라 서시·남시",
+        "발해 솔빈부 말"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-040": {
+      "number": 791,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "김춘추 고구려 요청 결렬과 백제 멸망 사이",
+        "나·당 동맹 체결",
+        "매소성 전투(이후)",
+        "고구려 멸망(이후)",
+        "김흠돌의 난(이후)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-041": {
+      "number": 792,
+      "section": "백제·신라·통일",
+      "coverage": [
+        "백제 멸망과 기벌포 전투 사이",
+        "매소성 전투",
+        "나·당 동맹(이전)",
+        "신문왕 관료전(이후)",
+        "발해 건국(이후)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-042": {
+      "number": 793,
+      "section": "통일 신라",
+      "coverage": [
+        "신문왕 관료전·녹읍 폐지와 경덕왕 녹읍 부활 사이",
+        "성덕왕 정전 지급",
+        "문무왕 외사정(이전)",
+        "원성왕 독서삼품과(이후)",
+        "헌덕왕 김헌창의 난(이후)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-043": {
+      "number": 794,
+      "section": "통일 신라",
+      "coverage": [
+        "혜공왕 피살과 청해진 설치 사이",
+        "헌덕왕 김헌창의 난",
+        "경덕왕 녹읍 부활(이전)",
+        "진성 여왕 원종·애노의 난(이후)",
+        "진성 여왕 최치원 시무 10여 조(이후)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-044": {
+      "number": 795,
+      "section": "통일 신라",
+      "coverage": [
+        "김헌창의 난과 원종·애노의 난 사이",
+        "장보고의 신무왕 즉위 지원",
+        "원성왕 독서삼품과(이전)",
+        "견훤 후백제 건국(이후)",
+        "혜공왕 대공의 난(이전)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-045": {
+      "number": 796,
+      "section": "발해",
+      "coverage": [
+        "무왕 등주 공격과 선왕 해동성국 사이",
+        "문왕 상경 천도",
+        "대조영 동모산 건국(이전)",
+        "발해 멸망(이후)",
+        "대조영 발해 군왕 책봉(이전)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-046": {
+      "number": 797,
+      "section": "발해",
+      "coverage": [
+        "발해 식별(정혜 공주 묘: 굴식 돌방무덤·모줄임천장·돌사자상)",
+        "발해 이불병좌상",
+        "통일 신라 석굴암 본존불",
+        "백제 서산 용현리 마애 여래 삼존상",
+        "고구려 금동 연가 7년명 여래 입상"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-047": {
+      "number": 798,
+      "section": "발해",
+      "coverage": [
+        "발해 식별(정혜 공주 묘·정효 공주 묘)",
+        "발해 상경성(장안성 구조·주작대로)",
+        "고구려 안학궁",
+        "백제 익산 왕궁리 유적",
+        "통일 신라 동궁과 월지"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-048": {
+      "number": 799,
+      "section": "통일 신라",
+      "coverage": [
+        "통일 신라 식별(불국사 3층 석탑의 무구정광대다라니경·석굴암 인공 석굴)",
+        "통일 신라 김유신 묘",
+        "발해 정혜 공주 묘",
+        "백제 무령왕릉 지석",
+        "고구려 강서대묘 사신도"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-049": {
+      "number": 800,
+      "section": "통일 신라",
+      "coverage": [
+        "통일 신라 식별(쌍봉사 철감선사탑·괘릉 서역인 무인석)",
+        "통일 신라 불국사 석가탑(무영탑)",
+        "발해 영광탑",
+        "백제 정림사지 5층 석탑(평제탑)",
+        "백제 미륵사지 석탑"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-050": {
+      "number": 801,
+      "section": "통일 신라",
+      "coverage": [
+        "통일 신라 식별(동궁과 월지·김유신 묘)",
+        "통일 신라 성덕대왕 신종",
+        "백제 금동 대향로",
+        "백제 칠지도",
+        "발해 이불병좌상"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-051": {
+      "number": 802,
+      "section": "발해",
+      "coverage": [
+        "발해 식별(이불병좌상·상경성 주작대로와 온돌)",
+        "발해 영광탑",
+        "신라 분황사 모전 석탑",
+        "백제 미륵사지 석탑",
+        "통일 신라 불국사 다보탑"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-052": {
+      "number": 803,
+      "section": "통일 신라",
+      "coverage": [
+        "장보고 암살과 후고구려 건국 사이",
+        "최치원 시무 10여 조(진성 여왕)",
+        "헌덕왕 김헌창의 난(이전)",
+        "원성왕 독서삼품과(이전)",
+        "공산 전투(이후)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "nanbukstyle-hist-20260915-053": {
+      "number": 804,
+      "section": "헷갈리는 내용 비교",
+      "coverage": [
+        "(가) 원효 식별(무애가)",
+        "(나) 의상 식별(당 유학·부석사)",
+        "의상 화엄종 개창",
+        "의상 화엄일승법계도",
+        "원효 십문화쟁론",
+        "혜초 순례"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
     }
   }
 };
