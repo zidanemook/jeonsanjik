@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 804,
+  "total": 864,
   "sets": [
     {
       "number": 1,
@@ -1442,6 +1442,114 @@ globalThis.STUDY_REVIEW_CATALOG={
         "nanbukstyle-hist-20260915-052",
         "nanbukstyle-hist-20260915-053"
       ]
+    },
+    {
+      "number": 107,
+      "title": "13강 고려(경제, 사회) 1",
+      "ids": [
+        "goryeoecon-hist-20260915-001",
+        "goryeoecon-hist-20260915-002",
+        "goryeoecon-hist-20260915-003",
+        "goryeoecon-hist-20260915-004",
+        "goryeoecon-hist-20260915-005",
+        "goryeoecon-hist-20260915-006",
+        "goryeoecon-hist-20260915-007",
+        "goryeoecon-hist-20260915-008"
+      ]
+    },
+    {
+      "number": 108,
+      "title": "13강 고려(경제, 사회) 2",
+      "ids": [
+        "goryeoecon-hist-20260915-009",
+        "goryeoecon-hist-20260915-010",
+        "goryeoecon-hist-20260915-011",
+        "goryeoecon-hist-20260915-012",
+        "goryeoecon-hist-20260915-013",
+        "goryeoecon-hist-20260915-014",
+        "goryeoecon-hist-20260915-015",
+        "goryeoecon-hist-20260915-016"
+      ]
+    },
+    {
+      "number": 109,
+      "title": "13강 고려(경제, 사회) 3",
+      "ids": [
+        "goryeoecon-hist-20260915-017",
+        "goryeoecon-hist-20260915-018",
+        "goryeoecon-hist-20260915-019",
+        "goryeoecon-hist-20260915-020",
+        "goryeoecon-hist-20260915-021",
+        "goryeoecon-hist-20260915-022",
+        "goryeoecon-hist-20260915-023",
+        "goryeoecon-hist-20260915-024"
+      ]
+    },
+    {
+      "number": 110,
+      "title": "13강 고려(경제, 사회) 4",
+      "ids": [
+        "goryeoecon-hist-20260915-025",
+        "goryeoecon-hist-20260915-026",
+        "goryeoecon-hist-20260915-027",
+        "goryeoecon-hist-20260915-028",
+        "goryeoecon-hist-20260915-029",
+        "goryeoecon-hist-20260915-030",
+        "goryeoecon-hist-20260915-031",
+        "goryeoecon-hist-20260915-032"
+      ]
+    },
+    {
+      "number": 111,
+      "title": "13강 고려(경제, 사회) 5",
+      "ids": [
+        "goryeoecon-hist-20260915-033",
+        "goryeoecon-hist-20260915-034",
+        "goryeoecon-hist-20260915-035",
+        "goryeoecon-hist-20260915-036",
+        "goryeoecon-hist-20260915-037",
+        "goryeoecon-hist-20260915-038",
+        "goryeoecon-hist-20260915-039"
+      ]
+    },
+    {
+      "number": 112,
+      "title": "13강 고려(경제, 사회) 6",
+      "ids": [
+        "goryeoecon-hist-20260915-040",
+        "goryeoecon-hist-20260915-041",
+        "goryeoecon-hist-20260915-042",
+        "goryeoecon-hist-20260915-043",
+        "goryeoecon-hist-20260915-044",
+        "goryeoecon-hist-20260915-045",
+        "goryeoecon-hist-20260915-046"
+      ]
+    },
+    {
+      "number": 113,
+      "title": "13강 고려(경제, 사회) 7",
+      "ids": [
+        "goryeoecon-hist-20260915-047",
+        "goryeoecon-hist-20260915-048",
+        "goryeoecon-hist-20260915-049",
+        "goryeoecon-hist-20260915-050",
+        "goryeoecon-hist-20260915-051",
+        "goryeoecon-hist-20260915-052",
+        "goryeoecon-hist-20260915-053"
+      ]
+    },
+    {
+      "number": 114,
+      "title": "13강 고려(경제, 사회) 8",
+      "ids": [
+        "goryeoecon-hist-20260915-054",
+        "goryeoecon-hist-20260915-055",
+        "goryeoecon-hist-20260915-056",
+        "goryeoecon-hist-20260915-057",
+        "goryeoecon-hist-20260915-058",
+        "goryeoecon-hist-20260915-059",
+        "goryeoecon-hist-20260915-060"
+      ]
     }
   ],
   "lectures": [
@@ -2307,6 +2415,72 @@ globalThis.STUDY_REVIEW_CATALOG={
         "goryeostyle-hist-20260915-046",
         "goryeostyle-hist-20260915-047",
         "goryeostyle-hist-20260915-048"
+      ]
+    },
+    {
+      "id": "13",
+      "title": "13강 고려(경제, 사회)",
+      "ids": [
+        "goryeoecon-hist-20260915-001",
+        "goryeoecon-hist-20260915-002",
+        "goryeoecon-hist-20260915-003",
+        "goryeoecon-hist-20260915-004",
+        "goryeoecon-hist-20260915-005",
+        "goryeoecon-hist-20260915-006",
+        "goryeoecon-hist-20260915-007",
+        "goryeoecon-hist-20260915-008",
+        "goryeoecon-hist-20260915-009",
+        "goryeoecon-hist-20260915-010",
+        "goryeoecon-hist-20260915-011",
+        "goryeoecon-hist-20260915-012",
+        "goryeoecon-hist-20260915-013",
+        "goryeoecon-hist-20260915-014",
+        "goryeoecon-hist-20260915-015",
+        "goryeoecon-hist-20260915-016",
+        "goryeoecon-hist-20260915-017",
+        "goryeoecon-hist-20260915-018",
+        "goryeoecon-hist-20260915-019",
+        "goryeoecon-hist-20260915-020",
+        "goryeoecon-hist-20260915-021",
+        "goryeoecon-hist-20260915-022",
+        "goryeoecon-hist-20260915-023",
+        "goryeoecon-hist-20260915-024",
+        "goryeoecon-hist-20260915-025",
+        "goryeoecon-hist-20260915-026",
+        "goryeoecon-hist-20260915-027",
+        "goryeoecon-hist-20260915-028",
+        "goryeoecon-hist-20260915-029",
+        "goryeoecon-hist-20260915-030",
+        "goryeoecon-hist-20260915-031",
+        "goryeoecon-hist-20260915-032",
+        "goryeoecon-hist-20260915-033",
+        "goryeoecon-hist-20260915-034",
+        "goryeoecon-hist-20260915-035",
+        "goryeoecon-hist-20260915-036",
+        "goryeoecon-hist-20260915-037",
+        "goryeoecon-hist-20260915-038",
+        "goryeoecon-hist-20260915-039",
+        "goryeoecon-hist-20260915-040",
+        "goryeoecon-hist-20260915-041",
+        "goryeoecon-hist-20260915-042",
+        "goryeoecon-hist-20260915-043",
+        "goryeoecon-hist-20260915-044",
+        "goryeoecon-hist-20260915-045",
+        "goryeoecon-hist-20260915-046",
+        "goryeoecon-hist-20260915-047",
+        "goryeoecon-hist-20260915-048",
+        "goryeoecon-hist-20260915-049",
+        "goryeoecon-hist-20260915-050",
+        "goryeoecon-hist-20260915-051",
+        "goryeoecon-hist-20260915-052",
+        "goryeoecon-hist-20260915-053",
+        "goryeoecon-hist-20260915-054",
+        "goryeoecon-hist-20260915-055",
+        "goryeoecon-hist-20260915-056",
+        "goryeoecon-hist-20260915-057",
+        "goryeoecon-hist-20260915-058",
+        "goryeoecon-hist-20260915-059",
+        "goryeoecon-hist-20260915-060"
       ]
     }
   ],
@@ -9816,6 +9990,543 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혜초 순례"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 통일 신라·발해·후삼국 기출형 연습"
+    },
+    "goryeoecon-hist-20260915-001": {
+      "number": 805,
+      "section": "고려 경제",
+      "coverage": [
+        "역분전: 공신에게 공로와 인품에 따라 지급(정답)",
+        "공음전: 5품 이상 고위 관리, 세습 가능(오답)",
+        "녹과전: 고려 후기 녹봉 보충, 경기 지역(오답)",
+        "과전법: 위화도 회군 뒤 급진 개혁파 신진 사대부 주도(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 토지 제도"
+    },
+    "goryeoecon-hist-20260915-002": {
+      "number": 806,
+      "section": "고려 경제",
+      "coverage": [
+        "전시과 원칙: 등급에 따라 전지·시지 지급, 원칙적으로 세습 불가(자료 단서)",
+        "시정 전시과: 관품과 인품을 함께 고려(정답)",
+        "역분전: 공로에 따라 지급(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 토지 제도"
+    },
+    "goryeoecon-hist-20260915-003": {
+      "number": 807,
+      "section": "고려 경제",
+      "coverage": [
+        "공음전: 공신이나 5품 이상 고위 관리, 세습 가능(정답)",
+        "개정 전시과: 전·현직, 관품 기준(오답)",
+        "녹과전: 녹봉 보충, 경기 지역(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 토지 제도"
+    },
+    "goryeoecon-hist-20260915-004": {
+      "number": 808,
+      "section": "고려 경제",
+      "coverage": [
+        "역분전 → 시정 전시과 → 개정 전시과 → 경정 전시과 순서(지급 대상·기준으로 구분)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 토지 제도"
+    },
+    "goryeoecon-hist-20260915-005": {
+      "number": 809,
+      "section": "고려 경제",
+      "coverage": [
+        "경정 전시과: 토지 부족으로 현직 관리에게만 지급(정답)",
+        "시정·개정 전시과, 녹과전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 토지 제도"
+    },
+    "goryeoecon-hist-20260915-006": {
+      "number": 810,
+      "section": "고려 경제",
+      "coverage": [
+        "시정 전시과: 관품과 인품 / 개정 전시과: 관품 기준(2×2 짝짓기)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 토지 제도"
+    },
+    "goryeoecon-hist-20260915-007": {
+      "number": 811,
+      "section": "고려 경제",
+      "coverage": [
+        "녹과전: 고려 후기 녹봉 보충(자료 단서), 경기 지역 한정(정답)",
+        "공음전(오답)",
+        "전시과 원칙: 등급에 따라 지급(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 토지 제도"
+    },
+    "goryeoecon-hist-20260915-008": {
+      "number": 812,
+      "section": "고려 경제",
+      "coverage": [
+        "과전법: 위화도 회군 이후 급진 개혁파 신진 사대부 주도로 시행(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 토지 제도"
+    },
+    "goryeoecon-hist-20260915-009": {
+      "number": 813,
+      "section": "고려 경제",
+      "coverage": [
+        "경정 전시과: 현직 관리에게만 지급(자료 단서)",
+        "전시과 원칙: 문무 관리부터 군인·한인까지 등급에 따라 지급(정답)",
+        "역분전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 토지 제도"
+    },
+    "goryeoecon-hist-20260915-010": {
+      "number": 814,
+      "section": "고려 경제",
+      "coverage": [
+        "조세: 논밭을 비옥도에 따라 3등급, 생산량의 1/10 징수(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 수취 제도"
+    },
+    "goryeoecon-hist-20260915-011": {
+      "number": 815,
+      "section": "고려 경제",
+      "coverage": [
+        "조세·공납·역의 모습(자료 단서)",
+        "조세를 조운을 통해 개경으로 운반(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 수취 제도"
+    },
+    "goryeoecon-hist-20260915-012": {
+      "number": 816,
+      "section": "고려 경제",
+      "coverage": [
+        "별공: 필요에 따라 수시로 징수(정답)",
+        "상공: 매년 일정하게 징수(오답)",
+        "조세 1/10, 역(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 수취 제도"
+    },
+    "goryeoecon-hist-20260915-013": {
+      "number": 817,
+      "section": "고려 경제",
+      "coverage": [
+        "상공·별공(자료 단서)",
+        "공납: 집집마다 토산물·광물 등 현물 징수(정답)",
+        "조세, 역(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 수취 제도"
+    },
+    "goryeoecon-hist-20260915-014": {
+      "number": 818,
+      "section": "고려 경제",
+      "coverage": [
+        "역: 호적 작성, 정남에게 요역·군역 부과(정답)",
+        "조세: 양안(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 수취 제도"
+    },
+    "goryeoecon-hist-20260915-015": {
+      "number": 819,
+      "section": "고려 경제",
+      "coverage": [
+        "개간 장려: 주인 없는 땅 개간 시 소유권 인정(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-016": {
+      "number": 820,
+      "section": "고려 경제",
+      "coverage": [
+        "윤작법·『농상집요』(자료 단서)",
+        "소를 이용한 깊이갈이 일반화(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-017": {
+      "number": 821,
+      "section": "고려 경제",
+      "coverage": [
+        "문익점: 원에서 목화씨를 들여와 재배 성공(정답)",
+        "이암: 『농상집요』(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-018": {
+      "number": 822,
+      "section": "고려 경제",
+      "coverage": [
+        "문익점의 목화씨(자료 단서)",
+        "이암이 원에서 『농상집요』를 들여옴(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-019": {
+      "number": 823,
+      "section": "고려 경제",
+      "coverage": [
+        "이앙법(모내기법): 남부 지방 일부에서 시행(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-020": {
+      "number": 824,
+      "section": "고려 경제",
+      "coverage": [
+        "벽란도: 송·아라비아 상인 왕래, 코리아로 알려짐(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-021": {
+      "number": 825,
+      "section": "고려 경제",
+      "coverage": [
+        "『노걸대』: 중국어 학습서 편찬(정답)",
+        "『농상집요』(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-022": {
+      "number": 826,
+      "section": "고려 경제",
+      "coverage": [
+        "건원중보: 성종 때 우리나라 최초의 금속 화폐(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-023": {
+      "number": 827,
+      "section": "고려 경제",
+      "coverage": [
+        "주전도감: 숙종 때 설치, 화폐 유통 부진(자료 단서)",
+        "은병(활구)·해동통보 발행(정답)",
+        "경시서·상평창·의창(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-024": {
+      "number": 828,
+      "section": "고려 경제",
+      "coverage": [
+        "건원중보·주전도감·해동통보(자료 단서)",
+        "벽란도 국제 무역항(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-025": {
+      "number": 829,
+      "section": "고려 경제",
+      "coverage": [
+        "아라비아 상인·코리아(자료 단서)",
+        "경시서: 시전의 상행위 관리·감독(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-026": {
+      "number": 830,
+      "section": "고려 경제",
+      "coverage": [
+        "2년 3작·목화 재배 시작(자료 단서)",
+        "은병(활구) 발행(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-027": {
+      "number": 831,
+      "section": "고려 경제",
+      "coverage": [
+        "서적점·다점, 상평창(자료 단서)",
+        "수공업: 후기 사원·민간 수공업 발달(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-028": {
+      "number": 832,
+      "section": "고려 경제",
+      "coverage": [
+        "경시서·건원중보(자료 단서)",
+        "서적점·다점·주점 등 관영 상점 운영(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-029": {
+      "number": 833,
+      "section": "고려 경제",
+      "coverage": [
+        "상평창: 물가 조절 기구(정답)",
+        "경시서, 주전도감, 의창(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-030": {
+      "number": 834,
+      "section": "고려 경제",
+      "coverage": [
+        "벽란도·코리아(자료 단서)",
+        "윤작법 2년 3작, 개간지 소작료 감면, 소(所) 수공업(오답 = 고려의 옳은 사실)",
+        "조선 후기 설점수세제(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-031": {
+      "number": 835,
+      "section": "고려 경제",
+      "coverage": [
+        "건원중보, 관영 상점(주점·다점), 『노걸대』(오답 = 고려의 옳은 사실)",
+        "조선 후기 송상·송방(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-032": {
+      "number": 836,
+      "section": "고려 경제",
+      "coverage": [
+        "『농상집요』·『노걸대』(자료 단서)",
+        "문익점의 목화 재배 성공(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 경제 활동"
+    },
+    "goryeoecon-hist-20260915-033": {
+      "number": 837,
+      "section": "고려 사회",
+      "coverage": [
+        "문무 양반: 고위 관직, 일부 문벌 형성(정답)",
+        "중간 계층, 백정(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 신분 제도"
+    },
+    "goryeoecon-hist-20260915-034": {
+      "number": 838,
+      "section": "고려 사회",
+      "coverage": [
+        "중간 계층 구성: 서리·남반·향리·하급 장교(정답)",
+        "백정, 노비, 문벌(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 신분 제도"
+    },
+    "goryeoecon-hist-20260915-035": {
+      "number": 839,
+      "section": "고려 사회",
+      "coverage": [
+        "서리·남반·향리·하급 장교(자료 단서)",
+        "중간 계층: 직역 세습, 국가로부터 토지 받음(정답)",
+        "노비(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 신분 제도"
+    },
+    "goryeoecon-hist-20260915-036": {
+      "number": 840,
+      "section": "고려 사회",
+      "coverage": [
+        "백정: 일반 농민, 조세·공납·역 부담(정답)",
+        "향·부곡·소 주민, 중간 계층(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 신분 제도"
+    },
+    "goryeoecon-hist-20260915-037": {
+      "number": 841,
+      "section": "고려 사회",
+      "coverage": [
+        "명학소 봉기와 충순현 승격(자료 단서)",
+        "향·부곡·소 주민: 일반 군현민보다 많은 세금 부담(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 신분 제도"
+    },
+    "goryeoecon-hist-20260915-038": {
+      "number": 842,
+      "section": "고려 사회",
+      "coverage": [
+        "향·부곡·소 주민: 거주 이전 제한(정답)",
+        "문무 양반(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 신분 제도"
+    },
+    "goryeoecon-hist-20260915-039": {
+      "number": 843,
+      "section": "고려 사회",
+      "coverage": [
+        "공노비·사노비, 매매·상속 대상(자료 단서)",
+        "일천즉천(정답)",
+        "백정, 중간 계층, 향·부곡·소 주민(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 신분 제도"
+    },
+    "goryeoecon-hist-20260915-040": {
+      "number": 844,
+      "section": "고려 사회",
+      "coverage": [
+        "신분 변동: 공을 세운 향·부곡·소의 일반 군현 승격(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 신분 제도"
+    },
+    "goryeoecon-hist-20260915-041": {
+      "number": 845,
+      "section": "고려 사회",
+      "coverage": [
+        "신분 변동: 상층 향리가 과거를 통해 문관 진출(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 신분 제도"
+    },
+    "goryeoecon-hist-20260915-042": {
+      "number": 846,
+      "section": "고려 사회",
+      "coverage": [
+        "향도: 매향 활동을 하는 불교 신앙 조직에서 기원(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-043": {
+      "number": 847,
+      "section": "고려 사회",
+      "coverage": [
+        "매향 기원·초기 불상·석탑·절(자료 단서)",
+        "향도 후기: 혼례·상장례·마을 제사 주도(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-044": {
+      "number": 848,
+      "section": "고려 사회",
+      "coverage": [
+        "향도 변화: 초기 불상·석탑 제작 → 후기 혼례·마을 제사 등 공동체 생활 주도(2×2 짝짓기)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-045": {
+      "number": 849,
+      "section": "고려 사회",
+      "coverage": [
+        "흑창(태조) → (가)(성종)(자료 단서)",
+        "의창: 춘대추납(정답)",
+        "제위보, 상평창(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-046": {
+      "number": 850,
+      "section": "고려 사회",
+      "coverage": [
+        "동·서 대비원: 개경 설치, 질병 치료, 무의탁자·행려자 구제(정답)",
+        "제위보, 구제도감, 의창(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-047": {
+      "number": 851,
+      "section": "고려 사회",
+      "coverage": [
+        "광종: 과거제·노비안검법(자료 단서)",
+        "제위보: 기금 이자로 빈민 구제(정답)",
+        "동·서 대비원, 혜민국(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-048": {
+      "number": 852,
+      "section": "고려 사회",
+      "coverage": [
+        "혜민국: 서민 질병 치료·의약품 제공 / 구제도감: 재해 시 임시 구제 기구(2×2 짝짓기)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-049": {
+      "number": 853,
+      "section": "고려 사회",
+      "coverage": [
+        "제위보·혜민국(자료 단서)",
+        "구제도감·구급도감: 재해 시 임시 기구(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-050": {
+      "number": 854,
+      "section": "고려 사회",
+      "coverage": [
+        "법률: 당률보다 관습법 우선, 5형 적용(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-051": {
+      "number": 855,
+      "section": "고려 사회",
+      "coverage": [
+        "출생순 호적·일부일처제(자료 단서)",
+        "자녀 균분 상속(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-052": {
+      "number": 856,
+      "section": "고려 사회",
+      "coverage": [
+        "균분 상속·윤행봉사(자료 단서)",
+        "여성의 재가 자유, 재가녀 자녀 차별 없음(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-053": {
+      "number": 857,
+      "section": "고려 사회",
+      "coverage": [
+        "재가 자유·출생순 호적(자료 단서)",
+        "사위·조카·외손자도 음서 혜택(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-054": {
+      "number": 858,
+      "section": "고려 사회",
+      "coverage": [
+        "여성 지위·사위·외손자 음서(자료 단서)",
+        "아들이 없으면 딸이 제사 봉행, 윤행봉사(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-055": {
+      "number": 859,
+      "section": "고려 사회",
+      "coverage": [
+        "호적: 딸·아들 구분 없이 태어난 순서대로 기재(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-056": {
+      "number": 860,
+      "section": "고려 사회",
+      "coverage": [
+        "가족 내 여성의 지위가 비교적 높음(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-057": {
+      "number": 861,
+      "section": "고려 사회",
+      "coverage": [
+        "혼인: 일부일처제가 일반적(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-058": {
+      "number": 862,
+      "section": "고려 사회",
+      "coverage": [
+        "향도의 절 건립·제위보(자료 단서)",
+        "5형(태·장·도·유·사) 적용(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
+    },
+    "goryeoecon-hist-20260915-059": {
+      "number": 863,
+      "section": "고려 사회",
+      "coverage": [
+        "중간 계층 구성·일천즉천(자료 단서)",
+        "백정: 일반 농민, 조세·공납·역 부담(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 신분 제도"
+    },
+    "goryeoecon-hist-20260915-060": {
+      "number": 864,
+      "section": "고려 사회",
+      "coverage": [
+        "흑창→의창·구제도감(자료 단서)",
+        "동·서 대비원: 개경, 병자·행려자 구제(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 13강 고려(경제, 사회) 147쪽 사회 모습"
     }
   }
 };
