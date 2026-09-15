@@ -81,6 +81,10 @@ assert.ok(!nodes.get('#retryStatus')._text.includes('같은 개념의 문제'),'
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d2=rows.indexOf('Day 2 동사의 형태·명사·일치'),d3=rows.indexOf('Day 3 분사·준동사·관사와 도치');
   assert.ok(d2>=0&&d3===d2+1,'문제집 진도는 Day 2 다음에 Day 3: '+rows.slice(0,5).join(' / '));
   assert.equal(menuDetail('#rangeList','Day 3 분사·준동사·관사와 도치'),'전체 178문제 · 첫 시도 0/178 · 지금 풀 차례 178문제 (새 문제 5개 포함)','Day 3 범위 줄');}
+ // Day 4는 Day 3 바로 다음에 나오고, 아직 풀지 않은 152문제다.
+ {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d3=rows.indexOf('Day 3 분사·준동사·관사와 도치'),d4=rows.indexOf('Day 4 형용사·부사와 비교 구문');
+  assert.ok(d3>=0&&d4===d3+1,'문제집 진도는 Day 3 다음에 Day 4: '+rows.slice(0,6).join(' / '));
+  assert.equal(menuDetail('#rangeList','Day 4 형용사·부사와 비교 구문'),'전체 152문제 · 첫 시도 0/152 · 지금 풀 차례 152문제 (새 문제 5개 포함)','Day 4 범위 줄');}
  run("go('progress')");assert.equal(nodes.get('#total')._text,String(run('questionCount(data.cards.filter(isPlayable))')),'진행상황의 전체 문제');
  assert.equal(nodes.get('#done')._text,'60','진행상황의 오늘 푼 문제');
  for(const sel of ['#subjectList','#subjectSummary','#rangeList','#subjectStats','#card','#retryStatus'])assert.ok(!/문항|카드/.test(texts(sel)),sel+'에 문항/카드라는 말이 보인다: '+texts(sel).slice(0,120));
