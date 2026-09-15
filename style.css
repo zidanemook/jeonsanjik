@@ -200,3 +200,11 @@ body[data-view="quiz"] main { padding-top:14px; }
 .choice-ok { color:#9fb3c8; font-size:.9em; }
 .marked-choices { margin:8px 0 12px; }
 .marked-choices .example { margin:6px 0; }
+.choice-explain { border-left:3px solid #4a5a70; padding:4px 0 4px 10px; margin:12px 0; }
+.choice-explain.is-answer { border-left-color:#82d6a4; }
+.choice-explain.is-picked { border-left-color:#ff9c9c; }
+.choice-explain-sentence { margin:0 0 6px; font-weight:600; line-height:1.55; }
+.choice-explain-text { margin:0; color:#d1d7e0; line-height:1.6; }
+.choice-answer-tag, .choice-picked-tag { margin-left:6px; font-size:.78em; font-weight:700; padding:1px 7px; border-radius:9px; white-space:nowrap; }
+.choice-answer-tag { background:#183b2b; color:#82d6a4; }
+.choice-picked-tag { background:#49282e; color:#ff9c9c; }

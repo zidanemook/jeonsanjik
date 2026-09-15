@@ -138,3 +138,22 @@ console.log('PASS practice: one question per practice entry (Day 1 60, Day 2 60,
  }
 }
 console.log('practice: option numbers in explanations and error marks follow the shuffled order');
+// 해설을 보기별로 나눈다: 보기 문장마다 그 보기의 설명(정답은 정답 근거, 나머지는 보기 비교의 해당 번호)이 섞인 순서를 따라 붙는다.
+{
+ let split=0;
+ for(const [id,l] of Object.entries(bank))for(const v of l.variants){
+  if(v.type!=='choice'||!/보기 비교: [①②③④]/.test(v.explanation))continue;
+  const authored=practice.explainByChoice(v);assert.ok(authored,'보기별로 나뉜다: '+id);split++;
+  assert.equal(authored.per[v.correctIndex],v.explanation.split('\n\n')[0].replace('정답 근거:','').trim(),id);
+  for(let n=0;n<3;n++){const e=practice.select({id,question:'',explanation:''},Array.from({length:n},()=>({cardId:id})),bank,{}),r=practice.explainByChoice(e);
+   assert.ok(r,id);e.choices.forEach((c,i)=>assert.equal(r.per[i],authored.per[v.choices.indexOf(c)],'섞인 보기에 맞는 설명: '+id));assert.deepEqual(r.rest,authored.rest);}
+ }
+ assert.equal(split,196,'영어 문장형 196문제(Day 1 40 · Day 2 40 · Day 3 116)가 보기별 해설로 나뉜다');
+ // 번호 없이 서술한 해설(국어 논리 등)과 번호가 모자라거나 겹치는 해설은 나누지 않고 원래대로 보여 준다.
+ assert.equal(practice.explainByChoice(bank['ko-logic1-01'].variants[0]),null);
+ const base={type:'choice',choices:['a','b','c','d'],correctIndex:0};
+ assert.equal(practice.explainByChoice({...base,explanation:'정답 근거: x\n\n보기 비교: ② y ③ z'}),null,'빠진 번호');
+ assert.equal(practice.explainByChoice({...base,explanation:'정답 근거: x\n\n보기 비교: ② y ② z ④ w'}),null,'겹친 번호');
+ assert.deepEqual(practice.explainByChoice({...base,explanation:'정답 근거: x\n\n보기 비교: ② y ③ z ④ w\n\n기억 연결: m'}),{per:['x','y','z','w'],rest:['기억 연결: m']});
+}
+console.log('practice: explanations split per option and follow the shuffled order');

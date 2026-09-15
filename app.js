@@ -240,6 +240,18 @@ function markedChoice(text,marks){
  span.append(document.createTextNode(text.slice(start)));if(!marks)span.append(elem('span',' (어법상 옳음)','choice-ok'));return span;
 }
 function markedLine(label,quiz,i){const p=elem('p',label+(i+1)+'. ');p.append(markedChoice(quiz.choices[i],quiz.marks[i]));return p;}
+// Each option as its own block: the sentence (wrong words marked) and that option's explanation right under it.
+function choiceExplanations(quiz,split,picked){
+ const box=elem('div',undefined,'choice-explanations');
+ quiz.choices.forEach((c,i)=>{
+  const answer=i===quiz.correctIndex,mine=i===picked&&!answer,item=elem('div',undefined,'choice-explain'+(answer?' is-answer':mine?' is-picked':''));
+  const head=elem('p',(i+1)+'. ','choice-explain-sentence');head.append(quiz.marks?markedChoice(c,quiz.marks[i]):document.createTextNode(c));
+  if(answer)head.append(elem('span','정답','choice-answer-tag'));if(mine)head.append(elem('span','내 답','choice-picked-tag'));
+  item.append(head,elem('p',split.per[i],'choice-explain-text'));box.append(item);
+ });
+ if(split.rest.length)box.append(explanationText(split.rest.join('\n\n')));
+ return box;
+}
 function markedList(quiz){const box=elem('div',undefined,'marked-choices');box.append(elem('strong','보기별 틀린 곳'));quiz.choices.forEach((c,i)=>{const p=elem('p',(i+1)+'. ','example');p.append(markedChoice(c,quiz.marks[i]));box.append(p);});return box;}
 function explanationText(text){
  const p=elem('p',undefined,'explanation-text');let start=0;
@@ -477,7 +489,7 @@ function renderFeedback(root,card,quiz,lesson,label){
  if(f.result==='wrong')banner.append(quiz.marks&&quiz.choices[f.selectedIndex]!==undefined?markedLine('내 답: ',quiz,f.selectedIndex):elem('p','내 답: '+(quiz.type==='text'?f.userAnswer:quiz.choices[f.selectedIndex]??'')));
  banner.append(quiz.marks?markedLine('정답: ',quiz,quiz.correctIndex):elem('p','정답: '+correct));root.append(banner);
  appendCorrection(root,quiz);
- const main=elem('details',undefined,'lesson explanation-main');main.append(elem('summary','해설 보기'));if(quiz.marks)main.append(markedList(quiz));main.append(explanationText(quiz.explanation||card.explanation||''));attachExplanationCredit(main,reviewId,'feedback');root.append(main);
+ const main=elem('details',undefined,'lesson explanation-main');main.append(elem('summary','해설 보기'));const byChoice=Practice.explainByChoice(quiz);if(byChoice)main.append(choiceExplanations(quiz,byChoice,f.selectedIndex));else{if(quiz.marks)main.append(markedList(quiz));main.append(explanationText(quiz.explanation||card.explanation||''));}attachExplanationCredit(main,reviewId,'feedback');root.append(main);
  appendNewPaperExplanation(root,card.id,quiz.explanation||card.explanation,reviewId,'feedback-supplement');
  if(lesson){root.append(elem('p',lesson.hook,'hook'));const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),elem('p',lesson.rule));for(const example of lesson.examples)details.append(elem('p',example,'example'));attachExplanationCredit(details,reviewId,'lesson');root.append(details);}
  const recap=elem('details',undefined,'lesson recap');recap.append(elem('summary','문제 다시 보기'),label,elem('div',quiz.question,'question'));appendPaper(recap,Hanneung.get(card.id));

@@ -6,7 +6,8 @@
  // Explanations cite options as ①~④ and marks list each option's wrong words, both in the order they had in `from`; follow the shown order.
  function reorder(exercise,from){
   const nums='①②③④⑤',at=from.map(c=>exercise.choices.indexOf(c));
-  if(exercise.explanation)exercise.explanation=exercise.explanation.replace(/[①②③④⑤]/g,m=>at[nums.indexOf(m)]>=0?nums[at[nums.indexOf(m)]]:m);
+  // 기억 연결 uses ①② as its own list markers (en-day2-29), so that paragraph keeps its numbers.
+  if(exercise.explanation)exercise.explanation=exercise.explanation.split(/(\n\s*\n)/).map(p=>p.startsWith('기억 연결:')?p:p.replace(/[①②③④⑤]/g,m=>at[nums.indexOf(m)]>=0?nums[at[nums.indexOf(m)]]:m)).join('');
   if(exercise.marks)exercise.marks=exercise.choices.map(c=>exercise.marks[from.indexOf(c)]??null);
  }
  function select(card,history,bank,options){
@@ -45,5 +46,18 @@
   }
   return current;
  }
- const api={normalize,grade,select,refresh,fingerprint};root.Practice=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+ // Split "정답 근거: … / 보기 비교: ① … ② … / 기억 연결: …" into one text per shown option plus the remaining paragraphs.
+ // Numbers must already follow the shown order (select/refresh do that). Anything that does not split cleanly returns null.
+ function explainByChoice(exercise){
+  if(exercise?.type!=='choice'||!exercise.explanation)return null;
+  const paras=exercise.explanation.split(/\n\s*\n/),key=paras.findIndex(p=>p.startsWith('정답 근거:')),cmp=paras.findIndex(p=>p.startsWith('보기 비교:'));
+  if(key<0||cmp<0)return null;
+  const body=paras[cmp].slice('보기 비교:'.length).trim(),marks=[...body.matchAll(/[①②③④⑤]/g)];
+  if(!marks.length||marks[0].index!==0)return null;
+  const per=exercise.choices.map(()=>null);per[exercise.correctIndex]=paras[key].slice('정답 근거:'.length).trim();
+  for(let i=0;i<marks.length;i++){const k='①②③④⑤'.indexOf(marks[i][0]);if(k>=exercise.choices.length||per[k]!==null)return null;per[k]=body.slice(marks[i].index+1,marks[i+1]?.index).trim();if(!per[k])return null;}
+  if(per.some(t=>t===null))return null;
+  return {per,rest:paras.filter((_,i)=>i!==key&&i!==cmp)};
+ }
+ const api={normalize,grade,select,refresh,fingerprint,explainByChoice};root.Practice=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(globalThis);
