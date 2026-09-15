@@ -208,3 +208,4 @@ body[data-view="quiz"] main { padding-top:14px; }
 .choice-answer-tag, .choice-picked-tag { margin-left:6px; font-size:.78em; font-weight:700; padding:1px 7px; border-radius:9px; white-space:nowrap; }
 .choice-answer-tag { background:#183b2b; color:#82d6a4; }
 .choice-picked-tag { background:#49282e; color:#ff9c9c; }
+.memorize-group-title { margin:0 0 8px; font-size:18px; font-weight:700; color:#d4e5ff; }

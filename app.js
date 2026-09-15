@@ -326,9 +326,15 @@ function renderMemorize(){
   line.items.forEach((item,i)=>grid.append(cell(set.id+':'+li+':'+i,(i+1)+'. '+[...line.chant][i],(i+1)+'. '+item.name,item.facts.length?item.facts.join(' · '):'아직 공부하지 않은 범위')));
   group.append(grid);content.push(group);
  });
- else set.pairs.forEach(([left,leftDetail,right,rightDetail],pi)=>{
+ else if(set.pairs)set.pairs.forEach(([left,leftDetail,right,rightDetail],pi)=>{
   const row=elem('div',undefined,'memorize-pair');
   row.append(cell(set.id+':'+pi+':0',left,'',leftDetail),cell(set.id+':'+pi+':1',right,'',rightDetail));content.push(row);
+ });
+ else set.groups.forEach((g,gi)=>{
+  const group=elem('div',undefined,'memorize-line'),grid=elem('div',undefined,'memorize-grid');
+  group.append(elem('p',g.title,'memorize-group-title'));
+  g.cards.forEach(([front,back],ci)=>grid.append(cell(set.id+':'+gi+':'+ci,front,'',back)));
+  group.append(grid);content.push(group);
  });
  const bar=elem('div',undefined,'memorize-bar'),shown=keys.filter(k=>memorizeShown.has(k)).length;
  const all=btn('모두 보기',()=>{for(const k of keys)memorizeShown.add(k);render();}),none=btn('모두 가리기',()=>{memorizeShown=new Set();render();});all.type='button';none.type='button';
