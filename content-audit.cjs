@@ -89,6 +89,7 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // 대상은 id 접두사로만 가른다: 'hanneung-'(국사편찬위원회 심화 기출), 'gichul-'(인사혁신처 9급 기출).
 // 사진 보기 문항도 제외한다. 보기 글자가 화면에 나오지 않아 '가장 긴 보기 고르기' 전략 자체가 성립하지 않고,
 // 분모에 넣으면 래칫 비율만 희석되어 검사가 헐거워진다. 대신 photos()가 네 보기 전부 사진임을 따로 강제한다.
+// LONGEST_LIMIT: 2026-09-16 복습용 한국사 86문항의 오답을 늘려 실측 2.8%(53/1927)로 조임(이전 7.3%).
 // LONGEST_LIMIT: 국어 사고의 힘 논리 2장 보강 67·3장 181문제(모두 4지선다, 정답이 가장 긴 보기 12개) 추가 뒤 실측 10.7%(138/1291)를 상한으로 다시 조인 래칫(이전 12.1%, 13.5%, 15.8%, 21.2%, 27.8%). 문제를 더하다 이 값을 넘기면 실패한다.
 // 2026-09-15: 한국사 자체 제작 165문제의 정답 노출(성씨·글자·종류·중심 보기)을 고친 뒤 실측 10.3%(133/1291, 0.10302)를 소수 셋째 자리에서 올린 0.104로 다시 조였다.
 // 2026-09-15: 고려 10~12강 기반 기출형 48문제를 더하면서 정답이 유일하게 가장 긴 15문제의 오답 하나씩을 정확한 내용으로 늘려, 실측 133/1339(0.09933)를 소수 셋째 자리에서 올린 0.100로 다시 조였다.
@@ -98,7 +99,7 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // 2026-09-15(v80): 14강 고려(문화 I) 기출형 43문제(정답이 유일하게 가장 긴 보기 0개)를 더한 뒤 실측 133/1550(0.08581)을 소수 셋째 자리에서 올린 0.086으로 다시 조였다.
 // 2026-09-15(v81): 문제집 Day 4 152문제(4지선다 102)를 더한 뒤 실측 134/1652(0.08111)를 소수 셋째 자리에서 올린 0.082로 다시 조였다.
 // 2026-09-15(v82): 국어 사고의 힘 논리 4장 술어 논리 147·5장 귀납 논증 128문제(정답이 유일하게 가장 긴 보기 15개 가운데 10개는 오답을 정확한 내용으로 늘려 맞추고, 보기가 식에서 만들어지는 4문제와 이름 보기 1문제 5개만 남김)를 더한 뒤 실측 139/1927(0.07213)을 소수 셋째 자리에서 올린 0.073으로 다시 조였다.
-const LONGEST_LIMIT=0.073,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
+const LONGEST_LIMIT=0.028,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
 function lengthBias(items){
  const rows=items.filter(i=>i.exercise.type==='choice'&&!VERBATIM_OFFICIAL.test(i.card.id)&&!i.exercise.choiceImages);
  assert(rows.length>0,'No self-made choice exercises to measure');
