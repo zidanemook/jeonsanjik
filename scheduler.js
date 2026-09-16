@@ -19,7 +19,7 @@
   }
   function migrate(input, today = day()) {
     const data = structuredClone(input);
-    if (data.version === 2) return data;
+    if (data.version === 2 || data.version === 3) return data;
     data.cards = data.cards.map(c => {
       const history = data.history.filter(h=>h.cardId===c.id).sort((a,b)=>a.date.localeCompare(b.date));
       const last = history.at(-1);
