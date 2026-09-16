@@ -5,7 +5,7 @@ assert.equal(h.rows.length,1150);assert.equal(new Set(h.rows.map(r=>r.id)).size,
 assert.equal(h.rounds.length,23);
 const cards=[],options={};h.install(cards,options);assert.equal(cards.length,1149);assert(!options['hanneung-63-42']);
 const explanations=require('./hanneung-explanations.js');
-// 77~79회는 회차 전체에 해설이 있고, 2026-09-16에 공부 범위(선사~고려)의 321문항이 더해졌다.
+// 77~79회는 회차 전체에 해설이 있고, 2026-09-16에 공부 범위(선사~고려)의 346문항이 더해졌다.
 // 새 해설은 출처 링크가 아직 없으므로 sources 는 있을 때만 검사한다.
 const completeRounds=[79,78,77];
 const full=completeRounds.flatMap(n=>Array.from({length:50},(_,i)=>'hanneung-'+n+'-'+String(i+1).padStart(2,'0')));
@@ -13,7 +13,7 @@ assert.equal(full.filter(id=>explanations[id]).length,150,'77~79회는 해설이
 const studied=new Set(['prehistory','gojoseon','goguryeo-gaya','baekje-silla','unified-silla','balhae','later-three','goryeo']);
 const topics=require('./hanneung-topics.js');
 const extra=Object.keys(explanations).filter(id=>!full.includes(id));
-assert.equal(extra.length,321,'공부 범위 해설 321개');
+assert.equal(extra.length,346,'공부 범위 해설 346개(사진 보기 3문항은 확인하지 못해 비워 둠)');
 for(const id of extra)assert(studied.has(topics[id]),'공부 범위 밖에 해설을 붙이지 않는다: '+id);
 for(const [id,e]of Object.entries(explanations)){
  assert.equal(e.choices.length,5,id);assert(e.clue&&e.reason&&e.hook&&e.reviewedOn);
