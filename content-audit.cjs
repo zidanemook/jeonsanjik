@@ -57,6 +57,8 @@ function concepts(items){
 function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-coverage.json','utf8'))){
  assert.equal(policy.schema,1);const byCard=new Map();for(const item of items){if(!byCard.has(item.card.id))byCard.set(item.card.id,[]);byCard.get(item.card.id).push(item);if(item.exercise.type==='choice'){const paper=item.card.id.startsWith('hanneung-');const n=item.exercise.choices.length;assert.ok(paper?n===5:(n===4||n===5),(paper?'Five options required: ':'Four or five options required: ')+item.card.id+' ('+n+')');assert.equal(new Set(item.exercise.choices).size,n,'Duplicate option: '+item.card.id);if(paper)assert(item.exercise.fixedOrder&&item.exercise.image,'Original choices and image required');
   // 인사혁신처 9급 기출은 원문 ①~④를 보기 글자에 그대로 달고 나온다. 순서를 섞으면 번호와 내용이 어긋난다.
+  // 자체 제작 문항에서 보기를 섞지 않는 것은 연표 칸 표지((가)~(마))뿐이다. 다른 보기를 고정하면 정답 자리가 늘 같아진다(2026-09-16 순서 배열 10문항이 모두 ①이었다).
+  if(!VERBATIM_OFFICIAL.test(item.card.id)&&item.exercise.fixedOrder)assert.equal(item.exercise.choices.join(),'(가),(나),(다),(라),(마)','Only timeline-slot labels may keep a fixed order in self-made questions: '+item.card.id);
   if(VERBATIM_OFFICIAL.test(item.card.id)&&!paper){assert(item.exercise.fixedOrder,'Official paper options must keep the exam order: '+item.card.id);
    item.exercise.choices.forEach((choice,i)=>assert(choice.startsWith(['①','②','③','④'][i]),'Official option must keep its printed number: '+item.card.id+' / '+choice));}}}
  // 영어 문법 범위 검사. v56까지는 카드 하나가 여러 문장을 돌려 냈으므로 "카드마다 직접쓰기 2개 이상 + 4지선다 + 규칙 정리"를 요구했다.
