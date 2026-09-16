@@ -1,5 +1,6 @@
 // Practice options, not verbatim exam sheets.
 // 사진 보기용 국가유산 사진. 사진 한 장 한 장을 ccimId 단위로 확인해 공공누리 제1유형(출처표시·상업이용 가능·변경 가능)인 것만 담았다.
+// 국가유산청에 제1유형 사진이 없으면 위키미디어 공용의 CC0·퍼블릭 도메인·CC BY·CC BY-SA 사진을 쓴다(NC·ND 제외).
 // 근거: docs/IMAGE-LICENSE-LEDGER.md · 파일 대장과 취득 시점 재확인 기록: assets/heritage/CREDITS.md · 제4유형 사진은 받지도 않는다.
 // credit 문자열은 화면에 그대로 띄워야 하는 출처표시다. 줄이거나 빼면 이용 조건을 어긴다.
 // alt에는 국가유산 이름을 넣지 않는다. 화면 낭독기 사용자에게 정답이 그대로 새기 때문이다(content-audit.cjs가 강제한다).
@@ -17,8 +18,23 @@ globalThis.HERITAGE_PHOTOS={
   "경주 불국사 3층 석탑(석가탑)": {"src":"assets/heritage/gyeongju-bulguksa-seokgatap-6409180.webp","alt":"기와 회랑을 뒤로 두고 마당에 선 세 층의 석탑. 조각 장식이 거의 없고 몸돌과 지붕돌이 반듯하게 줄어드는 단정한 모습이다.","credit":"본 저작물은 '국가유산청'에서 '2010년' 작성하여 공공누리 제1유형으로 개방한 '경주 불국사 삼층석탑_건축_2010년(작성자 : 국립문화재연구소)'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
   "경주 불국사 다보탑": {"src":"assets/heritage/gyeongju-bulguksa-dabotap-1612673.webp","alt":"네 방향에 돌계단이 붙고 기둥과 난간을 짜 올린 화려한 탑. 위쪽에는 여덟 모난 몸돌과 연꽃무늬 받침이 얹혀 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '경주 불국사 다보탑'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
   "화순 쌍봉사 철감선사탑": {"src":"assets/heritage/hwasun-ssangbongsa-cheolgam-1612532.webp","alt":"여덟 모난 몸돌 위에 기와를 새긴 돌지붕을 얹은 낮고 둥근 탑. 받침돌에 사자와 연꽃, 구름무늬가 빽빽하게 조각돼 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '화순 쌍봉사 철감선사탑'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
-  "경주 황룡사지 목탑 터": {"src":"assets/heritage/gyeongju-hwangnyongsaji-moktapji-1627506.webp","alt":"탑이 서 있지 않은 너른 풀밭 터. 네모지게 늘어선 주춧돌과 가운데 놓인 큰 돌 하나가 남아 있고 좌우에 계단이 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '경주 황룡사지 목탑지'를 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."}
+  "경주 황룡사지 목탑 터": {"src":"assets/heritage/gyeongju-hwangnyongsaji-moktapji-1627506.webp","alt":"탑이 서 있지 않은 너른 풀밭 터. 네모지게 늘어선 주춧돌과 가운데 놓인 큰 돌 하나가 남아 있고 좌우에 계단이 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '경주 황룡사지 목탑지'를 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "평창 월정사 8각 9층 석탑": {"src":"assets/heritage/pyeongchang-woljeongsa-palgak-1612071.webp","alt":"산자락 절 마당의 기와 법당 앞에 선 여러 층의 석탑. 몸돌이 여덟 모로 되어 있고 층마다 얇은 지붕돌을 얹었으며, 꼭대기에 금속 장식이 높게 솟아 있다. 앞쪽에 흰 돌난간이 둘러져 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '평창 월정사 팔각 구층석탑 전경'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "개성 경천사지 10층 석탑": {"src":"assets/heritage/gaeseong-gyeongcheonsaji-siptap-commons.webp","alt":"박물관 실내의 채광창 아래 선 회백색 대리석 탑. 층마다 불상과 무늬가 빽빽하게 새겨져 있고, 아래쪽 층들은 기와지붕 모양 처마가 도드라지며 옆에 관람객이 서 있다.","credit":"위키미디어 공용의 'Ten-story Stone Pagoda at Gyeongcheonsa temple site in Gaeseong, Korea.jpg' (촬영: Tristan Surtel)을 CC BY-SA 4.0 조건에 따라 이용하였습니다."},
+  "서울 원각사지 10층 석탑": {"src":"assets/heritage/seoul-wongaksaji-siptap-1611450.webp","alt":"파란 하늘 아래 공원에 선 흰 대리석의 높은 탑. 아래쪽 세 층은 평면이 여러 번 꺾인 모양이고 층마다 조각이 가득하며, 위쪽은 가늘게 올라간다. 둘레에 돌난간이 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '서울 원각사지 십층석탑 전경'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "금동 대향로": {"src":"assets/heritage/baekje-geumdong-daehyangno-1612303.webp","alt":"옅은 파란 배경 앞의 금속 향로. 꼭대기에 봉황이 서 있고 뚜껑은 산봉우리가 겹겹이 솟은 모양이며, 몸체는 연꽃잎으로 덮였고 아래에서 용이 몸을 틀어 입으로 받치고 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '국보 백제 금동대향로-부여능산리출토백제금동대향로'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "산수무늬 벽돌": {"src":"assets/heritage/buyeo-oeri-sangyeongmunjeon-1613261.webp","alt":"밝은 배경 앞의 네모난 흑회색 벽돌. 겉면에 둥근 산봉우리가 겹겹이 솟고 그 사이로 나무가 보이며, 아래에는 물결과 바위, 위에는 구름이 도드라지게 새겨져 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '부여 외리 문양전 일괄(扶餘 外里 文樣塼 一括)'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "칠지도": {"src":"assets/heritage/chiljido-replica-commons.webp","alt":"박물관 유리 진열장 안에 세워 둔 녹슨 쇠칼. 곧은 칼몸 양옆으로 가지 모양의 날이 엇갈려 여섯 개 뻗어 나와 있다.","credit":"위키미디어 공용의 'Chiljido Seven-Branched Sword (29899285180).jpg' (촬영: Gary Todd, 복제품, CC0). 저작권 제한 없이 이용할 수 있습니다."},
+  "무령왕릉 지석": {"src":"assets/heritage/muryeongwangneung-jiseok-1612296.webp","alt":"잿빛 배경 앞에 세워 놓은 네모난 돌판. 겉면이 푸르스름하게 바랬고 세로줄로 한자가 여러 줄 새겨져 있으며 가운데에 작은 구멍이 하나 뚫려 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '무령왕릉 지석'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "무령왕릉 금제 관식": {"src":"assets/heritage/muryeongwang-geumje-gwansik-1612272.webp","alt":"검은 배경 위에 나란히 놓인 얇은 금판 장식 두 점. 불꽃이 타오르는 듯한 윤곽 안에 넝쿨과 꽃 무늬를 뚫어 새겼고, 곳곳에 작은 금 달개가 달려 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '무령왕 금제관식'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "천마총 금관": {"src":"assets/heritage/cheonmachong-geumgwan-1612860.webp","alt":"천을 씌운 받침 위에 놓인 금관. 둥근 테 위로 나뭇가지 모양 세움 장식들이 솟아 있고 곳곳에 둥근 금 달개와 곱은옥이 달렸으며, 양옆으로 긴 드리개가 늘어져 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '천마총금관'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "상원사 동종": {"src":"assets/heritage/sangwonsa-dongjong-commons.webp","alt":"단청을 칠한 종각 안에 매달린 청동 종. 어깨 쪽 네모난 테두리 안에 꼭지 아홉 개가 솟아 있고, 몸통 아래쪽에 둥근 무늬가 있으며 겉면은 거무스름하게 바랬다.","credit":"위키미디어 공용의 '상원사동종 01.jpg' (Public domain, 한국저작권위원회 제공). 저작권 제한 없이 이용할 수 있습니다."},
+  "성덕대왕 신종": {"src":"assets/heritage/seongdeok-daewang-sinjong-1612744.webp","alt":"지붕 있는 종각에 매달린 거대한 청동 종. 몸통에 무릎 꿇은 천인상과 연꽃 모양 둥근 무늬가 새겨져 있고, 위아래 테두리에 넝쿨 무늬 띠가 둘렸다. 종 아래 바닥이 둥글게 파여 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '성덕대왕신종'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "경주 첨성대": {"src":"assets/heritage/gyeongju-cheomseongdae-1612759.webp","alt":"잔디밭에 선 돌 구조물. 다듬은 돌을 둥글게 쌓아 아래는 넓고 위로 갈수록 좁아지는 병 모양이며, 중간쯤에 네모난 창이 하나 뚫려 있고 꼭대기에 긴 돌을 우물 정(井) 자 모양으로 얹었다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '경주 첨성대'를 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."}
 };
+// 보기 글자만 다르고 같은 국가유산인 문항은 사진 한 장을 함께 쓴다.
+HERITAGE_PHOTOS["경주 불국사 3층 석탑"]=HERITAGE_PHOTOS["경주 불국사 3층 석탑(석가탑)"];
+HERITAGE_PHOTOS["경주 감은사지 3층 석탑"]=HERITAGE_PHOTOS["경주 감은사지 동·서 3층 석탑"];
 // 사진 보기 문항. 정답을 첫 보기로 적고 Practice.select가 카드마다 다르게 섞는다(글자 보기와 완전히 같은 규칙).
 function photoQuestion(choices){return {choices,correctIndex:0,choiceImages:Object.fromEntries(choices.map(name=>[name,HERITAGE_PHOTOS[name]]))};}
 // 사진 보기: 보기 글자를 열쇠로 사진 표를 만든다. 보기 글자가 바뀌면 사진을 못 찾으므로 함께 고쳐야 한다.
@@ -2696,7 +2712,7 @@ globalThis.QUIZ_OPTIONS={
       "경주 불국사 3층 석탑",
       "경주 분황사 모전 석탑"
     ],
-    "correctIndex": 2
+    "correctIndex": 2, "choiceImages": HERITAGE_PHOTO_SET(["경주 불국사 다보탑","경주 감은사지 3층 석탑","경주 불국사 3층 석탑","경주 분황사 모전 석탑"])
   },
   "lecture-hist-20260911-056": {
     "choices": [
@@ -3163,25 +3179,25 @@ globalThis.QUIZ_OPTIONS={
       "칠지도",
       "무령왕릉 지석"
     ],
-    "correctIndex": 2
+    "correctIndex": 2, "choiceImages": HERITAGE_PHOTO_SET(["금동 대향로","산수무늬 벽돌","칠지도","무령왕릉 지석"])
   },
   "culture-hist-20260912-12": {
     "choices": [
       "무령왕릉 금제 관식",
       "금동 연가 7년명 여래 입상",
       "금동 대향로",
-      "금관과 금귀고리"
+      "천마총 금관"
     ],
-    "correctIndex": 3
+    "correctIndex": 3, "choiceImages": HERITAGE_PHOTO_SET(["무령왕릉 금제 관식","금동 연가 7년명 여래 입상","금동 대향로","천마총 금관"])
   },
   "culture-hist-20260912-13": {
     "choices": [
       "상원사 동종",
       "성덕대왕 신종",
       "경주 첨성대",
-      "익산 미륵사"
+      "익산 미륵사지 석탑"
     ],
-    "correctIndex": 0
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["상원사 동종","성덕대왕 신종","경주 첨성대","익산 미륵사지 석탑"])
   },
   "culture-hist-20260912-14": {
     "choices": [
@@ -6566,7 +6582,7 @@ globalThis.QUIZ_OPTIONS={
   },
   "ancientstyle-hist-20260915-050": {
     "choices": ["부여 정림사지 5층 석탑","평창 월정사 8각 9층 석탑","경주 분황사 모전 석탑","익산 미륵사지 석탑","경주 불국사 3층 석탑"],
-    "correctIndex": 2
+    "correctIndex": 2, "choiceImages": HERITAGE_PHOTO_SET(["부여 정림사지 5층 석탑","평창 월정사 8각 9층 석탑","경주 분황사 모전 석탑","익산 미륵사지 석탑","경주 불국사 3층 석탑"])
   },
   "ancientstyle-hist-20260915-051": {
     "choices": ["안악 3호분","경주 천마총","개성 공민왕릉","김해 대성동 고분군","화룡 정효 공주 묘"],
@@ -6582,7 +6598,7 @@ globalThis.QUIZ_OPTIONS={
   },
   "ancientstyle-hist-20260915-054": {
     "choices": ["경주 분황사 모전 석탑","개성 경천사지 10층 석탑","익산 미륵사지 석탑","서울 원각사지 10층 석탑","경주 불국사 다보탑"],
-    "correctIndex": 2
+    "correctIndex": 2, "choiceImages": HERITAGE_PHOTO_SET(["경주 분황사 모전 석탑","개성 경천사지 10층 석탑","익산 미륵사지 석탑","서울 원각사지 10층 석탑","경주 불국사 다보탑"])
   },
   "ancientstyle-hist-20260915-055": {
     "choices": [

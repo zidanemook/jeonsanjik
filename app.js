@@ -102,11 +102,11 @@ function appendPaper(parent,paper){
  error.append(btn('이미지 다시 불러오기',()=>{img.src=paper.image+'?retry='+Date.now();}));wrap.append(error);parent.append(wrap);
 }
 // 사진 보기 문항: 보기 자체가 사진이라 이름을 붙이면 답이 그대로 드러난다. 채점 전에는 번호만, 채점 뒤에는 이름을 붙인다.
-// 공공누리 제1유형은 출처표시가 의무인데 출처 문구에 국가유산 이름이 들어 있다. 보기마다 붙이면 정답이 노출되므로
+// 공공누리 제1유형·CC BY·CC BY-SA는 출처표시가 의무인데 출처 문구에 국가유산 이름이 들어 있다(라이선스는 사진마다 출처 문구에 적혀 있다). 보기마다 붙이면 정답이 노출되므로
 // 네 장의 출처를 보기 순서와 무관한 고정 순서(가나다순)로 문제 아래에 한 번만 모아 띄운다. 사진이 보이는 화면에는 언제나 함께 나온다.
 function photoCredits(quiz){
  const box=elem('div',undefined,'photo-credits');
- box.append(elem('p','사진 출처 · 공공누리 제1유형 (보기 순서와 무관하게 가나다순으로 적었습니다)','photo-credit-head'));
+ box.append(elem('p','사진 출처 (보기 순서와 무관하게 가나다순으로 적었습니다)','photo-credit-head'));
  for(const name of Object.keys(quiz.choiceImages).sort((a,b)=>a.localeCompare(b,'ko')))box.append(elem('p',quiz.choiceImages[name].credit,'photo-credit'));
  return box;
 }
