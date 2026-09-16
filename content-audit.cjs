@@ -26,7 +26,13 @@ function photos(e){
   assert(!seen.has(meta.src),'Two options share one photo: '+meta.src);seen.add(meta.src);
   assert(typeof meta.alt==='string'&&meta.alt.trim().length>=10,'Photo option needs alt text: '+choice);
   assert(!meta.alt.includes(choice),'Alt text must describe the photo, not name the option: '+choice);
-  assert(/공공누리 제1유형/.test(meta.credit||'')&&/국가유산청/.test(meta.credit||''),'Photo option must carry its 공공누리 제1유형 attribution: '+choice);
+  // 쓸 수 있는 사진은 두 갈래다. 국가유산청은 공공누리 제1유형(출처표시만 하면 상업 이용·변경 허용),
+  // 위키미디어 공용은 CC0·CC BY·CC BY-SA(출처표시 조건). 비상업(NC)·변경금지(ND)는 어느 쪽이든 쓰지 않는다.
+  const credit=meta.credit||'';
+  const nuri=/공공누리 제1유형/.test(credit)&&/국가유산청/.test(credit);
+  const commons=/위키미디어 공용/.test(credit)&&/(CC0|CC BY|Public domain)/.test(credit);
+  assert(nuri||commons,'Photo option must carry a usable attribution (공공누리 제1유형 or Commons CC0/CC BY): '+choice);
+  assert(!/NC|비상업|ND|변경\s*금지|제4유형/.test(credit),'Non-commercial or no-derivative photo must not be used: '+choice);
  }
 }
 function structural(items){const seen=new Set();for(const item of items){const e=item.exercise;assert(e.question.trim()&&e.explanation.trim(),'Missing question/explanation');assert(!seen.has(e.exerciseId),'Duplicate exercise identity');seen.add(e.exerciseId);
