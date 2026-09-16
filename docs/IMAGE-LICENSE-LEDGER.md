@@ -1,4 +1,4 @@
-문제에 사용 |문제에 사용 |문제에 사용 |문제에 사용 |문제에 사용 |# 국가유산 사진 라이선스 원장 (IMAGE LICENSE LEDGER)
+# 국가유산 사진 라이선스 원장 (IMAGE LICENSE LEDGER)
 
 조사일: 2026-09-12 · 조사 대상: 국가유산청 국가유산포털(heritage.go.kr) 사진
 조사 방법: 각 국가유산 상세페이지 → 이미지 갤러리의 **개별 사진 상세창**(`/heri/cul/imgHeritage.do?ccimId=…`)을 하나하나 열어
@@ -145,24 +145,24 @@
 
 | 국가유산 | 지정 | 출처 | 라이선스 | 사진 번호 | 해상도 | 앱 자산 | 상태 |
 |---|---|---|---|---|---|---|---|
-| 평창 월정사 팔각 구층석탑 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612071 | 900x1141 | pyeongchang-woljeongsa-palgak-1612071.webp | 대기 |
-| 구례 화엄사 사사자 삼층석탑 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612430 | 792x1182 | gurye-hwaeomsa-sasaja-1612430.webp | 대기 |
-| 익산 왕궁리 오층석탑 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612379 | 1067x1600 | iksan-wanggungni-otap-1612379.webp | 대기 |
-| 서울 원각사지 십층석탑 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611450 | 900x1368 | seoul-wongaksaji-siptap-1611450.webp | 대기 |
+| 평창 월정사 팔각 구층석탑 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612071 | 900x1141 | pyeongchang-woljeongsa-palgak-1612071.webp | 문제에 사용(15강) |
+| 구례 화엄사 사사자 삼층석탑 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612430 | 792x1182 | gurye-hwaeomsa-sasaja-1612430.webp | 문제에 사용(15강) |
+| 익산 왕궁리 오층석탑 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612379 | 1067x1600 | iksan-wanggungni-otap-1612379.webp | 문제에 사용(15강) |
+| 서울 원각사지 십층석탑 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611450 | 900x1368 | seoul-wongaksaji-siptap-1611450.webp | 문제에 사용(15강) |
 | 금동 연가 7년명 여래입상 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611565 | 0x0 | geumdong-yeonga7-yeorae-1611565.webp | 문제에 사용 |
 | 서산 용현리 마애여래삼존상 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612263 | 1588x1062 | seosan-yonghyeonni-maae-1612263.webp | 문제에 사용 |
 | 경주 배동 석조여래삼존입상 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1620135 | 1600x1067 | gyeongju-baedong-samjon-1620135.webp | 문제에 사용 |
 | 논산 관촉사 석조미륵보살입상 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 10001554 | 4016x6016 | nonsan-gwanchoksa-mireuk-10001554.webp | 문제에 사용 |
-| 파주 용미리 마애이불입상 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1615672 | 945x959 | paju-yongmiri-maae-1615672.webp | 대기 |
-| 안동 이천동 마애여래입상 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1620217 | 945x955 | andong-icheondong-maae-1620217.webp | 대기 |
+| 파주 용미리 마애이불입상 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1615672 | 945x959 | paju-yongmiri-maae-1615672.webp | 문제에 사용(15강) |
+| 안동 이천동 마애여래입상 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1620217 | 945x955 | andong-icheondong-maae-1620217.webp | 문제에 사용(15강) |
 | 경주 석굴암 석굴 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612717 | 1816x1209 | gyeongju-seokguram-bonjon-1612717.webp | 문제에 사용 |
-| 안동 봉정사 극락전 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6293388 | 4000x2669 | andong-bongjeongsa-geungnakjeon-6293388.webp | 대기 |
-| 영주 부석사 무량수전 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6295221 | 4000x2670 | yeongju-buseoksa-muryangsujeon-6295221.webp | 대기 |
-| 예산 수덕사 대웅전 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6356817 | 4000x2667 | yesan-sudeoksa-daeungjeon-6356817.webp | 대기 |
-| 보은 법주사 팔상전 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612162 | 658x800 | boeun-beopjusa-palsangjeon-1612162.webp | 대기 |
-| 구례 화엄사 각황전 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6320087 | 4000x2667 | gurye-hwaeomsa-gakhwangjeon-6320087.webp | 대기 |
-| 김제 금산사 미륵전 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6341034 | 4000x2667 | gimje-geumsansa-mireukjeon-6341034.webp | 대기 |
-| 백제 금동대향로 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612303 | 0x0 | baekje-geumdong-daehyangno-1612303.webp | 대기 |
+| 안동 봉정사 극락전 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6293388 | 4000x2669 | andong-bongjeongsa-geungnakjeon-6293388.webp | 문제에 사용(15강) |
+| 영주 부석사 무량수전 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6295221 | 4000x2670 | yeongju-buseoksa-muryangsujeon-6295221.webp | 문제에 사용(15강) |
+| 예산 수덕사 대웅전 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6356817 | 4000x2667 | yesan-sudeoksa-daeungjeon-6356817.webp | 문제에 사용(15강) |
+| 보은 법주사 팔상전 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612162 | 658x800 | boeun-beopjusa-palsangjeon-1612162.webp | 문제에 사용(15강) |
+| 구례 화엄사 각황전 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6320087 | 4000x2667 | gurye-hwaeomsa-gakhwangjeon-6320087.webp | 쓰지 않음(내부 천장 사진이라 건물을 알아볼 수 없음 → 15강에서 공용 사진으로 대체) |
+| 김제 금산사 미륵전 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6341034 | 4000x2667 | gimje-geumsansa-mireukjeon-6341034.webp | 쓰지 않음(공용 파일 이름과 달리 야외 석불 사진 → 15강에서 다른 공용 사진으로 대체) |
+| 백제 금동대향로 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612303 | 0x0 | baekje-geumdong-daehyangno-1612303.webp | 쓰지 않음(사진이 옆으로 누워 있음) |
 | 청자 투각칠보문뚜껑 향로 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611513 | 0x0 | cheongja-tugak-chilbo-1611513.webp | 대기 |
 | 청동 은입사 포류수금문 정병 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611509 | 0x0 | cheongdong-eunipsa-jeongbyeong-1611509.webp | 대기 |
 | 성덕대왕신종 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612744 | 0x0 | seongdeok-daewang-sinjong-1612744.webp | 대기 |
@@ -204,3 +204,46 @@
 
 - 화면의 출처 머리글에서 "공공누리 제1유형"을 뺐다. 이제 공용 사진이 섞이므로 라이선스는 줄마다 출처 문구가 말한다.
 - 스캔 원자료 `research/heritage-photos-20260916/batch2/scan.json`·`scan2.json`, 후보 사진 `batch2/cand/`, 등록값 `batch2/photos.json`, 반영 스크립트 `batch2/apply.cjs`.
+
+---
+
+## 6. 2026-09-16 3차 — 15강 고려(문화 2) 사진 보기 20문항, 사진 28장 등록(새 파일 18)
+
+- 국가유산포털: `tools/heritage_license_scan.cjs --control`(대조군 4항목 모두 일치)을 먼저 돌린 뒤 `--targets research/hanneung-lecture15-20260916/photos/targets.json`·`targets2.json`으로 사진마다 배지(mark0N.svg)와 kogl 링크를 읽었다. 고른 11장은 내려받기 직전에 사진 상세창을 다시 열어 배지 `mark01.svg`와 `licenseType1` 링크를 한 번 더 확인했다(`photos/imgsrc.json`). 백자 달항아리(2007-2)·분청사기 음각어문 편병·수월관음도(2005)는 갤러리 전량이 제1유형이 아니어서 받지 않았다.
+- 위키미디어 공용: API로 파일마다 라이선스 틀을 읽었다(`photos/commons-picked.json`). CC0 3장(메트로폴리탄 미술관 수월관음도·Jikji.jpg·부석사 무량수전 안 소조 여래 좌상), Public domain 3장(PD-old-100 몽유도원도·PD-art-100 김홍도 씨름·PD-Japan-oldphoto 성불사 응진당 유리 건판), CC BY-SA 2.0 1장(법주사 팔상전). NC·ND는 없다.
+- 1차 대기 파일 가운데 세 장은 쓰지 않았다: `boeun-beopjusa-palsangjeon-1612162.webp`(내부 천장 사진), `yeongju-buseoksa-sojo-commons.webp`(공용 파일 이름은 소조 여래 좌상이지만 사진은 야외 석불), `cheorwon-dopiansa-cheoljo-commons.webp`(사진이 옆으로 누움). 파일은 저장소에 그대로 두었다.
+- 가공: 긴 변 1200px 이하로 줄이고 webp(품질 80). 자르기·회전·합성 없음. 대체 텍스트는 사진을 직접 보고 쓴 모습 설명이며 이름을 넣지 않았다.
+
+| 보기 이름 | 출처 | 라이선스 | 사진 번호 / 파일 | 원본 해상도 | 앱 자산 | 쓰는 문항(15강 번호) |
+|---|---|---|---|---|---|---|
+| 하남 하사창동 철조 석가여래 좌상 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1613255 | 703x800 | hanam-hasachangdong-cheoljo-1613255.webp (새 파일) | 003·010·046 |
+| 충주 정토사지 홍법국사탑 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611542 | 900x1141 | chungju-jeongtosaji-hongbeop-1611542.webp (새 파일) | 024·026 |
+| 여주 고달사지 승탑 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612037 | 614x800 | yeoju-godalsaji-seungtap-1612037.webp (새 파일) | 024 |
+| 청자 참외모양 병 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611512 | 591x800 | cheongja-chamoe-byeong-1611512.webp (새 파일) | 029·031 |
+| 청자 상감모란문 표주박모양 주전자 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611562 | 645x800 | cheongja-sanggam-moran-pyojubak-1611562.webp (새 파일) | 031 |
+| 분청사기 박지철채모란문 자라병 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611863 | 750x470 | buncheong-bakji-jarabyeong-1611863.webp (새 파일) | 029 |
+| 백자 달항아리 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1614840 | 660x700 | baekja-dalhangari-1614840.webp (새 파일) | 029·034 |
+| 백자 청화매조죽문 유개항아리 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611621 | 643x800 | baekja-cheonghwa-maejojuk-1611621.webp (새 파일) | 031 |
+| 도기 기마인물형 명기 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611505 | 550x800 | dogi-gimain-myeonggi-1611505.webp (새 파일) | 029 |
+| 나전경함 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6693478 | 761x509 | najeon-gyeongham-6693478.webp (새 파일) | 031·034 |
+| 인왕제색도 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611690 | 750x419 | jeongseon-inwangjesaekdo-1611690.webp (새 파일) | 013 |
+| 수월관음도 | 위키미디어 공용 | CC0 | 수월관음도 고려-水月觀音圖 高麗-Water-moon Avalokiteshvara MET DT5289.jpg | 1884x3722 | suwolgwaneumdo-met-commons.webp (새 파일) | 013 |
+| 몽유도원도 | 위키미디어 공용 | Public domain | Dream Journey to the Peach Blossom Land.jpg | 1600x527 | angyeon-mongyudowondo-commons.webp (새 파일) | 013 |
+| 김홍도 씨름 | 위키미디어 공용 | Public domain | Danwon Ssireum.jpg | 3690x4442 | danwon-ssireum-commons.webp (새 파일) | 013 |
+| 사리원 성불사 응진전 | 위키미디어 공용 | Public domain | 성불사 응진당 정면.jpg | 2866x2055 | sariwon-seongbulsa-eungjinjeon-commons.webp (새 파일) | 041·043·045 |
+| 직지심체요절 | 위키미디어 공용 | CC0 | Jikji.jpg | 1667x1202 | jikji-simche-yojeol-commons.webp (새 파일) | 046 |
+| 영주 부석사 소조 여래 좌상 | 위키미디어 공용 | CC0 | Muryangsujeon at Buseoksa 04.jpg | 2853x1902 | yeongju-buseoksa-sojo-yeorae-commons.webp (새 파일) | 010 |
+| 보은 법주사 팔상전 | 위키미디어 공용 | CC BY-SA 2.0 | Palsangjeon at Beopjusa 법주사 팔상전 法住寺 捌相殿 (5341676993).jpg | 600x800 | boeun-beopjusa-palsangjeon-commons.webp (새 파일) | 040·041 |
+| 안동 이천동 마애 여래 입상 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1620217 | 945x955 | andong-icheondong-maae-1620217.webp | 008 |
+| 파주 용미리 마애 이불 입상 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1615672 | 945x959 | paju-yongmiri-maae-1615672.webp | 007 |
+| 안동 봉정사 극락전 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6293388 | 4000x2669 | andong-bongjeongsa-geungnakjeon-6293388.webp | 040·043·045 |
+| 영주 부석사 무량수전 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6295221 | 4000x2670 | yeongju-buseoksa-muryangsujeon-6295221.webp | 041·045·046 |
+| 예산 수덕사 대웅전 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6356817 | 4000x2667 | yesan-sudeoksa-daeungjeon-6356817.webp | 040·043·045 |
+| 구례 화엄사 각황전 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6320087 | 4000x2667 | gurye-hwaeomsa-gakhwangjeon-6320087.webp | 040·041·043·045·046 |
+| 김제 금산사 미륵전 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 6341034 | 4000x2667 | gimje-geumsansa-mireukjeon-6341034.webp | 040·041·043 |
+| 청자 상감운학문 매병 | 위키미디어 공용 | CC0 | 청자 상감 구름 학 무늬 매병 고려-靑磁象嵌雲鶴文梅甁 高麗-Maebyeong decorated with cranes and clouds MET DP240189.jpg | 3001x4000 | cheongja-sanggam-unhak-maebyeong-commons.webp | 029 |
+| 청동 은입사 포류수금문 정병 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611509 | 0x0 | cheongdong-eunipsa-jeongbyeong-1611509.webp | 031·032 |
+| 천마총 장니 천마도 | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1611658 | 0x0 | gyeongju-cheonmachong-cheonmado-1611658.webp | 013 |
+
+- 기존 등록 사진 가운데 15강 보기로 함께 쓴 것: 금동 연가 7년명 여래 입상·서산 용현리 마애 여래 삼존상·경주 배동 석조 여래 삼존 입상·경주 석굴암 본존불·논산 관촉사 석조 미륵보살 입상·익산 미륵사지 석탑·부여 정림사지 5층 석탑·경주 분황사 모전 석탑·경주 불국사 3층 석탑·경주 불국사 다보탑·화순 쌍봉사 철감선사탑·평창 월정사 8각 9층 석탑·개성 경천사지 10층 석탑·서울 원각사지 10층 석탑·금동 대향로·천마총 금관·상원사 동종·성덕대왕 신종.
+- 작업 원자료: `research/hanneung-lecture15-20260916/photos/`(scan.json·scan2.json·imgsrc.json·commons-picked.json·photos.cjs·photos.json·photos-meta.json·cand/·webp/).

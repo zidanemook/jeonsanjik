@@ -591,7 +591,7 @@ function answerPractice(id,input){
 }
 // 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제 · 문제집 Day 1 · Day 2 · Day 3 · Day 4, 국어: 사고의 힘 논리 1~5장)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
 // 과목은 연습 문제에 적힌 subject를 따르고, 적혀 있지 않으면 영어다(기존 영어 문제는 subject를 따로 적지 않았다).
-function installCorePack(){const pack='core-2026-09-15-v35';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id));const cards=[...cardContent()].filter(([id])=>!ids.has(id)).map(([id,c])=>({...newCard(c),id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
+function installCorePack(){const pack='core-2026-09-16-v36';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id));const cards=[...cardContent()].filter(([id])=>!ids.has(id)).map(([id,c])=>({...newCard(c),id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
 installCorePack();
 // 더는 없는 문제(v57에서 문제 하나씩으로 나눈 영어 규칙 카드 등)를 가리키던 풀이 화면·채점 화면만 비운다.
 // 그대로 두면 채점 화면이 남아 다음 답을 받지 못한다. 채점 기록(history)과 카드 일정은 한 건도 지우지 않는다.

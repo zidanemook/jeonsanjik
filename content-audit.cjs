@@ -107,7 +107,8 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // 2026-09-15(v80): 14강 고려(문화 I) 기출형 43문제(정답이 유일하게 가장 긴 보기 0개)를 더한 뒤 실측 133/1550(0.08581)을 소수 셋째 자리에서 올린 0.086으로 다시 조였다.
 // 2026-09-15(v81): 문제집 Day 4 152문제(4지선다 102)를 더한 뒤 실측 134/1652(0.08111)를 소수 셋째 자리에서 올린 0.082로 다시 조였다.
 // 2026-09-15(v82): 국어 사고의 힘 논리 4장 술어 논리 147·5장 귀납 논증 128문제(정답이 유일하게 가장 긴 보기 15개 가운데 10개는 오답을 정확한 내용으로 늘려 맞추고, 보기가 식에서 만들어지는 4문제와 이름 보기 1문제 5개만 남김)를 더한 뒤 실측 139/1927(0.07213)을 소수 셋째 자리에서 올린 0.073으로 다시 조였다.
-const LONGEST_LIMIT=0.028,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
+// 2026-09-16(v97): 15강 고려(문화 2) 63문제(글자 보기 43문제 중 정답이 유일하게 가장 긴 보기 0개, 사진 보기 20문제는 분모 제외)를 더한 뒤 실측 51/2050(0.02488)을 소수 셋째 자리에서 올린 0.025로 다시 조였다.
+const LONGEST_LIMIT=0.025,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
 function lengthBias(items){
  const rows=items.filter(i=>i.exercise.type==='choice'&&!VERBATIM_OFFICIAL.test(i.card.id)&&!i.exercise.choiceImages);
  assert(rows.length>0,'No self-made choice exercises to measure');

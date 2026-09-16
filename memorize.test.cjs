@@ -76,9 +76,10 @@ for(const id of ['history-people','history-books']){
 }
 assert.deepEqual(M.get('history-people').groups.map(g=>g.title),['고조선~삼국','통일 신라·발해·후삼국','고려 전기','고려 무신~원 간섭기','고려 말']);
 assert.deepEqual(M.get('history-books').groups.map(g=>g.title),['삼국','통일 신라','고려 전기','고려 무신~원 간섭기','고려 말']);
-assert.equal(M.size(M.get('history-people')),131);assert.equal(M.size(M.get('history-books')),33);
-// 왕에 걸린 앞머리: 인물 98 · 책 15. 나머지(인물 33 · 책 18)는 왕이 하나로 정해지지 않아 시기만 적었다(고조선·가야, 일본 전파, 승려·학자 등).
-assert.deepEqual(anchoredCards,{'history-people':98,'history-books':15});
+assert.equal(M.size(M.get('history-people')),132);assert.equal(M.size(M.get('history-books')),39);
+// 왕에 걸린 앞머리: 인물 98 · 책 19. 나머지(인물 34 · 책 20)는 왕이 하나로 정해지지 않아 시기만 적었다(고조선·가야, 일본 전파, 승려·학자 등).
+// 15강(2026-09-16)으로 책 6(초조대장경 현종·『상정고금예문』 인종·팔만대장경 고종·『직지심체요절』 우왕 + 교장·『향약구급방』은 시기만)과 인물 1(혜허, 시기만)을 더했다.
+assert.deepEqual(anchoredCards,{'history-people':98,'history-books':19});
 // 대조군: 없는 왕·사실에 없는 인물은 잡혀야 한다.
 assert.throws(()=>factsOf('고려','없는왕'));
 assert(!factsOf('신라','진흥왕').some(f=>f.includes('이사부')),'control: 이사부 is 지증왕, not in 진흥왕 facts');
@@ -87,8 +88,8 @@ assert.deepEqual(anchorsOf('명종·희종(고려) · x'),[{king:'명종',countr
 assert.deepEqual(anchorsOf('고려 무신 집권기 · 인종(고려) 뒤쪽은 보지 않음'),[]);
 // 인물·책의 핵심 고리 몇 개를 못 박는다(시험이 인물·책을 단서로 왕을 묻는 짝).
 const back=(id,front)=>M.get(id).groups.flatMap(g=>g.cards).find(c=>c[0]===front)[1];
-for(const [front,king] of [['거칠부','진흥왕(신라)'],['이사부','지증왕(신라)'],['을파소','고국천왕(고구려)'],['장문휴','무왕(발해)'],['김헌창','헌덕왕(신라)'],['쌍기','광종(고려)'],['서희','성종(고려)'],['최우','고종(고려)'],['안향','충렬왕(고려)']])assert(back('history-people',front).startsWith(king),front+' → '+king);
-for(const [front,king] of [['『국사』','진흥왕(신라)'],['『서기』','근초고왕(백제)'],['『신집』','영양왕(고구려)'],['『삼국사기』','인종(고려)'],['『삼국유사』','충렬왕(고려)'],['『제왕운기』','충렬왕(고려)'],['「화왕계」','신문왕(신라)']])assert(back('history-books',front).startsWith(king),front+' → '+king);
+for(const [front,king] of [['거칠부','진흥왕(신라)'],['이사부','지증왕(신라)'],['을파소','고국천왕(고구려)'],['장문휴','무왕(발해)'],['김헌창','헌덕왕(신라)'],['쌍기','광종(고려)'],['서희','성종(고려)'],['최우','고종(고려)'],['안향','충렬왕(고려)'],['최무선','우왕(고려)']])assert(back('history-people',front).startsWith(king),front+' → '+king);
+for(const [front,king] of [['초조대장경','현종(고려)'],['『상정고금예문』','인종(고려)'],['팔만대장경(재조대장경)','고종(고려)'],['『직지심체요절』','우왕(고려)'],['『국사』','진흥왕(신라)'],['『서기』','근초고왕(백제)'],['『신집』','영양왕(고구려)'],['『삼국사기』','인종(고려)'],['『삼국유사』','충렬왕(고려)'],['『제왕운기』','충렬왕(고려)'],['「화왕계」','신문왕(신라)']])assert(back('history-books',front).startsWith(king),front+' → '+king);
 // 나라·시대 묶음: 괄호 속 왕 이름은 그 왕의 사실과 맞아야 한다(발해 연호, 가야 병합 등). 발해 카드는 발해 왕 목록에서만 찾는다(백제 무왕과 구별).
 const countries=M.get('history-countries');assert(countries&&countries.groups);
 const allKings=[...new Set(Object.values(KING_SETS).flatMap(names))].sort((a,b)=>b.length-a.length);
@@ -107,8 +108,16 @@ for(const [front,king,needle] of [['금관가야','법흥왕','금관가야'],['
 for(const [token,king] of [['인안','무왕'],['대흥','문왕'],['건흥','선왕']])assert(back('history-countries','발해').includes(token+'('+king+')')&&M.get('balhae-kings').lines[0].items.find(i=>i.name===king).facts.some(f=>f.includes(token)),'발해 연호 '+token+' = '+king);
 assert.deepEqual(countries.groups.map(g=>g.title),['선사 시대','고조선·여러 나라','삼국·가야','남북국','고려 경제·사회','고려 정치·문화']);
 assert.equal(M.size(countries),30);
-// 공부 범위 지키기: 15강(고려 문화 II: 건축·공예·과학 기술)과 조선은 아직 공부하지 않았다. 한국사 목록 어디에도 나오면 멈춘다.
-const OUT_OF_RANGE=['직지','상정고금예문','향약구급방','청자','무량수전','월정사','경천사','수월관음도','불씨잡변','입학도설','발해고','경국대전','세종','조선 후기','화통도감'];
+// 고려 문화유산(15강, 2026-09-16 공부): 앞머리 "왕(고려)"가 붙은 칸은 그 왕의 사실에 이름이 들어 있어야 한다. 나머지는 고려 안의 시기(초기·중기·후기)만 적었다.
+{const set=M.get('history-heritage');assert(set&&set.groups&&set.subject==='한국사','history-heritage set');
+ assert.deepEqual(set.groups.map(g=>g.title),['불상','회화','석탑·승탑','청자·공예','건축','과학 기술']);assert.equal(M.size(set),28);
+ let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)),'history-heritage: '+king+'('+country+') facts name '+front);}
+ assert.equal(anchored,2,'천산대렵도(공민왕)·화통도감(우왕)');
+ assert(back('history-heritage','개성 경천사지 10층 석탑').includes('원의 영향')&&back('history-heritage','안동 봉정사 극락전').includes('가장 오래된'));}
+// 15강 왕 사실: 인종 편찬 · 고종 강화도 인쇄 · 우왕 화통도감·직지 · 공민왕 천산대렵도(선종·충숙왕 등 빈 왕은 위에서 비어 있음을 확인한다).
+for(const [king,needle] of [['인종','『상정고금예문』'],['고종','『상정고금예문』'],['고종','장경판전'],['우왕','화통도감'],['우왕','『직지심체요절』'],['공민왕','천산대렵도'],['현종','초조대장경']])assert(kings.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle);
+// 공부 범위 지키기: 조선은 아직 공부하지 않았다(15강 고려 문화 2 낱말은 2026-09-16에 목록에서 뺐다). 한국사 목록 어디에도 나오면 멈춘다.
+const OUT_OF_RANGE=['불씨잡변','입학도설','발해고','경국대전','세종','조선 후기'];
 for(const set of M.sets.filter(s=>s.subject==='한국사')){
  const text=JSON.stringify(set);
  for(const word of OUT_OF_RANGE)assert(!text.includes(word),'studied range only ('+word+') in '+set.id);
