@@ -5,15 +5,26 @@ assert.equal(h.rows.length,1150);assert.equal(new Set(h.rows.map(r=>r.id)).size,
 assert.equal(h.rounds.length,23);
 const cards=[],options={};h.install(cards,options);assert.equal(cards.length,1149);assert(!options['hanneung-63-42']);
 const explanations=require('./hanneung-explanations.js');
+// 77~79회는 회차 전체에 해설이 있고, 2026-09-16에 공부 범위(선사~고려)의 321문항이 더해졌다.
+// 새 해설은 출처 링크가 아직 없으므로 sources 는 있을 때만 검사한다.
 const completeRounds=[79,78,77];
-assert.deepEqual(Object.keys(explanations).sort(),completeRounds.flatMap(n=>Array.from({length:50},(_,i)=>'hanneung-'+n+'-'+String(i+1).padStart(2,'0'))).sort());
+const full=completeRounds.flatMap(n=>Array.from({length:50},(_,i)=>'hanneung-'+n+'-'+String(i+1).padStart(2,'0')));
+assert.equal(full.filter(id=>explanations[id]).length,150,'77~79회는 해설이 빠짐없이 있다');
+const studied=new Set(['prehistory','gojoseon','goguryeo-gaya','baekje-silla','unified-silla','balhae','later-three','goryeo']);
+const topics=require('./hanneung-topics.js');
+const extra=Object.keys(explanations).filter(id=>!full.includes(id));
+assert.equal(extra.length,321,'공부 범위 해설 321개');
+for(const id of extra)assert(studied.has(topics[id]),'공부 범위 밖에 해설을 붙이지 않는다: '+id);
 for(const [id,e]of Object.entries(explanations)){
  assert.equal(e.choices.length,5,id);assert(e.clue&&e.reason&&e.hook&&e.reviewedOn);
- assert(e.sources.length>0);for(const s of e.sources){assert(s.title);const url=new URL(s.url);assert.equal(url.protocol,'https:');assert(['contents.history.go.kr','www.heritage.go.kr','www.museum.go.kr','encykorea.aks.ac.kr','cl.mofa.go.kr','www.kookje.co.kr','www.kmdb.or.kr'].includes(url.hostname));}
+ e.choices.forEach((c,i)=>assert(c.startsWith(['①','②','③','④','⑤'][i]),'보기 번호 순서: '+id));
+ // 2026-09-16에 더한 해설은 "따라서 ②입니다."로 끝내기로 했다. 77~79회는 결론을 다르게 맺은 것이 있어 제외한다.
+ if(!full.includes(id)){const row=h.get(id);assert.equal(e.reason.match(/[①②③④⑤]/g).at(-1),['①','②','③','④','⑤'][row.answer-1],'해설 결론이 공식 정답과 같다: '+id);}
+ if(e.sources!==undefined){assert(e.sources.length>0);for(const s of e.sources){assert(s.title);const url=new URL(s.url);assert.equal(url.protocol,'https:');assert(['contents.history.go.kr','www.heritage.go.kr','www.museum.go.kr','encykorea.aks.ac.kr','cl.mofa.go.kr','www.kookje.co.kr','www.kmdb.or.kr'].includes(url.hostname));}}
  assert(!options[id].explanation.includes('아직 제공하지 않습니다'));assert(options[id].explanation.length<8000);
  const c=cards.find(c=>c.id===id),e2=practice.select(c,[],{},options),detail=record.create(c,e2,e2.correctIndex,null,id);assert.equal(detail.explanation,h.explanation(id));
 }
-assert(options['hanneung-76-01'].explanation.includes('아직 제공하지 않습니다'));
+assert(options['hanneung-76-19'].explanation.includes('아직 제공하지 않습니다'));
 assert.equal(h.explanation('hanneung-63-42'),null);
 for(const n of h.rounds){const rows=h.rows.filter(r=>r.round===n);assert.deepEqual(rows.map(r=>r.number),Array.from({length:50},(_,i)=>i+1));assert.equal(rows.reduce((s,r)=>s+r.points,0),100);}
 for(const r of h.rows){

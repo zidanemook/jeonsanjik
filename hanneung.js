@@ -9,7 +9,9 @@
   const r=byId.get(id);if(!r||r.answer===null)return null;
   const intro='국사편찬위원회 공식 정답: '+symbols[r.answer-1]+' · 배점 '+r.points+'점.',e=explanations?.[id];
   if(!e)return intro+'\n이 문항은 공식 문제와 정답표를 수록했으며, 상세 해설은 아직 제공하지 않습니다.';
-  return [intro,'지문에서 잡을 단서\n'+e.clue,'왜 정답인가\n'+e.reason,'보기별 풀이\n'+e.choices.join('\n\n'),'기억 연결\n'+e.hook,'확인한 자료 · '+e.reviewedOn+'\n'+e.sources.map(s=>s.title+'\n'+s.url).join('\n\n')].join('\n\n');
+  // 출처 링크가 아직 없는 해설도 그대로 보여 준다. 없는 것을 있는 척하지 않고 정리한 날만 밝힌다.
+  const closing=e.sources?.length?'확인한 자료 · '+e.reviewedOn+'\n'+e.sources.map(s=>s.title+'\n'+s.url).join('\n\n'):'정리한 날 · '+e.reviewedOn+'\n출처 링크는 아직 붙이지 않았습니다.';
+  return [intro,'지문에서 잡을 단서\n'+e.clue,'왜 정답인가\n'+e.reason,'보기별 풀이\n'+e.choices.join('\n\n'),'기억 연결\n'+e.hook,closing].join('\n\n');
  }
  function install(cards,options){
   for(const r of rows){
