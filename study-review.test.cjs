@@ -12,54 +12,66 @@ assert.equal(cards.get(id).answer,options.choices[options.correctIndex]);}
 assert.equal(ids.size,catalog.total);for(const id of Object.keys(catalog.questions))assert(ids.has(id),'Unreachable practice question: '+id);
 for(const card of cards.values())if(/^(?:(?:study|summary)-hist-20260910-|summary-hist-20260911-|lecture-hist-20260911-|summary-hist-20260912-|(?:heritage|daily|photo|culture|goryeo)-hist-20260912-|goryeomid-hist-20260914-|goryeoforeign-hist-20260914-|goryeostyle-hist-20260915-|ancientstyle-hist-20260915-|nanbukstyle-hist-20260915-|goryeoecon-hist-20260915-|goryeoculture-hist-20260915-)/.test(card.id))assert(ids.has(card.id),'Summary question excluded from scope: '+card.id);
 // Textbook lecture ranges: every summary question sits in exactly one lecture, in catalog order.
+// 2026-09-16 사용자 지시: 따로 떠 있던 기출형 연습 범위 셋(선사~삼국·가야 / 통일 신라·발해·후삼국 / 고려)을 없애고 문제마다 실제 소속 강에 넣는다. 07·08강 덩어리도 둘로 나눈다.
 const lectures=JSON.parse(JSON.stringify(catalog.lectures)),inLecture=new Map();
-assert.deepEqual(lectures.map(l=>l.id),['02-05','06','07-08','09','02-03-04-05','05-06','10','11','12','10-12','13','14']);
-assert.deepEqual(lectures.map(l=>l.title),['02~05강 선사 시대~삼국 통일','06강 통일 신라·발해·후삼국','07·08강 고대 경제·사회·문화','09강 고대(문화 2)','선사~삼국·가야 기출형 연습','통일 신라·발해·후삼국 기출형 연습','10강 고려(초기 정치)','11강 고려(중기 정치~무신 정변)','12강 고려(외교)','고려 기출형 연습','13강 고려(경제, 사회)','14강 고려(문화 I)']);
+assert.deepEqual(lectures.map(l=>l.id),['02-05','06','07','08','09','10','11','12','13','14']);
+assert.deepEqual(lectures.map(l=>l.title),['02~05강 선사 시대~삼국 통일','06강 통일 신라·발해·후삼국','07강 고대(경제, 사회)','08강 고대(문화 1)','09강 고대(문화 2)','10강 고려(초기 정치)','11강 고려(중기 정치~무신 정변)','12강 고려(외교)','13강 고려(경제, 사회)','14강 고려(문화 I)']);
 for(const l of lectures){assert(l.ids.length>0,'Empty lecture '+l.id);for(const id of l.ids){assert(!inLecture.has(id),'Question in two lectures: '+id);assert(catalog.questions[id],'Unknown lecture question: '+id);inLecture.set(id,l.id);}const numbers=l.ids.map(id=>catalog.questions[id].number);assert.deepEqual(numbers,[...numbers].sort((a,b)=>a-b),'Lecture keeps catalog order: '+l.id);}
 assert.equal(inLecture.size,catalog.total);
+// 고대 기출형 108문항의 소속 강. 정답 사실과 대상을 알아내는 핵심 단서가 교재 어느 강에서 나오는지로 정했고, 둘이 다르면 뒤 강이다.
+// 판정 근거는 research/lecture-merge-20260916/placement.json. 고려 기출형 48문항은 단원이 강과 1:1이라 단원으로 정한다.
+const EXAM_PLACEMENT={
+ 'ancientstyle-hist-20260915-':{'02-05':[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,24,25,26,27,28,30,31,32,33,34,35,36,37,38,39,41,42,43,44,45,46,47,55],'07':[23],'08':[22,29,40],'09':[48,49,50,51,52,53,54]},
+ 'nanbukstyle-hist-20260915-':{'02-05':[40,41],'06':[1,2,3,4,6,8,9,10,11,12,13,14,15,21,22,24,25,26,27,28,29,30,31,32,34,35,38,42,43,44,45,52],'07':[19,20,33,36,37,39],'08':[16,17,18,23,53],'09':[5,7,46,47,48,49,50,51]}
+};
+const examLecture=new Map();for(const [prefix,byLecture]of Object.entries(EXAM_PLACEMENT))for(const [lecture,nums]of Object.entries(byLecture))for(const n of nums){const id=prefix+String(n).padStart(3,'0');assert(!examLecture.has(id),'Exam question placed twice: '+id);examLecture.set(id,lecture);}
+const GORYEO_EXAM_BY_SECTION={'고려 초기 정치':'10','고려 문벌 사회':'11','고려 무신 정권':'11','고려 대외 관계':'12','고려 후기 사회 변동':'12','고려의 멸망':'12'};
 const LECTURE_0708=/^(?:lecture-hist-20260911-|heritage-hist-20260912-|photo-hist-20260912-)/;
 const LECTURE_09=/^culture-hist-20260912-/,LECTURE_10=/^goryeo-hist-20260912-/,LECTURE_11=/^goryeomid-hist-20260914-/,LECTURE_12=/^goryeoforeign-hist-20260914-/,LECTURE_GORYEO_EXAM=/^goryeostyle-hist-20260915-/,LECTURE_ANCIENT_EXAM=/^ancientstyle-hist-20260915-/,LECTURE_NANBUK_EXAM=/^nanbukstyle-hist-20260915-/,LECTURE_13=/^goryeoecon-hist-20260915-/,LECTURE_14=/^goryeoculture-hist-20260915-/;
-for(const [id,q]of Object.entries(catalog.questions)){const expected=LECTURE_14.test(id)?'14':LECTURE_13.test(id)?'13':LECTURE_ANCIENT_EXAM.test(id)?'02-03-04-05':LECTURE_NANBUK_EXAM.test(id)?'05-06':LECTURE_GORYEO_EXAM.test(id)?'10-12':LECTURE_12.test(id)?'12':LECTURE_11.test(id)?'11':LECTURE_10.test(id)?'10':LECTURE_09.test(id)?'09':LECTURE_0708.test(id)?'07-08':['통일 신라','발해','후삼국'].includes(q.section)?'06':'02-05';assert.equal(inLecture.get(id),expected,'Lecture by section: '+id);}
-const newIds=Object.keys(catalog.questions).filter(id=>LECTURE_0708.test(id));assert.equal(newIds.length,73);assert.deepEqual(lectures[2].ids,newIds);
-assert(newIds.every(id=>catalog.questions[id].number>225),'New questions continue after the earlier catalog numbers');
+function lecture0708(id){const source=cards.get(id).source;return /^08강 고대\(문화 1\)/.test(source)?'08':/^07강 고대\(경제, 사회\)/.test(source)?'07':'출처 표기 없음';}
+for(const [id,q]of Object.entries(catalog.questions)){
+ const expected=LECTURE_14.test(id)?'14':LECTURE_13.test(id)?'13':(LECTURE_ANCIENT_EXAM.test(id)||LECTURE_NANBUK_EXAM.test(id))?examLecture.get(id):LECTURE_GORYEO_EXAM.test(id)?GORYEO_EXAM_BY_SECTION[q.section]:LECTURE_12.test(id)?'12':LECTURE_11.test(id)?'11':LECTURE_10.test(id)?'10':LECTURE_09.test(id)?'09':LECTURE_0708.test(id)?lecture0708(id):['통일 신라','발해','후삼국'].includes(q.section)?'06':'02-05';
+ assert.equal(inLecture.get(id),expected,'Lecture by section: '+id);
+}
+// 07·08강: 기존 73문항은 출처 표기로 29·44로 나뉜다.
+const ids0708=Object.keys(catalog.questions).filter(id=>LECTURE_0708.test(id));assert.equal(ids0708.length,73);
+assert.equal(ids0708.filter(id=>inLecture.get(id)==='07').length,29,'07강 사실형 문항 수');assert.equal(ids0708.filter(id=>inLecture.get(id)==='08').length,44,'08강 사실형 문항 수');
+assert(ids0708.every(id=>catalog.questions[id].number>225),'New questions continue after the earlier catalog numbers');
 assert(catalog.sets.filter(s=>s.title.startsWith('07·08강 고대 경제·사회·문화')).length===7);
-const ids09=Object.keys(catalog.questions).filter(id=>LECTURE_09.test(id));assert.equal(ids09.length,33,'09강 문항 수');assert.deepEqual(lectures[3].ids,ids09);
-const ids10=Object.keys(catalog.questions).filter(id=>LECTURE_10.test(id));assert.equal(ids10.length,52,'10강 문항 수');assert.deepEqual(lectures[6].ids,ids10);
+assert.deepEqual(lectures.map(l=>l.ids.length),[209,116,36,52,48,60,116,167,60,43],'강별 문항 수(기출형 포함)');
+// 강 안에서는 사실형 문항 뒤에 기출형이 모인다(번호가 그렇게 이어져 있다). 13·14강은 처음부터 섞여 있어 제외한다.
+for(const l of lectures.filter(l=>!['13','14'].includes(l.id))){const exam=l.ids.map(id=>/style-hist-20260915-/.test(id)),first=exam.indexOf(true);if(first>=0)assert(exam.slice(first).every(Boolean),'기출형은 강의 끝에 모인다: '+l.id);}
+const ids09=Object.keys(catalog.questions).filter(id=>LECTURE_09.test(id));assert.equal(ids09.length,33,'09강 사실형 문항 수');
+const ids10=Object.keys(catalog.questions).filter(id=>LECTURE_10.test(id));assert.equal(ids10.length,52,'10강 사실형 문항 수');
 assert([...ids09,...ids10].every(id=>catalog.questions[id].number>320),'09·10강 문항은 기존 catalog 번호 뒤에 이어진다');
 // 11강(122~123쪽)은 교재 면의 사실 83개를 모두 덮는 103문제다. 번호는 10강 마지막(405번) 뒤에 이어진다.
-const ids11=Object.keys(catalog.questions).filter(id=>LECTURE_11.test(id));assert.equal(ids11.length,103,'11강 문항 수');assert.deepEqual(lectures[7].ids,ids11);
+const ids11=Object.keys(catalog.questions).filter(id=>LECTURE_11.test(id));assert.equal(ids11.length,103,'11강 사실형 문항 수');
 assert(ids11.every(id=>catalog.questions[id].number>405),'11강 문항은 기존 catalog 번호 뒤에 이어진다');
 // 12강(134~135쪽)은 교재 면의 사실 95개(판독 불확실 1개 제외)를 덮는 140문제다. 번호는 11강 마지막(508번) 뒤에 이어진다.
-const ids12=Object.keys(catalog.questions).filter(id=>LECTURE_12.test(id));assert.equal(ids12.length,140,'12강 문항 수');assert.deepEqual(lectures[8].ids,ids12);
+const ids12=Object.keys(catalog.questions).filter(id=>LECTURE_12.test(id));assert.equal(ids12.length,140,'12강 사실형 문항 수');
 assert(ids12.every(id=>catalog.questions[id].number>508),'12강 문항은 기존 catalog 번호 뒤에 이어진다');
-// 고려 기출형 연습은 10~12강 사실을 자료 제시형으로 다시 묻는 48문제다. 강 목록에서 12강 바로 다음에 오고, 번호는 12강 마지막(648번) 뒤에 이어진다.
-const idsExam=Object.keys(catalog.questions).filter(id=>LECTURE_GORYEO_EXAM.test(id));assert.equal(idsExam.length,48,'고려 기출형 연습 문항 수');
-assert.equal(lectures.findIndex(l=>l.id==='10-12'),lectures.findIndex(l=>l.id==='12')+1,'고려 기출형 연습은 12강 바로 다음');assert.equal(lectures[9].title,'고려 기출형 연습');assert.deepEqual(lectures[9].ids,idsExam);
-assert.deepEqual(idsExam.map(id=>catalog.questions[id].number),Array.from({length:48},(_,i)=>649+i),'고려 기출형 연습 번호는 649~696');
+// 고려 기출형 48문항은 10강 8 · 11강 13 · 12강 27로 들어가고, 번호는 649~696 그대로다.
+const idsExam=Object.keys(catalog.questions).filter(id=>LECTURE_GORYEO_EXAM.test(id));assert.equal(idsExam.length,48,'고려 기출형 문항 수');
+assert.deepEqual(['10','11','12'].map(l=>idsExam.filter(id=>inLecture.get(id)===l).length),[8,13,27],'고려 기출형 강별 배정');
+assert.deepEqual(idsExam.map(id=>catalog.questions[id].number),Array.from({length:48},(_,i)=>649+i),'고려 기출형 번호는 649~696');
 assert.deepEqual(idsExam,Array.from({length:48},(_,i)=>'goryeostyle-hist-20260915-'+String(i+1).padStart(3,'0')));
-// 선사~삼국·가야 기출형 연습(02~05강 55문제)과 통일 신라·발해·후삼국 기출형 연습(통일 과정과 06강 53문제)은 고대 마지막 강(09강) 바로 다음, 10강 앞에 차례로 온다.
-// 강 id는 app.js lectureScope가 숫자와 붙임표만 받으므로 다루는 강 번호로 짓는다. 02-05는 이미 있는 강이라 02-03-04-05로 풀어 쓰고, 통일 과정(05강)과 06강을 묻는 쪽은 05-06이다. 번호는 고려 기출형 연습 마지막(696번) 뒤에 이어진다.
 const idsAncientExam=Object.keys(catalog.questions).filter(id=>LECTURE_ANCIENT_EXAM.test(id)),idsNanbukExam=Object.keys(catalog.questions).filter(id=>LECTURE_NANBUK_EXAM.test(id));
-assert.equal(idsAncientExam.length,55,'선사~삼국·가야 기출형 연습 문항 수');assert.equal(idsNanbukExam.length,53,'통일 신라·발해·후삼국 기출형 연습 문항 수');
-assert.equal(lectures.findIndex(l=>l.id==='02-03-04-05'),lectures.findIndex(l=>l.id==='09')+1,'선사~삼국·가야 기출형 연습은 09강 바로 다음');
-assert.equal(lectures.findIndex(l=>l.id==='05-06'),lectures.findIndex(l=>l.id==='02-03-04-05')+1,'통일 신라·발해·후삼국 기출형 연습은 선사~삼국·가야 기출형 연습 바로 다음');
-assert.equal(lectures.findIndex(l=>l.id==='10'),lectures.findIndex(l=>l.id==='05-06')+1,'고대 기출형 연습 두 범위는 10강 앞');
-assert.equal(lectures[4].title,'선사~삼국·가야 기출형 연습');assert.deepEqual(lectures[4].ids,idsAncientExam);
-assert.equal(lectures[5].title,'통일 신라·발해·후삼국 기출형 연습');assert.deepEqual(lectures[5].ids,idsNanbukExam);
-assert.deepEqual(idsAncientExam.map(id=>catalog.questions[id].number),Array.from({length:55},(_,i)=>697+i),'선사~삼국·가야 기출형 연습 번호는 697~751');
-assert.deepEqual(idsNanbukExam.map(id=>catalog.questions[id].number),Array.from({length:53},(_,i)=>752+i),'통일 신라·발해·후삼국 기출형 연습 번호는 752~804');
+assert.equal(idsAncientExam.length,55,'선사~삼국·가야 기출형 문항 수');assert.equal(idsNanbukExam.length,53,'통일 신라·발해·후삼국 기출형 문항 수');
+assert.equal(examLecture.size,108,'고대 기출형 108문항이 모두 배정표에 있다');
+assert.deepEqual(idsAncientExam.map(id=>catalog.questions[id].number),Array.from({length:55},(_,i)=>697+i),'선사~삼국·가야 기출형 번호는 697~751');
+assert.deepEqual(idsNanbukExam.map(id=>catalog.questions[id].number),Array.from({length:53},(_,i)=>752+i),'통일 신라·발해·후삼국 기출형 번호는 752~804');
 assert.deepEqual(idsAncientExam,Array.from({length:55},(_,i)=>'ancientstyle-hist-20260915-'+String(i+1).padStart(3,'0')));
 assert.deepEqual(idsNanbukExam,Array.from({length:53},(_,i)=>'nanbukstyle-hist-20260915-'+String(i+1).padStart(3,'0')));
 // 선사~삼국·가야 쪽은 02~05강 주제의 열한 단원에만, 통일 신라·발해·후삼국 쪽은 06강 세 단원·헷갈리는 내용 비교·통일 과정(백제·신라·통일)에만 들어가고, 각 단원을 모두 쓴다. 고려 단원이 섞이면 안 된다.
 const SECTIONS_ANCIENT_EXAM=['선사','선사 시대 · 기본','고조선·여러 나라','고조선·여러 나라 · 기본','고구려·가야','고구려·가야 · 기본','백제·신라·통일','백제·신라 · 기본','백제','신라','삼국 공통·비교'];
 const SECTIONS_NANBUK_EXAM=['통일 신라','발해','후삼국','헷갈리는 내용 비교','백제·신라·통일'];
-for(const id of idsAncientExam)assert(SECTIONS_ANCIENT_EXAM.includes(catalog.questions[id].section),'선사~삼국·가야 기출형 연습 question outside its sections: '+id);
-for(const id of idsNanbukExam)assert(SECTIONS_NANBUK_EXAM.includes(catalog.questions[id].section),'통일 신라·발해·후삼국 기출형 연습 question outside its sections: '+id);
-assert.deepEqual([...new Set(idsAncientExam.map(id=>catalog.questions[id].section))].sort(),[...SECTIONS_ANCIENT_EXAM].sort(),'선사~삼국·가야 기출형 연습 covers all eleven sections');
-assert.deepEqual([...new Set(idsNanbukExam.map(id=>catalog.questions[id].section))].sort(),[...SECTIONS_NANBUK_EXAM].sort(),'통일 신라·발해·후삼국 기출형 연습 covers all five sections');
-// 13강(147쪽)은 교재 면의 사실 50개를 모두 덮는 60문제(사실 확인형과 자료 제시 기출형 약 절반씩)다. 강 목록 맨 끝에 오고, 번호는 통일 신라·발해·후삼국 기출형 연습 마지막(804번) 뒤에 이어진다.
+for(const id of idsAncientExam)assert(SECTIONS_ANCIENT_EXAM.includes(catalog.questions[id].section),'선사~삼국·가야 기출형 question outside its sections: '+id);
+for(const id of idsNanbukExam)assert(SECTIONS_NANBUK_EXAM.includes(catalog.questions[id].section),'통일 신라·발해·후삼국 기출형 question outside its sections: '+id);
+assert.deepEqual([...new Set(idsAncientExam.map(id=>catalog.questions[id].section))].sort(),[...SECTIONS_ANCIENT_EXAM].sort(),'선사~삼국·가야 기출형 covers all eleven sections');
+assert.deepEqual([...new Set(idsNanbukExam.map(id=>catalog.questions[id].section))].sort(),[...SECTIONS_NANBUK_EXAM].sort(),'통일 신라·발해·후삼국 기출형 covers all five sections');
+// 13강(147쪽)은 교재 면의 사실 50개를 모두 덮는 60문제(사실 확인형과 자료 제시 기출형 약 절반씩)다. 번호는 805~864.
 const ids13=Object.keys(catalog.questions).filter(id=>LECTURE_13.test(id));assert.equal(ids13.length,60,'13강 문항 수');
-{const l13=lectures.find(l=>l.id==='13');assert.equal(lectures.indexOf(l13),lectures.findIndex(l=>l.id==='10-12')+1,'13강은 고려 기출형 연습 바로 다음');assert.equal(l13.title,'13강 고려(경제, 사회)');assert.deepEqual(l13.ids,ids13);}
+{const l13=lectures.find(l=>l.id==='13');assert.equal(lectures.indexOf(l13),lectures.findIndex(l=>l.id==='12')+1,'13강은 12강 바로 다음');assert.equal(l13.title,'13강 고려(경제, 사회)');assert.deepEqual(l13.ids,ids13);}
 assert.deepEqual(ids13.map(id=>catalog.questions[id].number),Array.from({length:60},(_,i)=>805+i),'13강 번호는 805~864');
 assert.deepEqual(ids13,Array.from({length:60},(_,i)=>'goryeoecon-hist-20260915-'+String(i+1).padStart(3,'0')));
 // 13강은 고려 주제의 두 새 단원(경제·사회)에만 들어가고, 두 단원을 모두 쓴다.
