@@ -172,6 +172,7 @@
 | 청자 상감운학문 매병 |  | 위키미디어 공용 | CC0 | — | 3001x4000 | cheongja-sanggam-unhak-maebyeong-commons.webp | 대기 |
 | 경천사지 십층석탑 |  | 위키미디어 공용 | CC BY-SA 4.0 | — | 3921x5897 | gaeseong-gyeongcheonsaji-siptap-commons.webp | 대기 |
 | 철원 도피안사 철조비로자나불좌상 |  | 위키미디어 공용 | CC BY-SA 4.0 | — | 4672x7008 | cheorwon-dopiansa-cheoljo-commons.webp | 대기 |
+| 영주 부석사 소조여래좌상 |  | 위키미디어 공용 | CC0 | — | 5071x3233 | yeongju-buseoksa-sojo-commons.webp | 대기 |
 
 - 스캔 원자료:  · 고른 사진  · 내려받기 기록 
 - 못 쓴 항목: 경천사지·금동대향로는 국가유산청 제1유형에 **전체 모습 사진이 없어**(부분 사진뿐) 공용·다른 사진으로 갈음했다.
