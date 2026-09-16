@@ -4,7 +4,10 @@ const catalog=ctx.STUDY_REVIEW_CATALOG,ids=new Set(),cards=new Map(ctx.CORE_REVI
 assert.equal(catalog.schema,1);assert.equal(catalog.total,Object.keys(catalog.questions).length);
 for(const [i,set]of catalog.sets.entries()){
  assert.equal(set.number,i+1);assert(set.title);assert(set.ids.length>0&&set.ids.length<=8,'A work-break set must contain at most eight questions');
- for(const id of set.ids){assert(!ids.has(id),'Question in two sets: '+id);ids.add(id);assert(cards.has(id),'Unknown card: '+id);const meta=catalog.questions[id],options=ctx.QUIZ_OPTIONS[id];assert(meta&&meta.section&&meta.sourceSection&&meta.coverage.length,'Missing scope metadata: '+id);assert.equal(options.choices.length,4);assert.equal(cards.get(id).answer,options.choices[options.correctIndex]);}
+ for(const id of set.ids){assert(!ids.has(id),'Question in two sets: '+id);ids.add(id);assert(cards.has(id),'Unknown card: '+id);const meta=catalog.questions[id],options=ctx.QUIZ_OPTIONS[id];assert(meta&&meta.section&&meta.sourceSection&&meta.coverage.length,'Missing scope metadata: '+id);// 복습용은 4지선다, 대비용(기출형)은 한능검과 같은 5지선다다. 그 밖의 보기 수는 실수다.
+assert.ok(options.choices.length===4||options.choices.length===5,'보기는 4개 또는 5개: '+id+' ('+options.choices.length+')');
+assert.equal(new Set(options.choices).size,options.choices.length,'같은 보기가 두 번: '+id);
+assert.equal(cards.get(id).answer,options.choices[options.correctIndex]);}
 }
 assert.equal(ids.size,catalog.total);for(const id of Object.keys(catalog.questions))assert(ids.has(id),'Unreachable practice question: '+id);
 for(const card of cards.values())if(/^(?:(?:study|summary)-hist-20260910-|summary-hist-20260911-|lecture-hist-20260911-|summary-hist-20260912-|(?:heritage|daily|photo|culture|goryeo)-hist-20260912-|goryeomid-hist-20260914-|goryeoforeign-hist-20260914-|goryeostyle-hist-20260915-|ancientstyle-hist-20260915-|nanbukstyle-hist-20260915-|goryeoecon-hist-20260915-|goryeoculture-hist-20260915-)/.test(card.id))assert(ids.has(card.id),'Summary question excluded from scope: '+card.id);

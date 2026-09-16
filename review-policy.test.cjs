@@ -106,5 +106,6 @@ assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='ko-logic2-088'?{...x,l
  const bare={concept:id=>id,separate:due=>({ready:due,waiting:[],nextAt:null})};
  assert.deepEqual([...queueAfter(bare,11).ready].map(c=>c.id),[missed],'대조군: 개념 묶음이 없으면 틀린 문제 하나만 돌아온다');
 }
-const twoChoice=structuredClone(list);twoChoice.find(x=>x.exercise.type==='choice').exercise.choices.splice(2);assert.throws(()=>audit.coverage(twoChoice),/Four options required/);
+{const fiveChoice=structuredClone(list);const e=fiveChoice.find(x=>x.exercise.type==='choice'&&x.exercise.choices.length===4).exercise;e.choices=[...e.choices,'다른 시대에서 가져온 참인 사실'];audit.coverage(fiveChoice);}
+const twoChoice=structuredClone(list);twoChoice.find(x=>x.exercise.type==='choice').exercise.choices.splice(2);assert.throws(()=>audit.coverage(twoChoice),/Four or five options required/);
 console.log('PASS review: one question per card (audit control), per-rule English coverage with the 수일치/영문법 two-written floor kept, split questions keep their concept, a wrong answer brings back the other questions on the same rule after the gap (with a no-groups control), sibling cooldown, boundary, first/repeat/practice/unknown, richer legacy merge, immutable snapshots, size validation, unreviewed-content gate');
