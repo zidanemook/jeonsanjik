@@ -290,5 +290,16 @@ assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에�
   assert.ok(id.startsWith(prefix),topic+' 범위의 첫 문제: '+id);assert.equal(quiz.type,'choice');assert.equal(quiz.choices.length,4);
  }
 }
+// 보기별 틀린 곳(v100): 옳은 보기의 꼬리표는 문제 유형을 따른다. 우리말→영어 옮기기는 뜻까지 보므로 ‘옳게 옮김’, 어법 문제는 그대로 ‘어법상 옳음’.
+{
+ const flat=n=>(n._text||'')+n.children.map(flat).join('');
+ const shown=(id,i)=>{const v=run('PRACTICE_BANK['+JSON.stringify(id)+'].variants[0]');return {v,node:run('markedChoice(PRACTICE_BANK['+JSON.stringify(id)+'].variants[0].choices['+i+'],PRACTICE_BANK['+JSON.stringify(id)+'].variants[0].marks['+i+'],okLabel(PRACTICE_BANK['+JSON.stringify(id)+'].variants[0]))')};};
+ const ok=shown('en-day3-009',0);assert.equal(ok.v.correctIndex,0);assert.ok(flat(ok.node).endsWith(' (옳게 옮김)'),'옮기기 문제의 옳은 보기: '+flat(ok.node));assert.ok(!flat(ok.node).includes('어법상 옳음'));
+ const bad=shown('en-day3-009',1),marks=bad.node.all.filter(n=>n.className==='choice-error').map(n=>n._text),fixes=bad.node.all.filter(n=>n.className==='choice-fix').map(n=>n._text);
+ assert.deepEqual(marks,['participated']);assert.deepEqual(fixes,[' → participating']);assert.ok(!flat(bad.node).includes('옳'),'틀린 보기에는 꼬리표가 없다');
+ const old=shown('en-day3-006',2);assert.equal(old.v.correctIndex,2);assert.ok(flat(old.node).endsWith(' (어법상 옳음)'),'어법 문제의 옳은 보기는 그대로: '+flat(old.node));
+ const bracket=shown('en-formula-071',0);assert.ok(flat(bracket.node).endsWith(' (어법상 옳음)'),'옮길 때 대괄호 문제는 어법 꼬리표: '+flat(bracket.node));
+ assert.ok(flat(run('markedChoice("A b.",null)')).endsWith(' (어법상 옳음)'),'꼬리표를 넘기지 않은 옛 호출도 그대로');
+}
 console.log('PASS drill in app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source), home/subject/range/progress counts read "전체 N문제 · 지금 풀 차례 M문제" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, drill serves all '+total+' questions then repeats only the missed one, records stay normal, no same-day interval inflation; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
 })().catch(e=>{console.error(e);process.exit(1);});

@@ -258,26 +258,28 @@ function narrowMark(m){
  while(b<w.length-a-1&&b<f.length-a-1&&w[w.length-1-b]===f[f.length-1-b])b++;
  const lead=w.slice(0,a).join(' ');return {skip:lead?lead.length+1:0,wrong:w.slice(a,w.length-b).join(' '),fix:f.slice(a,f.length-b).join(' ')};
 }
-function markedChoice(text,marks){
+// The right sentence gets a label that fits the question: translation items (우리말을 영어로 옳게 옮긴 것) are judged on meaning too.
+function okLabel(quiz){return /옳게 옮긴/.test(quiz?.question||'')?' (옳게 옮김)':' (어법상 옳음)';}
+function markedChoice(text,marks,ok=' (어법상 옳음)'){
  const span=elem('span');let start=0;
  const hits=(marks||[]).map(m=>{const n=narrowMark(m),at=text.indexOf(m.wrong);return {m:n,at:at<0?-1:at+n.skip};}).filter(h=>h.at>=0).sort((a,b)=>a.at-b.at);
  for(const {m,at} of hits){if(at<start)continue;span.append(document.createTextNode(text.slice(start,at)),elem('mark',m.wrong,'choice-error'),elem('span',' → '+m.fix,'choice-fix'));start=at+m.wrong.length;}
- span.append(document.createTextNode(text.slice(start)));if(!marks)span.append(elem('span',' (어법상 옳음)','choice-ok'));return span;
+ span.append(document.createTextNode(text.slice(start)));if(!marks)span.append(elem('span',ok,'choice-ok'));return span;
 }
-function markedLine(label,quiz,i){const p=elem('p',label+(i+1)+'. ');p.append(markedChoice(quiz.choices[i],quiz.marks[i]));return p;}
+function markedLine(label,quiz,i){const p=elem('p',label+(i+1)+'. ');p.append(markedChoice(quiz.choices[i],quiz.marks[i],okLabel(quiz)));return p;}
 // Each option as its own block: the sentence (wrong words marked) and that option's explanation right under it.
 function choiceExplanations(quiz,split,picked){
  const box=elem('div',undefined,'choice-explanations');
  quiz.choices.forEach((c,i)=>{
   const answer=i===quiz.correctIndex,mine=i===picked&&!answer,item=elem('div',undefined,'choice-explain'+(answer?' is-answer':mine?' is-picked':''));
-  const head=elem('p',(i+1)+'. ','choice-explain-sentence');head.append(quiz.marks?markedChoice(c,quiz.marks[i]):document.createTextNode(c));
+  const head=elem('p',(i+1)+'. ','choice-explain-sentence');head.append(quiz.marks?markedChoice(c,quiz.marks[i],okLabel(quiz)):document.createTextNode(c));
   if(answer)head.append(elem('span','정답','choice-answer-tag'));if(mine)head.append(elem('span','내 답','choice-picked-tag'));
   item.append(head,elem('p',split.per[i],'choice-explain-text'));box.append(item);
  });
  if(split.rest.length)box.append(...explanationParts(split.rest.join('\n\n')));
  return box;
 }
-function markedList(quiz){const box=elem('div',undefined,'marked-choices');box.append(elem('strong','보기별 틀린 곳'));quiz.choices.forEach((c,i)=>{const p=elem('p',(i+1)+'. ','example');p.append(markedChoice(c,quiz.marks[i]));box.append(p);});return box;}
+function markedList(quiz){const box=elem('div',undefined,'marked-choices');box.append(elem('strong','보기별 틀린 곳'));quiz.choices.forEach((c,i)=>{const p=elem('p',(i+1)+'. ','example');p.append(markedChoice(c,quiz.marks[i],okLabel(quiz)));box.append(p);});return box;}
 // 기출형 자료 제시 문제는 발문 뒤 빈 줄 다음에 [자료 이름]으로 시작하는 자료를 둔다. 발문은 크게, 자료는 상자에 보통 글씨로 보여 준다.
 function questionNodes(text){const at=text.indexOf('\n\n[');if(at<0)return [elem('div',text,'question')];return [elem('div',text.slice(0,at),'question'),elem('div',text.slice(at+2),'question-clue')];}
 // 영어 해설 끝의 ‘외우는 공식’ 문단(규칙마다 같은 외우기 블록)은 상자로 따로 보여 준다. 줄 머리(외우는 공식·입으로 외우기)와 이름표(꿀팁·함정)만 굵게 한다.
@@ -544,7 +546,7 @@ function renderFeedback(root,card,quiz,lesson,label){
  if(lesson){root.append(elem('p',lesson.hook,'hook'));const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),elem('p',lesson.rule));for(const example of lesson.examples)details.append(elem('p',example,'example'));attachExplanationCredit(details,reviewId,'lesson');root.append(details);}
  const recap=elem('details',undefined,'lesson recap');recap.append(elem('summary','문제 다시 보기'),label,...questionNodes(quiz.question));appendPaper(recap,Hanneung.get(card.id));
  if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(recap,quiz,null,f.selectedIndex);
- else if(quiz.type==='choice'){const choices=elem('div',undefined,'quiz-choices recap-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const b=elem('button',quiz.fixedOrder?choice:(i+1)+'. '+(quiz.marks?'':choice));if(quiz.marks)b.append(markedChoice(choice,quiz.marks[i]));b.type='button';b.disabled=true;if(i===quiz.correctIndex)b.classList.add('quiz-correct');else if(i===f.selectedIndex)b.classList.add('quiz-wrong');choices.append(b);});recap.append(choices);}
+ else if(quiz.type==='choice'){const choices=elem('div',undefined,'quiz-choices recap-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const b=elem('button',quiz.fixedOrder?choice:(i+1)+'. '+(quiz.marks?'':choice));if(quiz.marks)b.append(markedChoice(choice,quiz.marks[i],okLabel(quiz)));b.type='button';b.disabled=true;if(i===quiz.correctIndex)b.classList.add('quiz-correct');else if(i===f.selectedIndex)b.classList.add('quiz-wrong');choices.append(b);});recap.append(choices);}
  root.append(recap);
  const dueCard=data.cards.find(c=>c.id===card.id),concept=ReviewPolicy.concept(card.id),siblings=data.cards.some(c=>c.id!==card.id&&isPlayable(c)&&ReviewPolicy.concept(c.id)===concept);
  root.append(elem('p','풀이 완료 · 환산 시간 +1분','study-credit-award'),elem('small','다음 복습: '+dueCard.due+(f.result==='wrong'?' · 5분 뒤 다시 풀 수 있어요.'+(siblings?' 같은 개념의 다른 문제도 10분 뒤 이어서 나와요.':''):''),'next-review'));

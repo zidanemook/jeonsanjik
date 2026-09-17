@@ -161,6 +161,30 @@ console.log('PASS practice: one question per practice entry (Day 1 60, Day 2 60,
  }
 }
 console.log('practice: option numbers in explanations and error marks follow the shuffled order');
+// 영어 보기 문제(어법상 옳은/옳지 않은 · 대괄호 · 수일치 · 우리말→영어 옮기기)는 틀린 보기마다, 틀린 보기에만 표시가 있어야 한다(v100: 옮기기 106문제가 빠져 있었다).
+{
+ const TYPE=/어법|옮긴|옮길 때|대괄호|밑줄|수일치/,stem=v=>v.question.split(String.fromCharCode(10))[0];
+ const gaps=b=>{const out=[];for(const [id,l] of Object.entries(b))for(const v of l.variants){
+  if(v.type!=='choice'||!TYPE.test(stem(v))||!v.choices.some(c=>/[A-Za-z]{2,}/.test(c)))continue;
+  if(!v.marks||v.marks.length!==v.choices.length){out.push(id+': 보기별 틀린 곳 표시가 없다');continue;}
+  const negative=/옳지 않은|틀린/.test(stem(v));
+  v.marks.forEach((ms,i)=>{const wrongOption=negative?i===v.correctIndex:i!==v.correctIndex;
+   if(!!ms!==wrongOption)out.push(id+' '+(i+1)+': '+(ms?'옳은 보기에 표시':'틀린 보기에 표시 없음'));
+   const arrow=v.choices[i].indexOf(' → ');for(const m of ms||[])if(arrow>=0&&v.choices[i].indexOf(m.wrong)<arrow+3)out.push(id+' '+(i+1)+': 옮기기 문제의 표시는 영어 부분에');
+  });}return out;};
+ assert.deepEqual(gaps(bank),[],'영어 보기 문제의 표시 누락');
+ const translation=Object.entries(bank).filter(([,l])=>l.variants.some(v=>/옳게 옮긴/.test(v.question)));
+ assert.equal(translation.length,106,'우리말→영어로 옳게 옮긴 것은? 106문제(Day 2 2 · Day 3 25 · Day 4 23 · 문법 공식 훈련 56)');
+ for(const [id,l] of translation){const v=l.variants[0];assert.ok(v.marks,'옮기기 문제 표시: '+id);assert.equal(v.marks[v.correctIndex],null,id);assert.equal(v.marks.filter(Boolean).length,v.choices.length-1,id);}
+ // 대조군: 표시 하나 빼기 · 표시 통째로 빼기 · 옳은 보기에 표시 · 우리말 쪽에 표시 — 모두 잡혀야 한다.
+ const [cid,cl]=translation.find(([id])=>id==='en-day3-009'),v0=cl.variants[0],wrongAt=v0.marks.findIndex(Boolean);
+ const variant=marks=>({[cid]:{...cl,variants:[{...v0,marks}]}});
+ assert.equal(gaps(variant(v0.marks.map((m,i)=>i===wrongAt?null:m))).length,1,'대조군: 틀린 보기 표시 하나를 빼면 잡힌다');
+ assert.equal(gaps(variant(undefined)).length,1,'대조군: 표시를 통째로 빼면 잡힌다');
+ assert.equal(gaps(variant(v0.marks.map((m,i)=>i===v0.correctIndex?[{wrong:'injured',fix:'injuring'}]:m))).length,1,'대조군: 옳은 보기에 표시하면 잡힌다');
+ assert.equal(gaps(variant(v0.marks.map((m,i)=>i===wrongAt?[{wrong:'학생들은',fix:'x'}]:m))).length,1,'대조군: 우리말 쪽 표시는 잡힌다');
+}
+console.log('practice: every English grammar/translation choice question marks exactly its wrong options (controls: one mark removed, all marks removed, answer marked, Korean side marked)');
 // 해설을 보기별로 나눈다: 보기 문장마다 그 보기의 설명(정답은 정답 근거, 나머지는 보기 비교의 해당 번호)이 섞인 순서를 따라 붙는다.
 {
  let split=0;
