@@ -58,6 +58,13 @@ assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day4-rule-ver
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day4-rule-comparison-form')||x.exercise.type!=='choice')),/MCQ required: grammar-day4-rule-comparison-form/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day4-rule-comparison-parallel'))),/Missing coverage/);
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day4-006'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-day4-001').lesson.point}}:x)),/One grammar point, one concept/);
+// 문법 공식 훈련(v98): 공식 하나가 개념 하나(grammar-formula-<공식>), 규칙 묶음은 영역 11개(grammar-formula-<영역>), 영역마다 4지선다와 직접 쓰기가 있다.
+{const f=list.filter(x=>x.card.id.startsWith('en-formula-'));assert.equal(f.length,364);assert.equal(new Set(f.map(x=>x.conceptId)).size,88,'공식 89개 중 완료형 준동사는 이미 19문제라 새 문제가 없다');assert.equal(new Set(f.map(x=>x.lesson.ruleId)).size,11);
+ assert.ok(f.every(x=>x.lesson.topic==='문법 공식 훈련'&&x.conceptId==='grammar-formula-'+x.lesson.formula&&x.lesson.ruleId.startsWith('grammar-formula-')));
+ assert.equal(policy.concept('en-formula-001'),policy.concept('en-formula-004'));assert.notEqual(policy.concept('en-formula-001'),policy.concept('en-formula-006'));}
+assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-formula-inversion')||x.exercise.type!=='text')),/At least 1 written questions required: grammar-formula-inversion/);
+assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-formula-voice'))),/Missing coverage/);
+assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-formula-006'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-formula-001').lesson.point}}:x)),/One grammar point, one concept/);
 // 국어 사고의 힘 논리: 개념(point) 하나가 개념 묶음 하나(1·2장 56개 + 3장 27개 + 4장 14개 + 5장 14개 = 111개)다. 영어의 직접쓰기 하한은 걸리지 않고, 장별 문제 수 하한·필수 개념·4지선다만을 요구한다.
 {const ko=list.filter(x=>x.card.id.startsWith('ko-logic'));assert.equal(ko.length,666);assert.ok(ko.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-logic-')));assert.equal(new Set(ko.map(x=>x.conceptId)).size,111);
  assert.equal(policy.concept('ko-logic4-094'),'korean-logic-existential-first');assert.equal(policy.concept('ko-logic4-094'),policy.concept('ko-logic4-102'),'존재 명제 먼저 활용 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic4-102'),policy.concept('ko-logic4-103'),'존재 명제 먼저 활용과 존재 명제마다 다른 이름은 다른 개념');

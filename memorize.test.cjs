@@ -124,4 +124,12 @@ for(const set of M.sets.filter(s=>s.subject==='한국사')){
 }
 // 사용자에게 보이는 글에 내부 용어를 쓰지 않는다.
 for(const set of M.sets.filter(s=>s.subject==='한국사'))for(const t of [set.title,set.hint,...(set.groups||[]).flatMap(g=>[g.title,...g.cards.flat()]),...(set.lines||[]).flatMap(l=>l.items.flatMap(i=>i.facts)),...(set.pairs||[]).flat()])assert(!/카드|문항/.test(t),'no internal words in visible text: '+t);
+// 영어 어법 공식(v98): 문제 해설의 외우기 블록과 같은 공식 89개를 영역 11개로. 앞면 = 공식 이름(문제 화면 제목과 같음), 뒷면 = 공식 + 꿀팁 + 입으로 외울 말.
+// 연도 금지는 한국사 목록만의 규칙이라 영어 예문의 숫자(1990 등)는 막지 않는다.
+{const set=M.get('english-grammar-formulas'),F=(require('./practice-bank.js'),globalThis.ENGLISH_FORMULAS);assert(set&&set.subject==='영어'&&set.groups,'english-grammar-formulas set');
+ assert.deepEqual(set.groups.map(g=>g.title),F.areas.map(a=>a.title));assert.equal(M.size(set),89);
+ set.groups.forEach((g,i)=>assert.deepEqual(g.cards.map(c=>c[0]),F.areas[i].rules.map(r=>r.title),'앞면은 공식 이름: '+g.title));
+ for(const [front,back] of set.groups.flatMap(g=>g.cards)){assert(/\n꿀팁: /.test(back)&&/\n입으로: [A-Za-z]/.test(back)&&/\([가-힣 ,?]+\)/.test(back),'공식·꿀팁·입으로: '+front);assert(!/카드|문항|변형/.test(front+back),'no internal words: '+front);assert(!/[①②③④]/.test(back));}
+ assert(set.groups.flatMap(g=>g.cards).some(c=>/\b(19|20)\d\d\b/.test(c[1])),'영어 목록에는 연도 같은 숫자가 있어도 된다(한국사 연도 규칙과 무관)');
+ assert(M.get('english-grammar-formulas').groups.flatMap(g=>g.cards).find(c=>c[0].startsWith('such·so 어순'))[1].includes('서치(such)는 관사(a/an)를 품에 안고 다니고'));}
 console.log('PASS memorize: '+M.sets.length+' sets, chant letters match names, no years, studied range only');
