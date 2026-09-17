@@ -157,6 +157,8 @@ const tick=()=>new Promise(r=>setImmediate(r));const settle=async()=>{for(let i=
  assert.equal(r.el('syncRequest').textContent,'다시 요청');
  assert.match(r.status(),/거절되었습니다/);
  const rejectedAt=requests.get('newbie').rejectedAt;
+ // 빠른 CI에서는 거절과 재요청이 같은 밀리초에 찍힐 수 있어, 시계가 한 칸 넘어간 뒤 다시 요청한다.
+ await new Promise(done=>setTimeout(done,5));
  await r.el('syncRequest').onclick();await settle();
  assert.equal(requests.size,1,'asking again reuses the same document');
  assert.equal(requests.get('newbie').rejectedAt,rejectedAt,'the requester cannot clear the refusal');
