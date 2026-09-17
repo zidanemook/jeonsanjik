@@ -221,3 +221,5 @@ body[data-view="quiz"] main { padding-top:14px; }
 .formula-note { color:#d1d7e0; }
 .formula-note strong { color:#ffd98a; }
 .memorize-cell span { white-space:pre-line; }
+/* 국사 외우는 비결(v99): 해설 상자 둘째 줄의 외우는 말 */
+.formula-box .mnemonic-hook { font-size:17px; font-weight:700; color:#ffd98a; letter-spacing:0.02em; }
