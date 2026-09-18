@@ -171,7 +171,7 @@
 | 합천 해인사 대장경판 |  | 국가유산청 국가유산포털 | 공공누리 제1유형 | 1612969 | 1922x1279 | hapcheon-haeinsa-daejanggyeongpan-1612969.webp | 대기 |
 | 청자 상감운학문 매병 |  | 위키미디어 공용 | CC0 | — | 3001x4000 | cheongja-sanggam-unhak-maebyeong-commons.webp | 대기 |
 | 경천사지 십층석탑 |  | 위키미디어 공용 | CC BY-SA 4.0 | — | 3921x5897 | gaeseong-gyeongcheonsaji-siptap-commons.webp | 대기 |
-| 철원 도피안사 철조비로자나불좌상 |  | 위키미디어 공용 | CC BY-SA 4.0 | — | 4672x7008 | cheorwon-dopiansa-cheoljo-commons.webp | 대기 |
+| 철원 도피안사 철조비로자나불좌상 |  | 위키미디어 공용 | CC BY-SA 4.0 | — | 4672x7008 | cheorwon-dopiansa-cheoljo-commons.webp | 문제에 사용(15강 003) — 2026-09-18 재작업, 아래 7절 참조 |
 | 영주 부석사 소조여래좌상 |  | 위키미디어 공용 | CC0 | — | 5071x3233 | yeongju-buseoksa-sojo-commons.webp | 대기 |
 
 - 스캔 원자료 `research/heritage-photos-20260916/scan.json` · 고른 사진 `picks.json` · 내려받기 기록 `downloaded.json`.
@@ -211,7 +211,7 @@
 
 - 국가유산포털: `tools/heritage_license_scan.cjs --control`(대조군 4항목 모두 일치)을 먼저 돌린 뒤 `--targets research/hanneung-lecture15-20260916/photos/targets.json`·`targets2.json`으로 사진마다 배지(mark0N.svg)와 kogl 링크를 읽었다. 고른 11장은 내려받기 직전에 사진 상세창을 다시 열어 배지 `mark01.svg`와 `licenseType1` 링크를 한 번 더 확인했다(`photos/imgsrc.json`). 백자 달항아리(2007-2)·분청사기 음각어문 편병·수월관음도(2005)는 갤러리 전량이 제1유형이 아니어서 받지 않았다.
 - 위키미디어 공용: API로 파일마다 라이선스 틀을 읽었다(`photos/commons-picked.json`). CC0 3장(메트로폴리탄 미술관 수월관음도·Jikji.jpg·부석사 무량수전 안 소조 여래 좌상), Public domain 3장(PD-old-100 몽유도원도·PD-art-100 김홍도 씨름·PD-Japan-oldphoto 성불사 응진당 유리 건판), CC BY-SA 2.0 1장(법주사 팔상전). NC·ND는 없다.
-- 1차 대기 파일 가운데 세 장은 쓰지 않았다: `boeun-beopjusa-palsangjeon-1612162.webp`(내부 천장 사진), `yeongju-buseoksa-sojo-commons.webp`(공용 파일 이름은 소조 여래 좌상이지만 사진은 야외 석불), `cheorwon-dopiansa-cheoljo-commons.webp`(사진이 옆으로 누움). 파일은 저장소에 그대로 두었다.
+- 1차 대기 파일 가운데 세 장은 쓰지 않았다: `boeun-beopjusa-palsangjeon-1612162.webp`(내부 천장 사진), `yeongju-buseoksa-sojo-commons.webp`(공용 파일 이름은 소조 여래 좌상이지만 사진은 야외 석불), `cheorwon-dopiansa-cheoljo-commons.webp`(사진이 옆으로 누움). 파일은 저장소에 그대로 두었다. → 도피안사는 2026-09-18에 원인을 찾아 다시 만들었다(아래 7절).
 - 가공: 긴 변 1200px 이하로 줄이고 webp(품질 80). 자르기·회전·합성 없음. 대체 텍스트는 사진을 직접 보고 쓴 모습 설명이며 이름을 넣지 않았다.
 
 | 보기 이름 | 출처 | 라이선스 | 사진 번호 / 파일 | 원본 해상도 | 앱 자산 | 쓰는 문항(15강 번호) |
@@ -247,3 +247,30 @@
 
 - 기존 등록 사진 가운데 15강 보기로 함께 쓴 것: 금동 연가 7년명 여래 입상·서산 용현리 마애 여래 삼존상·경주 배동 석조 여래 삼존 입상·경주 석굴암 본존불·논산 관촉사 석조 미륵보살 입상·익산 미륵사지 석탑·부여 정림사지 5층 석탑·경주 분황사 모전 석탑·경주 불국사 3층 석탑·경주 불국사 다보탑·화순 쌍봉사 철감선사탑·평창 월정사 8각 9층 석탑·개성 경천사지 10층 석탑·서울 원각사지 10층 석탑·금동 대향로·천마총 금관·상원사 동종·성덕대왕 신종.
 - 작업 원자료: `research/hanneung-lecture15-20260916/photos/`(scan.json·scan2.json·imgsrc.json·commons-picked.json·photos.cjs·photos.json·photos-meta.json·cand/·webp/).
+
+---
+
+## 7. 2026-09-18 — 철원 도피안사 철조비로자나불좌상 재작업
+
+6절에서 "사진이 옆으로 누움"이라며 대기로 둔 파일의 원인은 촬영이 아니라 변환이었다.
+원본 JPG는 픽셀 배열이 7008×4672(가로)이고 **EXIF Orientation = 8**(반시계 90° 회전해서 보라)이 붙어 있는데,
+변환 스크립트가 EXIF를 적용하지 않고 픽셀 배열 그대로 축소해서 누운 그림이 나왔다.
+`PIL.ImageOps.exif_transpose()`를 먼저 적용하면 4672×7008(세로)로 바로 선다.
+
+같은 촬영자·같은 라이선스의 다른 컷도 함께 받아 눈으로 비교한 결과, 처음 고른 (5)번은 **옆모습**이라
+비로자나불의 표식인 지권인이 보이지 않아 보기용으로 약했다. **(2)번 정면 컷으로 교체**했다.
+
+| 항목 | 값 |
+|---|---|
+| 공용 파일 | `File:Iron Seated Vairocana Buddha of Dopiansa Temple, Cheorwon (2026-05) (2).jpg` |
+| 촬영자 | Sadopaul |
+| 라이선스 | CC BY-SA 4.0 (2차적저작물 작성 허용 → 회전·축소 가능) |
+| 원본 | 4672×7008 (EXIF 적용 후) |
+| 앱 자산 | `assets/heritage/cheorwon-dopiansa-cheoljo-commons.webp` · 800×1200 · 91,648 B · webp 품질 85 |
+| 가공 | EXIF Orientation 적용(회전) + 긴 변 1200px 축소 + webp 재인코딩. 자르기·합성 없음 |
+| 쓰는 문항 | 15강 003 — 하남 하사창동을 고르는 사진 문항의 오답 보기 |
+
+교체한 보기: 003의 오답 보기에서 `금동 연가 7년명 여래 입상`(고구려 금동불, 004·005·007·008에도 있음)을 빼고
+이 사진을 넣었다. 철불끼리 비교하게 되어 문항이 실제로 갈라지는 문제가 된다 —
+신라 말 도피안사(지권인) vs 고려 초 하사창동(항마촉지인). 문두에 "경기도 하남시 하사창동"이 그대로 있으므로
+사진을 몰라도 답은 나온다(막다른 문항이 되지 않는다).

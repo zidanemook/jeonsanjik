@@ -77,9 +77,10 @@ for(const id of ['history-people','history-books']){
 assert.deepEqual(M.get('history-people').groups.map(g=>g.title),['고조선~삼국','통일 신라·발해·후삼국','고려 전기','고려 무신~원 간섭기','고려 말']);
 assert.deepEqual(M.get('history-books').groups.map(g=>g.title),['삼국','통일 신라','고려 전기','고려 무신~원 간섭기','고려 말']);
 assert.equal(M.size(M.get('history-people')),132);assert.equal(M.size(M.get('history-books')),39);
-// 왕에 걸린 앞머리: 인물 98 · 책 19. 나머지(인물 34 · 책 20)는 왕이 하나로 정해지지 않아 시기만 적었다(고조선·가야, 일본 전파, 승려·학자 등).
+// 왕에 걸린 앞머리: 인물 101 · 책 22. 나머지(인물 31 · 책 17)는 왕이 하나로 정해지지 않아 시기만 적었다(고조선·가야, 일본 전파, 승려·학자 등).
 // 15강(2026-09-16)으로 책 6(초조대장경 현종·『상정고금예문』 인종·팔만대장경 고종·『직지심체요절』 우왕 + 교장·『향약구급방』은 시기만)과 인물 1(혜허, 시기만)을 더했다.
-assert.deepEqual(anchoredCards,{'history-people':98,'history-books':19});
+// 2026-09-18 왕 고리 넓히기: 최충 → 문종, 이규보 「동명왕편」 → 명종, 각훈 『해동고승전』 → 고종, 이제현 『사략』 → 공민왕(이제현은 충선왕과 함께 둘).
+assert.deepEqual(anchoredCards,{'history-people':101,'history-books':22});
 // 대조군: 없는 왕·사실에 없는 인물은 잡혀야 한다.
 assert.throws(()=>factsOf('고려','없는왕'));
 assert(!factsOf('신라','진흥왕').some(f=>f.includes('이사부')),'control: 이사부 is 지증왕, not in 진흥왕 facts');
@@ -108,12 +109,23 @@ for(const [front,king,needle] of [['금관가야','법흥왕','금관가야'],['
 for(const [token,king] of [['인안','무왕'],['대흥','문왕'],['건흥','선왕']])assert(back('history-countries','발해').includes(token+'('+king+')')&&M.get('balhae-kings').lines[0].items.find(i=>i.name===king).facts.some(f=>f.includes(token)),'발해 연호 '+token+' = '+king);
 assert.deepEqual(countries.groups.map(g=>g.title),['선사 시대','고조선·여러 나라','삼국·가야','남북국','고려 경제·사회','고려 정치·문화']);
 assert.equal(M.size(countries),30);
-// 고려 문화유산(15강, 2026-09-16 공부): 앞머리 "왕(고려)"가 붙은 칸은 그 왕의 사실에 이름이 들어 있어야 한다. 나머지는 고려 안의 시기(초기·중기·후기)만 적었다.
+// 문화유산(03~15강): 앞머리 "왕(나라)"가 붙은 칸은 그 왕의 사실에 이름이 들어 있어야 한다. 나머지는 나라·시기(고려 초기·중기·후기 등)만 적었다.
+// 2026-09-18: 고려만 담던 목록을 삼국·남북국까지 넓히고, 칸마다 재질(금동불·마애불·철불·소조불·석탑·모전 석탑·전탑·승탑·대리석·청자·청동·목판 등)을 적었다.
 {const set=M.get('history-heritage');assert(set&&set.groups&&set.subject==='한국사','history-heritage set');
- assert.deepEqual(set.groups.map(g=>g.title),['불상','회화','석탑·승탑','청자·공예','건축','과학 기술']);assert.equal(M.size(set),28);
+ assert.deepEqual(set.groups.map(g=>g.title),['불상','탑·승탑','무덤·비석','회화·불화','청자·금속 공예','건축','과학 기술·인쇄']);assert.equal(M.size(set),58);
  let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)),'history-heritage: '+king+'('+country+') facts name '+front);}
- assert.equal(anchored,2,'천산대렵도(공민왕)·화통도감(우왕)');
+ assert.equal(anchored,21,'왕에 걸린 문화유산 21(석굴암 본존불·미륵사지 석탑·분황사 모전 석탑·황룡사 9층 목탑·감은사지 3층 석탑·불국사 3층 석탑·다보탑·경천사지 10층 석탑·무령왕릉·광개토 대왕릉비·단양 적성비·순수비·정혜 공주 묘·천산대렵도·칠지도·상원사 동종·성덕대왕 신종·무구정광대다라니경·초조대장경·팔만대장경·화통도감)');
+ // 재질·유형이 빠진 칸이 없어야 "왕 — 문화유산 — 재질" 묶음으로 외울 수 있다.
+ assert(set.groups.flatMap(g=>g.cards).every(([,b])=>/불|탑|무덤|벽화|벽돌|비석|그림|청자|공예|칼|범종|옻칠|목조|주심포|다포|공포|목판|관청|건물|역법/.test(b)),'every heritage card names its material or type');
  assert(back('history-heritage','개성 경천사지 10층 석탑').includes('원의 영향')&&back('history-heritage','안동 봉정사 극락전').includes('가장 오래된'));}
+// 경제·사회 제도(07·13강 중심) → 왕·한 줄. 왕이 붙은 칸은 그 왕의 사실에 제도 이름이 들어 있어야 한다.
+{const set=M.get('history-economy');assert(set&&set.groups&&set.subject==='한국사','history-economy set');
+ assert.deepEqual(set.groups.map(g=>g.title),['삼국·남북국 경제','고려 토지·수취','고려 상업·화폐·농업','고려 사회']);assert.equal(M.size(set),41);
+ let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)),'history-economy: '+king+'('+country+') facts name '+front);}
+ assert.equal(anchored,22,'왕에 걸린 제도 22, 나머지 19는 왕이 하나로 정해지지 않아 나라·시기만');
+ for(const [front,king] of [['진대법','고국천왕(고구려)'],['관료전','신문왕(신라)'],['정전','성덕왕(신라)'],['녹읍 부활','경덕왕(신라)'],['역분전','태조(고려)'],['시정 전시과','경종(고려)'],['개정 전시과','목종(고려)'],['경정 전시과','문종(고려)'],['과전법','공양왕(고려)'],['건원중보','성종(고려)'],['은병·해동통보','숙종(고려)'],['흑창','태조(고려)'],['의창·상평창','성종(고려)'],['제위보','광종(고려)']])assert(back('history-economy',front).startsWith(king),front+' → '+king);
+ // 여러 왕에 걸치거나 기록이 갈리는 제도는 왕을 붙이지 않는다(공음전·녹과전·경시서·벽란도·민정 문서·구제 기관).
+ for(const front of ['공음전','녹과전','경시서','벽란도','민정 문서(신라 촌락 문서)','동·서 대비원','혜민국','구제도감·구급도감'])assert(anchorsOf(back('history-economy',front)).length===0,'no forced king: '+front);}
 // 15강 왕 사실: 인종 편찬 · 고종 강화도 인쇄 · 우왕 화통도감·직지 · 공민왕 천산대렵도(선종·충숙왕 등 빈 왕은 위에서 비어 있음을 확인한다).
 for(const [king,needle] of [['인종','『상정고금예문』'],['고종','『상정고금예문』'],['고종','장경판전'],['우왕','화통도감'],['우왕','『직지심체요절』'],['공민왕','천산대렵도'],['현종','초조대장경']])assert(kings.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle);
 // 공부 범위 지키기: 조선은 아직 공부하지 않았다(15강 고려 문화 2 낱말은 2026-09-16에 목록에서 뺐다). 한국사 목록 어디에도 나오면 멈춘다.
