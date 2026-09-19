@@ -111,10 +111,11 @@ assert.deepEqual(countries.groups.map(g=>g.title),['선사 시대','고조선·�
 assert.equal(M.size(countries),30);
 // 문화유산(03~15강): 앞머리 "왕(나라)"가 붙은 칸은 그 왕의 사실에 이름이 들어 있어야 한다. 나머지는 나라·시기(고려 초기·중기·후기 등)만 적었다.
 // 2026-09-18: 고려만 담던 목록을 삼국·남북국까지 넓히고, 칸마다 재질(금동불·마애불·철불·소조불·석탑·모전 석탑·전탑·승탑·대리석·청자·청동·목판 등)을 적었다.
+// 2026-09-19 왕 고리 넓히기: 관촉사 석조 미륵보살 입상 → 광종(왕명·혜명), 정토사지 홍법국사탑 → 현종(왕명으로 건립), 사천대 → 현종(태복감을 고침), 수덕사 대웅전 → 충렬왕(대들보 먹글씨). 나머지 33칸은 왕이 하나로 정해지지 않아 시기만 둔다.
 {const set=M.get('history-heritage');assert(set&&set.groups&&set.subject==='한국사','history-heritage set');
  assert.deepEqual(set.groups.map(g=>g.title),['불상','탑·승탑','무덤·비석','회화·불화','청자·금속 공예','건축','과학 기술·인쇄']);assert.equal(M.size(set),58);
  let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)),'history-heritage: '+king+'('+country+') facts name '+front);}
- assert.equal(anchored,21,'왕에 걸린 문화유산 21(석굴암 본존불·미륵사지 석탑·분황사 모전 석탑·황룡사 9층 목탑·감은사지 3층 석탑·불국사 3층 석탑·다보탑·경천사지 10층 석탑·무령왕릉·광개토 대왕릉비·단양 적성비·순수비·정혜 공주 묘·천산대렵도·칠지도·상원사 동종·성덕대왕 신종·무구정광대다라니경·초조대장경·팔만대장경·화통도감)');
+ assert.equal(anchored,25,'왕에 걸린 문화유산 25(석굴암 본존불·미륵사지 석탑·분황사 모전 석탑·황룡사 9층 목탑·감은사지 3층 석탑·불국사 3층 석탑·다보탑·경천사지 10층 석탑·무령왕릉·광개토 대왕릉비·단양 적성비·순수비·정혜 공주 묘·천산대렵도·칠지도·상원사 동종·성덕대왕 신종·무구정광대다라니경·초조대장경·팔만대장경·화통도감 + 2026-09-19 관촉사 석조 미륵보살 입상 광종·정토사지 홍법국사탑 현종·사천대 현종·수덕사 대웅전 충렬왕)');
  // 재질·유형이 빠진 칸이 없어야 "왕 — 문화유산 — 재질" 묶음으로 외울 수 있다.
  assert(set.groups.flatMap(g=>g.cards).every(([,b])=>/불|탑|무덤|벽화|벽돌|비석|그림|청자|공예|칼|범종|옻칠|목조|주심포|다포|공포|목판|관청|건물|역법/.test(b)),'every heritage card names its material or type');
  assert(back('history-heritage','개성 경천사지 10층 석탑').includes('원의 영향')&&back('history-heritage','안동 봉정사 극락전').includes('가장 오래된'));}
