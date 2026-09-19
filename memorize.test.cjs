@@ -183,11 +183,16 @@ for(const set of M.sets.filter(s=>s.subject==='한국사'))for(const t of [set.t
  {const b=H.get('sosurim');assert.notDeepEqual(letterProblems({...b,items:[['법',b.items[0][1],{w:'율령'}],...b.items.slice(1)]}),[]);assert.notDeepEqual(letterProblems({...b,hook:'율불학'}),[]);
   assert.notDeepEqual(kingProblems({...b,items:[['율','율령 반포와 공복 제정',{w:'율령'}],...b.items.slice(1)]}),[]);assert.notDeepEqual(kingProblems({...b,king:'고구려:장수왕'}),[]);
   const g=H.get('gongmin');assert.notDeepEqual(letterProblems({...g,items:g.items.map(i=>i[0]==='전'?['전',i[1],{w:'정방 폐지 전'}]:i)}),[]);}
- // 해설: 붙인 문제는 모두 자체 제작 한국사이고, 해설 끝이 그 블록 문단 하나다. 붙이지 않은 문제·기출에는 블록이 없다.
- const pack=ctx.CORE_REVIEW_PACK,attached=Object.entries(H.attach);assert(attached.length>=600,'붙인 문제 수: '+attached.length);
+ // 해설: 2026-09-19에 '외우는 비결' 문단을 문제 해설에서 전수 뗐다(사용자: 두문자 말고 요약만 보여라).
+ // 해설에 남는 것은 요약뿐이고, ATTACH는 어느 대상을 다루는 문제인지 대조하는 용도로만 쓴다.
+ const pack=ctx.CORE_REVIEW_PACK,attached=Object.entries(H.attach);assert(attached.length>=600,'대상 대조 목록: '+attached.length);
+ const withBlock=list=>list.filter(c=>(c.explanation||'').includes('외우는 비결 · ')).length;
+ assert.equal(withBlock(pack),0,'어떤 문제 해설에도 외우는 비결 문단이 없다');
+ assert.equal(pack.filter(c=>/(^|\n)(두문자|외우는 말)/.test(c.explanation||'')).length,0,'해설에 두문자 꼬리표가 없다');
  for(const [id,bid] of attached){const c=pack.find(x=>x.id===id);assert(c&&c.subject==='한국사'&&!/^(hanneung|gichul|core-hist-79)-/.test(id)&&H.get(bid),'attach target: '+id);
-  const e=c.explanation;assert(e.endsWith('\n\n'+H.text(H.get(bid))),'해설 끝 블록: '+id);assert.equal(e.split('외우는 비결 · ').length,2,'블록 하나: '+id);assert(/기억 연결[:\n]/.test(e.slice(0,-H.text(H.get(bid)).length)),'기억 연결은 남는다: '+id);}
- assert.equal(pack.filter(c=>(c.explanation||'').includes('외우는 비결 · ')).length,attached.length,'붙이지 않은 문제에는 블록이 없다');
- assert.equal(new Set(attached.map(([,b])=>b)).size>=80,true,'대부분의 블록이 문제 해설에 쓰인다');
+  assert(/기억 연결[:\n]/.test(c.explanation||''),'요약(기억 연결)은 그대로 남는다: '+id);}
+ // 대조군: 문단을 도로 붙인 해설은 위 검사가 잡는다.
+ assert.equal(withBlock([{explanation:'기억 연결: 가.'+String.fromCharCode(10,10)+H.text(H.get('sosurim'))}]),1,'대조군: 붙이면 잡힌다');
+ assert.equal(new Set(attached.map(([,b])=>b)).size>=80,true,'대상 대조 목록이 대부분의 블록을 덮는다');
  assert.equal(H.attach['study-hist-20260910-17'],'sosurim');assert.equal(H.attach['goryeoculture2-hist-20260916-036'],'jusimpo-dapo');assert.equal(H.attach['goryeoforeign-hist-20260914-106'],'gongmin');}
 console.log('PASS memorize: '+M.sets.length+' sets, chant letters match names, no years, studied range only');

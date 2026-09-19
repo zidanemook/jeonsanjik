@@ -9911,7 +9911,7 @@ globalThis.QUIZ_OPTIONS={
 };
 // 국사 외우는 비결(v99, 2026-09-17) — 한국사 대상 87개마다 외우는 말 블록 하나(두문자·새 단어·글자 풀이·장면·이야기 가운데 대상에 맞는 한 가지).
 // 원본: research/history-mnemonic-20260917/mnemonics.cjs(사실 대조 check.cjs · 붙일 문제 attach.cjs, 사람이 읽은 목록 review.txt). 외울 것 '국사 외우는 비결'(memorize.js)도 같은 블록이다(memorize.test.cjs가 대조).
-// 불러올 때 대상이 분명한 자체 제작 한국사 문제(ATTACH 719개)의 해설 끝, 기억 연결 다음에 '외우는 비결 · 대상 · 방법' 문단을 덧붙인다. 발문·보기·정답·id와 위의 원문(QUIZ_OPTIONS·CORE_REVIEW_PACK 파일)은 그대로다.
+// 2026-09-19부터 문제 해설에는 붙이지 않는다(사용자 요청 — 문제에서는 요약만 본다). 지금은 외울 것 '국사 외우는 비결' 묶음만 이 블록을 쓴다.
 // 블록의 외우는 말·상상 장면은 외우기용이고, 풀이 줄(열쇠 — 실제 사실)만 사실이다. 연도·조선 이후 사실·내부 용어는 쓰지 않는다.
 (function(root){
  const ERA=["선사·고조선·여러 나라","고구려·백제·가야","신라·삼국 통일","통일 신라·발해·후삼국","고대 경제·사회·문화","고려 초기·중기 정치","고려 대외 관계·멸망","고려 경제·사회","고려 문화","조선 전기 정치"];
@@ -10829,8 +10829,8 @@ globalThis.QUIZ_OPTIONS={
  function mnemonicText(b){return ['외우는 비결 · '+b.target+' · '+b.method,...mnemonicLines(b)].join('\n');}
  function mnemonicBack(b){return mnemonicLines(b).join('\n');}
  const byId=new Map(BLOCKS.map(b=>[b.id,b]));
- if(Array.isArray(root.CORE_REVIEW_PACK))for(const c of root.CORE_REVIEW_PACK){const id=ATTACH[c.id];if(!id)continue;const b=byId.get(id);
-  if(!b||c.subject!=='한국사'||/^(hanneung|gichul|core-hist-79)-/.test(c.id)||!/기억 연결[:\n]/.test(c.explanation||'')||c.explanation.includes('외우는 비결 · '))throw Error('history mnemonic does not fit: '+c.id);
-  c.explanation=c.explanation+'\n\n'+mnemonicText(b);}
+ // 2026-09-19: 문제 해설에 붙이던 '외우는 비결' 문단을 뗐다. 사용자: "외우는 비결을 이따위로 만드냐 … 두문자 하지말라고
+ // … 전수 삭제시켜 … 그냥 요약이나 보여라. 해당문제에 필요한 요약지식이나 보여라." 해설은 이미 정답 근거·보기 비교·
+ // 기억 연결로 그 요약이다. ATTACH는 어느 대상을 다루는 문제인지 대조하는 용도로만 남는다.
  root.HISTORY_MNEMONICS={era:ERA,blocks:BLOCKS,attach:ATTACH,get:id=>byId.get(id)||null,text:mnemonicText,back:mnemonicBack};
 })(globalThis);
