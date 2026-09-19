@@ -1,4 +1,4 @@
-const assert=require('node:assert/strict'),M=require('./memorize.js');
+const fs=require('node:fs'),assert=require('node:assert/strict'),M=require('./memorize.js');
 // 외울 것 목록의 형태를 지킨다: 외우는 글자와 이름이 어긋나거나, 연도가 들어가거나, 빈 칸이 생기면 멈춘다.
 const ids=new Set();
 for(const set of M.sets){
@@ -16,7 +16,7 @@ for(const set of M.sets){
     assert.equal('letter' in item?item.letter:[...item.name][0],[...line.chant][i],'chant letter '+(i+1)+' of '+line.chant+' matches '+item.name);assert(Array.isArray(item.facts));for(const f of item.facts){assert(typeof f==='string'&&f.trim(),'fact text');texts.push(f);}texts.push(item.name);});
   }
  }else if(set.groups){
-  for(const g of set.groups){assert(g.title&&g.cards.length,'group has a title and cards: '+set.id);texts.push(g.title);for(const c of g.cards){assert.equal(c.length,2,'card = [front, back]');c.forEach(t=>{assert(typeof t==='string'&&t.trim());texts.push(t);});}}
+  for(const g of set.groups){assert(g.title&&g.cards.length,'group has a title and cards: '+set.id);texts.push(g.title);for(const c of g.cards){assert(c.length===2||c.length===3,'card = [front, back] 또는 [front, back, 사진]');c.forEach(t=>{assert(typeof t==='string'&&t.trim());});texts.push(c[0],c[1]);if(c.length===3)assert(/^assets\/heritage\/[a-z0-9-]+\.webp$/.test(c[2])&&fs.existsSync(__dirname+'/'+c[2]),'사진 파일이 있어야 한다: '+c[2]);}}
  }else{
   for(const p of set.pairs){assert.equal(p.length,4,'pair = [left, left detail, right, right detail]');p.forEach(t=>{assert(typeof t==='string'&&t.trim());texts.push(t);});}
  }

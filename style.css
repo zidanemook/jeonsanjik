@@ -223,3 +223,8 @@ body[data-view="quiz"] main { padding-top:14px; }
 .memorize-cell span { white-space:pre-line; }
 /* 국사 외우는 비결(v99): 해설 상자 둘째 줄의 외우는 말 */
 .formula-box .mnemonic-hook { font-size:17px; font-weight:700; color:#ffd98a; letter-spacing:0.02em; }
+
+/* 사진 칸: 앞면이 사진이다. 사진은 열어도 남겨 두고 이름이 아래에 붙는다. */
+.memorize-cell.photo{display:flex;flex-direction:column;gap:6px;align-items:stretch;text-align:left}
+.memorize-cell.photo img{width:100%;aspect-ratio:3/4;object-fit:contain;background:var(--card-bg,#00000010);border-radius:8px}
+.memorize-cell.photo strong{font-size:.95rem;line-height:1.35}

@@ -356,8 +356,11 @@ function renderMemorize(){
   body.append(list);return;
  }
  const total=MEMORIZE.size(set),keys=[];
- const cell=(key,prompt,answer,detail)=>{keys.push(key);const open=memorizeShown.has(key),b=btn('',()=>{if(memorizeShown.has(key))memorizeShown.delete(key);else memorizeShown.add(key);render();},'memorize-cell'+(open?' shown':''));
-  b.type='button';b.setAttribute('aria-pressed',String(open));b.append(elem('strong',open&&answer?answer:prompt));
+ const cell=(key,prompt,answer,detail,photo)=>{keys.push(key);const open=memorizeShown.has(key),b=btn('',()=>{if(memorizeShown.has(key))memorizeShown.delete(key);else memorizeShown.add(key);render();},'memorize-cell'+(open?' shown':'')+(photo?' photo':''));
+  b.type='button';b.setAttribute('aria-pressed',String(open));
+  // 사진 칸: 앞면이 사진이고 누르면 이름이 나온다. 사진은 열려도 남겨 둔다 — 사진과 이름을 함께 봐야 외워진다.
+  if(photo){const im=elem('img');im.src=photo;im.alt=prompt;im.loading='lazy';b.append(im);}
+  b.append(elem('strong',open&&answer?answer:(photo?'':prompt)));
   b.append(open?elem('span',detail||(answer?'':'—')):elem('span','눌러서 확인','memorize-hidden'));return b;};
  const content=[];
  if(set.lines)set.lines.forEach((line,li)=>{
@@ -373,7 +376,7 @@ function renderMemorize(){
  else set.groups.forEach((g,gi)=>{
   const group=elem('div',undefined,'memorize-line'),grid=elem('div',undefined,'memorize-grid');
   group.append(elem('p',g.title,'memorize-group-title'));
-  g.cards.forEach(([front,back],ci)=>grid.append(cell(set.id+':'+gi+':'+ci,front,'',back)));
+  g.cards.forEach(([front,back,photo],ci)=>grid.append(cell(set.id+':'+gi+':'+ci,front,photo?back.split('\n')[0]:'',photo?back.split('\n').slice(1).join(' '):back,photo)));
   group.append(grid);content.push(group);
  });
  const bar=elem('div',undefined,'memorize-bar'),shown=keys.filter(k=>memorizeShown.has(k)).length;
