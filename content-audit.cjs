@@ -26,10 +26,11 @@ function photos(e){
   assert(!seen.has(meta.src),'Two options share one photo: '+meta.src);seen.add(meta.src);
   assert(typeof meta.alt==='string'&&meta.alt.trim().length>=10,'Photo option needs alt text: '+choice);
   assert(!meta.alt.includes(choice),'Alt text must describe the photo, not name the option: '+choice);
-  // 쓸 수 있는 사진은 두 갈래다. 국가유산청은 공공누리 제1유형(출처표시만 하면 상업 이용·변경 허용),
+  // 쓸 수 있는 사진은 두 갈래다. 공공 기관(국가유산청·국립중앙박물관)은 공공누리 제1유형(출처표시만 하면 상업 이용·변경 허용),
   // 위키미디어 공용은 CC0·CC BY·CC BY-SA(출처표시 조건). 비상업(NC)·변경금지(ND)는 어느 쪽이든 쓰지 않는다.
+  // 국립중앙박물관은 2026-09-19에 천산대렵도(소장품 본관2094)를 받으며 늘렸다. 유형은 기관이 아니라 사진 한 장 단위로 확인한다.
   const credit=meta.credit||'';
-  const nuri=/공공누리 제1유형/.test(credit)&&/국가유산청/.test(credit);
+  const nuri=/공공누리 제1유형/.test(credit)&&/(국가유산청|국립중앙박물관)/.test(credit);
   const commons=/위키미디어 공용/.test(credit)&&/(CC0|CC BY|Public domain)/.test(credit);
   assert(nuri||commons,'Photo option must carry a usable attribution (공공누리 제1유형 or Commons CC0/CC BY): '+choice);
   assert(!/NC|비상업|ND|변경\s*금지|제4유형/.test(credit),'Non-commercial or no-derivative photo must not be used: '+choice);

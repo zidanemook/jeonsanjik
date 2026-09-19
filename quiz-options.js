@@ -59,7 +59,24 @@ globalThis.HERITAGE_PHOTOS={
   "김제 금산사 미륵전": {"src":"assets/heritage/gimje-geumsansa-mireukjeon-6341034.webp","alt":"3층으로 지붕을 겹겹이 올린 높은 나무 법당. 층마다 현판이 걸려 있고, 앞마당에 작은 돌탑과 곧게 뻗은 돌길이 있다.","credit":"본 저작물은 '국가유산청'에서 '2015년' 작성하여 공공누리 제1유형으로 개방한 '김제 금산사 미륵전_정면'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
   "청자 상감운학문 매병": {"src":"assets/heritage/cheongja-sanggam-unhak-maebyeong-commons.webp","alt":"잿빛 배경 앞의 옥빛 병. 어깨가 넓고 아래로 갈수록 좁아지는 몸통에 흰 구름과 날아가는 새 무늬가 흩어져 있고, 입이 작고 짧다.","credit":"위키미디어 공용의 '청자 상감 구름 학 무늬 매병 고려-靑磁象嵌雲鶴文梅甁 高麗-Maebyeong decorated with cranes and clouds MET DP240189.jpg' (CC0). 저작권 제한 없이 이용할 수 있습니다."},
   "청동 은입사 포류수금문 정병": {"src":"assets/heritage/cheongdong-eunipsa-jeongbyeong-1611509.webp","alt":"분홍빛 배경 앞의 청록색으로 녹슨 금속 물병. 가늘고 긴 대롱 모양 목과 옆으로 붙은 부리가 있고, 몸통에 늘어진 버드나무와 물가, 새 무늬가 가는 선으로 새겨져 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '청동 은입사 포류수금문 정병'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
-  "천마총 장니 천마도": {"src":"assets/heritage/gyeongju-cheonmachong-cheonmado-1611658.webp","alt":"어두운 바탕의 낡은 판에 흰 말 한 마리가 꼬리를 날리며 하늘을 달리는 그림. 둘레에 덩굴무늬 띠가 둘려 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '경주 천마총 장니 천마도'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."}
+  "천마총 장니 천마도": {"src":"assets/heritage/gyeongju-cheonmachong-cheonmado-1611658.webp","alt":"어두운 바탕의 낡은 판에 흰 말 한 마리가 꼬리를 날리며 하늘을 달리는 그림. 둘레에 덩굴무늬 띠가 둘려 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '경주 천마총 장니 천마도'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  // 2026-09-19 추가 — 사진 고르기 문항 보강분 16장(대장: assets/heritage/CREDITS.md · docs/IMAGE-LICENSE-LEDGER.md).
+  "금동 미륵보살 반가 사유상(국보 78호)": {"src":"assets/heritage/geumdong-mireuk-banga-78-6497138.webp","alt":"머리에 잔가지처럼 뾰족뾰족 솟은 높은 관을 쓰고 걸상에 앉아 한쪽 발을 반대쪽 무릎 위에 올린 금속 상. 오른손 손가락 끝을 뺨 가까이 대고 고개를 살짝 숙였으며, 어깨에서 내려온 옷자락과 무릎 아래 주름이 발판까지 층층이 흘러내린다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '국보_금동미륵보살반가사유상78-1_문화재대관(국보)'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "금동 미륵보살 반가 사유상(국보 83호)": {"src":"assets/heritage/geumdong-mireuk-banga-83-6497374.webp","alt":"봉우리 셋이 나란히 솟은 낮고 단순한 관을 쓰고, 윗몸에는 옷을 걸치지 않은 채 걸상에 앉아 한쪽 발을 반대쪽 무릎에 올린 금빛 상. 손가락을 뺨 가까이 가져가 고개를 기울였고, 무릎 아래로 넓은 옷 주름이 받침까지 흘러내린다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '국보_금동미륵보살반가사유상83-1_문화재대관(국보)'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "사신도(강서대묘 현무)": {"src":"assets/heritage/gangseodaemyo-sasindo-hyeonmu-commons.webp","alt":"무덤 벽에 그린 그림. 거북 등딱지를 두른 네 발 짐승과 기다란 뱀이 서로 몸을 휘감은 채 얼굴을 맞대고 있다. 바탕은 누렇게 바랬고 위쪽에서 물이 흘러내린 자국이 세로로 여러 줄 나 있다.","credit":"위키미디어 공용의 '현무 조선고적도보.jpg' (Public domain, 조선고적도보 2권). 저작권 제한 없이 이용할 수 있습니다."},
+  "광개토 대왕릉비": {"src":"assets/heritage/gwanggaeto-daewangneungbi-commons.webp","alt":"유리창으로 둘러싼 전각 안에 홀로 세워 놓은 아주 큰 네모기둥 모양의 잿빛 자연석. 다듬지 않은 듯 표면이 거칠고 위아래 굵기가 비슷하며, 둘레에는 붉은 줄이 쳐져 있다.","credit":"위키미디어 공용의 '20230605 Stela for Gwanggaeto.jpg' (촬영: Yumeto)을 CC BY-SA 4.0 조건에 따라 이용하였습니다."},
+  "천산대렵도": {"src":"assets/heritage/cheonsan-daeryeopdo-nmk-bon2094.webp","alt":"부채꼴로 잘려 나온 비단 조각에 그린 그림. 바위산과 나무 사이로 말을 탄 사람들이 여럿 흩어져 있고, 가운데에는 초록 옷에 붉은 안장을 얹은 말을 탄 인물이 크게 그려져 있다. 바탕은 어둡게 삭았고 세로로 잔금이 많다.","credit":"본 저작물은 '국립중앙박물관'에서 작성하여 공공누리 제1유형으로 개방한 '천산(天山)에서의 수렵'을 이용하였으며, 해당 저작물은 '국립중앙박물관, www.museum.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "무구정광대다라니경": {"src":"assets/heritage/mugujeonggwang-daedaranigyeong-replica-commons.webp","alt":"가로로 아주 길게 펼친 누런 두루마리 종이. 한자가 세로줄로 빽빽하게 찍혀 있고, 종이는 여러 장을 옆으로 이어 붙였으며 위아래 가장자리가 낡아 울퉁불퉁하다. 박물관에 전시된 복제품을 찍은 사진이다.","credit":"위키미디어 공용의 'Mugujeonggwang daedaranigyeong (replica…) - DSC00801.JPG' (CC0, 촬영 Daderot). 저작권 제한 없이 이용할 수 있습니다."},
+  "합천 해인사 장경판전": {"src":"assets/heritage/hapcheon-haeinsa-janggyeongpanjeon-commons.webp","alt":"산속 절 마당 양쪽에 길게 늘어선 나무 건물. 흙벽에는 위아래로 크기가 다른 나무 살창이 줄지어 뚫려 있고, 기둥과 문짝은 꾸밈 없이 투박하며 지붕에는 기와를 얹었다. 마당 건너편에도 같은 모양의 건물이 마주 서 있다.","credit":"위키미디어 공용의 '20170812.해인사 장경판전(Haeinsa Janggyeong Panjeon).02.jpg' (촬영: SpongeFan0304)을 CC BY-SA 4.0 조건에 따라 이용하였습니다."},
+  "단양 적성비": {"src":"assets/heritage/danyang-sinra-jeokseongbi-1612181.webp","alt":"붉은 기둥과 살을 짜 올린 보호각 안에 세운 회색 돌판. 위쪽 양 귀퉁이가 크게 깨져 나가 아래는 넓고 위는 좁은 삼각에 가까운 모양이며, 앞면 가득 작은 한자가 줄지어 새겨져 있다. 연꽃잎을 빙 두른 네모 받침돌 위에 서 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '단양 신라 적성비'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "북한산 순수비": {"src":"assets/heritage/bukhansan-jinheungwang-sunsubi-1611462.webp","alt":"전시실 붉은 벽 앞에 세운 누르스름한 화강암 판돌. 위쪽은 네모반듯하지만 아래쪽 한 귀퉁이가 비스듬히 떨어져 나갔고, 가운데를 가로지르는 금이 크게 갔으며 표면이 닳아 글자가 거의 보이지 않는다. 층이 진 네모 받침돌 위에 놓여 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '서울 북한산 신라 진흥왕 순수비'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "김유신 묘": {"src":"assets/heritage/gyeongju-gimyusinmyo-6282534.webp","alt":"잔디를 입힌 둥근 흙무덤을 돌기둥과 가로대로 짜 올린 난간이 빙 둘러싸고 있다. 난간 안쪽 아래에는 판판한 돌을 촘촘히 세워 두른 띠가 돌아가고, 무덤 앞 모래마당에는 네모난 돌 상이 놓여 있다. 뒤로는 소나무와 단풍나무가 우거져 있다.","credit":"본 저작물은 '국가유산청'에서 '2015년' 작성하여 공공누리 제1유형으로 개방한 '경주 김유신묘'를 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "초조대장경": {"src":"assets/heritage/chojobon-daebojeokgyeong-6528062.webp","alt":"흰 바닥에 비스듬히 놓고 반쯤 펼친 두루마리. 누런 종이에 한자가 세로줄로 빽빽하게 찍혀 있고, 왼쪽은 아직 둥글게 말려 있으며 종이 곳곳에 갈색 얼룩과 찢긴 자국이 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '국보_초조본 대보적경 권59_(1)_문화재대관(국보)'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "청자 투각 칠보무늬 향로": {"src":"assets/heritage/cheongja-tugak-chilbo-1611513.webp","alt":"옅은 푸른 배경 앞에 놓인 옥빛 도자기. 맨 위는 둥근 고리무늬를 빙 둘러 뚫어 새긴 공 모양이고, 그 아래 몸통은 여러 겹의 꽃잎으로 감쌌으며, 맨 아래 넓은 받침을 작은 짐승 세 마리가 엎드려 떠받치고 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '청자 투각칠보문뚜껑 향로'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "경주 부부총 금귀걸이": {"src":"assets/heritage/gyeongju-bubuchong-gwigeori-1611503.webp","alt":"옅은 갈색 배경 앞에 나란히 놓인 금빛 장식 한 쌍. 위쪽에 굵고 둥근 고리가 있고 겉면에 좁쌀 같은 금 알갱이로 무늬를 촘촘히 붙였으며, 아래로 작은 나뭇잎 모양 달개가 여러 겹 늘어지고 끝에 큰 잎사귀 모양 장식이 매달려 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '경주 부부총 금귀걸이(태환이식)'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "팔만대장경판": {"src":"assets/heritage/hapcheon-haeinsa-daejanggyeongpan-1612969.webp","alt":"나무 시렁에 촘촘히 꽂아 세워 둔 검붉은 나무판 수백 장. 판마다 옆면에 한자가 세로로 적혀 있고 위쪽 끝에 금속 띠와 못이 박혀 있으며, 아래쪽에는 작은 흰 종이표가 줄줄이 붙어 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '합천 해인사 대장경판'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "구례 화엄사 4사자 3층 석탑": {"src":"assets/heritage/gurye-hwaeomsa-sasaja-1612430.webp","alt":"숲을 뒤로 하고 잔디밭에 선 세 층의 화강암 탑. 아래 기단 네 귀퉁이에 짐승 네 마리가 앉아 윗돌을 머리로 떠받치고 그 가운데에 사람 모양 상이 서 있으며, 기단 옆면에는 악기를 든 인물들이 얕게 새겨져 있다. 앞쪽 잔디에 네모난 돌 하나가 따로 놓여 있다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '구례 화엄사 사사자 삼층석탑 정면'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."},
+  "익산 왕궁리 5층 석탑": {"src":"assets/heritage/iksan-wanggungni-otap-1612379.webp","alt":"잔디 둔덕 위 낮은 돌난간 안에 홀로 선 다섯 층의 석탑. 지붕돌이 얇고 넓게 뻗어 네 귀가 살짝 들렸고, 몸돌 겉면에는 세로로 기둥 모양을 새겼으며 아래 기단이 낮고 단정하다. 뒤편 하늘은 뿌옇다.","credit":"본 저작물은 '국가유산청'에서 작성하여 공공누리 제1유형으로 개방한 '익산 왕궁리 오층석탑'을 이용하였으며, 해당 저작물은 '국가유산청, www.khs.go.kr'에서 무료로 다운받으실 수 있습니다."}
 };
 // 보기 글자만 다르고 같은 국가유산인 문항은 사진 한 장을 함께 쓴다.
 HERITAGE_PHOTOS["경주 불국사 3층 석탑"]=HERITAGE_PHOTOS["경주 불국사 3층 석탑(석가탑)"];
@@ -9252,6 +9269,287 @@ globalThis.QUIZ_OPTIONS={
       "『상정고금예문』이 처음으로 편찬되었다."
     ],
     "correctIndex": 0
+  },
+  // 2026-09-19 — 사진 고르기 70문항. 보기 넷이 모두 사진이고, 오답 사진은 다른 나라·다른 시대에서 골랐다.
+  "heritagephoto-hist-20260919-001": {
+    "choices": ["익산 미륵사지 석탑","경주 분황사 모전 석탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["익산 미륵사지 석탑","경주 분황사 모전 석탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-002": {
+    "choices": ["부여 정림사지 5층 석탑","경주 감은사지 동·서 3층 석탑","여주 고달사지 승탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["부여 정림사지 5층 석탑","경주 감은사지 동·서 3층 석탑","여주 고달사지 승탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-003": {
+    "choices": ["익산 왕궁리 5층 석탑","경주 분황사 모전 석탑","충주 정토사지 홍법국사탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["익산 왕궁리 5층 석탑","경주 분황사 모전 석탑","충주 정토사지 홍법국사탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-004": {
+    "choices": ["경주 분황사 모전 석탑","익산 미륵사지 석탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["경주 분황사 모전 석탑","익산 미륵사지 석탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-005": {
+    "choices": ["경주 황룡사지 목탑 터","익산 미륵사지 석탑","여주 고달사지 승탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["경주 황룡사지 목탑 터","익산 미륵사지 석탑","여주 고달사지 승탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-006": {
+    "choices": ["경주 감은사지 동·서 3층 석탑","부여 정림사지 5층 석탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["경주 감은사지 동·서 3층 석탑","부여 정림사지 5층 석탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-007": {
+    "choices": ["경주 불국사 3층 석탑(석가탑)","익산 미륵사지 석탑","경주 분황사 모전 석탑","개성 경천사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["경주 불국사 3층 석탑(석가탑)","익산 미륵사지 석탑","경주 분황사 모전 석탑","개성 경천사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-008": {
+    "choices": ["경주 불국사 다보탑","부여 정림사지 5층 석탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["경주 불국사 다보탑","부여 정림사지 5층 석탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-009": {
+    "choices": ["구례 화엄사 4사자 3층 석탑","부여 정림사지 5층 석탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["구례 화엄사 4사자 3층 석탑","부여 정림사지 5층 석탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-010": {
+    "choices": ["화순 쌍봉사 철감선사탑","익산 미륵사지 석탑","여주 고달사지 승탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["화순 쌍봉사 철감선사탑","익산 미륵사지 석탑","여주 고달사지 승탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-011": {
+    "choices": ["평창 월정사 8각 9층 석탑","부여 정림사지 5층 석탑","경주 분황사 모전 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["평창 월정사 8각 9층 석탑","부여 정림사지 5층 석탑","경주 분황사 모전 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-012": {
+    "choices": ["개성 경천사지 10층 석탑","익산 미륵사지 석탑","경주 감은사지 동·서 3층 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["개성 경천사지 10층 석탑","익산 미륵사지 석탑","경주 감은사지 동·서 3층 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-013": {
+    "choices": ["여주 고달사지 승탑","화순 쌍봉사 철감선사탑","부여 정림사지 5층 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["여주 고달사지 승탑","화순 쌍봉사 철감선사탑","부여 정림사지 5층 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-014": {
+    "choices": ["충주 정토사지 홍법국사탑","화순 쌍봉사 철감선사탑","익산 미륵사지 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["충주 정토사지 홍법국사탑","화순 쌍봉사 철감선사탑","익산 미륵사지 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-015": {
+    "choices": ["금동 연가 7년명 여래 입상","서산 용현리 마애 여래 삼존상","경주 배동 석조 여래 삼존 입상","논산 관촉사 석조 미륵보살 입상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["금동 연가 7년명 여래 입상","서산 용현리 마애 여래 삼존상","경주 배동 석조 여래 삼존 입상","논산 관촉사 석조 미륵보살 입상"])
+  },
+  "heritagephoto-hist-20260919-016": {
+    "choices": ["서산 용현리 마애 여래 삼존상","금동 연가 7년명 여래 입상","경주 석굴암 본존불","안동 이천동 마애 여래 입상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["서산 용현리 마애 여래 삼존상","금동 연가 7년명 여래 입상","경주 석굴암 본존불","안동 이천동 마애 여래 입상"])
+  },
+  "heritagephoto-hist-20260919-017": {
+    "choices": ["경주 배동 석조 여래 삼존 입상","서산 용현리 마애 여래 삼존상","경주 석굴암 본존불","파주 용미리 마애 이불 입상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["경주 배동 석조 여래 삼존 입상","서산 용현리 마애 여래 삼존상","경주 석굴암 본존불","파주 용미리 마애 이불 입상"])
+  },
+  "heritagephoto-hist-20260919-018": {
+    "choices": ["금동 미륵보살 반가 사유상(국보 83호)","금동 연가 7년명 여래 입상","경주 석굴암 본존불","영주 부석사 소조 여래 좌상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["금동 미륵보살 반가 사유상(국보 83호)","금동 연가 7년명 여래 입상","경주 석굴암 본존불","영주 부석사 소조 여래 좌상"])
+  },
+  "heritagephoto-hist-20260919-019": {
+    "choices": ["금동 미륵보살 반가 사유상(국보 78호)","서산 용현리 마애 여래 삼존상","하남 하사창동 철조 석가여래 좌상","철원 도피안사 철조 비로자나불 좌상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["금동 미륵보살 반가 사유상(국보 78호)","서산 용현리 마애 여래 삼존상","하남 하사창동 철조 석가여래 좌상","철원 도피안사 철조 비로자나불 좌상"])
+  },
+  "heritagephoto-hist-20260919-020": {
+    "choices": ["경주 석굴암 본존불","금동 연가 7년명 여래 입상","서산 용현리 마애 여래 삼존상","논산 관촉사 석조 미륵보살 입상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["경주 석굴암 본존불","금동 연가 7년명 여래 입상","서산 용현리 마애 여래 삼존상","논산 관촉사 석조 미륵보살 입상"])
+  },
+  "heritagephoto-hist-20260919-021": {
+    "choices": ["철원 도피안사 철조 비로자나불 좌상","하남 하사창동 철조 석가여래 좌상","경주 배동 석조 여래 삼존 입상","서산 용현리 마애 여래 삼존상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["철원 도피안사 철조 비로자나불 좌상","하남 하사창동 철조 석가여래 좌상","경주 배동 석조 여래 삼존 입상","서산 용현리 마애 여래 삼존상"])
+  },
+  "heritagephoto-hist-20260919-022": {
+    "choices": ["하남 하사창동 철조 석가여래 좌상","철원 도피안사 철조 비로자나불 좌상","경주 석굴암 본존불","서산 용현리 마애 여래 삼존상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["하남 하사창동 철조 석가여래 좌상","철원 도피안사 철조 비로자나불 좌상","경주 석굴암 본존불","서산 용현리 마애 여래 삼존상"])
+  },
+  "heritagephoto-hist-20260919-023": {
+    "choices": ["논산 관촉사 석조 미륵보살 입상","경주 배동 석조 여래 삼존 입상","경주 석굴암 본존불","금동 연가 7년명 여래 입상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["논산 관촉사 석조 미륵보살 입상","경주 배동 석조 여래 삼존 입상","경주 석굴암 본존불","금동 연가 7년명 여래 입상"])
+  },
+  "heritagephoto-hist-20260919-024": {
+    "choices": ["안동 이천동 마애 여래 입상","서산 용현리 마애 여래 삼존상","경주 석굴암 본존불","경주 배동 석조 여래 삼존 입상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["안동 이천동 마애 여래 입상","서산 용현리 마애 여래 삼존상","경주 석굴암 본존불","경주 배동 석조 여래 삼존 입상"])
+  },
+  "heritagephoto-hist-20260919-025": {
+    "choices": ["파주 용미리 마애 이불 입상","서산 용현리 마애 여래 삼존상","경주 배동 석조 여래 삼존 입상","금동 연가 7년명 여래 입상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["파주 용미리 마애 이불 입상","서산 용현리 마애 여래 삼존상","경주 배동 석조 여래 삼존 입상","금동 연가 7년명 여래 입상"])
+  },
+  "heritagephoto-hist-20260919-026": {
+    "choices": ["영주 부석사 소조 여래 좌상","경주 석굴암 본존불","철원 도피안사 철조 비로자나불 좌상","금동 연가 7년명 여래 입상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["영주 부석사 소조 여래 좌상","경주 석굴암 본존불","철원 도피안사 철조 비로자나불 좌상","금동 연가 7년명 여래 입상"])
+  },
+  "heritagephoto-hist-20260919-027": {
+    "choices": ["안동 봉정사 극락전","구례 화엄사 각황전","김제 금산사 미륵전","합천 해인사 장경판전"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["안동 봉정사 극락전","구례 화엄사 각황전","김제 금산사 미륵전","합천 해인사 장경판전"])
+  },
+  "heritagephoto-hist-20260919-028": {
+    "choices": ["영주 부석사 무량수전","보은 법주사 팔상전","김제 금산사 미륵전","합천 해인사 장경판전"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["영주 부석사 무량수전","보은 법주사 팔상전","김제 금산사 미륵전","합천 해인사 장경판전"])
+  },
+  "heritagephoto-hist-20260919-029": {
+    "choices": ["예산 수덕사 대웅전","구례 화엄사 각황전","보은 법주사 팔상전","합천 해인사 장경판전"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["예산 수덕사 대웅전","구례 화엄사 각황전","보은 법주사 팔상전","합천 해인사 장경판전"])
+  },
+  "heritagephoto-hist-20260919-030": {
+    "choices": ["금동 대향로","천마총 금관","청동 은입사 포류수금문 정병","상원사 동종"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["금동 대향로","천마총 금관","청동 은입사 포류수금문 정병","상원사 동종"])
+  },
+  "heritagephoto-hist-20260919-031": {
+    "choices": ["칠지도","경주 부부총 금귀걸이","청동 은입사 포류수금문 정병","성덕대왕 신종"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["칠지도","경주 부부총 금귀걸이","청동 은입사 포류수금문 정병","성덕대왕 신종"])
+  },
+  "heritagephoto-hist-20260919-032": {
+    "choices": ["무령왕릉 금제 관식","천마총 금관","나전경함","경주 부부총 금귀걸이"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["무령왕릉 금제 관식","천마총 금관","나전경함","경주 부부총 금귀걸이"])
+  },
+  "heritagephoto-hist-20260919-033": {
+    "choices": ["산수무늬 벽돌","도기 기마인물형 명기","청자 투각 칠보무늬 향로","분청사기 박지철채모란문 자라병"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["산수무늬 벽돌","도기 기마인물형 명기","청자 투각 칠보무늬 향로","분청사기 박지철채모란문 자라병"])
+  },
+  "heritagephoto-hist-20260919-034": {
+    "choices": ["무령왕릉 지석","광개토 대왕릉비","단양 적성비","북한산 순수비"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["무령왕릉 지석","광개토 대왕릉비","단양 적성비","북한산 순수비"])
+  },
+  "heritagephoto-hist-20260919-035": {
+    "choices": ["천마총 금관","무령왕릉 금제 관식","청동 은입사 포류수금문 정병","상원사 동종"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["천마총 금관","무령왕릉 금제 관식","청동 은입사 포류수금문 정병","상원사 동종"])
+  },
+  "heritagephoto-hist-20260919-036": {
+    "choices": ["경주 부부총 금귀걸이","칠지도","나전경함","상원사 동종"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["경주 부부총 금귀걸이","칠지도","나전경함","상원사 동종"])
+  },
+  "heritagephoto-hist-20260919-037": {
+    "choices": ["도기 기마인물형 명기","산수무늬 벽돌","청자 참외모양 병","분청사기 박지철채모란문 자라병"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["도기 기마인물형 명기","산수무늬 벽돌","청자 참외모양 병","분청사기 박지철채모란문 자라병"])
+  },
+  "heritagephoto-hist-20260919-038": {
+    "choices": ["상원사 동종","성덕대왕 신종","금동 대향로","청동 은입사 포류수금문 정병"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["상원사 동종","성덕대왕 신종","금동 대향로","청동 은입사 포류수금문 정병"])
+  },
+  "heritagephoto-hist-20260919-039": {
+    "choices": ["성덕대왕 신종","상원사 동종","금동 대향로","나전경함"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["성덕대왕 신종","상원사 동종","금동 대향로","나전경함"])
+  },
+  "heritagephoto-hist-20260919-040": {
+    "choices": ["청동 은입사 포류수금문 정병","금동 대향로","천마총 금관","상원사 동종"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["청동 은입사 포류수금문 정병","금동 대향로","천마총 금관","상원사 동종"])
+  },
+  "heritagephoto-hist-20260919-041": {
+    "choices": ["나전경함","금동 대향로","경주 부부총 금귀걸이","성덕대왕 신종"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["나전경함","금동 대향로","경주 부부총 금귀걸이","성덕대왕 신종"])
+  },
+  "heritagephoto-hist-20260919-042": {
+    "choices": ["청자 참외모양 병","도기 기마인물형 명기","백자 달항아리","분청사기 박지철채모란문 자라병"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["청자 참외모양 병","도기 기마인물형 명기","백자 달항아리","분청사기 박지철채모란문 자라병"])
+  },
+  "heritagephoto-hist-20260919-043": {
+    "choices": ["청자 상감운학문 매병","도기 기마인물형 명기","백자 청화매조죽문 유개항아리","분청사기 박지철채모란문 자라병"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["청자 상감운학문 매병","도기 기마인물형 명기","백자 청화매조죽문 유개항아리","분청사기 박지철채모란문 자라병"])
+  },
+  "heritagephoto-hist-20260919-044": {
+    "choices": ["청자 상감모란문 표주박모양 주전자","도기 기마인물형 명기","백자 달항아리","분청사기 박지철채모란문 자라병"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["청자 상감모란문 표주박모양 주전자","도기 기마인물형 명기","백자 달항아리","분청사기 박지철채모란문 자라병"])
+  },
+  "heritagephoto-hist-20260919-045": {
+    "choices": ["청자 투각 칠보무늬 향로","금동 대향로","도기 기마인물형 명기","백자 달항아리"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["청자 투각 칠보무늬 향로","금동 대향로","도기 기마인물형 명기","백자 달항아리"])
+  },
+  "heritagephoto-hist-20260919-046": {
+    "choices": ["사신도(강서대묘 현무)","천마총 장니 천마도","수월관음도","김홍도 씨름"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["사신도(강서대묘 현무)","천마총 장니 천마도","수월관음도","김홍도 씨름"])
+  },
+  "heritagephoto-hist-20260919-047": {
+    "choices": ["천마총 장니 천마도","사신도(강서대묘 현무)","천산대렵도","몽유도원도"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["천마총 장니 천마도","사신도(강서대묘 현무)","천산대렵도","몽유도원도"])
+  },
+  "heritagephoto-hist-20260919-048": {
+    "choices": ["수월관음도","사신도(강서대묘 현무)","천마총 장니 천마도","김홍도 씨름"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["수월관음도","사신도(강서대묘 현무)","천마총 장니 천마도","김홍도 씨름"])
+  },
+  "heritagephoto-hist-20260919-049": {
+    "choices": ["천산대렵도","사신도(강서대묘 현무)","천마총 장니 천마도","인왕제색도"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["천산대렵도","사신도(강서대묘 현무)","천마총 장니 천마도","인왕제색도"])
+  },
+  "heritagephoto-hist-20260919-050": {
+    "choices": ["광개토 대왕릉비","단양 적성비","무령왕릉 지석","북한산 순수비"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["광개토 대왕릉비","단양 적성비","무령왕릉 지석","북한산 순수비"])
+  },
+  "heritagephoto-hist-20260919-051": {
+    "choices": ["단양 적성비","광개토 대왕릉비","무령왕릉 지석","북한산 순수비"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["단양 적성비","광개토 대왕릉비","무령왕릉 지석","북한산 순수비"])
+  },
+  "heritagephoto-hist-20260919-052": {
+    "choices": ["북한산 순수비","광개토 대왕릉비","무령왕릉 지석","단양 적성비"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["북한산 순수비","광개토 대왕릉비","무령왕릉 지석","단양 적성비"])
+  },
+  "heritagephoto-hist-20260919-053": {
+    "choices": ["김유신 묘","경주 황룡사지 목탑 터","광개토 대왕릉비","무령왕릉 지석"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["김유신 묘","경주 황룡사지 목탑 터","광개토 대왕릉비","무령왕릉 지석"])
+  },
+  "heritagephoto-hist-20260919-054": {
+    "choices": ["무구정광대다라니경","초조대장경","직지심체요절","팔만대장경판"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["무구정광대다라니경","초조대장경","직지심체요절","팔만대장경판"])
+  },
+  "heritagephoto-hist-20260919-055": {
+    "choices": ["초조대장경","무구정광대다라니경","몽유도원도","인왕제색도"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["초조대장경","무구정광대다라니경","몽유도원도","인왕제색도"])
+  },
+  "heritagephoto-hist-20260919-056": {
+    "choices": ["팔만대장경판","무구정광대다라니경","합천 해인사 장경판전","몽유도원도"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["팔만대장경판","무구정광대다라니경","합천 해인사 장경판전","몽유도원도"])
+  },
+  "heritagephoto-hist-20260919-057": {
+    "choices": ["직지심체요절","무구정광대다라니경","몽유도원도","인왕제색도"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["직지심체요절","무구정광대다라니경","몽유도원도","인왕제색도"])
+  },
+  "heritagephoto-hist-20260919-058": {
+    "choices": ["경주 첨성대","익산 미륵사지 석탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["경주 첨성대","익산 미륵사지 석탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-059": {
+    "choices": ["익산 미륵사지 석탑","경주 불국사 다보탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["익산 미륵사지 석탑","경주 불국사 다보탑","평창 월정사 8각 9층 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-060": {
+    "choices": ["금동 대향로","천마총 금관","사신도(강서대묘 현무)","청자 상감운학문 매병"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["금동 대향로","천마총 금관","사신도(강서대묘 현무)","청자 상감운학문 매병"])
+  },
+  "heritagephoto-hist-20260919-061": {
+    "choices": ["천마총 금관","무령왕릉 금제 관식","나전경함","성덕대왕 신종"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["천마총 금관","무령왕릉 금제 관식","나전경함","성덕대왕 신종"])
+  },
+  "heritagephoto-hist-20260919-062": {
+    "choices": ["산수무늬 벽돌","도기 기마인물형 명기","청자 참외모양 병","백자 달항아리"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["산수무늬 벽돌","도기 기마인물형 명기","청자 참외모양 병","백자 달항아리"])
+  },
+  "heritagephoto-hist-20260919-063": {
+    "choices": ["평창 월정사 8각 9층 석탑","익산 미륵사지 석탑","경주 감은사지 동·서 3층 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["평창 월정사 8각 9층 석탑","익산 미륵사지 석탑","경주 감은사지 동·서 3층 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-064": {
+    "choices": ["경주 불국사 다보탑","부여 정림사지 5층 석탑","개성 경천사지 10층 석탑","서울 원각사지 10층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["경주 불국사 다보탑","부여 정림사지 5층 석탑","개성 경천사지 10층 석탑","서울 원각사지 10층 석탑"])
+  },
+  "heritagephoto-hist-20260919-065": {
+    "choices": ["팔만대장경판","무구정광대다라니경","합천 해인사 장경판전","인왕제색도"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["팔만대장경판","무구정광대다라니경","합천 해인사 장경판전","인왕제색도"])
+  },
+  "heritagephoto-hist-20260919-066": {
+    "choices": ["직지심체요절","무구정광대다라니경","김홍도 씨름","몽유도원도"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["직지심체요절","무구정광대다라니경","김홍도 씨름","몽유도원도"])
+  },
+  "heritagephoto-hist-20260919-067": {
+    "choices": ["사신도(강서대묘 현무)","금동 대향로","천마총 금관","청자 참외모양 병"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["사신도(강서대묘 현무)","금동 대향로","천마총 금관","청자 참외모양 병"])
+  },
+  "heritagephoto-hist-20260919-068": {
+    "choices": ["수월관음도","사신도(강서대묘 현무)","천마총 장니 천마도","몽유도원도"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["수월관음도","사신도(강서대묘 현무)","천마총 장니 천마도","몽유도원도"])
+  },
+  "heritagephoto-hist-20260919-069": {
+    "choices": ["경주 첨성대","부여 정림사지 5층 석탑","광개토 대왕릉비","평창 월정사 8각 9층 석탑"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["경주 첨성대","부여 정림사지 5층 석탑","광개토 대왕릉비","평창 월정사 8각 9층 석탑"])
+  },
+  "heritagephoto-hist-20260919-070": {
+    "choices": ["논산 관촉사 석조 미륵보살 입상","서산 용현리 마애 여래 삼존상","경주 석굴암 본존불","금동 연가 7년명 여래 입상"],
+    "correctIndex": 0, "choiceImages": HERITAGE_PHOTO_SET(["논산 관촉사 석조 미륵보살 입상","서산 용현리 마애 여래 삼존상","경주 석굴암 본존불","금동 연가 7년명 여래 입상"])
   }
 };
 // 국사 외우는 비결(v99, 2026-09-17) — 한국사 대상 87개마다 외우는 말 블록 하나(두문자·새 단어·글자 풀이·장면·이야기 가운데 대상에 맞는 한 가지).
