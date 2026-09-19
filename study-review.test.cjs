@@ -10,7 +10,7 @@ assert.equal(new Set(options.choices).size,options.choices.length,'같은 보기
 assert.equal(cards.get(id).answer,options.choices[options.correctIndex]);}
 }
 assert.equal(ids.size,catalog.total);for(const id of Object.keys(catalog.questions))assert(ids.has(id),'Unreachable practice question: '+id);
-for(const card of cards.values())if(/^(?:joseonearly-hist-20260919-|(?:study|summary)-hist-20260910-|summary-hist-20260911-|lecture-hist-20260911-|summary-hist-20260912-|(?:heritage|daily|photo|culture|goryeo)-hist-20260912-|goryeomid-hist-20260914-|goryeoforeign-hist-20260914-|goryeostyle-hist-20260915-|ancientstyle-hist-20260915-|nanbukstyle-hist-20260915-|goryeoecon-hist-20260915-|goryeoculture-hist-20260915-|goryeoculture2-hist-20260916-|typefill-hist-20260916-)/.test(card.id))assert(ids.has(card.id),'Summary question excluded from scope: '+card.id);
+for(const card of cards.values())if(/^(?:joseon(?:early|photo)-hist-20260919-|(?:study|summary)-hist-20260910-|summary-hist-20260911-|lecture-hist-20260911-|summary-hist-20260912-|(?:heritage|daily|photo|culture|goryeo)-hist-20260912-|goryeomid-hist-20260914-|goryeoforeign-hist-20260914-|goryeostyle-hist-20260915-|ancientstyle-hist-20260915-|nanbukstyle-hist-20260915-|goryeoecon-hist-20260915-|goryeoculture-hist-20260915-|goryeoculture2-hist-20260916-|typefill-hist-20260916-)/.test(card.id))assert(ids.has(card.id),'Summary question excluded from scope: '+card.id);
 // Textbook lecture ranges: every summary question sits in exactly one lecture, in catalog order.
 // 2026-09-16 사용자 지시: 따로 떠 있던 기출형 연습 범위 셋(선사~삼국·가야 / 통일 신라·발해·후삼국 / 고려)을 없애고 문제마다 실제 소속 강에 넣는다. 07·08강 덩어리도 둘로 나눈다.
 const lectures=JSON.parse(JSON.stringify(catalog.lectures)),inLecture=new Map();
@@ -29,7 +29,7 @@ EXAM_PLACEMENT['typefill-hist-20260916-']={"10":[28,41,49,68,69,78],"11":[31,34,
 const examLecture=new Map();for(const [prefix,byLecture]of Object.entries(EXAM_PLACEMENT))for(const [lecture,nums]of Object.entries(byLecture))for(const n of nums){const id=prefix+String(n).padStart(3,'0');assert(!examLecture.has(id),'Exam question placed twice: '+id);examLecture.set(id,lecture);}
 const GORYEO_EXAM_BY_SECTION={'고려 초기 정치':'10','고려 문벌 사회':'11','고려 무신 정권':'11','고려 대외 관계':'12','고려 후기 사회 변동':'12','고려의 멸망':'12'};
 const LECTURE_0708=/^(?:lecture-hist-20260911-|heritage-hist-20260912-|photo-hist-20260912-)/;
-const LECTURE_09=/^culture-hist-20260912-/,LECTURE_10=/^goryeo-hist-20260912-/,LECTURE_11=/^goryeomid-hist-20260914-/,LECTURE_12=/^goryeoforeign-hist-20260914-/,LECTURE_GORYEO_EXAM=/^goryeostyle-hist-20260915-/,LECTURE_ANCIENT_EXAM=/^ancientstyle-hist-20260915-/,LECTURE_NANBUK_EXAM=/^nanbukstyle-hist-20260915-/,LECTURE_13=/^goryeoecon-hist-20260915-/,LECTURE_14=/^goryeoculture-hist-20260915-/,LECTURE_15=/^goryeoculture2-hist-20260916-/,LECTURE_16=/^joseonearly-hist-20260919-/;
+const LECTURE_09=/^culture-hist-20260912-/,LECTURE_10=/^goryeo-hist-20260912-/,LECTURE_11=/^goryeomid-hist-20260914-/,LECTURE_12=/^goryeoforeign-hist-20260914-/,LECTURE_GORYEO_EXAM=/^goryeostyle-hist-20260915-/,LECTURE_ANCIENT_EXAM=/^ancientstyle-hist-20260915-/,LECTURE_NANBUK_EXAM=/^nanbukstyle-hist-20260915-/,LECTURE_13=/^goryeoecon-hist-20260915-/,LECTURE_14=/^goryeoculture-hist-20260915-/,LECTURE_15=/^goryeoculture2-hist-20260916-/,LECTURE_16=/^joseon(?:early|photo)-hist-20260919-/;
 function lecture0708(id){const source=cards.get(id).source;return /^08강 고대\(문화 1\)/.test(source)?'08':/^07강 고대\(경제, 사회\)/.test(source)?'07':'출처 표기 없음';}
 for(const [id,q]of Object.entries(catalog.questions)){
  const expected=/^typefill-hist-20260916-/.test(id)?examLecture.get(id):LECTURE_16.test(id)?'16':LECTURE_15.test(id)?'15':LECTURE_14.test(id)?'14':LECTURE_13.test(id)?'13':(LECTURE_ANCIENT_EXAM.test(id)||LECTURE_NANBUK_EXAM.test(id))?examLecture.get(id):LECTURE_GORYEO_EXAM.test(id)?GORYEO_EXAM_BY_SECTION[q.section]:LECTURE_12.test(id)?'12':LECTURE_11.test(id)?'11':LECTURE_10.test(id)?'10':LECTURE_09.test(id)?'09':LECTURE_0708.test(id)?lecture0708(id):['통일 신라','발해','후삼국'].includes(q.section)?'06':'02-05';
@@ -40,7 +40,7 @@ const ids0708=Object.keys(catalog.questions).filter(id=>LECTURE_0708.test(id));a
 assert.equal(ids0708.filter(id=>inLecture.get(id)==='07').length,29,'07강 사실형 문항 수');assert.equal(ids0708.filter(id=>inLecture.get(id)==='08').length,44,'08강 사실형 문항 수');
 assert(ids0708.every(id=>catalog.questions[id].number>225),'New questions continue after the earlier catalog numbers');
 assert(catalog.sets.filter(s=>s.title.startsWith('07·08강 고대 경제·사회·문화')).length===7);
-assert.deepEqual(lectures.map(l=>l.ids.length),[220,127,40,57,54,66,125,187,68,50,63,80],'강별 문항 수(기출형·유형 보강 포함)');
+assert.deepEqual(lectures.map(l=>l.ids.length),[220,127,40,57,54,66,125,187,68,50,63,88],'강별 문항 수(기출형·유형 보강 포함)');
 // 강 안에서는 사실형 문항 뒤에 기출형이 모인다(번호가 그렇게 이어져 있다). 13·14강은 처음부터 섞여 있어 제외한다.
 for(const l of lectures.filter(l=>!['13','14','15','16'].includes(l.id))){const exam=l.ids.map(id=>/style-hist-20260915-|typefill-hist-20260916-/.test(id)),first=exam.indexOf(true);if(first>=0)assert(exam.slice(first).every(Boolean),'기출형은 강의 끝에 모인다: '+l.id);}
 const ids09=Object.keys(catalog.questions).filter(id=>LECTURE_09.test(id));assert.equal(ids09.length,33,'09강 사실형 문항 수');
@@ -130,16 +130,23 @@ assert.deepEqual(Array.from(catalog.sets.filter(s=>s.title.startsWith('선사~�
 assert.deepEqual(Array.from(catalog.sets.filter(s=>s.title.startsWith('통일 신라·발해·후삼국 기출형 연습')),s=>s.number),[100,101,102,103,104,105,106]);
 // Earlier saved selections retain the same membership after the expansion.
 for(let set=1;set<=5;set++)assert.deepEqual(Array.from(catalog.sets[set-1].ids),Array.from({length:8},(_,i)=>'study-hist-20260910-'+String((set-1)*8+i+1).padStart(2,'0')));
-// 16강(183쪽)은 교재 한 면의 사실 78개를 덮는 80문제(사실형 37 · 자료 제시 기출형 43)다. 조선이 처음 들어온 강이다.
-const ids16=Object.keys(catalog.questions).filter(id=>LECTURE_16.test(id));assert.equal(ids16.length,80,'16강 문항 수');
-assert.deepEqual(ids16,Array.from({length:80},(_,i)=>'joseonearly-hist-20260919-'+String(i+1).padStart(3,'0')));
-assert.deepEqual(ids16.map(id=>catalog.questions[id].number),Array.from({length:80},(_,i)=>1058+i),'16강 번호는 1058~1137');
+// 16강(183쪽)은 교재 한 면의 사실 78개를 덮는 88문제(사실형 37 · 자료 제시 기출형 43 · 사진 고르기 8)다. 조선이 처음 들어온 강이다.
+const ids16=Object.keys(catalog.questions).filter(id=>LECTURE_16.test(id));assert.equal(ids16.length,88,'16강 문항 수');
+assert.deepEqual(ids16,[...Array.from({length:80},(_,i)=>'joseonearly-hist-20260919-'+String(i+1).padStart(3,'0')),...Array.from({length:8},(_,i)=>'joseonphoto-hist-20260919-'+String(i+1).padStart(3,'0'))]);
+assert.deepEqual(ids16.map(id=>catalog.questions[id].number),Array.from({length:88},(_,i)=>1058+i),'16강 번호는 1058~1145');
 {const l16=lectures.at(-1);assert.equal(l16.id,'16');assert.deepEqual(Array.from(l16.ids),ids16,'16강 범위는 이 강의 문항만');}
 const SECTIONS_16=['조선 건국·통치 기반','사림과 사화','붕당의 형성'];
 for(const id of ids16)assert(SECTIONS_16.includes(catalog.questions[id].section),'16강 question outside the 조선 전기 sections: '+id);
 assert.deepEqual([...new Set(ids16.map(id=>catalog.questions[id].section))].sort(),[...SECTIONS_16].sort(),'16강 covers all three 조선 전기 sections');
 assert.deepEqual(Array.from(topics.list.find(t=>t.id==='joseon-early').sections),SECTIONS_16,'조선 전기 topic holds the 16강 section names');
-assert.equal(catalog.sets.filter(s=>s.title.startsWith('16강 조선 전기(정치)')).length,10);
+assert.equal(catalog.sets.filter(s=>s.title.startsWith('16강 조선 전기(정치)')).length,11);
+// 16강 사진 고르기 8문항: 네 보기가 모두 사진이고 오답 사진은 다른 나라·다른 시대(고구려·신라·고려)에서 왔다.
+{const photo16=ids16.filter(id=>ctx.QUIZ_OPTIONS[id].choiceImages);assert.equal(photo16.length,8,'16강 사진 보기 문항 수: '+photo16.length);
+ for(const id of photo16){const o=ctx.QUIZ_OPTIONS[id];assert.equal(Object.keys(o.choiceImages).length,o.choices.length,'Every option needs a photo: '+id);assert(!o.fixedOrder,'Photo options must still shuffle: '+id);
+  const srcs=new Set();for(const name of o.choices){const meta=o.choiceImages[name];assert(fs.existsSync(__dirname+'/'+meta.src),'Missing photo file: '+meta.src);assert(!srcs.has(meta.src),'Two options share one photo: '+meta.src);srcs.add(meta.src);
+   assert(/공공누리 제1유형|위키미디어 공용/.test(meta.credit),'Photo option without its attribution: '+name);assert(!meta.alt.includes(name),'Alt text must not name the option: '+name);}
+  assert(['경복궁','종묘','창덕궁'].includes(o.choices[o.correctIndex]),'16강 사진 문항의 정답은 조선 전기 건축: '+id);
+  for(const name of o.choices.filter((_,i)=>i!==o.correctIndex))assert(!['경복궁','종묘','창덕궁','서울 원각사지 10층 석탑','보은 법주사 팔상전','구례 화엄사 각황전','김제 금산사 미륵전','합천 해인사 장경판전','팔만대장경판','백자 달항아리','백자 청화매조죽문 유개항아리','분청사기 박지철채모란문 자라병','몽유도원도','인왕제색도','김홍도 씨름'].includes(name),'오답 사진은 다른 나라·다른 시대에서: '+name);}}
 // 사진 보기 문항: 네 보기가 모두 사진이고, 저장된 파일을 가리키며, 화면에 띄울 출처표시를 보기마다 들고 있어야 한다.
 const photoIds=Object.keys(catalog.questions).filter(id=>id.startsWith('photo-hist-20260912-'));
 assert.equal(photoIds.length,7,'Photo-option questions missing from the catalog');
