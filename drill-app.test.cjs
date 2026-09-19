@@ -29,7 +29,7 @@ ctx.fetch=url=>{fetched.push(url);if(failNextFetch){failNextFetch=false;return P
  const m=/^gichul\/([a-z0-9-]+)\.json$/.exec(url);if(!m)return Promise.reject(Error('unexpected fetch '+url));
  return Promise.resolve({ok:true,status:200,json:()=>Promise.resolve(require('./gichul-files.cjs').read(m[1]))});};
 const flush=()=>new Promise(r=>setImmediate(r));
-for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','drill.js','sync-core.js','study-credit.js','study-review-catalog.js','hanneung-topics.js','topics.js','app.js'])
+for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','drill.js','sync-core.js','study-credit.js','study-review-catalog.js','hanneung-topics.js','topics.js','memorize.js','app.js'])
  vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
 const run=code=>vm.runInContext(code,ctx);
 // 시작할 때는 회차 파일을 하나도 받지 않는다. 그래도 카드·과목 문항 수는 색인으로 모든 기출 문항을 센다.
@@ -315,6 +315,24 @@ assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에�
  assert.equal(run('data.cards.length'),before+missing.length,'없던 문제만 들어온다');
  run('installCorePack()');
  assert.equal(run('data.cards.length'),before+missing.length,'다시 불러도 같은 문제를 두 번 넣지 않는다');
+}
+// 외울 것은 과목 안에 있다(2026-09-19 사용자: "외울것들은 과목별로 분류해서 정리해라"). 과목 화면에 그 과목 목록만 세고, 눌러 연 목록에도 그 과목만 나온다.
+{
+ const titles=()=>nodes.get('#memorizeBody').all.map(n=>n._text).filter(Boolean);
+ run("go('subject','국어')");
+ assert.equal(run("$('#openMemorize').hidden"),false,'국어 화면에 외울 것이 보인다');
+ const koSets=run("MEMORIZE.sets.filter(s=>s.subject==='국어').length");
+ assert.equal(koSets,3,'국어 외울 것 목록 3개');
+ assert.ok(run("$('#memorizeHint').textContent").startsWith(koSets+'개 목록 · 61칸'),'설명줄: '+run("$('#memorizeHint').textContent"));
+ run("$('#openMemorize').onclick()");
+ assert.equal(run('view'),'memorize');assert.equal(run("$('#memorizeTitle').textContent"),'국어 · 외울 것');
+ const shown=titles();
+ assert.ok(shown.includes('정언 논리 용어 뜻')&&shown.includes('정언 논리 핵심'),'국어 목록이 나온다: '+shown.join(' | '));
+ assert.ok(!shown.some(t=>/왕 순서|어법 공식|외울 값/.test(t)),'다른 과목 목록은 섞이지 않는다: '+shown.join(' | '));
+ assert.ok(!shown.some(t=>t.includes('국어 · ')),'과목 화면 안이라 과목 이름을 되풀이하지 않는다');
+ run("go('subject','영어')");run("$('#openMemorize').onclick()");
+ const en=titles();assert.ok(en.includes('영어 어법 공식')&&!en.some(t=>t.startsWith('정언')),'영어 화면은 영어 목록만: '+en.join(' | '));
+ run("go('home','')");
 }
 console.log('PASS drill in app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source), home/subject/range/progress counts read "전체 N문제 · 지금 풀 차례 M문제" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, drill serves all '+total+' questions then repeats only the missed one, records stay normal, no same-day interval inflation; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
 })().catch(e=>{console.error(e);process.exit(1);});

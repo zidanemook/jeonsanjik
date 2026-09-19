@@ -345,14 +345,16 @@ function renderHome(){
  if(!list.children.length)list.append(elem('p',data.cards.length?'풀 수 있는 문제가 아직 없어요.':'문제를 불러오는 중입니다.'));
 }
 // 외울 것: 목록 화면(viewSubject 비어 있음) → 한 목록 화면(viewSubject = 목록 id). 가림·확인은 이 화면에서만 쓰고 저장하지 않는다.
+const MEMO_SCOPE='과목:';
 let memorizeShown=new Set();
 function renderMemorize(){
- const body=$('#memorizeBody'),set=MEMORIZE.get(viewSubject);body.replaceChildren();
- $('#memorizeTitle').textContent=set?set.title:'외울 것';
+ // viewSubject는 '과목:<과목 이름>'이면 그 과목의 목록 화면, 아니면 목록 하나의 id다.
+ const body=$('#memorizeBody'),subject=viewSubject.startsWith(MEMO_SCOPE)?viewSubject.slice(MEMO_SCOPE.length):'',set=subject?null:MEMORIZE.get(viewSubject);body.replaceChildren();
+ $('#memorizeTitle').textContent=set?set.title:subject?subject+' · 외울 것':'외울 것';
  if(!set){
   body.append(elem('p','가려 둔 칸을 먼저 떠올린 뒤 눌러서 확인해요. 공부한 범위까지만 들어 있어요.','status'));
-  const list=elem('div',undefined,'menu-list');
-  for(const s of MEMORIZE.sets)list.append(menuItem(s.title,s.subject+' · '+MEMORIZE.size(s)+'칸'+(data.memorizeLast===s.id?' · 마지막으로 본 목록':''),()=>{memorizeShown=new Set();if(data.memorizeLast!==s.id){data.memorizeLast=s.id;saveDraft();}go('memorize',s.id);}));
+  const list=elem('div',undefined,'menu-list'),sets=subject?MEMORIZE.sets.filter(x=>x.subject===subject):MEMORIZE.sets;
+  for(const x of sets)list.append(menuItem(x.title,(subject?'':x.subject+' · ')+MEMORIZE.size(x)+'칸'+(data.memorizeLast===x.id?' · 마지막으로 본 목록':''),()=>{memorizeShown=new Set();if(data.memorizeLast!==x.id){data.memorizeLast=x.id;saveDraft();}go('memorize',x.id);}));
   body.append(list);return;
  }
  const total=MEMORIZE.size(set),keys=[];
@@ -389,6 +391,9 @@ function renderSubject(){
  $('#subjectTitle').textContent=s;
  const newRoom=newCardRoom(cards);
  $('#subjectSummary').textContent=countLine(cards)+(newRoom?' (새 문제 '+newRoom+'개 포함)':'')+' · 오늘 푼 문제 '+solvedOn(ids,today)+'개';
+ // 외울 것은 과목 안에 둔다(2026-09-19 사용자: "외울것들은 과목별로 분류해서 정리해라 … 국어는 국어 클릭하면 거기서 외울것에 넣는방식").
+ const sets=MEMORIZE.sets.filter(x=>x.subject===s),memo=$('#openMemorize');memo.hidden=!sets.length;
+ if(sets.length)$('#memorizeHint').textContent=sets.length+'개 목록 · '+sets.reduce((n,x)=>n+MEMORIZE.size(x),0)+'칸 · '+sets.slice(0,3).map(x=>x.title).join(' · ')+(sets.length>3?' 외':'');
  const last=lastScope(s),open=sameScope(scopeOf(),last)&&(data.activePractice||data.quizFeedback);
  $('#resumeHint').textContent=last?scopeLabel(last)+(open?' · 풀던 문제부터':' · 이어서 풀기'):s+' 전체의 첫 문제부터 시작해요';
 }
@@ -629,7 +634,7 @@ else if(data.cards.some(c=>c.pendingAttempt)){const next=structuredClone(data);f
 $('#resumeStudy').onclick=()=>openScope(lastScope(viewSubject)||{subject:viewSubject},true);
 $('#chooseRange').onclick=()=>go('range');
 $('#openProgress').onclick=()=>go('progress');
-$('#openMemorize').onclick=()=>go('memorize','');
+$('#openMemorize').onclick=()=>go('memorize',MEMO_SCOPE+viewSubject);
 for(const b of document.querySelectorAll('[data-back]'))b.onclick=goBack;
 $('#quizBack').onclick=goBack;
 $('#drillToggle').onclick=toggleDrill;
