@@ -301,5 +301,20 @@ assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에�
  const bracket=shown('en-formula-071',0);assert.ok(flat(bracket.node).endsWith(' (어법상 옳음)'),'옮길 때 대괄호 문제는 어법 꼬리표: '+flat(bracket.node));
  assert.ok(flat(run('markedChoice("A b.",null)')).endsWith(' (어법상 옳음)'),'꼬리표를 넘기지 않은 옛 호출도 그대로');
 }
+// 새로 만든 문제가 '이미 쓰던 기기'에 들어오는지. 예전에는 팩 이름이 바뀔 때만 들어와서, 이름을 안 올린 배포의
+// 문항은 영영 안 들어왔다(2026-09-17 뒤 158문항). 이름이 그대로여도 기기에 없는 문제는 채워 넣어야 한다.
+{
+ const missing=['joseonearly-hist-20260919-001','joseonearly-hist-20260919-080','joseonphoto-hist-20260919-008','heritagephoto-hist-20260919-070'];
+ const has=()=>run('['+JSON.stringify(missing).slice(1,-1)+'].filter(id=>data.cards.some(c=>c.id===id)).length');
+ assert.equal(has(),missing.length,'새 문제는 기본으로 들어 있다');
+ run("(()=>{const s=structuredClone(data);s.cards=s.cards.filter(c=>!"+JSON.stringify(missing)+".includes(c.id));s.installedPacks=['core-2026-09-17-v37'];commit(s);})()");
+ assert.equal(has(),0,'대조군: 지운 상태');
+ const before=run('data.cards.length');
+ run('installCorePack()');
+ assert.equal(has(),missing.length,'팩 이름이 그대로여도 기기에 없는 새 문제가 들어온다');
+ assert.equal(run('data.cards.length'),before+missing.length,'없던 문제만 들어온다');
+ run('installCorePack()');
+ assert.equal(run('data.cards.length'),before+missing.length,'다시 불러도 같은 문제를 두 번 넣지 않는다');
+}
 console.log('PASS drill in app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source), home/subject/range/progress counts read "전체 N문제 · 지금 풀 차례 M문제" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, drill serves all '+total+' questions then repeats only the missed one, records stay normal, no same-day interval inflation; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
 })().catch(e=>{console.error(e);process.exit(1);});

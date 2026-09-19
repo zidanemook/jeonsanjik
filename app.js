@@ -616,7 +616,10 @@ function answerPractice(id,input){
 }
 // 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제 · 문제집 Day 1 · Day 2 · Day 3 · Day 4 · 문법 공식 훈련, 국어: 사고의 힘 논리 1~5장)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
 // 과목은 연습 문제에 적힌 subject를 따르고, 적혀 있지 않으면 영어다(기존 영어 문제는 subject를 따로 적지 않았다).
-function installCorePack(){const pack='core-2026-09-17-v37';if(data.installedPacks?.includes(pack))return;const ids=new Set(data.cards.map(c=>c.id));const cards=[...cardContent()].filter(([id])=>!ids.has(id)).map(([id,c])=>({...newCard(c),id}));commit({...data,cards:[...data.cards,...cards],installedPacks:[...new Set([...(data.installedPacks||[]),pack])]});}
+// 새로 만든 문제는 '팩 이름'이 바뀔 때만 기기에 들어왔다. 배포할 때 이름을 손으로 안 올리면 영영 안 들어온다 —
+// 2026-09-17 뒤에 만든 158문항(16강 80 · 문화유산 사진 70 · 궁궐 사진 8)이 그래서 이미 쓰던 기기에서 안 보였다.
+// 이제 이름을 보지 않고 대조한다. 기기에 없는 문제는 언제나 넣고, 넣을 것이 없으면 저장도 하지 않는다.
+function installCorePack(){const ids=new Set(data.cards.map(c=>c.id));const cards=[...cardContent()].filter(([id])=>!ids.has(id)).map(([id,c])=>({...newCard(c),id}));if(!cards.length)return;commit({...data,cards:[...data.cards,...cards]});}
 installCorePack();
 // 더는 없는 문제(v57에서 문제 하나씩으로 나눈 영어 규칙 카드 등)를 가리키던 풀이 화면·채점 화면만 비운다.
 // 그대로 두면 채점 화면이 남아 다음 답을 받지 못한다. 채점 기록(history)과 카드 일정은 한 건도 지우지 않는다.
