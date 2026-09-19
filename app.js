@@ -283,13 +283,13 @@ function markedList(quiz){const box=elem('div',undefined,'marked-choices');box.a
 // 기출형 자료 제시 문제는 발문 뒤 빈 줄 다음에 [자료 이름]으로 시작하는 자료를 둔다. 발문은 크게, 자료는 상자에 보통 글씨로 보여 준다.
 function questionNodes(text){const at=text.indexOf('\n\n[');if(at<0)return [elem('div',text,'question')];return [elem('div',text.slice(0,at),'question'),elem('div',text.slice(at+2),'question-clue')];}
 // 영어 해설 끝의 ‘외우는 공식’ 문단(규칙마다 같은 외우기 블록)은 상자로 따로 보여 준다. 줄 머리(외우는 공식·입으로 외우기)와 이름표(꿀팁·함정)만 굵게 한다.
-// 한국사 해설 끝의 ‘외우는 비결 · 대상 · 방법’ 문단(v99)도 같은 상자다. 첫 줄은 머리, 둘째 줄(외우는 말)은 크게, 이름표(상상 장면·덧붙임·헷갈림 주의)는 굵게 한다.
+// 2026-09-19: 한국사 해설의 ‘외우는 비결’ 문단은 전수 뗐다(사용자 요청 — 문제에서는 요약만 본다). 이 상자는 이제 영어 공식 전용이다.
 function explanationParts(text){
- const paras=String(text).split(/\n\s*\n/),at=paras.findIndex(p=>p.startsWith('외우는 공식\n')||p.startsWith('외우는 비결 · '));
+ const paras=String(text).split(/\n\s*\n/),at=paras.findIndex(p=>p.startsWith('외우는 공식\n'));
  if(at<0)return [explanationText(text)];
- const out=[],before=paras.slice(0,at).join('\n\n'),after=paras.slice(at+1).join('\n\n'),box=elem('div',undefined,'formula-box'),history=paras[at].startsWith('외우는 비결 · ');
+ const out=[],before=paras.slice(0,at).join('\n\n'),after=paras.slice(at+1).join('\n\n'),box=elem('div',undefined,'formula-box');
  if(before)out.push(explanationText(before));
- paras[at].split('\n').forEach((line,i)=>{const label=/^(꿀팁|함정|상상 장면|덧붙임|헷갈림 주의): /.exec(line),p=elem('p',undefined,(history?i===0:/^(외우는 공식|입으로 외우기)$/.test(line))?'formula-head':history&&i===1?'formula-line mnemonic-hook':label?'formula-note':'formula-line');
+ paras[at].split('\n').forEach(line=>{const label=/^(꿀팁|함정): /.exec(line),p=elem('p',undefined,/^(외우는 공식|입으로 외우기)$/.test(line)?'formula-head':label?'formula-note':'formula-line');
   if(label)p.append(elem('strong',label[1]+': '),document.createTextNode(line.slice(label[0].length)));else p.textContent=line;box.append(p);});
  out.push(box);if(after)out.push(explanationText(after));return out;
 }

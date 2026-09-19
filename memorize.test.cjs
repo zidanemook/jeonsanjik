@@ -155,16 +155,21 @@ for(const set of M.sets.filter(s=>s.subject==='한국사'))for(const t of [set.t
  for(const [front,back] of set.groups.flatMap(g=>g.cards)){assert(/\n꿀팁: /.test(back)&&/\n입으로: [A-Za-z]/.test(back)&&/\([가-힣 ,?]+\)/.test(back),'공식·꿀팁·입으로: '+front);assert(!/카드|문항|변형/.test(front+back),'no internal words: '+front);assert(!/[①②③④]/.test(back));}
  assert(set.groups.flatMap(g=>g.cards).some(c=>/\b(19|20)\d\d\b/.test(c[1])),'영어 목록에는 연도 같은 숫자가 있어도 된다(한국사 연도 규칙과 무관)');
  assert(M.get('english-grammar-formulas').groups.flatMap(g=>g.cards).find(c=>c[0].startsWith('such·so 어순'))[1].includes('서치(such)는 관사(a/an)를 품에 안고 다니고'));}
-// 국사 외우는 비결(v99): 문제 해설 끝 블록(quiz-options.js의 HISTORY_MNEMONICS)과 같은 원본. 앞면 = 대상 · 방법, 뒷면 = 외우는 말 + 풀이 + 장면·덧붙임·헷갈림 주의.
-// 두문자·새 단어는 외우는 말의 글자가 열쇠 글자와 같고, 열쇠 글자는 실제 사실 안에 차례대로 들어 있다. 한 글자 열쇠는 그 글자를 딴 낱말(w)이 사실 안에 있고, 다른 낱말이 같은 글자로 시작하지 않는다.
-// 왕 대상은 풀이의 사실(from)이 위 왕 순서 목록의 그 왕 사실에 그대로 있다. 연도·조선 낱말·내부 용어는 위의 한국사 목록 검사가 같이 막는다.
+// 내가 만든 외우는 낱말(2026-09-19): 사용자가 직접 만든 왕+대상 합성 낱말 아홉만 남긴 묶음(quiz-options.js의 HISTORY_MNEMONICS).
+// 앞면 = 대상, 뒷면 = 낱말 + 풀이 + 덧붙임·헷갈림 주의. 내가 만든 블록 98개(두문자 32 포함)는 지웠고 문제 해설에도 붙이지 않는다.
+// 낱말의 글자는 열쇠 글자와 같고, 열쇠 글자는 실제 사실 안에 차례대로 들어 있다. 왕을 단 항목은 위 왕 순서 목록의 그 왕 사실과 대조한다.
 {const vm=require('node:vm'),fs=require('node:fs'),ctx={};vm.createContext(ctx);for(const f of ['core-review-pack.js','quiz-options.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx);
  // vm 안에서 만든 배열은 이 파일의 배열과 프로토타입이 달라 deepEqual이 틀리므로 JSON으로 옮겨 비교한다(함수 text·back·get은 그대로 쓴다).
- const H0=ctx.HISTORY_MNEMONICS,J=v=>JSON.parse(JSON.stringify(v)),H={...H0,era:J(H0.era),blocks:J(H0.blocks),attach:J(H0.attach),get:id=>J(H0.get(id))},set=M.get('history-mnemonics');assert(H&&set&&set.subject==='한국사'&&set.groups,'history-mnemonics set');
+ const H0=ctx.HISTORY_MNEMONICS,J=v=>JSON.parse(JSON.stringify(v)),H={...H0,era:J(H0.era),blocks:J(H0.blocks),get:id=>J(H0.get(id))},set=M.get('history-mnemonics');
+ assert(H&&set&&set.subject==='한국사'&&set.groups,'history-mnemonics set');assert.equal(set.title,'내가 만든 외우는 낱말');
+ assert.equal(H.attach,undefined,'문제 해설에 붙이던 대응표는 없앴다');
+ // 남은 것은 사용자가 만든 낱말뿐이다(원본 research/king-word-mnemonics/USER-WORDS.md). 내가 만든 블록이 다시 들어오면 여기서 잡힌다.
+ const USER_WORDS=['인지상정','현기증 초조함','고생','화통 우직','성사림','연무갑 · 중기묘 · 명을사','무김조','중종조광조 · 조현량','신동기서 · 선동서'];
+ assert.deepEqual(H.blocks.map(b=>b.hook).sort(),[...USER_WORDS].sort(),'사용자가 만든 낱말만 남는다');
+ assert.equal(H.blocks.length,9);assert.equal(M.size(set),9);
  const METHODS=['두문자','새 단어','글자 풀이','장면','이야기'];
  assert.deepEqual(set.groups.map(g=>g.title),H.era.filter((_,i)=>H.blocks.some(b=>b.era===i)),'시대 묶음 순서');
- for(const g of set.groups)assert.deepEqual(g.cards,H.blocks.filter(b=>H.era[b.era]===g.title).map(b=>[b.target+' · '+b.method,H.back(b)]),'외울 것 = 해설 블록: '+g.title);
- assert.equal(M.size(set),H.blocks.length);assert(H.blocks.length>=80,'대상 80개 이상: '+H.blocks.length);
+ for(const g of set.groups)assert.deepEqual(g.cards,H.blocks.filter(b=>H.era[b.era]===g.title).map(b=>[b.target,H.back(b)]),'외울 것 = 낱말 블록: '+g.title);
  const syl=s=>[...s].filter(ch=>/[가-힣]/.test(ch)).sort().join('');
  const letterProblems=b=>{const out=[];if(!(b.method==='두문자'||b.method==='새 단어'))return out;
   if(!/^[가-힣 ·]+$/.test(b.hook))out.push('hook not Hangul');if(syl(b.hook)!==syl(b.items.map(i=>i[0]).join('')))out.push('hook letters != keys');
@@ -176,23 +181,19 @@ for(const set of M.sets.filter(s=>s.subject==='한국사'))for(const t of [set.t
  for(const b of H.blocks){assert(!ids.has(b.id)&&!targets.has(b.target),'unique block: '+b.id);ids.add(b.id);targets.add(b.target);
   assert(METHODS.includes(b.method)&&b.hook&&b.items.length>=1&&b.items.length<=8,'block shape: '+b.id);
   assert.deepEqual(letterProblems(b),[],'글자↔사실: '+b.id);assert.deepEqual(kingProblems(b),[],'왕 사실: '+b.id);
-  const text=H.text(b);assert(text.startsWith('외우는 비결 · '+b.target+' · '+b.method+'\n')&&!/\n\s*\n/.test(text)&&!/[①-⑤]/.test(text),'block text: '+b.id);}
- assert(H.blocks.filter(b=>b.king).length>=15,'왕 대상 블록');
- assert.equal(H.get('sosurim').hook,'율불태');assert.equal(H.get('beopheung').hook,'율불병상공건금');assert.equal(H.get('gwangjong').hook,'노과공칭');assert.equal(H.get('gongmin').hook.split(' · ')[0],'기관 몽이 쌍');
- // 대조군: 열쇠 글자를 바꾸거나, 왕 사실에 없는 말을 넣거나, 두 낱말이 같은 글자로 시작하면 잡힌다.
- {const b=H.get('sosurim');assert.notDeepEqual(letterProblems({...b,items:[['법',b.items[0][1],{w:'율령'}],...b.items.slice(1)]}),[]);assert.notDeepEqual(letterProblems({...b,hook:'율불학'}),[]);
-  assert.notDeepEqual(kingProblems({...b,items:[['율','율령 반포와 공복 제정',{w:'율령'}],...b.items.slice(1)]}),[]);assert.notDeepEqual(kingProblems({...b,king:'고구려:장수왕'}),[]);
-  const g=H.get('gongmin');assert.notDeepEqual(letterProblems({...g,items:g.items.map(i=>i[0]==='전'?['전',i[1],{w:'정방 폐지 전'}]:i)}),[]);}
+  const text=H.text(b);assert(!/\n\s*\n/.test(text)&&!/[①-⑤]/.test(text),'block text: '+b.id);}
+ assert(H.blocks.filter(b=>b.king||b.items.some(i=>(i[2]||{}).king)).length>=5,'왕을 단 블록');
+ assert.equal(H.get('king-word-gojong').hook,'고생');assert.equal(H.get('joseon-bungdang').hook,'신동기서 · 선동서');
+ // 대조군: 열쇠 글자를 바꾸거나 왕 사실에 없는 말을 넣으면 잡힌다.
+ {const b=H.get('muo-sahwa');assert.notDeepEqual(letterProblems({...b,hook:'무김종'}),[]);
+  assert.notDeepEqual(kingProblems({...b,king:'조선:중종'}),[]);
+  const g=H.get('joseon-bungdang');assert.notDeepEqual(kingProblems({...g,items:g.items.map(i=>[i[0],i[1],{...i[2],from:['성종 때 붕당']}])}),[]);}
  // 해설: 2026-09-19에 '외우는 비결' 문단을 문제 해설에서 전수 뗐다(사용자: 두문자 말고 요약만 보여라).
- // 해설에 남는 것은 요약뿐이고, ATTACH는 어느 대상을 다루는 문제인지 대조하는 용도로만 쓴다.
- const pack=ctx.CORE_REVIEW_PACK,attached=Object.entries(H.attach);assert(attached.length>=600,'대상 대조 목록: '+attached.length);
+ const pack=ctx.CORE_REVIEW_PACK;
  const withBlock=list=>list.filter(c=>(c.explanation||'').includes('외우는 비결 · ')).length;
  assert.equal(withBlock(pack),0,'어떤 문제 해설에도 외우는 비결 문단이 없다');
  assert.equal(pack.filter(c=>/(^|\n)(두문자|외우는 말)/.test(c.explanation||'')).length,0,'해설에 두문자 꼬리표가 없다');
- for(const [id,bid] of attached){const c=pack.find(x=>x.id===id);assert(c&&c.subject==='한국사'&&!/^(hanneung|gichul|core-hist-79)-/.test(id)&&H.get(bid),'attach target: '+id);
-  assert(/기억 연결[:\n]/.test(c.explanation||''),'요약(기억 연결)은 그대로 남는다: '+id);}
+ assert.equal(pack.filter(c=>c.subject==='한국사'&&/기억 연결[:\n]/.test(c.explanation||'')).length>=700,true,'한국사 해설의 요약은 그대로 남는다');
  // 대조군: 문단을 도로 붙인 해설은 위 검사가 잡는다.
- assert.equal(withBlock([{explanation:'기억 연결: 가.'+String.fromCharCode(10,10)+H.text(H.get('sosurim'))}]),1,'대조군: 붙이면 잡힌다');
- assert.equal(new Set(attached.map(([,b])=>b)).size>=80,true,'대상 대조 목록이 대부분의 블록을 덮는다');
- assert.equal(H.attach['study-hist-20260910-17'],'sosurim');assert.equal(H.attach['goryeoculture2-hist-20260916-036'],'jusimpo-dapo');assert.equal(H.attach['goryeoforeign-hist-20260914-106'],'gongmin');}
+ assert.equal(withBlock([{explanation:'기억 연결: 가.'+String.fromCharCode(10,10)+H.text(H.get('muo-sahwa'))}]),1,'대조군: 붙이면 잡힌다');}
 console.log('PASS memorize: '+M.sets.length+' sets, chant letters match names, no years, studied range only');
