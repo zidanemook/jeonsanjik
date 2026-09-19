@@ -13,7 +13,7 @@
   {id:'later-three',title:'후삼국',sections:['후삼국']},
   {id:'compare',title:'헷갈리는 내용 비교',sections:['헷갈리는 내용 비교']},
   {id:'goryeo',title:'고려',sections:['고려 초기 정치','고려 문벌 사회','고려 무신 정권','고려 대외 관계','고려 후기 사회 변동','고려의 멸망','고려 경제','고려 사회','고려 문화']},
-  {id:'joseon-early',title:'조선 전기 (건국~16세기)',sections:[]},
+  {id:'joseon-early',title:'조선 전기 (건국~16세기)',sections:['조선 건국·통치 기반','사림과 사화','붕당의 형성']},
   {id:'joseon-late',title:'조선 후기 (양난~1863)',sections:[]},
   {id:'opening',title:'개항·개화기 (1863~1894)',sections:[]},
   {id:'korean-empire',title:'갑오개혁·대한제국 (1894~1910)',sections:[]},

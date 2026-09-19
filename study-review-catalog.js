@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 1057,
+  "total": 1137,
   "sets": [
     {
       "number": 1,
@@ -1893,6 +1893,146 @@ globalThis.STUDY_REVIEW_CATALOG={
         "goryeoculture2-hist-20260916-062",
         "goryeoculture2-hist-20260916-063"
       ]
+    },
+    {
+      "number": 140,
+      "title": "16강 조선 전기(정치) 1",
+      "ids": [
+        "joseonearly-hist-20260919-001",
+        "joseonearly-hist-20260919-002",
+        "joseonearly-hist-20260919-003",
+        "joseonearly-hist-20260919-004",
+        "joseonearly-hist-20260919-005",
+        "joseonearly-hist-20260919-006",
+        "joseonearly-hist-20260919-007",
+        "joseonearly-hist-20260919-008"
+      ]
+    },
+    {
+      "number": 141,
+      "title": "16강 조선 전기(정치) 2",
+      "ids": [
+        "joseonearly-hist-20260919-009",
+        "joseonearly-hist-20260919-010",
+        "joseonearly-hist-20260919-011",
+        "joseonearly-hist-20260919-012",
+        "joseonearly-hist-20260919-013",
+        "joseonearly-hist-20260919-014",
+        "joseonearly-hist-20260919-015",
+        "joseonearly-hist-20260919-016"
+      ]
+    },
+    {
+      "number": 142,
+      "title": "16강 조선 전기(정치) 3",
+      "ids": [
+        "joseonearly-hist-20260919-017",
+        "joseonearly-hist-20260919-018",
+        "joseonearly-hist-20260919-019",
+        "joseonearly-hist-20260919-020",
+        "joseonearly-hist-20260919-021",
+        "joseonearly-hist-20260919-022",
+        "joseonearly-hist-20260919-023",
+        "joseonearly-hist-20260919-024"
+      ]
+    },
+    {
+      "number": 143,
+      "title": "16강 조선 전기(정치) 4",
+      "ids": [
+        "joseonearly-hist-20260919-025",
+        "joseonearly-hist-20260919-026",
+        "joseonearly-hist-20260919-027",
+        "joseonearly-hist-20260919-028",
+        "joseonearly-hist-20260919-029",
+        "joseonearly-hist-20260919-030",
+        "joseonearly-hist-20260919-031",
+        "joseonearly-hist-20260919-032"
+      ]
+    },
+    {
+      "number": 144,
+      "title": "16강 조선 전기(정치) 5",
+      "ids": [
+        "joseonearly-hist-20260919-033",
+        "joseonearly-hist-20260919-034",
+        "joseonearly-hist-20260919-035",
+        "joseonearly-hist-20260919-036",
+        "joseonearly-hist-20260919-037",
+        "joseonearly-hist-20260919-038",
+        "joseonearly-hist-20260919-039",
+        "joseonearly-hist-20260919-040"
+      ]
+    },
+    {
+      "number": 145,
+      "title": "16강 조선 전기(정치) 6",
+      "ids": [
+        "joseonearly-hist-20260919-041",
+        "joseonearly-hist-20260919-042",
+        "joseonearly-hist-20260919-043",
+        "joseonearly-hist-20260919-044",
+        "joseonearly-hist-20260919-045",
+        "joseonearly-hist-20260919-046",
+        "joseonearly-hist-20260919-047",
+        "joseonearly-hist-20260919-048"
+      ]
+    },
+    {
+      "number": 146,
+      "title": "16강 조선 전기(정치) 7",
+      "ids": [
+        "joseonearly-hist-20260919-049",
+        "joseonearly-hist-20260919-050",
+        "joseonearly-hist-20260919-051",
+        "joseonearly-hist-20260919-052",
+        "joseonearly-hist-20260919-053",
+        "joseonearly-hist-20260919-054",
+        "joseonearly-hist-20260919-055",
+        "joseonearly-hist-20260919-056"
+      ]
+    },
+    {
+      "number": 147,
+      "title": "16강 조선 전기(정치) 8",
+      "ids": [
+        "joseonearly-hist-20260919-057",
+        "joseonearly-hist-20260919-058",
+        "joseonearly-hist-20260919-059",
+        "joseonearly-hist-20260919-060",
+        "joseonearly-hist-20260919-061",
+        "joseonearly-hist-20260919-062",
+        "joseonearly-hist-20260919-063",
+        "joseonearly-hist-20260919-064"
+      ]
+    },
+    {
+      "number": 148,
+      "title": "16강 조선 전기(정치) 9",
+      "ids": [
+        "joseonearly-hist-20260919-065",
+        "joseonearly-hist-20260919-066",
+        "joseonearly-hist-20260919-067",
+        "joseonearly-hist-20260919-068",
+        "joseonearly-hist-20260919-069",
+        "joseonearly-hist-20260919-070",
+        "joseonearly-hist-20260919-071",
+        "joseonearly-hist-20260919-072"
+      ]
+    },
+    {
+      "number": 149,
+      "title": "16강 조선 전기(정치) 10",
+      "ids": [
+        "joseonearly-hist-20260919-073",
+        "joseonearly-hist-20260919-074",
+        "joseonearly-hist-20260919-075",
+        "joseonearly-hist-20260919-076",
+        "joseonearly-hist-20260919-077",
+        "joseonearly-hist-20260919-078",
+        "joseonearly-hist-20260919-079",
+        "joseonearly-hist-20260919-080"
+      ]
     }
   ],
   "lectures": [
@@ -3017,6 +3157,92 @@ globalThis.STUDY_REVIEW_CATALOG={
         "goryeoculture2-hist-20260916-061",
         "goryeoculture2-hist-20260916-062",
         "goryeoculture2-hist-20260916-063"
+      ]
+    },
+    {
+      "id": "16",
+      "title": "16강 조선 전기(정치)",
+      "ids": [
+        "joseonearly-hist-20260919-001",
+        "joseonearly-hist-20260919-002",
+        "joseonearly-hist-20260919-003",
+        "joseonearly-hist-20260919-004",
+        "joseonearly-hist-20260919-005",
+        "joseonearly-hist-20260919-006",
+        "joseonearly-hist-20260919-007",
+        "joseonearly-hist-20260919-008",
+        "joseonearly-hist-20260919-009",
+        "joseonearly-hist-20260919-010",
+        "joseonearly-hist-20260919-011",
+        "joseonearly-hist-20260919-012",
+        "joseonearly-hist-20260919-013",
+        "joseonearly-hist-20260919-014",
+        "joseonearly-hist-20260919-015",
+        "joseonearly-hist-20260919-016",
+        "joseonearly-hist-20260919-017",
+        "joseonearly-hist-20260919-018",
+        "joseonearly-hist-20260919-019",
+        "joseonearly-hist-20260919-020",
+        "joseonearly-hist-20260919-021",
+        "joseonearly-hist-20260919-022",
+        "joseonearly-hist-20260919-023",
+        "joseonearly-hist-20260919-024",
+        "joseonearly-hist-20260919-025",
+        "joseonearly-hist-20260919-026",
+        "joseonearly-hist-20260919-027",
+        "joseonearly-hist-20260919-028",
+        "joseonearly-hist-20260919-029",
+        "joseonearly-hist-20260919-030",
+        "joseonearly-hist-20260919-031",
+        "joseonearly-hist-20260919-032",
+        "joseonearly-hist-20260919-033",
+        "joseonearly-hist-20260919-034",
+        "joseonearly-hist-20260919-035",
+        "joseonearly-hist-20260919-036",
+        "joseonearly-hist-20260919-037",
+        "joseonearly-hist-20260919-038",
+        "joseonearly-hist-20260919-039",
+        "joseonearly-hist-20260919-040",
+        "joseonearly-hist-20260919-041",
+        "joseonearly-hist-20260919-042",
+        "joseonearly-hist-20260919-043",
+        "joseonearly-hist-20260919-044",
+        "joseonearly-hist-20260919-045",
+        "joseonearly-hist-20260919-046",
+        "joseonearly-hist-20260919-047",
+        "joseonearly-hist-20260919-048",
+        "joseonearly-hist-20260919-049",
+        "joseonearly-hist-20260919-050",
+        "joseonearly-hist-20260919-051",
+        "joseonearly-hist-20260919-052",
+        "joseonearly-hist-20260919-053",
+        "joseonearly-hist-20260919-054",
+        "joseonearly-hist-20260919-055",
+        "joseonearly-hist-20260919-056",
+        "joseonearly-hist-20260919-057",
+        "joseonearly-hist-20260919-058",
+        "joseonearly-hist-20260919-059",
+        "joseonearly-hist-20260919-060",
+        "joseonearly-hist-20260919-061",
+        "joseonearly-hist-20260919-062",
+        "joseonearly-hist-20260919-063",
+        "joseonearly-hist-20260919-064",
+        "joseonearly-hist-20260919-065",
+        "joseonearly-hist-20260919-066",
+        "joseonearly-hist-20260919-067",
+        "joseonearly-hist-20260919-068",
+        "joseonearly-hist-20260919-069",
+        "joseonearly-hist-20260919-070",
+        "joseonearly-hist-20260919-071",
+        "joseonearly-hist-20260919-072",
+        "joseonearly-hist-20260919-073",
+        "joseonearly-hist-20260919-074",
+        "joseonearly-hist-20260919-075",
+        "joseonearly-hist-20260919-076",
+        "joseonearly-hist-20260919-077",
+        "joseonearly-hist-20260919-078",
+        "joseonearly-hist-20260919-079",
+        "joseonearly-hist-20260919-080"
       ]
     }
   ],
@@ -13839,6 +14065,877 @@ globalThis.STUDY_REVIEW_CATALOG={
         "인종: 『상정고금예문』 편찬(오답)"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 15강 고려(문화 2) 171쪽 무기의 발달"
+    },
+    "joseonearly-hist-20260919-001": {
+      "number": 1058,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "위화도 회군(정답)",
+        "고려 성종 12목(오답)",
+        "공민왕 쌍성총관부(오답)",
+        "숙종 별무반(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 조선의 건국 과정"
+    },
+    "joseonearly-hist-20260919-002": {
+      "number": 1059,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "이성계 위화도 회군·조선 건국(정답)",
+        "공민왕 기철 숙청(오답)",
+        "최무선 화통도감(오답)",
+        "최영 요동 정벌(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 조선의 건국 과정"
+    },
+    "joseonearly-hist-20260919-003": {
+      "number": 1060,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "과전법 내용(정답)",
+        "시정 전시과(오답)",
+        "직전법(오답)",
+        "역분전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 조선의 건국 과정"
+    },
+    "joseonearly-hist-20260919-004": {
+      "number": 1061,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "과전법 농민 경작권 보호(정답)",
+        "노비안검법(오답)",
+        "직전법(오답)",
+        "의창(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 조선의 건국 과정"
+    },
+    "joseonearly-hist-20260919-005": {
+      "number": 1062,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "태조 한양 천도·국호 조선(정답)",
+        "태종 6조 직계제(오답)",
+        "세종 훈민정음(오답)",
+        "세조 직전법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태조"
+    },
+    "joseonearly-hist-20260919-006": {
+      "number": 1063,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "정도전 재상 중심 정치·저술(정답)",
+        "최승로 시무 28조(오답)",
+        "안향 성리학(오답)",
+        "김부식 삼국사기(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태조"
+    },
+    "joseonearly-hist-20260919-007": {
+      "number": 1064,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "정도전 저술 세 권(정답)",
+        "최충 9재 학당(오답)",
+        "의천 교장(오답)",
+        "이제현 사략(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태조"
+    },
+    "joseonearly-hist-20260919-008": {
+      "number": 1065,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "경복궁·종묘와 사직(정답)",
+        "창덕궁 태종(오답)",
+        "고려 태조 흑창(오답)",
+        "고려 현종 나성(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태조"
+    },
+    "joseonearly-hist-20260919-009": {
+      "number": 1066,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "태종 6조 직계제(정답)",
+        "세종 의정부 서사제(오답)",
+        "성종 홍문관(오답)",
+        "세조 경국대전 편찬 시작(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태종"
+    },
+    "joseonearly-hist-20260919-010": {
+      "number": 1067,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "태종 사간원 독립(정답)",
+        "세조 집현전 폐지(오답)",
+        "세종 집현전 설치(오답)",
+        "성종 국조오례의(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태종"
+    },
+    "joseonearly-hist-20260919-011": {
+      "number": 1068,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "태종 호패법·양전 사업(정답)",
+        "고려 광종 노비안검법(오답)",
+        "세조 직전법(오답)",
+        "고려 성종 의창(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태종"
+    },
+    "joseonearly-hist-20260919-012": {
+      "number": 1069,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "태종 신문고(정답)",
+        "세종 4군 6진(오답)",
+        "성종 사림 등용(오답)",
+        "태조 국호 조선(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태종"
+    },
+    "joseonearly-hist-20260919-013": {
+      "number": 1070,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "세종 의정부 서사제(정답)",
+        "태종 6조 직계제(오답)",
+        "세조 6조 직계제 부활(오답)",
+        "성종 경연 확대(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세종"
+    },
+    "joseonearly-hist-20260919-014": {
+      "number": 1071,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "세종 집현전·사가독서제(정답)",
+        "성종 홍문관(오답)",
+        "세조 집현전 폐지(오답)",
+        "고려 예종 양현고(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세종"
+    },
+    "joseonearly-hist-20260919-015": {
+      "number": 1072,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "세종 4군 6진·대마도 정벌(정답)",
+        "고려 우왕 진포 대첩(오답)",
+        "고려 숙종 별무반(오답)",
+        "고려 공민왕 쌍성총관부(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세종"
+    },
+    "joseonearly-hist-20260919-016": {
+      "number": 1073,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "최윤덕·김종서 4군 6진(정답)",
+        "이종무 대마도(오답)",
+        "최무선 화통도감(오답)",
+        "윤관 동북 9성(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세종"
+    },
+    "joseonearly-hist-20260919-017": {
+      "number": 1074,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "이종무 대마도 정벌(정답)",
+        "최윤덕 4군(오답)",
+        "최영 요동 정벌(오답)",
+        "이성계 황산 대첩(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세종"
+    },
+    "joseonearly-hist-20260919-018": {
+      "number": 1075,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "훈민정음 창제·반포(정답)",
+        "경국대전 성종(오답)",
+        "국조오례의 성종(오답)",
+        "조선경국전 정도전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세종"
+    },
+    "joseonearly-hist-20260919-019": {
+      "number": 1076,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "세조 계유정난·즉위(정답)",
+        "태종 왕자의 난(오답)",
+        "연산군 무오사화(오답)",
+        "중종 기묘사화(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세조"
+    },
+    "joseonearly-hist-20260919-020": {
+      "number": 1077,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "세조 단종 복위 운동 진압(정답)",
+        "세조 이시애의 난(오답 아님·구분)",
+        "태종 사병 혁파(오답)",
+        "성종 사림 등용(오답)",
+        "세종 집현전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세조"
+    },
+    "joseonearly-hist-20260919-021": {
+      "number": 1078,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "세조 직전법(정답)",
+        "과전법(오답)",
+        "시정 전시과(오답)",
+        "경정 전시과(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세조"
+    },
+    "joseonearly-hist-20260919-022": {
+      "number": 1079,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "세조 경국대전 편찬 시작(정답)",
+        "성종 완성·반포(오답 구분)",
+        "세종 훈민정음(오답)",
+        "태조 국호(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세조·성종"
+    },
+    "joseonearly-hist-20260919-023": {
+      "number": 1080,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "세조 유향소 폐지(정답)",
+        "세종 집현전 설치(오답)",
+        "성종 홍문관(오답)",
+        "태종 사간원(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세조"
+    },
+    "joseonearly-hist-20260919-024": {
+      "number": 1081,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "이시애의 난(정답)",
+        "이징옥의 난(오답)",
+        "망이·망소이(오답)",
+        "만적(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세조"
+    },
+    "joseonearly-hist-20260919-025": {
+      "number": 1082,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "성종 홍문관·경연 확대(정답)",
+        "세종 집현전(오답)",
+        "세조 집현전 폐지(오답)",
+        "태종 사간원(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 성종"
+    },
+    "joseonearly-hist-20260919-026": {
+      "number": 1083,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "성종 경국대전 완성·반포(정답)",
+        "세조 편찬 시작(오답)",
+        "정도전 조선경국전(오답)",
+        "국조오례의(오답 구분)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 성종"
+    },
+    "joseonearly-hist-20260919-027": {
+      "number": 1084,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "성종 국조오례의(정답)",
+        "경국대전(오답)",
+        "불씨잡변(오답)",
+        "경제문감(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 성종"
+    },
+    "joseonearly-hist-20260919-028": {
+      "number": 1085,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "성종 사림 등용(정답)",
+        "세조 유향소 폐지(오답)",
+        "태종 호패법(오답)",
+        "세종 대마도 정벌(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 성종"
+    },
+    "joseonearly-hist-20260919-029": {
+      "number": 1086,
+      "section": "사림과 사화",
+      "coverage": [
+        "사림 3사 언관직 진출(정답)",
+        "훈구 중앙 집권·부국강병(오답)",
+        "권문세족(오답)",
+        "무신(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사림의 정치적 성장"
+    },
+    "joseonearly-hist-20260919-030": {
+      "number": 1087,
+      "section": "사림과 사화",
+      "coverage": [
+        "훈구 기원·성향(정답)",
+        "사림 기원(오답)",
+        "신진 사대부(오답)",
+        "권문세족(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 훈구와 사림"
+    },
+    "joseonearly-hist-20260919-031": {
+      "number": 1088,
+      "section": "사림과 사화",
+      "coverage": [
+        "사림 기원(정답)",
+        "훈구 기원(오답)",
+        "권문세족(오답)",
+        "호족(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 훈구와 사림"
+    },
+    "joseonearly-hist-20260919-032": {
+      "number": 1089,
+      "section": "사림과 사화",
+      "coverage": [
+        "사림 성향 왕도 정치·향촌 자치(정답)",
+        "훈구 성향(오답)",
+        "권문세족(오답)",
+        "무신(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 훈구와 사림"
+    },
+    "joseonearly-hist-20260919-033": {
+      "number": 1090,
+      "section": "사림과 사화",
+      "coverage": [
+        "무오사화 조의제문(정답)",
+        "갑자사화(오답)",
+        "기묘사화(오답)",
+        "을사사화(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-034": {
+      "number": 1091,
+      "section": "사림과 사화",
+      "coverage": [
+        "김일손 사초(정답)",
+        "김종직 조의제문(오답 구분)",
+        "조광조 현량과(오답)",
+        "윤원형 벽서(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-035": {
+      "number": 1092,
+      "section": "사림과 사화",
+      "coverage": [
+        "갑자사화 폐비 윤씨(정답)",
+        "무오사화(오답)",
+        "기묘사화(오답)",
+        "을사사화(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-036": {
+      "number": 1093,
+      "section": "사림과 사화",
+      "coverage": [
+        "갑자사화 한명회 부관참시·김굉필(정답)",
+        "무오사화 김종직(오답)",
+        "기묘사화 조광조(오답)",
+        "을사사화 이언적(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-037": {
+      "number": 1094,
+      "section": "사림과 사화",
+      "coverage": [
+        "조광조 개혁(정답)",
+        "정도전(오답)",
+        "최승로(오답)",
+        "신돈(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-038": {
+      "number": 1095,
+      "section": "사림과 사화",
+      "coverage": [
+        "기묘사화 위훈 삭제(정답)",
+        "무오사화(오답)",
+        "갑자사화(오답)",
+        "을사사화(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-039": {
+      "number": 1096,
+      "section": "사림과 사화",
+      "coverage": [
+        "을사사화 대윤·소윤(정답)",
+        "무오사화(오답)",
+        "갑자사화(오답)",
+        "기묘사화(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-040": {
+      "number": 1097,
+      "section": "사림과 사화",
+      "coverage": [
+        "양재역 벽서 사건 이언적(정답)",
+        "무오사화(오답)",
+        "갑자사화(오답)",
+        "기묘사화(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-041": {
+      "number": 1098,
+      "section": "사림과 사화",
+      "coverage": [
+        "유향소·서원·향약(정답)",
+        "훈구 기반(오답)",
+        "고려 향도(오답)",
+        "고려 사학 12도(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사림의 세력 기반"
+    },
+    "joseonearly-hist-20260919-042": {
+      "number": 1099,
+      "section": "사림과 사화",
+      "coverage": [
+        "유향소 세조 폐지·사림 기반(정답)",
+        "서원(오답)",
+        "향약(오답)",
+        "홍문관(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세조·사림의 세력 기반"
+    },
+    "joseonearly-hist-20260919-043": {
+      "number": 1100,
+      "section": "붕당의 형성",
+      "coverage": [
+        "선조 붕당 형성(정답)",
+        "성종 사림 등용(오답)",
+        "연산군 사화(오답)",
+        "세조 계유정난(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 붕당의 형성"
+    },
+    "joseonearly-hist-20260919-044": {
+      "number": 1101,
+      "section": "붕당의 형성",
+      "coverage": [
+        "이조 전랑직·척신 정치 청산(정답)",
+        "위훈 삭제(오답)",
+        "조의제문(오답)",
+        "폐비 윤씨(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 붕당의 형성"
+    },
+    "joseonearly-hist-20260919-045": {
+      "number": 1102,
+      "section": "붕당의 형성",
+      "coverage": [
+        "동인 신진 사림·김효원(정답)",
+        "서인 심의겸(오답)",
+        "훈구(오답)",
+        "권문세족(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 붕당의 형성"
+    },
+    "joseonearly-hist-20260919-046": {
+      "number": 1103,
+      "section": "붕당의 형성",
+      "coverage": [
+        "서인 기성 사림·심의겸·이이와 성혼(정답)",
+        "동인 김효원(오답)",
+        "훈구(오답)",
+        "사림 기원(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 붕당의 형성"
+    },
+    "joseonearly-hist-20260919-047": {
+      "number": 1104,
+      "section": "붕당의 형성",
+      "coverage": [
+        "동인 학문 계승(정답)",
+        "서인 이이·성혼(오답)",
+        "정도전(오답)",
+        "안향(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 붕당의 형성"
+    },
+    "joseonearly-hist-20260919-048": {
+      "number": 1105,
+      "section": "붕당의 형성",
+      "coverage": [
+        "사화로 위축 → 선조 때 주도권(정답)",
+        "성종 등용(오답)",
+        "훈구 몰락(오답)",
+        "권문세족(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사림의 정치적 성장"
+    },
+    "joseonearly-hist-20260919-049": {
+      "number": 1106,
+      "section": "사림과 사화",
+      "coverage": [
+        "사화 순서 배열(정답)",
+        "왕 순서로 판단"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-050": {
+      "number": 1107,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "왕 순서 배열(정답)",
+        "태조·태종·세조·성종"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 통치 기반 마련"
+    },
+    "joseonearly-hist-20260919-051": {
+      "number": 1108,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "정도전 민본주의적 통치 규범(정답)",
+        "최충헌 봉사 10조(오답)",
+        "최승로(오답)",
+        "이제현(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태조"
+    },
+    "joseonearly-hist-20260919-052": {
+      "number": 1109,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "태종 사원 토지·노비 몰수, 6조 체제 정비(정답)",
+        "세조 유향소 폐지(오답)",
+        "성종 사림 등용(오답)",
+        "세종 사가독서제(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태종"
+    },
+    "joseonearly-hist-20260919-053": {
+      "number": 1110,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "정종 개경 천도(정답)",
+        "태조 한양 천도(오답)",
+        "태종 한양 재천도(오답)",
+        "고려 태조 서경(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태조·정종·태종"
+    },
+    "joseonearly-hist-20260919-054": {
+      "number": 1111,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "창덕궁 태종(정답)",
+        "경복궁 태조(오답)",
+        "종묘 태조(오답)",
+        "사직 태조(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태종"
+    },
+    "joseonearly-hist-20260919-055": {
+      "number": 1112,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "사가독서제(정답)",
+        "경연(오답)",
+        "현량과(오답)",
+        "과거제(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세종"
+    },
+    "joseonearly-hist-20260919-056": {
+      "number": 1113,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "경연 세 왕 비교(정답)",
+        "세종 활성화·세조 폐지·성종 확대"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세종·세조·성종"
+    },
+    "joseonearly-hist-20260919-057": {
+      "number": 1114,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "단종 노산군·영월(정답)",
+        "성삼문 처형(오답 구분)",
+        "이징옥(오답)",
+        "이시애(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세조"
+    },
+    "joseonearly-hist-20260919-058": {
+      "number": 1115,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "성삼문 단종 복위 운동(정답)",
+        "김종서 4군 6진(오답)",
+        "이종무 대마도(오답)",
+        "정도전 도성 설계(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세조"
+    },
+    "joseonearly-hist-20260919-059": {
+      "number": 1116,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "조선경국전 정도전(정답)",
+        "경국대전(오답)",
+        "국조오례의(오답)",
+        "불씨잡변(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태조"
+    },
+    "joseonearly-hist-20260919-060": {
+      "number": 1117,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "불씨잡변 불교 비판(정답)",
+        "조선경국전(오답)",
+        "경제문감(오답)",
+        "경국대전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태조"
+    },
+    "joseonearly-hist-20260919-061": {
+      "number": 1118,
+      "section": "사림과 사화",
+      "coverage": [
+        "조광조 소격서 폐지(정답)",
+        "집현전 폐지 세조(오답)",
+        "유향소 폐지 세조(오답)",
+        "사간원 독립 태종(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-062": {
+      "number": 1119,
+      "section": "사림과 사화",
+      "coverage": [
+        "조광조 소학 보급·공납 개선(정답)",
+        "경국대전(오답)",
+        "국조오례의(오답)",
+        "훈민정음(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-063": {
+      "number": 1120,
+      "section": "사림과 사화",
+      "coverage": [
+        "현량과(정답)",
+        "과거제(오답)",
+        "독서삼품과(오답)",
+        "사가독서제(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-064": {
+      "number": 1121,
+      "section": "사림과 사화",
+      "coverage": [
+        "기묘사화 결과 조광조 사사(정답)",
+        "무오사화 결과(오답)",
+        "갑자사화 결과(오답)",
+        "을사사화 결과(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-065": {
+      "number": 1122,
+      "section": "사림과 사화",
+      "coverage": [
+        "을사사화 피해 사림(정답)",
+        "무오사화 영남 사림(오답)",
+        "갑자사화 김굉필(오답)",
+        "기묘사화 조광조(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-066": {
+      "number": 1123,
+      "section": "사림과 사화",
+      "coverage": [
+        "윤원형 소윤(정답)",
+        "윤임 대윤(오답)",
+        "김효원 동인(오답)",
+        "심의겸 서인(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-067": {
+      "number": 1124,
+      "section": "사림과 사화",
+      "coverage": [
+        "윤임 대윤(정답)",
+        "윤원형 소윤(오답)",
+        "김종직(오답)",
+        "조광조(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-068": {
+      "number": 1125,
+      "section": "사림과 사화",
+      "coverage": [
+        "부관참시 두 사화 비교(정답)",
+        "김종직 무오·한명회 갑자"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-069": {
+      "number": 1126,
+      "section": "사림과 사화",
+      "coverage": [
+        "연산군 두 사화(정답)",
+        "중종 기묘(오답)",
+        "명종 을사(오답)",
+        "성종 사림 등용(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 사화의 발생"
+    },
+    "joseonearly-hist-20260919-070": {
+      "number": 1127,
+      "section": "붕당의 형성",
+      "coverage": [
+        "이조 전랑직 김효원·심의겸(정답)",
+        "훈구·사림(오답)",
+        "대윤·소윤(오답)",
+        "서경파·개경파(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 붕당의 형성"
+    },
+    "joseonearly-hist-20260919-071": {
+      "number": 1128,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "6조 직계제 두 왕(정답)",
+        "의정부 서사제 세종(오답)",
+        "홍문관 성종(오답)",
+        "사간원 태종(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태종·세조"
+    },
+    "joseonearly-hist-20260919-072": {
+      "number": 1129,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "사간원 독립(정답)",
+        "홍문관(오답)",
+        "집현전(오답)",
+        "유향소(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태종"
+    },
+    "joseonearly-hist-20260919-073": {
+      "number": 1130,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "경복궁 정도전 작명(정답)",
+        "창덕궁(오답)",
+        "종묘(오답)",
+        "사직(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 태조"
+    },
+    "joseonearly-hist-20260919-074": {
+      "number": 1131,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "훈민정음 반포(정답)",
+        "경국대전(오답)",
+        "국조오례의(오답)",
+        "조선경국전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 세종"
+    },
+    "joseonearly-hist-20260919-075": {
+      "number": 1132,
+      "section": "사림과 사화",
+      "coverage": [
+        "3사 언관직(정답)",
+        "의정부(오답)",
+        "6조(오답)",
+        "유향소(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 훈구와 사림"
+    },
+    "joseonearly-hist-20260919-076": {
+      "number": 1133,
+      "section": "사림과 사화",
+      "coverage": [
+        "훈구 공신 세조 즉위(정답)",
+        "사림 낙향(오답)",
+        "신진 사대부(오답)",
+        "호족(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 훈구와 사림"
+    },
+    "joseonearly-hist-20260919-077": {
+      "number": 1134,
+      "section": "붕당의 형성",
+      "coverage": [
+        "기성 사림·신진 사림 대립(정답)",
+        "훈구·사림(오답)",
+        "대윤·소윤(오답)",
+        "서경파·개경파(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 붕당의 형성"
+    },
+    "joseonearly-hist-20260919-078": {
+      "number": 1135,
+      "section": "붕당의 형성",
+      "coverage": [
+        "동인 척신 정치 과감한 청산(정답)",
+        "서인 소극적(오답)",
+        "훈구(오답)",
+        "권문세족(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 붕당의 형성"
+    },
+    "joseonearly-hist-20260919-079": {
+      "number": 1136,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "정몽주 온건 개혁파(정답)",
+        "정도전 급진 개혁파(오답)",
+        "최영(오답)",
+        "이성계(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 조선의 건국 과정"
+    },
+    "joseonearly-hist-20260919-080": {
+      "number": 1137,
+      "section": "조선 건국·통치 기반",
+      "coverage": [
+        "왕과 업적 짝짓기(정답)",
+        "태종·세종·세조·성종"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 16강 조선 전기(정치) 183쪽 통치 기반 마련"
     }
   }
 };
