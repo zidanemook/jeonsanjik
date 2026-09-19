@@ -1,4 +1,4 @@
-const CACHE='chagog-v102-major-memory-cards';
+const CACHE='chagog-v103-security-explanations';
 const ASSETS=['./study-review-catalog.js?v=101','./hanneung-topics.js?v=101','./topics.js?v=101','./hanneung-data.js?v=101','./hanneung-explanations.js?v=101','./hanneung.js?v=101','./gichul-index.js?v=101','./gichul.js?v=101','./study-credit.js?v=101','./content-corrections.js?v=101','./review-record.js?v=101','./review-policy.js?v=101','./drill.js?v=101','./practice-bank.js?v=101','./practice.js?v=101','./index.html?v=101','./memorize.js?v=101','./app.js?v=101','./quiz-options.js?v=101','./core-review-pack.js?v=101','./scheduler.js?v=101','./learning.js?v=101','./style.css?v=101','./sync-core.js?v=101','./sync.js?v=101','./firebase-config.js?v=101','./manifest.json','./icon.svg'];
 self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await Promise.all(ASSETS.map(async url=>{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw Error('Asset fetch failed');await c.put(url,r);}));await self.skipWaiting();})()));
 self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));
