@@ -35,7 +35,7 @@ function validDay(s){if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s))retu
 function validateContent(c){if(!c||typeof c!=='object'||['subject','question','answer'].some(k=>typeof c[k]!=='string'||!c[k].trim())||['explanation','source'].some(k=>c[k]!==undefined&&typeof c[k]!=='string'))throw Error('과목·질문·정답과 텍스트 형식을 확인하세요.');}
 // 의견은 학습 기록이 아니다. 형식이 맞지 않는 의견 하나 때문에 기록 불러오기(=저장 전체)가 멈추지 않도록 막지 않고 걸러낸다.
 function cleanNotes(list){const out=[];if(Array.isArray(list))for(const n of list){try{out.push(ProgressSync.note(n));}catch{}}return out;}
-function validateBackup(v){if(v?.explanationViews!==undefined){if(!Array.isArray(v.explanationViews))throw Error('Invalid explanation records');StudyCredit.unionExplanations([],v.explanationViews);}if(![1,2,3].includes(v?.version)||!Array.isArray(v.cards)||!Array.isArray(v.history))throw Error('지원하지 않는 백업입니다.');const ids=new Set();for(const c of v.cards){if(v.version!==3||c.question!==undefined)validateContent(c);if(typeof c.id!=='string'||ids.has(c.id)||!validDay(c.created)||!(c.due===null||validDay(c.due))||(v.version===1?(!Number.isInteger(c.stage)||c.stage<0||c.stage>4):(!Number.isFinite(c.ease)||c.ease<1.3||c.ease>3||!Number.isInteger(c.interval)||c.interval<0||c.interval>365||!Number.isInteger(c.streak)||c.streak<0||c.due===null)))throw Error('문제 일정 또는 ID가 올바르지 않습니다.');if(c.retryAt!==undefined&&!Number.isFinite(Date.parse(c.retryAt)))throw Error('잘못된 재학습 시간');if(c.pendingAttempt!==undefined&&(!['remember','partial','none'].includes(c.pendingAttempt.recall)||!validDay(c.pendingAttempt.date)||!Number.isFinite(Date.parse(c.pendingAttempt.at))||typeof c.pendingAttempt.delayedFirst!=='boolean'))throw Error('잘못된 회상 기록');ids.add(c.id);}for(const h of v.history){if(typeof h.id!=='string'||typeof h.cardId!=='string'||!validDay(h.date)||!['correct','unsure','wrong'].includes(h.result))throw Error('복습 기록이 올바르지 않습니다.');}if(v.quizFeedback!==undefined&&(!v.quizFeedback||typeof v.quizFeedback.cardId!=='string'||!Number.isInteger(v.quizFeedback.selectedIndex)||!['correct','wrong','unsure'].includes(v.quizFeedback.result)))throw Error('퀴즈 피드백이 올바르지 않습니다.');}
+function validateBackup(v){if(v?.explanationViews!==undefined){if(!Array.isArray(v.explanationViews))throw Error('Invalid explanation records');StudyCredit.unionExplanations([],v.explanationViews);}if(![1,2,3].includes(v?.version)||!Array.isArray(v.cards)||!Array.isArray(v.history))throw Error('지원하지 않는 백업입니다.');const ids=new Set();for(const c of v.cards){if(v.version!==3||c.question!==undefined)validateContent(c);if(typeof c.id!=='string'||ids.has(c.id)||!validDay(c.created)||!(c.due===null||validDay(c.due))||(v.version===1?(!Number.isInteger(c.stage)||c.stage<0||c.stage>4):(!Number.isFinite(c.ease)||c.ease<1.3||c.ease>3||!Number.isInteger(c.interval)||c.interval<0||c.interval>365||!Number.isInteger(c.streak)||c.streak<0||c.due===null)))throw Error('문제 일정 또는 ID가 올바르지 않습니다.');if(c.retryAt!==undefined&&!Number.isFinite(Date.parse(c.retryAt)))throw Error('잘못된 재학습 시간');if(c.pendingAttempt!==undefined&&(!['remember','partial','none'].includes(c.pendingAttempt.recall)||!validDay(c.pendingAttempt.date)||!Number.isFinite(Date.parse(c.pendingAttempt.at))||typeof c.pendingAttempt.delayedFirst!=='boolean'))throw Error('잘못된 회상 기록');ids.add(c.id);}for(const h of v.history){if(typeof h.id!=='string'||typeof h.cardId!=='string'||!validDay(h.date)||!['correct','unsure','wrong'].includes(h.result))throw Error('복습 기록이 올바르지 않습니다.');}if(v.quizFeedback!==undefined&&(!v.quizFeedback||typeof v.quizFeedback.cardId!=='string'||!Number.isInteger(v.quizFeedback.selectedIndex)||!['correct','wrong','unsure'].includes(v.quizFeedback.result)))throw Error('퀴즈 피드백이 올바르지 않습니다.');if(v.queueMode!==undefined&&!QUEUE_MODES.some(([m])=>m===v.queueMode))throw Error('대기열 모드가 올바르지 않습니다.');}
 function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.subject.trim(),question:c.question.trim(),answer:c.answer.trim(),explanation:c.explanation||'',source:c.source||'',verified:c.verified===true,created:day(),due:day(),ease:2.5,interval:0,streak:0};}
 // 공무원 기출은 회차 파일을 받기 전에도 풀 수 있는 카드다(색인에 있으면 된다). 보기는 그 회차의 문항을 처음 낼 때 받는다.
 function isPlayable(c){return !!c&&(!!QUIZ_OPTIONS[c.id]||!!PRACTICE_BANK[c.id]||Gichul.known(c.id));}
@@ -157,10 +157,15 @@ function toggleDrill(){
  const next=structuredClone(data);delete next.quizFeedback;delete next.activePractice;
  if(commit(next)){sessionDirty=true;render();window.scrollTo(0,0);}else if(drill)drill=null;
 }
+function setQueueMode(value){
+ if(queueMode()===value)return;
+ const next=structuredClone(data);next.queueMode=value;delete next.quizFeedback;delete next.activePractice;
+ if(commit(next)){sessionDirty=true;render();window.scrollTo(0,0);}
+}
 // END DRILL MODE
 // BEGIN PAPER ORDER — 기출 회차에서는 앱이 문제를 고르지 않는다. 1번부터 마지막 번호까지 원문 순서대로만
-// 내고, 마지막 문항을 풀면 멈춘다. 복습 일정·재시도 대기(retryAt)·형제 간격(ReviewPolicy.separate)·
-// 하루 새 문제 몫 어느 것도 회차 안에서는 적용하지 않는다. 어제 맞힌 문제도 제자리에 다시 나온다.
+// 내고, 마지막 문항을 풀면 멈춘다. 복습 일정·재시도 대기(retryAt)·형제 간격(ReviewPolicy.separate)
+// 어느 것도 회차 안에서는 적용하지 않는다. 어제 맞힌 문제도 제자리에 다시 나온다.
 // 답안 기록과 복습 일정 갱신은 평소와 똑같다 — 바뀌는 것은 "다음에 무엇을 낼지"뿐이다.
 // 저장하지 않는 세션 한정 위치라 회차를 다시 열면 언제나 1번부터 시작한다.
 let paperCursor=null;
@@ -169,50 +174,48 @@ function paperAdvance(){if(paperCursor)paperCursor={...paperCursor,index:paperCu
 function paperRestart(){if(paperCursor)paperCursor={...paperCursor,index:0};}
 // END PAPER ORDER
 // A wrong answer today also brings back the other questions on the same concept (still after the sibling gap).
+// BEGIN QUEUE MODES — 무엇을 먼저 낼지만 고른다. 채점·기록·복습 일정은 어느 모드에서도 평소와 똑같다.
+// 늘 고른 범위 안에서만 돈다(호출부가 이미 inScope로 거른 카드를 넘긴다). 낼 게 없으면 없다고 말한다.
+const QUEUE_MODES=[['default','기본 · 복습 주기 순'],['wrong','틀린 문제 위주'],['fresh','안 푼 문제 먼저']];
+function queueMode(){return QUEUE_MODES.some(([v])=>v===data.queueMode)?data.queueMode:'default';}
+let queueModeFilled=false;
+let historyStatsCache=null;
+// 문제별 오답 횟수와 시도 여부를 기존 history에서만 읽는다. 새 저장 필드가 없어 기기 간 동기화에도 그대로 남는다.
+function historyStats(){
+ if(historyStatsCache?.rows===data.history)return historyStatsCache.value;
+ const wrong=new Map(),seen=new Set();
+ for(const h of data.history){seen.add(h.cardId);if(h.result==='wrong')wrong.set(h.cardId,(wrong.get(h.cardId)||0)+1);}
+ const value={wrong,seen};historyStatsCache={rows:data.history,value};return value;
+}
+function waitingRetry(c){return !!c.retryAt&&Date.parse(c.retryAt)>Date.now();}
+// 형제 간격은 다른 문제가 있을 때만 사이를 벌린다. 풀 문제가 그것뿐이면 막지 않고 먼저 풀린 순서대로 낸다.
+function settle(order){
+ const queue=ReviewPolicy.separate(order,data.history);
+ if(!queue.ready.length&&queue.waiting.length){const promoted=[...queue.waiting].sort((a,b)=>a.until-b.until).map(w=>w.card);return {ready:promoted,waiting:[],nextAt:null};}
+ return queue;
+}
+// 틀린 문제 위주: 오답 이력이 있는 문제를 복습 주기와 무관하게 많이 틀린 순으로 낸다.
+// 주기를 기다리면 대개 0문제가 되어 모드가 무의미해지기 때문이다. 5분 재시도 대기만은 그대로 지킨다.
+function wrongQueue(cards){
+ const {wrong}=historyStats();
+ const pool=cards.filter(c=>c.pendingAttempt||(wrong.has(c.id)&&!waitingRetry(c)));
+ const rank=new Map(cards.map((c,i)=>[c.id,i]));
+ pool.sort((a,b)=>Number(!!b.pendingAttempt)-Number(!!a.pendingAttempt)||(wrong.get(b.id)||0)-(wrong.get(a.id)||0)||rank.get(a.id)-rank.get(b.id));
+ return settle(pool);
+}
 function reviewQueue(cards){
+ const mode=queueMode();
+ if(mode==='wrong')return wrongQueue(cards);
  const due=ReviewLearning.queue(cards),ids=new Set(due.map(c=>c.id)),today=day(),missed=new Map(),last=new Map();
  for(const h of data.history){const at=h.at||h.date;if((last.get(h.cardId)||'')<at)last.set(h.cardId,at);if(h.mode==='quiz'&&h.result==='wrong'&&h.date===today){const k=ReviewPolicy.concept(h.cardId);if((missed.get(k)||'')<at)missed.set(k,at);}}
  const extra=missed.size?cards.filter(c=>{if(ids.has(c.id))return false;const at=missed.get(ReviewPolicy.concept(c.id));return !!at&&(last.get(c.id)||'')<at;}):[];
- const queue=ReviewPolicy.separate([...due,...extra],data.history);
- // 같은 개념 간격은 다른 문제가 있을 때 사이를 벌려 주는 장치다. 풀 문제가 그것뿐이면 막지 않고 먼저 풀린 순서대로 낸다.
- if(!queue.ready.length&&queue.waiting.length){const promoted=[...queue.waiting].sort((a,b)=>a.until-b.until).map(w=>w.card);return {ready:withNewCards(cards,promoted),waiting:[],nextAt:null};}
- return {...queue,ready:withNewCards(cards,queue.ready)};
+ const queue=settle([...due,...extra]);
+ // 안 푼 문제 먼저: 대기열을 그대로 두고 한 번도 안 푼 문제만 앞으로 당긴다. 빠지는 카드는 없다.
+ if(mode==='fresh'&&queue.ready.length){const {seen}=historyStats(),fresh=queue.ready.filter(c=>!seen.has(c.id));
+  if(fresh.length&&fresh.length<queue.ready.length)return {...queue,ready:[...fresh,...queue.ready.filter(c=>seen.has(c.id))]};}
+ return queue;
 }
-// 하루에 끼워 넣는 "한 번도 안 푼" 문제 수. 바꿀 곳은 이 한 줄뿐이고, 0으로 두면 기능이 꺼진다.
-const NEW_CARDS_PER_DAY=5;
-// 새 문제 하나를 복습 문제 몇 개 뒤에 끼울지. 복습 카드는 하나도 빠지지 않고 서로의 순서도 그대로다.
-const NEW_CARD_GAP=3;
-let firstAttemptCache=null;
-// 카드별 최초 시도 날짜를 기존 history에서만 읽는다. 새 저장 필드가 없으므로 새로고침·기기 간 동기화에도 그대로 남는다.
-function firstAttemptDays(){
- if(firstAttemptCache?.rows===data.history)return firstAttemptCache.map;
- const map=new Map();
- for(const h of data.history){const d=h.date||'';const prev=map.get(h.cardId);if(prev===undefined||d<prev)map.set(h.cardId,d);}
- firstAttemptCache={rows:data.history,map};return map;
-}
-// 오늘 이 범위에서 앞으로 꺼낼 수 있는 미풀이 문제 수. 한 번 풀면 그날의 몫으로 계산된다.
-function newCardRoom(cards){
- if(NEW_CARDS_PER_DAY<=0)return 0;
- const first=firstAttemptDays(),today=day();let used=0,fresh=0;
- for(const c of cards){const d=first.get(c.id);if(d===undefined)fresh++;else if(d===today)used++;}
- return Math.max(0,Math.min(NEW_CARDS_PER_DAY-used,fresh));
-}
-// 복습 대기열을 그대로 두고 미풀이 문제만 사이에 끼운다. 카드가 빠지지도, 없던 카드가 due가 되지도 않는 순서 변경뿐이다.
-function withNewCards(order,ready){
- const room=newCardRoom(order);if(!room)return ready;
- const first=firstAttemptDays(),rank=new Map(order.map((c,i)=>[c.id,i]));
- const fresh=ready.filter(c=>!first.has(c.id)).sort((a,b)=>(rank.get(a.id)??0)-(rank.get(b.id)??0)).slice(0,room);
- if(!fresh.length)return ready;
- const picked=new Set(fresh.map(c=>c.id)),rest=ready.filter(c=>!picked.has(c.id)),out=[];
- let i=0;
- for(const card of rest){
-  out.push(card);
-  // 같은 개념의 형제 문항이 연달아 나오면 한 칸 뒤로 미룬다 (ReviewPolicy.separate의 형제 간격과 같은 기준).
-  if(i<fresh.length&&out.length%(NEW_CARD_GAP+1)===NEW_CARD_GAP&&ReviewPolicy.concept(card.id)!==ReviewPolicy.concept(fresh[i].id))out.push(fresh[i++]);
- }
- while(i<fresh.length)out.push(fresh[i++]);
- return out;
-}
+// END QUEUE MODES
 let creditHistoryLimit=14;
 function renderStudyCredit(){
  try{
@@ -319,7 +322,8 @@ window.addEventListener('popstate',e=>{view=VIEWS.includes(e.state?.view)?e.stat
 function subjectsList(){return [...new Set(data.cards.filter(isPlayable).map(c=>c.subject))];}
 function questionCount(cards){return cards.reduce((n,c)=>n+(QUIZ_OPTIONS[c.id]||Gichul.known(c.id)?1:0)+(PRACTICE_BANK[c.id]?.variants.length||0),0);}
 // 화면의 모든 수는 "문제" 한 단위로 센다. 문제 하나가 곧 복습 일정 하나이므로(content-audit.cjs가 강제) 두 수는 같은 단위다.
-function countLine(cards){return '전체 '+questionCount(cards)+'문제 · 지금 풀 차례 '+questionCount(reviewQueue(cards).ready)+'문제';}
+// 풀어야 할 문제 = 처음 푸는 문제(제한 없음) + 복습 주기가 된 문제. 늘 고른 범위 안에서만 센다.
+function countLine(cards){return '풀어야 할 문제 '+questionCount(reviewQueue(cards).ready)+'/'+questionCount(cards);}
 // 그날 푼 서로 다른 문제 수. 같은 문제를 여러 번 풀어도 한 문제로 센다(풀이 횟수는 학습량 환산 시간에 따로 나온다).
 function solvedOn(ids,date){return new Set(data.history.filter(h=>h.date===date&&ids.has(h.cardId)).map(h=>h.cardId)).size;}
 function menuItem(title,detail,fn,cls='menu-item'){const b=btn('',fn,cls);b.type='button';b.append(elem('strong',title));if(detail)b.append(elem('span',detail));return b;}
@@ -389,8 +393,7 @@ function renderMemorize(){
 function renderSubject(){
  const s=viewSubject,cards=data.cards.filter(c=>isPlayable(c)&&c.subject===s),ids=new Set(cards.map(c=>c.id)),today=day();
  $('#subjectTitle').textContent=s;
- const newRoom=newCardRoom(cards);
- $('#subjectSummary').textContent=countLine(cards)+(newRoom?' (새 문제 '+newRoom+'개 포함)':'')+' · 오늘 푼 문제 '+solvedOn(ids,today)+'개';
+ $('#subjectSummary').textContent=countLine(cards)+' · 오늘 푼 문제 '+solvedOn(ids,today)+'개';
  // 외울 것은 과목 안에 둔다(2026-09-19 사용자: "외울것들은 과목별로 분류해서 정리해라 … 국어는 국어 클릭하면 거기서 외울것에 넣는방식").
  const sets=MEMORIZE.sets.filter(x=>x.subject===s),memo=$('#openMemorize');memo.hidden=!sets.length;
  if(sets.length)$('#memorizeHint').textContent=sets.length+'개 목록 · '+sets.reduce((n,x)=>n+MEMORIZE.size(x),0)+'칸 · '+sets.slice(0,3).map(x=>x.title).join(' · ')+(sets.length>3?' 외':'');
@@ -404,8 +407,8 @@ function renderRange(){
  const scope=(round,topic='')=>({subject:s,topic,round});
  // 회차 범위는 대기열과 무관하게 1번부터 끝까지 나오므로 '지금 풀 차례' 수를 붙이지 않는다. 대신 순서를 알린다.
  const option=(g,title,sc,extra)=>{const inside=cards.filter(c=>inScope(c,sc)),p=firstPass(new Set(inside.map(c=>c.id)));if(!inside.length)return;
-  const total=questionCount(inside),room=newCardRoom(inside),seen='전체 '+total+'문제 · 첫 시도 '+p.answered+'/'+total+(p.answered?' · 정답 '+p.correct:'');
-  const detail=sequentialScope(sc)?seen+' · 1번부터 순서대로':seen+' · 지금 풀 차례 '+questionCount(reviewQueue(inside).ready)+'문제'+(room?' (새 문제 '+room+'개 포함)':'');
+  const total=questionCount(inside),first='첫 시도 '+p.answered+'/'+total+(p.answered?' · 정답 '+p.correct:'');
+  const detail=sequentialScope(sc)?'전체 '+total+'문제 · '+first+' · 1번부터 순서대로':'풀어야 할 문제 '+questionCount(reviewQueue(inside).ready)+'/'+total+' · '+first;
   g.append(menuItem(title,detail+(extra?' · '+extra:''),()=>openScope(sc)));};
  // 공무원 기출은 과목마다 회차가 40개 가까이 된다. 한 줄로 늘어놓으면 휴대폰에서 원하는 회차를 찾기 어려워
  // 연도별로 접는다(range-fold 안에 range-fold). 최신 연도가 맨 위이고, 지금 풀던 회차가 든 연도(없으면 최신 연도)만 펼쳐 둔다.
@@ -471,6 +474,12 @@ function renderQuiz(){
  const card=feedback||(drilling?(item&&chosen.find(c=>c.id===item.cardId)):sequential?chosen[at]:due.find(c=>c.id===data.activePractice?.cardId)||due[0]);
  const waiting=chosen.filter(c=>c.retryAt&&Date.parse(c.retryAt)>Date.now());$('#retryStatus').textContent=drilling||sequential?'':waiting.length?waiting.length+'문제 재시도 대기 · '+new Date(Math.min(...waiting.map(c=>Date.parse(c.retryAt)))).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+'부터 다시 풀 수 있어요.':'';
  if(!drilling&&!sequential&&queue.waiting.length)$('#retryStatus').textContent+=' 같은 개념의 문제 '+queue.waiting.length+'개 · '+new Date(queue.nextAt).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+'부터 풀 수 있어요.';
+ // 대기열 모드는 대기열을 쓰는 화면에서만 고른다. 기출 회차와 전부 풀기는 대기열을 거치지 않는다.
+ const modeBox=$('#queueModeLabel'),modeSel=$('#queueMode');
+ modeBox.hidden=!chosen.length||sequential||drilling;
+ if(!queueModeFilled){queueModeFilled=true;for(const [v,t] of QUEUE_MODES){const o=elem('option',t);o.value=v;modeSel.append(o);}}
+ modeSel.value=queueMode();
+ modeSel.onchange=()=>setQueueMode(modeSel.value);
  const toggle=$('#drillToggle');toggle.hidden=!chosen.length||sequential;toggle.textContent=drilling?'전부 풀기 끄기':'이 범위 전부 풀기';toggle.setAttribute('aria-pressed',String(drilling));
  const place=card?chosen.findIndex(c=>c.id===card.id)+1:chosen.length;
  $('#drillStatus').textContent=drilling?StudyDrill.label(drill):sequential?place+'/'+chosen.length+' · 원문 순서 그대로':'';$('#drillStatus').hidden=!drilling&&!sequential;
@@ -485,6 +494,12 @@ function renderQuiz(){
   if(drilling){
    root.append(elem('h2','이 범위를 전부 풀었어요'),elem('p',scopeLabel(scope)+' · '+drill.total+'문제를 모두 한 번 이상 맞혔어요.'+(drill.round>1?' 틀린 문제만 다시 도느라 '+drill.round+'회차까지 왔어요.':'')));
    root.append(btn('전부 풀기 끝내기',toggleDrill,'primary'));
+   if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
+   return;
+  }
+  if(queueMode()==='wrong'&&chosen.length&&!waiting.length){
+   root.append(elem('h2','틀렸던 문제가 없어요'),elem('p',scopeLabel(scope)+'에서 아직 틀린 문제가 없어요. 기본 모드로 돌아가면 평소 순서대로 이어서 풀 수 있어요.'));
+   root.append(btn('기본 모드로 돌아가기',()=>setQueueMode('default'),'primary'));
    if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
    return;
   }

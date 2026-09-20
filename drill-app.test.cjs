@@ -55,7 +55,7 @@ const cardCount=run("data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).length");
 assert.equal(total,60,'Day 1 범위는 준비된 60문제');
 assert.equal(cardCount,total,'문제 하나가 카드 하나: 카드 '+cardCount+'장 · 문제 '+total+'개');
 const countNow=()=>run("countLine(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)))");
-assert.equal(countNow(),'전체 60문제 · 지금 풀 차례 60문제','처음에는 60문제가 모두 지금 풀 차례');
+assert.equal(countNow(),'풀어야 할 문제 60/60','처음에는 60문제가 모두 지금 풀 차례');
 const points=run("new Set(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).map(c=>ReviewPolicy.concept(c.id))).size");
 assert.equal(points,24,'Day 1 문법 포인트 24개');
 let normal=0;while(run('data.activePractice')&&normal<total){answerCurrent(false);normal++;}
@@ -69,30 +69,30 @@ assert.ok(!nodes.get('#retryStatus')._text.includes('같은 개념의 문제'),'
  const texts=sel=>[nodes.get(sel)._text,...nodes.get(sel).all.map(n=>n._text)].filter(Boolean).join(' | ');
  const menuDetail=(sel,title)=>{const b=nodes.get(sel).all.find(n=>n.tag==='button'&&n.children[0]?._text===title);return b?.children[1]?._text;};
  const en="data.cards.filter(c=>isPlayable(c)&&c.subject==='영어')";
- const enLine='전체 '+run('questionCount('+en+')')+'문제 · 지금 풀 차례 '+run('questionCount(reviewQueue('+en+').ready)')+'문제';
+ const enLine='풀어야 할 문제 '+run('questionCount(reviewQueue('+en+').ready)')+'/'+run('questionCount('+en+')');
  run("go('home')");assert.equal(menuDetail('#subjectList','영어'),enLine,'첫 화면 과목 줄');
  run("go('subject','영어')");assert.equal(nodes.get('#subjectSummary')._text,enLine+' · 오늘 푼 문제 60개','과목 화면 요약(오늘 푼 문제는 서로 다른 문제 수)');
- run("go('range','영어')");assert.equal(menuDetail('#rangeList','Day 1 문장의 구조·동사 유형'),'전체 60문제 · 첫 시도 60/60 · 정답 60 · 지금 풀 차례 0문제','범위 줄');
+ run("go('range','영어')");assert.equal(menuDetail('#rangeList','Day 1 문장의 구조·동사 유형'),'풀어야 할 문제 0/60 · 첫 시도 60/60 · 정답 60','범위 줄');
  // 영어 범위 화면의 '문제집 진도'는 Day 순서대로 나온다: Day 1 바로 다음이 Day 2이고, Day 2는 아직 풀지 않은 60문제다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d1=rows.indexOf('Day 1 문장의 구조·동사 유형'),d2=rows.indexOf('Day 2 동사의 형태·명사·일치');
   assert.ok(d1>=0&&d2===d1+1,'문제집 진도는 Day 1 다음에 Day 2: '+rows.slice(0,4).join(' / '));
-  assert.equal(menuDetail('#rangeList','Day 2 동사의 형태·명사·일치'),'전체 60문제 · 첫 시도 0/60 · 지금 풀 차례 60문제 (새 문제 5개 포함)','Day 2 범위 줄');}
+  assert.equal(menuDetail('#rangeList','Day 2 동사의 형태·명사·일치'),'풀어야 할 문제 60/60 · 첫 시도 0/60','Day 2 범위 줄');}
  // Day 3은 Day 2 바로 다음에 나오고, 아직 풀지 않은 178문제다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d2=rows.indexOf('Day 2 동사의 형태·명사·일치'),d3=rows.indexOf('Day 3 분사·준동사·관사와 도치');
   assert.ok(d2>=0&&d3===d2+1,'문제집 진도는 Day 2 다음에 Day 3: '+rows.slice(0,5).join(' / '));
-  assert.equal(menuDetail('#rangeList','Day 3 분사·준동사·관사와 도치'),'전체 178문제 · 첫 시도 0/178 · 지금 풀 차례 178문제 (새 문제 5개 포함)','Day 3 범위 줄');}
+  assert.equal(menuDetail('#rangeList','Day 3 분사·준동사·관사와 도치'),'풀어야 할 문제 178/178 · 첫 시도 0/178','Day 3 범위 줄');}
  // Day 4는 Day 3 바로 다음에 나오고, 아직 풀지 않은 152문제다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d3=rows.indexOf('Day 3 분사·준동사·관사와 도치'),d4=rows.indexOf('Day 4 형용사·부사와 비교 구문');
   assert.ok(d3>=0&&d4===d3+1,'문제집 진도는 Day 3 다음에 Day 4: '+rows.slice(0,6).join(' / '));
-  assert.equal(menuDetail('#rangeList','Day 4 형용사·부사와 비교 구문'),'전체 152문제 · 첫 시도 0/152 · 지금 풀 차례 152문제 (새 문제 5개 포함)','Day 4 범위 줄');}
+  assert.equal(menuDetail('#rangeList','Day 4 형용사·부사와 비교 구문'),'풀어야 할 문제 152/152 · 첫 시도 0/152','Day 4 범위 줄');}
  // Day 5는 Day 4 바로 다음에 나오고, 아직 풀지 않은 196문제다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d4=rows.indexOf('Day 4 형용사·부사와 비교 구문'),d5=rows.indexOf('Day 5 접속사·관계사·가정법과 도치');
   assert.ok(d4>=0&&d5===d4+1,'문제집 진도는 Day 4 다음에 Day 5: '+rows.slice(0,7).join(' / '));
-  assert.equal(menuDetail('#rangeList','Day 5 접속사·관계사·가정법과 도치'),'전체 196문제 · 첫 시도 0/196 · 지금 풀 차례 196문제 (새 문제 5개 포함)','Day 5 범위 줄');}
+  assert.equal(menuDetail('#rangeList','Day 5 접속사·관계사·가정법과 도치'),'풀어야 할 문제 196/196 · 첫 시도 0/196','Day 5 범위 줄');}
  // 문법 공식 훈련(v98): 마지막 Day(v115부터 Day 5) 다음에 ‘공식 훈련 새 문제 전체’ 범위, 그 아래 영역별로 접힌 공식 범위가 나온다. 공식 범위는 그 공식의 Day 문제와 새 문제를 함께 담는다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d5=rows.indexOf('Day 5 접속사·관계사·가정법과 도치'),f=rows.indexOf('공식 훈련 새 문제 전체');
   assert.ok(d5>=0&&f===d5+1,'Day 5 다음에 공식 훈련: '+rows.slice(0,9).join(' / '));
-  assert.equal(menuDetail('#rangeList','공식 훈련 새 문제 전체'),'전체 364문제 · 첫 시도 0/364 · 지금 풀 차례 364문제 (새 문제 5개 포함)','공식 훈련 새 문제 범위 줄');
+  assert.equal(menuDetail('#rangeList','공식 훈련 새 문제 전체'),'풀어야 할 문제 364/364 · 첫 시도 0/364','공식 훈련 새 문제 범위 줄');
   assert.equal(rows.filter(t=>run('ENGLISH_FORMULAS.areas.flatMap(a=>a.rules.map(r=>r.title))').includes(t)).length,89,'공식 범위 89개');}
  run("go('progress')");assert.equal(nodes.get('#total')._text,String(run('questionCount(data.cards.filter(isPlayable))')),'진행상황의 전체 문제');
  assert.equal(nodes.get('#done')._text,'60','진행상황의 오늘 푼 문제');
@@ -153,7 +153,7 @@ run("openScope({subject:'영어',topic:'수일치'})");
 assert.equal(run('drill'),null,'다른 범위를 열면 드릴이 남지 않는다');
 
 // 5) 기출 회차는 앱이 문제를 고르지 않는다 — 켜야 하는 모드가 아니라 회차의 기본 동작이다.
-//    복습 일정·재시도 대기·형제 간격·하루 새 문제 몫 어느 것도 회차 안에서는 걸리지 않고,
+//    복습 일정·재시도 대기·형제 간격 어느 것도 회차 안에서는 걸리지 않고,
 //    1번부터 마지막 번호까지 원문 순서 그대로 나온 뒤 멈춘다.
 (async()=>{
 const paperId=run("Gichul.forSubject('컴퓨터일반')[0].id");
@@ -178,7 +178,7 @@ const firstQuiz=run('data.activePractice.exercise');
 assert.equal(firstQuiz.fixedOrder,true,'공식 보기는 순서를 섞지 않는다');
 assert.deepEqual(Array.from(firstQuiz.choices),Array.from(run("QUIZ_OPTIONS["+JSON.stringify(paperOrder[0])+"].choices")),'보기는 원문 그대로 나온다');
 assert.ok(Array.from(firstQuiz.choices).every((c,i)=>c.startsWith(['①','②','③','④'][i])),'보기는 원문 번호를 달고 있다');
-// 한 번에 끝까지: 하루 새 문제 몫(5개)도, 5분 재시도 대기도 순서를 막지 못한다.
+// 한 번에 끝까지: 5분 재시도 대기도 순서를 막지 못한다.
 const paperServed=[];
 while(run('data.activePractice')&&paperServed.length<40){paperServed.push(run('data.activePractice.cardId'));answerCurrent(paperServed.length%4===0);}
 assert.deepEqual(paperServed,paperOrder,'1번부터 마지막 번호까지 한 번씩, 원문 순서 그대로');
@@ -249,12 +249,12 @@ assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에�
  assert.equal(heads[0],'사고의 힘 논리','국어 범위 화면의 첫 묶음: '+heads.slice(0,3).join(' / '));
  const rows=rangeRows();
  assert.deepEqual(rows.slice(0,6),['1장 논증의 개념과 유형','2장 명제 논리','3장 정언 논리','4장 술어 논리','5장 귀납 논증','6장 논리의 오류'],'사고의 힘 논리는 1장부터 6장까지 차례로: '+rows.slice(0,7).join(' / '));
- assert.equal(rowDetail('1장 논증의 개념과 유형'),'전체 31문제 · 첫 시도 0/31 · 지금 풀 차례 31문제 (새 문제 5개 포함)','1장 범위 줄');
- assert.equal(rowDetail('2장 명제 논리'),'전체 179문제 · 첫 시도 0/179 · 지금 풀 차례 179문제 (새 문제 5개 포함)','2장 범위 줄');
- assert.equal(rowDetail('3장 정언 논리'),'전체 181문제 · 첫 시도 0/181 · 지금 풀 차례 181문제 (새 문제 5개 포함)','3장 범위 줄');
- assert.equal(rowDetail('4장 술어 논리'),'전체 147문제 · 첫 시도 0/147 · 지금 풀 차례 147문제 (새 문제 5개 포함)','4장 범위 줄');
- assert.equal(rowDetail('5장 귀납 논증'),'전체 128문제 · 첫 시도 0/128 · 지금 풀 차례 128문제 (새 문제 5개 포함)','5장 범위 줄');
- assert.equal(rowDetail('6장 논리의 오류'),'전체 329문제 · 첫 시도 0/329 · 지금 풀 차례 329문제 (새 문제 5개 포함)','6장 범위 줄');
+ assert.equal(rowDetail('1장 논증의 개념과 유형'),'풀어야 할 문제 31/31 · 첫 시도 0/31','1장 범위 줄');
+ assert.equal(rowDetail('2장 명제 논리'),'풀어야 할 문제 179/179 · 첫 시도 0/179','2장 범위 줄');
+ assert.equal(rowDetail('3장 정언 논리'),'풀어야 할 문제 181/181 · 첫 시도 0/181','3장 범위 줄');
+ assert.equal(rowDetail('4장 술어 논리'),'풀어야 할 문제 147/147 · 첫 시도 0/147','4장 범위 줄');
+ assert.equal(rowDetail('5장 귀납 논증'),'풀어야 할 문제 128/128 · 첫 시도 0/128','5장 범위 줄');
+ assert.equal(rowDetail('6장 논리의 오류'),'풀어야 할 문제 329/329 · 첫 시도 0/329','6장 범위 줄');
  assert.ok(rows.includes('국어 전체')&&heads.some(h=>h.startsWith('기출 · 회차별')),'국어 기출과 국어 전체 범위는 그대로 있다');
  const rangeText=[...nodes.get('#rangeList').all.map(n=>n._text)].join(' | ');assert.ok(!/문항|카드/.test(rangeText),'국어 범위 화면에 문항/카드라는 말이 없다');
  run("openScope({subject:'국어',topic:'논리 2장'})");
@@ -339,5 +339,50 @@ assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에�
  const en=titles();assert.ok(en.includes('영어 어법 공식')&&!en.some(t=>t.startsWith('정언')),'영어 화면은 영어 목록만: '+en.join(' | '));
  run("go('home','')");
 }
-console.log('PASS drill in app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 · 6장 329 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source), home/subject/range/progress counts read "전체 N문제 · 지금 풀 차례 M문제" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, drill serves all '+total+' questions then repeats only the missed one, records stay normal, no same-day interval inflation; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
+// 대기열 모드(2026-09-20): 무엇을 먼저 낼지만 고른다. 늘 고른 범위 안에서만 돌고, 채점·복습 일정은 모드와 무관하다.
+{
+ run("openScope({subject:'영어',topic:'Day 2'})");
+ const inside=Array.from(run("catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).map(c=>c.id)"));
+ assert.ok(inside.length>=6,'Day 2 범위 카드 수: '+inside.length);
+ const outside=run("data.cards.filter(c=>isPlayable(c)&&!inCurrent(c)).map(c=>c.id)[0]");
+ assert.ok(outside,'범위 밖 카드가 있어야 대조가 된다');
+ // 오답 이력을 심는다. at을 옛날로 두어 형제 10분 간격이 끼어들지 않게 한다.
+ const rows=[[inside[4],3],[inside[1],1],[outside,5]],history=[];
+ for(const [cardId,n] of rows)for(let i=0;i<n;i++)history.push({id:'wq-'+history.length,cardId,date:'2026-01-05',at:'2026-01-05T03:00:00.000Z',result:'wrong',mode:'quiz'});
+ run("(()=>{const s=structuredClone(data);s.history="+JSON.stringify(history)+";commit(s);render();})()");
+ const readyIds=()=>Array.from(run("reviewQueue(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).ready.map(c=>c.id)"));
+
+ assert.equal(run('queueMode()'),'default','기본 모드가 기본값이다');
+ const base=readyIds();
+ assert.equal(base.length,inside.length,'기본 모드에서는 범위의 모든 문제가 지금 풀 차례다');
+
+ // 틀린 문제 위주 — 오답 이력이 있는 문제만, 많이 틀린 순. 범위 밖은 절대 넘어오지 않는다.
+ run("setQueueMode('wrong')");
+ const wrong=readyIds();
+ assert.deepEqual(wrong,[inside[4],inside[1]],'오답 이력이 있는 문제만 많이 틀린 순으로 나온다');
+ assert.ok(!wrong.includes(outside),'범위 밖의 오답은 나오지 않는다');
+ assert.equal(nodes.get('#queueModeLabel').hidden,false,'평소 화면에서는 모드를 고를 수 있다');
+
+ // 안 푼 문제 먼저 — 카드가 빠지지 않고 순서만 바뀐다.
+ run("setQueueMode('fresh')");
+ const fresh=readyIds();
+ assert.deepEqual([...fresh].sort(),[...base].sort(),'안 푼 문제 먼저는 순열이어야 한다(빠지는 카드 없음)');
+ assert.deepEqual(fresh.slice(-2).sort(),[inside[4],inside[1]].sort(),'푼 적 있는 문제는 뒤로 밀린다');
+
+ // 오답이 없는 범위에서 '틀린 문제 위주'를 켜면 막다른 길 대신 안내와 되돌리기를 준다.
+ run("setQueueMode('wrong')");
+ run("openScope({subject:'영어',topic:'Day 3'})");
+ assert.deepEqual(readyIds(),[],'Day 3에는 오답 이력이 없다');
+ assert.ok(screen().includes('틀렸던 문제가 없어요'),'오답이 없을 때 안내: '+screen().slice(0,60));
+ const back=nodes.get('#card').all.find(n=>n.tag==='button'&&n._text==='기본 모드로 돌아가기');
+ assert.ok(back,'기본 모드로 돌아가는 버튼이 있다');
+ back.onclick();
+ assert.equal(run('queueMode()'),'default','버튼을 누르면 기본 모드로 돌아온다');
+ assert.ok(run('data.activePractice')!==null&&run('data.activePractice')!==undefined,'돌아오면 바로 풀 문제가 나온다');
+
+ // 기출 회차는 대기열을 거치지 않으므로 모드를 숨긴다.
+ run("openScope({subject:'한국사',round:79})");
+ assert.equal(nodes.get('#queueModeLabel').hidden,true,'기출 회차에서는 모드 선택을 숨긴다');
+}
+console.log('PASS drill in app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 · 6장 329 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, drill serves all '+total+' questions then repeats only the missed one, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본·틀린 문제 위주·안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
 })().catch(e=>{console.error(e);process.exit(1);});
