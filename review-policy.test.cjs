@@ -74,8 +74,10 @@ assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day5-005'?{...x,les
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-formula-inversion')||x.exercise.type!=='text')),/At least 1 written questions required: grammar-formula-inversion/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-formula-voice'))),/Missing coverage/);
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-formula-006'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-formula-001').lesson.point}}:x)),/One grammar point, one concept/);
-// 국어 사고의 힘 논리: 개념(point) 하나가 개념 묶음 하나(1·2장 56개 + 3장 27개 + 4장 14개 + 5장 14개 = 111개)다. 영어의 직접쓰기 하한은 걸리지 않고, 장별 문제 수 하한·필수 개념·4지선다만을 요구한다.
-{const ko=list.filter(x=>x.card.id.startsWith('ko-logic'));assert.equal(ko.length,666);assert.ok(ko.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-logic-')));assert.equal(new Set(ko.map(x=>x.conceptId)).size,111);
+// 국어 사고의 힘 논리: 개념(point) 하나가 개념 묶음 하나(1·2장 56개 + 3장 27개 + 4장 14개 + 5장 14개 + 6장 43개 = 154개)다. 영어의 직접쓰기 하한은 걸리지 않고, 장별 문제 수 하한·필수 개념·4지선다만을 요구한다.
+{const ko=list.filter(x=>x.card.id.startsWith('ko-logic'));assert.equal(ko.length,995);assert.ok(ko.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-logic-')));assert.equal(new Set(ko.map(x=>x.conceptId)).size,154);
+ assert.equal(policy.concept('ko-logic6-017'),'korean-logic-spot-denying-antecedent');assert.equal(policy.concept('ko-logic6-017'),policy.concept('ko-logic6-018'),'전건 부정 판별 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic6-018'),policy.concept('ko-logic6-027'),'전건 부정과 후건 긍정은 다른 개념');
+ assert.equal(policy.concept('ko-logic6-322'),'korean-logic-fallacy-aliases');assert.equal(policy.concept('ko-logic6-322'),policy.concept('ko-logic6-329'),'딴 이름 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic6-329'),policy.concept('ko-logic6-153'),'딴 이름과 흑백 사고는 다른 개념');
  assert.equal(policy.concept('ko-logic4-094'),'korean-logic-existential-first');assert.equal(policy.concept('ko-logic4-094'),policy.concept('ko-logic4-102'),'존재 명제 먼저 활용 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic4-102'),policy.concept('ko-logic4-103'),'존재 명제 먼저 활용과 존재 명제마다 다른 이름은 다른 개념');
  assert.equal(policy.concept('ko-logic5-074'),'korean-logic-method-agreement');assert.equal(policy.concept('ko-logic5-074'),policy.concept('ko-logic5-083'),'일치법 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic5-083'),policy.concept('ko-logic5-084'),'일치법과 차이법은 다른 개념');
  assert.equal(policy.concept('ko-logic2-087'),policy.concept('ko-logic2-091'),'대우 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic2-087'),policy.concept('ko-logic2-082'),'대우와 드모르간은 다른 개념');
@@ -88,6 +90,8 @@ assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic2
 assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic3-')||Number(x.card.id.slice(-3))<=144)),/Korean textbook floor: 논리 3장 has 144, needs 145/);
 assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic4-')||Number(x.card.id.slice(-3))<=117)),/Korean textbook floor: 논리 4장 has 117, needs 118/);
 assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic5-')||Number(x.card.id.slice(-3))<=102)),/Korean textbook floor: 논리 5장 has 102, needs 103/);
+assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic6-')||Number(x.card.id.slice(-3))<=262)),/Korean textbook floor: 논리 6장 has 262, needs 263/);
+assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='오류의 딴 이름')),/Missing Korean coverage: 논리 6장 \/ 오류의 딴 이름/);
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='존재 명제 먼저 활용')),/Missing Korean coverage: 논리 4장 \/ 존재 명제 먼저 활용/);
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='잉여법')),/Missing Korean coverage: 논리 5장 \/ 잉여법/);
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='환위')),/Missing Korean coverage: 논리 3장 \/ 환위/);

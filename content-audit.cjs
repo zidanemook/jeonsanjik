@@ -76,7 +76,7 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
   assert(rows.some(x=>x.exercise.type==='choice'),'MCQ required: '+ruleId);
   assert.equal(new Set(typed.map(x=>practice.normalize(x.exercise.question))).size,typed.length,'Distinct written questions required: '+ruleId);
  }
- // 국어 교재 범위(사고의 힘 논리 1장~5장). 영어의 직접쓰기 하한은 걸지 않는다(위 반복문은 영어만 본다).
+ // 국어 교재 범위(사고의 힘 논리 1장~6장). 영어의 직접쓰기 하한은 걸지 않는다(위 반복문은 영어만 본다).
  // 대신 장마다 문제 수 하한(koreanTextbook.floor)과 필수 개념(requiredPoints)을 요구하고, 사용자 요청에 따라 모두 4지선다여야 한다.
  const byTopic=new Map();
  for(const [id,rows]of byCard){const lesson=rows[0].lesson;if(rows[0].card.subject!=='국어'||!lesson)continue;

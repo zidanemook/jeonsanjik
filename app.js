@@ -73,7 +73,7 @@ function roundMatch(c,round){
 }
 // 교재 진도(topic) 범위를 가진 과목: 영어는 문제집 Day, 국어는 『사고의 힘 논리』의 장.
 const TOPIC_SUBJECTS=new Set(['영어','국어']);
-const KOREAN_TOPICS={'논리 1장':'1장 논증의 개념과 유형','논리 2장':'2장 명제 논리','논리 3장':'3장 정언 논리','논리 4장':'4장 술어 논리','논리 5장':'5장 귀납 논증'};
+const KOREAN_TOPICS={'논리 1장':'1장 논증의 개념과 유형','논리 2장':'2장 명제 논리','논리 3장':'3장 정언 논리','논리 4장':'4장 술어 논리','논리 5장':'5장 귀납 논증','논리 6장':'6장 논리의 오류'};
 // 영어 ‘문법 공식 훈련’의 공식 하나 범위는 topic을 'formula:<공식 id>'로 두고, 그 공식에 속한 문제집 Day 문제와 새 훈련 문제를 함께 담는다.
 function topicMatch(lesson,topic){return !!lesson&&(lesson.topic===topic||(topic.startsWith('formula:')&&lesson.formula===topic.slice(8)));}
 function inScope(c,scope){const subject=scope.subject||'',topic=TOPIC_SUBJECTS.has(subject)?scope.topic||'':'',round=hasRanges(subject)?scope.round||'':'';return isPlayable(c)&&(!subject||c.subject===subject)&&(!topic||topicMatch(PRACTICE_BANK[c.id],topic))&&roundMatch(c,round);}
@@ -619,7 +619,7 @@ function answerPractice(id,input){
  next.quizFeedback={cardId:id,reviewId,selectedIndex:quiz.type==='choice'?input:-1,userAnswer:quiz.type==='text'?String(input):'',result,exercise:quiz};
  delete next.activePractice;notify('');if(commit(next)){if(drilling)drill=StudyDrill.answer(drill,id,item.index,result==='correct');else if(sequential)paperAdvance();sessionDirty=true;render();window.scrollTo(0,0);}
 }
-// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제 · 문제집 Day 1 · Day 2 · Day 3 · Day 4 · Day 5 · 문법 공식 훈련, 국어: 사고의 힘 논리 1~5장)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
+// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제 · 문제집 Day 1 · Day 2 · Day 3 · Day 4 · Day 5 · 문법 공식 훈련, 국어: 사고의 힘 논리 1~6장)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
 // 과목은 연습 문제에 적힌 subject를 따르고, 적혀 있지 않으면 영어다(기존 영어 문제는 subject를 따로 적지 않았다).
 // 새로 만든 문제는 '팩 이름'이 바뀔 때만 기기에 들어왔다. 배포할 때 이름을 손으로 안 올리면 영영 안 들어온다 —
 // 2026-09-17 뒤에 만든 158문항(16강 80 · 문화유산 사진 70 · 궁궐 사진 8)이 그래서 이미 쓰던 기기에서 안 보였다.

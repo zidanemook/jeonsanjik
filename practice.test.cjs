@@ -49,22 +49,26 @@ for(const [id,lesson]of Object.entries(bank)){
   assert.ok(sameRule[0].includes('[순정] such + a/an + 형용사 + 명사')&&sameRule[0].includes('Such a beautiful day (서치어뷰티풀데이)'));
   const per=new Map();for(const [,l] of [...days,...drill])per.set(l.formula,(per.get(l.formula)||0)+1);assert.ok(ruleIds.every(r=>per.get(r)>=8),'공식마다 8문제 이상: '+ruleIds.filter(r=>!(per.get(r)>=8)));
   assert.equal(bank['en-day2-34'].formula,'so-such');assert.equal(bank['en-day3-014'].formula,'so-such');assert.equal(bank['en-day1-43'].formula,'transitive-no-prep');}
- // 국어 사고의 힘 논리: 1장 31문제 · 2장 179문제 · 3장 181문제 · 4장 147문제 · 5장 128문제, 모두 4지선다(직접 쓰기 없음)이고 과목은 국어다. id는 ko-logic1-01~31, ko-logic2-001~179, ko-logic3-001~181, ko-logic4-001~147, ko-logic5-001~128.
+ // 국어 사고의 힘 논리: 1장 31문제 · 2장 179문제 · 3장 181문제 · 4장 147문제 · 5장 128문제 · 6장 329문제, 모두 4지선다(직접 쓰기 없음)이고 과목은 국어다. id는 ko-logic1-01~31, ko-logic2-001~179, ko-logic3-001~181, ko-logic4-001~147, ko-logic5-001~128, ko-logic6-001~329.
  assert.equal(count('논리 1장'),31);assert.equal(count('논리 1장','choice'),31);assert.equal(count('논리 1장','text'),0);
  assert.equal(count('논리 2장'),179);assert.equal(count('논리 2장','choice'),179);assert.equal(count('논리 2장','text'),0);
  assert.equal(count('논리 3장'),181);assert.equal(count('논리 3장','choice'),181);assert.equal(count('논리 3장','text'),0);
  assert.equal(count('논리 4장'),147);assert.equal(count('논리 4장','choice'),147);assert.equal(count('논리 4장','text'),0);
  assert.equal(count('논리 5장'),128);assert.equal(count('논리 5장','choice'),128);assert.equal(count('논리 5장','text'),0);
+ assert.equal(count('논리 6장'),329);assert.equal(count('논리 6장','choice'),329);assert.equal(count('논리 6장','text'),0);
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 1장').sort(),Array.from({length:31},(_,i)=>'ko-logic1-'+String(i+1).padStart(2,'0')),'논리 1장은 ko-logic1-01~31');
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 2장').sort(),Array.from({length:179},(_,i)=>'ko-logic2-'+String(i+1).padStart(3,'0')),'논리 2장은 ko-logic2-001~179');
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 3장').sort(),Array.from({length:181},(_,i)=>'ko-logic3-'+String(i+1).padStart(3,'0')),'논리 3장은 ko-logic3-001~181');
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 4장').sort(),Array.from({length:147},(_,i)=>'ko-logic4-'+String(i+1).padStart(3,'0')),'논리 4장은 ko-logic4-001~147');
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 5장').sort(),Array.from({length:128},(_,i)=>'ko-logic5-'+String(i+1).padStart(3,'0')),'논리 5장은 ko-logic5-001~128');
- assert.ok(Object.values(bank).every(l=>(l.subject==='국어')===/^논리 [1-5]장$/.test(l.topic)),'국어 교재 문제만 subject가 국어이고, 영어 문제에는 subject가 없다');
+ assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 6장').sort(),Array.from({length:329},(_,i)=>'ko-logic6-'+String(i+1).padStart(3,'0')),'논리 6장은 ko-logic6-001~329');
+ assert.ok(Object.values(bank).every(l=>(l.subject==='국어')===/^논리 [1-6]장$/.test(l.topic)),'국어 교재 문제만 subject가 국어이고, 영어 문제에는 subject가 없다');
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 1장').map(l=>l.point)).size,11);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 2장').map(l=>l.point)).size,45);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 3장').map(l=>l.point)).size,27);
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 4장').map(l=>l.point)).size,14);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 5장').map(l=>l.point)).size,14);
+ assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 6장').map(l=>l.point)).size,43);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 6장').map(l=>l.ruleId)).size,8);
  {const p12=new Set(Object.values(bank).filter(l=>l.topic==='논리 1장'||l.topic==='논리 2장').map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='논리 3장').every(l=>!p12.has(l.point)),'3장 개념은 1·2장 개념과 이름이 겹치지 않는다');}
  {const p123=new Set(Object.values(bank).filter(l=>/^논리 [123]장$/.test(l.topic)).map(l=>l.point)),p4=new Set(Object.values(bank).filter(l=>l.topic==='논리 4장').map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='논리 4장').every(l=>!p123.has(l.point)),'4장 개념은 1~3장 개념과 이름이 겹치지 않는다');assert.ok(Object.values(bank).filter(l=>l.topic==='논리 5장').every(l=>!p123.has(l.point)&&!p4.has(l.point)),'5장 개념은 1~4장 개념과 이름이 겹치지 않는다');}
+ {const p15=new Set(Object.values(bank).filter(l=>/^논리 [1-5]장$/.test(l.topic)).map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='논리 6장').every(l=>!p15.has(l.point)),'6장 개념은 1~5장 개념과 이름이 겹치지 않는다');}
  assert.ok(Object.entries(bank).filter(([id])=>id.startsWith('ko-logic')).every(([,l])=>!/문항|카드/.test(JSON.stringify([l.title,l.rule,l.hook,l.examples,l.variants]))),'국어 교재 문제의 문제·보기·해설·정리에 문항/카드라는 말이 없다');}
 const c=ctx.CORE_REVIEW_PACK[0],options=ctx.QUIZ_OPTIONS;
 const picks=Array.from({length:8},(_,i)=>practice.select(c,Array.from({length:i},()=>({cardId:c.id})),bank,options));
