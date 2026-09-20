@@ -85,9 +85,13 @@ assert.ok(!nodes.get('#retryStatus')._text.includes('같은 개념의 문제'),'
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d3=rows.indexOf('Day 3 분사·준동사·관사와 도치'),d4=rows.indexOf('Day 4 형용사·부사와 비교 구문');
   assert.ok(d3>=0&&d4===d3+1,'문제집 진도는 Day 3 다음에 Day 4: '+rows.slice(0,6).join(' / '));
   assert.equal(menuDetail('#rangeList','Day 4 형용사·부사와 비교 구문'),'전체 152문제 · 첫 시도 0/152 · 지금 풀 차례 152문제 (새 문제 5개 포함)','Day 4 범위 줄');}
- // 문법 공식 훈련(v98): Day 4 다음에 ‘공식 훈련 새 문제 전체’ 범위, 그 아래 영역별로 접힌 공식 범위가 나온다. 공식 범위는 그 공식의 Day 문제와 새 문제를 함께 담는다.
- {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d4=rows.indexOf('Day 4 형용사·부사와 비교 구문'),f=rows.indexOf('공식 훈련 새 문제 전체');
-  assert.ok(d4>=0&&f===d4+1,'Day 4 다음에 공식 훈련: '+rows.slice(0,8).join(' / '));
+ // Day 5는 Day 4 바로 다음에 나오고, 아직 풀지 않은 196문제다.
+ {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d4=rows.indexOf('Day 4 형용사·부사와 비교 구문'),d5=rows.indexOf('Day 5 접속사·관계사·가정법과 도치');
+  assert.ok(d4>=0&&d5===d4+1,'문제집 진도는 Day 4 다음에 Day 5: '+rows.slice(0,7).join(' / '));
+  assert.equal(menuDetail('#rangeList','Day 5 접속사·관계사·가정법과 도치'),'전체 196문제 · 첫 시도 0/196 · 지금 풀 차례 196문제 (새 문제 5개 포함)','Day 5 범위 줄');}
+ // 문법 공식 훈련(v98): 마지막 Day(v115부터 Day 5) 다음에 ‘공식 훈련 새 문제 전체’ 범위, 그 아래 영역별로 접힌 공식 범위가 나온다. 공식 범위는 그 공식의 Day 문제와 새 문제를 함께 담는다.
+ {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d5=rows.indexOf('Day 5 접속사·관계사·가정법과 도치'),f=rows.indexOf('공식 훈련 새 문제 전체');
+  assert.ok(d5>=0&&f===d5+1,'Day 5 다음에 공식 훈련: '+rows.slice(0,9).join(' / '));
   assert.equal(menuDetail('#rangeList','공식 훈련 새 문제 전체'),'전체 364문제 · 첫 시도 0/364 · 지금 풀 차례 364문제 (새 문제 5개 포함)','공식 훈련 새 문제 범위 줄');
   assert.equal(rows.filter(t=>run('ENGLISH_FORMULAS.areas.flatMap(a=>a.rules.map(r=>r.title))').includes(t)).length,89,'공식 범위 89개');}
  run("go('progress')");assert.equal(nodes.get('#total')._text,String(run('questionCount(data.cards.filter(isPlayable))')),'진행상황의 전체 문제');

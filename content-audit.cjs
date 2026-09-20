@@ -111,7 +111,8 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // 2026-09-16(v97): 15강 고려(문화 2) 63문제(글자 보기 43문제 중 정답이 유일하게 가장 긴 보기 0개, 사진 보기 20문제는 분모 제외)를 더한 뒤 실측 51/2050(0.02488)을 소수 셋째 자리에서 올린 0.025로 다시 조였다.
 // 2026-09-17(v98): 문법 공식 훈련 364문제(4지선다 238, 정답이 유일하게 가장 긴 보기 0개)를 더한 뒤 실측 51/2289(0.02228)를 소수 셋째 자리에서 올린 0.023로 다시 조였다.
 // 2026-09-19(v100): 16강 조선 전기(정치) 80문제(정답이 유일하게 가장 긴 보기 0개 — 걸린 23문제는 오답을 정확한 내용으로 늘렸다)를 더한 뒤 실측 51/2369(0.02153)을 소수 셋째 자리에서 올린 0.022로 다시 조였다.
-const LONGEST_LIMIT=0.022,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
+// LONGEST_LIMIT: 2026-09-20(v115) 문제집 Day 5 196문제(4지선다 130, 정답이 가장 긴 보기 0개)를 더한 뒤 실측 51/2499(0.02041)를 소수 셋째 자리에서 올린 0.021로 다시 조였다.
+const LONGEST_LIMIT=0.021,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
 function lengthBias(items){
  const rows=items.filter(i=>i.exercise.type==='choice'&&!VERBATIM_OFFICIAL.test(i.card.id)&&!i.exercise.choiceImages);
  assert(rows.length>0,'No self-made choice exercises to measure');

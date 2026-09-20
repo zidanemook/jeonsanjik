@@ -8,7 +8,7 @@ function plus(date,n){const [y,m,d]=date.split('-').map(Number);return day(new D
 // 문제 원문·정답·해설은 앱 파일(core-review-pack·practice-bank·기출)에 있다. 폰 저장소에는 진도(일정)만 남기고,
 // 읽을 때 앱 파일에서 원문을 붙인다. 앱 파일에 없는 카드(아직 내려받지 않은 기출 회차 등)는 저장된 원문을 그대로 둔다.
 const CARD_CONTENT=['subject','question','answer','explanation','source','verified'];
-function bankSource(id,lesson){const rule=CORE_REVIEW_PACK.find(c=>c.id===lesson.ruleId);return id.startsWith('ko-logic')?'사고의 힘 논리 제1편 개념 기반 자체 제작 문제(교재 문장·예문은 옮기지 않음).':id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조·동사 유형 정리 기반 자체 제작 연습.':id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습.':id.startsWith('en-day3-')?'문제집 Day 3 문법 포인트 찾기 훈련 기반 자체 제작 연습.':id.startsWith('en-day4-')?'문제집 Day 4 문법 포인트 찾기 훈련 기반 자체 제작 연습.':id.startsWith('en-formula-')?'문법 공식 훈련 자체 제작 연습(문제집 Day 1~4 문법 포인트를 공식별로 묶음).':rule?.source||'수일치 문서 기반 자체 제작 연습.';}
+function bankSource(id,lesson){const rule=CORE_REVIEW_PACK.find(c=>c.id===lesson.ruleId);return id.startsWith('ko-logic')?'사고의 힘 논리 제1편 개념 기반 자체 제작 문제(교재 문장·예문은 옮기지 않음).':id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조·동사 유형 정리 기반 자체 제작 연습.':id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습.':id.startsWith('en-day3-')?'문제집 Day 3 문법 포인트 찾기 훈련 기반 자체 제작 연습.':id.startsWith('en-day4-')?'문제집 Day 4 문법 포인트 찾기 훈련 기반 자체 제작 연습.':id.startsWith('en-day5-')?'문제집 Day 5 문법 포인트 찾기 훈련 기반 자체 제작 연습.':id.startsWith('en-formula-')?'문법 공식 훈련 자체 제작 연습(문제집 Day 1~4 문법 포인트를 공식별로 묶음).':rule?.source||'수일치 문서 기반 자체 제작 연습.';}
 let contentCache=null;
 function cardContent(){
  if(contentCache)return contentCache;
@@ -428,7 +428,7 @@ function renderRange(){
   const papers=group('기출 · 회차별 심화 ('+Math.min(...Hanneung.rounds)+'~'+Math.max(...Hanneung.rounds)+'회)',!Hanneung.rounds.includes(Number(round)));for(const n of Hanneung.rounds){const count=Hanneung.rows.filter(r=>r.round===n&&Hanneung.hasExplanation(r.id)).length;option(papers,n+'회',scope(String(n)),count?'해설 '+count+'개':'');}
   const exams=group('기출 · 공무원 9급 ('+paperCount+'회차)',!paperScope(round));paperYears(exams,round);
   const other=group('그 밖의 범위',!(studyScope(round)!==null||round==='core'));option(other,'한국사 전체',scope(''));
- }else if(s==='영어'){const g=group('문제집 진도');option(g,'Day 1 문장의 구조·동사 유형',scope('','Day 1'));option(g,'Day 2 동사의 형태·명사·일치',scope('','Day 2'));option(g,'Day 3 분사·준동사·관사와 도치',scope('','Day 3'));option(g,'Day 4 형용사·부사와 비교 구문',scope('','Day 4'));
+ }else if(s==='영어'){const g=group('문제집 진도');option(g,'Day 1 문장의 구조·동사 유형',scope('','Day 1'));option(g,'Day 2 동사의 형태·명사·일치',scope('','Day 2'));option(g,'Day 3 분사·준동사·관사와 도치',scope('','Day 3'));option(g,'Day 4 형용사·부사와 비교 구문',scope('','Day 4'));option(g,'Day 5 접속사·관계사·가정법과 도치',scope('','Day 5'));
   // 문법 공식 훈련: 공식(규칙) 하나가 범위 하나다. 그 공식의 문제집 Day 문제와 새 훈련 문제를 함께 담고, 영역별로 접어 둔다(지금 풀던 공식의 영역만 펼침).
   const formulas=group('문법 공식 훈련');option(formulas,'공식 훈련 새 문제 전체',scope('','문법 공식 훈련'));
   const nowFormula=(scopeOf().topic||'').startsWith('formula:')?scopeOf().topic.slice(8):'';
@@ -558,7 +558,7 @@ function renderFeedback(root,card,quiz,lesson,label){
  root.append(recap);
  const dueCard=data.cards.find(c=>c.id===card.id),concept=ReviewPolicy.concept(card.id),siblings=data.cards.some(c=>c.id!==card.id&&isPlayable(c)&&ReviewPolicy.concept(c.id)===concept);
  root.append(elem('p','풀이 완료 · 환산 시간 +1분','study-credit-award'),elem('small','다음 복습: '+dueCard.due+(f.result==='wrong'?' · 5분 뒤 다시 풀 수 있어요.'+(siblings?' 같은 개념의 다른 문제도 10분 뒤 이어서 나와요.':''):''),'next-review'));
- const source=(CORE_REVIEW_PACK.find(c=>c.id===card.id)||card).source;if(quiz.type==='text'||source)root.append(elem('small',quiz.type==='text'?(card.id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조·동사 유형 정리 기반 자체 제작 연습':card.id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습':card.id.startsWith('en-day3-')?'문제집 Day 3 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-day4-')?'문제집 Day 4 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-formula-')?'문법 공식 훈련 자체 제작 연습':'대화 학습·수일치 정리 기반 자체 제작 연습'):source,'source-line'));
+ const source=(CORE_REVIEW_PACK.find(c=>c.id===card.id)||card).source;if(quiz.type==='text'||source)root.append(elem('small',quiz.type==='text'?(card.id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조·동사 유형 정리 기반 자체 제작 연습':card.id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습':card.id.startsWith('en-day3-')?'문제집 Day 3 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-day4-')?'문제집 Day 4 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-day5-')?'문제집 Day 5 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-formula-')?'문법 공식 훈련 자체 제작 연습':'대화 학습·수일치 정리 기반 자체 제작 연습'):source,'source-line'));
  const next=btn(nextLabel(reviewId),()=>{const state=structuredClone(data);delete state.quizFeedback;delete state.activePractice;if(commit(state)){sessionDirty=true;render();window.scrollTo(0,0);}},'primary next-question');next.id='nextQuestion';next.dataset.review=reviewId||'';root.append(next);
  appendNoteBox(root,card,quiz,'explanation',label.textContent);
 }
@@ -619,7 +619,7 @@ function answerPractice(id,input){
  next.quizFeedback={cardId:id,reviewId,selectedIndex:quiz.type==='choice'?input:-1,userAnswer:quiz.type==='text'?String(input):'',result,exercise:quiz};
  delete next.activePractice;notify('');if(commit(next)){if(drilling)drill=StudyDrill.answer(drill,id,item.index,result==='correct');else if(sequential)paperAdvance();sessionDirty=true;render();window.scrollTo(0,0);}
 }
-// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제 · 문제집 Day 1 · Day 2 · Day 3 · Day 4 · 문법 공식 훈련, 국어: 사고의 힘 논리 1~5장)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
+// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제 · 문제집 Day 1 · Day 2 · Day 3 · Day 4 · Day 5 · 문법 공식 훈련, 국어: 사고의 힘 논리 1~5장)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
 // 과목은 연습 문제에 적힌 subject를 따르고, 적혀 있지 않으면 영어다(기존 영어 문제는 subject를 따로 적지 않았다).
 // 새로 만든 문제는 '팩 이름'이 바뀔 때만 기기에 들어왔다. 배포할 때 이름을 손으로 안 올리면 영영 안 들어온다 —
 // 2026-09-17 뒤에 만든 158문항(16강 80 · 문화유산 사진 70 · 궁궐 사진 8)이 그래서 이미 쓰던 기기에서 안 보였다.
