@@ -36,11 +36,11 @@
       <div id="rangeList"></div>
     </section>
     <section id="quizView" aria-labelledby="scopeLabel" hidden>
-      <div class="quiz-bar"><button id="quizBack" type="button" class="back">← 뒤로</button><span id="scopeLabel"></span><label id="queueModeLabel" class="queue-mode" hidden><span class="visually-hidden">대기열 모드</span><select id="queueMode"></select></label><button id="drillToggle" type="button" class="drill-toggle" aria-pressed="false" hidden>이 범위 전부 풀기</button></div>
+      <div class="quiz-bar"><button id="quizBack" type="button" class="back">← 뒤로</button><span id="scopeLabel"></span><label id="queueModeLabel" class="queue-mode" hidden><span class="visually-hidden">대기열 모드</span><select id="queueMode"></select></label></div>
       <article id="card" aria-live="polite">
         <p>문제를 불러오는 중입니다.</p>
       </article>
-      <p id="drillStatus" class="status drill-status" role="status" hidden></p>
+      <p id="orderStatus" class="status order-status" role="status" hidden></p>
       <p id="retryStatus" class="status" role="status"></p>
       <p id="roundScore" class="status" role="status" hidden></p>
       <details id="annulledQuestion" hidden><summary>63회 42번 · 공식 오류 문제 안내</summary><p>정답 없음으로 정정되어 응시자 전원에게 2점이 부여된 문제입니다. 일반 문제풀이와 오답 복습에서 제외합니다.</p></details>
@@ -92,7 +92,6 @@
   <script src="content-corrections.js?v=111"></script>
   <script src="review-record.js?v=111"></script>
   <script src="review-policy.js?v=111"></script>
-  <script src="drill.js?v=111"></script>
   <script src="sync-core.js?v=111"></script>
   <script src="study-credit.js?v=111"></script>
   <script src="study-review-catalog.js?v=111"></script>

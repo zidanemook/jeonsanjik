@@ -17,10 +17,21 @@ function assess(card,history,result,now=new Date()){
  if(result!=='correct'){next.retryAt=new Date(now.getTime()+RETRY_MS).toISOString();next.interval=1;next.due=ReviewSchedule.plus(today,1);}
  return {card:next,entry:{cardId:card.id,date:today,at:now.toISOString(),result,recall:attempt.recall,delayedFirst:attempt.delayedFirst&&attempt.date===today,kind:retry?'relearning':'review',interval:next.interval,ease:next.ease}};
 }
+// 같은 날 두 번째부터의 답은 복습 간격을 다시 올리지 않는다. 틀리면 내려가기만 한다.
+// 기출 회차처럼 한자리에서 여러 번 푸는 흐름이 일정을 부풀리지 않게 한다.
+// (동기화의 ProgressSync.merge도 하루의 시도를 한 번으로 접는다 — 같은 규칙이다.)
+function assessRepeat(card,history,result,now=new Date()){
+ const out=assess(card,history,result,now);
+ const today=ReviewSchedule.day(now);
+ if(!history.some(h=>h.cardId===card.id&&h.date===today&&h.mode==='quiz'))return out;
+ const next={...card};delete next.pendingAttempt;delete next.retryAt;
+ if(result!=='correct'){next.interval=1;next.due=ReviewSchedule.plus(today,1);next.streak=0;if(out.card.retryAt)next.retryAt=out.card.retryAt;}
+ return {card:next,entry:{...out.entry,interval:next.interval,ease:next.ease}};
+}
 function queue(cards,now=new Date()){
  const today=ReviewSchedule.day(now);
  return cards.filter(c=>c.pendingAttempt||(c.retryAt?Date.parse(c.retryAt)<=now.getTime():c.due&&c.due<=today)).sort((a,b)=>Number(!!b.pendingAttempt)-Number(!!a.pendingAttempt)||(a.retryAt||a.due).localeCompare(b.retryAt||b.due));
 }
 function metrics(cards,history){const ids=new Set(cards.map(c=>c.id)),seen=new Set();const rows=history.filter(h=>{const k=h.cardId+'|'+h.date;if(!ids.has(h.cardId)||h.delayedFirst!==true||seen.has(k))return false;seen.add(k);return true;});return {total:rows.length,correct:rows.filter(h=>h.result==='correct'&&h.recall==='remember').length};}
-const api={begin,assess,queue,metrics,RETRY_MS};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ReviewLearning=api;
+const api={begin,assess,assessRepeat,queue,metrics,RETRY_MS};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ReviewLearning=api;
 })(globalThis);

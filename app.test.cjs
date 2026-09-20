@@ -1,6 +1,6 @@
-// app.js를 가짜 DOM 위에서 실제로 돌려, "이 범위 전부 풀기"가 화면·기록·일정에서 어떻게 동작하는지 확인한다.
-// 문제 하나가 카드 하나다. 평소 모드는 문법 포인트마다 한 문제씩 낸 뒤 같은 포인트의 나머지를 형제 간격 뒤로 미루고,
-// 드릴을 켜면 범위의 모든 문제가 나오고, 틀린 문제만 다음 회차로 돈다. 화면의 모든 수는 "문제" 한 단위다.
+// app.js를 가짜 DOM 위에서 실제로 돌려, 화면·기록·복습 일정이 어떻게 맞물리는지 확인한다.
+// 문제 하나가 카드 하나다. 평소 모드는 문법 포인트마다 한 문제씩 낸 뒤 같은 포인트의 나머지를 형제 간격 뒤로 미룬다.
+// 기출 회차는 대기열을 거치지 않고 원문 순서대로 낸다. 화면의 모든 수는 "문제" 한 단위다.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 function el(tag='div'){
  const node={tag,children:[],attrs:{},dataset:{},classes:new Set(),_text:'',hidden:false,disabled:false,open:false,
@@ -29,7 +29,7 @@ ctx.fetch=url=>{fetched.push(url);if(failNextFetch){failNextFetch=false;return P
  const m=/^gichul\/([a-z0-9-]+)\.json$/.exec(url);if(!m)return Promise.reject(Error('unexpected fetch '+url));
  return Promise.resolve({ok:true,status:200,json:()=>Promise.resolve(require('./gichul-files.cjs').read(m[1]))});};
 const flush=()=>new Promise(r=>setImmediate(r));
-for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','drill.js','sync-core.js','study-credit.js','study-review-catalog.js','hanneung-topics.js','topics.js','memorize.js','app.js'])
+for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','study-review-catalog.js','hanneung-topics.js','topics.js','memorize.js','app.js'])
  vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
 const run=code=>vm.runInContext(code,ctx);
 // 시작할 때는 회차 파일을 하나도 받지 않는다. 그래도 카드·과목 문항 수는 색인으로 모든 기출 문항을 센다.
@@ -99,59 +99,6 @@ assert.ok(!nodes.get('#retryStatus')._text.includes('같은 개념의 문제'),'
  for(const sel of ['#subjectList','#subjectSummary','#rangeList','#subjectStats','#card','#retryStatus'])assert.ok(!/문항|카드/.test(texts(sel)),sel+'에 문항/카드라는 말이 보인다: '+texts(sel).slice(0,120));
  run("go('quiz')");
 }
-assert.equal(run('drill'),null,'사용자가 켜기 전에는 드릴이 없다');
-assert.equal(nodes.get('#drillStatus').hidden,true);
-assert.equal(nodes.get('#drillToggle')._text,'이 범위 전부 풀기');
-assert.equal(nodes.get('#drillToggle').attrs['aria-pressed'],'false');
-
-// 2) 드릴을 켜면 범위의 모든 문항이 순서대로 나온다. 5번째만 일부러 틀린다.
-run('toggleDrill()');
-assert.equal(run('drill.order.length'),total);
-assert.equal(nodes.get('#drillStatus').hidden,false);
-assert.equal(nodes.get('#drillStatus')._text,'1회차 1/'+total+' · 이 범위 전부 풀기');
-assert.equal(nodes.get('#retryStatus')._text,'','재시도·형제 대기 안내는 드릴에서 뜨지 않는다');
-assert.equal(nodes.get('#drillToggle').attrs['aria-pressed'],'true');
-const served=[];let missed=null;
-while(run('StudyDrill.current(drill)')&&served.length<total*2){
- const item=run('StudyDrill.current(drill)');
- assert.equal(run('data.activePractice.cardId'),item.cardId);
- assert.equal(run('data.activePractice.exercise.variantIndex'),item.index,'드릴이 지목한 문항이 그대로 나온다');
- const wrong=served.length===4;if(wrong)missed=item.key;
- served.push(item.key);
- if(served.length===37)assert.equal(nodes.get('#drillStatus')._text,'1회차 37/'+total+' · 이 범위 전부 풀기');
- answerCurrent(wrong);
-}
-assert.equal(served.length,total+1,'1회차 전체 + 틀린 1문항');
-assert.equal(new Set(served.slice(0,total)).size,total,'1회차에 범위의 모든 문항이 한 번씩');
-assert.deepEqual(served.slice(total),[missed],'2회차는 이 드릴에서 틀린 문항만');
-assert.ok(screen().includes('이 범위를 전부 풀었어요'),'끝 화면: '+screen().slice(0,60));
-assert.ok(screen().includes(total+'문제를 모두 한 번 이상 맞혔어요'));
-
-// 3) 답안은 평소와 똑같이 기록되고, 같은 날 반복이 복습 간격을 부풀리지 않는다.
-const data=run('structuredClone(data)'),today=run('day()'),tomorrow=run('plus(day(),1)');
-const rows=data.history.filter(h=>h.date===today);
-assert.equal(rows.length,normal+total+1,'드릴 답안도 평소와 같은 기록으로 남는다');
-assert.ok(rows.every(h=>h.mode==='quiz'&&h.detail&&h.detail.exerciseId),'기록에는 평소처럼 채점 상세가 들어 있다');
-const touched=data.cards.filter(c=>rows.some(h=>h.cardId===c.id));
-assert.equal(touched.length,cardCount);
-for(const c of touched){assert.ok(c.interval<=1,'같은 날 반복이 간격을 늘리지 않았다: '+c.id+' → '+c.interval);assert.equal(c.due,tomorrow);}
-// 동기화가 기록에서 카드를 다시 계산해도 같은 결론이다.
-for(const c of run('ProgressSync.merge(data,[])').cards.filter(c=>rows.some(h=>h.cardId===c.id)))assert.ok(c.interval<=1,'동기화 재계산도 같다: '+c.id);
-// 4) 드릴을 끄면 화면과 대기열은 평소대로 돌아온다.
-run('toggleDrill()');
-assert.equal(run('drill'),null);
-assert.equal(nodes.get('#drillStatus').hidden,true);
-assert.equal(nodes.get('#drillToggle')._text,'이 범위 전부 풀기');
-// 드릴 중 일부러 틀린 한 문제 때문에 같은 개념의 문제가 오늘 다시 불려 온다. 풀 문제가 그것뿐이므로 형제 간격으로 막지 않고 바로 낸다.
-{const wrongId=rows.find(h=>h.result==='wrong').cardId,wrongConcept=run('ReviewPolicy.concept('+JSON.stringify(wrongId)+')');
- const after=run("reviewQueue(data.cards.filter(inCurrent)).ready.map(c=>c.id)");
- assert.ok(after.length>0,'드릴을 꺼도 평소 규칙대로 틀린 개념의 문제가 지금 풀 차례로 남는다');
- assert.ok(after.every(id=>run('ReviewPolicy.concept('+JSON.stringify(id)+')')===wrongConcept),'지금 풀 차례에는 틀린 문제와 같은 개념의 문제만 있다: '+after.join(','));}
-// 범위를 다시 고르면 드릴은 끝난다.
-run('toggleDrill()');assert.ok(run('drill'));
-run("openScope({subject:'영어',topic:'수일치'})");
-assert.equal(run('drill'),null,'다른 범위를 열면 드릴이 남지 않는다');
-
 // 5) 기출 회차는 앱이 문제를 고르지 않는다 — 켜야 하는 모드가 아니라 회차의 기본 동작이다.
 //    복습 일정·재시도 대기·형제 간격 어느 것도 회차 안에서는 걸리지 않고,
 //    1번부터 마지막 번호까지 원문 순서 그대로 나온 뒤 멈춘다.
@@ -170,10 +117,8 @@ assert.deepEqual(Array.from(run("Gichul.papers.filter(p=>p.questions).map(p=>p.i
 const paperOrder=Array.from(run("catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).map(c=>c.id)"));
 assert.equal(paperOrder.length,19,'2026 지방직 9급 컴퓨터일반 수록 문항 수');
 assert.deepEqual(paperOrder,[...paperOrder].sort(),'회차 순서는 원문 문항 번호 순이다');
-assert.equal(run('drill'),null,'회차는 드릴이 아니다');
-assert.equal(nodes.get('#drillToggle').hidden,true,'회차에서는 전부 풀기 버튼을 감춰 두 방식이 부딪히지 않게 한다');
 assert.equal(nodes.get('#retryStatus')._text,'','회차에서는 재시도·형제 대기 안내가 뜨지 않는다');
-assert.equal(nodes.get('#drillStatus')._text,'1/19 · 원문 순서 그대로');
+assert.equal(nodes.get('#orderStatus')._text,'1/19 · 원문 순서 그대로');
 const firstQuiz=run('data.activePractice.exercise');
 assert.equal(firstQuiz.fixedOrder,true,'공식 보기는 순서를 섞지 않는다');
 assert.deepEqual(Array.from(firstQuiz.choices),Array.from(run("QUIZ_OPTIONS["+JSON.stringify(paperOrder[0])+"].choices")),'보기는 원문 그대로 나온다');
@@ -207,14 +152,13 @@ for(const c of run('ProgressSync.merge(data,[])').cards.filter(c=>paperOrder.inc
 run("openScope({subject:'한국사',round:'79'})");
 const roundOrder=Array.from(run("catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).map(c=>c.id)"));
 assert.deepEqual(roundOrder,Array.from({length:50},(_,i)=>'hanneung-79-'+String(i+1).padStart(2,'0')),'한능검 79회도 1번부터 50번까지 원문 순서');
-assert.equal(nodes.get('#drillToggle').hidden,true,'한능검 회차에서도 전부 풀기 버튼을 감춘다');
 assert.equal(run('data.activePractice.cardId'),'hanneung-79-01');
 // 원문 이미지가 뜬 뒤에만 답을 받는 규칙은 그대로다. 가짜 DOM에서 이미지가 준비된 상태를 만든다.
 const paperImg=doc.querySelector('#card .paper-image img');paperImg.complete=true;paperImg.naturalWidth=1;
 const roundServed=[];
 while(run('data.activePractice')&&roundServed.length<5){roundServed.push(run('data.activePractice.cardId'));answerCurrent(roundServed.length===2);}
 assert.deepEqual(roundServed,roundOrder.slice(0,5),'한능검 회차도 순서대로 나온다');
-assert.equal(nodes.get('#drillStatus')._text,'6/50 · 원문 순서 그대로');
+assert.equal(nodes.get('#orderStatus')._text,'6/50 · 원문 순서 그대로');
 const roundStats=run("Hanneung.stats(79,data.history)");
 assert.equal(roundStats.answered,5,'회차 점수는 첫 시도 기준으로 그대로 계산된다');
 assert.equal(roundStats.total,50);
@@ -238,7 +182,6 @@ assert.equal(run('data.activePractice.cardId'),'gichul-'+englishPaper+'-'+String
 assert.equal(fetched.filter(u=>u.includes(englishPaper)).length,2,'실패한 회차만 한 번 더 받았다');
 // 회차가 아닌 범위는 예전 그대로 복습 대기열을 따른다.
 run("openScope({subject:'한국사',round:'lecture-02-05'})");
-assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에서는 전부 풀기 버튼이 그대로 있다');
 // 국어 범위 화면: 『사고의 힘 논리』 묶음이 맨 위에 1장 → 2장 → 3장 → 4장 → 5장 → 6장 순서로 나오고, 모두 아직 풀지 않은 4지선다 문제다.
 // 2장을 열면 국어 문제만 나오고, 틀린 뒤 해설 화면에 정리·출처·같은 개념 안내가 나오며 문항/카드라는 말은 없다.
 {
@@ -384,5 +327,5 @@ assert.equal(nodes.get('#drillToggle').hidden,false,'회차가 아닌 범위에�
  run("openScope({subject:'한국사',round:79})");
  assert.equal(nodes.get('#queueModeLabel').hidden,true,'기출 회차에서는 모드 선택을 숨긴다');
 }
-console.log('PASS drill in app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 · 6장 329 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, drill serves all '+total+' questions then repeats only the missed one, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본·틀린 문제 위주·안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
+console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 · 6장 329 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본·틀린 문제 위주·안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
 })().catch(e=>{console.error(e);process.exit(1);});
