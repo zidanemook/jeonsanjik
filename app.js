@@ -249,26 +249,42 @@ function narrowMark(m){
 }
 // The right sentence gets a label that fits the question: translation items (우리말을 영어로 옳게 옮긴 것) are judged on meaning too.
 function okLabel(quiz){return /옳게 옮긴/.test(quiz?.question||'')?' (옳게 옮김)':' (어법상 옳음)';}
-function markedChoice(text,marks,ok=' (어법상 옳음)'){
+// struck: the option's full corrected sentences follow underneath, so the wrong words are only struck out (no inline → fix).
+function markedChoice(text,marks,ok=' (어법상 옳음)',struck=false){
  const span=elem('span');let start=0;
  const hits=(marks||[]).map(m=>{const n=narrowMark(m),at=text.indexOf(m.wrong);return {m:n,at:at<0?-1:at+n.skip};}).filter(h=>h.at>=0).sort((a,b)=>a.at-b.at);
- for(const {m,at} of hits){if(at<start)continue;span.append(document.createTextNode(text.slice(start,at)),elem('mark',m.wrong,'choice-error'),elem('span',' → '+m.fix,'choice-fix'));start=at+m.wrong.length;}
+ for(const {m,at} of hits){if(at<start)continue;span.append(document.createTextNode(text.slice(start,at)));if(struck)span.append(elem('mark',m.wrong,'choice-error choice-struck'));else span.append(elem('mark',m.wrong,'choice-error'),elem('span',' → '+m.fix,'choice-fix'));start=at+m.wrong.length;}
  span.append(document.createTextNode(text.slice(start)));if(!marks)span.append(elem('span',ok,'choice-ok'));return span;
 }
 function markedLine(label,quiz,i){const p=elem('p',label+(i+1)+'. ');p.append(markedChoice(quiz.choices[i],quiz.marks[i],okLabel(quiz)));return p;}
+// quiz.fixes[i]: every correct English sentence for option i (null = none written). The first is the one to write on the exam (★ when there are several).
+// Words that differ from the option's own English are painted green.
+function englishOf(choice){const at=choice.indexOf(' → ');return at<0?choice:choice.slice(at+3);}
+function fixLine(base,fix,best){
+ const a=base.split(' '),b=fix.split(' ');let s=0,e=0;
+ while(s<a.length&&s<b.length&&a[s]===b[s])s++;
+ while(e<a.length-s&&e<b.length-s&&a[a.length-1-e]===b[b.length-1-e])e++;
+ const pre=b.slice(0,s).join(' '),mid=b.slice(s,b.length-e).join(' '),post=b.slice(b.length-e).join(' ');
+ const p=elem('p',undefined,'choice-fix-line');p.append(elem('span','✓','choice-fix-check'));const en=elem('span',undefined,'choice-fix-text');
+ en.append(document.createTextNode(pre+(pre&&(mid||post)?' ':'')));if(mid)en.append(elem('mark',mid,'choice-fix-word'));en.append(document.createTextNode((post&&mid?' ':'')+post));
+ if(best)en.append(elem('span','★추천','choice-fix-best'));p.append(en);return p;
+}
+// 대괄호 고르기 문제(보기 = 문장 속 조각)는 고친 문장 전체를 해설 맨 위에 한 번 보여 준다(quiz.sentence).
+function sentenceLine(quiz){if(!quiz.sentence)return [];const base=(quiz.question.split('\n').find(l=>l.includes('['))||'').replace(/[\[\]]/g,''),box=elem('div',undefined,'choice-sentence');box.append(elem('strong','바르게 고친 문장'),fixLine(base,quiz.sentence,false));return [box];}
+function fixLines(quiz,i){const list=quiz.fixes?.[i];if(!list?.length)return [];const base=englishOf(quiz.choices[i]);return list.map((f,k)=>fixLine(base,f,k===0&&list.length>1));}
 // Each option as its own block: the sentence (wrong words marked) and that option's explanation right under it.
 function choiceExplanations(quiz,split,picked){
- const box=elem('div',undefined,'choice-explanations');
+ const box=elem('div',undefined,'choice-explanations');box.append(...sentenceLine(quiz));
  quiz.choices.forEach((c,i)=>{
   const answer=i===quiz.correctIndex,mine=i===picked&&!answer,item=elem('div',undefined,'choice-explain'+(answer?' is-answer':mine?' is-picked':''));
-  const head=elem('p',(i+1)+'. ','choice-explain-sentence');head.append(quiz.marks?markedChoice(c,quiz.marks[i],okLabel(quiz)):document.createTextNode(c));
+  const head=elem('p',(i+1)+'. ','choice-explain-sentence');head.append(quiz.marks?markedChoice(c,quiz.marks[i],okLabel(quiz),!!quiz.fixes?.[i]?.length):document.createTextNode(c));
   if(answer)head.append(elem('span','정답','choice-answer-tag'));if(mine)head.append(elem('span','내 답','choice-picked-tag'));
-  item.append(head,elem('p',split.per[i],'choice-explain-text'));box.append(item);
+  item.append(head,...fixLines(quiz,i),elem('p',split.per[i],'choice-explain-text'));box.append(item);
  });
  if(split.rest.length)box.append(...explanationParts(split.rest.join('\n\n')));
  return box;
 }
-function markedList(quiz){const box=elem('div',undefined,'marked-choices');box.append(elem('strong','보기별 틀린 곳'));quiz.choices.forEach((c,i)=>{const p=elem('p',(i+1)+'. ','example');p.append(markedChoice(c,quiz.marks[i],okLabel(quiz)));box.append(p);});return box;}
+function markedList(quiz){const box=elem('div',undefined,'marked-choices');box.append(elem('strong','보기별 틀린 곳'));quiz.choices.forEach((c,i)=>{const p=elem('p',(i+1)+'. ','example');p.append(markedChoice(c,quiz.marks[i],okLabel(quiz),!!quiz.fixes?.[i]?.length));box.append(p,...fixLines(quiz,i));});return box;}
 // 기출형 자료 제시 문제는 발문 뒤 빈 줄 다음에 [자료 이름]으로 시작하는 자료를 둔다. 발문은 크게, 자료는 상자에 보통 글씨로 보여 준다.
 function questionNodes(text){const at=text.indexOf('\n\n[');if(at<0)return [elem('div',text,'question')];return [elem('div',text.slice(0,at),'question'),elem('div',text.slice(at+2),'question-clue')];}
 // 영어 해설 끝의 ‘외우는 공식’ 문단(규칙마다 같은 외우기 블록)은 상자로 따로 보여 준다. 줄 머리(외우는 공식·입으로 외우기)와 이름표(꿀팁·함정)만 굵게 한다.
@@ -278,10 +294,14 @@ function explanationParts(text){
  if(at<0)return [explanationText(text)];
  const out=[],before=paras.slice(0,at).join('\n\n'),after=paras.slice(at+1).join('\n\n'),box=elem('div',undefined,'formula-box');
  if(before)out.push(explanationText(before));
- paras[at].split('\n').forEach(line=>{const label=/^(꿀팁|함정): /.exec(line),p=elem('p',undefined,/^(외우는 공식|입으로 외우기)$/.test(line)?'formula-head':label?'formula-note':'formula-line');
-  if(label)p.append(elem('strong',label[1]+': '),document.createTextNode(line.slice(label[0].length)));else p.textContent=line;box.append(p);});
+ paras[at].split('\n').forEach(line=>{const label=/^(꿀팁|함정): /.exec(line),p=elem('p',undefined,/^(외우는 공식|입으로 외우기)$/.test(line)?'formula-head':label?'formula-note':/^✗/.test(line)?'formula-bad':/^예\)/.test(line)?'formula-example':'formula-line');
+  if(label)p.append(elem('strong',label[1]+': '),document.createTextNode(line.slice(label[0].length)));else p.append(...keyText(line));box.append(p);});
  out.push(box);if(after)out.push(explanationText(after));return out;
 }
+// **말** 은 외울 핵심 — 색칠해 보여 준다(외우는 공식 상자·규칙 정리).
+function keyText(line){return line.split(/\*\*(.+?)\*\*/).map((part,i)=>i%2?elem('mark',part,'key-word'):document.createTextNode(part));}
+// 규칙 정리: 줄마다 한 문단. [소제목] 줄은 굵게, ✓/✗로 시작하는 줄은 맞는·틀린 예문으로 색을 달리한다.
+function ruleLines(text,cls){return String(text).split('\n').filter(Boolean).map(line=>{const p=elem('p',undefined,cls+(/^✓/.test(line)?' rule-ok':/^✗/.test(line)?' rule-bad':/^【[^】]*】$/.test(line)?' rule-head':''));p.append(...keyText(line));return p;});}
 function explanationText(text){
  const p=elem('p',undefined,'explanation-text');let start=0;
  for(const match of text.matchAll(/https:\/\/(?:contents\.history\.go\.kr|www\.heritage\.go\.kr|www\.museum\.go\.kr|encykorea\.aks\.ac\.kr|cl\.mofa\.go\.kr|www\.kookje\.co\.kr|www\.kmdb\.or\.kr)\/[^\s]+/g)){
@@ -542,7 +562,7 @@ function renderFeedback(root,card,quiz,lesson,label){
  appendCorrection(root,quiz);
  const main=elem('details',undefined,'lesson explanation-main');main.append(elem('summary','해설 보기'));const byChoice=Practice.explainByChoice(quiz);if(byChoice)main.append(choiceExplanations(quiz,byChoice,f.selectedIndex));else{if(quiz.marks)main.append(markedList(quiz));main.append(...explanationParts(quiz.explanation||card.explanation||''));}attachExplanationCredit(main,reviewId,'feedback');root.append(main);
  appendNewPaperExplanation(root,card.id,quiz.explanation||card.explanation,reviewId,'feedback-supplement');
- if(lesson){root.append(elem('p',lesson.hook,'hook'));const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),elem('p',lesson.rule));for(const example of lesson.examples)details.append(elem('p',example,'example'));attachExplanationCredit(details,reviewId,'lesson');root.append(details);}
+ if(lesson){root.append(elem('p',lesson.hook,'hook'));const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),...ruleLines(lesson.rule,'rule-line'));for(const example of lesson.examples)details.append(...ruleLines(example,'example'));attachExplanationCredit(details,reviewId,'lesson');root.append(details);}
  const recap=elem('details',undefined,'lesson recap');recap.append(elem('summary','문제 다시 보기'),label,...questionNodes(quiz.question));appendPaper(recap,Hanneung.get(card.id));
  if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(recap,quiz,null,f.selectedIndex);
  else if(quiz.type==='choice'){const choices=elem('div',undefined,'quiz-choices recap-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const b=elem('button',quiz.fixedOrder?choice:(i+1)+'. '+(quiz.marks?'':choice));if(quiz.marks)b.append(markedChoice(choice,quiz.marks[i],okLabel(quiz)));b.type='button';b.disabled=true;if(i===quiz.correctIndex)b.classList.add('quiz-correct');else if(i===f.selectedIndex)b.classList.add('quiz-wrong');choices.append(b);});recap.append(choices);}

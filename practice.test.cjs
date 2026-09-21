@@ -44,9 +44,12 @@ for(const [id,lesson]of Object.entries(bank)){
   assert.equal(days.length,450);assert.ok(days.every(([,l])=>ruleIds.includes(l.formula)),'모든 Day 문제가 공식에 속한다');
   assert.ok(drill.every(([,l])=>ruleIds.includes(l.formula)&&l.point===F.title(l.formula)&&l.title===F.title(l.formula)&&l.ruleId.startsWith('grammar-formula-')),'새 문제의 point·title은 공식 이름');
   const blockOf=id=>bank['en-formula-001'].variants[0].explanation;
-  for(const [id,l] of [...days,...drill]){const text=l.variants[0].explanation,paras=text.split('\n\n'),last=paras[paras.length-1];assert.ok(last.startsWith('외우는 공식\n')&&/\n꿀팁: /.test(last)&&/\n입으로 외우기\n· /.test(last),'외우기 블록: '+id);assert.ok(!text.includes('기억 연결:'),'기억 연결 문단이 남지 않는다: '+id);assert.ok(!/[①②③④]/.test(last),'블록에 원문자 없음: '+id);}
+  for(const [id,l] of [...days,...drill]){const text=l.variants[0].explanation,paras=text.split('\n\n'),last=paras[paras.length-1];const lines=last.split('\n');assert.ok(lines[0]==='외우는 공식'&&lines.length>=4&&lines.length<=5&&lines.some(x=>x.startsWith('✗ '))&&lines[lines.length-1].startsWith('예) ')&&last.includes('**')&&!/꿀팁|입으로 외우기|함정:/.test(last),'외우기 블록(v119: 공식·✗·예 4~5줄, 핵심 색칠): '+id);assert.ok(!text.includes('기억 연결:'),'기억 연결 문단이 남지 않는다: '+id);assert.ok(!/[①②③④]/.test(last),'블록에 원문자 없음: '+id);}
   const sameRule=[...days,...drill].filter(([,l])=>l.formula==='so-such').map(([,l])=>l.variants[0].explanation.split('\n\n').pop());assert.ok(sameRule.length>=10&&new Set(sameRule).size===1,'같은 공식은 같은 블록');
-  assert.ok(sameRule[0].includes('[순정] such + a/an + 형용사 + 명사')&&sameRule[0].includes('Such a beautiful day (서치어뷰티풀데이)'));
+  {const marked=Object.entries(bank).filter(([,l])=>l.variants[0]?.type==='choice'&&l.variants[0].marks);assert.ok(marked.length>=660);
+   for(const [id,l] of marked){const v=l.variants[0];assert.ok(Array.isArray(v.fixes)&&v.fixes.length===v.choices.length,'보기별 올바른 문장: '+id);
+    v.choices.forEach((c,i)=>{const list=v.fixes[i],en=c.includes(' → ')?c.slice(c.indexOf(' → ')+3):c;assert.ok(Array.isArray(list)&&list.length>=1&&list.every(x=>typeof x==='string'&&x.trim()),'보기 '+(i+1)+' 문장 없음: '+id);
+     if(!v.marks[i])assert.ok(list.includes(en),'옳은 보기는 원래 문장 포함: '+id+' '+(i+1));}); }}
   const per=new Map();for(const [,l] of [...days,...drill])per.set(l.formula,(per.get(l.formula)||0)+1);assert.ok(ruleIds.every(r=>per.get(r)>=8),'공식마다 8문제 이상: '+ruleIds.filter(r=>!(per.get(r)>=8)));
   assert.equal(bank['en-day2-34'].formula,'so-such');assert.equal(bank['en-day3-014'].formula,'so-such');assert.equal(bank['en-day1-43'].formula,'transitive-no-prep');}
  // 국어 사고의 힘 논리: 1장 31문제 · 2장 179문제 · 3장 181문제 · 4장 147문제 · 5장 128문제 · 6장 329문제, 모두 4지선다(직접 쓰기 없음)이고 과목은 국어다. id는 ko-logic1-01~31, ko-logic2-001~179, ko-logic3-001~181, ko-logic4-001~147, ko-logic5-001~128, ko-logic6-001~329.

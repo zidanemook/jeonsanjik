@@ -200,6 +200,25 @@ body[data-view="quiz"] main { padding-top:14px; }
 .choice-error { background:#5a2a30; color:#ffe3e3; text-decoration:underline wavy #ff9c9c; text-underline-offset:3px; padding:0 2px; border-radius:3px; }
 .choice-fix { color:#82d6a4; font-weight:700; }
 .choice-ok { color:#9fb3c8; font-size:.9em; }
+.choice-struck { text-decoration:line-through 2px #ff9c9c; background:#5a2a30; color:#ffb3b3; }
+.choice-sentence { margin:8px 0 4px; padding:10px 12px; border:1px solid #3d6b4f; border-radius:10px; background:#15221a; }
+.choice-fix-line { display:flex; gap:8px; align-items:baseline; margin:4px 0 0; line-height:1.55; }
+.choice-fix-check { color:#82d6a4; font-weight:700; flex:none; }
+.choice-fix-word { background:#17301f; color:#82d6a4; font-weight:700; padding:0 3px; border-radius:4px; }
+.choice-fix-best { margin-left:6px; font-size:.75em; font-weight:700; color:#ffd98a; border:1px solid #ffd98a; border-radius:6px; padding:0 5px; white-space:nowrap; }
+.choice-explain .choice-explain-text { margin-top:6px; }
+.key-word { background:#3a3018; color:#ffd98a; font-weight:700; padding:0 3px; border-radius:4px; }
+.formula-box .formula-line { font-size:1.05em; font-weight:600; }
+.formula-bad { color:#ff9c9c; }
+.formula-example { color:#c3cad4; font-size:.95em; }
+.formula-example .key-word { background:#17301f; color:#82d6a4; }
+.rule-line { margin:8px 0; line-height:1.6; }
+.lesson p, .hook, .choice-explain p, .choice-sentence p { overflow-wrap:anywhere; }
+.rule-head { font-weight:700; color:#d4e5ff; margin-top:14px; }
+.lesson .rule-ok { border-left-color:#82d6a4; color:#e6f7ec; }
+.lesson .rule-bad { border-left-color:#ff9c9c; color:#ffd0d0; }
+.lesson .example .key-word { background:#17301f; color:#82d6a4; }
+.lesson .rule-bad .key-word { background:#5a2a30; color:#ffb3b3; text-decoration:line-through; }
 .marked-choices { margin:8px 0 12px; }
 .marked-choices .example { margin:6px 0; }
 .choice-explain { border-left:3px solid #4a5a70; padding:4px 0 4px 10px; margin:12px 0; }

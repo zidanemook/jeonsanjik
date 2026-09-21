@@ -9,6 +9,7 @@
   // 기억 연결 uses ①② as its own list markers (en-day2-29), so that paragraph keeps its numbers.
   if(exercise.explanation)exercise.explanation=exercise.explanation.split(/(\n\s*\n)/).map(p=>p.startsWith('기억 연결:')?p:p.replace(/[①②③④⑤]/g,m=>at[nums.indexOf(m)]>=0?nums[at[nums.indexOf(m)]]:m)).join('');
   if(exercise.marks)exercise.marks=exercise.choices.map(c=>exercise.marks[from.indexOf(c)]??null);
+  if(exercise.fixes)exercise.fixes=exercise.choices.map(c=>exercise.fixes[from.indexOf(c)]??null);
  }
  function select(card,history,bank,options){
   const lesson=bank[card.id],base=options[card.id];
