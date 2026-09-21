@@ -16,7 +16,8 @@
   return {xp:parts.reduce((a,p)=>a+p.xp,0),parts};
  }
  // 레벨 L에서 L+1로 가는 데 필요한 경험치. 처음엔 빨리 오르고 조금씩 길어진다.
- const need=level=>100+20*(level-1);
+ // v127 리밸런스: 전체 레벨도 과목 레벨과 같은 계단(100+215(L-1))을 쓴다. 상한은 두지 않는다(9999는 평생 못 닿는다).
+ const need=level=>100+215*(level-1);
  function level(total){let l=1,rest=total;while(rest>=need(l)){rest-=need(l);l++;}return {level:l,into:rest,need:need(l)};}
  function rows(history){
   return (history||[]).filter(r=>r&&r.mode==='quiz'&&typeof r.cardId==='string'&&typeof r.date==='string')
@@ -50,10 +51,11 @@
  // 과목 레벨(v124): 그 과목 문제에서 받은 경험치(해설 경험치는 그 풀이의 과목으로)만 센다.
  // v125 밸런스(사용자: "한 과목만 다이아까지 2달 걸리는 정도"): 한 과목 하루 약 100문제 × 평균 약 15 XP ≈ 1,500 XP 기준으로
  // 실버(5) 약 1일 · 골드(10) 약 6일 · 플래티넘(20) 약 26일 · 다이아(30) 약 60일(누적 90,190 XP).
- const subjectNeed=l=>100+215*(l-1);
+ const subjectNeed=need;
  function subjectLevel(total){let l=1,rest=total;while(rest>=subjectNeed(l)){rest-=subjectNeed(l);l++;}return {level:l,into:rest,need:subjectNeed(l)};}
- // 뱃지 등급: 레벨이 오를수록 색이 바뀐다.
- const TIERS=[[30,'diamond','다이아'],[20,'platinum','플래티넘'],[10,'gold','골드'],[5,'silver','실버'],[1,'bronze','브론즈']];
+ // 뱃지 등급(v127 세분화, 하루 1,500 XP 기준 도달): 아이언 0 · 브론즈 3(반나절) · 실버 5(1일) · 골드 8(3.5일) · 플래티넘 12(9일)
+ // · 에메랄드 17(18일) · 루비 23(35일) · 다이아 30(60일) · 마스터 40(3.6달) · 그랜드마스터 55(7달) · 챌린저 75(13달) · 레전드 100(23달).
+ const TIERS=[[100,'legend','레전드'],[75,'challenger','챌린저'],[55,'grandmaster','그랜드마스터'],[40,'master','마스터'],[30,'diamond','다이아'],[23,'ruby','루비'],[17,'emerald','에메랄드'],[12,'platinum','플래티넘'],[8,'gold','골드'],[5,'silver','실버'],[3,'bronze','브론즈'],[1,'iron','아이언']];
  const tier=l=>{const t=TIERS.find(([min])=>l>=min);return {id:t[1],name:t[2]};};
  function bySubject(history,views,subjectOf){
   const list=ledger(history),total=new Map(),cardOf=new Map(list.map(r=>[r.id,r.cardId]));
@@ -63,6 +65,6 @@
   const out={};for(const [s,xp] of total){const l=subjectLevel(xp);out[s]={xp,...l,tier:tier(l.level)};}
   return out;
  }
- const api={XP,award,need,level,ledger,summary,lastAward,day,subjectNeed,subjectLevel,tier,bySubject};
+ const api={XP,TIERS,award,need,level,ledger,summary,lastAward,day,subjectNeed,subjectLevel,tier,bySubject};
  root.StudyXp=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(globalThis);

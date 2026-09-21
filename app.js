@@ -206,7 +206,7 @@ function reviewQueue(cards){
 function dailyGoal(){return Number.isInteger(data.dailyGoal)&&data.dailyGoal>0?data.dailyGoal:null;}
 function renderXp(){
  let s;try{s=StudyXp.summary(data.history,data.explanationViews||[],StudyXp.day(),dailyGoal());}catch{$('#xpCard').hidden=true;return;}
- $('#xpCard').hidden=false;$('#xpLevel').textContent='Lv '+s.level;
+ $('#xpCard').hidden=false;$('#xpLevel').replaceChildren(badge({level:s.level,tier:StudyXp.tier(s.level)}),document.createTextNode(' '+StudyXp.tier(s.level).name+' · Lv '+s.level));
  $('#xpStreak').textContent=s.streak?'🔥 '+s.streak+'일 연속'+(s.solvedToday?'':' · 오늘 풀면 이어져요'):'오늘 한 문제 풀면 🔥 연속 시작';
  $('#xpBar').max=s.need;$('#xpBar').value=s.into;
  $('#xpText').textContent='다음 레벨까지 '+(s.need-s.into)+' XP · 오늘 +'+s.todayXp+' XP ('+s.todaySolves+'문제) · 누적 '+s.total+' XP';

@@ -320,3 +320,18 @@ body[data-view="quiz"] main { padding-top:14px; }
 .menu-item .level-badge, .level-badge b, .level-badge small { color:#1a1206; }
 .menu-item .level-badge.tier-diamond, .level-badge.tier-diamond b, .level-badge.tier-diamond small { color:#fff; }
 .menu-item .level-badge { font-size:inherit; line-height:1; }
+/* v127 세분화 뱃지 색 */
+.tier-iron { background:linear-gradient(160deg,#c9ced6,#6b7280); }
+.tier-emerald { background:linear-gradient(160deg,#b9f5cf,#1f9d55); }
+.tier-ruby { background:linear-gradient(160deg,#ffc2cc,#d6324f); }
+.tier-diamond { background:linear-gradient(160deg,#e6f6ff,#5aa9e6); color:#0b1b2b; }
+.tier-master { background:linear-gradient(160deg,#e6d9ff,#8a6cff); }
+.tier-grandmaster { background:linear-gradient(160deg,#ffb3a7,#b3261e); }
+.tier-challenger { background:linear-gradient(160deg,#fff1b8,#3d7bff); }
+.tier-legend { background:conic-gradient(from 200deg,#ff8a8a,#ffd98a,#82d6a4,#7ec8ff,#b89cff,#ff8a8a); }
+.level-badge.tier-diamond b, .level-badge.tier-diamond small, .menu-item .level-badge.tier-diamond { color:#0b1b2b; }
+.level-badge.tier-master b, .level-badge.tier-master small, .menu-item .level-badge.tier-master,
+.level-badge.tier-grandmaster b, .level-badge.tier-grandmaster small, .menu-item .level-badge.tier-grandmaster { color:#fff; }
+.xp-top strong { display:inline-flex; align-items:center; gap:10px; }
+.xp-top strong .level-badge { width:40px; height:46px; }
+.xp-top strong .level-badge b { font-size:17px; }

@@ -11,9 +11,9 @@ assert.equal(X.award(['wrong','correct'],'correct').xp,X.XP.correct,'already rec
 assert.ok(X.award([],'correct').xp>X.award(['correct'],'correct').xp&&X.award(['wrong'],'correct').xp>X.award(['correct'],'correct').xp);
 // 레벨 경계.
 assert.deepEqual(X.level(0),{level:1,into:0,need:100});
-assert.deepEqual(X.level(100),{level:2,into:0,need:120});
-assert.deepEqual(X.level(219),{level:2,into:119,need:120});
-assert.equal(X.level(220).level,3);
+assert.deepEqual(X.level(100),{level:2,into:0,need:315});
+assert.deepEqual(X.level(414),{level:2,into:314,need:315});
+assert.equal(X.level(415).level,3);
 // 요약: 날짜·연속일·목표. 퀴즈 풀이가 아닌 기록은 세지 않는다.
 const h=[row('a1','c1','2026-09-19','wrong'),row('a2','c1','2026-09-20','correct'),row('a3','c2','2026-09-20','correct'),row('a4','c3','2026-09-21','correct'),row('a5','c3','2026-09-21','correct'),row('a6','c9','2026-09-21','correct','legacy')];
 const s=X.summary(h,[],'2026-09-21');
@@ -34,5 +34,6 @@ const many=Array.from({length:4},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'))
  assert.deepEqual(X.subjectLevel(99),{level:1,into:99,need:100});assert.equal(X.subjectLevel(100).level,2);
  // 다이아(30)까지 누적 약 9만 XP = 하루 1,500 XP로 약 60일.
  let cum=0;for(let l=1;l<30;l++)cum+=X.subjectNeed(l);assert.equal(X.subjectLevel(cum).level,30);assert.equal(X.subjectLevel(cum-1).level,29);assert.ok(Math.abs(cum/1500-60)<2,'about two months: '+cum);
- assert.equal(X.tier(1).id,'bronze');assert.equal(X.tier(5).id,'silver');assert.equal(X.tier(10).id,'gold');assert.equal(X.tier(20).id,'platinum');assert.equal(X.tier(35).id,'diamond');}
+ const ids=[[1,'iron'],[2,'iron'],[3,'bronze'],[5,'silver'],[8,'gold'],[12,'platinum'],[17,'emerald'],[23,'ruby'],[29,'ruby'],[30,'diamond'],[40,'master'],[55,'grandmaster'],[75,'challenger'],[100,'legend'],[9999,'legend']];
+ for(const [l,id] of ids)assert.equal(X.tier(l).id,id,'tier at '+l);assert.equal(X.level(1e9).level>100,true,'no level cap');}
 console.log('PASS xp: every solve rewarded, first/recovery bonuses, levels, streak, optional goal');
