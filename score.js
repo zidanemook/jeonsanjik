@@ -2,10 +2,10 @@
 // 예상점수(v121). 실제 시험 점수는 공무원 9급 기출을 "처음 풀었을 때"의 정답률로만 추정한다.
 // 자체제작 문제는 같은 규칙을 여러 번 풀고 해설도 보므로 정답률이 부풀어 점수에 넣지 않고 참고로만 보여 준다.
 // 표본이 적으면 한 숫자가 크게 흔들리므로 80% 범위를 함께 낸다(베타 사후분포의 정규 근사, 사전 1/1).
-// 2027년부터 순위는 국어·영어·컴퓨터일반·정보보호론 4과목 평균(한국사는 한능검 대체) + 가산점으로 본다.
+// 기본 목표는 국가직 전산9급 95(가산 포함) · 가산 5(사용자 지정, 2026-09-21). 2027년부터 순위는 국어·영어·컴퓨터일반·정보보호론 4과목 평균(한국사는 한능검 대체) + 가산점으로 본다.
 (function(root){
  const RANKED=['국어','영어','컴퓨터일반','정보보호론'],MIN=10,Z80=1.2816;
- const DEFAULT_TARGET={name:'경기도 전산9급',cutoff:87,bonus:5};
+ const DEFAULT_TARGET={name:'국가직 전산9급',cutoff:95,bonus:5};
  const official=id=>/^gichul-/.test(id),hanneung=id=>/^hanneung-/.test(id);
  function target(t){
   const ok=t&&typeof t.name==='string'&&t.name.trim().length>0&&t.name.length<=40&&Number.isFinite(t.cutoff)&&t.cutoff>0&&t.cutoff<=110&&Number.isFinite(t.bonus)&&t.bonus>=0&&t.bonus<=10;

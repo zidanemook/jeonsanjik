@@ -14,11 +14,11 @@ const w=(k,t)=>{const e=S.estimate(k,t);assert.ok(e.low<=e.score&&e.score<=e.hig
 // 자체제작은 점수에 안 들어가고 참고로만. 한능검도 기출 점수에 안 들어간다.
 s=S.summary([...paper('english',16,20),...Array.from({length:30},(_,i)=>row('en-day1-'+i,'correct')),row('hanneung-70-01','wrong')],subjectOf);
 c=s.subjects.find(x=>x.subject==='영어');assert.equal(c.n,20);assert.deepEqual(c.self,{n:30,rate:100});assert.equal(s.subjects.find(x=>x.subject==='한국사').n,0);
-// 4과목이 모두 준비되어야 평균·목표 비교. 한국사는 평균에 없다. 기본 목표는 경기도 전산9급 87 · 가산 5.
+// 4과목이 모두 준비되어야 평균·목표 비교. 한국사는 평균에 없다. 기본 목표는 국가직 전산9급 95 · 가산 5.
 const all=[...paper('korean',18,20),...paper('english',16,20),...paper('computer',14,20),...paper('security',12,20),...paper('history',20,20)];
-s=S.summary(all,subjectOf);assert.deepEqual(s.target,{name:'경기도 전산9급',cutoff:87,bonus:5});assert.ok(s.total);assert.equal(s.missing.length,0);
+s=S.summary(all,subjectOf);assert.deepEqual(s.target,{name:'국가직 전산9급',cutoff:95,bonus:5});assert.ok(s.total);assert.equal(s.missing.length,0);
 const avg=['국어','영어','컴퓨터일반','정보보호론'].map(x=>s.subjects.find(y=>y.subject===x).score).reduce((a,b)=>a+b)/4;
-assert.equal(s.total.raw,Math.round(avg*10)/10);assert.equal(s.total.score,Math.round((avg+5)*10)/10);assert.equal(s.total.gap,Math.round((avg+5-87)*10)/10);
+assert.equal(s.total.raw,Math.round(avg*10)/10);assert.equal(s.total.score,Math.round((avg+5)*10)/10);assert.equal(s.total.gap,Math.round((avg+5-95)*10)/10);
 assert.equal(S.summary(paper('korean',18,20),subjectOf).total,null);
 // 사용자가 정한 목표. 이상한 값이면 기본값.
 assert.deepEqual(S.summary(all,subjectOf,{name:'서울 전산9급',cutoff:92,bonus:0}).target,{name:'서울 전산9급',cutoff:92,bonus:0});

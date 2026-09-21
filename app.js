@@ -225,7 +225,7 @@ function xpAwardNode(reviewId){
  if(a.levelAfter>a.levelBefore)box.append(elem('p','🎉 레벨 '+a.levelAfter+' 달성!','xp-levelup'));
  return box;
 }
-// 예상점수(score.js): 기출 첫 풀이만, 4과목 평균 + 가산점을 사용자가 정한 목표와 비교한다(기본 경기도 전산9급 87 · 가산 5).
+// 예상점수(score.js): 기출 첫 풀이만, 4과목 평균 + 가산점을 사용자가 정한 목표와 비교한다(기본 국가직 전산9급 95 · 가산 5).
 function examScore(){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));return ExamScore.summary(data.history,id=>bySubject.get(id)||null,data.targetExam);}
 const fmt1=x=>Number.isInteger(x)?String(x):x.toFixed(1);
 function renderScoreLine(){
