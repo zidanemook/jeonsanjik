@@ -270,3 +270,23 @@ body[data-view="quiz"] main { padding-top:14px; }
 .xp-award.is-bonus { background:#302a14; border-color:#ffd98a; }
 .xp-award.is-bonus strong { color:#ffd98a; }
 .xp-levelup { flex-basis:100%; margin:4px 0 0; font-size:18px; font-weight:700; color:#ffd98a; }
+/* 예상점수(v121) */
+.home-score { display:block; width:100%; margin-top:8px; padding:8px 10px; text-align:left; border:1px solid #414854; border-radius:10px; background:#161b22; color:#d4e5ff; font-size:15px; min-height:0; overflow-wrap:anywhere; }
+.score-card { margin:0 0 18px; padding:14px 16px; border:1px solid #6f8fb8; border-radius:14px; background:#1c2635; }
+.score-card h2 { margin:0 0 6px; font-size:20px; }
+.score-target { margin:0; color:#c3cad4; font-size:15px; }
+.score-total { margin:10px 0 4px; font-size:19px; font-weight:700; color:#ffd98a; font-variant-numeric:tabular-nums; }
+.score-gap { margin:0 0 10px; font-weight:700; }
+.score-gap.is-over { color:#82d6a4; }
+.score-gap.is-under { color:#ffb38a; }
+.score-table td, .score-table th { font-variant-numeric:tabular-nums; }
+.score-unranked td { color:#9fb3c8; }
+.score-card small { display:block; margin-top:8px; color:#aab3c0; line-height:1.55; }
+.target-edit { margin-top:10px; }
+.target-edit summary { cursor:pointer; color:#9cc4ff; min-height:32px; }
+.target-edit label { display:block; margin:8px 0 4px; }
+.target-edit input { width:100%; max-width:16em; }
+.score-table { font-size:15px; }
+.score-table .score-num { white-space:nowrap; }
+.score-table small { display:block; font-size:12px; color:#9fb3c8; }
+.score-total .score-sub { display:block; margin-top:2px; font-size:14px; font-weight:400; color:#c3cad4; }
