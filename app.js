@@ -195,7 +195,7 @@ function reviewQueue(cards){
  const due=ReviewLearning.queue(cards),ids=new Set(due.map(c=>c.id)),today=day(),missed=new Map(),last=new Map();
  for(const h of data.history){const at=h.at||h.date;if((last.get(h.cardId)||'')<at)last.set(h.cardId,at);if(h.mode==='quiz'&&h.result==='wrong'&&h.date===today){const k=ReviewPolicy.concept(h.cardId);if((missed.get(k)||'')<at)missed.set(k,at);}}
  const extra=missed.size?cards.filter(c=>{if(ids.has(c.id))return false;const at=missed.get(ReviewPolicy.concept(c.id));return !!at&&(last.get(c.id)||'')<at;}):[];
- const queue=settle([...due,...extra]);
+ const queue=settle(ReviewPolicy.skipTwins([...due,...extra],data.history).cards);
  // 안 푼 문제 먼저: 대기열을 그대로 두고 한 번도 안 푼 문제만 앞으로 당긴다. 빠지는 카드는 없다.
  if(mode==='fresh'&&queue.ready.length){const {seen}=historyStats(),fresh=queue.ready.filter(c=>!seen.has(c.id));
   if(fresh.length&&fresh.length<queue.ready.length)return {...queue,ready:[...fresh,...queue.ready.filter(c=>seen.has(c.id))]};}

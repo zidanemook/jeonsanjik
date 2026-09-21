@@ -123,9 +123,21 @@ assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='ko-logic2-088'?{...x,l
  assert.deepEqual(gap.ready.map(c=>c.id),[missed,...siblings],'11분 뒤: 틀린 문제의 재시도와 같은 규칙의 6문제가 이어서 나온다');
  assert.ok(!gap.ready.some(c=>other.includes(c.id)),'다른 규칙(the number)의 문제는 일정대로 쉰다');
  // Control: without concept groups the six sibling questions would stay hidden until their own due date.
- const bare={concept:id=>id,separate:due=>({ready:due,waiting:[],nextAt:null})};
+ const bare={concept:id=>id,skipTwins:o=>({cards:o,skipped:0}),separate:due=>({ready:due,waiting:[],nextAt:null})};
  assert.deepEqual([...queueAfter(bare,11).ready].map(c=>c.id),[missed],'대조군: 개념 묶음이 없으면 틀린 문제 하나만 돌아온다');
 }
 {const fiveChoice=structuredClone(list);const e=fiveChoice.find(x=>x.exercise.type==='choice'&&x.exercise.choices.length===4).exercise;e.choices=[...e.choices,'다른 시대에서 가져온 참인 사실'];audit.coverage(fiveChoice);}
 const twoChoice=structuredClone(list);twoChoice.find(x=>x.exercise.type==='choice').exercise.choices.splice(2);assert.throws(()=>audit.coverage(twoChoice),/Four or five options required/);
+// 쌍둥이 건너뛰기(v126): 같은 개념에서 서로 다른 문제를 TWIN_MIN(3)개 맞히고 마지막 풀이가 정답이면 안 푼 쌍둥이는 뺀다. 틀리면 다시 열리고, 쌍둥이만 남으면 그대로 낸다.
+{global.window=global;require('./practice-bank.js');const grp=new Map();for(const id of Object.keys(globalThis.PRACTICE_BANK)){const k=policy.concept(id);if(k!==id)grp.set(k,[...(grp.get(k)||[]),id]);}
+ const ids=[...grp.values()].find(v=>v.length>=6),other='gichul-local9-2025-computer-01';assert.equal(policy.TWIN_MIN,3);
+ const r=(id,cardId,m,result='correct')=>({id,cardId,date:'2026-09-21',at:new Date(Date.parse('2026-09-21T01:00:00Z')+m*60000).toISOString(),result,mode:'quiz'});
+ const cards=[...ids,other].map(id=>({id})),pick=h=>policy.skipTwins(cards,h).cards.map(c=>c.id);
+ assert.equal(pick([r('1',ids[0],0),r('2',ids[1],20)]).length,cards.length,'2 solved: twins still served');
+ const three=[r('1',ids[0],0),r('2',ids[1],20),r('3',ids[2],40)];
+ assert.deepEqual(pick(three),[ids[0],ids[1],ids[2],other],'3 solved, last correct: unseen twins skipped, solved ones and ungrouped stay');
+ assert.equal(policy.skipTwins(cards,three).skipped,ids.length-3);
+ assert.equal(pick([...three,r('4',ids[0],60,'wrong')]).length,cards.length,'a wrong answer reopens the twins');
+ assert.equal(pick([...three,r('4',ids[0],60,'unsure')]).length,cards.length,'answered with help reopens the twins');
+ const onlyTwins=ids.slice(3).map(id=>({id}));assert.deepEqual(policy.skipTwins(onlyTwins,three).cards,onlyTwins,'never a dead end');}
 console.log('PASS review: one question per card (audit control), per-rule English coverage with the 수일치/영문법 two-written floor kept, split questions keep their concept, a wrong answer brings back the other questions on the same rule after the gap (with a no-groups control), sibling cooldown, boundary, first/repeat/practice/unknown, richer legacy merge, immutable snapshots, size validation, unreviewed-content gate');

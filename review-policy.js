@@ -3241,12 +3241,25 @@
  });
  // END KOREAN LOGIC GROUPS
  const concept=id=>groups[id]||id;
- const order=(a,b)=>at(a)-at(b)||a.id.localeCompare(b.id);
+ const order=(a,b)=>at(a)-at(b)||a.id.localeCompare(b.id),order_=order;
  const at=row=>Date.parse(row.at||row.date+'T12:00:00+09:00');
  function separate(due,history,now=Date.now()){
   const latest=new Map();for(const row of history){const group=row.detail?.conceptId||concept(row.cardId),prev=latest.get(group);if(!prev||order(row,prev)>0)latest.set(group,row);}
   const ready=[],waiting=[];for(const card of due){const last=latest.get(concept(card.id));const until=last&&last.cardId!==card.id?at(last)+GAP_MS:0;if(until>now)waiting.push({card,until});else ready.push(card);}
   return {ready,waiting,nextAt:waiting.length?Math.min(...waiting.map(w=>w.until)):null};
+ }
+ // 쌍둥이 건너뛰기(v126, 사용자 2026-09-21: "쌍둥이 문제는 건너뛰는 게 정상"): 같은 개념(쌍둥이 묶음)의 마지막 풀이가 정답이면
+ // 그 개념에서 한 번도 안 푼 문제는 내지 않는다. 틀리거나 설명을 보고 맞히면(unsure) 다시 열린다. 묶음이 없는 문제(기출 등)는 그대로.
+ // 남는 것이 쌍둥이뿐이면 그대로 돌려준다 — 풀 문제가 남았는데 막다른 화면이 되면 안 된다.
+ // 사용자 덧붙임: "같은 규칙 문제 그래도 최소 몇 개 이상은 푸는 게 좋긴 해" → 서로 다른 문제를 TWIN_MIN개 맞힌 뒤부터 건너뛴다.
+ const TWIN_MIN=3;
+ function skipTwins(order,history){
+  const latest=new Map(),seen=new Set(),solved=new Map();
+  for(const row of history){seen.add(row.cardId);if(row.mode!=='quiz')continue;const group=row.detail?.conceptId||concept(row.cardId),prev=latest.get(group);if(!prev||order_(row,prev)>0)latest.set(group,row);
+   if(row.result==='correct'){if(!solved.has(group))solved.set(group,new Set());solved.get(group).add(row.cardId);}}
+  const twin=card=>{const g=concept(card.id);return g!==card.id&&!seen.has(card.id)&&latest.get(g)?.result==='correct'&&(solved.get(g)?.size||0)>=TWIN_MIN;};
+  const keep=order.filter(c=>!twin(c));
+  return {cards:keep.length?keep:order,skipped:keep.length?order.length-keep.length:0};
  }
  function classify(history){
   const rows=[...history].sort(order),seen=new Set(),legacyCards=new Set(),latest=new Map(),kinds=new Map();
@@ -3260,5 +3273,5 @@
   return kinds;
  }
  function metrics(history,ids){const kinds=classify(history),result={first:{correct:0,total:0},repeat:{correct:0,total:0},practice:{correct:0,total:0},unknown:{correct:0,total:0}};for(const row of history){if(ids&&!ids.has(row.cardId))continue;const bucket=result[kinds.get(row.id)];bucket.total++;if(row.result==='correct')bucket.correct++;}return {counts:result,kinds};}
- const api={GAP_MS,groups,concept,separate,classify,metrics};root.ReviewPolicy=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+ const api={GAP_MS,TWIN_MIN,groups,concept,separate,skipTwins,classify,metrics};root.ReviewPolicy=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(globalThis);
