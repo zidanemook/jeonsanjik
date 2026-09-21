@@ -31,6 +31,8 @@ const many=Array.from({length:4},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'))
 {const subj=id=>id.startsWith('en')?'영어':id.startsWith('k')?'국어':null;
  const hs=[row('a1','en1','2026-09-21','correct'),row('a2','en2','2026-09-21','wrong'),row('a3','k1','2026-09-21','correct'),row('a4','zz','2026-09-21','correct')];
  const b=X.bySubject(hs,[{id:'a2',openedAt:1}],subj);assert.equal(b['영어'].xp,25+5+X.XP.explanation);assert.equal(b['국어'].xp,25);assert.equal(Object.keys(b).length,2);
- assert.deepEqual(X.subjectLevel(59),{level:1,into:59,need:60});assert.equal(X.subjectLevel(60).level,2);
+ assert.deepEqual(X.subjectLevel(99),{level:1,into:99,need:100});assert.equal(X.subjectLevel(100).level,2);
+ // 다이아(30)까지 누적 약 9만 XP = 하루 1,500 XP로 약 60일.
+ let cum=0;for(let l=1;l<30;l++)cum+=X.subjectNeed(l);assert.equal(X.subjectLevel(cum).level,30);assert.equal(X.subjectLevel(cum-1).level,29);assert.ok(Math.abs(cum/1500-60)<2,'about two months: '+cum);
  assert.equal(X.tier(1).id,'bronze');assert.equal(X.tier(5).id,'silver');assert.equal(X.tier(10).id,'gold');assert.equal(X.tier(20).id,'platinum');assert.equal(X.tier(35).id,'diamond');}
 console.log('PASS xp: every solve rewarded, first/recovery bonuses, levels, streak, optional goal');

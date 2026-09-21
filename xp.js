@@ -47,8 +47,10 @@
   const after=list.slice(0,i+1).reduce((a,r)=>a+r.xp,0)+viewXp,before=after-list[i].xp;
   return {...list[i],levelBefore:level(before).level,levelAfter:level(after).level};
  }
- // 과목 레벨(v124): 그 과목 문제에서 받은 경험치(해설 경험치는 그 풀이의 과목으로)만 센다. 과목마다 경험치가 나뉘므로 계단을 낮게 둔다.
- const subjectNeed=l=>60+15*(l-1);
+ // 과목 레벨(v124): 그 과목 문제에서 받은 경험치(해설 경험치는 그 풀이의 과목으로)만 센다.
+ // v125 밸런스(사용자: "한 과목만 다이아까지 2달 걸리는 정도"): 한 과목 하루 약 100문제 × 평균 약 15 XP ≈ 1,500 XP 기준으로
+ // 실버(5) 약 1일 · 골드(10) 약 6일 · 플래티넘(20) 약 26일 · 다이아(30) 약 60일(누적 90,190 XP).
+ const subjectNeed=l=>100+215*(l-1);
  function subjectLevel(total){let l=1,rest=total;while(rest>=subjectNeed(l)){rest-=subjectNeed(l);l++;}return {level:l,into:rest,need:subjectNeed(l)};}
  // 뱃지 등급: 레벨이 오를수록 색이 바뀐다.
  const TIERS=[[30,'diamond','다이아'],[20,'platinum','플래티넘'],[10,'gold','골드'],[5,'silver','실버'],[1,'bronze','브론즈']];
