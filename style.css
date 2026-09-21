@@ -296,3 +296,27 @@ body[data-view="quiz"] main { padding-top:14px; }
 .memorize-formula .formula-bad { color:#ff9c9c; }
 .memorize-formula .formula-example { color:#c3cad4; }
 .memorize-formula .key-word { display:inline; font-size:inherit; }
+/* 과목 레벨 뱃지(v124) */
+.level-badge { display:inline-flex; flex-direction:column; align-items:center; justify-content:center; flex:none; width:46px; height:52px; clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); color:#1a1206; line-height:1; font-variant-numeric:tabular-nums; }
+.level-badge small { font-size:10px; font-weight:700; letter-spacing:.04em; opacity:.8; }
+.level-badge b { font-size:19px; }
+.level-badge.big { width:60px; height:68px; }
+.level-badge.big b { font-size:25px; }
+.tier-bronze { background:linear-gradient(160deg,#f0b27a,#a8642e); }
+.tier-silver { background:linear-gradient(160deg,#f2f5fa,#9aa7b8); }
+.tier-gold { background:linear-gradient(160deg,#ffe8a3,#d9a520); }
+.tier-platinum { background:linear-gradient(160deg,#c9fff0,#43b89a); }
+.tier-diamond { background:linear-gradient(160deg,#e6d9ff,#8a6cff); color:#fff; }
+.menu-item.with-badge { display:grid; grid-template-columns:auto 1fr; column-gap:14px; align-items:center; }
+.menu-item.with-badge > strong, .menu-item.with-badge > span { grid-column:2; }
+.menu-item.with-badge > .level-badge { grid-column:1; grid-row:1 / span 2; }
+.subject-head { display:flex; align-items:center; gap:12px; }
+.subject-head h2 { margin:0; }
+.subject-level { margin:8px 0 14px; color:#c3cad4; font-size:14px; }
+.xp-subject { flex-basis:100%; display:flex; align-items:center; gap:8px; margin:4px 0 0; color:#d1d7e0; font-size:15px; }
+.xp-subject .level-badge { width:30px; height:34px; }
+.xp-subject .level-badge small { display:none; }
+.xp-subject .level-badge b { font-size:14px; }
+.menu-item .level-badge, .level-badge b, .level-badge small { color:#1a1206; }
+.menu-item .level-badge.tier-diamond, .level-badge.tier-diamond b, .level-badge.tier-diamond small { color:#fff; }
+.menu-item .level-badge { font-size:inherit; line-height:1; }

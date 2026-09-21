@@ -27,4 +27,10 @@ assert.equal(X.summary(h,[{id:'a4',openedAt:Date.parse('2026-09-21T03:00:00Z')}]
 assert.deepEqual(X.summary([...h].reverse(),[],'2026-09-21'),s);
 const last=X.lastAward(h,[],'a2');assert.equal(last.xp,25);assert.equal(last.parts[1].label,'틀렸던 문제 맞힘');assert.equal(last.levelBefore,1);assert.equal(last.levelAfter,1);
 const many=Array.from({length:4},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'));assert.equal(X.lastAward(many,[],'b3').levelAfter,2);assert.equal(X.lastAward(many,[],'b3').levelBefore,1);
+// 과목 레벨: 과목마다 따로, 해설 경험치는 그 풀이의 과목으로. 뱃지 등급은 레벨 구간.
+{const subj=id=>id.startsWith('en')?'영어':id.startsWith('k')?'국어':null;
+ const hs=[row('a1','en1','2026-09-21','correct'),row('a2','en2','2026-09-21','wrong'),row('a3','k1','2026-09-21','correct'),row('a4','zz','2026-09-21','correct')];
+ const b=X.bySubject(hs,[{id:'a2',openedAt:1}],subj);assert.equal(b['영어'].xp,25+5+X.XP.explanation);assert.equal(b['국어'].xp,25);assert.equal(Object.keys(b).length,2);
+ assert.deepEqual(X.subjectLevel(59),{level:1,into:59,need:60});assert.equal(X.subjectLevel(60).level,2);
+ assert.equal(X.tier(1).id,'bronze');assert.equal(X.tier(5).id,'silver');assert.equal(X.tier(10).id,'gold');assert.equal(X.tier(20).id,'platinum');assert.equal(X.tier(35).id,'diamond');}
 console.log('PASS xp: every solve rewarded, first/recovery bonuses, levels, streak, optional goal');

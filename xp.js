@@ -47,6 +47,20 @@
   const after=list.slice(0,i+1).reduce((a,r)=>a+r.xp,0)+viewXp,before=after-list[i].xp;
   return {...list[i],levelBefore:level(before).level,levelAfter:level(after).level};
  }
- const api={XP,award,need,level,ledger,summary,lastAward,day};
+ // 과목 레벨(v124): 그 과목 문제에서 받은 경험치(해설 경험치는 그 풀이의 과목으로)만 센다. 과목마다 경험치가 나뉘므로 계단을 낮게 둔다.
+ const subjectNeed=l=>60+15*(l-1);
+ function subjectLevel(total){let l=1,rest=total;while(rest>=subjectNeed(l)){rest-=subjectNeed(l);l++;}return {level:l,into:rest,need:subjectNeed(l)};}
+ // 뱃지 등급: 레벨이 오를수록 색이 바뀐다.
+ const TIERS=[[30,'diamond','다이아'],[20,'platinum','플래티넘'],[10,'gold','골드'],[5,'silver','실버'],[1,'bronze','브론즈']];
+ const tier=l=>{const t=TIERS.find(([min])=>l>=min);return {id:t[1],name:t[2]};};
+ function bySubject(history,views,subjectOf){
+  const list=ledger(history),total=new Map(),cardOf=new Map(list.map(r=>[r.id,r.cardId]));
+  const add=(cardId,xp)=>{const s=cardId&&subjectOf(cardId);if(!s)return;total.set(s,(total.get(s)||0)+xp);};
+  for(const r of list)add(r.cardId,r.xp);
+  for(const v of views||[])if(Number.isSafeInteger(v?.openedAt))add(cardOf.get(v.id),XP.explanation);
+  const out={};for(const [s,xp] of total){const l=subjectLevel(xp);out[s]={xp,...l,tier:tier(l.level)};}
+  return out;
+ }
+ const api={XP,award,need,level,ledger,summary,lastAward,day,subjectNeed,subjectLevel,tier,bySubject};
  root.StudyXp=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(globalThis);

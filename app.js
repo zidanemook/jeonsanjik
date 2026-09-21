@@ -218,11 +218,18 @@ function setDailyGoal(value){
  const next=structuredClone(data);if(value===null)delete next.dailyGoal;else next.dailyGoal=value;
  if(commit(next)){renderXp();notify(value===null?'하루 목표를 없앴어요.':'하루 목표를 '+value+'문제로 정했어요.');}
 }
+// 과목 레벨 뱃지(v124): 육각형 안에 레벨, 레벨 구간마다 색(브론즈·실버·골드·플래티넘·다이아).
+function subjectLevels(history=data.history){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));try{return StudyXp.bySubject(history,data.explanationViews||[],id=>bySubject.get(id)||null);}catch{return {};}}
+function badge(s,big){const l=s||{level:1,tier:StudyXp.tier(1)},b=elem('span',undefined,'level-badge tier-'+l.tier.id+(big?' big':''));b.setAttribute('aria-label',l.tier.name+' 레벨 '+l.level);b.title=l.tier.name+' · Lv '+l.level;b.append(elem('small','Lv'),elem('b',String(l.level)));return b;}
 function xpAwardNode(reviewId){
  let a;try{a=StudyXp.lastAward(data.history,data.explanationViews||[],reviewId);}catch{return null;}if(!a)return null;
  const box=elem('div',undefined,'xp-award'+(a.parts.length>1?' is-bonus':''));
  box.append(elem('strong','+'+a.xp+' XP'),elem('span',a.parts.map(p=>p.label+' +'+p.xp).join(' · ')));
  if(a.levelAfter>a.levelBefore)box.append(elem('p','🎉 레벨 '+a.levelAfter+' 달성!','xp-levelup'));
+ const subject=data.cards.find(c=>c.id===a.cardId)?.subject;
+ if(subject){const now=subjectLevels()[subject],before=subjectLevels(data.history.filter(h=>h.id!==reviewId))[subject];
+  if(now){const line=elem('p',undefined,'xp-subject');line.append(badge(now),document.createTextNode(' '+subject+' Lv '+now.level+' · 다음까지 '+(now.need-now.into)+' XP'));box.append(line);
+   if(now.level>(before?.level||1))box.append(elem('p','🏅 '+subject+' 레벨 '+now.level+' 달성!'+(now.tier.id!==(before?.tier.id||'bronze')?' '+now.tier.name+' 뱃지!':''),'xp-levelup'));}}
  return box;
 }
 // 예상점수(score.js): 기출 첫 풀이만, 4과목 평균 + 가산점을 사용자가 정한 목표와 비교한다(기본 국가직 전산9급 95 · 가산 5).
@@ -399,7 +406,8 @@ function renderView(){
 }
 function renderHome(){
  renderXp();renderScoreLine();const list=$('#subjectList'),playable=data.cards.filter(isPlayable);list.replaceChildren();
- for(const s of subjectsList()){const cards=playable.filter(c=>c.subject===s);list.append(menuItem(s,countLine(cards),()=>go('subject',s)));}
+ const levels=subjectLevels();
+ for(const s of subjectsList()){const cards=playable.filter(c=>c.subject===s),item=menuItem(s,countLine(cards),()=>go('subject',s),'menu-item with-badge');item.append(badge(levels[s]));list.append(item);}
  if(!list.children.length)list.append(elem('p',data.cards.length?'풀 수 있는 문제가 아직 없어요.':'문제를 불러오는 중입니다.'));
 }
 // 외울 것: 목록 화면(viewSubject 비어 있음) → 한 목록 화면(viewSubject = 목록 id). 가림·확인은 이 화면에서만 쓰고 저장하지 않는다.
@@ -450,6 +458,8 @@ function renderMemorize(){
 function renderSubject(){
  const s=viewSubject,cards=data.cards.filter(c=>isPlayable(c)&&c.subject===s),ids=new Set(cards.map(c=>c.id)),today=day();
  $('#subjectTitle').textContent=s;
+ {const l=subjectLevels()[s]||{level:1,into:0,need:StudyXp.subjectNeed(1),xp:0,tier:StudyXp.tier(1)};$('#subjectBadge').replaceChildren(badge(l,true));
+  const bar=elem('progress',undefined,'xp-bar');bar.max=l.need;bar.value=l.into;$('#subjectLevel').replaceChildren(elem('span',l.tier.name+' · Lv '+l.level+' · 다음 레벨까지 '+(l.need-l.into)+' XP · 이 과목 누적 '+l.xp+' XP'),bar);}
  $('#subjectSummary').textContent=countLine(cards)+' · 오늘 푼 문제 '+solvedOn(ids,today)+'개';
  // 외울 것은 과목 안에 둔다(2026-09-19 사용자: "외울것들은 과목별로 분류해서 정리해라 … 국어는 국어 클릭하면 거기서 외울것에 넣는방식").
  const sets=MEMORIZE.sets.filter(x=>x.subject===s),memo=$('#openMemorize');memo.hidden=!sets.length;
