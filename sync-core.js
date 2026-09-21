@@ -22,7 +22,9 @@
     // Concurrent attempts remain in history, but cannot inflate a day's interval.
     const failed=attempts.find(r=>r.result!=='correct'),last=attempts.at(-1);
     progress=schedule.schedule(progress,failed?.result||'correct',date);retryAt=undefined;
-    if(failed){progress.interval=1;progress.due=schedule.plus(date,1);progress.streak=0;if(last.result==='wrong')retryAt=new Date(Date.parse(last.at)+300000).toISOString();}
+    // 그날 틀렸다가 마지막에 맞혔으면 그날 다시 익힌 것 — 7일 뒤(v131, learning.assess와 같은 규칙).
+    if(failed&&last.result==='correct'){progress.streak=1;progress.interval=schedule.STAGE_DAYS[0];progress.due=schedule.plus(date,progress.interval);}
+    else if(failed){progress.interval=1;progress.due=schedule.plus(date,1);progress.streak=0;if(last.result==='wrong')retryAt=new Date(Date.parse(last.at)+300000).toISOString();}
     attempts.forEach((r,i)=>derived.set(r.id,{...r,recall:r.result==='correct'?'remember':'none',delayedFirst:r.mode==='quiz'&&priorDay&&i===0,kind:i?'relearning':'review'}));priorDay=true;
    }
    const updated={...card,...progress};delete updated.pendingAttempt;delete updated.retryAt;if(retryAt)updated.retryAt=retryAt;return updated;

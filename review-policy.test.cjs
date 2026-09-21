@@ -111,7 +111,7 @@ assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='ko-logic2-088'?{...x,l
  const deck=[...family,...other].map(id=>({id,subject:'영어',question:'q',answer:'a',created:'2026-09-01',ease:2.5,interval:5,streak:2,due:later}));
  const seen=deck.map((c,i)=>({id:'y'+i,cardId:c.id,date:yesterday,at:yesterday+'T09:00:00+09:00',result:'correct',mode:'quiz'}));
  const queueAfter=(impl,minutesAgo)=>{
-  const at=clock-minutesAgo*60000,box={ReviewLearning:learning,ReviewPolicy:impl,day:()=>stamp,data:{history:[...seen,{id:'w',cardId:missed,date:stamp,at:new Date(at).toISOString(),result:'wrong',mode:'quiz'}]}};
+  const at=clock-minutesAgo*60000,box={ReviewLearning:learning,ReviewSchedule,ReviewPolicy:impl,day:()=>stamp,data:{history:[...seen,{id:'w',cardId:missed,date:stamp,at:new Date(at).toISOString(),result:'wrong',mode:'quiz'}]}};
   vm.createContext(box);vm.runInContext(src.slice(from,to),box);
   return box.reviewQueue(deck.map(c=>c.id===missed?{...c,interval:1,due:ReviewSchedule.plus(stamp,1),retryAt:new Date(at+learning.RETRY_MS).toISOString()}:c));
  };

@@ -143,10 +143,11 @@ assert.equal(paperRows.length,paperOrder.length*2,'두 바퀴 모두 평소와 �
 assert.ok(paperRows.every(h=>h.mode==='quiz'&&h.detail&&h.detail.exerciseId),'기록에는 평소처럼 채점 상세가 들어 있다');
 assert.ok(paperRows.every(h=>h.date===todayStamp));
 for(const c of paperState.cards.filter(c=>paperOrder.includes(c.id))){
- assert.ok(c.interval<=1,'같은 날 회차 반복이 간격을 늘리지 않았다: '+c.id+' → '+c.interval);
- assert.equal(c.due,nextDay);
+ // v131: 맞히면 7일(틀리면 1일), 같은 날 두 번째 바퀴는 단계를 올리지 않는다.
+ assert.ok([1,7].includes(c.interval),'같은 날 회차 반복이 간격을 늘리지 않았다: '+c.id+' → '+c.interval);
+ assert.equal(c.due,run("plus(day(),"+c.interval+")"));
 }
-for(const c of run('ProgressSync.merge(data,[])').cards.filter(c=>paperOrder.includes(c.id)))assert.ok(c.interval<=1,'동기화 재계산도 같다: '+c.id);
+{const live=new Map(paperState.cards.map(c=>[c.id,c]));for(const c of run('ProgressSync.merge(data,[])').cards.filter(c=>paperOrder.includes(c.id)))assert.equal(c.interval,live.get(c.id).interval,'동기화 재계산도 같다: '+c.id);}
 
 // 6) 한능검 회차도 같은 규칙이다. 점수 계산(첫 시도 공식 배점)은 그대로 남는다.
 run("openScope({subject:'한국사',round:'79'})");
@@ -327,5 +328,9 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  run("openScope({subject:'한국사',round:79})");
  assert.equal(nodes.get('#queueModeLabel').hidden,true,'기출 회차에서는 모드 선택을 숨긴다');
 }
+// v131 외운 문제: 특정 범위에서는 옵션을 켜야만 나오고, 과목 전체에서는 하루 7분의 1 정도만 섞인다.
+{const mq=run(`(()=>{const c=data.cards.find(c=>isPlayable(c)&&PRACTICE_BANK[c.id]);const m={...c,streak:4,due:day(),retryAt:undefined,pendingAttempt:undefined};const off=reviewQueue([m],true).ready.length;data.includeMastered=true;const on=reviewQueue([m],true).ready.length;delete data.includeMastered;const wide=reviewQueue([m],false).ready.length;return [off,on,wide,dailyPick(m.id)?1:0];})()`);
+ assert.equal(mq[0],0,'mastered question hidden in a range');assert.equal(mq[1],1,'shown when the option is on');assert.equal(mq[2],mq[3],'subject-wide: only on its random day');
+ const share=run(`(()=>{let n=0;for(let i=0;i<7000;i++)if(dailyPick('x'+i))n++;return n;})()`);assert.ok(share>800&&share<1200,'about one in seven: '+share);}
 console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 · 6장 329 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본·틀린 문제 위주·안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
 })().catch(e=>{console.error(e);process.exit(1);});
