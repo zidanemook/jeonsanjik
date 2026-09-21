@@ -29,7 +29,7 @@ ctx.fetch=url=>{fetched.push(url);if(failNextFetch){failNextFetch=false;return P
  const m=/^gichul\/([a-z0-9-]+)\.json$/.exec(url);if(!m)return Promise.reject(Error('unexpected fetch '+url));
  return Promise.resolve({ok:true,status:200,json:()=>Promise.resolve(require('./gichul-files.cjs').read(m[1]))});};
 const flush=()=>new Promise(r=>setImmediate(r));
-for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','study-review-catalog.js','hanneung-topics.js','topics.js','memorize.js','app.js'])
+for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','study-review-catalog.js','hanneung-topics.js','topics.js','memorize.js','app.js'])
  vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
 const run=code=>vm.runInContext(code,ctx);
 // 시작할 때는 회차 파일을 하나도 받지 않는다. 그래도 카드·과목 문항 수는 색인으로 모든 기출 문항을 센다.

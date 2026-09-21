@@ -35,7 +35,7 @@ function validDay(s){if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s))retu
 function validateContent(c){if(!c||typeof c!=='object'||['subject','question','answer'].some(k=>typeof c[k]!=='string'||!c[k].trim())||['explanation','source'].some(k=>c[k]!==undefined&&typeof c[k]!=='string'))throw Error('과목·질문·정답과 텍스트 형식을 확인하세요.');}
 // 의견은 학습 기록이 아니다. 형식이 맞지 않는 의견 하나 때문에 기록 불러오기(=저장 전체)가 멈추지 않도록 막지 않고 걸러낸다.
 function cleanNotes(list){const out=[];if(Array.isArray(list))for(const n of list){try{out.push(ProgressSync.note(n));}catch{}}return out;}
-function validateBackup(v){if(v?.explanationViews!==undefined){if(!Array.isArray(v.explanationViews))throw Error('Invalid explanation records');StudyCredit.unionExplanations([],v.explanationViews);}if(![1,2,3].includes(v?.version)||!Array.isArray(v.cards)||!Array.isArray(v.history))throw Error('지원하지 않는 백업입니다.');const ids=new Set();for(const c of v.cards){if(v.version!==3||c.question!==undefined)validateContent(c);if(typeof c.id!=='string'||ids.has(c.id)||!validDay(c.created)||!(c.due===null||validDay(c.due))||(v.version===1?(!Number.isInteger(c.stage)||c.stage<0||c.stage>4):(!Number.isFinite(c.ease)||c.ease<1.3||c.ease>3||!Number.isInteger(c.interval)||c.interval<0||c.interval>365||!Number.isInteger(c.streak)||c.streak<0||c.due===null)))throw Error('문제 일정 또는 ID가 올바르지 않습니다.');if(c.retryAt!==undefined&&!Number.isFinite(Date.parse(c.retryAt)))throw Error('잘못된 재학습 시간');if(c.pendingAttempt!==undefined&&(!['remember','partial','none'].includes(c.pendingAttempt.recall)||!validDay(c.pendingAttempt.date)||!Number.isFinite(Date.parse(c.pendingAttempt.at))||typeof c.pendingAttempt.delayedFirst!=='boolean'))throw Error('잘못된 회상 기록');ids.add(c.id);}for(const h of v.history){if(typeof h.id!=='string'||typeof h.cardId!=='string'||!validDay(h.date)||!['correct','unsure','wrong'].includes(h.result))throw Error('복습 기록이 올바르지 않습니다.');}if(v.quizFeedback!==undefined&&(!v.quizFeedback||typeof v.quizFeedback.cardId!=='string'||!Number.isInteger(v.quizFeedback.selectedIndex)||!['correct','wrong','unsure'].includes(v.quizFeedback.result)))throw Error('퀴즈 피드백이 올바르지 않습니다.');if(v.queueMode!==undefined&&!QUEUE_MODES.some(([m])=>m===v.queueMode))throw Error('대기열 모드가 올바르지 않습니다.');}
+function validateBackup(v){if(v?.explanationViews!==undefined){if(!Array.isArray(v.explanationViews))throw Error('Invalid explanation records');StudyCredit.unionExplanations([],v.explanationViews);}if(![1,2,3].includes(v?.version)||!Array.isArray(v.cards)||!Array.isArray(v.history))throw Error('지원하지 않는 백업입니다.');const ids=new Set();for(const c of v.cards){if(v.version!==3||c.question!==undefined)validateContent(c);if(typeof c.id!=='string'||ids.has(c.id)||!validDay(c.created)||!(c.due===null||validDay(c.due))||(v.version===1?(!Number.isInteger(c.stage)||c.stage<0||c.stage>4):(!Number.isFinite(c.ease)||c.ease<1.3||c.ease>3||!Number.isInteger(c.interval)||c.interval<0||c.interval>365||!Number.isInteger(c.streak)||c.streak<0||c.due===null)))throw Error('문제 일정 또는 ID가 올바르지 않습니다.');if(c.retryAt!==undefined&&!Number.isFinite(Date.parse(c.retryAt)))throw Error('잘못된 재학습 시간');if(c.pendingAttempt!==undefined&&(!['remember','partial','none'].includes(c.pendingAttempt.recall)||!validDay(c.pendingAttempt.date)||!Number.isFinite(Date.parse(c.pendingAttempt.at))||typeof c.pendingAttempt.delayedFirst!=='boolean'))throw Error('잘못된 회상 기록');ids.add(c.id);}for(const h of v.history){if(typeof h.id!=='string'||typeof h.cardId!=='string'||!validDay(h.date)||!['correct','unsure','wrong'].includes(h.result))throw Error('복습 기록이 올바르지 않습니다.');}if(v.quizFeedback!==undefined&&(!v.quizFeedback||typeof v.quizFeedback.cardId!=='string'||!Number.isInteger(v.quizFeedback.selectedIndex)||!['correct','wrong','unsure'].includes(v.quizFeedback.result)))throw Error('퀴즈 피드백이 올바르지 않습니다.');if(v.queueMode!==undefined&&!QUEUE_MODES.some(([m])=>m===v.queueMode))throw Error('대기열 모드가 올바르지 않습니다.');if(v.dailyGoal!==undefined&&!(Number.isInteger(v.dailyGoal)&&v.dailyGoal>=1&&v.dailyGoal<=500))throw Error('하루 목표가 올바르지 않습니다.');}
 function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.subject.trim(),question:c.question.trim(),answer:c.answer.trim(),explanation:c.explanation||'',source:c.source||'',verified:c.verified===true,created:day(),due:day(),ease:2.5,interval:0,streak:0};}
 // 공무원 기출은 회차 파일을 받기 전에도 풀 수 있는 카드다(색인에 있으면 된다). 보기는 그 회차의 문항을 처음 낼 때 받는다.
 function isPlayable(c){return !!c&&(!!QUIZ_OPTIONS[c.id]||!!PRACTICE_BANK[c.id]||Gichul.known(c.id));}
@@ -202,6 +202,29 @@ function reviewQueue(cards){
  return queue;
 }
 // END QUEUE MODES
+// 경험치·레벨(xp.js). 풀면 언제나 오르고, 처음 맞힘·틀렸던 문제 맞힘이 크게 오른다. 하루 목표는 사용자가 정했을 때만.
+function dailyGoal(){return Number.isInteger(data.dailyGoal)&&data.dailyGoal>0?data.dailyGoal:null;}
+function renderXp(){
+ let s;try{s=StudyXp.summary(data.history,data.explanationViews||[],StudyXp.day(),dailyGoal());}catch{$('#xpCard').hidden=true;return;}
+ $('#xpCard').hidden=false;$('#xpLevel').textContent='Lv '+s.level;
+ $('#xpStreak').textContent=s.streak?'🔥 '+s.streak+'일 연속'+(s.solvedToday?'':' · 오늘 풀면 이어져요'):'오늘 한 문제 풀면 🔥 연속 시작';
+ $('#xpBar').max=s.need;$('#xpBar').value=s.into;
+ $('#xpText').textContent='다음 레벨까지 '+(s.need-s.into)+' XP · 오늘 +'+s.todayXp+' XP ('+s.todaySolves+'문제) · 누적 '+s.total+' XP';
+ $('#xpGoal').textContent=s.goal?(s.goalDone?'✅ 오늘 목표 달성! '+s.todaySolves+'/'+s.goal+'문제':'오늘 목표 '+s.todaySolves+'/'+s.goal+'문제'):'';$('#xpGoal').hidden=!s.goal;
+ $('#xpGoalEdit').querySelector('summary').textContent=s.goal?'하루 목표 바꾸기 ('+s.goal+'문제)':'하루 목표 정하기';
+ if(document.activeElement?.id!=='xpGoalInput')$('#xpGoalInput').value=s.goal||'';
+}
+function setDailyGoal(value){
+ const next=structuredClone(data);if(value===null)delete next.dailyGoal;else next.dailyGoal=value;
+ if(commit(next)){renderXp();notify(value===null?'하루 목표를 없앴어요.':'하루 목표를 '+value+'문제로 정했어요.');}
+}
+function xpAwardNode(reviewId){
+ let a;try{a=StudyXp.lastAward(data.history,data.explanationViews||[],reviewId);}catch{return null;}if(!a)return null;
+ const box=elem('div',undefined,'xp-award'+(a.parts.length>1?' is-bonus':''));
+ box.append(elem('strong','+'+a.xp+' XP'),elem('span',a.parts.map(p=>p.label+' +'+p.xp).join(' · ')));
+ if(a.levelAfter>a.levelBefore)box.append(elem('p','🎉 레벨 '+a.levelAfter+' 달성!','xp-levelup'));
+ return box;
+}
 let creditHistoryLimit=14;
 function renderStudyCredit(){
  try{
@@ -350,7 +373,7 @@ function renderView(){
  if(view==='home')renderHome();else if(view==='subject')renderSubject();else if(view==='range')renderRange();else if(view==='progress')renderProgress();else if(view==='memorize')renderMemorize();else renderQuiz();
 }
 function renderHome(){
- const list=$('#subjectList'),playable=data.cards.filter(isPlayable);list.replaceChildren();
+ renderXp();const list=$('#subjectList'),playable=data.cards.filter(isPlayable);list.replaceChildren();
  for(const s of subjectsList()){const cards=playable.filter(c=>c.subject===s);list.append(menuItem(s,countLine(cards),()=>go('subject',s)));}
  if(!list.children.length)list.append(elem('p',data.cards.length?'풀 수 있는 문제가 아직 없어요.':'문제를 불러오는 중입니다.'));
 }
@@ -558,7 +581,7 @@ function renderFeedback(root,card,quiz,lesson,label){
  const banner=elem('div',undefined,'result-banner result-'+f.result);
  banner.append(elem('strong',f.result==='correct'?'정답입니다':f.result==='unsure'?'정답이에요 · 설명을 보고 풀어서 내일 다시 연습해요':'틀렸어요'));
  if(f.result==='wrong')banner.append(quiz.marks&&quiz.choices[f.selectedIndex]!==undefined?markedLine('내 답: ',quiz,f.selectedIndex):elem('p','내 답: '+(quiz.type==='text'?f.userAnswer:quiz.choices[f.selectedIndex]??'')));
- banner.append(quiz.marks?markedLine('정답: ',quiz,quiz.correctIndex):elem('p','정답: '+correct));root.append(banner);
+ banner.append(quiz.marks?markedLine('정답: ',quiz,quiz.correctIndex):elem('p','정답: '+correct));root.append(banner);{const award=xpAwardNode(reviewId);if(award)root.append(award);}
  appendCorrection(root,quiz);
  const main=elem('details',undefined,'lesson explanation-main');main.append(elem('summary','해설 보기'));const byChoice=Practice.explainByChoice(quiz);if(byChoice)main.append(choiceExplanations(quiz,byChoice,f.selectedIndex));else{if(quiz.marks)main.append(markedList(quiz));main.append(...explanationParts(quiz.explanation||card.explanation||''));}attachExplanationCredit(main,reviewId,'feedback');root.append(main);
  appendNewPaperExplanation(root,card.id,quiz.explanation||card.explanation,reviewId,'feedback-supplement');
@@ -647,6 +670,8 @@ $('#openMemorize').onclick=()=>go('memorize',MEMO_SCOPE+viewSubject);
 for(const b of document.querySelectorAll('[data-back]'))b.onclick=goBack;
 $('#quizBack').onclick=goBack;
 $('#studyTimeMore').onclick=()=>{creditHistoryLimit+=30;renderStudyCredit();};
+$('#xpGoalSave').onclick=()=>{const v=Number($('#xpGoalInput').value);if(!Number.isInteger(v)||v<1||v>500){notify('하루 목표는 1~500 사이의 숫자로 적어 주세요.');return;}setDailyGoal(v);};
+$('#xpGoalClear').onclick=()=>setDailyGoal(null);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)render();});render();
 setInterval(()=>{if(view==='quiz'&&!document.hidden&&!$('#card .question')&&reviewQueue(data.cards.filter(inCurrent)).ready.length)render();},15000);
 if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});

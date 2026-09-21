@@ -248,3 +248,25 @@ body[data-view="quiz"] main { padding-top:14px; }
 .memorize-cell.photo{display:flex;flex-direction:column;gap:6px;align-items:stretch;text-align:left}
 .memorize-cell.photo img{width:100%;aspect-ratio:3/4;object-fit:contain;background:var(--card-bg,#00000010);border-radius:8px}
 .memorize-cell.photo strong{font-size:.95rem;line-height:1.35}
+/* 경험치·레벨(v120) */
+.xp-card { margin:0 0 18px; padding:14px 16px; border:1px solid #6f8fb8; border-radius:14px; background:#1c2635; }
+.xp-top { display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap; }
+.xp-top strong { font-size:24px; color:#ffd98a; font-variant-numeric:tabular-nums; }
+.xp-streak { color:#ffb38a; font-weight:700; }
+.xp-bar { display:block; width:100%; height:12px; margin:10px 0 8px; border:0; border-radius:99px; background:#2c3646; overflow:hidden; appearance:none; -webkit-appearance:none; }
+.xp-bar::-webkit-progress-bar { background:#2c3646; border-radius:99px; }
+.xp-bar::-webkit-progress-value { background:linear-gradient(90deg,#82d6a4,#ffd98a); border-radius:99px; }
+.xp-bar::-moz-progress-bar { background:linear-gradient(90deg,#82d6a4,#ffd98a); border-radius:99px; }
+.xp-text { margin:0; color:#d1d7e0; font-size:15px; overflow-wrap:anywhere; }
+.xp-goal { margin:6px 0 0; font-weight:700; color:#82d6a4; }
+.xp-goal-edit { margin-top:8px; font-size:15px; }
+.xp-goal-edit summary { cursor:pointer; color:#9cc4ff; min-height:32px; }
+.xp-goal-edit label { display:block; margin:6px 0 4px; }
+.xp-goal-row { display:flex; gap:8px; flex-wrap:wrap; }
+.xp-goal-row input { width:7em; }
+.xp-award { display:flex; flex-wrap:wrap; gap:4px 10px; align-items:baseline; margin:10px 0; padding:10px 14px; border-radius:12px; background:#1f2a1f; border:1px solid #3d6b4f; }
+.xp-award strong { font-size:22px; color:#82d6a4; }
+.xp-award span { color:#c3cad4; font-size:15px; }
+.xp-award.is-bonus { background:#302a14; border-color:#ffd98a; }
+.xp-award.is-bonus strong { color:#ffd98a; }
+.xp-levelup { flex-basis:100%; margin:4px 0 0; font-size:18px; font-weight:700; color:#ffd98a; }
