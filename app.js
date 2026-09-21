@@ -421,7 +421,10 @@ function renderMemorize(){
   // 사진 칸: 앞면이 사진이고 누르면 이름이 나온다. 사진은 열려도 남겨 둔다 — 사진과 이름을 함께 봐야 외워진다.
   if(photo){const im=elem('img');im.src=photo;im.alt=prompt;im.loading='lazy';b.append(im);}
   b.append(elem('strong',open&&answer?answer:(photo?'':prompt)));
-  b.append(open?elem('span',detail||(answer?'':'—')):elem('span','눌러서 확인','memorize-hidden'));return b;};
+  if(!open)b.append(elem('span','눌러서 확인','memorize-hidden'));
+  // 영어 공식 카드 뒷면은 **핵심** 색칠 · ✗ 줄 빨강 · 예) 줄을 해설의 외우는 공식 상자와 같게 보여 준다.
+  else if(detail&&detail.includes('**')){const box=elem('span',undefined,'memorize-formula');for(const line of detail.split('\n')){const l=elem('span',undefined,/^✗/.test(line)?'formula-bad':/^예\)/.test(line)?'formula-example':'formula-line');l.append(...keyText(line));box.append(l);}b.append(box);}
+  else b.append(elem('span',detail||(answer?'':'—')));return b;};
  const content=[];
  if(set.lines)set.lines.forEach((line,li)=>{
   const group=elem('div',undefined,'memorize-line'),grid=elem('div',undefined,'memorize-grid');

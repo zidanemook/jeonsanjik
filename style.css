@@ -290,3 +290,9 @@ body[data-view="quiz"] main { padding-top:14px; }
 .score-table .score-num { white-space:nowrap; }
 .score-table small { display:block; font-size:12px; color:#9fb3c8; }
 .score-total .score-sub { display:block; margin-top:2px; font-size:14px; font-weight:400; color:#c3cad4; }
+.memorize-formula { display:flex; flex-direction:column; gap:4px; white-space:normal; }
+.memorize-formula span { display:block; font-size:15px; }
+.memorize-formula .formula-line { color:#f2f5fa; font-weight:600; }
+.memorize-formula .formula-bad { color:#ff9c9c; }
+.memorize-formula .formula-example { color:#c3cad4; }
+.memorize-formula .key-word { display:inline; font-size:inherit; }

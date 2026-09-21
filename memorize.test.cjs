@@ -147,14 +147,18 @@ for(const set of M.sets.filter(s=>s.subject==='한국사')){
 }
 // 사용자에게 보이는 글에 내부 용어를 쓰지 않는다.
 for(const set of M.sets.filter(s=>s.subject==='한국사'))for(const t of [set.title,set.hint,...(set.groups||[]).flatMap(g=>[g.title,...g.cards.flat()]),...(set.lines||[]).flatMap(l=>l.items.flatMap(i=>i.facts)),...(set.pairs||[]).flat()])assert(!/카드|문항/.test(t),'no internal words in visible text: '+t);
-// 영어 어법 공식(v98): 문제 해설의 외우기 블록과 같은 공식 89개를 영역 11개로. 앞면 = 공식 이름(문제 화면 제목과 같음), 뒷면 = 공식 + 꿀팁 + 입으로 외울 말.
-// 연도 금지는 한국사 목록만의 규칙이라 영어 예문의 숫자(1990 등)는 막지 않는다.
-{const set=M.get('english-grammar-formulas'),F=(require('./practice-bank.js'),globalThis.ENGLISH_FORMULAS);assert(set&&set.subject==='영어'&&set.groups,'english-grammar-formulas set');
- assert.deepEqual(set.groups.map(g=>g.title),F.areas.map(a=>a.title));assert.equal(M.size(set),89);
- set.groups.forEach((g,i)=>assert.deepEqual(g.cards.map(c=>c[0]),F.areas[i].rules.map(r=>r.title),'앞면은 공식 이름: '+g.title));
- for(const [front,back] of set.groups.flatMap(g=>g.cards)){assert(/\n꿀팁: /.test(back)&&/\n입으로: [A-Za-z]/.test(back)&&/\([가-힣 ,?]+\)/.test(back),'공식·꿀팁·입으로: '+front);assert(!/카드|문항|변형/.test(front+back),'no internal words: '+front);assert(!/[①②③④]/.test(back));}
- assert(set.groups.flatMap(g=>g.cards).some(c=>/\b(19|20)\d\d\b/.test(c[1])),'영어 목록에는 연도 같은 숫자가 있어도 된다(한국사 연도 규칙과 무관)');
- assert(M.get('english-grammar-formulas').groups.flatMap(g=>g.cards).find(c=>c[0].startsWith('such·so 어순'))[1].includes('서치(such)는 관사(a/an)를 품에 안고 다니고'));}
+// 영어 어법 공식(v122): Day 1~4 공식 89개(영역 11개, 해설 끝 외우는 공식 블록과 같은 글) + Day 5 포인트 29개(4묶음). 앞면 = 공식·포인트 이름, 뒷면 = 공식 · ✗ 틀리는 형태 · 예) 예문, **핵심** 색칠.
+// 꿀팁·입으로 외우기·발음 표기는 없다(2026-09-21 사용자 "너무 장황해 … 핵심은 색칠").
+{const set=M.get('english-grammar-formulas'),F=(require('./practice-bank.js'),globalThis.ENGLISH_FORMULAS),bank=globalThis.PRACTICE_BANK;assert(set&&set.subject==='영어'&&set.groups,'english-grammar-formulas set');
+ const base=set.groups.slice(0,F.areas.length),day5=set.groups.slice(F.areas.length);
+ assert.deepEqual(base.map(g=>g.title),F.areas.map(a=>a.title));assert.equal(base.reduce((n,g)=>n+g.cards.length,0),89);
+ base.forEach((g,i)=>assert.deepEqual(g.cards.map(c=>c[0]),F.areas[i].rules.map(r=>r.title),'앞면은 공식 이름: '+g.title));
+ const blockOf=new Map();for(const l of Object.values(bank))if(l.formula&&l.variants[0]&&!blockOf.has(l.formula))blockOf.set(l.formula,l.variants[0].explanation.split('\n\n').pop());
+ base.forEach((g,i)=>g.cards.forEach((c,j)=>assert.equal('외우는 공식\n'+c[1],blockOf.get(F.areas[i].rules[j].id),'해설 블록과 같은 글: '+c[0])));
+ assert(day5.length>=1&&day5.every(g=>g.title.startsWith('Day 5')));
+ const points=new Set(Object.entries(bank).filter(([k])=>k.startsWith('en-day5-')).map(([,l])=>l.point));assert.deepEqual(new Set(day5.flatMap(g=>g.cards.map(c=>c[0]))),points,'Day 5 포인트 전부');
+ for(const [front,back] of set.groups.flatMap(g=>g.cards)){const lines=back.split('\n');assert(lines.length>=3&&lines.length<=4&&lines.some(x=>x.startsWith('✗ '))&&lines[lines.length-1].startsWith('예) ')&&back.includes('**')&&!/꿀팁|입으로|함정:/.test(back),'공식·✗·예: '+front);
+  for(const x of lines)assert.equal((x.match(/\*\*/g)||[]).length%2,0,'색칠 짝: '+front);assert(!/카드|문항|변형/.test(front+back),'no internal words: '+front);assert(!/[①②③④]/.test(back));}}
 // 내가 만든 외우는 낱말(2026-09-19): 사용자가 직접 만든 왕+대상 합성 낱말 아홉만 남긴 묶음(quiz-options.js의 HISTORY_MNEMONICS).
 // 앞면 = 대상, 뒷면 = 낱말 + 풀이 + 덧붙임·헷갈림 주의. 내가 만든 블록 98개(두문자 32 포함)는 지웠고 문제 해설에도 붙이지 않는다.
 // 낱말의 글자는 열쇠 글자와 같고, 열쇠 글자는 실제 사실 안에 차례대로 들어 있다. 왕을 단 항목은 위 왕 순서 목록의 그 왕 사실과 대조한다.
