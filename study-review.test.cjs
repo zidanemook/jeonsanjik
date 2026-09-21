@@ -10,12 +10,12 @@ assert.equal(new Set(options.choices).size,options.choices.length,'같은 보기
 assert.equal(cards.get(id).answer,options.choices[options.correctIndex]);}
 }
 assert.equal(ids.size,catalog.total);for(const id of Object.keys(catalog.questions))assert(ids.has(id),'Unreachable practice question: '+id);
-for(const card of cards.values())if(/^(?:joseonorg-hist-20260921-|joseon(?:early|photo)-hist-20260919-|(?:study|summary)-hist-20260910-|summary-hist-20260911-|lecture-hist-20260911-|summary-hist-20260912-|(?:heritage|daily|photo|culture|goryeo)-hist-20260912-|goryeomid-hist-20260914-|goryeoforeign-hist-20260914-|goryeostyle-hist-20260915-|ancientstyle-hist-20260915-|nanbukstyle-hist-20260915-|goryeoecon-hist-20260915-|goryeoculture-hist-20260915-|goryeoculture2-hist-20260916-|typefill-hist-20260916-)/.test(card.id))assert(ids.has(card.id),'Summary question excluded from scope: '+card.id);
+for(const card of cards.values())if(/^(?:joseonforeign-hist-20260921-|joseonorg-hist-20260921-|joseon(?:early|photo)-hist-20260919-|(?:study|summary)-hist-20260910-|summary-hist-20260911-|lecture-hist-20260911-|summary-hist-20260912-|(?:heritage|daily|photo|culture|goryeo)-hist-20260912-|goryeomid-hist-20260914-|goryeoforeign-hist-20260914-|goryeostyle-hist-20260915-|ancientstyle-hist-20260915-|nanbukstyle-hist-20260915-|goryeoecon-hist-20260915-|goryeoculture-hist-20260915-|goryeoculture2-hist-20260916-|typefill-hist-20260916-)/.test(card.id))assert(ids.has(card.id),'Summary question excluded from scope: '+card.id);
 // Textbook lecture ranges: every summary question sits in exactly one lecture, in catalog order.
 // 2026-09-16 사용자 지시: 따로 떠 있던 기출형 연습 범위 셋(선사~삼국·가야 / 통일 신라·발해·후삼국 / 고려)을 없애고 문제마다 실제 소속 강에 넣는다. 07·08강 덩어리도 둘로 나눈다.
 const lectures=JSON.parse(JSON.stringify(catalog.lectures)),inLecture=new Map();
-assert.deepEqual(lectures.map(l=>l.id),['02-05','06','07','08','09','10','11','12','13','14','15','16','17']);
-assert.deepEqual(lectures.map(l=>l.title),['02~05강 선사 시대~삼국 통일','06강 통일 신라·발해·후삼국','07강 고대(경제, 사회)','08강 고대(문화 1)','09강 고대(문화 2)','10강 고려(초기 정치)','11강 고려(중기 정치~무신 정변)','12강 고려(외교)','13강 고려(경제, 사회)','14강 고려(문화 I)','15강 고려(문화 2)','16강 조선 전기(정치)','17강 조선(조직)']);
+assert.deepEqual(lectures.map(l=>l.id),['02-05','06','07','08','09','10','11','12','13','14','15','16','17','18']);
+assert.deepEqual(lectures.map(l=>l.title),['02~05강 선사 시대~삼국 통일','06강 통일 신라·발해·후삼국','07강 고대(경제, 사회)','08강 고대(문화 1)','09강 고대(문화 2)','10강 고려(초기 정치)','11강 고려(중기 정치~무신 정변)','12강 고려(외교)','13강 고려(경제, 사회)','14강 고려(문화 I)','15강 고려(문화 2)','16강 조선 전기(정치)','17강 조선(조직)','18강 조선 전기(외교)']);
 for(const l of lectures){assert(l.ids.length>0,'Empty lecture '+l.id);for(const id of l.ids){assert(!inLecture.has(id),'Question in two lectures: '+id);assert(catalog.questions[id],'Unknown lecture question: '+id);inLecture.set(id,l.id);}const numbers=l.ids.map(id=>catalog.questions[id].number);assert.deepEqual(numbers,[...numbers].sort((a,b)=>a-b),'Lecture keeps catalog order: '+l.id);}
 assert.equal(inLecture.size,catalog.total);
 // 고대 기출형 108문항의 소속 강. 정답 사실과 대상을 알아내는 핵심 단서가 교재 어느 강에서 나오는지로 정했고, 둘이 다르면 뒤 강이다.
@@ -29,10 +29,10 @@ EXAM_PLACEMENT['typefill-hist-20260916-']={"10":[28,41,49,68,69,78],"11":[31,34,
 const examLecture=new Map();for(const [prefix,byLecture]of Object.entries(EXAM_PLACEMENT))for(const [lecture,nums]of Object.entries(byLecture))for(const n of nums){const id=prefix+String(n).padStart(3,'0');assert(!examLecture.has(id),'Exam question placed twice: '+id);examLecture.set(id,lecture);}
 const GORYEO_EXAM_BY_SECTION={'고려 초기 정치':'10','고려 문벌 사회':'11','고려 무신 정권':'11','고려 대외 관계':'12','고려 후기 사회 변동':'12','고려의 멸망':'12'};
 const LECTURE_0708=/^(?:lecture-hist-20260911-|heritage-hist-20260912-|photo-hist-20260912-)/;
-const LECTURE_09=/^culture-hist-20260912-/,LECTURE_10=/^goryeo-hist-20260912-/,LECTURE_11=/^goryeomid-hist-20260914-/,LECTURE_12=/^goryeoforeign-hist-20260914-/,LECTURE_GORYEO_EXAM=/^goryeostyle-hist-20260915-/,LECTURE_ANCIENT_EXAM=/^ancientstyle-hist-20260915-/,LECTURE_NANBUK_EXAM=/^nanbukstyle-hist-20260915-/,LECTURE_13=/^goryeoecon-hist-20260915-/,LECTURE_14=/^goryeoculture-hist-20260915-/,LECTURE_15=/^goryeoculture2-hist-20260916-/,LECTURE_16=/^joseon(?:early|photo)-hist-20260919-/,LECTURE_17=/^joseonorg-hist-20260921-/;
+const LECTURE_09=/^culture-hist-20260912-/,LECTURE_10=/^goryeo-hist-20260912-/,LECTURE_11=/^goryeomid-hist-20260914-/,LECTURE_12=/^goryeoforeign-hist-20260914-/,LECTURE_GORYEO_EXAM=/^goryeostyle-hist-20260915-/,LECTURE_ANCIENT_EXAM=/^ancientstyle-hist-20260915-/,LECTURE_NANBUK_EXAM=/^nanbukstyle-hist-20260915-/,LECTURE_13=/^goryeoecon-hist-20260915-/,LECTURE_14=/^goryeoculture-hist-20260915-/,LECTURE_15=/^goryeoculture2-hist-20260916-/,LECTURE_16=/^joseon(?:early|photo)-hist-20260919-/,LECTURE_17=/^joseonorg-hist-20260921-/,LECTURE_18=/^joseonforeign-hist-20260921-/;
 function lecture0708(id){const source=cards.get(id).source;return /^08강 고대\(문화 1\)/.test(source)?'08':/^07강 고대\(경제, 사회\)/.test(source)?'07':'출처 표기 없음';}
 for(const [id,q]of Object.entries(catalog.questions)){
- const expected=/^typefill-hist-20260916-/.test(id)?examLecture.get(id):LECTURE_17.test(id)?'17':LECTURE_16.test(id)?'16':LECTURE_15.test(id)?'15':LECTURE_14.test(id)?'14':LECTURE_13.test(id)?'13':(LECTURE_ANCIENT_EXAM.test(id)||LECTURE_NANBUK_EXAM.test(id))?examLecture.get(id):LECTURE_GORYEO_EXAM.test(id)?GORYEO_EXAM_BY_SECTION[q.section]:LECTURE_12.test(id)?'12':LECTURE_11.test(id)?'11':LECTURE_10.test(id)?'10':LECTURE_09.test(id)?'09':LECTURE_0708.test(id)?lecture0708(id):['통일 신라','발해','후삼국'].includes(q.section)?'06':'02-05';
+ const expected=/^typefill-hist-20260916-/.test(id)?examLecture.get(id):LECTURE_18.test(id)?'18':LECTURE_17.test(id)?'17':LECTURE_16.test(id)?'16':LECTURE_15.test(id)?'15':LECTURE_14.test(id)?'14':LECTURE_13.test(id)?'13':(LECTURE_ANCIENT_EXAM.test(id)||LECTURE_NANBUK_EXAM.test(id))?examLecture.get(id):LECTURE_GORYEO_EXAM.test(id)?GORYEO_EXAM_BY_SECTION[q.section]:LECTURE_12.test(id)?'12':LECTURE_11.test(id)?'11':LECTURE_10.test(id)?'10':LECTURE_09.test(id)?'09':LECTURE_0708.test(id)?lecture0708(id):['통일 신라','발해','후삼국'].includes(q.section)?'06':'02-05';
  assert.equal(inLecture.get(id),expected,'Lecture by section: '+id);
 }
 // 07·08강: 기존 73문항은 출처 표기로 29·44로 나뉜다.
@@ -40,9 +40,9 @@ const ids0708=Object.keys(catalog.questions).filter(id=>LECTURE_0708.test(id));a
 assert.equal(ids0708.filter(id=>inLecture.get(id)==='07').length,29,'07강 사실형 문항 수');assert.equal(ids0708.filter(id=>inLecture.get(id)==='08').length,44,'08강 사실형 문항 수');
 assert(ids0708.every(id=>catalog.questions[id].number>225),'New questions continue after the earlier catalog numbers');
 assert(catalog.sets.filter(s=>s.title.startsWith('07·08강 고대 경제·사회·문화')).length===7);
-assert.deepEqual(lectures.map(l=>l.ids.length),[220,127,40,57,54,66,125,187,68,50,63,88,78],'강별 문항 수(기출형·유형 보강 포함)');
+assert.deepEqual(lectures.map(l=>l.ids.length),[220,127,40,57,54,66,125,187,68,50,63,88,78,83],'강별 문항 수(기출형·유형 보강 포함)');
 // 강 안에서는 사실형 문항 뒤에 기출형이 모인다(번호가 그렇게 이어져 있다). 13·14강은 처음부터 섞여 있어 제외한다.
-for(const l of lectures.filter(l=>!['13','14','15','16','17'].includes(l.id))){const exam=l.ids.map(id=>/style-hist-20260915-|typefill-hist-20260916-/.test(id)),first=exam.indexOf(true);if(first>=0)assert(exam.slice(first).every(Boolean),'기출형은 강의 끝에 모인다: '+l.id);}
+for(const l of lectures.filter(l=>!['13','14','15','16','17','18'].includes(l.id))){const exam=l.ids.map(id=>/style-hist-20260915-|typefill-hist-20260916-/.test(id)),first=exam.indexOf(true);if(first>=0)assert(exam.slice(first).every(Boolean),'기출형은 강의 끝에 모인다: '+l.id);}
 const ids09=Object.keys(catalog.questions).filter(id=>LECTURE_09.test(id));assert.equal(ids09.length,33,'09강 사실형 문항 수');
 const ids10=Object.keys(catalog.questions).filter(id=>LECTURE_10.test(id));assert.equal(ids10.length,52,'10강 사실형 문항 수');
 assert([...ids09,...ids10].every(id=>catalog.questions[id].number>320),'09·10강 문항은 기존 catalog 번호 뒤에 이어진다');
@@ -151,14 +151,29 @@ assert.equal(catalog.sets.filter(s=>s.title.startsWith('16강 조선 전기(정�
 const ids17=Object.keys(catalog.questions).filter(id=>LECTURE_17.test(id));assert.equal(ids17.length,78,'17강 문항 수');
 assert.deepEqual(ids17,Array.from({length:78},(_,i)=>'joseonorg-hist-20260921-'+String(i+1).padStart(3,'0')));
 assert.deepEqual(ids17.map(id=>catalog.questions[id].number),Array.from({length:78},(_,i)=>1146+i),'17강 번호는 1146~1223');
-{const l17=lectures.at(-1);assert.equal(l17.id,'17');assert.equal(l17.title,'17강 조선(조직)');assert.deepEqual(Array.from(l17.ids),ids17,'17강 범위는 이 강의 문항만');}
+{const l17=lectures.find(l=>l.id==='17');assert.equal(l17.title,'17강 조선(조직)');assert.deepEqual(Array.from(l17.ids),ids17,'17강 범위는 이 강의 문항만');}
 const SECTIONS_17=['조선 중앙 정치 조직','조선 지방 행정 조직','조선 관리 선발 방식','조선 군사 조직'];
 for(const id of ids17)assert(SECTIONS_17.includes(catalog.questions[id].section),'17강 question outside the 조선(조직) sections: '+id);
 assert.deepEqual([...new Set(ids17.map(id=>catalog.questions[id].section))],SECTIONS_17,'17강 covers all four blocks in page order');
-assert.deepEqual(Array.from(topics.list.find(t=>t.id==='joseon-early').sections),[...SECTIONS_16,...SECTIONS_17],'조선 전기 topic holds the 16강 then 17강 section names');
+assert.deepEqual(Array.from(topics.list.find(t=>t.id==='joseon-early').sections).slice(0,7),[...SECTIONS_16,...SECTIONS_17],'조선 전기 topic holds the 16강 then 17강 section names first');
 assert.equal(catalog.sets.filter(s=>s.title.startsWith('17강 조선(조직)')).length,10);
 // 자료 제시형은 발문 뒤 빈 줄과 [자료 이름] 한 줄로 시작하고, 사실형은 절반을 넘지 않는다.
 {const material=ids17.filter(id=>cards.get(id).question.includes('\n'));for(const id of material)assert(cards.get(id).question.includes('\n\n['),'Material format: '+id);assert(material.length*2>=ids17.length,'17강 자료 제시형이 절반 이상: '+material.length);}
+// 18강(206~207쪽 조선 전기(외교))은 두 면의 사실 79개를 덮는 83문제(사실형 41 · 자료 제시형 42)다. 전투·인물·약조를 사람·장소·결과로 가르는 문제가 중심이다.
+// 206쪽 조선 초기 대외 관계는 조선 전기 주제에, 임진왜란·광해군·호란은 기출 분류(hanneung-topics.js)와 같이 조선 후기(양난~) 주제에 둔다.
+const ids18=Object.keys(catalog.questions).filter(id=>LECTURE_18.test(id));assert.equal(ids18.length,83,'18강 문항 수');
+assert.deepEqual(ids18,Array.from({length:83},(_,i)=>'joseonforeign-hist-20260921-'+String(i+1).padStart(3,'0')));
+assert.deepEqual(ids18.map(id=>catalog.questions[id].number),Array.from({length:83},(_,i)=>1224+i),'18강 번호는 1224~1306');
+{const l18=lectures.at(-1);assert.equal(l18.id,'18');assert.equal(l18.title,'18강 조선 전기(외교)');assert.deepEqual(Array.from(l18.ids),ids18,'18강 범위는 이 강의 문항만');}
+const SECTIONS_18=['조선 초기 대외 관계','임진왜란의 전개','광해군의 정책','호란의 전개'];
+for(const id of ids18)assert(SECTIONS_18.includes(catalog.questions[id].section),'18강 question outside the 조선 전기(외교) sections: '+id);
+assert.deepEqual([...new Set(ids18.map(id=>catalog.questions[id].section))],SECTIONS_18,'18강 covers all four blocks in page order');
+assert.deepEqual(Array.from(topics.list.find(t=>t.id==='joseon-early').sections),[...SECTIONS_16,...SECTIONS_17,SECTIONS_18[0]],'조선 전기 topic ends with 18강 조선 초기 대외 관계');
+assert.deepEqual(Array.from(topics.list.find(t=>t.id==='joseon-late').sections),SECTIONS_18.slice(1),'조선 후기 topic starts with 18강 임진왜란·광해군·호란');
+assert.equal(catalog.sets.filter(s=>s.title.startsWith('18강 조선 전기(외교)')).length,11);
+{const material=ids18.filter(id=>cards.get(id).question.includes('\n'));for(const id of material)assert(cards.get(id).question.includes('\n\n['),'Material format: '+id);assert(material.length*2>=ids18.length,'18강 자료 제시형이 절반 이상: '+material.length);
+ // 순서 배열 보기에는 연도가 없다(연도로 줄 세우면 지식 없이 풀린다).
+ for(const id of ids18){const o=ctx.QUIZ_OPTIONS[id];for(const c of o.choices)assert(!/\d{3,4}\s*년|\b1[0-9]{3}\b/.test(c),'18강 보기에 연도: '+id);}}
 // 사진 보기 문항: 네 보기가 모두 사진이고, 저장된 파일을 가리키며, 화면에 띄울 출처표시를 보기마다 들고 있어야 한다.
 const photoIds=Object.keys(catalog.questions).filter(id=>id.startsWith('photo-hist-20260912-'));
 assert.equal(photoIds.length,7,'Photo-option questions missing from the catalog');

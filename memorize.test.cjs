@@ -38,12 +38,16 @@ for(const name of ['태조','정종','광종','경종','성종','현종','숙종
 for(const name of ['목종','문종'])assert(kings.some(k=>k.name===name&&k.facts.length),'studied king has facts (13강 전시과): '+name);
 for(const name of ['덕종','순종','선종','헌종','강종','충숙왕','충혜왕','충정왕'])assert(kings.find(k=>k.name===name).facts.length===0,'unstudied king stays blank: '+name);
 // 조선 왕 순서(16강 범위): 태조부터 선조까지 14명. 아직 사실을 배우지 않은 왕은 사건이 비어 있다.
+// 2026-09-21 18강(조선 전기 외교): 광해군·인조를 공부해 '광인효' 줄을 이었다. 효종은 봉림 대군(병자호란 뒤 볼모)으로만 나와 사실 하나뿐이다.
 {const jk=M.get('joseon-kings').lines.flatMap(l=>l.items);
- assert.deepEqual(jk.map(k=>k.name),['태조','정종','태종','세종','문종','단종','세조','예종','성종','연산군','중종','인종','명종','선조']);
- assert.deepEqual(M.get('joseon-kings').lines.map(l=>l.chant),['태정','태세문단','세예성','연중인명선']);
+ assert.deepEqual(jk.map(k=>k.name),['태조','정종','태종','세종','문종','단종','세조','예종','성종','연산군','중종','인종','명종','선조','광해군','인조','효종']);
+ assert.deepEqual(M.get('joseon-kings').lines.map(l=>l.chant),['태정','태세문단','세예성','연중인명선','광인효']);
  assert.equal(M.get('joseon-kings').lines.flatMap(l=>l.items).filter(i=>'letter' in i).length,0,'조선 왕은 줄을 갈라 첫 글자 겹침을 피했다');
  for(const line of M.get('joseon-kings').lines){const firsts=line.items.map(i=>[...i.name][0]);assert.equal(new Set(firsts).size,firsts.length,'한 줄 안에서 첫 글자가 겹치지 않는다: '+line.chant);}
- for(const name of ['태조','정종','태종','세종','세조','성종','연산군','중종','명종','선조'])assert(jk.some(k=>k.name===name&&k.facts.length),'studied Joseon king has facts: '+name);
+ for(const name of ['태조','정종','태종','세종','세조','성종','연산군','중종','명종','선조','광해군','인조','효종'])assert(jk.some(k=>k.name===name&&k.facts.length),'studied Joseon king has facts: '+name);
+ // 18강 왕 사실: 여러 왕에 걸친 제도는 왕마다 단계가 다르게 적혀야 한다(비변사 설치/상설화, 약조 둘, 호란 둘).
+ for(const [king,needle] of [['세종','계해약조'],['중종','임시 기구로 비변사'],['명종','비변사 상설'],['선조','임진왜란'],['광해군','기유약조'],['광해군','경기도에서 처음'],['광해군','강홍립'],['인조','정묘호란'],['인조','남한산성'],['효종','볼모']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle);
+ assert(!jk.find(k=>k.name==='효종').facts.some(f=>/어영청|나선|하멜/.test(f)),'효종은 18강에 나온 사실(볼모)만');
  for(const name of ['문종','단종','예종','인종'])assert.equal(jk.find(k=>k.name===name).facts.length,0,'unstudied Joseon king stays blank: '+name);}
 assert.deepEqual(M.get('military-rulers').lines[0].items.map(i=>i.name),['이의방','정중부','경대승','이의민','최충헌','최우']);
 // 정언 논리(국어 논리 3장): 용어 뜻 21개, 알파벳 10개(A·E·I·O · S·P·M · 식 읽기), 핵심 30개.

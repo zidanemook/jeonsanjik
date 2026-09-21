@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 1223,
+  "total": 1306,
   "sets": [
     {
       "number": 1,
@@ -2185,6 +2185,155 @@ globalThis.STUDY_REVIEW_CATALOG={
         "joseonorg-hist-20260921-077",
         "joseonorg-hist-20260921-078"
       ]
+    },
+    {
+      "number": 161,
+      "title": "18강 조선 전기(외교) 1",
+      "ids": [
+        "joseonforeign-hist-20260921-001",
+        "joseonforeign-hist-20260921-002",
+        "joseonforeign-hist-20260921-003",
+        "joseonforeign-hist-20260921-004",
+        "joseonforeign-hist-20260921-005",
+        "joseonforeign-hist-20260921-006",
+        "joseonforeign-hist-20260921-007",
+        "joseonforeign-hist-20260921-008"
+      ]
+    },
+    {
+      "number": 162,
+      "title": "18강 조선 전기(외교) 2",
+      "ids": [
+        "joseonforeign-hist-20260921-009",
+        "joseonforeign-hist-20260921-010",
+        "joseonforeign-hist-20260921-011",
+        "joseonforeign-hist-20260921-012",
+        "joseonforeign-hist-20260921-013",
+        "joseonforeign-hist-20260921-014",
+        "joseonforeign-hist-20260921-015",
+        "joseonforeign-hist-20260921-016"
+      ]
+    },
+    {
+      "number": 163,
+      "title": "18강 조선 전기(외교) 3",
+      "ids": [
+        "joseonforeign-hist-20260921-017",
+        "joseonforeign-hist-20260921-018",
+        "joseonforeign-hist-20260921-019",
+        "joseonforeign-hist-20260921-020",
+        "joseonforeign-hist-20260921-021",
+        "joseonforeign-hist-20260921-022",
+        "joseonforeign-hist-20260921-023",
+        "joseonforeign-hist-20260921-024"
+      ]
+    },
+    {
+      "number": 164,
+      "title": "18강 조선 전기(외교) 4",
+      "ids": [
+        "joseonforeign-hist-20260921-025",
+        "joseonforeign-hist-20260921-026",
+        "joseonforeign-hist-20260921-027",
+        "joseonforeign-hist-20260921-028",
+        "joseonforeign-hist-20260921-029",
+        "joseonforeign-hist-20260921-030",
+        "joseonforeign-hist-20260921-031",
+        "joseonforeign-hist-20260921-032"
+      ]
+    },
+    {
+      "number": 165,
+      "title": "18강 조선 전기(외교) 5",
+      "ids": [
+        "joseonforeign-hist-20260921-033",
+        "joseonforeign-hist-20260921-034",
+        "joseonforeign-hist-20260921-035",
+        "joseonforeign-hist-20260921-036",
+        "joseonforeign-hist-20260921-037",
+        "joseonforeign-hist-20260921-038",
+        "joseonforeign-hist-20260921-039",
+        "joseonforeign-hist-20260921-040"
+      ]
+    },
+    {
+      "number": 166,
+      "title": "18강 조선 전기(외교) 6",
+      "ids": [
+        "joseonforeign-hist-20260921-041",
+        "joseonforeign-hist-20260921-042",
+        "joseonforeign-hist-20260921-043",
+        "joseonforeign-hist-20260921-044",
+        "joseonforeign-hist-20260921-045",
+        "joseonforeign-hist-20260921-046",
+        "joseonforeign-hist-20260921-047",
+        "joseonforeign-hist-20260921-048"
+      ]
+    },
+    {
+      "number": 167,
+      "title": "18강 조선 전기(외교) 7",
+      "ids": [
+        "joseonforeign-hist-20260921-049",
+        "joseonforeign-hist-20260921-050",
+        "joseonforeign-hist-20260921-051",
+        "joseonforeign-hist-20260921-052",
+        "joseonforeign-hist-20260921-053",
+        "joseonforeign-hist-20260921-054",
+        "joseonforeign-hist-20260921-055",
+        "joseonforeign-hist-20260921-056"
+      ]
+    },
+    {
+      "number": 168,
+      "title": "18강 조선 전기(외교) 8",
+      "ids": [
+        "joseonforeign-hist-20260921-057",
+        "joseonforeign-hist-20260921-058",
+        "joseonforeign-hist-20260921-059",
+        "joseonforeign-hist-20260921-060",
+        "joseonforeign-hist-20260921-061",
+        "joseonforeign-hist-20260921-062",
+        "joseonforeign-hist-20260921-063",
+        "joseonforeign-hist-20260921-064"
+      ]
+    },
+    {
+      "number": 169,
+      "title": "18강 조선 전기(외교) 9",
+      "ids": [
+        "joseonforeign-hist-20260921-065",
+        "joseonforeign-hist-20260921-066",
+        "joseonforeign-hist-20260921-067",
+        "joseonforeign-hist-20260921-068",
+        "joseonforeign-hist-20260921-069",
+        "joseonforeign-hist-20260921-070",
+        "joseonforeign-hist-20260921-071",
+        "joseonforeign-hist-20260921-072"
+      ]
+    },
+    {
+      "number": 170,
+      "title": "18강 조선 전기(외교) 10",
+      "ids": [
+        "joseonforeign-hist-20260921-073",
+        "joseonforeign-hist-20260921-074",
+        "joseonforeign-hist-20260921-075",
+        "joseonforeign-hist-20260921-076",
+        "joseonforeign-hist-20260921-077",
+        "joseonforeign-hist-20260921-078",
+        "joseonforeign-hist-20260921-079",
+        "joseonforeign-hist-20260921-080"
+      ]
+    },
+    {
+      "number": 171,
+      "title": "18강 조선 전기(외교) 11",
+      "ids": [
+        "joseonforeign-hist-20260921-081",
+        "joseonforeign-hist-20260921-082",
+        "joseonforeign-hist-20260921-083"
+      ]
     }
   ],
   "lectures": [
@@ -3487,6 +3636,95 @@ globalThis.STUDY_REVIEW_CATALOG={
         "joseonorg-hist-20260921-076",
         "joseonorg-hist-20260921-077",
         "joseonorg-hist-20260921-078"
+      ]
+    },
+    {
+      "id": "18",
+      "title": "18강 조선 전기(외교)",
+      "ids": [
+        "joseonforeign-hist-20260921-001",
+        "joseonforeign-hist-20260921-002",
+        "joseonforeign-hist-20260921-003",
+        "joseonforeign-hist-20260921-004",
+        "joseonforeign-hist-20260921-005",
+        "joseonforeign-hist-20260921-006",
+        "joseonforeign-hist-20260921-007",
+        "joseonforeign-hist-20260921-008",
+        "joseonforeign-hist-20260921-009",
+        "joseonforeign-hist-20260921-010",
+        "joseonforeign-hist-20260921-011",
+        "joseonforeign-hist-20260921-012",
+        "joseonforeign-hist-20260921-013",
+        "joseonforeign-hist-20260921-014",
+        "joseonforeign-hist-20260921-015",
+        "joseonforeign-hist-20260921-016",
+        "joseonforeign-hist-20260921-017",
+        "joseonforeign-hist-20260921-018",
+        "joseonforeign-hist-20260921-019",
+        "joseonforeign-hist-20260921-020",
+        "joseonforeign-hist-20260921-021",
+        "joseonforeign-hist-20260921-022",
+        "joseonforeign-hist-20260921-023",
+        "joseonforeign-hist-20260921-024",
+        "joseonforeign-hist-20260921-025",
+        "joseonforeign-hist-20260921-026",
+        "joseonforeign-hist-20260921-027",
+        "joseonforeign-hist-20260921-028",
+        "joseonforeign-hist-20260921-029",
+        "joseonforeign-hist-20260921-030",
+        "joseonforeign-hist-20260921-031",
+        "joseonforeign-hist-20260921-032",
+        "joseonforeign-hist-20260921-033",
+        "joseonforeign-hist-20260921-034",
+        "joseonforeign-hist-20260921-035",
+        "joseonforeign-hist-20260921-036",
+        "joseonforeign-hist-20260921-037",
+        "joseonforeign-hist-20260921-038",
+        "joseonforeign-hist-20260921-039",
+        "joseonforeign-hist-20260921-040",
+        "joseonforeign-hist-20260921-041",
+        "joseonforeign-hist-20260921-042",
+        "joseonforeign-hist-20260921-043",
+        "joseonforeign-hist-20260921-044",
+        "joseonforeign-hist-20260921-045",
+        "joseonforeign-hist-20260921-046",
+        "joseonforeign-hist-20260921-047",
+        "joseonforeign-hist-20260921-048",
+        "joseonforeign-hist-20260921-049",
+        "joseonforeign-hist-20260921-050",
+        "joseonforeign-hist-20260921-051",
+        "joseonforeign-hist-20260921-052",
+        "joseonforeign-hist-20260921-053",
+        "joseonforeign-hist-20260921-054",
+        "joseonforeign-hist-20260921-055",
+        "joseonforeign-hist-20260921-056",
+        "joseonforeign-hist-20260921-057",
+        "joseonforeign-hist-20260921-058",
+        "joseonforeign-hist-20260921-059",
+        "joseonforeign-hist-20260921-060",
+        "joseonforeign-hist-20260921-061",
+        "joseonforeign-hist-20260921-062",
+        "joseonforeign-hist-20260921-063",
+        "joseonforeign-hist-20260921-064",
+        "joseonforeign-hist-20260921-065",
+        "joseonforeign-hist-20260921-066",
+        "joseonforeign-hist-20260921-067",
+        "joseonforeign-hist-20260921-068",
+        "joseonforeign-hist-20260921-069",
+        "joseonforeign-hist-20260921-070",
+        "joseonforeign-hist-20260921-071",
+        "joseonforeign-hist-20260921-072",
+        "joseonforeign-hist-20260921-073",
+        "joseonforeign-hist-20260921-074",
+        "joseonforeign-hist-20260921-075",
+        "joseonforeign-hist-20260921-076",
+        "joseonforeign-hist-20260921-077",
+        "joseonforeign-hist-20260921-078",
+        "joseonforeign-hist-20260921-079",
+        "joseonforeign-hist-20260921-080",
+        "joseonforeign-hist-20260921-081",
+        "joseonforeign-hist-20260921-082",
+        "joseonforeign-hist-20260921-083"
       ]
     }
   ],
@@ -16120,6 +16358,889 @@ globalThis.STUDY_REVIEW_CATALOG={
         "도승지·대사헌(오답)"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 17강 조선(조직) 195쪽 군사 조직"
+    },
+    "joseonforeign-hist-20260921-001": {
+      "number": 1224,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "명: 태종 이후 사대 외교, 일종의 공무역(정답)",
+        "여진: 경원·경성 무역소(오답)",
+        "일본: 동평관(오답)",
+        "일본: 3포 개항·계해약조(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-002": {
+      "number": 1225,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "정도전: 건국 초 요동 정벌 주장(정답)",
+        "최영: 고려 말 요동 정벌 단행(오답)",
+        "최윤덕: 4군(오답)",
+        "이종무: 쓰시마섬 정벌(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-003": {
+      "number": 1226,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "정도전: 『불씨잡변』(정답)",
+        "최윤덕: 4군(오답)",
+        "이종무: 쓰시마섬(오답)",
+        "김종서: 6진(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-004": {
+      "number": 1227,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "사대 외교: 태종 이후 자리 잡음(정답)",
+        "교린 대상: 일본·여진·유구(오답)",
+        "일본 온건책: 3포(오답)",
+        "여진 온건책: 귀순 장려(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-005": {
+      "number": 1228,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "사대 = 명, 교린 = 일본·여진·유구(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-006": {
+      "number": 1229,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "세종: 4군 6진 뒤 사민 정책(정답)",
+        "고려 숙종: 별무반(오답)",
+        "고려 예종: 동북 9성(오답)",
+        "고려 성종: 서희 강동 6주(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-007": {
+      "number": 1230,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "토관 제도(정답)",
+        "고려 사심관 제도(오답)",
+        "고려 기인 제도(오답)",
+        "조선 상피제(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-008": {
+      "number": 1231,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "4군 6진: 압록강~두만강 국경선(정답)",
+        "통일 신라 경계(오답)",
+        "고려 초 경계(오답)",
+        "고려 천리장성(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-009": {
+      "number": 1232,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "여진 온건책: 귀순 장려·관직·토지(정답)",
+        "여진 강경책: 4군 6진(오답)",
+        "일본 강경책: 쓰시마섬 정벌(오답)",
+        "일본 온건책: 동평관(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-010": {
+      "number": 1233,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "여진 온건책: 북평관(정답)",
+        "일본 온건책: 동평관(오답)",
+        "일본 온건책: 3포 개항(오답)",
+        "여진 강경책: 4군(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-011": {
+      "number": 1234,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "북평관 = 여진, 동평관 = 일본(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-012": {
+      "number": 1235,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "태종: 경원·경성 무역소 → 신문고(정답)",
+        "세종: 계해약조(오답)",
+        "세조: 진관 체제(오답)",
+        "성종: 『경국대전』 완성(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-013": {
+      "number": 1236,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "여진 북평관 · 일본 계해약조(정답)",
+        "일본에 4군 6진(오답)",
+        "여진에 쓰시마섬 정벌(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-014": {
+      "number": 1237,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "쓰시마섬: 고려 박위·조선 이종무(정답)",
+        "최무선: 진포(오답)",
+        "최윤덕: 4군(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-015": {
+      "number": 1238,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "일본: 3포 개항·제한된 무역(정답)",
+        "여진: 무역소(오답)",
+        "여진: 4군 6진(오답)",
+        "명: 사대 외교(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-016": {
+      "number": 1239,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "계해약조: 제한된 무역(정답)",
+        "기유약조: 광해군(오답)",
+        "정묘호란: 형제의 맹약(오답)",
+        "병자호란: 삼전도·군신 관계(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-017": {
+      "number": 1240,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "세종: 계해약조(정답)",
+        "태종: 무역소(오답)",
+        "중종: 비변사 설치(오답)",
+        "명종: 비변사 상설화(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-018": {
+      "number": 1241,
+      "section": "조선 초기 대외 관계",
+      "coverage": [
+        "태종 무역소~중종 3포 왜란 사이: 세종 쓰시마섬 정벌(정답)",
+        "태조: 요동 정벌 주장(오답·앞)",
+        "명종: 비변사 상설화(오답·뒤)",
+        "선조: 의주 피란(오답·뒤)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+    },
+    "joseonforeign-hist-20260921-019": {
+      "number": 1242,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "중종: 3포 왜란 → 비변사 임시 설치(정답)",
+        "명종: 비변사 상설화(오답)",
+        "훈련도감(오답)",
+        "속오군(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-020": {
+      "number": 1243,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "명종: 을묘왜변 → 비변사 상설화(정답)",
+        "중종: 비변사 임시 설치(오답)",
+        "세종: 쓰시마섬 정벌(오답)",
+        "세종: 3포 개항(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-021": {
+      "number": 1244,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "(가) 계해약조 · (나) 비변사(정답)",
+        "기유약조(오답)",
+        "훈련도감(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-022": {
+      "number": 1245,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "임진왜란 배경: 도요토미 히데요시·조총(정답)",
+        "에도 막부 통교 요청(오답)",
+        "명의 지원병 요청(오답)",
+        "군신 관계 요구(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-023": {
+      "number": 1246,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "임진왜란 초기 순서: 부산진·동래성 → 탄금대 → 의주 피란(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-024": {
+      "number": 1247,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "부산진 정발·동래성 송상현(정답)",
+        "신립: 탄금대(오답)",
+        "김시민: 진주 대첩(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-025": {
+      "number": 1248,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "신립: 탄금대(정답)",
+        "송상현: 동래성(오답)",
+        "권율: 행주 대첩(오답)",
+        "곽재우: 의병(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-026": {
+      "number": 1249,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "선조: 임진왜란·의주 피란(정답)",
+        "중종: 비변사 설치(오답)",
+        "명종: 비변사 상설화(오답)",
+        "광해군: 기유약조(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-027": {
+      "number": 1250,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "을묘왜변~기유약조 사이: 임진왜란 의주 피란(정답)",
+        "중종: 비변사 설치(오답·앞)",
+        "세종: 계해약조(오답·앞)",
+        "인조반정(오답·뒤)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-028": {
+      "number": 1251,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "옥포 해전: 해전 첫 승리(정답)",
+        "한산도 대첩: 학익진(오답)",
+        "명량 대첩: 정유재란(오답)",
+        "노량 해전: 정유재란(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-029": {
+      "number": 1252,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "한산도 대첩 → 남해 제해권 장악(정답)",
+        "휴전 협상: 행주 대첩 뒤(오답)",
+        "부산진·동래성 함락(오답)",
+        "의주 피란(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-030": {
+      "number": 1253,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "한산도 대첩: 이순신·학익진(정답)",
+        "진주 대첩: 김시민(오답)",
+        "행주 대첩: 권율(오답)",
+        "평양성 전투: 조·명 연합군(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-031": {
+      "number": 1254,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "정유재란: 명량·노량(정답)",
+        "임진왜란 초기: 옥포·한산도(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-032": {
+      "number": 1255,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "정유재란 뒤: 명량 대첩(정답)",
+        "옥포(오답)",
+        "행주(오답)",
+        "한산도(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-033": {
+      "number": 1256,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "정유재란 계기: 휴전 회담 결렬(정답)",
+        "3포 왜란(오답)",
+        "에도 막부 통교 요청(오답)",
+        "친명배금(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-034": {
+      "number": 1257,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "의병: 향토 지리·유격전(정답)",
+        "훈련도감: 삼수병(오답)",
+        "속오군: 양반~노비(오답)",
+        "5위: 중앙군(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-035": {
+      "number": 1258,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "임진왜란: 곽재우 → 진주 대첩(정답)",
+        "병자호란: 김준룡(오답)",
+        "정묘호란: 정봉수(오답)",
+        "세종: 최윤덕(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-036": {
+      "number": 1259,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "임진왜란: 조헌 금산(정답)",
+        "병자호란: 임경업(오답)",
+        "정묘호란: 정봉수·이립(오답)",
+        "고려: 박위(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-037": {
+      "number": 1260,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "정문부: 북관 대첩(정답)",
+        "곽재우: 홍의 장군(오답)",
+        "조헌: 금산(오답)",
+        "김시민: 진주 대첩(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-038": {
+      "number": 1261,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "조헌: 금산 칠백의총(정답)",
+        "정문부(오답)",
+        "곽재우(오답)",
+        "김시민(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-039": {
+      "number": 1262,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "임진왜란 의병: 곽재우·고경명(정답)",
+        "세종: 최윤덕·김종서(오답)",
+        "병자호란: 임경업·김준룡(오답)",
+        "관군: 정발·송상현(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-040": {
+      "number": 1263,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "진주 대첩 이후: 행주 대첩(정답)",
+        "옥포(오답)",
+        "탄금대(오답)",
+        "한산도(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-041": {
+      "number": 1264,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "권율: 행주 대첩(정답)",
+        "김시민: 진주 대첩(오답)",
+        "정문부: 북관 대첩(오답)",
+        "이순신: 한산도 대첩(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-042": {
+      "number": 1265,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "순서: 진주 → 평양성 → 행주 → 휴전 협상(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-043": {
+      "number": 1266,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "평양성 전투: 조·명 연합군(정답)",
+        "탄금대: 신립 패배(오답)",
+        "옥포: 이순신(오답)",
+        "진주 대첩: 김시민(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-044": {
+      "number": 1267,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "훈련도감: 급료 받는 직업 군인(정답)",
+        "속오군(오답)",
+        "잡색군(오답)",
+        "비변사(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-045": {
+      "number": 1268,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "훈련도감: 삼수병(정답)",
+        "속오군(오답)",
+        "5위(오답)",
+        "비변사(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-046": {
+      "number": 1269,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "속오군: 양반~노비(정답)",
+        "훈련도감: 삼수병(오답)",
+        "5위: 중앙군(오답)",
+        "고려 별무반(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-047": {
+      "number": 1270,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "5위 → 5군영 · 영진군 → 속오군(정답)",
+        "고려 2군 6위(오답)",
+        "고려 주현군(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-048": {
+      "number": 1271,
+      "section": "임진왜란의 전개",
+      "coverage": [
+        "임진왜란: 정문부 북관 대첩(정답)",
+        "병자호란: 임경업(오답)",
+        "정묘호란: 정봉수·이립(오답)",
+        "세종: 이종무(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+    },
+    "joseonforeign-hist-20260921-049": {
+      "number": 1272,
+      "section": "광해군의 정책",
+      "coverage": [
+        "광해군: 대동법 경기도 처음(정답)",
+        "세조: 직전법(오답)",
+        "태종: 사원 토지·노비 몰수(오답)",
+        "성종: 『경국대전』(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-050": {
+      "number": 1273,
+      "section": "광해군의 정책",
+      "coverage": [
+        "대동법: 공납을 쌀로, 농민 부담 줄임(정답)",
+        "직전법(오답)",
+        "호패법(오답)",
+        "속오군(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-051": {
+      "number": 1274,
+      "section": "광해군의 정책",
+      "coverage": [
+        "광해군: 농지 개간·토지와 호적 조사(정답)",
+        "세조(오답)",
+        "성종(오답)",
+        "중종(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-052": {
+      "number": 1275,
+      "section": "광해군의 정책",
+      "coverage": [
+        "광해군: 『동의보감』(정답)",
+        "인조: 남한산성(오답)",
+        "명종: 비변사 상설화(오답)",
+        "세종: 계해약조(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-053": {
+      "number": 1276,
+      "section": "광해군의 정책",
+      "coverage": [
+        "광해군: 사고 재건(정답)",
+        "세조: 진관 체제(오답)",
+        "세종: 4군 6진(오답)",
+        "중종: 비변사 설치(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-054": {
+      "number": 1277,
+      "section": "광해군의 정책",
+      "coverage": [
+        "계해약조 세종 · 기유약조 광해군(정답)",
+        "성종(오답)",
+        "인조(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-055": {
+      "number": 1278,
+      "section": "광해군의 정책",
+      "coverage": [
+        "광해군: 중립 외교(정답)",
+        "인조 서인 정권: 친명배금(오답)",
+        "세종: 3포 개항(오답)",
+        "중종: 비변사(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-056": {
+      "number": 1279,
+      "section": "광해군의 정책",
+      "coverage": [
+        "중립 외교: 강홍립에게 실리적 대처 지시(정답)",
+        "친명배금(오답)",
+        "주화파·척화파(오답)",
+        "삼전도(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-057": {
+      "number": 1280,
+      "section": "광해군의 정책",
+      "coverage": [
+        "광해군: 실리적 중립 외교(정답)",
+        "인조: 친명배금(오답)",
+        "인조: 군신 관계 거부(오답)",
+        "인조: 형제의 맹약(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-058": {
+      "number": 1281,
+      "section": "광해군의 정책",
+      "coverage": [
+        "인조반정 명분: 중립 외교·폐모살제(정답)",
+        "기묘사화(오답)",
+        "무오사화(오답)",
+        "갑자사화(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-059": {
+      "number": 1282,
+      "section": "광해군의 정책",
+      "coverage": [
+        "대화 뒤: 인조반정(정답)",
+        "기유약조(오답·앞)",
+        "『동의보감』(오답·앞)",
+        "의주 피란(오답·앞)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-060": {
+      "number": 1283,
+      "section": "광해군의 정책",
+      "coverage": [
+        "폐모살제: 인목 대비 유폐·영창 대군 살해(정답)",
+        "세조: 단종 유배(오답)",
+        "병자호란: 볼모(오답)",
+        "무오사화: 부관참시(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-061": {
+      "number": 1284,
+      "section": "광해군의 정책",
+      "coverage": [
+        "서궁 = 덕수궁(정답)",
+        "경복궁: 태조(오답)",
+        "창덕궁: 태종(오답)",
+        "종묘: 태조(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-062": {
+      "number": 1285,
+      "section": "광해군의 정책",
+      "coverage": [
+        "인조반정: 서인(정답)",
+        "동인(오답)",
+        "훈구(오답)",
+        "권문세족(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-063": {
+      "number": 1286,
+      "section": "광해군의 정책",
+      "coverage": [
+        "순서: 기유약조 → 강홍립 출정 → 인조반정(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 광해군의 정책"
+    },
+    "joseonforeign-hist-20260921-064": {
+      "number": 1287,
+      "section": "호란의 전개",
+      "coverage": [
+        "정묘호란 배경: 친명배금(정답)",
+        "병자호란 배경(오답)",
+        "정유재란 계기(오답)",
+        "임진왜란 배경(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-065": {
+      "number": 1288,
+      "section": "호란의 전개",
+      "coverage": [
+        "정묘호란: 정봉수·이립 용골산성(정답)",
+        "병자호란: 임경업(오답)",
+        "병자호란: 김준룡(오답)",
+        "임진왜란: 곽재우(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-066": {
+      "number": 1289,
+      "section": "호란의 전개",
+      "coverage": [
+        "정묘호란: 광해군 원수 명분(정답)",
+        "병자호란: 청 태종(오답)",
+        "병자호란: 남한산성(오답)",
+        "병자호란: 삼전도(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-067": {
+      "number": 1290,
+      "section": "호란의 전개",
+      "coverage": [
+        "정묘호란: 형제의 맹약(정답)",
+        "병자호란: 군신 관계(오답)",
+        "임진왜란: 휴전 협상(오답)",
+        "광해군: 기유약조(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-068": {
+      "number": 1291,
+      "section": "호란의 전개",
+      "coverage": [
+        "정묘 형제의 맹약 · 병자 군신 관계(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-069": {
+      "number": 1292,
+      "section": "호란의 전개",
+      "coverage": [
+        "병자호란: 남한산성(정답)",
+        "정묘호란: 강화도(오답)",
+        "임진왜란: 의주(오답)",
+        "정묘호란: 용골산성(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-070": {
+      "number": 1293,
+      "section": "호란의 전개",
+      "coverage": [
+        "인조: 정묘호란 강화도 피신(정답)",
+        "광해군: 강홍립(오답)",
+        "선조: 의주 피란(오답)",
+        "명종: 비변사 상설화(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-071": {
+      "number": 1294,
+      "section": "호란의 전개",
+      "coverage": [
+        "병자호란 배경: 주화파·척화파 대립(정답)",
+        "정묘호란 배경: 이괄의 잔당(오답)",
+        "광해군: 명의 지원병 요청(오답)",
+        "중종: 3포 왜란(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-072": {
+      "number": 1295,
+      "section": "호란의 전개",
+      "coverage": [
+        "병자호란: 김준룡 광교산(정답)",
+        "정묘호란: 정봉수(오답)",
+        "임진왜란: 정문부(오답)",
+        "세종: 최윤덕(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-073": {
+      "number": 1296,
+      "section": "호란의 전개",
+      "coverage": [
+        "후금: 형제의 맹약(정답)",
+        "일본: 기유약조(오답)",
+        "일본: 계해약조(오답)",
+        "명: 요동 정벌 갈등(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-074": {
+      "number": 1297,
+      "section": "호란의 전개",
+      "coverage": [
+        "임경업: 백마산성(정답)",
+        "정봉수: 용골산성(오답)",
+        "김상용: 강화도 순절(오답)",
+        "권율: 행주(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-075": {
+      "number": 1298,
+      "section": "호란의 전개",
+      "coverage": [
+        "병자호란: 김상용 강화도 순절(정답)",
+        "정묘호란: 인조 강화도 피신(오답)",
+        "정묘호란: 정봉수·이립(오답)",
+        "임진왜란: 조헌(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-076": {
+      "number": 1299,
+      "section": "호란의 전개",
+      "coverage": [
+        "병자호란: 인조 남한산성(정답)",
+        "정묘호란: 강화도 피신(오답)",
+        "임진왜란: 의주(오답)",
+        "정묘호란: 형제의 맹약(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-077": {
+      "number": 1300,
+      "section": "호란의 전개",
+      "coverage": [
+        "정봉수 용골산성 · 김준룡 광교산(정답)",
+        "임경업 백마산성(오답)",
+        "신립 탄금대(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-078": {
+      "number": 1301,
+      "section": "호란의 전개",
+      "coverage": [
+        "병자호란 결과: 소현 세자·봉림 대군 볼모(정답)",
+        "정묘호란: 형제의 맹약(오답)",
+        "임진왜란: 휴전 협상(오답)",
+        "광해군: 기유약조(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-079": {
+      "number": 1302,
+      "section": "호란의 전개",
+      "coverage": [
+        "병자호란 이전: 정묘호란 형제의 맹약(정답)",
+        "삼전도(오답·뒤)",
+        "볼모(오답·뒤)",
+        "북벌 운동(오답·뒤)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-080": {
+      "number": 1303,
+      "section": "호란의 전개",
+      "coverage": [
+        "볼모: 소현 세자·봉림 대군(정답)",
+        "폐모살제: 인목 대비·영창 대군(오답)",
+        "정묘호란 의병(오답)",
+        "병자호란 장수(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-081": {
+      "number": 1304,
+      "section": "호란의 전개",
+      "coverage": [
+        "병자호란 이후: 북벌 운동(정답)",
+        "정묘호란: 형제의 맹약(오답)",
+        "이괄의 잔당(오답)",
+        "기유약조(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-082": {
+      "number": 1305,
+      "section": "호란의 전개",
+      "coverage": [
+        "인조반정~삼전도 사이: 정묘호란 용골산성(정답)",
+        "광해군: 강홍립(오답·앞)",
+        "광해군: 기유약조(오답·앞)",
+        "북벌 운동(오답·뒤)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonforeign-hist-20260921-083": {
+      "number": 1306,
+      "section": "호란의 전개",
+      "coverage": [
+        "순서: 인조반정 → 이괄 → 정묘 → 병자(정답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
     }
   }
 };
