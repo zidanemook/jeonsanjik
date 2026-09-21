@@ -335,3 +335,4 @@ body[data-view="quiz"] main { padding-top:14px; }
 .xp-top strong { display:inline-flex; align-items:center; gap:10px; }
 .xp-top strong .level-badge { width:40px; height:46px; }
 .xp-top strong .level-badge b { font-size:17px; }
+.tier-note { display:block; margin-top:4px; color:#aab3c0; font-size:14px; }
