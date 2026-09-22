@@ -338,3 +338,4 @@ body[data-view="quiz"] main { padding-top:14px; }
 .tier-note { display:block; margin-top:4px; color:#aab3c0; font-size:14px; }
 .mastered-toggle { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:#d1d7e0; }
 .mastered-toggle small { color:#9fb3c8; }
+.subject-goal { margin:0 0 14px; }

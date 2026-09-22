@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111318">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="style.css?v=125">
+  <link rel="stylesheet" href="style.css?v=126">
   <title>차곡 — 문제 복습</title>
 </head>
 <body>
@@ -23,11 +23,6 @@
         <p id="xpAcc" class="xp-text tier-note"></p>
         <p id="xpGoal" class="xp-goal"></p>
         <button id="homeScore" type="button" class="home-score"></button>
-        <details id="xpGoalEdit" class="xp-goal-edit"><summary>하루 목표 정하기</summary>
-          <label for="xpGoalInput">하루에 풀 문제 수</label>
-          <div class="xp-goal-row"><input id="xpGoalInput" type="number" inputmode="numeric" min="1" max="500" step="1" placeholder="예: 30"><button id="xpGoalSave" type="button">저장</button><button id="xpGoalClear" type="button" class="secondary">목표 없애기</button></div>
-          <small>목표는 이 기기에만 저장돼요. 목표가 없어도 풀 때마다 경험치는 쌓여요.</small>
-        </details>
       </section>
       <h2 id="homeTitle">과목 선택</h2>
       <div id="subjectList" class="menu-list"></div>
@@ -37,6 +32,14 @@
       <button type="button" class="back" data-back>← 과목 선택</button>
       <div class="subject-head"><span id="subjectBadge"></span><h2 id="subjectTitle"></h2></div>
       <div id="subjectLevel" class="subject-level"></div>
+      <div id="subjectGoal" class="subject-goal">
+        <p id="subjectGoalText" class="xp-goal"></p>
+        <details id="subjectGoalEdit" class="xp-goal-edit"><summary>이 과목 하루 목표 정하기</summary>
+          <label for="subjectGoalInput">이 과목을 하루에 풀 문제 수</label>
+          <div class="xp-goal-row"><input id="subjectGoalInput" type="number" inputmode="numeric" min="1" max="500" step="1" placeholder="예: 30"><button id="subjectGoalSave" type="button">저장</button><button id="subjectGoalClear" type="button" class="secondary">목표 없애기</button></div>
+          <small>과목마다 따로 정해요. 홈 레벨 카드에 과목별 진행이 모여 보여요. 이 기기에만 저장돼요.</small>
+        </details>
+      </div>
       <p id="subjectSummary" class="status"></p>
       <div class="menu-list">
         <button id="resumeStudy" type="button" class="menu-item primary"><strong>이어하기</strong><span id="resumeHint"></span></button>
@@ -107,30 +110,30 @@
     <p id="message" role="status" aria-live="polite"></p>
     <footer>자체 제작 복습 문제 · 국사편찬위원회 공개 심화 기출</footer>
   </main>
-  <script src="scheduler.js?v=125"></script>
-  <script src="learning.js?v=125"></script>
-  <script src="core-review-pack.js?v=125"></script>
-  <script src="quiz-options.js?v=125"></script>
-  <script src="hanneung-data.js?v=125"></script>
-  <script src="hanneung-explanations.js?v=125"></script>
-  <script src="hanneung.js?v=125"></script>
-  <script src="gichul-index.js?v=125"></script>
-  <script src="gichul.js?v=125"></script>
-  <script src="practice-bank.js?v=125"></script>
-  <script src="practice.js?v=125"></script>
-  <script src="content-corrections.js?v=125"></script>
-  <script src="review-record.js?v=125"></script>
-  <script src="review-policy.js?v=125"></script>
-  <script src="sync-core.js?v=125"></script>
-  <script src="study-credit.js?v=125"></script>
-  <script src="xp.js?v=125"></script>
-  <script src="score.js?v=125"></script>
-  <script src="study-review-catalog.js?v=125"></script>
-  <script src="hanneung-topics.js?v=125"></script>
-  <script src="topics.js?v=125"></script>
-  <script src="memorize.js?v=125"></script>
-  <script src="app.js?v=125"></script>
-  <script src="firebase-config.js?v=125"></script>
-  <script src="sync.js?v=125"></script>
+  <script src="scheduler.js?v=126"></script>
+  <script src="learning.js?v=126"></script>
+  <script src="core-review-pack.js?v=126"></script>
+  <script src="quiz-options.js?v=126"></script>
+  <script src="hanneung-data.js?v=126"></script>
+  <script src="hanneung-explanations.js?v=126"></script>
+  <script src="hanneung.js?v=126"></script>
+  <script src="gichul-index.js?v=126"></script>
+  <script src="gichul.js?v=126"></script>
+  <script src="practice-bank.js?v=126"></script>
+  <script src="practice.js?v=126"></script>
+  <script src="content-corrections.js?v=126"></script>
+  <script src="review-record.js?v=126"></script>
+  <script src="review-policy.js?v=126"></script>
+  <script src="sync-core.js?v=126"></script>
+  <script src="study-credit.js?v=126"></script>
+  <script src="xp.js?v=126"></script>
+  <script src="score.js?v=126"></script>
+  <script src="study-review-catalog.js?v=126"></script>
+  <script src="hanneung-topics.js?v=126"></script>
+  <script src="topics.js?v=126"></script>
+  <script src="memorize.js?v=126"></script>
+  <script src="app.js?v=126"></script>
+  <script src="firebase-config.js?v=126"></script>
+  <script src="sync.js?v=126"></script>
 </body>
 </html>

@@ -58,4 +58,6 @@ assert.equal(X.tier(10,40).id,'bronze');assert.equal(X.tier(1,100).id,'iron','le
  const s=X.bySubject(full,[],()=>'영어',id=>id,{'영어':10})['영어'];assert.equal(s.done,1);assert.equal(s.all,10);assert.equal(s.pct,10);
  assert.equal(X.overallTier(full,20,id=>id,1).tier.id,'legend','1 of 1 rules');assert.equal(X.overallTier(full,20,id=>id,2).tier.id,'silver','50%');
  assert.equal(X.mastered(X.ledger([R('x',0,'correct')]),id=>id).checked,0,'first attempts alone confirm nothing');}
+{const hs=[row('g1','en1','2026-09-21','correct'),row('g2','en2','2026-09-21','wrong'),row('g3','k1','2026-09-21','correct'),row('g4','en1','2026-09-20','correct'),row('g5','zz','2026-09-21','correct','legacy')];
+ assert.deepEqual(X.solvesBySubject(hs,id=>id.startsWith('en')?'영어':id.startsWith('k')?'국어':null,'2026-09-21'),{'영어':2,'국어':1},'today only, quiz rows only, per subject');}
 console.log('PASS xp: every solve rewarded, first/recovery bonuses, levels, streak, optional goal');

@@ -98,6 +98,8 @@
  }
  // 전체 레벨 뱃지: 모든 과목의 외운 규칙 ÷ 전체 규칙.
  function overallTier(history,lvl,conceptOf=id=>id,all=0){const m=mastered(ledger(history),conceptOf),pct=pctOf(m.done,all);return {...m,all,pct,tier:tier(lvl,pct)};}
- const api={XP,TIERS,LONG_DAYS,STAGE_GAPS,award,need,level,ledger,summary,lastAward,day,subjectNeed,subjectLevel,tier,mastered,bySubject,overallTier};
+ // 과목별 하루 목표(v135): 오늘 과목마다 푼 횟수(전체 목표와 같은 셈 — 퀴즈 풀이 한 번 = 한 문제).
+ function solvesBySubject(history,subjectOf,today=day()){const out={};for(const r of rows(history)){if(r.date!==today)continue;const s=subjectOf(r.cardId);if(s)out[s]=(out[s]||0)+1;}return out;}
+ const api={solvesBySubject,XP,TIERS,LONG_DAYS,STAGE_GAPS,award,need,level,ledger,summary,lastAward,day,subjectNeed,subjectLevel,tier,mastered,bySubject,overallTier};
  root.StudyXp=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(globalThis);
