@@ -19,12 +19,9 @@
    const days=new Map();for(const row of events){if(!days.has(row.date))days.set(row.date,[]);days.get(row.date).push(row);}
    let progress={ease:2.5,interval:0,streak:0},priorDay=false,retryAt;
    for(const [date,attempts]of days){
-    // Concurrent attempts remain in history, but cannot inflate a day's interval.
-    const failed=attempts.find(r=>r.result!=='correct'),last=attempts.at(-1);
-    progress=schedule.schedule(progress,failed?.result||'correct',date);retryAt=undefined;
-    // 그날 틀렸다가 마지막에 맞혔으면 그날 다시 익힌 것 — 7일 뒤(v131, learning.assess와 같은 규칙).
-    if(failed&&last.result==='correct'){progress.streak=1;progress.interval=schedule.STAGE_DAYS[0];progress.due=schedule.plus(date,progress.interval);}
-    else if(failed){progress.interval=1;progress.due=schedule.plus(date,1);progress.streak=0;if(last.result==='wrong')retryAt=new Date(Date.parse(last.at)+300000).toISOString();}
+    // v139: 모든 풀이를 차례대로 같은 규칙(ReviewSchedule.step)에 넣는다. due 전 정답은 무변화라 같은 날 여러 번 풀어도 부풀지 않는다.
+    for(const r of attempts)progress=schedule.schedule(progress,r.result,date);
+    const last=attempts.at(-1);retryAt=last.result==='wrong'?new Date(Date.parse(last.at)+300000).toISOString():undefined;
     attempts.forEach((r,i)=>derived.set(r.id,{...r,recall:r.result==='correct'?'remember':'none',delayedFirst:r.mode==='quiz'&&priorDay&&i===0,kind:i?'relearning':'review'}));priorDay=true;
    }
    const updated={...card,...progress};delete updated.pendingAttempt;delete updated.retryAt;if(retryAt)updated.retryAt=retryAt;return updated;

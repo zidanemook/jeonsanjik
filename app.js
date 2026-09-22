@@ -23,7 +23,7 @@ function cardContent(){
 }
 // 앱 파일이 기준이다. 저장된 옛 사본이 있어도 앱 파일 문장으로 덮어쓴다(문장 수정이 바로 반영된다).
 // v131 복습 일정 규칙(7일 → 14일 → 30일 → 외운 문제)으로 한 번 다시 계산한다. 일정은 풀이 기록에서 나오므로 기록은 그대로다.
-const SCHEDULE_VERSION=2;
+const SCHEDULE_VERSION=3; // v139: 기회 한 번 · 한 단계 내림 규칙으로 다시 계산
 function reschedule(state){if(state.scheduleVersion===SCHEDULE_VERSION||typeof ProgressSync==='undefined')return state;let next;try{next=ProgressSync.merge(state,[]);}catch{return state;}next.scheduleVersion=SCHEDULE_VERSION;try{writeState(KEY,next);}catch{}return next;}
 function hydrateCards(state){const m=cardContent();state.cards=state.cards.map(c=>{const base=m.get(c.id);return base?{...c,...base}:c;});return state;}
 function leanState(state){const m=cardContent();return {...state,version:3,cards:state.cards.map(c=>{if(!m.has(c.id))return c;const out={...c};for(const k of CARD_CONTENT)delete out[k];return out;})};}

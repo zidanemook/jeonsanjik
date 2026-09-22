@@ -12,24 +12,17 @@ function assess(card,history,result,now=new Date()){
  if(attempt.recall==='partial'&&result==='correct')throw Error('Partial recall is not complete');
  const today=ReviewSchedule.day(now),retry=card.retryAt&&ReviewSchedule.day(new Date(card.retryAt))===today;
  const next={...card};delete next.pendingAttempt;delete next.retryAt;
- // 틀린 뒤 5분 재시도에서 맞히면 그날 다시 익힌 것 — 7일 동안 안 나온다(v131 사용자 규칙).
- if(retry&&result==='correct'){next.streak=1;next.interval=ReviewSchedule.STAGE_DAYS[0];next.due=ReviewSchedule.plus(today,next.interval);}
- else Object.assign(next,ReviewSchedule.schedule(card,result,today));
- if(result!=='correct'){next.retryAt=new Date(now.getTime()+RETRY_MS).toISOString();next.interval=1;next.due=ReviewSchedule.plus(today,1);}
+ // 일정은 ReviewSchedule.step 하나로(기회·한 단계 내림·다시 익힘 포함). 틀리면 5분 뒤 다시 풀 수 있다.
+ Object.assign(next,ReviewSchedule.schedule(card,result,today));
+ if(result!=='correct')next.retryAt=new Date(now.getTime()+RETRY_MS).toISOString();
  return {card:next,entry:{cardId:card.id,date:today,at:now.toISOString(),result,recall:attempt.recall,delayedFirst:attempt.delayedFirst&&attempt.date===today,kind:retry?'relearning':'review',interval:next.interval,ease:next.ease}};
 }
 // 같은 날 두 번째부터의 답은 복습 간격을 다시 올리지 않는다. 틀리면 내려가기만 한다.
 // 기출 회차처럼 한자리에서 여러 번 푸는 흐름이 일정을 부풀리지 않게 한다.
 // (동기화의 ProgressSync.merge도 하루의 시도를 한 번으로 접는다 — 같은 규칙이다.)
 function assessRepeat(card,history,result,now=new Date()){
- const out=assess(card,history,result,now);
- const today=ReviewSchedule.day(now);
- if(!history.some(h=>h.cardId===card.id&&h.date===today&&h.mode==='quiz'))return out;
- const next={...card};delete next.pendingAttempt;delete next.retryAt;
- if(result!=='correct'){next.interval=1;next.due=ReviewSchedule.plus(today,1);next.streak=0;if(out.card.retryAt)next.retryAt=out.card.retryAt;}
- // 오늘 틀렸다가 같은 날 다시 맞히면 다시 익힌 것 — 7일(동기화 재계산과 같은 규칙).
- else if(!(card.streak>0)){next.streak=1;next.interval=ReviewSchedule.STAGE_DAYS[0];next.due=ReviewSchedule.plus(today,next.interval);}
- return {card:next,entry:{...out.entry,interval:next.interval,ease:next.ease}};
+ // v139: 제때 전 정답은 단계를 바꾸지 않고, 다시 익히는 중의 오답은 더 내리지 않으므로 같은 날 여러 번 풀어도 일정이 부풀거나 무너지지 않는다.
+ return assess(card,history,result,now);
 }
 function queue(cards,now=new Date()){
  const today=ReviewSchedule.day(now);

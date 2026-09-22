@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict');global.ReviewSchedule=require('./scheduler.js');const L=require('./learning.js'),sync=require('./sync-core.js');
 const now=new Date(2026,8,9,12),card={id:'a',due:'2026-09-09',ease:2.5,interval:3,streak:2},history=[{cardId:'a',date:'2026-09-06',result:'correct'}];
-let c={...card,pendingAttempt:L.begin(card,history,'none',now)};assert.equal(c.pendingAttempt.delayedFirst,true);assert.throws(()=>L.assess(c,history,'correct',now));let r=L.assess(c,history,'wrong',now);assert.equal(r.entry.delayedFirst,true);assert.equal(L.queue([r.card],now).length,0);const later=new Date(now.getTime()+L.RETRY_MS);assert.equal(L.queue([r.card],later).length,1);const hs=[...history,r.entry];c={...r.card,pendingAttempt:L.begin(r.card,hs,'remember',later)};const success=L.assess(c,hs,'correct',later);assert.equal(success.card.interval,7,"v131: relearned in the 5-minute retry → 7 days");assert.equal(success.card.streak,1);assert.equal(success.card.retryAt,undefined);assert.equal(success.entry.delayedFirst,false);assert.deepEqual(L.metrics([card],[...hs,success.entry]),{total:1,correct:0});assert.deepEqual(L.metrics([card],history),{total:0,correct:0});assert.equal(L.begin(card,[],'remember',now).delayedFirst,false);assert.equal(L.queue([r.card],new Date(2026,8,10,12)).length,1);assert.equal(card.interval,3);assert.equal(L.begin({...card,pendingAttempt:c.pendingAttempt},history,'remember',now).delayedFirst,false);
+let c={...card,pendingAttempt:L.begin(card,history,'none',now)};assert.equal(c.pendingAttempt.delayedFirst,true);assert.throws(()=>L.assess(c,history,'correct',now));let r=L.assess(c,history,'wrong',now);assert.equal(r.entry.delayedFirst,true);assert.equal(L.queue([r.card],now).length,0);const later=new Date(now.getTime()+L.RETRY_MS);assert.equal(L.queue([r.card],later).length,1);const hs=[...history,r.entry];c={...r.card,pendingAttempt:L.begin(r.card,hs,'remember',later)};const success=L.assess(c,hs,'correct',later);assert.equal(success.card.interval,14,"v139: the card had passed 7 days (streak 2) — the miss used its one chance, the retry kept the stage → 14 days again");assert.equal(success.card.streak,2);assert.equal(success.card.retryAt,undefined);assert.equal(success.entry.delayedFirst,false);assert.deepEqual(L.metrics([card],[...hs,success.entry]),{total:1,correct:0});assert.deepEqual(L.metrics([card],history),{total:0,correct:0});assert.equal(L.begin(card,[],'remember',now).delayedFirst,false);assert.equal(L.queue([r.card],new Date(2026,8,10,12)).length,1);assert.equal(card.interval,3);assert.equal(L.begin({...card,pendingAttempt:c.pendingAttempt},history,'remember',now).delayedFirst,false);
 
 // assessRepeat — 같은 날 두 번째부터의 답은 복습 간격을 다시 올리지 않는다(기출 회차처럼 한자리에서 여러 번 푸는 흐름).
 // v117까지는 drill.js가 갖고 있던 규칙이다. '전부 풀기'를 없애면서 여기로 옮겼고, 지금은 기출 회차가 쓴다.
@@ -25,17 +25,18 @@ let c={...card,pendingAttempt:L.begin(card,history,'none',now)};assert.equal(c.p
  const blank={version:2,cards:[{...card0}],history:[]};
  assert.deepEqual(sync.merge(blank,repeated.history).cards[0],sync.merge(blank,[repeated.history[0]]).cards[0]);
  assert.equal(sync.merge(blank,repeated.history).cards[0].interval,7,'from history alone: first right answer → 7 days');
- // 틀리면 내려가기만 한다: 여러 번 틀려도 하루치 한 번의 실패와 같다.
+ // v139 틀리면: 단계가 있는 문제(7일 통과, streak 2)는 첫 오답에 기회, 두 번째에 한 단계만 내려가고 그 뒤 오답은 더 내리지 않는다.
  const missed=answerWith(L.assessRepeat,5,'wrong');
- assert.equal(missed.card.interval,1);assert.equal(missed.card.streak,0);assert.equal(missed.card.ease,2.3);
- {const many=sync.merge(blank,missed.history).cards[0],one=sync.merge(blank,[missed.history[0]]).cards[0];
-  assert.deepEqual({...many,retryAt:''},{...one,retryAt:''},'여러 번 틀려도 하루치 한 번의 실패와 같다');
-  assert.equal(many.retryAt,'2026-09-12T03:09:00.000Z','재시도 시각만 마지막 오답 기준으로 미뤄진다');}
+ assert.equal(missed.card.interval,1);assert.equal(missed.card.streak,1,'five misses in a row drop exactly one stage');assert.equal(missed.card.relearn,true);
+ assert.equal(answerWith(L.assessRepeat,1,'wrong').card.streak,2,'one miss only uses the chance');assert.equal(answerWith(L.assessRepeat,1,'wrong').card.chance,true);
+ {const many=sync.merge(blank,missed.history).cards[0];
+  assert.equal(many.streak,0,'from history alone the card had no stage, so the misses simply relearn');
+  assert.equal(many.retryAt,'2026-09-12T03:09:00.000Z','재시도 시각은 마지막 오답 기준');}
  // 맞힌 뒤 같은 날 틀리면 간격은 다시 내려간다 (올라가지는 않는다).
  const first=answerWith(L.assessRepeat,1);
  const failing={...first.card,pendingAttempt:L.begin(first.card,first.history,'none',now)};
  const back=L.assessRepeat(failing,first.history,'wrong',now);
- assert.equal(back.card.interval,1);assert.equal(back.card.streak,0);assert.equal(back.card.due,'2026-09-13');
+ assert.equal(back.card.interval,1);assert.equal(back.card.streak,3,'v139: a staged card keeps its stage on the first miss');assert.equal(back.card.chance,true);assert.equal(back.card.due,'2026-09-13');
  assert.ok(Date.parse(back.card.retryAt)>now.getTime(),'틀린 답은 평소처럼 재시도 시각을 남긴다');
  // 첫 답은 평소와 완전히 같다.
  const fresh={...card0,pendingAttempt:L.begin(card0,[],'remember',now)};

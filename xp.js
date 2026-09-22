@@ -3,6 +3,7 @@
 // 처음 맞힌 문제와 틀렸던 문제를 맞힌 경우가 가장 크다. 하루 목표는 기본값이 없고 사용자가 직접 정했을 때만 쓴다.
 // 풀이 기록(history)과 해설 기록에서 매번 다시 계산하므로 따로 저장·동기화할 것이 없다(기기마다 같은 레벨).
 (function(root){
+ const RS=typeof module!=='undefined'&&module.exports?require('./scheduler.js'):root.ReviewSchedule;
  // v136 사용자: "틀렸다 다음에 맞추는 거를 점수를 더 주고, 7일 지나면 좀 더 주고, 14일 지나서 맞추면 좀 더 주고".
  // 단계는 복습 일정·외운 규칙과 같다: 맞힌 날부터 7일 → 그 뒤 14일 → 그 뒤 30일(외움), 틀리면 처음부터. 외운 문제를 다시 맞히면 기본 점수만(사용자: "노력한 만큼 — 외운 상태인 거를 맞추는 거는 기본 경험치만").
  // v137 리밸런스(사용자: "점수가 너무 큰 거 아냐 — 적당한 값", "인플레이션이 있으면 안 되는디", "일부러 틀리거나 하지는 않겠지?"):
@@ -13,11 +14,12 @@
  const prevDay=d=>new Date(Date.parse(d+'T00:00:00Z')-86400000).toISOString().slice(0,10);
  // prev: 이 문제의 앞선 결과들(오래된 것부터). step: 이번 정답으로 오른 단계(1~3) 또는 없음.
  // 기본 점수는 틀려도 0보다 크다.
- function award(prev,result,step){
+ function award(prev,result,step,recovered){
   const parts=[{label:result==='correct'?'정답':result==='unsure'?'풀이':'도전',xp:XP[result]||XP.wrong}];
   if(result==='correct'){
    if(!prev.length)parts.push({label:'처음 맞힘',xp:XP.first});
-   else if(prev[prev.length-1]!=='correct')parts.push({label:'틀렸던 문제 맞힘',xp:XP.recover});
+   // 틀렸던 문제 맞힘: 한 단계 내려가거나 처음부터 다시 익힌 뒤의 정답(기회로 맞힌 것은 기본 점수만 — 일부러 틀려 얻는 이득 없음).
+   else if(recovered===undefined?prev[prev.length-1]!=='correct':recovered)parts.push({label:'틀렸던 문제 맞힘',xp:XP.recover});
    if(step)parts.push({label:STAGE_LABELS[step-1],xp:XP.stage[step-1]});
   }
   return {xp:parts.reduce((a,p)=>a+p.xp,0),parts};
@@ -34,14 +36,14 @@
  // 기록 전체를 한 번 훑어 행마다 받은 경험치를 매긴다.
  function ledger(history){
   const byCard=new Map(),out=[];
-  const lastDate=new Map(),stage=new Map(),best=new Map(); // best: 문제마다 도달했던 가장 높은 단계(보너스는 처음 도달할 때만)
+  const lastDate=new Map(),state=new Map(),best=new Map(); // best: 문제마다 도달했던 가장 높은 단계(보너스는 처음 도달할 때만)
   for(const r of rows(history)){const prev=byCard.get(r.cardId)||[],before=lastDate.get(r.cardId);
-   // 문제마다 단계(mastered와 같은 규칙): 맞힌 날이 기준점, 기준점에서 7·14·30일 이상 지나 맞히면 한 단계.
-   let step=null;const st=stage.get(r.cardId);
-   if(r.result!=='correct')stage.set(r.cardId,{stage:0,anchor:null});
-   else if(!st||!st.anchor)stage.set(r.cardId,{stage:0,anchor:r.date});
-   else if(st.stage<STAGE_GAPS.length&&daysBetween(st.anchor,r.date)>=STAGE_GAPS[st.stage]){st.stage++;st.anchor=r.date;const top=best.get(r.cardId)||0;if(st.stage>top){step=st.stage;best.set(r.cardId,st.stage);}}
-   const a=award(prev,r.result,step);
+   // 문제마다 복습 일정과 같은 단계 규칙(ReviewSchedule.step): 기회 · 한 단계 내림 · 다시 익힘.
+   const mv=RS.step(state.get(r.cardId),r.result,r.date);let step=null;
+   if(mv.event!=='early')state.set(r.cardId,mv.state);
+   if(mv.event==='advance'){const stg=RS.stageOf(mv.state.streak),top=best.get(r.cardId)||0;if(stg>top){step=stg;best.set(r.cardId,stg);}}
+   const recovered=mv.event==='relearned';
+   const a=award(prev,r.result,step,recovered);
    // 장기기억 확인: 앞선 풀이에서 LONG_DAYS일 이상 지나 다시 푼 풀이.
    const check=!!before&&daysBetween(before,r.date)>=LONG_DAYS;
    out.push({id:r.id,cardId:r.cardId,date:r.date,result:r.result,first:!prev.length,check,...a});prev.push(r.result);byCard.set(r.cardId,prev);lastDate.set(r.cardId,r.date);}
@@ -84,13 +86,10 @@
  // 외운 규칙(v131, 사용자: "장기기억 기준은 7일·14일·1달 3번에 걸쳐 맞춘 문제", "틀리게 되면 장기기억이었던 문제라도 다시 틀린 문제").
  // 규칙마다 단계 0~3. 맞힌 날(처음, 또는 틀린 뒤 다시 맞힌 날)이 기준점이고, 기준점에서 STAGE_GAPS[단계]일 이상 지나 맞히면 한 단계 오르고 그날이 새 기준점.
  // 3단계(7일 → 14일 → 30일)가 외운 규칙이다. 짧은 간격의 정답은 단계를 바꾸지 않고, 틀리면(설명 보고 맞힘 포함) 언제든 0단계.
+ // 외운 규칙: 규칙(쌍둥이 묶음)마다 같은 단계 규칙을 돌려 streak ≥ MASTER_STREAK(7·14·30일 통과)면 외움. 단계별 규칙 수도 센다.
  function mastered(list,conceptOf){const state=new Map();
-  for(const r of list){const k=conceptOf(r.cardId),st=state.get(k);
-   if(r.result!=='correct'){state.set(k,{stage:0,anchor:null});continue;}
-   // 처음 맞힌 날(틀린 뒤 다시 맞힌 날)이 기준점 — 거기서부터 7일을 잰다.
-   if(!st||!st.anchor){state.set(k,{stage:0,anchor:r.date});continue;}
-   if(st.stage<STAGE_GAPS.length&&daysBetween(st.anchor,r.date)>=STAGE_GAPS[st.stage]){st.stage++;st.anchor=r.date;}}
-  const stages=[0,0,0,0];for(const st of state.values())stages[st.stage]++;
+  for(const r of list){const k=conceptOf(r.cardId),out=RS.step(state.get(k),r.result,r.date);if(out.event!=='early')state.set(k,out.state);}
+  const stages=[0,0,0,0];for(const st of state.values())stages[RS.stageOf(st.streak)]++;
   return {done:stages[3],checked:stages[1]+stages[2]+stages[3],stages};}
  const pctOf=(done,total)=>total?Math.floor(done/total*1000)/10:0;
  // rows(ledger 행)와 전체 규칙 수 {self,exam}로 외운 비율. 자체제작·기출을 따로 세고 평균.

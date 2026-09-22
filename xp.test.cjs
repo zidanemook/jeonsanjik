@@ -44,15 +44,18 @@ const many=Array.from({length:5},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'))
  assert.deepEqual(X.mastered(X.ledger(full),id=>id).stages,[0,0,0,1],'7·14·30 days → mastered');
  assert.deepEqual(X.mastered(X.ledger(full.slice(0,3)),id=>id).stages,[0,0,1,0]);
  assert.deepEqual(X.mastered(X.ledger([R('m',0,'correct'),R('m',3,'correct'),R('m',7,'correct'),R('m',15,'correct')]),id=>id).stages,[0,1,0,0],'gaps count from the last stage-up; day 15 is only 8 days after day 7');
- assert.deepEqual(X.mastered(X.ledger([...full,R('m',52,'wrong')]),id=>id).stages,[1,0,0,0],'a wrong answer after mastery resets to 0');
- assert.deepEqual(X.mastered(X.ledger([...full,R('m',52,'unsure')]),id=>id).stages,[1,0,0,0],'answered with help counts as wrong');
+ assert.deepEqual(X.mastered(X.ledger([...full,R('m',52,'wrong')]),id=>id).stages,[0,0,0,1],'v139: first miss after mastery uses the chance');
+ assert.deepEqual(X.mastered(X.ledger([...full,R('m',52,'wrong'),R('m',53,'wrong')]),id=>id).stages,[0,0,1,0],'second miss drops one stage, not to 0');
+ assert.deepEqual(X.mastered(X.ledger([...full,R('m',52,'wrong'),R('m',53,'correct')]),id=>id).stages,[0,0,0,1],'answered right on the chance: still mastered');
+ assert.deepEqual(X.mastered(X.ledger([...full,R('m',52,'unsure')]),id=>id).stages,[0,0,0,1],'answered with help is a miss — it uses the chance');
  assert.deepEqual(X.mastered(X.ledger([R('m',0,'wrong'),R('m',6,'correct'),R('m',7,'correct')]),id=>id).stages,[1,0,0,0],'after a miss the clock starts when it is answered right again');
  assert.deepEqual(X.mastered(X.ledger([R('m',0,'wrong'),R('m',8,'correct')]),id=>id).stages,[1,0,0,0],'relearning day itself is not a check');
  assert.deepEqual(X.mastered(X.ledger([R('m',0,'wrong'),R('m',1,'correct'),R('m',8,'correct')]),id=>id).stages,[0,1,0,0]);
  assert.deepEqual(X.mastered(X.ledger(rs),id=>id),{done:0,checked:0,stages:[4,0,0,0]},'none has a 7-day recall after a right answer');
  // 쌍둥이 둘(b, b2)은 한 규칙: 하나만 외워도 그 규칙은 외운 것.
  const twin=id=>id==='t2'?'t':id;assert.deepEqual(X.mastered(X.ledger([...full.map(r=>({...r,cardId:'t'})),R('t2',60,'correct')]),twin).done,1,'twins share the rule stage');
- assert.deepEqual(X.mastered(X.ledger([...full.map(r=>({...r,cardId:'t'})),R('t2',60,'wrong')]),twin).done,0,'a wrong twin resets the rule');
+ assert.deepEqual(X.mastered(X.ledger([...full.map(r=>({...r,cardId:'t'})),R('t2',60,'wrong')]),twin).done,1,'a first wrong twin uses the rule chance');
+ assert.deepEqual(X.mastered(X.ledger([...full.map(r=>({...r,cardId:'t'})),R('t2',60,'wrong'),R('t',61,'wrong')]),twin).done,0,'a second miss on the rule drops it one stage');
  const s=X.bySubject(full,[],()=>'영어',id=>id,{'영어':{self:10,exam:0}})['영어'];assert.equal(s.done,1);assert.equal(s.all,10);assert.equal(s.pct,10,'only self-made pool exists');
  assert.equal(X.overallTier(full,id=>id,{self:1,exam:0}).tier.id,'legend','1 of 1 rules');assert.equal(X.overallTier(full,id=>id,{self:2,exam:0}).tier.id,'silver','50%');
  // 자체제작과 기출은 비율끼리 반반: 자체제작 1/2(50%) + 기출 0/100(0%) → 25% 브론즈. 합쳐 세면 1/102라 아이언이었을 것.
@@ -72,6 +75,6 @@ const many=Array.from({length:5},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'))
 // 일부러 틀려서 외운 문제의 단계 보너스를 다시 받을 수 없다.
 {const d=n=>new Date(Date.parse('2026-08-01T00:00:00Z')+n*86400000).toISOString().slice(0,10);let k=0;const R=(card,day,result)=>({id:'F'+String(k++).padStart(5,'0'),cardId:card,date:d(day),at:d(day)+'T01:00:00.000Z',result,mode:'quiz'});
  const honest=[R('m',0,'correct'),R('m',7,'correct'),R('m',21,'correct'),R('m',51,'correct')],farm=[...honest,R('m',52,'wrong'),R('m',53,'correct'),R('m',60,'correct'),R('m',74,'correct'),R('m',104,'correct')];
- assert.deepEqual(X.ledger(farm).slice(4).map(r=>r.xp),[1,3,2,2,2],'after a deliberate miss the stages give base XP only');
+ assert.deepEqual(X.ledger(farm).slice(4).map(r=>r.xp),[1,2,2,2,2],'a deliberate miss on a mastered question: chance answer gives base XP only');
  assert.ok(X.ledger(farm).slice(4).reduce((a,r)=>a+r.xp,0)<=5*X.award(['correct'],'correct').xp,'farming never beats plain answering');}
 console.log('PASS xp: every solve rewarded, first/recovery bonuses, levels, streak, optional goal');
