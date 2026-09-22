@@ -71,24 +71,16 @@
  // 실버(5) 약 1일 · 골드(10) 약 6일 · 플래티넘(20) 약 26일 · 다이아(30) 약 60일(누적 90,190 XP).
  const subjectNeed=need;
  function subjectLevel(total){let l=1,rest=total;while(rest>=subjectNeed(l)){rest-=subjectNeed(l);l++;}return {level:l,into:rest,need:subjectNeed(l)};}
- // 뱃지 등급(v127 세분화, 하루 1,500 XP 기준 도달): 아이언 0 · 브론즈 3(반나절) · 실버 5(1일) · 골드 8(3.5일) · 플래티넘 12(9일)
- // · 에메랄드 17(18일) · 루비 23(35일) · 다이아 30(60일) · 마스터 40(3.6달) · 그랜드마스터 55(7달) · 챌린저 75(13달) · 레전드 100(23달).
- // 뱃지(v130) = 레벨 문턱과 "외운 비율"을 둘 다 채운 가장 높은 등급.
- // 외운 비율 = 장기기억이 확인된 규칙 ÷ 그 과목(전체 레벨이면 모든 과목)의 전체 규칙(사용자: "맞춘 문제/모든 기출·자체제작 문제 비율").
- // 규칙 = 자체제작은 쌍둥이 묶음 하나, 기출은 문제 하나(쌍둥이를 건너뛰므로 문제 단위로 세면 비율이 영영 못 오른다).
- // 외운 규칙(사용자: "장기기억으로 넘어간 상태임이 확인되면 맞춘 걸로"): 7일 → 14일 → 30일 간격으로 세 번 맞힌 규칙(아래 mastered).
- // 레벨은 "이만큼은 풀었다"는 문턱만(사용자: "레벨 기준은 완화 — 1달 만에 95% 다 외우는 사람도 나올 수 있으니"): 하루 1,500 XP면 레전드 레벨 20까지 약 26일.
- const TIERS=[[20,'legend','레전드',95],[17,'challenger','챌린저',90],[15,'grandmaster','그랜드마스터',88],[13,'master','마스터',85],[11,'diamond','다이아',80],[9,'ruby','루비',75],[7,'emerald','에메랄드',70],[5,'platinum','플래티넘',65],[4,'gold','골드',60],[3,'silver','실버',50],[2,'bronze','브론즈',0],[1,'iron','아이언',0]];
+ // 뱃지(v138) = 실력. 레벨(노력)과 역할을 나눈다 — 육각형 안의 숫자는 레벨, 색은 외운 비율로 정한 등급(레벨 조건 없음).
+ // 외운 비율 = 자체제작 외운 비율과 기출 외운 비율의 평균(규칙 수가 아니라 비율끼리 반반; 한쪽이 없는 과목은 있는 쪽만).
+ // 기출 = 공무원 9급 기출(gichul-)·한능검 기출(hanneung-). 규칙 = 자체제작은 쌍둥이 묶음 하나, 기출은 문제 하나.
+ // 외운 규칙은 7일 → 14일 → 30일에 세 번 맞힌 규칙(아래 mastered), 틀리면 0단계 — 사용자가 이 엄격함을 그대로 두기로 했다(2026-09-22).
+ const TIERS=[[95,'legend','레전드'],[90,'challenger','챌린저'],[88,'grandmaster','그랜드마스터'],[85,'master','마스터'],[80,'diamond','다이아'],[75,'ruby','루비'],[70,'emerald','에메랄드'],[65,'platinum','플래티넘'],[60,'gold','골드'],[50,'silver','실버'],[25,'bronze','브론즈'],[0,'iron','아이언']];
  const LONG_DAYS=7,STAGE_GAPS=[7,14,30];
  const daysBetween=(a,b)=>Math.round((Date.parse(b+'T00:00:00Z')-Date.parse(a+'T00:00:00Z'))/86400000);
- const pack=t=>({id:t[1],name:t[2],level:t[0],pct:t[3]});
- // pct가 없으면(외운 비율 모름) 레벨만 본다 — 등급표용.
- function tier(l,pct){
-  const byLevel=TIERS.find(([min])=>l>=min);if(pct===undefined)return pack(byLevel);
-  const got=TIERS.find(t=>l>=t[0]&&(t[3]===0||pct>=t[3]));const out=pack(got);
-  if(byLevel!==got)out.blocked=pack(byLevel);
-  return out;
- }
+ const pack=t=>({id:t[1],name:t[2],pct:t[0]});
+ function tier(pct=0){return pack(TIERS.find(t=>pct>=t[0]));}
+ const isExam=id=>/^(gichul|hanneung)-/.test(id);
  // 외운 규칙(v131, 사용자: "장기기억 기준은 7일·14일·1달 3번에 걸쳐 맞춘 문제", "틀리게 되면 장기기억이었던 문제라도 다시 틀린 문제").
  // 규칙마다 단계 0~3. 맞힌 날(처음, 또는 틀린 뒤 다시 맞힌 날)이 기준점이고, 기준점에서 STAGE_GAPS[단계]일 이상 지나 맞히면 한 단계 오르고 그날이 새 기준점.
  // 3단계(7일 → 14일 → 30일)가 외운 규칙이다. 짧은 간격의 정답은 단계를 바꾸지 않고, 틀리면(설명 보고 맞힘 포함) 언제든 0단계.
@@ -101,19 +93,27 @@
   const stages=[0,0,0,0];for(const st of state.values())stages[st.stage]++;
   return {done:stages[3],checked:stages[1]+stages[2]+stages[3],stages};}
  const pctOf=(done,total)=>total?Math.floor(done/total*1000)/10:0;
- // totals: 과목 → 전체 규칙 수.
+ // rows(ledger 행)와 전체 규칙 수 {self,exam}로 외운 비율. 자체제작·기출을 따로 세고 평균.
+ function mastery(list,conceptOf,totals={}){
+  const self=mastered(list.filter(r=>!isExam(r.cardId)),conceptOf),exam=mastered(list.filter(r=>isExam(r.cardId)),conceptOf);
+  const t={self:totals.self||0,exam:totals.exam||0},pSelf=pctOf(self.done,t.self),pExam=pctOf(exam.done,t.exam);
+  const pools=[t.self?pSelf:null,t.exam?pExam:null].filter(x=>x!==null),pct=pools.length?Math.floor(pools.reduce((a,b)=>a+b,0)/pools.length*10)/10:0;
+  return {pct,done:self.done+exam.done,checked:self.checked+exam.checked,stages:self.stages.map((n,i)=>n+exam.stages[i]),all:t.self+t.exam,
+   self:{done:self.done,all:t.self,pct:pSelf},exam:{done:exam.done,all:t.exam,pct:pExam},tier:tier(pct)};
+ }
+ // totals: 과목 → {self: 자체제작 규칙 수, exam: 기출 규칙 수}.
  function bySubject(history,views,subjectOf,conceptOf=id=>id,totals={}){
   const list=ledger(history),total=new Map(),rowsOf=new Map(),cardOf=new Map(list.map(r=>[r.id,r.cardId]));
   const add=(cardId,xp)=>{const s=cardId&&subjectOf(cardId);if(!s)return null;total.set(s,(total.get(s)||0)+xp);return s;};
   for(const r of list){const s=add(r.cardId,r.xp);if(s){if(!rowsOf.has(s))rowsOf.set(s,[]);rowsOf.get(s).push(r);}}
   for(const v of views||[])if(Number.isSafeInteger(v?.openedAt))add(cardOf.get(v.id),XP.explanation);
-  const out={};for(const [s,xp] of total){const l=subjectLevel(xp),m=mastered(rowsOf.get(s)||[],conceptOf),all=totals[s]||0,pct=pctOf(m.done,all);out[s]={xp,...l,...m,all,pct,tier:tier(l.level,pct)};}
+  const out={};for(const [s,xp] of total)out[s]={xp,...subjectLevel(xp),...mastery(rowsOf.get(s)||[],conceptOf,totals[s])};
   return out;
  }
- // 전체 레벨 뱃지: 모든 과목의 외운 규칙 ÷ 전체 규칙.
- function overallTier(history,lvl,conceptOf=id=>id,all=0){const m=mastered(ledger(history),conceptOf),pct=pctOf(m.done,all);return {...m,all,pct,tier:tier(lvl,pct)};}
+ // 전체 뱃지: 모든 과목을 합친 자체제작·기출 외운 비율의 평균.
+ function overallTier(history,conceptOf=id=>id,totals={}){return mastery(ledger(history),conceptOf,totals);}
  // 과목별 하루 목표(v135): 오늘 과목마다 푼 횟수(전체 목표와 같은 셈 — 퀴즈 풀이 한 번 = 한 문제).
  function solvesBySubject(history,subjectOf,today=day()){const out={};for(const r of rows(history)){if(r.date!==today)continue;const s=subjectOf(r.cardId);if(s)out[s]=(out[s]||0)+1;}return out;}
- const api={solvesBySubject,XP,TIERS,LONG_DAYS,STAGE_GAPS,award,need,level,ledger,summary,lastAward,day,subjectNeed,subjectLevel,tier,mastered,bySubject,overallTier};
+ const api={solvesBySubject,XP,TIERS,LONG_DAYS,STAGE_GAPS,award,need,level,ledger,summary,lastAward,day,subjectNeed,subjectLevel,tier,isExam,mastered,mastery,bySubject,overallTier};
  root.StudyXp=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(globalThis);

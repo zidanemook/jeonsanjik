@@ -218,7 +218,7 @@ function reviewQueue(cards,ranged=false){
 // 경험치·레벨(xp.js). 풀면 언제나 오르고, 처음 맞힘·틀렸던 문제 맞힘이 크게 오른다. 하루 목표는 과목마다 사용자가 정했을 때만(전체 목표는 v135에서 없앰).
 function renderXp(){
  let s;try{s=StudyXp.summary(data.history,data.explanationViews||[],StudyXp.day());}catch{$('#xpCard').hidden=true;return;}
- const o=StudyXp.overallTier(data.history,s.level,ReviewPolicy.concept,Object.values(ruleTotals()).reduce((a,b)=>a+b,0));
+ const o=StudyXp.overallTier(data.history,ReviewPolicy.concept,allRuleTotals());
  $('#xpCard').hidden=false;$('#xpLevel').replaceChildren(badge({level:s.level,tier:o.tier}),document.createTextNode(' '+o.tier.name+' · Lv '+s.level));
  $('#xpAcc').textContent=tierNote(o);
  $('#xpStreak').textContent=s.streak?'🔥 '+s.streak+'일 연속'+(s.solvedToday?'':' · 오늘 풀면 이어져요'):'오늘 한 문제 풀면 🔥 연속 시작';
@@ -245,16 +245,18 @@ function renderSubjectGoal(s){
 }
 // 과목 레벨 뱃지(v124): 육각형 안에 레벨, 레벨 구간마다 색(브론즈·실버·골드·플래티넘·다이아).
 // 외운 비율의 분모: 과목마다 풀 수 있는 규칙 수(쌍둥이 묶음 하나 = 규칙 하나, 기출은 문제 하나).
-function ruleTotals(){const t={},seen=new Set();for(const c of data.cards){if(!isPlayable(c))continue;const k=ReviewPolicy.concept(c.id);if(seen.has(k))continue;seen.add(k);t[c.subject]=(t[c.subject]||0)+1;}return t;}
+function ruleTotals(){const t={},seen=new Set();for(const c of data.cards){if(!isPlayable(c))continue;const k=ReviewPolicy.concept(c.id);if(seen.has(k))continue;seen.add(k);const x=t[c.subject]||(t[c.subject]={self:0,exam:0});x[StudyXp.isExam(c.id)?'exam':'self']++;}return t;}
+function allRuleTotals(){const out={self:0,exam:0};for(const x of Object.values(ruleTotals())){out.self+=x.self;out.exam+=x.exam;}return out;}
 function subjectLevels(history=data.history){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));try{return StudyXp.bySubject(history,data.explanationViews||[],id=>bySubject.get(id)||null,ReviewPolicy.concept,ruleTotals());}catch{return {};}}
-function badge(s,big){const l=s||{level:1,tier:StudyXp.tier(1)},b=elem('span',undefined,'level-badge tier-'+l.tier.id+(big?' big':''));b.setAttribute('aria-label',l.tier.name+' 레벨 '+l.level);b.title=l.tier.name+' · Lv '+l.level;b.append(elem('small','Lv'),elem('b',String(l.level)));return b;}
-// 뱃지 설명 한 줄: 외운 비율(7·14·30일 세 번 맞힌 규칙 ÷ 전체 규칙), 단계별 규칙 수, 막힌 등급·다음 등급 조건.
+function badge(s,big){const l=s||{level:1,tier:StudyXp.tier(0)},b=elem('span',undefined,'level-badge tier-'+l.tier.id+(big?' big':''));b.setAttribute('aria-label',l.tier.name+' 레벨 '+l.level);b.title=l.tier.name+' · Lv '+l.level;b.append(elem('small','Lv'),elem('b',String(l.level)));return b;}
+// 뱃지 설명 한 줄(v138): 뱃지 색 = 외운 비율(자체제작·기출 반반), 숫자 = 레벨. 외우는 중인 규칙과 다음 등급 조건.
 function tierNote(x){
- const fmt=n=>n.toLocaleString('ko-KR'),st=x.stages||[0,0,0,0];
- let t='외운 비율 '+x.pct+'% (외운 규칙 '+fmt(x.done)+' / 전체 '+fmt(x.all)+') · 외우는 중: 7일 통과 '+fmt(st[1])+' · 14일 통과 '+fmt(st[2]);
+ const fmt=n=>n.toLocaleString('ko-KR'),st=x.stages||[0,0,0,0],pools=[];
+ if(x.self?.all)pools.push('자체제작 '+x.self.pct+'% ('+fmt(x.self.done)+'/'+fmt(x.self.all)+')');
+ if(x.exam?.all)pools.push('기출 '+x.exam.pct+'% ('+fmt(x.exam.done)+'/'+fmt(x.exam.all)+')');
+ let t='외운 비율 '+x.pct+'%'+(pools.length>1?' = 반반('+pools.join(' · ')+')':pools.length?' · '+pools[0]:'')+' · 외우는 중: 7일 통과 '+fmt(st[1])+' · 14일 통과 '+fmt(st[2]);
  if(!x.checked)t+=' — 맞힌 문제를 7일 뒤 · 그 뒤 14일 뒤 · 그 뒤 30일 뒤 다시 맞히면 외운 규칙이 돼요(틀리면 처음부터)';
- if(x.tier.blocked)t+=' · 레벨로는 '+x.tier.blocked.name+' — 외운 비율 '+x.tier.blocked.pct+'%가 되면 올라가요';
- else{const i=StudyXp.TIERS.findIndex(t=>t[1]===x.tier.id),next=StudyXp.TIERS[i-1];if(next)t+=' · 다음 '+next[2]+': Lv '+next[0]+(next[3]?' + 외운 비율 '+next[3]+'%':'');}
+ const i=StudyXp.TIERS.findIndex(t=>t[1]===x.tier.id),next=StudyXp.TIERS[i-1];if(next)t+=' · 다음 '+next[2]+': 외운 비율 '+next[0]+'%';
  return t;
 }
 function xpAwardNode(reviewId){
@@ -265,7 +267,8 @@ function xpAwardNode(reviewId){
  const subject=data.cards.find(c=>c.id===a.cardId)?.subject;
  if(subject){const now=subjectLevels()[subject],before=subjectLevels(data.history.filter(h=>h.id!==reviewId))[subject];
   if(now){const line=elem('p',undefined,'xp-subject');line.append(badge(now),document.createTextNode(' '+subject+' Lv '+now.level+' · 다음까지 '+(now.need-now.into)+' XP'));box.append(line);
-   if(now.level>(before?.level||1))box.append(elem('p','🏅 '+subject+' 레벨 '+now.level+' 달성!'+(now.tier.id!==(before?.tier.id||'bronze')?' '+now.tier.name+' 뱃지!':''),'xp-levelup'));}}
+   if(now.level>(before?.level||1))box.append(elem('p','🎉 '+subject+' 레벨 '+now.level+' 달성!','xp-levelup'));
+   if(now.tier.id!==(before?.tier.id||'iron'))box.append(elem('p','🏅 '+subject+' '+now.tier.name+' 뱃지! 외운 비율 '+now.pct+'%','xp-levelup'));}}
  return box;
 }
 // 예상점수(score.js): 기출 첫 풀이만, 4과목 평균 + 가산점을 사용자가 정한 목표와 비교한다(기본 국가직 전산9급 95 · 가산 5).
@@ -494,7 +497,7 @@ function renderMemorize(){
 function renderSubject(){
  const s=viewSubject,cards=data.cards.filter(c=>isPlayable(c)&&c.subject===s),ids=new Set(cards.map(c=>c.id)),today=day();
  $('#subjectTitle').textContent=s;renderSubjectGoal(s);
- {const l=subjectLevels()[s]||{level:1,into:0,need:StudyXp.subjectNeed(1),xp:0,done:0,checked:0,stages:[0,0,0,0],all:ruleTotals()[s]||0,pct:0,tier:StudyXp.tier(1,0)};$('#subjectBadge').replaceChildren(badge(l,true));
+ {const l=subjectLevels()[s]||{level:1,into:0,need:StudyXp.subjectNeed(1),xp:0,...StudyXp.mastery([],ReviewPolicy.concept,ruleTotals()[s])};$('#subjectBadge').replaceChildren(badge(l,true));
   const bar=elem('progress',undefined,'xp-bar');bar.max=l.need;bar.value=l.into;$('#subjectLevel').replaceChildren(elem('span',l.tier.name+' · Lv '+l.level+' · 다음 레벨까지 '+(l.need-l.into)+' XP · 이 과목 누적 '+l.xp+' XP'),bar,elem('span',tierNote(l),'tier-note'));}
  $('#subjectSummary').textContent=countLine(cards)+' · 오늘 푼 문제 '+solvedOn(ids,today)+'개';
  // 외울 것은 과목 안에 둔다(2026-09-19 사용자: "외울것들은 과목별로 분류해서 정리해라 … 국어는 국어 클릭하면 거기서 외울것에 넣는방식").
