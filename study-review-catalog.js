@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 1306,
+  "total": 1421,
   "sets": [
     {
       "number": 1,
@@ -2334,6 +2334,211 @@ globalThis.STUDY_REVIEW_CATALOG={
         "joseonforeign-hist-20260921-082",
         "joseonforeign-hist-20260921-083"
       ]
+    },
+    {
+      "number": 172,
+      "title": "19강 조선 전기(경제, 사회) 1",
+      "ids": [
+        "joseonecosoc-hist-20260923-001",
+        "joseonecosoc-hist-20260923-002",
+        "joseonecosoc-hist-20260923-003",
+        "joseonecosoc-hist-20260923-004",
+        "joseonecosoc-hist-20260923-005",
+        "joseonecosoc-hist-20260923-006",
+        "joseonecosoc-hist-20260923-007",
+        "joseonecosoc-hist-20260923-008"
+      ]
+    },
+    {
+      "number": 173,
+      "title": "19강 조선 전기(경제, 사회) 2",
+      "ids": [
+        "joseonecosoc-hist-20260923-009",
+        "joseonecosoc-hist-20260923-010",
+        "joseonecosoc-hist-20260923-011",
+        "joseonecosoc-hist-20260923-012",
+        "joseonecosoc-hist-20260923-013",
+        "joseonecosoc-hist-20260923-014",
+        "joseonecosoc-hist-20260923-015",
+        "joseonecosoc-hist-20260923-016"
+      ]
+    },
+    {
+      "number": 174,
+      "title": "19강 조선 전기(경제, 사회) 3",
+      "ids": [
+        "joseonecosoc-hist-20260923-017",
+        "joseonecosoc-hist-20260923-018",
+        "joseonecosoc-hist-20260923-019",
+        "joseonecosoc-hist-20260923-020",
+        "joseonecosoc-hist-20260923-021",
+        "joseonecosoc-hist-20260923-022",
+        "joseonecosoc-hist-20260923-023",
+        "joseonecosoc-hist-20260923-024"
+      ]
+    },
+    {
+      "number": 175,
+      "title": "19강 조선 전기(경제, 사회) 4",
+      "ids": [
+        "joseonecosoc-hist-20260923-025",
+        "joseonecosoc-hist-20260923-026",
+        "joseonecosoc-hist-20260923-027",
+        "joseonecosoc-hist-20260923-028",
+        "joseonecosoc-hist-20260923-029",
+        "joseonecosoc-hist-20260923-030",
+        "joseonecosoc-hist-20260923-031",
+        "joseonecosoc-hist-20260923-032"
+      ]
+    },
+    {
+      "number": 176,
+      "title": "19강 조선 전기(경제, 사회) 5",
+      "ids": [
+        "joseonecosoc-hist-20260923-033",
+        "joseonecosoc-hist-20260923-034",
+        "joseonecosoc-hist-20260923-035",
+        "joseonecosoc-hist-20260923-036",
+        "joseonecosoc-hist-20260923-037",
+        "joseonecosoc-hist-20260923-038",
+        "joseonecosoc-hist-20260923-039",
+        "joseonecosoc-hist-20260923-040"
+      ]
+    },
+    {
+      "number": 177,
+      "title": "19강 조선 전기(경제, 사회) 6",
+      "ids": [
+        "joseonecosoc-hist-20260923-041",
+        "joseonecosoc-hist-20260923-042",
+        "joseonecosoc-hist-20260923-043",
+        "joseonecosoc-hist-20260923-044",
+        "joseonecosoc-hist-20260923-045",
+        "joseonecosoc-hist-20260923-046",
+        "joseonecosoc-hist-20260923-047",
+        "joseonecosoc-hist-20260923-048"
+      ]
+    },
+    {
+      "number": 178,
+      "title": "19강 조선 전기(경제, 사회) 7",
+      "ids": [
+        "joseonecosoc-hist-20260923-049",
+        "joseonecosoc-hist-20260923-050",
+        "joseonecosoc-hist-20260923-051",
+        "joseonecosoc-hist-20260923-052",
+        "joseonecosoc-hist-20260923-053",
+        "joseonecosoc-hist-20260923-054",
+        "joseonecosoc-hist-20260923-055",
+        "joseonecosoc-hist-20260923-056"
+      ]
+    },
+    {
+      "number": 179,
+      "title": "19강 조선 전기(경제, 사회) 8",
+      "ids": [
+        "joseonecosoc-hist-20260923-057",
+        "joseonecosoc-hist-20260923-058",
+        "joseonecosoc-hist-20260923-059",
+        "joseonecosoc-hist-20260923-060",
+        "joseonecosoc-hist-20260923-061",
+        "joseonecosoc-hist-20260923-062",
+        "joseonecosoc-hist-20260923-063",
+        "joseonecosoc-hist-20260923-064"
+      ]
+    },
+    {
+      "number": 180,
+      "title": "19강 조선 전기(경제, 사회) 9",
+      "ids": [
+        "joseonecosoc-hist-20260923-065",
+        "joseonecosoc-hist-20260923-066",
+        "joseonecosoc-hist-20260923-067",
+        "joseonecosoc-hist-20260923-068",
+        "joseonecosoc-hist-20260923-069",
+        "joseonecosoc-hist-20260923-070",
+        "joseonecosoc-hist-20260923-071",
+        "joseonecosoc-hist-20260923-072"
+      ]
+    },
+    {
+      "number": 181,
+      "title": "19강 조선 전기(경제, 사회) 10",
+      "ids": [
+        "joseonecosoc-hist-20260923-073",
+        "joseonecosoc-hist-20260923-074",
+        "joseonecosoc-hist-20260923-075",
+        "joseonecosoc-hist-20260923-076",
+        "joseonecosoc-hist-20260923-077",
+        "joseonecosoc-hist-20260923-078",
+        "joseonecosoc-hist-20260923-079",
+        "joseonecosoc-hist-20260923-080"
+      ]
+    },
+    {
+      "number": 182,
+      "title": "19강 조선 전기(경제, 사회) 11",
+      "ids": [
+        "joseonecosoc-hist-20260923-081",
+        "joseonecosoc-hist-20260923-082",
+        "joseonecosoc-hist-20260923-083",
+        "joseonecosoc-hist-20260923-084",
+        "joseonecosoc-hist-20260923-085",
+        "joseonecosoc-hist-20260923-086",
+        "joseonecosoc-hist-20260923-087",
+        "joseonecosoc-hist-20260923-088"
+      ]
+    },
+    {
+      "number": 183,
+      "title": "19강 조선 전기(경제, 사회) 12",
+      "ids": [
+        "joseonecosoc-hist-20260923-089",
+        "joseonecosoc-hist-20260923-090",
+        "joseonecosoc-hist-20260923-091",
+        "joseonecosoc-hist-20260923-092",
+        "joseonecosoc-hist-20260923-093",
+        "joseonecosoc-hist-20260923-094",
+        "joseonecosoc-hist-20260923-095",
+        "joseonecosoc-hist-20260923-096"
+      ]
+    },
+    {
+      "number": 184,
+      "title": "19강 조선 전기(경제, 사회) 13",
+      "ids": [
+        "joseonecosoc-hist-20260923-097",
+        "joseonecosoc-hist-20260923-098",
+        "joseonecosoc-hist-20260923-099",
+        "joseonecosoc-hist-20260923-100",
+        "joseonecosoc-hist-20260923-101",
+        "joseonecosoc-hist-20260923-102",
+        "joseonecosoc-hist-20260923-103",
+        "joseonecosoc-hist-20260923-104"
+      ]
+    },
+    {
+      "number": 185,
+      "title": "19강 조선 전기(경제, 사회) 14",
+      "ids": [
+        "joseonecosoc-hist-20260923-105",
+        "joseonecosoc-hist-20260923-106",
+        "joseonecosoc-hist-20260923-107",
+        "joseonecosoc-hist-20260923-108",
+        "joseonecosoc-hist-20260923-109",
+        "joseonecosoc-hist-20260923-110",
+        "joseonecosoc-hist-20260923-111",
+        "joseonecosoc-hist-20260923-112"
+      ]
+    },
+    {
+      "number": 186,
+      "title": "19강 조선 전기(경제, 사회) 15",
+      "ids": [
+        "joseonecosoc-hist-20260923-113",
+        "joseonecosoc-hist-20260923-114",
+        "joseonecosoc-hist-20260923-115"
+      ]
     }
   ],
   "lectures": [
@@ -3725,6 +3930,127 @@ globalThis.STUDY_REVIEW_CATALOG={
         "joseonforeign-hist-20260921-081",
         "joseonforeign-hist-20260921-082",
         "joseonforeign-hist-20260921-083"
+      ]
+    },
+    {
+      "id": "19",
+      "title": "19강 조선 전기(경제, 사회)",
+      "ids": [
+        "joseonecosoc-hist-20260923-001",
+        "joseonecosoc-hist-20260923-002",
+        "joseonecosoc-hist-20260923-003",
+        "joseonecosoc-hist-20260923-004",
+        "joseonecosoc-hist-20260923-005",
+        "joseonecosoc-hist-20260923-006",
+        "joseonecosoc-hist-20260923-007",
+        "joseonecosoc-hist-20260923-008",
+        "joseonecosoc-hist-20260923-009",
+        "joseonecosoc-hist-20260923-010",
+        "joseonecosoc-hist-20260923-011",
+        "joseonecosoc-hist-20260923-012",
+        "joseonecosoc-hist-20260923-013",
+        "joseonecosoc-hist-20260923-014",
+        "joseonecosoc-hist-20260923-015",
+        "joseonecosoc-hist-20260923-016",
+        "joseonecosoc-hist-20260923-017",
+        "joseonecosoc-hist-20260923-018",
+        "joseonecosoc-hist-20260923-019",
+        "joseonecosoc-hist-20260923-020",
+        "joseonecosoc-hist-20260923-021",
+        "joseonecosoc-hist-20260923-022",
+        "joseonecosoc-hist-20260923-023",
+        "joseonecosoc-hist-20260923-024",
+        "joseonecosoc-hist-20260923-025",
+        "joseonecosoc-hist-20260923-026",
+        "joseonecosoc-hist-20260923-027",
+        "joseonecosoc-hist-20260923-028",
+        "joseonecosoc-hist-20260923-029",
+        "joseonecosoc-hist-20260923-030",
+        "joseonecosoc-hist-20260923-031",
+        "joseonecosoc-hist-20260923-032",
+        "joseonecosoc-hist-20260923-033",
+        "joseonecosoc-hist-20260923-034",
+        "joseonecosoc-hist-20260923-035",
+        "joseonecosoc-hist-20260923-036",
+        "joseonecosoc-hist-20260923-037",
+        "joseonecosoc-hist-20260923-038",
+        "joseonecosoc-hist-20260923-039",
+        "joseonecosoc-hist-20260923-040",
+        "joseonecosoc-hist-20260923-041",
+        "joseonecosoc-hist-20260923-042",
+        "joseonecosoc-hist-20260923-043",
+        "joseonecosoc-hist-20260923-044",
+        "joseonecosoc-hist-20260923-045",
+        "joseonecosoc-hist-20260923-046",
+        "joseonecosoc-hist-20260923-047",
+        "joseonecosoc-hist-20260923-048",
+        "joseonecosoc-hist-20260923-049",
+        "joseonecosoc-hist-20260923-050",
+        "joseonecosoc-hist-20260923-051",
+        "joseonecosoc-hist-20260923-052",
+        "joseonecosoc-hist-20260923-053",
+        "joseonecosoc-hist-20260923-054",
+        "joseonecosoc-hist-20260923-055",
+        "joseonecosoc-hist-20260923-056",
+        "joseonecosoc-hist-20260923-057",
+        "joseonecosoc-hist-20260923-058",
+        "joseonecosoc-hist-20260923-059",
+        "joseonecosoc-hist-20260923-060",
+        "joseonecosoc-hist-20260923-061",
+        "joseonecosoc-hist-20260923-062",
+        "joseonecosoc-hist-20260923-063",
+        "joseonecosoc-hist-20260923-064",
+        "joseonecosoc-hist-20260923-065",
+        "joseonecosoc-hist-20260923-066",
+        "joseonecosoc-hist-20260923-067",
+        "joseonecosoc-hist-20260923-068",
+        "joseonecosoc-hist-20260923-069",
+        "joseonecosoc-hist-20260923-070",
+        "joseonecosoc-hist-20260923-071",
+        "joseonecosoc-hist-20260923-072",
+        "joseonecosoc-hist-20260923-073",
+        "joseonecosoc-hist-20260923-074",
+        "joseonecosoc-hist-20260923-075",
+        "joseonecosoc-hist-20260923-076",
+        "joseonecosoc-hist-20260923-077",
+        "joseonecosoc-hist-20260923-078",
+        "joseonecosoc-hist-20260923-079",
+        "joseonecosoc-hist-20260923-080",
+        "joseonecosoc-hist-20260923-081",
+        "joseonecosoc-hist-20260923-082",
+        "joseonecosoc-hist-20260923-083",
+        "joseonecosoc-hist-20260923-084",
+        "joseonecosoc-hist-20260923-085",
+        "joseonecosoc-hist-20260923-086",
+        "joseonecosoc-hist-20260923-087",
+        "joseonecosoc-hist-20260923-088",
+        "joseonecosoc-hist-20260923-089",
+        "joseonecosoc-hist-20260923-090",
+        "joseonecosoc-hist-20260923-091",
+        "joseonecosoc-hist-20260923-092",
+        "joseonecosoc-hist-20260923-093",
+        "joseonecosoc-hist-20260923-094",
+        "joseonecosoc-hist-20260923-095",
+        "joseonecosoc-hist-20260923-096",
+        "joseonecosoc-hist-20260923-097",
+        "joseonecosoc-hist-20260923-098",
+        "joseonecosoc-hist-20260923-099",
+        "joseonecosoc-hist-20260923-100",
+        "joseonecosoc-hist-20260923-101",
+        "joseonecosoc-hist-20260923-102",
+        "joseonecosoc-hist-20260923-103",
+        "joseonecosoc-hist-20260923-104",
+        "joseonecosoc-hist-20260923-105",
+        "joseonecosoc-hist-20260923-106",
+        "joseonecosoc-hist-20260923-107",
+        "joseonecosoc-hist-20260923-108",
+        "joseonecosoc-hist-20260923-109",
+        "joseonecosoc-hist-20260923-110",
+        "joseonecosoc-hist-20260923-111",
+        "joseonecosoc-hist-20260923-112",
+        "joseonecosoc-hist-20260923-113",
+        "joseonecosoc-hist-20260923-114",
+        "joseonecosoc-hist-20260923-115"
       ]
     }
   ],
@@ -17241,6 +17567,1249 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순서: 인조반정 → 이괄 → 정묘 → 병자(정답)"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 18강 조선 전기(외교) 207쪽 호란의 전개"
+    },
+    "joseonecosoc-hist-20260923-001": {
+      "number": 1307,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "고려 말 권문세족의 농장(정답)",
+        "관수관급제(오답)",
+        "연분9등법(오답)",
+        "직전법 폐지(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-002": {
+      "number": 1308,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "과전법: 관리 등급에 따라 수조권(정답)",
+        "관수관급제(오답)",
+        "직전법(오답)",
+        "직전법 폐지(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-003": {
+      "number": 1309,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "과전법 목적(정답)",
+        "직전법 배경(오답)",
+        "관수관급제 목적(오답)",
+        "공법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-004": {
+      "number": 1310,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "과전법: 전·현직, 경기(정답)",
+        "직전법(오답)",
+        "관수관급제(오답)",
+        "직전법 폐지(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-005": {
+      "number": 1311,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "과전: 세습 불가, 사망·반역 시 반환(정답)",
+        "공음전(오답)",
+        "역분전(오답)",
+        "녹과전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-006": {
+      "number": 1312,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "과전법: 수신전(정답)",
+        "관수관급제(오답)",
+        "직전법(오답)",
+        "전분6등법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-007": {
+      "number": 1313,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "과전법: 일부가 수신전·휼양전으로 세습(정답)",
+        "직전법(오답)",
+        "관수관급제(오답)",
+        "직전법 폐지(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-008": {
+      "number": 1314,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "수신전(정답)",
+        "휼양전(오답)",
+        "직전(오답)",
+        "공음전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-009": {
+      "number": 1315,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "수신전 아내 · 휼양전 자녀(정답)",
+        "짝 뒤바뀜(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-010": {
+      "number": 1316,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "직전법: 현직만(정답)",
+        "과전법(오답)",
+        "관수관급제(오답)",
+        "직전법 폐지(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-011": {
+      "number": 1317,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "직전법 배경(정답)",
+        "관수관급제 배경(오답)",
+        "과전법 배경(오답)",
+        "방납(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-012": {
+      "number": 1318,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "세조: 직전법(정답)",
+        "성종: 관수관급제(오답)",
+        "세종: 공법(오답)",
+        "명종: 직전법 폐지(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-013": {
+      "number": 1319,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "직전법: 수신전·휼양전 폐지(정답)",
+        "고려 공음전·한인전(오답)",
+        "신라 관료전·정전(오답)",
+        "고려 역분전·녹과전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-014": {
+      "number": 1320,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "세조: 진관 체제(정답)",
+        "성종: 관수관급제(오답)",
+        "명종: 구황촬요(오답)",
+        "세종: 연분9등법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-015": {
+      "number": 1321,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "직전법 뒤 부활 주장(정답)",
+        "고려 말 농장(오답)",
+        "과전법 건의(오답)",
+        "위화도 회군 세력(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-016": {
+      "number": 1322,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "관수관급제(정답)",
+        "직전법(오답)",
+        "과전법(오답)",
+        "직전법 폐지(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-017": {
+      "number": 1323,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "관수관급제(정답)",
+        "역분전(오답)",
+        "전시과(오답)",
+        "녹과전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-018": {
+      "number": 1324,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "관수관급제 결과: 국가 토지 지배권 강화(정답)",
+        "직전법 폐지 결과(오답)",
+        "직전법(오답)",
+        "과전법 운영 결과(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-019": {
+      "number": 1325,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "성종: 관수관급제(정답)",
+        "세조: 직전법(오답)",
+        "명종: 직전법 폐지(오답)",
+        "세종: 공법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-020": {
+      "number": 1326,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "직전법 폐지: 녹봉만(정답)",
+        "관수관급제(오답)",
+        "과전법(오답)",
+        "수신전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-021": {
+      "number": 1327,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "명종: 직전법 폐지(정답)",
+        "성종: 관수관급제(오답)",
+        "세조: 직전법(오답)",
+        "세종: 공법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-022": {
+      "number": 1328,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "나→라→가→다(정답)",
+        "앞뒤 바꾼 배열(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-023": {
+      "number": 1329,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "관수관급제(정답)",
+        "과전법(오답, 앞)",
+        "공법(오답, 앞)",
+        "임꺽정(오답, 뒤)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-024": {
+      "number": 1330,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "과전법 전·현직 · 직전법 현직(정답)",
+        "대상 뒤바뀜(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-025": {
+      "number": 1331,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "성종·명종(정답)",
+        "세조·중종(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-026": {
+      "number": 1332,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "수신전: 직전법으로 폐지(정답)",
+        "공음전(오답)",
+        "역분전(오답)",
+        "휼양전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-027": {
+      "number": 1333,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "휼양전(정답)",
+        "수신전(오답)",
+        "공음전(오답)",
+        "직전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-028": {
+      "number": 1334,
+      "section": "조선 전기 토지 제도",
+      "coverage": [
+        "명종: 비변사 상설화(정답)",
+        "중종: 비변사 임시 설치(오답)",
+        "성종: 관수관급제(오답)",
+        "성종: 경국대전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+    },
+    "joseonecosoc-hist-20260923-029": {
+      "number": 1335,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "과전법 조세 1/10(정답)",
+        "연분9등법(오답)",
+        "16세기 4~6두(오답)",
+        "타조법 지대(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-030": {
+      "number": 1336,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "전제상정소(정답)",
+        "전민변정도감(오답)",
+        "장례원(오답)",
+        "비변사(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-031": {
+      "number": 1337,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "공법: 비옥도·풍흉 차등(정답)",
+        "과전법 조세(오답)",
+        "대동법(오답)",
+        "관수관급제(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-032": {
+      "number": 1338,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "전분 비옥도 · 연분 풍흉(정답)",
+        "기준 뒤바뀜(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-033": {
+      "number": 1339,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "공법: 전제상정소(정답)",
+        "과전법(오답)",
+        "관수관급제(오답)",
+        "직전법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-034": {
+      "number": 1340,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "세종: 의정부 서사제(정답)",
+        "세조: 직전법(오답)",
+        "성종: 관수관급제(오답)",
+        "태종: 호패법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-035": {
+      "number": 1341,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "연분9등법(정답)",
+        "전분6등법(오답)",
+        "과전법 조세(오답)",
+        "16세기 관행(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-036": {
+      "number": 1342,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "전분6등법(정답)",
+        "과전법 조세(오답)",
+        "대동법(오답)",
+        "16세기 관행(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-037": {
+      "number": 1343,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "16세기 4~6두 관행(정답)",
+        "세종 공법(오답)",
+        "과전법 조세(오답)",
+        "광해군 대동법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-038": {
+      "number": 1344,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "공납 부과 방식(정답)",
+        "조세(오답)",
+        "군역(오답)",
+        "요역(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-039": {
+      "number": 1345,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "공납: 방납(정답)",
+        "역: 대립(오답)",
+        "역: 군역의 요역화(오답)",
+        "조세: 4~6두(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-040": {
+      "number": 1346,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "방납(정답)",
+        "대립(오답)",
+        "방군수포(오답)",
+        "병작반수(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-041": {
+      "number": 1347,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "군역(정답)",
+        "조세(오답)",
+        "요역(오답)",
+        "공납(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-042": {
+      "number": 1348,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "군역의 요역화(정답)",
+        "방납(오답)",
+        "조세 4~6두(오답)",
+        "지대(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-043": {
+      "number": 1349,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "대립(정답)",
+        "방군수포(오답)",
+        "군역의 요역화(오답)",
+        "타조법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-044": {
+      "number": 1350,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "방군수포: 16세기 성행(정답)",
+        "연분9등법(오답)",
+        "조세(오답)",
+        "타조법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-045": {
+      "number": 1351,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "타조법(정답)",
+        "전분6등법(오답)",
+        "과전법 조세(오답)",
+        "대립(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-046": {
+      "number": 1352,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "병작반수제(정답)",
+        "방군수포(오답)",
+        "관수관급제(오답)",
+        "연분9등법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-047": {
+      "number": 1353,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "타조법(정답)",
+        "연분9등법(오답)",
+        "대립(오답)",
+        "관수관급제(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-048": {
+      "number": 1354,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "유민 증가(정답)",
+        "관수관급제(오답)",
+        "고려 말 농장(오답)",
+        "과전법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-049": {
+      "number": 1355,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "명종: 구황촬요(정답)",
+        "세조: 직전법(오답)",
+        "성종: 관수관급제(오답)",
+        "중종: 향약(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-050": {
+      "number": 1356,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "16세기 유민(정답)",
+        "고려 말 농장(오답)",
+        "수신전(오답)",
+        "전제상정소(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-051": {
+      "number": 1357,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "임꺽정(정답)",
+        "이시애(오답)",
+        "망이·망소이(오답)",
+        "만적(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-052": {
+      "number": 1358,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "16세기 지대 절반(정답)",
+        "수신전(오답)",
+        "세종 전제상정소(오답)",
+        "광해군 대동법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-053": {
+      "number": 1359,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "공법(정답)",
+        "관수관급제(오답, 뒤)",
+        "방납·유민(오답, 뒤)",
+        "고려 말 농장(오답, 앞)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-054": {
+      "number": 1360,
+      "section": "조선 전기 수취 체제",
+      "coverage": [
+        "공납: 방납(정답)",
+        "광해군 대동법(오답)",
+        "과전법 조세(오답)",
+        "역: 대립·방군수포(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+    },
+    "joseonecosoc-hist-20260923-055": {
+      "number": 1361,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "조선 양천제(정답)",
+        "신라 골품제(오답)",
+        "고려 신분 구조(오답)",
+        "부여 호민·하호(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-056": {
+      "number": 1362,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "양인 자유민 · 천인 비자유민(정답)",
+        "뒤바뀜(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-057": {
+      "number": 1363,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "반상제(정답)",
+        "양천제(오답)",
+        "골품제(오답)",
+        "고려 신분 구조(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-058": {
+      "number": 1364,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "중인: 직역 세습·같은 신분 혼인(정답)",
+        "양반(오답)",
+        "신량역천(오답)",
+        "노비(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-059": {
+      "number": 1365,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "양반(정답)",
+        "중인(오답)",
+        "신량역천(오답)",
+        "노비(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-060": {
+      "number": 1366,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "중인(정답)",
+        "신량역천(오답)",
+        "천민(오답)",
+        "양반(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-061": {
+      "number": 1367,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "중인: 전문 기술·행정 실무(정답)",
+        "양반(오답)",
+        "신량역천(오답)",
+        "노비(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-062": {
+      "number": 1368,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "서자 양인 첩 · 얼자 천민 첩(정답)",
+        "뒤바뀜(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-063": {
+      "number": 1369,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "서얼: 중인 취급·승진 제한(정답)",
+        "신량역천(오답)",
+        "노비(오답)",
+        "백정(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-064": {
+      "number": 1370,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "서얼: 서자+얼자(정답)",
+        "신량역천(오답)",
+        "노비(오답)",
+        "양반(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-065": {
+      "number": 1371,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "상민: 농민 우대(정답)",
+        "중인(오답)",
+        "양반(오답)",
+        "노비(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-066": {
+      "number": 1372,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "상민: 과거 응시 자격(정답)",
+        "중인(오답)",
+        "양반(오답)",
+        "노비(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-067": {
+      "number": 1373,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "신량역천: 봉수군(정답)",
+        "공노비(오답)",
+        "중인 의관(오답)",
+        "백정(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-068": {
+      "number": 1374,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "신량역천(정답)",
+        "노비(오답)",
+        "서얼(오답)",
+        "중인(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-069": {
+      "number": 1375,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "신량역천: 법적 양인(정답)",
+        "노비(오답)",
+        "서얼(오답)",
+        "중인(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-070": {
+      "number": 1376,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "천민(정답)",
+        "신량역천(오답)",
+        "중인(오답)",
+        "양반(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-071": {
+      "number": 1377,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "노비: 재산(정답)",
+        "신량역천(오답)",
+        "중인(오답)",
+        "상민(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-072": {
+      "number": 1378,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "노비: 장례원(정답)",
+        "상민(오답)",
+        "서얼(오답)",
+        "양반(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-073": {
+      "number": 1379,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "천민: 노비 대다수(정답)",
+        "상민(오답)",
+        "중인(오답)",
+        "양반(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-074": {
+      "number": 1380,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "일천즉천(정답)",
+        "서얼 응시 금지(오답)",
+        "노비 매매 신고(오답)",
+        "군역 면제(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-075": {
+      "number": 1381,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "백정(정답)",
+        "신량역천(오답)",
+        "서얼(오답)",
+        "역관(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-076": {
+      "number": 1382,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "백정(정답)",
+        "향리(오답)",
+        "역졸(오답)",
+        "광대(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-077": {
+      "number": 1383,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "신량역천 양인 · 노비 천인(정답)",
+        "뒤바뀜(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-078": {
+      "number": 1384,
+      "section": "조선 전기 신분 제도",
+      "coverage": [
+        "양반: 반상제 지배층(정답)",
+        "중인(오답)",
+        "신량역천(오답)",
+        "노비(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 신분제"
+    },
+    "joseonecosoc-hist-20260923-079": {
+      "number": 1385,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "농본 정책(정답)",
+        "오가작통법(오답)",
+        "호패법(오답)",
+        "유향소(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-080": {
+      "number": 1386,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "두레(정답)",
+        "향도(오답)",
+        "향약(오답)",
+        "유향소(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-081": {
+      "number": 1387,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "향도(정답)",
+        "두레(오답)",
+        "향약(오답)",
+        "유향소(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-082": {
+      "number": 1388,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "두레 노동 · 향도 상장제례(정답)",
+        "뒤바뀜(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-083": {
+      "number": 1389,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "의창(정답)",
+        "동·서 대비원(오답)",
+        "제생원(오답)",
+        "유향소(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-084": {
+      "number": 1390,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "구황촬요(정답)",
+        "오가작통법(오답)",
+        "유향소(오답)",
+        "직전법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-085": {
+      "number": 1391,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "의창·상평창·사창(정답)",
+        "통제책(오답)",
+        "향촌 기구(오답)",
+        "군역 폐단(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-086": {
+      "number": 1392,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "구황촬요(정답)",
+        "농사직설(오답)",
+        "향약구급방(오답)",
+        "동의보감(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-087": {
+      "number": 1393,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "명종: 임꺽정(정답)",
+        "성종: 관수관급제(오답)",
+        "중종: 향약(오답)",
+        "성종: 유향소 재설치(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-088": {
+      "number": 1394,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "혜민서·활인서(정답)",
+        "뒤바뀜(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-089": {
+      "number": 1395,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "동·서 대비원(정답)",
+        "제생원(오답)",
+        "의창(오답)",
+        "혜민국(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-090": {
+      "number": 1396,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "제생원(정답)",
+        "혜민서(오답)",
+        "활인서(오답)",
+        "의창(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-091": {
+      "number": 1397,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "혜민서(정답)",
+        "활인서(오답)",
+        "제생원(오답)",
+        "장례원(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-092": {
+      "number": 1398,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "오가작통법(정답)",
+        "유향소(오답)",
+        "향약(오답)",
+        "의창(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-093": {
+      "number": 1399,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "오가작통법 목적(정답)",
+        "관수관급제(오답)",
+        "직전법(오답)",
+        "공법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-094": {
+      "number": 1400,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "호패법(정답)",
+        "의창(오답)",
+        "혜민서(오답)",
+        "구황촬요(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-095": {
+      "number": 1401,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "향약(정답)",
+        "두레(오답)",
+        "향도(오답)",
+        "유향소(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-096": {
+      "number": 1402,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "환난상휼(정답)",
+        "덕업상권(오답)",
+        "과실상규(오답)",
+        "예속상교(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-097": {
+      "number": 1403,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "향약: 조광조(정답)",
+        "유향소(오답)",
+        "경재소(오답)",
+        "두레(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-098": {
+      "number": 1404,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "향약: 풍속 교화·치안(정답)",
+        "경재소(오답)",
+        "두레(오답)",
+        "향도(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-099": {
+      "number": 1405,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "향약: 사림의 기반(정답)",
+        "경재소(오답)",
+        "오가작통법(오답)",
+        "농본 정책(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-100": {
+      "number": 1406,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "향약 영향(정답)",
+        "관수관급제(오답)",
+        "오가작통법(오답)",
+        "직전법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-101": {
+      "number": 1407,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "향약: 4대 덕목(정답)",
+        "두레(오답)",
+        "향도(오답)",
+        "경재소(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-102": {
+      "number": 1408,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "유향소: 좌수·별감(정답)",
+        "경재소(오답)",
+        "서원(오답)",
+        "두레(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-103": {
+      "number": 1409,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "유향소 역할(정답)",
+        "경재소(오답)",
+        "오가작통법(오답)",
+        "제생원(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-104": {
+      "number": 1410,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "성종: 경국대전(정답)",
+        "세조: 직전법(오답)",
+        "세종: 공법(오답)",
+        "명종: 구황촬요(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-105": {
+      "number": 1411,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "경재소: 유향소 품관 임명·감독(정답)",
+        "유향소(오답)",
+        "향약(오답)",
+        "향회(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-106": {
+      "number": 1412,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "경재소: 선조 때 혁파(정답)",
+        "유향소(오답)",
+        "서원(오답)",
+        "연분(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-107": {
+      "number": 1413,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "경재소: 중재(정답)",
+        "유향소(오답)",
+        "향약(오답)",
+        "오가작통법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-108": {
+      "number": 1414,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "지방 사족: 향회(정답)",
+        "중인(오답)",
+        "신량역천(오답)",
+        "노비(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-109": {
+      "number": 1415,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "소학·가묘·족보(정답)",
+        "세종 공법(오답)",
+        "명종 구황촬요(오답)",
+        "오가작통법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-110": {
+      "number": 1416,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "서원(정답)",
+        "유향소(오답)",
+        "경재소(오답)",
+        "두레(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-111": {
+      "number": 1417,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "조선 법률(정답)",
+        "고조선 범금 8조(오답)",
+        "1책 12법(오답)",
+        "고구려 제가 회의(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-112": {
+      "number": 1418,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "관찰사·수령(정답)",
+        "유향소 임원(오답)",
+        "향약 임원(오답)",
+        "오가작통(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-113": {
+      "number": 1419,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "태종: 6조 직계제(정답)",
+        "성종: 관수관급제(오답)",
+        "세종: 공법(오답)",
+        "세조: 직전법(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-114": {
+      "number": 1420,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "다→가→라→나(정답)",
+        "앞뒤 바꾼 배열(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+    },
+    "joseonecosoc-hist-20260923-115": {
+      "number": 1421,
+      "section": "조선 전기 사회 제도와 법률",
+      "coverage": [
+        "직전법 폐지(정답)",
+        "직전법 실시(오답, 앞)",
+        "공법(오답, 앞)",
+        "대동법(오답, 뒤)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
     }
   }
 };

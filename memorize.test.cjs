@@ -134,9 +134,12 @@ assert.equal(M.size(countries),30);
  assert(back('history-heritage','개성 경천사지 10층 석탑').includes('원의 영향')&&back('history-heritage','안동 봉정사 극락전').includes('가장 오래된'));}
 // 경제·사회 제도(07·13강 중심) → 왕·한 줄. 왕이 붙은 칸은 그 왕의 사실에 제도 이름이 들어 있어야 한다.
 {const set=M.get('history-economy');assert(set&&set.groups&&set.subject==='한국사','history-economy set');
- assert.deepEqual(set.groups.map(g=>g.title),['삼국·남북국 경제','고려 토지·수취','고려 상업·화폐·농업','고려 사회','조선 전기 제도·향촌']);assert.equal(M.size(set),47);
+ assert.deepEqual(set.groups.map(g=>g.title),['삼국·남북국 경제','고려 토지·수취','고려 상업·화폐·농업','고려 사회','조선 전기 제도·향촌']);assert.equal(M.size(set),59);
  let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)),'history-economy: '+king+'('+country+') facts name '+front);}
- assert.equal(anchored,26,'왕에 걸린 제도 26(2026-09-19 호패법·신문고 태종, 직전법·유향소 세조), 나머지 21은 왕이 하나로 정해지지 않아 나라·시기만');
+ assert.equal(anchored,31,'왕에 걸린 제도 31(2026-09-19 호패법·신문고 태종, 직전법·유향소 세조 / 2026-09-23 19강 공법 세종·관수관급제 성종·직전법 폐지와 『구황촬요』 명종·경재소 선조), 나머지 28은 왕이 하나로 정해지지 않아 나라·시기만');
+ // 19강: 여러 왕에 걸치거나 시작 왕이 교재에 없는 제도(오가작통법·16세기 폐단·신분·의료 기관 묶음)는 왕을 붙이지 않는다.
+ for(const front of ['오가작통법','방납·대립·방군수포','신량역천','혜민서·활인서·제생원','수신전·휼양전','타조법(병작반수)','향회'])assert(anchorsOf(back('history-economy',front)).length===0,'no forced king (19강): '+front);
+ for(const [front,king] of [['공법','세종(조선)'],['관수관급제','성종(조선)'],['직전법 폐지','명종(조선)'],['『구황촬요』','명종(조선)'],['경재소','선조(조선)']])assert(back('history-economy',front).startsWith(king),front+' → '+king);
  for(const [front,king] of [['진대법','고국천왕(고구려)'],['관료전','신문왕(신라)'],['정전','성덕왕(신라)'],['녹읍 부활','경덕왕(신라)'],['역분전','태조(고려)'],['시정 전시과','경종(고려)'],['개정 전시과','목종(고려)'],['경정 전시과','문종(고려)'],['과전법','공양왕(고려)'],['건원중보','성종(고려)'],['은병·해동통보','숙종(고려)'],['흑창','태조(고려)'],['의창·상평창','성종(고려)'],['제위보','광종(고려)']])assert(back('history-economy',front).startsWith(king),front+' → '+king);
  // 여러 왕에 걸치거나 기록이 갈리는 제도는 왕을 붙이지 않는다(공음전·녹과전·경시서·벽란도·민정 문서·구제 기관).
  for(const front of ['공음전','녹과전','경시서','벽란도','민정 문서(신라 촌락 문서)','동·서 대비원','혜민국','구제도감·구급도감'])assert(anchorsOf(back('history-economy',front)).length===0,'no forced king: '+front);}
