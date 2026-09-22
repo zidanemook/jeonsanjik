@@ -3,21 +3,29 @@
 // 처음 맞힌 문제와 틀렸던 문제를 맞힌 경우가 가장 크다. 하루 목표는 기본값이 없고 사용자가 직접 정했을 때만 쓴다.
 // 풀이 기록(history)과 해설 기록에서 매번 다시 계산하므로 따로 저장·동기화할 것이 없다(기기마다 같은 레벨).
 (function(root){
- const XP={wrong:5,unsure:7,correct:10,first:15,recover:15,explanation:2};
+ // v136 사용자: "틀렸다 다음에 맞추는 거를 점수를 더 주고, 7일 지나면 좀 더 주고, 14일 지나서 맞추면 좀 더 주고".
+ // 단계는 복습 일정·외운 규칙과 같다: 맞힌 날부터 7일 → 그 뒤 14일 → 그 뒤 30일(외움), 틀리면 처음부터. 외운 문제를 다시 맞히면 기본 점수만(사용자: "노력한 만큼 — 외운 상태인 거를 맞추는 거는 기본 경험치만").
+ // v137 리밸런스(사용자: "점수가 너무 큰 거 아냐 — 적당한 값", "인플레이션이 있으면 안 되는디", "일부러 틀리거나 하지는 않겠지?"):
+ // 작은 고정값. 일부러 틀려도 이득이 없게 — 틀림 1 + 다시 맞힘 3 = 처음 맞힘 4, 단계 보너스는 문제마다 처음 도달할 때 한 번만.
+ const XP={wrong:1,unsure:1,correct:2,first:2,recover:1,stage:[4,6,10],explanation:1};
+ const STAGE_LABELS=['7일 뒤 다시 맞힘','14일 뒤 다시 맞힘','30일 뒤 다시 맞힘 · 외움'];
  const day=(ms=Date.now())=>new Date(ms+9*3600000).toISOString().slice(0,10);
  const prevDay=d=>new Date(Date.parse(d+'T00:00:00Z')-86400000).toISOString().slice(0,10);
- // prev: 이 문제의 앞선 결과들(오래된 것부터). 기본 점수는 틀려도 0보다 크다.
- function award(prev,result){
+ // prev: 이 문제의 앞선 결과들(오래된 것부터). step: 이번 정답으로 오른 단계(1~3) 또는 없음.
+ // 기본 점수는 틀려도 0보다 크다.
+ function award(prev,result,step){
   const parts=[{label:result==='correct'?'정답':result==='unsure'?'풀이':'도전',xp:XP[result]||XP.wrong}];
   if(result==='correct'){
    if(!prev.length)parts.push({label:'처음 맞힘',xp:XP.first});
    else if(prev[prev.length-1]!=='correct')parts.push({label:'틀렸던 문제 맞힘',xp:XP.recover});
+   if(step)parts.push({label:STAGE_LABELS[step-1],xp:XP.stage[step-1]});
   }
   return {xp:parts.reduce((a,p)=>a+p.xp,0),parts};
  }
  // 레벨 L에서 L+1로 가는 데 필요한 경험치. 처음엔 빨리 오르고 조금씩 길어진다.
  // v127 리밸런스: 전체 레벨도 과목 레벨과 같은 계단(100+215(L-1))을 쓴다. 상한은 두지 않는다(9999는 평생 못 닿는다).
- const need=level=>100+215*(level-1);
+ // v137: XP를 약 1/5로 줄이면서 계단도 같이 줄여 오르는 속도는 그대로(한 과목 하루 약 100문제 ≈ 300 XP 기준 레전드 Lv20 약 26일).
+ const need=level=>20+43*(level-1);
  function level(total){let l=1,rest=total;while(rest>=need(l)){rest-=need(l);l++;}return {level:l,into:rest,need:need(l)};}
  function rows(history){
   return (history||[]).filter(r=>r&&r.mode==='quiz'&&typeof r.cardId==='string'&&typeof r.date==='string')
@@ -26,8 +34,14 @@
  // 기록 전체를 한 번 훑어 행마다 받은 경험치를 매긴다.
  function ledger(history){
   const byCard=new Map(),out=[];
-  const lastDate=new Map();
-  for(const r of rows(history)){const prev=byCard.get(r.cardId)||[];const a=award(prev,r.result),before=lastDate.get(r.cardId);
+  const lastDate=new Map(),stage=new Map(),best=new Map(); // best: 문제마다 도달했던 가장 높은 단계(보너스는 처음 도달할 때만)
+  for(const r of rows(history)){const prev=byCard.get(r.cardId)||[],before=lastDate.get(r.cardId);
+   // 문제마다 단계(mastered와 같은 규칙): 맞힌 날이 기준점, 기준점에서 7·14·30일 이상 지나 맞히면 한 단계.
+   let step=null;const st=stage.get(r.cardId);
+   if(r.result!=='correct')stage.set(r.cardId,{stage:0,anchor:null});
+   else if(!st||!st.anchor)stage.set(r.cardId,{stage:0,anchor:r.date});
+   else if(st.stage<STAGE_GAPS.length&&daysBetween(st.anchor,r.date)>=STAGE_GAPS[st.stage]){st.stage++;st.anchor=r.date;const top=best.get(r.cardId)||0;if(st.stage>top){step=st.stage;best.set(r.cardId,st.stage);}}
+   const a=award(prev,r.result,step);
    // 장기기억 확인: 앞선 풀이에서 LONG_DAYS일 이상 지나 다시 푼 풀이.
    const check=!!before&&daysBetween(before,r.date)>=LONG_DAYS;
    out.push({id:r.id,cardId:r.cardId,date:r.date,result:r.result,first:!prev.length,check,...a});prev.push(r.result);byCard.set(r.cardId,prev);lastDate.set(r.cardId,r.date);}
