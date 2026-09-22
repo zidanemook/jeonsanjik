@@ -138,6 +138,32 @@ function sequenceBias(items){
   for(const c of e.choices){const parts=c.split(' → ');assert(parts.join('')!==labels.slice(0,parts.length),'Label-order question offers the listing order '+c+' as a choice (list the items out of order): '+e.exerciseId);}}
  return checked;
 }
-function verify(items,ledger){single(items);structural(items);concepts(items);coverage(items);lengthBias(items);sequenceBias(items);assert.equal(ledger.schema,1);assert.equal(Object.keys(ledger.items).length,items.length,'Unreviewed addition/deletion');for(const item of items)assert.equal(ledger.items[item.exercise.exerciseId],digest(item),'Content changed: review meaning, alternatives and context before updating ledger: '+item.exercise.exerciseId);}
-module.exports={catalog,digest,single,concepts,structural,coverage,lengthBias,sequenceBias,verify};
-if(require.main===module){const items=catalog();verify(items,JSON.parse(fs.readFileSync(__dirname+'/content-review.json','utf8')));const bias=lengthBias(items);console.log('PASS content audit: '+items.length+' reviewed exercises, every card exactly one question; structure, answer acceptance, context regression and review fingerprints; length bias '+bias.longest+'/'+bias.total+' ('+(bias.ratio*100).toFixed(1)+'%, limit '+(LONGEST_LIMIT*100).toFixed(1)+'%, chance 25%) self-made choice answers uniquely longest, mean +'+bias.delta.toFixed(1)+' chars vs distractor average, per-question margin <='+MARGIN+'; '+bias.photo+' photo-option exercises gated by image/licence checks instead of option length');}
+// 시대 딱지 노출(HISTORY-QUESTION-RULES.md 2-3의 7). 2026-09-22 사용자 지적: 자료가 '조선의 지방군'인데 오답이 "평상시 농사를 짓는 고려 5도의 예비군"이라
+// '고려'라는 낱말만 보고 지울 수 있었다. 자체 제작 한국사 4지선다에서 오답에 정답 보기에 없는 나라·시대 이름이 있으면 멈춘다.
+// 딱지가 아닌 경우(보기 네 개가 모두 나라·시대를 단 병렬 구조, 사건의 행위자·대상, 대상 자신, 지명·성씨·책 이름)는
+// 문항을 읽고 판정한 뒤 era-label-allowlist.json에 이유와 함께 적는다. 허용 목록은 걸린 낱말까지 고정한다(같은 문항에 새 나라 이름이 끼면 다시 멈춘다).
+const ERA_WORDS=['통일 신라','대한 제국','후고구려','금관가야','후백제','고조선','고구려','대가야','남북국','구석기','신석기','청동기','백제','신라','가야','발해','태봉','고려','조선','부여','옥저','동예','삼한','마한','진한','변한','철기','일제'];
+const ERA_RE=new RegExp(ERA_WORDS.map(w=>w.replace(' ','\\s?')).join('|'),'g');
+function eraWords(text){const out=new Set();for(const m of text.matchAll(ERA_RE)){const prev=text[m.index-1]||'',next=text[m.index+m[0].length]||'';
+ if(/[가-힣]/.test(prev))continue; // 반발해·위만조선·남부여처럼 낱말 안에 든 글자
+ if(m[0]==='고려'&&/[하해한할되됨]/.test(next))continue; // 고려하다(생각하다)
+ out.add(m[0].replace(/\s/g,'').replace('통일신라','통일 신라').replace('대한제국','대한 제국'));}return out;}
+function eraLabelHits(exercise){const answer=eraWords(exercise.choices[exercise.correctIndex]),hit=new Set();
+ exercise.choices.forEach((c,i)=>{if(i!==exercise.correctIndex)for(const w of eraWords(c))if(!answer.has(w))hit.add(w);});return [...hit].sort();}
+function eraLabels(items,allow=JSON.parse(fs.readFileSync(__dirname+'/era-label-allowlist.json','utf8'))){
+ assert.equal(allow.schema,1);
+ // 대조군: 사용자가 신고한 원래 보기(2026-09-22 고치기 전)는 반드시 걸려야 한다. 걸리지 않으면 검사기 자체가 망가진 것이다.
+ assert.deepEqual(eraLabelHits({choices:['병마절도사와 수군절도사의 지휘를 받았다.','궁궐과 수도를 지키는 중앙군으로 편성되었다.','향리·잡학인·노비 등으로 이루어진 예비군이었다.','평상시 농사를 짓는 고려 5도의 예비군이었다.'],correctIndex:0}),['고려'],'Era-label detector control failed');
+ assert.deepEqual(eraLabelHits({choices:['신문왕 때 세워졌다','발해에서 주자감이라 불렸다','고구려 소수림왕 때 세웠다','고려하여 새로 만들었다'],correctIndex:0}),['고구려','발해'],'Era-label detector control failed');
+ let checked=0;const seen=new Set();
+ for(const item of items){const e=item.exercise;if(item.card.subject!=='한국사'||e.type!=='choice'||VERBATIM_OFFICIAL.test(item.card.id)||e.choiceImages)continue;checked++;
+  const hits=eraLabelHits(e);if(!hits.length)continue;const ok=allow.items[item.card.id];
+  assert(ok,'Era label giveaway: a distractor names '+hits.join('·')+' but the correct option does not; rewrite it (same-era fact, no label) or review and allowlist it with a reason in era-label-allowlist.json: '+item.card.id);
+  assert(hits.every(w=>ok.words.includes(w)),'Era label giveaway: new era word '+hits.filter(w=>!ok.words.includes(w)).join('·')+' in a reviewed question: '+item.card.id);
+  assert(typeof ok.reason==='string'&&ok.reason.length>=4,'Allowlisted era label needs a reason: '+item.card.id);seen.add(item.card.id);}
+ for(const id of Object.keys(allow.items))assert(seen.has(id),'Stale era-label allowlist entry (no longer hits, remove it): '+id);
+ return {checked,allowed:seen.size};
+}
+function verify(items,ledger){single(items);structural(items);concepts(items);coverage(items);lengthBias(items);sequenceBias(items);eraLabels(items);assert.equal(ledger.schema,1);assert.equal(Object.keys(ledger.items).length,items.length,'Unreviewed addition/deletion');for(const item of items)assert.equal(ledger.items[item.exercise.exerciseId],digest(item),'Content changed: review meaning, alternatives and context before updating ledger: '+item.exercise.exerciseId);}
+module.exports={catalog,digest,single,concepts,structural,coverage,lengthBias,sequenceBias,eraLabelHits,eraLabels,verify};
+if(require.main===module){const items=catalog();verify(items,JSON.parse(fs.readFileSync(__dirname+'/content-review.json','utf8')));const bias=lengthBias(items),era=eraLabels(items);console.log('PASS content audit: '+items.length+' reviewed exercises, every card exactly one question; structure, answer acceptance, context regression and review fingerprints; length bias '+bias.longest+'/'+bias.total+' ('+(bias.ratio*100).toFixed(1)+'%, limit '+(LONGEST_LIMIT*100).toFixed(1)+'%, chance 25%) self-made choice answers uniquely longest, mean +'+bias.delta.toFixed(1)+' chars vs distractor average, per-question margin <='+MARGIN+'; '+bias.photo+' photo-option exercises gated by image/licence checks instead of option length; era-label giveaway check over '+era.checked+' self-made history choice questions ('+era.allowed+' reviewed exceptions)');}
