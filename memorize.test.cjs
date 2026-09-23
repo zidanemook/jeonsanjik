@@ -179,9 +179,9 @@ for(const set of M.sets.filter(s=>s.subject==='한국사'))for(const t of [set.t
  assert(H&&set&&set.subject==='한국사'&&set.groups,'history-mnemonics set');assert.equal(set.title,'내가 만든 외우는 낱말');
  assert.equal(H.attach,undefined,'문제 해설에 붙이던 대응표는 없앴다');
  // 남은 것은 사용자가 만든 낱말뿐이다(원본 research/king-word-mnemonics/USER-WORDS.md). 내가 만든 블록이 다시 들어오면 여기서 잡힌다.
- const USER_WORDS=['인지상정','현기증 초조함','고생','화통 우직','성사림','연무갑 · 중기묘 · 명을사','무김조','중종조광조 · 조현량','신동기서 · 선동서','수양계 유정란'];
+ const USER_WORDS=['인지상정','현기증 초조함','고생','화통 우직','성사림','연무갑 · 중기묘 · 명을사','무김조','중종조광조 · 조현량','신동기서 · 선동서','수양계 유정란','숙주나물 해동'];
  assert.deepEqual(H.blocks.map(b=>b.hook).sort(),[...USER_WORDS].sort(),'사용자가 만든 낱말만 남는다');
- assert.equal(H.blocks.length,10);assert.equal(M.size(set),10);
+ assert.equal(H.blocks.length,11);assert.equal(M.size(set),11);
  const METHODS=['두문자','새 단어','글자 풀이','장면','이야기'];
  assert.deepEqual(set.groups.map(g=>g.title),H.era.filter((_,i)=>H.blocks.some(b=>b.era===i)),'시대 묶음 순서');
  for(const g of set.groups)assert.deepEqual(g.cards,H.blocks.filter(b=>H.era[b.era]===g.title).map(b=>[b.target,H.back(b)]),'외울 것 = 낱말 블록: '+g.title);
@@ -200,7 +200,7 @@ for(const set of M.sets.filter(s=>s.subject==='한국사'))for(const t of [set.t
   assert.deepEqual(letterProblems(b),[],'글자↔사실: '+b.id);assert.deepEqual(kingProblems(b),[],'왕 사실: '+b.id);
   const text=H.text(b);assert(!/\n\s*\n/.test(text)&&!/[①-⑤]/.test(text),'block text: '+b.id);}
  assert(H.blocks.filter(b=>b.king||b.items.some(i=>(i[2]||{}).king)).length>=6,'왕을 단 블록');
- assert.equal(H.get('king-word-gojong').hook,'고생');assert.equal(H.get('joseon-bungdang').hook,'신동기서 · 선동서');
+ assert.equal(H.get('king-word-gojong').hook,'고생');assert.equal(H.get('sinsukju-haedongjegukgi').hook,'숙주나물 해동'); // 2026-09-23 사용자: 신숙주 → 숙주나물, 『해동제국기』 → 해동assert.equal(H.get('joseon-bungdang').hook,'신동기서 · 선동서');
  // 대조군: 열쇠 글자를 바꾸거나 왕 사실에 없는 말을 넣으면 잡힌다.
  {const b=H.get('muo-sahwa');assert.notDeepEqual(letterProblems({...b,hook:'무김종'}),[]);
   assert.notDeepEqual(kingProblems({...b,king:'조선:중종'}),[]);
