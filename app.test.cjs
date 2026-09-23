@@ -315,6 +315,17 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  assert.deepEqual([...fresh].sort(),[...base].sort(),'안 푼 문제 먼저는 순열이어야 한다(빠지는 카드 없음)');
  assert.deepEqual(fresh.slice(-2).sort(),[inside[4],inside[1]].sort(),'푼 적 있는 문제는 뒤로 밀린다');
 
+ // 과목별 모드(v148): 영어에서 고른 모드는 한국사에 번지지 않고, 한국사에서 고른 모드도 영어를 바꾸지 않는다. 옛 공통 모드는 과목별로 처음 고를 때 지운다.
+ run("openScope({subject:'한국사'})");
+ assert.equal(run('queueMode()'),'default','영어의 안 푼 문제 먼저가 한국사로 번지지 않는다');
+ run("setQueueMode('wrong')");assert.equal(run('queueMode()'),'wrong');
+ assert.equal(run("queueMode('영어')"),'fresh','한국사를 바꿔도 영어는 그대로');
+ run("setQueueMode('default')");assert.equal(run('JSON.stringify(data.queueModes)'),JSON.stringify({'영어':'fresh'}),'기본 모드는 적지 않는다');
+ assert.equal(run('data.queueMode'),undefined,'옛 공통 모드는 남지 않는다');
+ assert.throws(()=>run("validateBackup({version:3,cards:[],history:[],queueModes:{'영어':'nope'}})"),/대기열/,'잘못된 과목별 모드는 거절');
+ assert.equal(run("(()=>{const s=data.queueModes;delete data.queueModes;data.queueMode='wrong';const r=queueMode('국어');delete data.queueMode;data.queueModes=s;return r;})()"),'wrong','과목별 선택이 없던 옛 저장은 공통 모드를 그대로 읽는다');
+ run("openScope({subject:'영어',topic:'Day 2'})");assert.equal(run('queueMode()'),'fresh');
+
  // 오답이 없는 범위에서 '틀린 문제 위주'를 켜면 막다른 길 대신 안내와 되돌리기를 준다.
  run("setQueueMode('wrong')");
  run("openScope({subject:'영어',topic:'Day 3'})");
