@@ -202,8 +202,11 @@ assert.equal(catalog.sets.filter(s=>s.title.startsWith('20강 조선 전기(문�
 {const material=ids20.filter(id=>cards.get(id).question.includes('\n'));for(const id of material)assert(cards.get(id).question.includes('\n\n['),'Material format: '+id);assert(material.length*2>=ids20.length,'20강 자료 제시형이 절반 이상: '+material.length);
  for(const id of ids20){const o=ctx.QUIZ_OPTIONS[id];assert.equal(o.correctIndex,0);assert.equal(cards.get(id).answer,o.choices[0]);for(const c of o.choices)assert(!/\d{3,4}\s*년|\b1[0-9]{3}\b/.test(c),'20강 보기에 연도: '+id);}
  for(const id of ids20)assert(!/[\u4e00-\u9fff]/.test(cards.get(id).question+cards.get(id).explanation),'20강 한자: '+id);
- // 해설 세 칸이 모두 있고, 기억 연결 줄에도 왕 표기가 있다(왕이 정하지 않은 것은 '정한 왕 없음', 상설 교육 기관은 '조선 내내 운영').
- for(const id of ids20){const e=cards.get(id).explanation;assert(/^정답 근거: [\s\S]+\n\n보기 비교: [\s\S]+\n\n기억 연결: /.test(e),'20강 해설 세 칸: '+id);assert(/(태조|태종|세종|문종|세조|성종|중종|명종|선조|숙종) 때|정한 왕 없음|조선 내내 운영|왕이 죽을 때마다/.test(e.split('기억 연결: ')[1]),'20강 기억 연결 왕 표기: '+id);}}
+ // 해설 세 칸이 모두 있다. '(○○ 때)'는 그 일이 있었던 재위다(2026-09-23 부모 검토): 조선 내내 이어진 기관·기록·흐름에는 왕 표기를 달지 않으므로
+ // '정한 왕 없음'·'조선 내내 운영' 같은 표기는 쓰지 않고, 한 칸 안에서 같은 책의 재위 괄호는 한 번, 실록의 '(왕마다 죽은 뒤 편찬)'은 해설 하나에 한 번까지.
+ for(const id of ids20){const e=cards.get(id).explanation;assert(/^정답 근거: [\s\S]+\n\n보기 비교: [\s\S]+\n\n기억 연결: /.test(e),'20강 해설 세 칸: '+id);
+  assert(!/정한 왕 없음|조선 내내/.test(e),'20강 해설에 정한 왕 없음·조선 내내 표기 없음: '+id);assert((e.match(/왕마다 죽은 뒤 편찬/g)||[]).length<=1,'20강 실록 표기 한 번: '+id);
+  for(const part of e.split('\n\n')){const seen=new Map();for(const m of part.matchAll(/(『[^』]+』)\(([^()]*때[^()]*)\)/g))seen.set(m[1],(seen.get(m[1])||0)+1);for(const [book,n] of seen)assert(n===1,'20강 한 칸에 같은 책 재위 표기 한 번: '+id+' '+book);}}}
 // 사진 보기 문항: 네 보기가 모두 사진이고, 저장된 파일을 가리키며, 화면에 띄울 출처표시를 보기마다 들고 있어야 한다.
 const photoIds=Object.keys(catalog.questions).filter(id=>id.startsWith('photo-hist-20260912-'));
 assert.equal(photoIds.length,7,'Photo-option questions missing from the catalog');
