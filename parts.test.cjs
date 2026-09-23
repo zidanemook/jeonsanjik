@@ -57,6 +57,10 @@ const counts={};
  for(const l of CAT.lectures)assert.ok(PARTS.units.some(u=>u.scope.round==='lecture-'+l.id),'한국사 '+l.title+'에 파트가 있다');
  for(const t of ['Day 1','Day 2','Day 3','Day 4','Day 5','문법 공식 훈련','논리 1장','논리 2장','논리 3장','논리 4장','논리 5장','논리 6장','독해 1장'])assert.ok(PARTS.units.some(u=>u.scope.topic===t),t+'에 파트가 있다');
  const h19=PARTS.units.find(u=>u.id==='hist-19');assert.equal(h19.parts.length,8);assert.equal(h19.parts.reduce((n,p)=>n+p.ids.length,0),115);
+ // 2026-09-23 20강 조선 전기(문화 I): facts.cjs 묶음 15개 → 8파트, 99문제. 파트마다 8문제 이상이고 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
+ const h20=PARTS.units.find(u=>u.id==='hist-20');assert.equal(h20.title,'20강 조선 전기(문화 I)');
+ assert.deepEqual(h20.parts.map(p=>p.title),['성균관·4부 학당·향교','서원·서당','성리학의 발달과 이황','이이·학파와 붕당','불교와 도교','역사서·실록·승정원일기','지도·지리서','의례서·법전·음악']);
+ assert.equal(h20.parts.reduce((n,p)=>n+p.ids.length,0),99);assert.ok(h20.parts.every(p=>p.ids.length>=8),'20강 파트마다 8문제 이상');
 }
 
 // ── 3) 앱
