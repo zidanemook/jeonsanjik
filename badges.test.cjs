@@ -53,12 +53,15 @@ const seed=R(`(()=>{const today=ReviewSchedule.day(),ago=n=>ReviewSchedule.plus(
  const exam=s=>data.cards.filter(c=>c.subject===s&&/^gichul-/.test(c.id)).map(c=>c.id);
  exam('컴퓨터일반').slice(0,12).forEach((id,i)=>add(id,3,i<9?'correct':'wrong'));
  exam('정보보호론').slice(0,3).forEach(id=>add(id,3,'correct'));
+ data.cards.filter(c=>/^hanneung-/.test(c.id)).slice(0,11).forEach((c,i)=>add(c.id,3,i<8?'correct':'wrong'));
+ exam('한국사').slice(0,4).forEach(id=>add(id,3,'correct'));
  const next=ProgressSync.merge(data,rows);commit(next);go('home');return {rows:rows.length,p0:p19[0].id,p3:p19[3].id,p3title:'19강 '+p19[3].title,sec:exam('정보보호론').slice(3,10)};})()`);
 const badges=J('subjectBadges()');
 assert.equal(badges['컴퓨터일반'].exam.ready,true);assert.equal(badges['컴퓨터일반'].exam.score,R('ExamScore.estimate(9,12).score'));
 assert.equal(badges['컴퓨터일반'].exam.tier.id,R('StudyXp.tier(ExamScore.estimate(9,12).score).id'));
 assert.deepEqual([badges['정보보호론'].exam.ready,badges['정보보호론'].exam.n,badges['정보보호론'].exam.need],[false,3,7],'10문제 미만 → 아직');
 assert.equal(badges['컴퓨터일반'].self.ready,false,'자체제작 문제가 없는 과목 → 아직');
+assert.deepEqual([badges['한국사'].exam.source,badges['한국사'].exam.ready,badges['한국사'].exam.n,badges['한국사'].exam.score],['한능검 심화',true,11,R('ExamScore.estimate(8,11).score')],'한국사 기출 뱃지 = 한능검 심화 첫 풀이(9급 한국사 기출은 안 셈)');
 const hist=badges['한국사'].self,groupsN=cover['한국사'].groups;
 assert.equal(hist.groups.find(g=>g.id===seed.p0).pct,100,'19강 첫 파트 전부 외움');
 assert.equal(hist.pct,Math.floor(100/groupsN*10)/10,'파트 평균 = 100 / 파트 수(한 파트만 외움)');
@@ -96,12 +99,12 @@ box=tap('#subjectList','한국사','self');
 // 과목 화면: 레벨 줄 + 뱃지 둘, 눌러서 설명
 R("go('subject','한국사')");assert.equal(node('#badgeInfo').hidden,true,'화면을 옮기면 설명은 닫힌다');
 assert.equal(node('#subjectBadge').children[0].className,'level-badge lv-plain big');
-assert.match(text(node('#subjectLevel')),/^Lv \d+ · 다음 레벨까지 \d+ XP · 이 과목 누적 \d+ XP기출 아직자체제작 .+뱃지를 누르면 무엇으로 정해지는지 보여 줘요\.$/);
+assert.match(text(node('#subjectLevel')),new RegExp('^Lv [0-9]+ · 다음 레벨까지 [0-9]+ XP · 이 과목 누적 [0-9]+ XP기출 '+badges['한국사'].exam.tier.name+'자체제작 .+뱃지를 누르면 무엇으로 정해지는지 보여 줘요[.]$'));
 box=tap('#subjectLevel',null,'self');assert.equal(text(box.children[0].children[0]),'한국사 자체제작 뱃지 · '+hist.tier.name);
 // 홈 카드: 전체 뱃지 = 과목 뱃지의 평균
 R("go('home')");box=tap('#xpAcc',null,'exam');
 {const x=J("StudyXp.explainBadge(StudyXp.overallBadges(subjectBadges()).exam)");assert.equal(text(box.children[0].children[0]),x.title);assert.match(x.title,/^전체 기출 뱃지 · /);
- assert.deepEqual(lines(box),x.lines);assert.equal(x.lines[1],'컴퓨터일반 '+badges['컴퓨터일반'].exam.score+'점');assert.match(text(box),/아직 등급이 없는 과목: .*정보보호론\(7문제 더\)/);}
+ assert.deepEqual(lines(box),x.lines);assert.equal(x.lines[1],'한국사 '+badges['한국사'].exam.score+'점 · 컴퓨터일반 '+badges['컴퓨터일반'].exam.score+'점');assert.match(text(box),/아직 등급이 없는 과목: .*정보보호론\(7문제 더\)/);}
 R('closeBadgeInfo()');
 
 // ── 4) 해설 화면: 정보보호론 기출 10문제째를 풀면 기출 뱃지가 생겼다고 알린다(9문제까지는 없음)

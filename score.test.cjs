@@ -23,4 +23,9 @@ assert.equal(S.summary(paper('korean',18,20),subjectOf).total,null);
 // 사용자가 정한 목표. 이상한 값이면 기본값.
 assert.deepEqual(S.summary(all,subjectOf,{name:'서울 전산9급',cutoff:92,bonus:0}).target,{name:'서울 전산9급',cutoff:92,bonus:0});
 assert.deepEqual(S.target({name:'',cutoff:87,bonus:5}),S.DEFAULT_TARGET);assert.deepEqual(S.target({name:'x',cutoff:500,bonus:5}),S.DEFAULT_TARGET);
+// 한능검 심화 기출은 순위 점수와 따로 한국사 행의 hanneung에 모인다(한국사 기출 뱃지용). 처음 푼 것만, 10문제부터.
+{const hh=Array.from({length:12},(_,i)=>row('hanneung-75-'+String(i+1).padStart(2,'0'),i<9?'correct':'wrong'));
+ const t=S.summary([...hh,row('hanneung-75-01','correct','2026-09-20')],subjectOf).subjects.find(x=>x.subject==='한국사');
+ assert.equal(t.n,0);assert.equal(t.hanneung.source,'한능검 심화');assert.equal(t.hanneung.n,12);assert.equal(t.hanneung.correct,9);assert.equal(t.hanneung.ready,true);assert.equal(t.hanneung.score,S.estimate(9,12).score);
+ const few=S.summary(hh.slice(0,9),subjectOf).subjects.find(x=>x.subject==='한국사').hanneung;assert.equal(few.ready,false);assert.equal(few.need,1);assert.equal(few.score,undefined);}
 console.log('PASS score: official first attempts only, 80% range, self-made as reference, 4-subject average + bonus vs custom target');

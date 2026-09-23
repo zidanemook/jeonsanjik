@@ -23,10 +23,12 @@
  }
  // subjectOf(cardId) → 과목 이름(없으면 null). 과목마다 기출 첫 풀이 k/n과 자체제작 첫 풀이 정답률.
  function summary(history,subjectOf,t){
-  const first=firstAttempts(history),per=new Map(),get=s=>{if(!per.has(s))per.set(s,{subject:s,n:0,k:0,selfN:0,selfK:0});return per.get(s);};
-  for(const [id,a] of first){const s=subjectOf(id);if(!s)continue;const x=get(s);if(official(id)){x.n++;if(a.ok)x.k++;}else if(!hanneung(id)){x.selfN++;if(a.ok)x.selfK++;}}
-  const subjects=[...new Set([...RANKED,...per.keys()])].map(s=>{const x=per.get(s)||{subject:s,n:0,k:0,selfN:0,selfK:0};
-   return {subject:s,ranked:RANKED.includes(s),n:x.n,correct:x.k,ready:x.n>=MIN,need:Math.max(0,MIN-x.n),...(x.n>=MIN?estimate(x.k,x.n):{}),self:x.selfN?{n:x.selfN,rate:Math.round(x.selfK/x.selfN*100)}:null};});
+  const first=firstAttempts(history),per=new Map(),get=s=>{if(!per.has(s))per.set(s,{subject:s,n:0,k:0,selfN:0,selfK:0,hN:0,hK:0});return per.get(s);};
+  for(const [id,a] of first){const s=subjectOf(id);if(!s)continue;const x=get(s);if(official(id)){x.n++;if(a.ok)x.k++;}else if(hanneung(id)){x.hN++;if(a.ok)x.hK++;}else{x.selfN++;if(a.ok)x.selfK++;}}
+  const subjects=[...new Set([...RANKED,...per.keys()])].map(s=>{const x=per.get(s)||{subject:s,n:0,k:0,selfN:0,selfK:0,hN:0,hK:0};
+   return {subject:s,ranked:RANKED.includes(s),n:x.n,correct:x.k,ready:x.n>=MIN,need:Math.max(0,MIN-x.n),...(x.n>=MIN?estimate(x.k,x.n):{}),self:x.selfN?{n:x.selfN,rate:Math.round(x.selfK/x.selfN*100)}:null,
+    // 한능검 심화 기출 첫 풀이(v146 · 2027년부터 9급 한국사는 한능검 3급 대체라 한국사 기출 뱃지는 이것으로 매긴다). 순위 점수에는 넣지 않는다.
+    hanneung:{subject:s,source:'한능검 심화',n:x.hN,correct:x.hK,ready:x.hN>=MIN,need:Math.max(0,MIN-x.hN),...(x.hN>=MIN?estimate(x.hK,x.hN):{})}};});
   const goal=target(t),ranked=subjects.filter(s=>s.ranked),ready=ranked.filter(s=>s.ready);
   let total=null;
   if(ready.length===RANKED.length){

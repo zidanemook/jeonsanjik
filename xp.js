@@ -102,8 +102,9 @@
  // examBadge(row): row = ExamScore.summary(...).subjects의 한 과목({n, ready, need, score}).
  function examBadge(row){
   const n=row?.n||0;
-  if(!row||!row.ready||!Number.isFinite(row.score))return {kind:'exam',ready:false,n,need:Math.max(0,(row?.need??10)),score:null,tier:null,next:null};
-  return {kind:'exam',ready:true,n,correct:row.correct,score:row.score,tier:tier(row.score),next:nextTier(row.score)};
+  const source=row?.source||null;
+  if(!row||!row.ready||!Number.isFinite(row.score))return {kind:'exam',source,ready:false,n,need:Math.max(0,(row?.need??10)),score:null,tier:null,next:null};
+  return {kind:'exam',source,ready:true,n,correct:row.correct,score:row.score,tier:tier(row.score),next:nextTier(row.score)};
  }
  // states: conceptStates(자체제작 풀이 행) · groups: [{id,title,ids,scope}] — 과목의 파트(+대체 묶음).
  // 약한 파트: 외운 비율이 낮은 순. 같으면 지금 틀려 있는(마지막에 틀리고 아직 다시 못 맞힌) 비율이 높은 파트 먼저,
@@ -136,8 +137,9 @@
   const title=label+' · '+(b.ready?b.tier.name:'아직'),lines=[];let note='',weak=[];
   const nextLine=()=>b.next?'다음 등급('+b.next.name+' '+b.next.pct+unit+')까지 '+num(b.next.gap)+unit+' 남았어요':'가장 높은 등급('+b.tier.name+')이에요';
   if(exam&&!b.overall){
-   if(b.ready){lines.push('기출을 처음 풀었을 때 기준 예상 점수: '+b.score+'점',nextLine());note='처음 푼 기출 '+b.n+'문제 기준이에요. 다시 풀어서 맞힌 건 점수에 넣지 않아요.';}
-   else{lines.push('기출을 처음 풀었을 때 기준 예상 점수로 등급을 매겨요.',b.n?'지금까지 처음 푼 기출 '+b.n+'문제 — '+b.need+'문제 더 풀면 등급이 나와요.':'아직 푼 기출이 없어요 — '+b.need+'문제를 풀면 등급이 나와요.');}
+   const src=b.source?b.source+' 기출':'기출';
+   if(b.ready){lines.push(src+'을 처음 풀었을 때 기준 예상 점수: '+b.score+'점',nextLine());note='처음 푼 '+src+' '+b.n+'문제 기준이에요. 다시 풀어서 맞힌 건 점수에 넣지 않아요.'+(b.source==='한능검 심화'?' 3급은 60점 이상이에요.':'');}
+   else{lines.push(src+'을 처음 풀었을 때 기준 예상 점수로 등급을 매겨요.',b.n?'지금까지 처음 푼 '+src+' '+b.n+'문제 — '+b.need+'문제 더 풀면 등급이 나와요.':'아직 푼 '+src+'이 없어요 — '+b.need+'문제를 풀면 등급이 나와요.');}
   }else if(exam){
    if(b.ready){lines.push('과목마다 기출 예상 점수의 평균: '+num(b.score)+'점',b.subjects.map(x=>x.subject+' '+x.value+'점').join(' · '),nextLine());}
    else lines.push('기출을 10문제 이상 처음 푼 과목이 생기면 등급이 나와요.');

@@ -386,7 +386,8 @@ function subjectBadges(history=data.history){
  let states=new Map(),score=null;
  try{states=StudyXp.conceptStates(StudyXp.ledger(history).filter(r=>!StudyXp.isExam(r.cardId)),ReviewPolicy.concept);}catch{}
  try{score=ExamScore.summary(history,subjectOf,data.targetExam);}catch{}
- for(const s of subjectsList())out[s]={exam:StudyXp.examBadge(score?.subjects.find(x=>x.subject===s)),self:StudyXp.selfBadge(states,selfGroups(s),ReviewPolicy.concept)};
+ // 한국사 기출 뱃지는 한능검 심화 기출로 매긴다(2027년부터 9급 한국사는 한능검 3급으로 대체).
+ for(const s of subjectsList()){const row=score?.subjects.find(x=>x.subject===s);out[s]={exam:StudyXp.examBadge(s==='한국사'?row?.hanneung||{source:'한능검 심화',n:0,need:ExamScore.MIN,ready:false}:row),self:StudyXp.selfBadge(states,selfGroups(s),ReviewPolicy.concept)};}
  if(live)badgeCache={history,cards:data.cards,target:data.targetExam,value:out};
  return out;
 }

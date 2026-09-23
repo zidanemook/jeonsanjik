@@ -135,3 +135,8 @@ const many=Array.from({length:5},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'))
  assert.deepEqual(X.ledger(farm).slice(4).map(r=>r.xp),[1,2,2,2,2],'a deliberate miss on a mastered question: chance answer gives base XP only');
  assert.ok(X.ledger(farm).slice(4).reduce((a,r)=>a+r.xp,0)<=5*X.award(['correct'],'correct').xp,'farming never beats plain answering');}
 console.log('PASS xp: every solve rewarded, first/recovery bonuses, levels, streak, optional goal; v146 badges — 자체제작 = equal-weight part average, 기출 = 예상 점수 tier (<10 → 아직), explanations');
+
+// 한국사 기출 뱃지는 한능검 심화 기출 기준 — 설명에 출처와 3급 기준이 나온다.
+{const X=require('./xp.js');const b=X.examBadge({source:'한능검 심화',n:12,correct:9,ready:true,need:0,score:71});assert.equal(b.source,'한능검 심화');
+ const t=JSON.stringify(X.explainBadge(b,'한국사'));assert.ok(t.includes('한능검 심화 기출을 처음 풀었을 때 기준 예상 점수: 71점'),t);assert.ok(t.includes('3급은 60점 이상'),t);
+ const e=JSON.stringify(X.explainBadge(X.examBadge({source:'한능검 심화',n:3,ready:false,need:7}),'한국사'));assert.ok(e.includes('처음 푼 한능검 심화 기출 3문제 — 7문제 더'),e);}
