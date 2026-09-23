@@ -335,9 +335,9 @@ function renderParts(){
 // 경험치·레벨(xp.js). 풀면 언제나 오르고, 처음 맞힘·틀렸던 문제 맞힘이 크게 오른다. 하루 목표는 과목마다 사용자가 정했을 때만(전체 목표는 v135에서 없앰).
 function renderXp(){
  let s;try{s=StudyXp.summary(data.history,data.explanationViews||[],StudyXp.day());}catch{$('#xpCard').hidden=true;return;}
- const o=StudyXp.overallTier(data.history,ReviewPolicy.concept,allRuleTotals());
- $('#xpCard').hidden=false;$('#xpLevel').replaceChildren(badge({level:s.level,tier:o.tier}),document.createTextNode(' '+o.tier.name+' · Lv '+s.level));
- $('#xpAcc').textContent=tierNote(o);
+ const o=StudyXp.overallBadges(subjectBadges());
+ $('#xpCard').hidden=false;$('#xpLevel').replaceChildren(levelBadge(s.level),document.createTextNode(' Lv '+s.level));
+ $('#xpAcc').replaceChildren(badgeChip(o.exam,null),badgeChip(o.self,null));
  $('#xpStreak').textContent=s.streak?'🔥 '+s.streak+'일 연속'+(s.solvedToday?'':' · 오늘 풀면 이어져요'):'오늘 한 문제 풀면 🔥 연속 시작';
  $('#xpBar').max=s.need;$('#xpBar').value=s.into;
  $('#xpText').textContent='다음 레벨까지 '+(s.need-s.into)+' XP · 오늘 +'+s.todayXp+' XP ('+s.todaySolves+'문제) · 누적 '+s.total+' XP';
@@ -360,32 +360,78 @@ function renderSubjectGoal(s){
  $('#subjectGoalEdit').querySelector('summary').textContent=goal?'이 과목 하루 목표 바꾸기 ('+goal+'문제)':'이 과목 하루 목표 정하기';
  if(document.activeElement?.id!=='subjectGoalInput')$('#subjectGoalInput').value=goal||'';
 }
-// 과목 레벨 뱃지(v124): 육각형 안에 레벨, 레벨 구간마다 색(브론즈·실버·골드·플래티넘·다이아).
-// 외운 비율의 분모: 과목마다 풀 수 있는 규칙 수(쌍둥이 묶음 하나 = 규칙 하나, 기출은 문제 하나).
-function ruleTotals(){const t={},seen=new Set();for(const c of data.cards){if(!isPlayable(c))continue;const k=ReviewPolicy.concept(c.id);if(seen.has(k))continue;seen.add(k);const x=t[c.subject]||(t[c.subject]={self:0,exam:0});x[StudyXp.isExam(c.id)?'exam':'self']++;}return t;}
-function allRuleTotals(){const out={self:0,exam:0};for(const x of Object.values(ruleTotals())){out.self+=x.self;out.exam+=x.exam;}return out;}
-function subjectLevels(history=data.history){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));try{return StudyXp.bySubject(history,data.explanationViews||[],id=>bySubject.get(id)||null,ReviewPolicy.concept,ruleTotals());}catch{return {};}}
-function badge(s,big){const l=s||{level:1,tier:StudyXp.tier(0)},b=elem('span',undefined,'level-badge tier-'+l.tier.id+(big?' big':''));b.setAttribute('aria-label',l.tier.name+' 레벨 '+l.level);b.title=l.tier.name+' · Lv '+l.level;b.append(elem('small','Lv'),elem('b',String(l.level)));return b;}
-// 뱃지 설명 한 줄(v138): 뱃지 색 = 외운 비율(자체제작·기출 반반), 숫자 = 레벨. 외우는 중인 규칙과 다음 등급 조건.
-function tierNote(x){
- const fmt=n=>n.toLocaleString('ko-KR'),st=x.stages||[0,0,0,0],pools=[];
- if(x.self?.all)pools.push('자체제작 '+x.self.pct+'% ('+fmt(x.self.done)+'/'+fmt(x.self.all)+')');
- if(x.exam?.all)pools.push('기출 '+x.exam.pct+'% ('+fmt(x.exam.done)+'/'+fmt(x.exam.all)+')');
- let t='외운 비율 '+x.pct+'%'+(pools.length>1?' = 반반('+pools.join(' · ')+')':pools.length?' · '+pools[0]:'')+' · 외우는 중: 7일 통과 '+fmt(st[1])+' · 14일 통과 '+fmt(st[2]);
- if(!x.checked)t+=' — 맞힌 문제를 7일 뒤 · 그 뒤 14일 뒤 · 그 뒤 30일 뒤 다시 맞히면 외운 규칙이 돼요(틀리면 처음부터)';
- const i=StudyXp.TIERS.findIndex(t=>t[1]===x.tier.id),next=StudyXp.TIERS[i-1];if(next)t+=' · 다음 '+next[2]+': 외운 비율 '+next[0]+'%';
- return t;
+// 과목 레벨(v124): 육각형 안의 숫자 = 레벨(노력). 색은 없다 — 실력은 v146부터 뱃지 둘(기출 · 자체제작)이 따로 보여 준다.
+function subjectLevels(history=data.history){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));try{return StudyXp.bySubject(history,data.explanationViews||[],id=>bySubject.get(id)||null);}catch{return {};}}
+function levelBadge(level=1,big){const b=elem('span',undefined,'level-badge lv-plain'+(big?' big':''));b.setAttribute('aria-label','레벨 '+level);b.title='Lv '+level;b.append(elem('small','Lv'),elem('b',String(level)));return b;}
+// 뱃지(v146, 사용자 결정 2026-09-23) — 과목마다 둘:
+//  · 기출 뱃지: 예상 점수(score.js, 공무원 9급 기출 첫 풀이)를 등급표(xp.js TIERS)에 %로 댄다. 10문제 미만이면 '아직'.
+//  · 자체제작 뱃지: 파트마다 외운 비율의 평균(파트마다 같은 무게). 외움 = 복습 일정과 같은 단계 규칙(ReviewSchedule.step)으로 7·14·30일 통과.
+// selfGroups: 과목의 자체제작 문제를 파트로 나눈다. 파트(parts.js)가 없는 문제는 연습 주제(영어 수일치 · 그 밖의 문법 연습)마다 한 파트,
+// 주제도 없으면 과목마다 '그 밖의 문제' 한 파트(누를 범위가 없어 설명에서 링크 없이 보인다). 컴퓨터일반·정보보호론은 자체제작 문제가 없어 '아직'.
+let selfGroupsCache=null;
+function selfGroups(subject){
+ if(selfGroupsCache?.cards!==data.cards)selfGroupsCache={cards:data.cards,map:new Map()};
+ const hit=selfGroupsCache.map.get(subject);if(hit)return hit;
+ const ids=new Set(data.cards.filter(c=>c.subject===subject&&isPlayable(c)&&!StudyXp.isExam(c.id)).map(c=>c.id)),groups=[],rest=new Map();
+ for(const u of PARTS.unitsFor(subject))for(const p of u.parts){const g=p.ids.filter(id=>ids.has(id));if(g.length)groups.push({id:p.id,title:u.short+' '+p.title,ids:g,scope:{subject,topic:'',round:'part-'+p.id}});}
+ for(const id of ids){if(PARTS.partOf(id))continue;const t=TOPIC_SUBJECTS.has(subject)?PRACTICE_BANK[id]?.topic||'':'';if(!rest.has(t))rest.set(t,[]);rest.get(t).push(id);}
+ for(const [t,g] of [...rest].sort((x,y)=>Number(!x[0])-Number(!y[0])))groups.push(t?{id:'topic:'+t,title:scopeLabel({subject,topic:t}).replace(subject+' · ',''),ids:g,scope:{subject,topic:t,round:''}}:{id:'rest',title:'그 밖의 문제',ids:g,scope:null});
+ selfGroupsCache.map.set(subject,groups);return groups;
 }
+// 과목 → {exam, self} 뱃지. history를 바꿔 넣으면 그 기록 기준(방금 푼 풀이 전후 비교).
+let badgeCache=null;
+function subjectBadges(history=data.history){
+ const live=history===data.history;if(live&&badgeCache&&badgeCache.history===history&&badgeCache.cards===data.cards&&badgeCache.target===data.targetExam)return badgeCache.value;
+ const bySubject=new Map(data.cards.map(c=>[c.id,c.subject])),subjectOf=id=>bySubject.get(id)||null,out={};
+ let states=new Map(),score=null;
+ try{states=StudyXp.conceptStates(StudyXp.ledger(history).filter(r=>!StudyXp.isExam(r.cardId)),ReviewPolicy.concept);}catch{}
+ try{score=ExamScore.summary(history,subjectOf,data.targetExam);}catch{}
+ for(const s of subjectsList())out[s]={exam:StudyXp.examBadge(score?.subjects.find(x=>x.subject===s)),self:StudyXp.selfBadge(states,selfGroups(s),ReviewPolicy.concept)};
+ if(live)badgeCache={history,cards:data.cards,target:data.targetExam,value:out};
+ return out;
+}
+// 뱃지 칩: 작은 육각형 색 + '기출 실버'. 누르면 설명(subject=null이면 홈 카드의 전체 뱃지).
+function badgeChip(b,subject){
+ const label=b.kind==='exam'?'기출':'자체제작',name=b.ready?b.tier.name:'아직',x=btn('',()=>openBadgeInfo(subject,b.kind),'badge-chip'+(b.ready?'':' is-empty'));
+ x.type='button';x.dataset.badge=b.kind;x.dataset.tier=b.ready?b.tier.id:'none';x.setAttribute('aria-label',(subject?subject+' ':'전체 ')+label+' 뱃지 '+name+' — 눌러서 설명 보기');
+ x.append(elem('i',undefined,'chip-hex'+(b.ready?' tier-'+b.tier.id:'')),elem('span',label+' '+name));return x;
+}
+function badgeChips(badges,subject){const row=elem('div',undefined,'badge-chips');row.append(badgeChip(badges.exam,subject),badgeChip(badges.self,subject));return row;}
+function emptyBadges(){return {exam:StudyXp.examBadge(null),self:StudyXp.selfBadge(new Map(),[])};}
+// 뱃지 설명(#badgeInfo): 화면 아래에 뜨는 짧은 설명. 약한 파트 이름을 누르면 그 파트 범위를 연다.
+let badgeInfoOpen=null;
+function openBadgeInfo(subject,kind){badgeInfoOpen={subject,kind};renderBadgeInfo();}
+function closeBadgeInfo(){badgeInfoOpen=null;$('#badgeInfo').hidden=true;}
+function renderBadgeInfo(){
+ const box=$('#badgeInfo');if(!badgeInfoOpen){box.hidden=true;return;}
+ const {subject,kind}=badgeInfoOpen,all=subjectBadges(),b=subject?(all[subject]||emptyBadges())[kind]:StudyXp.overallBadges(all)[kind],x=StudyXp.explainBadge(b);
+ const head=elem('div',undefined,'badge-info-head'),title=elem('h3',undefined,'badge-info-title');title.id='badgeInfoTitle';
+ title.append(elem('i',undefined,'chip-hex'+(b.ready?' tier-'+b.tier.id:'')),document.createTextNode((subject?subject+' ':'')+x.title));
+ const close=btn('닫기',closeBadgeInfo,'badge-info-close');close.type='button';head.append(title,close);box.replaceChildren(head);
+ for(const line of x.lines)box.append(elem('p',line,'badge-info-line'));
+ if(x.weak.length){const w=elem('div',undefined,'badge-info-weak');w.append(elem('span',x.weakLabel+':'));
+  for(const g of x.weak){const label=g.title+' '+(Number.isInteger(g.pct)?g.pct:g.pct.toFixed(1))+'%';
+   if(g.scope){const link=btn(label,()=>{closeBadgeInfo();openScope(g.scope);},'badge-info-part');link.type='button';link.dataset.scope=JSON.stringify(g.scope);w.append(link);}
+   else w.append(elem('span',label,'badge-info-part is-plain'));}
+  box.append(w);}
+ if(x.note)box.append(elem('p',x.note,'badge-info-note'));
+ box.hidden=false;
+}
+// 방금 푼 풀이의 경험치와 과목 레벨·뱃지 변화. 뱃지는 등급이 오를 때(기출 뱃지가 처음 생길 때 포함)만 알린다 — 내려가는 건 설명에서 본다.
+const tierRank=t=>t?StudyXp.TIERS.length-StudyXp.TIERS.findIndex(x=>x[1]===t.id):0;
 function xpAwardNode(reviewId){
  let a;try{a=StudyXp.lastAward(data.history,data.explanationViews||[],reviewId);}catch{return null;}if(!a)return null;
  const box=elem('div',undefined,'xp-award'+(a.parts.length>1?' is-bonus':''));
  box.append(elem('strong','+'+a.xp+' XP'),elem('span',a.parts.map(p=>p.label+' +'+p.xp).join(' · ')));
  if(a.levelAfter>a.levelBefore)box.append(elem('p','🎉 레벨 '+a.levelAfter+' 달성!','xp-levelup'));
  const subject=data.cards.find(c=>c.id===a.cardId)?.subject;
- if(subject){const now=subjectLevels()[subject],before=subjectLevels(data.history.filter(h=>h.id!==reviewId))[subject];
-  if(now){const line=elem('p',undefined,'xp-subject');line.append(badge(now),document.createTextNode(' '+subject+' Lv '+now.level+' · 다음까지 '+(now.need-now.into)+' XP'));box.append(line);
+ if(subject){const earlier=data.history.filter(h=>h.id!==reviewId),now=subjectLevels()[subject],before=subjectLevels(earlier)[subject];
+  if(now){const bNow=subjectBadges()[subject]||emptyBadges(),bBefore=subjectBadges(earlier)[subject]||emptyBadges();
+   const line=elem('div',undefined,'xp-subject');line.append(levelBadge(now.level),elem('span',subject+' Lv '+now.level+' · 다음까지 '+(now.need-now.into)+' XP','xp-subject-text'),badgeChips(bNow,subject));box.append(line);
    if(now.level>(before?.level||1))box.append(elem('p','🎉 '+subject+' 레벨 '+now.level+' 달성!','xp-levelup'));
-   if(now.tier.id!==(before?.tier.id||'iron'))box.append(elem('p','🏅 '+subject+' '+now.tier.name+' 뱃지! 외운 비율 '+now.pct+'%','xp-levelup'));}}
+   if(bNow.exam.ready&&tierRank(bNow.exam.tier)>tierRank(bBefore.exam.tier))box.append(elem('p','🏅 '+subject+' 기출 '+bNow.exam.tier.name+' 뱃지! 예상 점수 '+bNow.exam.score+'점','xp-levelup'));
+   // 자체제작은 아이언(0%)에서 시작하므로 아이언이 '생긴' 것은 알리지 않는다.
+   if(bNow.self.ready&&bBefore.self.ready&&tierRank(bNow.self.tier)>tierRank(bBefore.self.tier))box.append(elem('p','🏅 '+subject+' 자체제작 '+bNow.self.tier.name+' 뱃지! 파트별 외운 비율 평균 '+bNow.self.pct+'%','xp-levelup'));}}
  return box;
 }
 // 예상점수(score.js): 기출 첫 풀이만, 4과목 평균 + 가산점을 사용자가 정한 목표와 비교한다(기본 국가직 전산9급 95 · 가산 5).
@@ -532,10 +578,10 @@ function render(){renderView();if(sessionDirty){sessionDirty=false;stampSession(
 // Screens: home (subjects) → subject (resume / choose range) → range → quiz (question, then explanation). Progress is separate.
 const VIEWS=['home','subject','range','quiz','progress','memorize','parts'];
 let view='home',viewSubject='';
-function go(name,subject=viewSubject,replace=false){view=name;viewSubject=subject;const depth=(history.state?.depth||0)+(replace?0:1);try{history[replace?'replaceState':'pushState']({view:name,subject,depth},'');}catch{}notify('');render();window.scrollTo(0,0);}
+function go(name,subject=viewSubject,replace=false){closeBadgeInfo();view=name;viewSubject=subject;const depth=(history.state?.depth||0)+(replace?0:1);try{history[replace?'replaceState':'pushState']({view:name,subject,depth},'');}catch{}notify('');render();window.scrollTo(0,0);}
 function goBack(){if(history.state?.depth>0){history.back();return;}const parent=view==='quiz'||view==='range'||view==='parts'?'subject':'home';go(parent,view==='quiz'?scopeOf().subject:viewSubject,true);}
 try{history.replaceState({view:'home',subject:'',depth:0},'');}catch{}
-window.addEventListener('popstate',e=>{view=VIEWS.includes(e.state?.view)?e.state.view:'home';viewSubject=e.state?.subject||'';notify('');render();window.scrollTo(0,0);});
+window.addEventListener('popstate',e=>{closeBadgeInfo();view=VIEWS.includes(e.state?.view)?e.state.view:'home';viewSubject=e.state?.subject||'';notify('');render();window.scrollTo(0,0);});
 function subjectsList(){return [...new Set(data.cards.filter(isPlayable).map(c=>c.subject))];}
 function questionCount(cards){return cards.reduce((n,c)=>n+(QUIZ_OPTIONS[c.id]||Gichul.known(c.id)?1:0)+(PRACTICE_BANK[c.id]?.variants.length||0),0);}
 // 화면의 모든 수는 "문제" 한 단위로 센다. 문제 하나가 곧 복습 일정 하나이므로(content-audit.cjs가 강제) 두 수는 같은 단위다.
@@ -562,8 +608,10 @@ function renderView(){
 }
 function renderHome(){
  renderXp();renderScoreLine();const list=$('#subjectList'),playable=data.cards.filter(isPlayable);list.replaceChildren();
- const levels=subjectLevels();
- for(const s of subjectsList()){const cards=playable.filter(c=>c.subject===s),goal=subjectGoals()[s],item=menuItem(s,countLine(cards)+(goal?' · '+goalLine(todayBySubject()[s]||0,goal):''),()=>go('subject',s),'menu-item with-badge');item.append(badge(levels[s]));list.append(item);}
+ const levels=subjectLevels(),badges=subjectBadges();
+ for(const s of subjectsList()){const cards=playable.filter(c=>c.subject===s),goal=subjectGoals()[s],item=menuItem(s,countLine(cards)+(goal?' · '+goalLine(todayBySubject()[s]||0,goal):''),()=>go('subject',s),'menu-item with-badge');item.append(levelBadge(levels[s]?.level||1));
+  // 뱃지 칩은 과목 버튼 밖(버튼 안에 버튼을 두지 않는다): 과목 줄 = 과목 버튼 + 그 아래 뱃지 둘.
+  const row=elem('div',undefined,'subject-row');row.dataset.subject=s;row.append(item,badgeChips(badges[s]||emptyBadges(),s));list.append(row);}
  if(!list.children.length)list.append(elem('p',data.cards.length?'풀 수 있는 문제가 아직 없어요.':'문제를 불러오는 중입니다.'));
 }
 // 외울 것: 목록 화면(viewSubject 비어 있음) → 한 목록 화면(viewSubject = 목록 id). 가림·확인은 이 화면에서만 쓰고 저장하지 않는다.
@@ -614,8 +662,9 @@ function renderMemorize(){
 function renderSubject(){
  const s=viewSubject,cards=data.cards.filter(c=>isPlayable(c)&&c.subject===s),ids=new Set(cards.map(c=>c.id)),today=day();
  $('#subjectTitle').textContent=s;renderSubjectGoal(s);
- {const l=subjectLevels()[s]||{level:1,into:0,need:StudyXp.subjectNeed(1),xp:0,...StudyXp.mastery([],ReviewPolicy.concept,ruleTotals()[s])};$('#subjectBadge').replaceChildren(badge(l,true));
-  const bar=elem('progress',undefined,'xp-bar');bar.max=l.need;bar.value=l.into;$('#subjectLevel').replaceChildren(elem('span',l.tier.name+' · Lv '+l.level+' · 다음 레벨까지 '+(l.need-l.into)+' XP · 이 과목 누적 '+l.xp+' XP'),bar,elem('span',tierNote(l),'tier-note'));}
+ {const l=subjectLevels()[s]||{level:1,into:0,need:StudyXp.subjectNeed(1),xp:0};$('#subjectBadge').replaceChildren(levelBadge(l.level,true));
+  const bar=elem('progress',undefined,'xp-bar');bar.max=l.need;bar.value=l.into;
+  $('#subjectLevel').replaceChildren(elem('span','Lv '+l.level+' · 다음 레벨까지 '+(l.need-l.into)+' XP · 이 과목 누적 '+l.xp+' XP'),bar,badgeChips(subjectBadges()[s]||emptyBadges(),s),elem('span','뱃지를 누르면 무엇으로 정해지는지 보여 줘요.','tier-note'));}
  $('#subjectSummary').textContent=countLine(cards)+' · 오늘 푼 문제 '+solvedOn(ids,today)+'개';
  // 외울 것은 과목 안에 둔다(2026-09-19 사용자: "외울것들은 과목별로 분류해서 정리해라 … 국어는 국어 클릭하면 거기서 외울것에 넣는방식").
  const sets=MEMORIZE.sets.filter(x=>x.subject===s),memo=$('#openMemorize');memo.hidden=!sets.length;
@@ -881,6 +930,9 @@ $('#subjectGoalSave').onclick=()=>{const v=Number($('#subjectGoalInput').value);
 $('#subjectGoalClear').onclick=()=>setSubjectGoal(viewSubject,null);
 $('#includeMastered').onchange=e=>{const next=structuredClone(data);if(e.target.checked)next.includeMastered=true;else delete next.includeMastered;delete next.quizFeedback;delete next.activePractice;if(commit(next)){notify(e.target.checked?'이 범위의 외운 문제도 복습일이 되면 나와요.':'외운 문제는 이 범위에서 빼요.');render();}};
 $('#homeScore').onclick=()=>go('progress');
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&badgeInfoOpen)closeBadgeInfo();});
+// 설명 밖(다른 뱃지 칩 제외)을 누르면 닫는다.
+document.addEventListener('click',e=>{if(badgeInfoOpen&&!e.target?.closest?.('#badgeInfo,.badge-chip'))closeBadgeInfo();});
 $('#targetSave').onclick=()=>{const t={name:$('#targetName').value.trim(),cutoff:Number($('#targetCutoff').value),bonus:Number($('#targetBonus').value||0)};
  if(JSON.stringify(ExamScore.target(t))!==JSON.stringify(t)){notify('목표 이름(40자 이내), 목표 점수(1~110), 가산점(0~10)을 확인해 주세요.');return;}saveTarget(t);};
 $('#targetReset').onclick=()=>saveTarget(null);
