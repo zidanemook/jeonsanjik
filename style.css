@@ -339,3 +339,11 @@ body[data-view="quiz"] main { padding-top:14px; }
 .mastered-toggle { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:#d1d7e0; }
 .mastered-toggle small { color:#9fb3c8; }
 .subject-goal { margin:0 0 14px; }
+/* v145 파트별 상태 · 파트별 점검 */
+.menu-item.part-item.is-weak { border-color:#e0a24a; }
+.menu-item.part-item.is-weak strong { color:#ffd08a; }
+.menu-item.part-start { border-style:dashed; }
+.part-result { margin:12px 0 18px; padding-left:20px; line-height:1.7; }
+.part-result li.is-weak { color:#ffd08a; }
+.part-result li.is-pass { color:#bfe8c4; }
+#partsView .menu-item span, .part-result li { overflow-wrap:anywhere; }
