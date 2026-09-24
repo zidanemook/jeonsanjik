@@ -45,7 +45,7 @@ for(const p of enParts){const inPart=new Set(p.ids.map(id=>bank[id].ruleId));
 assert.equal(erules.size,73,'영어 규칙 73개');
 // 한국사(v161~, 강별로 늘어난다): parts.js의 한국사 파트마다 상자 하나(id 'hist-<파트>', split 'lines', 표는 tables 여럿 · 줄마다 rowIds).
 //   HIST_UNITS에 든 단원의 파트는 모두 상자가 있고, 그 파트 문제마다 대입(box = 그 파트 상자 · use = 그 상자의 줄 · blocks)이 있다.
-const HIST_UNITS=['hist-02-05','hist-06','hist-07','hist-08','hist-09','hist-10','hist-11','hist-12','hist-13','hist-14','hist-15','hist-16','hist-17'];
+const HIST_UNITS=['hist-02-05','hist-06','hist-07','hist-08','hist-09','hist-10','hist-11','hist-12','hist-13','hist-14','hist-15','hist-16','hist-17','hist-18','hist-19','hist-20','hist-21','hist-250-256'];
 const hUnits=PS.STUDY_PARTS.units.filter(u=>u.subject==='한국사'),hDone=hUnits.filter(u=>HIST_UNITS.includes(u.id)).flatMap(u=>u.parts);
 assert.deepEqual(hUnits.filter(u=>HIST_UNITS.includes(u.id)).map(u=>u.id),HIST_UNITS,'상자를 붙인 한국사 단원');
 const hLines=b=>new Set([...b.terms.map(t=>t.id),...(b.tables||[]).flatMap(t=>[t.id,...t.rowIds,t.key?.id]),...b.rules.items.map(r=>r.id),...b.examples.map(x=>x.id)].filter(Boolean));
@@ -57,7 +57,7 @@ for(const p of hDone){const r='hist-'+p.id,box=B.box(r);assert.ok(box,'한국사
  for(const id of p.ids){history.push(id);assert.ok(!bank[id],'한국사 문제는 practice-bank 밖(quiz-options): '+id);
   const a=B.forQuestion(id);assert.ok(a&&a.box===r&&a.use.length&&a.blocks.length,'한국사 대입: '+id);
   for(const u of a.use){assert.ok(lines.has(u),'대입 줄이 그 파트 상자에 없다: '+id+' '+u);hUse++;}}}
-assert.equal(history.length,1223,'02~17강 1223문제');assert.equal(hrules.size,70,'02~17강 70파트 = 70상자');
+assert.equal(history.length,2175,'02~21강 + 특강 2175문제');assert.equal(hrules.size,115,'02~21강 + 특강 115파트 = 115상자');
 assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...erules,...hrules].sort(),'상자는 논리 · 독해 · 영어 규칙마다, 한국사 파트마다 하나(남는 상자 없음)');
 const covered=new Set([...logic,...reading,...english,...history]);
 for(const id of Object.keys(B.apply))assert.ok(covered.has(id),'대입이 있는데 논리 · 독해 · 영어 파트 문제가 아니다: '+id);
