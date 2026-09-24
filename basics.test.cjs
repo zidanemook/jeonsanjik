@@ -45,7 +45,7 @@ for(const p of enParts){const inPart=new Set(p.ids.map(id=>bank[id].ruleId));
 assert.equal(erules.size,73,'영어 규칙 73개');
 // 한국사(v161~, 강별로 늘어난다): parts.js의 한국사 파트마다 상자 하나(id 'hist-<파트>', split 'lines', 표는 tables 여럿 · 줄마다 rowIds).
 //   HIST_UNITS에 든 단원의 파트는 모두 상자가 있고, 그 파트 문제마다 대입(box = 그 파트 상자 · use = 그 상자의 줄 · blocks)이 있다.
-const HIST_UNITS=['hist-02-05'];
+const HIST_UNITS=['hist-02-05','hist-06','hist-07','hist-08','hist-09','hist-10','hist-11'];
 const hUnits=PS.STUDY_PARTS.units.filter(u=>u.subject==='한국사'),hDone=hUnits.filter(u=>HIST_UNITS.includes(u.id)).flatMap(u=>u.parts);
 assert.deepEqual(hUnits.filter(u=>HIST_UNITS.includes(u.id)).map(u=>u.id),HIST_UNITS,'상자를 붙인 한국사 단원');
 const hLines=b=>new Set([...b.terms.map(t=>t.id),...(b.tables||[]).flatMap(t=>[t.id,...t.rowIds,t.key?.id]),...b.rules.items.map(r=>r.id),...b.examples.map(x=>x.id)].filter(Boolean));
@@ -57,7 +57,7 @@ for(const p of hDone){const r='hist-'+p.id,box=B.box(r);assert.ok(box,'한국사
  for(const id of p.ids){history.push(id);assert.ok(!bank[id],'한국사 문제는 practice-bank 밖(quiz-options): '+id);
   const a=B.forQuestion(id);assert.ok(a&&a.box===r&&a.use.length&&a.blocks.length,'한국사 대입: '+id);
   for(const u of a.use){assert.ok(lines.has(u),'대입 줄이 그 파트 상자에 없다: '+id+' '+u);hUse++;}}}
-assert.equal(history.length,220,'02~05강 220문제');assert.equal(hrules.size,8,'02~05강 8파트 = 8상자');
+assert.equal(history.length,689,'02~11강 689문제');assert.equal(hrules.size,36,'02~11강 36파트 = 36상자');
 assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...erules,...hrules].sort(),'상자는 논리 · 독해 · 영어 규칙마다, 한국사 파트마다 하나(남는 상자 없음)');
 const covered=new Set([...logic,...reading,...english,...history]);
 for(const id of Object.keys(B.apply))assert.ok(covered.has(id),'대입이 있는데 논리 · 독해 · 영어 파트 문제가 아니다: '+id);
@@ -264,6 +264,15 @@ let hSplit=0,hTopLines=0,hAllLines=0;
   assert.equal(r.more,rest?1:0,'나머지 모음 하나: '+r.id);if(rest){hSplit++;assert.equal(r.moreOpen,false,'나머지 모음은 닫혀 있다: '+r.id);assert.match(r.moreSummary,/^이 정리의 나머지 더 보기 — /,'모음 제목: '+r.id);}
   hTopLines+=want.terms+want.rules+want.ex+want.rows;hAllLines+=total.terms+total.rules+total.ex+total.rows;}
  assert.ok(hSplit>200,'한국사 상자는 해설 화면에서 거의 다 접힌다: '+hSplit);}
+// 5-1-6) 한국사 표만(v162): 표에 b-hist, 첫 칸이 6자까지면 b-nowrap(한 줄), 둘째 칸부터 20자 넘으면 b-long(왼쪽 맞춤). 다른 과목 표에는 붙이지 않는다.
+{const r=run(`(()=>{const len=t=>String(t).split('\\n')[0].replace(/\\{[spmqr]\\|([^{}|]*)\\}/g,'$1').replace(/\\*\\*/g,'').length;let bad=[],nowrap=0,long=0,other=0;
+ for(const [k,b] of Object.entries(BASICS.boxes)){const d=basicsDetails('기초 개념',b,null);const tables=[];(function w(n){for(const c of n.children){if(c.tag==='table')tables.push(c);w(c);}})(d);
+  if(!k.startsWith('hist-')){other+=tables.filter(t=>t.classes.has('b-hist')).length;continue;}
+  const src=b.tables;if(tables.length!==src.length){bad.push(k+' 표 수');continue;}
+  tables.forEach((t,ti)=>{if(!t.classes.has('b-hist'))bad.push(k+' b-hist');t.children.slice(1).forEach((tr,ri)=>tr.children.forEach((td,ci)=>{const L=len(src[ti].rows[ri][ci]),nw=td.classes.has('b-nowrap'),lg=td.classes.has('b-long');nowrap+=nw;long+=lg;
+   if(nw!==(ci===0&&L<=6)||lg!==(ci>0&&L>20))bad.push(k+' '+src[ti].rowIds[ri]+' '+ci);}));});}
+ return {bad:bad.slice(0,5),nowrap,long,other};})()`);
+ eqJ(r.bad,[],'한국사 표 칸 표시');assert.equal(r.other,0,'다른 과목 표에는 b-hist 없음');assert.ok(r.nowrap>30&&r.long>30,'짧은 첫 칸 · 긴 칸이 있다: '+JSON.stringify(r));}
 
 // 5-2) 파트별 상태: 논리 문제가 있는 파트마다 '기초 개념 보기'가 있고, 누르면 그 파트의 상자를 모두 펼쳐 한 화면에(대입 없이).
 const P=run('PARTS');

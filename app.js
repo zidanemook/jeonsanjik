@@ -846,6 +846,10 @@ function basicsInline(text){
 function basicsLines(text,cls,tag='p'){const p=elem(tag,undefined,cls);String(text).split('\n').forEach((line,i)=>{if(i)p.append(elem('br'));p.append(...basicsInline(line));});return p;}
 function basicsTable(t){const table=elem('table',undefined,'b-table'),head=elem('tr');for(const h of t.head){const th=elem('th');th.append(...basicsInline(h));head.append(th);}table.append(head);
  for(const row of t.rows){const tr=elem('tr');for(const cell of row){const td=elem('td'),[main,...sub]=String(cell).split('\n');td.append(...basicsInline(main));if(sub.length){const s=elem('small');s.append(...basicsInline(sub.join(' ')));td.append(s);}tr.append(td);}table.append(tr);}return table;}
+// 한국사 표(상자의 tables): 첫 칸이 짧으면(6자까지) 한 줄로 두고, 긴 칸(20자 넘음)은 문장처럼 왼쪽 맞춤. 다른 과목 표(basicsTable)는 그대로.
+const basicsPlainLen=t=>String(t).split('\n')[0].replace(/\{[spmqr]\|([^{}|]*)\}/g,'$1').replace(/\*\*/g,'').length;
+function basicsHistTable(t){const table=basicsTable(t);table.classList.add('b-hist');
+ [...table.children].slice(1).forEach((tr,r)=>[...tr.children].forEach((td,i)=>{const len=basicsPlainLen(t.rows[r][i]);if(i===0&&len<=6)td.classList.add('b-nowrap');else if(i>0&&len>20)td.classList.add('b-long');}));return table;}
 function basicsDiagram(nodes){const wrap=elem('div',undefined,'b-diagram');
  const draw=n=>{const d=elem('div',undefined,'b-bx b-bx-'+n.c+(n.side?' b-bx-side':''));if(n.label)d.append(elem('span',n.label,'b-bx-label b-'+(n.c==='gap'?'m':n.c)));if(n.text)d.append(basicsLines(n.text,'b-bx-text','div'));for(const k of n.kids||[])d.append(draw(k));return d;};
  for(const n of nodes)wrap.append(draw(n));return wrap;}
@@ -905,7 +909,7 @@ function basicsLineSections(box,apply){
  const split=xs=>[xs.filter(x=>use.has(x.id)),xs.filter(x=>!use.has(x.id))];
  const [inT,restT]=split(box.terms),[inR,restR]=split(box.rules.items),[inX,restX]=split(box.examples);
  const tables=(box.tables||[]).map(t=>{const all=use.has(t.id),keep=[],rest=[];t.rows.forEach((r,i)=>(all||use.has(t.rowIds?.[i])?keep:rest).push(r));return {t,keep,rest};});
- const sub=(t,rows)=>basicsTable({...t,rows});
+ const sub=(t,rows)=>basicsHistTable({...t,rows});
  if(inT.length){head('먼저 알아 둘 말');for(const t of inT)out.push(...basicsTerm(t));}
  for(const {t,keep} of tables)if(keep.length){head(t.title);out.push(sub(t,keep));if(t.key&&(use.has(t.id)||use.has(t.key.id)))out.push(basicsLines(t.key.text,'b-key'));}
  if(inR.length){head('규칙'+(box.rules.title?' — '+box.rules.title:''));for(const r of inR)out.push(basicsRule(r));}
@@ -931,7 +935,7 @@ function basicsSections(box,apply,mode,seen,partId){
  for(const t of termSplit?termSplit.keep:terms)out.push(...basicsTerm(t));
  if(termSplit&&termSplit.rest.length){const d=elem('details',undefined,'b-more-terms');d.append(elem('summary','이 정리의 다른 용어 '+termSplit.rest.length+'개 더 보기'));for(const t of termSplit.rest)d.append(...basicsTerm(t));out.push(d);}
  if(table){head(table.title);out.push(basicsTable(table));if(table.key)out.push(basicsLines(table.key.text,'b-key'));}
- for(const t of box.tables||[])if(!moved(t)){head(t.title);out.push(basicsTable(t));if(t.key)out.push(basicsLines(t.key.text,'b-key'));}
+ for(const t of box.tables||[])if(!moved(t)){head(t.title);out.push(basicsHistTable(t));if(t.key)out.push(basicsLines(t.key.text,'b-key'));}
  head('규칙'+(box.rules.title?' — '+box.rules.title:''));
  for(const r of split?split.rules:rules)out.push(basicsRule(r));
  if(box.rules.key)out.push(basicsLines(box.rules.key.text,'b-key'));

@@ -398,7 +398,10 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-no { color:#ff8a80; font-weight:700; }
 .b-table { width:100%; border-collapse:collapse; margin:6px 0; font-size:15px; }
 .b-table th, .b-table td { border-bottom:1px solid #353c47; padding:6px 4px; text-align:center; vertical-align:middle; }
-.b-table td:first-child, .b-table th:first-child { text-align:left; word-break:keep-all; min-width:3.5em; }
+.b-table td:first-child, .b-table th:first-child { text-align:left; }
+.b-table.b-hist td:first-child { word-break:keep-all; }
+.b-table.b-hist td.b-nowrap { white-space:nowrap; }
+.b-table.b-hist td.b-long { text-align:left; }
 .b-table td small { display:block; color:#9aa3b0; font-size:12px; }
 .b-diagram { display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; margin:8px 0; }
 .b-diagram > .b-bx { flex:1 1 150px; min-width:0; }
