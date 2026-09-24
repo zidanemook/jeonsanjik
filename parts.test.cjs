@@ -37,9 +37,22 @@ const PartCheck=require('./part-check.js');
 require('./study-review-catalog.js');require('./practice-bank.js');require('./quiz-options.js');const PARTS=require('./parts.js');
 const CAT=globalThis.STUDY_REVIEW_CATALOG,BANK=globalThis.PRACTICE_BANK,QO=globalThis.QUIZ_OPTIONS;
 const counts={};
+// 정보보호론 · 컴퓨터일반(2026-09-25~): 자체 제작 문제가 없어 9급 기출(gichul-<회차>-NN)을 주제로 나눈 파트. 과목의 앱 기출 전부가 정확히 한 파트에.
+require('./gichul-index.js');
+const GICHUL_SUBJECTS=['정보보호론','컴퓨터일반'];
+const gichulIdsOf=subject=>{const idx=globalThis.GICHUL_INDEX,code=Object.entries(idx.subjects).find(([,v])=>v===subject)[0],ids=[];
+ for(const row of idx.papers.filter(p=>p.id.endsWith('-'+code))){const skip=row.skip||[];for(let n=1;n<=20;n++)if(!skip.includes(n))ids.push('gichul-'+row.id+'-'+String(n).padStart(2,'0'));}return ids;};
+const itCounts={};
 {
  const seen=new Map(),partIds=new Set();
+ for(const s of GICHUL_SUBJECTS){const us=PARTS.unitsFor(s);if(!us.length)continue;const all=gichulIdsOf(s),inParts=us.flatMap(u=>u.parts.flatMap(p=>p.ids));
+  assert.deepEqual([...inParts].sort(),[...all].sort(),s+': 앱 기출 전부가 정확히 한 파트에');assert.equal(new Set(inParts).size,inParts.length,s+' 기출이 두 파트에');
+  for(const u of us){assert.deepEqual(u.scope,{topic:'',round:''},u.id+' 단원 범위는 비움(파트 · 과목 전체로만 연다)');
+   for(const p of u.parts){assert.match(p.id,/^[a-z0-9-]+$/);assert.ok(!partIds.has(p.id),'파트 id 중복 '+p.id);partIds.add(p.id);assert.ok(p.ids.length,'빈 파트 '+p.id);assert.ok(!/기타/.test(p.title),'기타 파트 없음: '+p.title);
+    for(const id of p.ids){assert.ok(!seen.has(id));seen.set(id,p.id);assert.equal(PARTS.partOf(id),p.id);assert.match(id,/^gichul-/);}}}
+  itCounts[s]=us.reduce((n,u)=>n+u.parts.length,0)+'파트 '+inParts.length+'문제';}
  for(const u of PARTS.units){
+  if(GICHUL_SUBJECTS.includes(u.subject))continue;
   assert.ok(['한국사','영어','국어'].includes(u.subject),u.id);
   const expected=u.subject==='한국사'?CAT.lectures.find(l=>'lecture-'+l.id===u.scope.round).ids:Object.keys(BANK).filter(id=>BANK[id].topic===u.scope.topic);
   assert.ok(expected.length,u.id+' 범위가 비어 있다');
@@ -219,9 +232,20 @@ assert.match(fold.children[0].textContent,/^19강 조선 전기\(경제, 사회\
 const second=lecture19.parts[1];body.all.find(n=>n.dataset?.part===second.id).onclick();
 assert.equal(R('scopeOf().round'),'part-'+second.id);assert.ok(R("data.cards.filter(inCurrent).every(c=>STUDY_PARTS.partOf(c.id)==="+JSON.stringify(second.id)+")"));
 assert.equal(R("data.cards.filter(inCurrent).length"),second.ids.length,'파트 범위의 문제 수 = 상태 화면의 수');
+// 4-2) 정보보호론 · 컴퓨터일반(기출만, 파트가 생긴 과목): 파트별 상태에 단원 · 파트, 수 = 파트 기출 수(회차 파일을 받기 전에도), 누르면 그 파트 기출만 푸는 범위.
+for(const s of GICHUL_SUBJECTS){const us=PARTS.unitsFor(s);if(!us.length)continue;
+ R("go('parts',"+JSON.stringify(s)+")");const b=app.nodes.get('#partsBody');
+ assert.match(b.children[0].textContent,/^파트 = 같은 주제를 묻는 9급 기출 묶음이에요\./,s+' 파트 설명');
+ assert.deepEqual(b.all.filter(n=>n.dataset?.unit).map(n=>n.dataset.unit),us.map(u=>u.id),s+' 단원 묶음');
+ for(const p of us.flatMap(u=>u.parts)){const item=b.all.find(n=>n.dataset?.part===p.id);assert.ok(item,s+' 파트 줄: '+p.id);assert.match(item.children[1].textContent,new RegExp('^'+p.ids.length+'문제 · 외움 0 · '),s+' 파트 수: '+p.id);}
+ const p0=us[0].parts[0];b.all.find(n=>n.dataset?.part===p0.id).onclick();
+ assert.equal(R('scopeOf().round'),'part-'+p0.id);assert.equal(R("data.cards.filter(inCurrent).length"),p0.ids.length,s+' 파트 범위 = 파트 기출');
+ assert.ok(R("data.cards.filter(inCurrent).every(c=>c.subject==="+JSON.stringify(s)+"&&STUDY_PARTS.partOf(c.id)==="+JSON.stringify(p0.id)+")"));
+ assert.equal(R("scopeLabel(scopeOf())"),s+' · '+us[0].short+' · '+p0.title);
+ R("go('subject',"+JSON.stringify(s)+")");assert.equal(app.nodes.get('#openParts').hidden,false,s+' 파트별 상태 버튼');}
 // 과목 화면에 파트별 상태 버튼(파트가 있는 과목만)
 R("go('subject','한국사')");assert.equal(app.nodes.get('#openParts').hidden,false);
-R("go('subject','컴퓨터일반')");assert.equal(app.nodes.get('#openParts').hidden,true);
+if(!PARTS.unitsFor('컴퓨터일반').length){R("go('subject','컴퓨터일반')");assert.equal(app.nodes.get('#openParts').hidden,true);}
 
-console.log('PASS parts: '+PARTS.units.length+'단위 · '+PARTS.units.reduce((n,u)=>n+u.parts.length,0)+'파트, 모든 문제가 정확히 한 파트(기타 0) — '+Object.entries(counts).map(([k,v])=>k+' '+v).join(' · ')+
+console.log('PASS parts: '+PARTS.units.length+'단위 · '+Object.entries(itCounts).map(([k,v])=>k+' '+v+' · ').join('')+PARTS.units.reduce((n,u)=>n+u.parts.length,0)+'파트, 모든 문제가 정확히 한 파트(기타 0) — '+Object.entries(counts).map(([k,v])=>k+' '+v).join(' · ')+
  '; 파트별 점검: 19강 모두 맞힘 = 5×8 = 40문제, 하나 틀리면 같은 파트 3문제 더(8문제로 통과), 8문제 파트를 모두 틀리면 5+3에서 다시 볼 파트, 다시 볼 파트만 다시 점검, 새로고침 뒤 이어짐, 파트 없는 범위는 기본 순서, 기록·일정은 평소대로; 파트별 상태 수 = 기록');

@@ -58,8 +58,20 @@ for(const p of hDone){const r='hist-'+p.id,box=B.box(r);assert.ok(box,'한국사
   const a=B.forQuestion(id);assert.ok(a&&a.box===r&&a.use.length&&a.blocks.length,'한국사 대입: '+id);
   for(const u of a.use){assert.ok(lines.has(u),'대입 줄이 그 파트 상자에 없다: '+id+' '+u);hUse++;}}}
 assert.equal(history.length,2175,'02~21강 + 특강 2175문제');assert.equal(hrules.size,115,'02~21강 + 특강 115파트 = 115상자');
-assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...erules,...hrules].sort(),'상자는 논리 · 독해 · 영어 규칙마다, 한국사 파트마다 하나(남는 상자 없음)');
-const covered=new Set([...logic,...reading,...english,...history]);
+// 정보보호론 · 컴퓨터일반(v165~, 배치로 늘어난다): 자체 제작 문제가 없어 9급 기출을 주제로 나눈 parts.js 파트마다 상자 하나
+//   (id 'sec-<파트>' · 'com-<파트>', split 'lines', tables 여럿). IT_DONE의 파트는 상자가 있고, 그 파트 기출(gichul-<회차>-NN)마다 대입이 있다.
+const IT_DONE={'정보보호론':['is01','is02','is03','is04','is05','is06','is07','is08','is09','is10','is11','is12'],'컴퓨터일반':[]},IT_PREFIX={'정보보호론':'sec','컴퓨터일반':'com'};
+const itDone=[],itQuestions=[],itRules=new Set();let itUse=0;
+for(const [s,list] of Object.entries(IT_DONE)){const all=PS.STUDY_PARTS.units.filter(u=>u.subject===s).flatMap(u=>u.parts);
+ for(const pid of list){const p=all.find(x=>x.id===pid);assert.ok(p,s+' 파트: '+pid);itDone.push({...p,subject:s});const r=IT_PREFIX[s]+'-'+pid,box=B.box(r);assert.ok(box,s+' 파트 상자: '+r);itRules.add(r);
+  assert.equal(box.split,'lines','전공 과목 상자는 줄 단위로 접는다: '+r);assert.ok(!box.table&&box.tables.length,'전공 과목 상자는 tables: '+r);
+  for(const t of box.tables)assert.equal(t.rowIds.length,t.rows.length,'표 줄마다 id: '+r+' '+t.id);
+  const lines=hLines(box);
+  for(const id of p.ids){itQuestions.push(id);assert.match(id,/^gichul-/,'전공 과목 파트는 기출만: '+id);
+   const a=B.forQuestion(id);assert.ok(a&&a.box===r&&a.use.length&&a.blocks.length,s+' 대입: '+id);
+   for(const u of a.use){assert.ok(lines.has(u),'대입 줄이 그 파트 상자에 없다: '+id+' '+u);itUse++;}}}}
+assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...erules,...hrules,...itRules].sort(),'상자는 논리 · 독해 · 영어 규칙마다, 한국사 · 정보보호론 · 컴퓨터일반 파트마다 하나(남는 상자 없음)');
+const covered=new Set([...logic,...reading,...english,...history,...itQuestions]);
 for(const id of Object.keys(B.apply))assert.ok(covered.has(id),'대입이 있는데 논리 · 독해 · 영어 파트 문제가 아니다: '+id);
 
 // ── 2) 상자 모양: 용어는 뜻 + 예), 한자가 있으면 원뜻, 규칙·비교 예문(✓와 ✗ 둘 다)
@@ -97,6 +109,11 @@ for(const [where,t] of texts){
 
 // 3-2) 한국사: 두문자 · 비결 없음, 글에 줄 id(a1 · r3 …)가 보이지 않음(화면에는 id가 없다), 연도는 'y'로 시작하는 줄(그 파트 문제가 연도를 직접 물을 때)에만,
 //      대입의 연도는 그 문제의 발문 · 보기에 나온 것만. 연도로 줄 세우지 않고 왕 순서로 푸는 상자여야 한다.
+// 3-3) 정보보호론 · 컴퓨터일반: 두문자 · 비결 없음, 글에 그 상자의 줄 id(t3 · a12 · r4 · x2 …)가 보이지 않음. 연도 규칙은 없다(표준 · 버전 · 포트 숫자가 본문).
+{const plain=t=>String(t).replace(/\{[spmqr]\|([^{}|]*)\}/g,'$1'),TOK=/(?<![A-Za-z0-9_])([a-z]{1,2}\d{1,2}k?)(?![A-Za-z0-9])/g;
+ for(const r of itRules){const b=B.box(r),ids=hLines(b),texts=[b.title,...b.terms.flatMap(t=>[t.word,t.origin,t.mean,t.ex]),...b.tables.flatMap(t=>[t.title,...t.head,...t.rows.flat(),t.key?.text]),...b.rules.items.flatMap(x=>[x.name,x.text]),...b.examples.flatMap(x=>[x.text,x.why])].filter(Boolean);
+  for(const t of texts){const p=plain(t);assert.ok(!/두문자|비결|앞 ?글자만/.test(p),'두문자 · 비결: '+r);for(const m of p.matchAll(TOK))assert.ok(!ids.has(m[1]),'글에 줄 id: '+r+' '+m[1]+' — '+p.slice(0,50));}}
+ for(const id of itQuestions){const a=B.forQuestion(id),ids=hLines(B.box(a.box));for(const b of a.blocks){const p=plain(b);assert.ok(!/두문자|비결/.test(p),'대입에 두문자 · 비결: '+id);for(const m of p.matchAll(TOK))assert.ok(!ids.has(m[1]),'대입에 줄 id: '+id+' '+m[1]);}}}
 let hYearLines=0;
 {const HC={};vm.createContext(HC);for(const f of ['core-review-pack.js','quiz-options.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),HC,{filename:f});
  const card=new Map(HC.CORE_REVIEW_PACK.map(c=>[c.id,c]));
@@ -247,7 +264,7 @@ let hSplit=0,hTopLines=0,hAllLines=0;
  const count=(d,top)=>{const xs=[];if(top)xs.push(...d.children);else walk(d,c=>xs.push(c));
   return {terms:xs.filter(c=>c.className==='b-term').length,rules:xs.filter(c=>c.className==='b-rule').length,ex:xs.filter(c=>c.tag==='p'&&String(c.className).startsWith('b-ex')&&c.children[0]?.tag==='span').length,rows:xs.filter(c=>c.tag==='table').reduce((s,t)=>s+t.children.length-1,0)};};
  const heads=d=>{const h=[];walk(d,c=>{if(c.className==='b-h')h.push(c._text);});return h;};
- for(const id of ${JSON.stringify(history)}){const a=BASICS.forQuestion(id),box=BASICS.box(a.box),all=basicsDetails('기초 개념',box,a),fold=basicsDetails('기초 개념',box,a,'fold',null,PARTS.partOf(id));
+ for(const id of ${JSON.stringify([...history,...itQuestions])}){const a=BASICS.forQuestion(id),box=BASICS.box(a.box),all=basicsDetails('기초 개념',box,a),fold=basicsDetails('기초 개념',box,a,'fold',null,PARTS.partOf(id));
   const more=fold.children.filter(c=>String(c.className).split(' ').includes('b-rest'));
   out.push({id,heads:heads(all),fheads:heads(fold),all:count(all),top:count(fold,true),inMore:more[0]?count(more[0]):{terms:0,rules:0,ex:0,rows:0},more:more.length,moreOpen:more[0]?more[0].open:false,moreSummary:more[0]?.children[0]._text||''});}
  return out;})()`);
@@ -267,12 +284,12 @@ let hSplit=0,hTopLines=0,hAllLines=0;
 // 5-1-6) 한국사 표만(v162): 표에 b-hist, 첫 칸이 6자까지면 b-nowrap(한 줄), 둘째 칸부터 20자 넘으면 b-long(왼쪽 맞춤). 다른 과목 표에는 붙이지 않는다.
 {const r=run(`(()=>{const len=t=>String(t).split('\\n')[0].replace(/\\{[spmqr]\\|([^{}|]*)\\}/g,'$1').replace(/\\*\\*/g,'').length;let bad=[],nowrap=0,long=0,other=0;
  for(const [k,b] of Object.entries(BASICS.boxes)){const d=basicsDetails('기초 개념',b,null);const tables=[];(function w(n){for(const c of n.children){if(c.tag==='table')tables.push(c);w(c);}})(d);
-  if(!k.startsWith('hist-')){other+=tables.filter(t=>t.classes.has('b-hist')).length;continue;}
+  if(!/^(hist|sec|com)-/.test(k)){other+=tables.filter(t=>t.classes.has('b-hist')).length;continue;}
   const src=b.tables;if(tables.length!==src.length){bad.push(k+' 표 수');continue;}
   tables.forEach((t,ti)=>{if(!t.classes.has('b-hist'))bad.push(k+' b-hist');t.children.slice(1).forEach((tr,ri)=>tr.children.forEach((td,ci)=>{const L=len(src[ti].rows[ri][ci]),nw=td.classes.has('b-nowrap'),lg=td.classes.has('b-long');nowrap+=nw;long+=lg;
    if(nw!==(ci===0&&L<=6)||lg!==(ci>0&&L>20))bad.push(k+' '+src[ti].rowIds[ri]+' '+ci);}));});}
  return {bad:bad.slice(0,5),nowrap,long,other};})()`);
- eqJ(r.bad,[],'한국사 표 칸 표시');assert.equal(r.other,0,'다른 과목 표에는 b-hist 없음');assert.ok(r.nowrap>30&&r.long>30,'짧은 첫 칸 · 긴 칸이 있다: '+JSON.stringify(r));}
+ eqJ(r.bad,[],'한국사 · 전공 과목 표 칸 표시');assert.equal(r.other,0,'다른 과목 표에는 b-hist 없음');assert.ok(r.nowrap>30&&r.long>30,'짧은 첫 칸 · 긴 칸이 있다: '+JSON.stringify(r));}
 
 // 5-2) 파트별 상태: 논리 문제가 있는 파트마다 '기초 개념 보기'가 있고, 누르면 그 파트의 상자를 모두 펼쳐 한 화면에(대입 없이).
 const P=run('PARTS');
@@ -324,6 +341,18 @@ run("go('parts','한국사')");
   const box=B.box('hist-'+p.id);assert.equal(body.all.filter(n=>n.tag==='table').length,box.tables.length,'표 전부: '+p.id);
   assert.ok(body.children.some(n=>cls(n).includes('basics-solve')),'문제 풀기로 이어진다: '+p.id);assert.ok(!/카드|문항|변형/.test(body.textContent));
   run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'parts');}}
+// 5-2-4) 정보보호론 · 컴퓨터일반: 상자를 붙인 파트마다 '기초 개념 보기', 누르면 상자 하나를 모두 펼쳐(대입 · 나머지 모음 없이) → 이 파트 문제 풀기.
+for(const s of Object.keys(IT_DONE)){const done=itDone.filter(p=>p.subject===s);if(!PS.STUDY_PARTS.units.some(u=>u.subject===s))continue;
+ run("go('parts',"+JSON.stringify(s)+")");const hs=nodes.get('#partsBody').all.filter(n=>cls(n).includes('part-basics'));
+ eqJ(hs.map(n=>n.dataset.basics).sort(),done.map(p=>p.id).sort(),s+' 기초 개념 보기 버튼 = 상자를 붙인 파트');
+ for(const p of done){const r=IT_PREFIX[s]+'-'+p.id;eqJ(run('partBasics(PARTS.part('+JSON.stringify(p.id)+'))'),[r],s+' 파트 상자: '+p.id);
+  hs.find(n=>n.dataset.basics===p.id).onclick();assert.equal(run('view'),'basics');
+  const body=nodes.get('#basicsBody'),boxes=body.children.filter(n=>n.tag==='details');
+  eqJ(boxes.map(d=>d.dataset.rule),[r],'파트의 상자: '+p.id);assert.ok(boxes[0].open,'펼쳐져 있다: '+p.id);
+  assert.ok(!body.all.some(n=>n.className==='b-h'&&/이 문제에 대입/.test(n._text))&&!body.all.some(n=>String(n.className).includes('b-rest')),'파트 화면은 대입 · 나머지 모음 없이 모두: '+p.id);
+  assert.equal(body.all.filter(n=>n.tag==='table').length,B.box(r).tables.length,'표 전부: '+p.id);
+  assert.ok(body.children.some(n=>cls(n).includes('basics-solve')),'문제 풀기로 이어진다: '+p.id);assert.ok(!/카드|문항|변형/.test(body.textContent));
+  run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'parts');}}
 run("go('parts','국어')");
 // 5-3) 없는 파트로 들어와도 안내 문장을 보인다(빈 화면 아님).
 run("openBasics('no-such-part')");assert.equal(run('view'),'basics');assert.ok(/파트를 찾지 못했어요/.test(nodes.get('#basicsBody').textContent));
@@ -341,4 +370,5 @@ run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'par
  assert.ok(/id="basicsView"/.test(html)&&/id="basicsBody"/.test(html),'index.html에 기초 개념 화면');}
 console.log('PASS basics(영어): Day 1~7 · 문법 공식 훈련 1470문제(규칙 73 · 파트 51) 모두 상자 + 대입(쓴 줄 '+enUse+'개가 모두 파트 안 상자의 줄), 절 순서 · 번호, 해설 짜임, 해설 화면의 공식 나누기 '+splitBoxes+'문제 · 용어 나누기 '+termSplit+'문제(규칙 · 예문 · 용어 빠짐 · 겹침 0), 공통 정리는 같은 파트 안에서만, 교재 '+englishOverlap+', 파트별 상태 영어 51파트');
 console.log('PASS basics:논리 1~6장 995문제(규칙 33) + 독해 1~3장 920문제(규칙 29 — 1장 15 · 2장 3 · 3장 11) 모두 규칙 상자(표 있는 상자 '+withTable+'개 — 표는 선택, 번호는 이어 매김) + 문제별 대입, 1915문제 절 순서(먼저 알아 둘 말 → 표 → 규칙 → 비교 예문 → 이 문제에 대입), 용어 뜻·예)·한자 원뜻, ✓/✗ 비교 예문, 해설 세 문단, 카드·문항·변형 0, 한자는 한글 뒤 괄호 안에만, 논리 '+overlapChecked+' · 독해 '+readingOverlap+'; 파트별 상태 50파트(논리 27 · 독해 23) 모두 기초 개념 보기 → 상자 전부 펼침(대입 없음) → 이 파트 문제 풀기, 뒤로 = 파트별 상태');
+console.log('PASS basics(정보보호론 · 컴퓨터일반): '+Object.entries(IT_DONE).map(([s,l])=>s+' '+l.length+'파트').join(' · ')+' '+itQuestions.length+'문제(9급 기출) — 파트마다 상자 하나 + 기출마다 대입(쓴 줄 '+itUse+'개 모두 그 파트 상자의 줄), 줄 id 노출 · 두문자 0, 해설 화면은 쓰는 줄만 제자리, 파트별 상태 기초 개념 보기');
 console.log('PASS basics(한국사): '+HIST_UNITS.join(' · ')+' '+hDone.length+'파트 '+history.length+'문제 — 파트마다 상자 하나 + 문제마다 대입(쓴 줄 '+hUse+'개 모두 그 파트 상자의 줄), 표 칸 셋까지, 두문자 · 비결 · 줄 id 노출 0, 연도는 y 줄 '+hYearLines+'개에만, 해설 화면은 쓰는 줄만 제자리('+hTopLines+'/'+hAllLines+'줄) + 나머지 모음 '+hSplit+'문제(빠짐 · 겹침 0), 파트별 상태 한국사 '+hDone.length+'파트 기초 개념 보기');

@@ -315,6 +315,8 @@ function renderPartSummary(root,scope,r){
 // 파트별 상태: 외움 = 7·14·30일 단계를 모두 넘긴 문제(뱃지·경험치와 같은 ReviewSchedule 단계), 틀린 적 있음 = 풀이 기록에 오답이 있는 문제.
 // 약한 파트 = 3문제 이상 풀었고 그중 30% 이상을 틀린 적 있음.
 const WEAK_MIN=3,WEAK_RATE=0.3;
+// 자체 제작 문제 없이 9급 기출만 파트로 나눈 과목(2026-09-25~): 파트별 상태 첫 줄만 다르다.
+const GICHUL_PART_SUBJECTS=new Set(['정보보호론','컴퓨터일반']);
 function partStats(p,byId){const {wrong,seen}=historyStats();let n=0,mastered=0,wrongN=0,fresh=0,tried=0;
  for(const id of p.ids){const c=byId.get(id);if(!c)continue;n++;if(isMastered(c))mastered++;if(wrong.has(id))wrongN++;if(seen.has(id))tried++;else fresh++;}
  return {n,mastered,wrong:wrongN,fresh,tried,weak:tried>=WEAK_MIN&&wrongN/tried>=WEAK_RATE};}
@@ -322,7 +324,7 @@ function currentPartUnit(subject){const s=scopeOf();if(s.subject!==subject)retur
 function renderParts(){
  const s=viewSubject,units=PARTS.unitsFor(s),body=$('#partsBody');$('#partsTitle').textContent=s+' · 파트별 상태';body.replaceChildren();
  const byId=new Map(data.cards.filter(c=>isPlayable(c)&&c.subject===s).map(c=>[c.id,c])),open=currentPartUnit(s)||units[0]?.id;
- body.append(elem('p','파트 = 한 강 안에서 같은 내용을 묻는 문제 묶음이에요. 외움 = 7일·14일·30일 뒤에 다시 맞힌 문제 · ⚠ 약함 = '+WEAK_MIN+'문제 이상 풀었고 그중 '+Math.round(WEAK_RATE*100)+'% 이상을 틀린 적 있음. 파트를 누르면 그 파트만 풀어요.','status'));
+ body.append(elem('p',(GICHUL_PART_SUBJECTS.has(s)?'파트 = 같은 주제를 묻는 9급 기출 묶음이에요.':'파트 = 한 강 안에서 같은 내용을 묻는 문제 묶음이에요.')+' 외움 = 7일·14일·30일 뒤에 다시 맞힌 문제 · ⚠ 약함 = '+WEAK_MIN+'문제 이상 풀었고 그중 '+Math.round(WEAK_RATE*100)+'% 이상을 틀린 적 있음. 파트를 누르면 그 파트만 풀어요.','status'));
  for(const u of units){
   const rows=u.parts.map(p=>[p,partStats(p,byId)]).filter(([,x])=>x.n),weak=rows.filter(([,x])=>x.weak).length,total=rows.reduce((n,[,x])=>n+x.n,0);if(!rows.length)continue;
   const fold=elem('details',undefined,'range-fold part-unit'),g=elem('div',undefined,'menu-list');fold.open=u.id===open;fold.dataset.unit=u.id;

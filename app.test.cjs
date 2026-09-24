@@ -185,6 +185,25 @@ await flush();
 assert.equal(run("Gichul.state("+JSON.stringify(englishPaper)+")"),'ready');
 assert.equal(run('data.activePractice.cardId'),'gichul-'+englishPaper+'-'+String(run("Gichul.paper("+JSON.stringify(englishPaper)+").numbers[0]")).padStart(2,'0'),'다시 받은 뒤 1번 문항부터 나온다');
 assert.equal(fetched.filter(u=>u.includes(englishPaper)).length,2,'실패한 회차만 한 번 더 받았다');
+// v165: 정보보호론(자체 제작 없이 기출만)도 파트 범위로 열면 그 파트 기출만 나오고, 해설 화면에 그 파트의 기초 개념 상자 —
+//   틀리면 펼침 · 맞히면 접힘, 대입이 쓰는 줄만 제자리(나머지는 닫힌 모음 하나), 문항/카드/변형이라는 말 없음.
+{const units=run("STUDY_PARTS.unitsFor('정보보호론').length");
+ if(units){const pid=run("STUDY_PARTS.unitsFor('정보보호론')[0].parts[0].id");
+  run("openScope({subject:'정보보호론',topic:'',round:'part-"+pid+"'})");
+  for(const wrong of [true,false]){
+   for(let i=0;i<5&&!run('data.activePractice');i++)await flush();
+   const id=run('data.activePractice.cardId'),quiz=run('data.activePractice.exercise');
+   assert.equal(run('STUDY_PARTS.partOf('+JSON.stringify(id)+')'),pid,'파트 범위의 기출: '+id);
+   assert.ok(run('BASICS.forQuestion('+JSON.stringify(id)+')?.box===\'sec-\'+'+JSON.stringify(pid)),'기출의 상자 = 그 파트 상자: '+id);
+   run('answerPractice('+JSON.stringify(id)+','+(wrong?(quiz.correctIndex+1)%quiz.choices.length:quiz.correctIndex)+')');
+   assert.equal(run('data.quizFeedback.result'),wrong?'wrong':'correct','정보보호론 답 채점');
+   const b=nodes.get('#card').all.find(n=>n.tag==='details'&&String(n.className||'').split(' ').includes('basics'));
+   assert.ok(b,'정보보호론 해설 화면에 기초 개념 상자: '+id);assert.equal(b.children[0]._text,'기초 개념');assert.equal(b.open,wrong,'정보보호론 '+(wrong?'틀리면 펼침':'맞히면 접힘'));
+   const hs=b.all.filter(n=>n.className==='b-h').map(n=>n._text);hs.forEach((h,k)=>assert.ok(h.startsWith((k+1)+'. '),'번호가 이어진다: '+hs.join(' / ')));
+   assert.ok(/이 문제에 대입$/.test(hs[hs.length-1]),'마지막 절은 이 문제에 대입');
+   const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false);
+   assert.ok(!/문항|카드|변형/.test(screen()),'정보보호론 해설 화면에 문항/카드/변형 없음');
+   next();}}}
 // 회차가 아닌 범위는 예전 그대로 복습 대기열을 따른다.
 run("openScope({subject:'한국사',round:'lecture-02-05'})");
 // 국어 범위 화면: 『사고의 힘 논리』 묶음이 맨 위에 1장 → 2장 → 3장 → 4장 → 5장 → 6장 → 제2편 독해 1장 순서로 나오고, 모두 아직 풀지 않은 4지선다 문제다.
