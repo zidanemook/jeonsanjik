@@ -416,3 +416,5 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-shared > summary { color:#e8d9a8; cursor:pointer; min-height:32px; }
 .b-subh { margin:16px 0 6px; font-size:14px; color:#e8d9a8; }
 .b-shared-note { margin:12px 0 4px; color:#9aa3b0; font-size:14px; }
+.b-more { margin:12px 0 6px; padding:6px 10px; border:1px dashed #4b5563; border-radius:10px; }
+.b-more > summary { color:#b9c0cc; cursor:pointer; min-height:32px; }

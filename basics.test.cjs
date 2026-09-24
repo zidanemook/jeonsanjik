@@ -31,9 +31,21 @@ for(const id of reading){
 }
 assert.equal(rrules.size,29,'독해 1~3장 규칙 29개');
 assert.deepEqual([1,2,3].map(n=>[...rrules].filter(r=>r.startsWith('reading-read'+n+'-')).length),[15,3,11],'독해 장별 규칙 수');
-assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules].sort(),'상자는 논리 · 독해 규칙마다 하나(남는 상자 없음)');
-const covered=new Set([...logic,...reading]);
-for(const id of Object.keys(B.apply))assert.ok(covered.has(id),'대입이 있는데 논리 · 독해 문제가 아니다: '+id);
+// 영어(v159): parts.js의 영어 단원(Day 1~7 · 문법 공식 훈련) 1470문제, 규칙 73개. 대입이 쓰는 줄은 그 문제 파트 안 상자의 줄이어야 한다.
+const PS={};new Function('globalThis','module',fs.readFileSync(__dirname+'/parts.js','utf8'))(PS,{});
+const enParts=PS.STUDY_PARTS.units.filter(u=>/^en-/.test(u.id)).flatMap(u=>u.parts),english=[...new Set(enParts.flatMap(p=>p.ids))];
+assert.equal(enParts.length,51,'영어 파트 51개(Day 1~7 40 · 공식 훈련 11)');assert.equal(english.length,1470,'영어 파트 문제 1470');
+const lineIdsOf=b=>new Set([...b.terms.map(t=>t.id),...(b.table?[b.table.id,b.table.key?.id]:[]),...b.rules.items.map(r=>r.id),b.rules.key?.id,...b.examples.map(x=>x.id)].filter(Boolean));
+const erules=new Set();let enUse=0;
+for(const p of enParts){const inPart=new Set(p.ids.map(id=>bank[id].ruleId));
+ for(const id of p.ids){const q=bank[id];assert.ok(/^grammar-/.test(q.ruleId||''),'영어 규칙 id: '+id);assert.equal(q.variants.length,1,'문제 하나: '+id);erules.add(q.ruleId);
+  assert.ok(B.box(q.ruleId),'규칙 상자가 없다: '+q.ruleId+' ('+id+')');
+  const a=B.forQuestion(id);assert.ok(a&&Array.isArray(a.blocks)&&a.blocks.length&&a.use.length,'이 문제에 대입이 없다: '+id);
+  for(const u of a.use){const [r,l]=u.includes(':')?u.split(':'):[q.ruleId,u];assert.ok(inPart.has(r),'대입 줄이 파트 밖 상자: '+id+' '+u);assert.ok(lineIdsOf(B.box(r)).has(l),'대입 줄이 상자에 없다: '+id+' '+u);enUse++;}}}
+assert.equal(erules.size,73,'영어 규칙 73개');
+assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...erules].sort(),'상자는 논리 · 독해 · 영어 규칙마다 하나(남는 상자 없음)');
+const covered=new Set([...logic,...reading,...english]);
+for(const id of Object.keys(B.apply))assert.ok(covered.has(id),'대입이 있는데 논리 · 독해 · 영어 파트 문제가 아니다: '+id);
 
 // ── 2) 상자 모양: 용어는 뜻 + 예), 한자가 있으면 원뜻, 규칙·비교 예문(✓와 ✗ 둘 다)
 const texts=[];const push=(where,t)=>{if(typeof t==='string')texts.push([where,t]);};
@@ -53,6 +65,10 @@ for(const id of [...logic,...reading]){const e=bank[id].variants[0].explanation;
  const ps=e.split('\n\n');assert.equal(ps.length,3,'해설은 세 문단: '+id);
  assert.ok(ps[0].startsWith('정답 근거: ')&&ps[1].startsWith('보기 비교: ')&&ps[2].startsWith('기억 연결: '),'해설 짜임(정답 근거 · 보기 비교 · 기억 연결): '+id);
  assert.ok(!/\*\*|\{[spmqr]\|/.test(e),'해설은 앱에서 글자 그대로 보이니 **·{x| 표시 금지: '+id);}
+// 영어 해설: 정답 근거 · 보기 비교 · (외우는 공식 | 기억 연결). 셋째 문단(외우는 공식)은 앱이 굵게 그리므로 ** 허용, 앞 두 문단은 글자 그대로.
+for(const id of english){const e=bank[id].variants[0].explanation,ps=e.split('\n\n');
+ assert.ok(ps.length>=3&&ps[0].startsWith('정답 근거: ')&&ps[1].startsWith('보기 비교: ')&&(ps[2].startsWith('외우는 공식\n')||ps[2].startsWith('기억 연결: ')),'영어 해설 짜임: '+id);
+ assert.ok(!/\*\*|\{[spmqr]\|/.test(ps.slice(0,2).join(' ')),'영어 해설 앞 두 문단에 **·{x| 금지: '+id);push(id+' 해설',ps.slice(0,2).join('\n\n'));}
 
 // ── 3) 표기: 카드·문항·변형 금지, 한자는 한글 뒤 괄호 안에만, 날 HTML 없음
 for(const [where,t] of texts){
@@ -96,6 +112,16 @@ if(fs.existsSync(TR)){
  readingOverlap='전사본 '+lines.length+'줄과 16자 겹침 0 · 교재 예문 낱말 '+banned.size+'개 0';
 }
 
+// 4-3) 영어: 교재 전사본(저장소 밖 research/english-days)이 있을 때만, 영어 상자 · 대입과 16자 겹침 0(research/basics-english-20260924/overlap.cjs의 전사본 목록).
+const EOV=path.join(RROOT,'basics-english-20260924','overlap.cjs');
+let englishOverlap='건너뜀(영어 전사본 없음)';
+if(fs.existsSync(EOV)&&fs.existsSync(path.join(RROOT,'english-days'))){
+ const ov=require(EOV),T=[];const walk=(where,v)=>{if(typeof v==='string')T.push({where,t:v});else if(Array.isArray(v))v.forEach(x=>walk(where,x));else if(v&&typeof v==='object')for(const [k,x] of Object.entries(v))if(!['id','c','ok','use'].includes(k))walk(where,x);};
+ for(const r of erules)walk(r,B.boxes[r]);for(const id of english)walk(id+' 대입',B.forQuestion(id).blocks);
+ const r=ov.check(12,16,T);assert.equal(r.fails.length,0,'영어 교재 문장과 16자 이상 겹침: '+JSON.stringify(r.fails.slice(0,3)));
+ englishOverlap='전사본 '+r.sources+'줄과 16자 겹침 0';
+}
+
 // ── 5) 앱: 해설 화면의 상자 절 순서, 파트별 상태의 '기초 개념 보기'
 function el(tag='div'){
  const node={tag,children:[],attrs:{},dataset:{},classes:new Set(),_text:'',hidden:false,disabled:false,open:false,
@@ -128,6 +154,46 @@ for(const id of [...logic,...reading]){
  if(box.table)tableSections++;
  eqJ(heads,want.map((t,i)=>(i+1)+'. '+t),'절 순서: '+id);
 }
+// 5-1-2) 영어 1470문제. (가) 모두 보기에서 절 순서. (나) 해설 화면(fold, 그 문제의 파트)에서 번호가 이어지고, 규칙 · 비교 예문이
+//   빠짐없이 한 번씩 있다. (다) 공식(규칙 id 앞머리, 'm-' 줄은 줄마다)이 넷 이상인 상자는 대입이 쓰는 공식의 규칙 · 예문만 제자리,
+//   나머지 공식은 닫힌 '이 정리의 다른 공식 N개 더 보기' 하나에. 기대값은 여기서 따로 계산한다.
+const enRes=run(`(()=>{const out=[],walk=(n,f)=>{for(const c of n.children){f(c);walk(c,f);}},grp=id=>id.startsWith('m-')||!id.includes('-')?id:id.slice(0,id.lastIndexOf('-'));
+ const names=(d,top)=>{const r=[];(top?d.children:(()=>{const a=[];walk(d,c=>a.push(c));return a;})()).forEach(c=>{if(c.className==='b-rule')r.push(c.children[0]._text);});return r;};
+ const exs=(d,top)=>{let k=0;(top?d.children:(()=>{const a=[];walk(d,c=>a.push(c));return a;})()).forEach(c=>{if(c.tag==='p'&&String(c.className).startsWith('b-ex')&&c.children[0]?.tag==='span'&&/^[✓✗]$/.test(c.children[0]._text))k++;});return k;};
+ for(const id of ${JSON.stringify(english)}){const q=PRACTICE_BANK[id],rule=q.ruleId,box=BASICS.box(rule),a=BASICS.forQuestion(id),part=PARTS.partOf(id);
+  const all=basicsDetails('기초 개념',box,a),fold=basicsDetails('기초 개념',box,a,'fold',null,part),heads=d=>{const h=[];walk(d,c=>{if(c.className==='b-h')h.push(c._text);});return h;};
+  const own=box.rules.items.filter(r=>!basicsShared(r,rule,part)),groups=[...new Set(own.map(r=>grp(r.id)))];
+  const used=new Set(a.use.map(u=>{const [x,y]=u.split(':');return y===undefined?x:x===rule?y:null;}).filter(Boolean).map(grp)),kept=groups.filter(g=>used.has(g));
+  const split=own.every(r=>r.id.includes('-'))&&groups.length>=4&&kept.length>0&&kept.length<groups.length;
+  const more=fold.children.filter(c=>c.className==='b-more');
+  out.push({id,rule,heads:heads(all),fheads:heads(fold),allRules:names(all).length,foldRules:names(fold).length,allEx:exs(all),foldEx:exs(fold),
+   more:more.length,moreOpen:more[0]?more[0].open:false,moreSummary:more[0]?.children[0]._text||'',
+   wantMore:split?groups.length-kept.length:0,topRules:names(fold,true),wantTop:split?own.filter(r=>kept.includes(grp(r.id))).map(r=>r.name):own.map(r=>r.name),
+   inMore:more[0]?names(more[0]).length:0,wantInMore:split?own.filter(r=>!kept.includes(grp(r.id))).length:0});}
+ return out;})()`);
+let splitBoxes=0;const splitSeen=new Set();
+for(const r of enRes){const box=B.box(r.rule),want=['먼저 알아 둘 말',...(box.table?[box.table.title]:[]),'규칙'+(box.rules.title?' — '+box.rules.title:''),'비교 예문','이 문제에 대입'].map((t,i)=>(i+1)+'. '+t);
+ eqJ(r.heads,want,'영어 절 순서: '+r.id);eqJ(r.fheads,want,'해설 화면에서도 번호가 이어진다: '+r.id);
+ assert.equal(r.foldRules,r.allRules,'규칙이 빠지거나 겹치지 않는다: '+r.id);assert.equal(r.foldEx,r.allEx,'비교 예문이 빠지거나 겹치지 않는다: '+r.id);
+ eqJ(r.topRules,r.wantTop,'제자리에 두는 규칙 = 대입이 쓰는 공식의 규칙: '+r.id);
+ if(r.wantMore){splitBoxes++;splitSeen.add(r.rule);assert.equal(r.more,1,'다른 공식 모음 하나: '+r.id);assert.equal(r.moreOpen,false,'닫혀 있다: '+r.id);
+  assert.equal(r.moreSummary,'이 정리의 다른 공식 '+r.wantMore+'개 더 보기');assert.equal(r.inMore,r.wantInMore,'나머지 공식의 규칙은 모두 모음 안에: '+r.id);}
+ else assert.equal(r.more,0,'공식이 적은 상자는 그대로: '+r.id);}
+assert.ok(splitBoxes>500&&splitSeen.has('grammar-formula-structure')&&splitSeen.has('grammar-formula-verbal'),'공식 훈련 큰 상자는 나뉜다: '+splitBoxes);
+// 5-1-3) 국어 상자(규칙 id에 '-' 없음)는 공식 나누기를 하지 않는다.
+assert.equal(run(`${JSON.stringify([...logic,...reading])}.filter(id=>{const q=PRACTICE_BANK[id];return basicsDetails('기초 개념',BASICS.box(q.ruleId),BASICS.forQuestion(id),'fold',null,PARTS.partOf(id)).children.some(c=>c.className==='b-more');}).length`),0,'국어 상자에는 다른 공식 모음이 없다');
+// 5-1-4) '함께 보는 정리'로 접는 줄 = 같은 파트의 다른 상자에 똑같이 있는 줄(모든 과목 · 모든 파트). 파트 밖 상자와만 같은 줄은 접지 않는다.
+{const r=run(`(()=>{let checked=0,shared=0,crossOnly=0;const bad=[];const keys=b=>[...b.terms,...b.rules.items,b.table].filter(Boolean);
+ for(const u of PARTS.units)for(const p of u.parts){const rs=[...new Set(p.ids.map(id=>PRACTICE_BANK[id]?.ruleId).filter(r=>r&&BASICS.box(r)))];
+  for(const r of rs)for(const x of keys(BASICS.box(r))){const k=JSON.stringify(x),want=rs.some(o=>o!==r&&keys(BASICS.box(o)).some(y=>JSON.stringify(y)===k)),got=basicsShared(x,r,p.id);checked++;if(got)shared++;
+   if(!want&&Object.entries(BASICS.boxes).some(([o,b])=>o!==r&&keys(b).some(y=>JSON.stringify(y)===k)))crossOnly++;if(want!==got)bad.push(p.id+' '+r+' '+(x.id||''));}}
+ return {checked,shared,crossOnly,bad:bad.slice(0,5)};})()`);
+ eqJ(r.bad,[],'공통 판정은 같은 파트 안에서만');assert.ok(r.crossOnly>1000,'파트 밖 상자와만 같은 줄이 많다(영어 공식 · Day) — 이것들은 접히지 않는다: '+r.crossOnly);
+ assert.equal(run("basicsShared(BASICS.box('reading-read1-dev-time').table,'reading-read1-dev-time','kr1-8')"),true,'전개 방식 표는 kr1-8에서 공통');
+ const dn=run("JSON.stringify(BASICS.box('grammar-formula-structure').rules.items.find(r=>r.id==='dn-1'))");
+ assert.ok(run(`Object.entries(BASICS.boxes).some(([k,b])=>k!=='grammar-formula-structure'&&b.rules.items.some(r=>JSON.stringify(r)===${JSON.stringify(dn)}))`),'dn-1은 Day 상자에도 있다');
+ assert.equal(run(`basicsShared(${dn},'grammar-formula-structure',PARTS.partOf('en-formula-001')||'enf-1')`),false,'공식 훈련 상자의 dn-1은 파트 밖 Day 상자 때문에 접히지 않는다');}
+
 // 5-2) 파트별 상태: 논리 문제가 있는 파트마다 '기초 개념 보기'가 있고, 누르면 그 파트의 상자를 모두 펼쳐 한 화면에(대입 없이).
 const P=run('PARTS');
 const logicParts=P.units.flatMap(u=>u.parts).filter(p=>p.ids.some(id=>/^ko-logic\d/.test(id)));
@@ -153,6 +219,20 @@ for(const p of logicParts){
  assert.ok(!/카드|문항|변형/.test(body.textContent),'파트 화면에 카드·문항·변형 없음');
  run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'parts','뒤로 = 파트별 상태: '+p.id);
 }
+// 5-2-2) 영어 파트 51개도 같다: 파트별 상태(영어)에 '기초 개념 보기', 누르면 파트 상자를 모두 펼쳐(대입 없이, 다른 공식 모음 없이 규칙 전부).
+for(const p of enParts)eqJ(run('partBasics(PARTS.part('+JSON.stringify(p.id)+'))'),[...new Set(p.ids.map(id=>bank[id].ruleId))],'영어 파트 상자: '+p.id);
+run("go('parts','영어')");
+{const en=nodes.get('#partsBody').all.filter(n=>cls(n).includes('part-basics'));
+ eqJ(en.map(n=>n.dataset.basics).sort(),enParts.map(p=>p.id).sort(),'영어 기초 개념 보기 버튼 = 영어 파트 51개');
+ for(const p of enParts){en.find(n=>n.dataset.basics===p.id).onclick();assert.equal(run('view'),'basics');
+  const body=nodes.get('#basicsBody'),boxes=body.children.filter(n=>n.tag==='details');
+  eqJ(boxes.map(d=>d.dataset.rule),[...new Set(p.ids.map(id=>bank[id].ruleId))],'영어 파트의 상자 전부: '+p.id);assert.ok(boxes.every(d=>d.open));
+  assert.ok(!body.all.some(n=>n.className==='b-more'),'파트 화면은 공식을 나누지 않는다: '+p.id);
+  const shownRules=body.all.filter(n=>n.className==='b-rule').length,noted=body.all.filter(n=>n.className==='b-shared-note').length;
+  const total=boxes.reduce((s,d)=>s+B.box(d.dataset.rule).rules.items.length,0);assert.ok(shownRules<=total&&(shownRules===total||noted>0),'파트 화면 규칙: 모두, 또는 앞 상자에 있다는 안내: '+p.id);
+  assert.ok(!/카드|문항|변형/.test(body.textContent));
+  run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'parts');}}
+run("go('parts','국어')");
 // 5-3) 없는 파트로 들어와도 안내 문장을 보인다(빈 화면 아님).
 run("openBasics('no-such-part')");assert.equal(run('view'),'basics');assert.ok(/파트를 찾지 못했어요/.test(nodes.get('#basicsBody').textContent));
 run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'parts');
@@ -167,4 +247,5 @@ run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'par
  assert.ok(sw.includes("'./basics.js?v="+v+"'"),'sw.js가 basics.js를 담는다');
  assert.ok(/cp [^\n]*\bbasics\.js\b/.test(yml)&&/node basics\.test\.cjs/.test(yml),'pages.yml이 basics.js를 올리고 basics.test.cjs를 돌린다');
  assert.ok(/id="basicsView"/.test(html)&&/id="basicsBody"/.test(html),'index.html에 기초 개념 화면');}
+console.log('PASS basics(영어): Day 1~7 · 문법 공식 훈련 1470문제(규칙 73 · 파트 51) 모두 상자 + 대입(쓴 줄 '+enUse+'개가 모두 파트 안 상자의 줄), 절 순서 · 번호, 해설 짜임, 해설 화면의 공식 나누기 '+splitBoxes+'문제(규칙 · 예문 빠짐 · 겹침 0), 공통 정리는 같은 파트 안에서만, 교재 '+englishOverlap+', 파트별 상태 영어 51파트');
 console.log('PASS basics:논리 1~6장 995문제(규칙 33) + 독해 1~3장 920문제(규칙 29 — 1장 15 · 2장 3 · 3장 11) 모두 규칙 상자(표 있는 상자 '+withTable+'개 — 표는 선택, 번호는 이어 매김) + 문제별 대입, 1915문제 절 순서(먼저 알아 둘 말 → 표 → 규칙 → 비교 예문 → 이 문제에 대입), 용어 뜻·예)·한자 원뜻, ✓/✗ 비교 예문, 해설 세 문단, 카드·문항·변형 0, 한자는 한글 뒤 괄호 안에만, 논리 '+overlapChecked+' · 독해 '+readingOverlap+'; 파트별 상태 50파트(논리 27 · 독해 23) 모두 기초 개념 보기 → 상자 전부 펼침(대입 없음) → 이 파트 문제 풀기, 뒤로 = 파트별 상태');
