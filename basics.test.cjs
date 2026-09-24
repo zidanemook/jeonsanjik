@@ -120,6 +120,9 @@ if(fs.existsSync(EOV)&&fs.existsSync(path.join(RROOT,'english-days'))){
  for(const r of erules)walk(r,B.boxes[r]);for(const id of english)walk(id+' 대입',B.forQuestion(id).blocks);
  const r=ov.check(12,16,T);assert.equal(r.fails.length,0,'영어 교재 문장과 16자 이상 겹침: '+JSON.stringify(r.fails.slice(0,3)));
  englishOverlap='전사본 '+r.sources+'줄과 16자 겹침 0';
+ // v160: 상자 밖 영어 글(lesson · 예문 · 해설 · 발문 · 보기 · 외울 것)도 허용 목록(공식 표기 등) 말고는 16자 겹침 0.
+ const OS=path.join(RROOT,'basics-english-20260924','overlap-spans.cjs');
+ if(fs.existsSync(OS)){const s=require(OS).scan();assert.equal(s.out.length,0,'영어 문제 글에 교재 조각: '+JSON.stringify(s.out.slice(0,3)));englishOverlap+=' · 문제 글 16자 겹침 0(허용 목록 '+new Set(s.allowed.map(a=>a.sub)).size+'구절)';}
 }
 
 // ── 5) 앱: 해설 화면의 상자 절 순서, 파트별 상태의 '기초 개념 보기'

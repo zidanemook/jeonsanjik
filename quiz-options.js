@@ -548,8 +548,8 @@ globalThis.QUIZ_OPTIONS={
     "question": "격식 문체와 일상 용례를 모두 포함할 때 옳은 설명은?",
     "choices": [
       "None of the water are clean.만 맞다.",
-      "None of the students is here.만 가능하고 are는 격식 문체든 일상 용례든 모든 경우에 틀리며 none은 항상 단수다.",
-      "None of the water is clean.이 맞고, None of the students는 is와 are 용례가 모두 있다.",
+      "None of the guests is here.만 가능하고 are는 격식 문체든 일상 용례든 모든 경우에 틀리며 none은 항상 단수다.",
+      "None of the water is clean.이 맞고, None of the guests는 is와 are 용례가 모두 있다.",
       "none은 항상 복수 동사와만 쓴다."
     ],
     "correctIndex": 2,
