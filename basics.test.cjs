@@ -60,7 +60,7 @@ for(const p of hDone){const r='hist-'+p.id,box=B.box(r);assert.ok(box,'한국사
 assert.equal(history.length,2175,'02~21강 + 특강 2175문제');assert.equal(hrules.size,115,'02~21강 + 특강 115파트 = 115상자');
 // 정보보호론 · 컴퓨터일반(v165~, 배치로 늘어난다): 자체 제작 문제가 없어 9급 기출을 주제로 나눈 parts.js 파트마다 상자 하나
 //   (id 'sec-<파트>' · 'com-<파트>', split 'lines', tables 여럿). IT_DONE의 파트는 상자가 있고, 그 파트 기출(gichul-<회차>-NN)마다 대입이 있다.
-const IT_DONE={'정보보호론':['is01','is02','is03','is04','is05','is06','is07','is08','is09','is10','is11','is12','is13','is14','is15','is16','is17','is18','is19','is20','is21'],'컴퓨터일반':['cg01','cg02','cg03','cg04','cg05','cg06','cg07','cg08','cg09','cg10','cg11','cg12','cg13','cg14','cg15','cg16','cg24','cg25','cg26']},IT_PREFIX={'정보보호론':'sec','컴퓨터일반':'com'};
+const IT_DONE={'정보보호론':['is01','is02','is03','is04','is05','is06','is07','is08','is09','is10','is11','is12','is13','is14','is15','is16','is17','is18','is19','is20','is21'],'컴퓨터일반':['cg01','cg02','cg03','cg04','cg05','cg06','cg07','cg08','cg09','cg10','cg11','cg12','cg13','cg14','cg15','cg16','cg17','cg18','cg19','cg20','cg21','cg22','cg23','cg24','cg25','cg26']},IT_PREFIX={'정보보호론':'sec','컴퓨터일반':'com'};
 const itDone=[],itQuestions=[],itRules=new Set();let itUse=0;
 for(const [s,list] of Object.entries(IT_DONE)){const all=PS.STUDY_PARTS.units.filter(u=>u.subject===s).flatMap(u=>u.parts);
  for(const pid of list){const p=all.find(x=>x.id===pid);assert.ok(p,s+' 파트: '+pid);itDone.push({...p,subject:s});const r=IT_PREFIX[s]+'-'+pid,box=B.box(r);assert.ok(box,s+' 파트 상자: '+r);itRules.add(r);
