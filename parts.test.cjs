@@ -59,8 +59,9 @@ const counts={};
  const h19=PARTS.units.find(u=>u.id==='hist-19');assert.equal(h19.parts.length,8);assert.equal(h19.parts.reduce((n,p)=>n+p.ids.length,0),115);
  // 2026-09-23 20강 조선 전기(문화 I): facts.cjs 묶음 15개 → 8파트, 99문제. 파트마다 8문제 이상이고 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
  const h20=PARTS.units.find(u=>u.id==='hist-20');assert.equal(h20.title,'20강 조선 전기(문화 I)');
- assert.deepEqual(h20.parts.map(p=>p.title),['성균관·4부 학당·향교','서원·서당','성리학의 발달과 이황','이이·학파와 붕당','불교와 도교','역사서·실록·승정원일기','지도·지리서','의례서·법전·음악']);
- assert.equal(h20.parts.reduce((n,p)=>n+p.ids.length,0),99);assert.ok(h20.parts.every(p=>p.ids.length>=8),'20강 파트마다 8문제 이상');
+ // 2026-09-24 보충 파트 '이름이 비슷한 향교·유향소·향약·향도'(9문제, 여러 강 사실을 가르는 문제라 따로)를 교육 기관 파트 뒤에 둔다.
+ assert.deepEqual(h20.parts.map(p=>p.title),['성균관·4부 학당·향교','서원·서당','이름이 비슷한 향교·유향소·향약·향도','성리학의 발달과 이황','이이·학파와 붕당','불교와 도교','역사서·실록·승정원일기','지도·지리서','의례서·법전·음악']);
+ assert.equal(h20.parts.reduce((n,p)=>n+p.ids.length,0),108);assert.ok(h20.parts.every(p=>p.ids.length>=8),'20강 파트마다 8문제 이상');
 }
 
 // ── 3) 앱
