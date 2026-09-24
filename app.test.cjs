@@ -205,6 +205,8 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  assert.equal(rowDetail('6장 논리의 오류'),'풀어야 할 문제 329/329 · 첫 시도 0/329','6장 범위 줄');
  assert.equal(rows[6],'독해 1장 독해의 원리','제2편 독해 1장은 논리 6장 바로 다음 줄: '+rows.slice(0,8).join(' / '));
  assert.equal(rowDetail('독해 1장 독해의 원리'),'풀어야 할 문제 444/444 · 첫 시도 0/444','독해 1장 범위 줄');
+ assert.equal(rows[7],'독해 2장 독해와 논증','독해 2장은 독해 1장 바로 다음 줄');assert.equal(rows[8],'독해 3장 실전 독해 훈련','독해 3장은 독해 2장 바로 다음 줄');
+ assert.equal(rowDetail('독해 2장 독해와 논증'),'풀어야 할 문제 122/122 · 첫 시도 0/122','독해 2장 범위 줄');assert.equal(rowDetail('독해 3장 실전 독해 훈련'),'풀어야 할 문제 354/354 · 첫 시도 0/354','독해 3장 범위 줄');
  assert.ok(rows.includes('국어 전체')&&heads.some(h=>h.startsWith('기출 · 회차별')),'국어 기출과 국어 전체 범위는 그대로 있다');
  const rangeText=[...nodes.get('#rangeList').all.map(n=>n._text)].join(' | ');assert.ok(!/문항|카드/.test(rangeText),'국어 범위 화면에 문항/카드라는 말이 없다');
  run("openScope({subject:'국어',topic:'논리 2장'})");
@@ -236,7 +238,7 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  assert.ok(shown3.includes('사고의 힘 논리 제1편 개념 기반 자체 제작 문제'),'3장 출처 줄');assert.ok(!/문항|카드/.test(shown3),'3장 해설 화면에 문항/카드라는 말이 없다');
  next();
  // 4장 술어 논리 147문제 · 5장 귀납 논증 128문제: 범위 이름·문제 수가 맞고, 범위 안의 첫 문제가 그 장의 4지선다다.
- for(const [topic,title,n,prefix] of [['논리 4장','4장 술어 논리',147,'ko-logic4-'],['논리 5장','5장 귀납 논증',128,'ko-logic5-'],['논리 6장','6장 논리의 오류',329,'ko-logic6-'],['독해 1장','독해 1장 독해의 원리',444,'ko-read1-']]){
+ for(const [topic,title,n,prefix] of [['논리 4장','4장 술어 논리',147,'ko-logic4-'],['논리 5장','5장 귀납 논증',128,'ko-logic5-'],['논리 6장','6장 논리의 오류',329,'ko-logic6-'],['독해 1장','독해 1장 독해의 원리',444,'ko-read1-'],['독해 2장','독해 2장 독해와 논증',122,'ko-read2-'],['독해 3장','독해 3장 실전 독해 훈련',354,'ko-read3']]){
   run('openScope({subject:\'국어\',topic:'+JSON.stringify(topic)+'})');
   assert.equal(nodes.get('#scopeLabel')._text,'국어 · 사고의 힘 논리 '+title,topic+' 범위 이름');
   assert.equal(run('data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).length'),n,topic+' 범위 문제 수');

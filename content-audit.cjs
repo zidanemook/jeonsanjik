@@ -76,7 +76,7 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
   assert(rows.some(x=>x.exercise.type==='choice'),'MCQ required: '+ruleId);
   assert.equal(new Set(typed.map(x=>practice.normalize(x.exercise.question))).size,typed.length,'Distinct written questions required: '+ruleId);
  }
- // 국어 교재 범위(사고의 힘 논리 제1편 1장~6장, 제2편 독해 1장). 영어의 직접쓰기 하한은 걸지 않는다(위 반복문은 영어만 본다).
+ // 국어 교재 범위(사고의 힘 논리 제1편 1장~6장, 제2편 독해 1장~3장). 영어의 직접쓰기 하한은 걸지 않는다(위 반복문은 영어만 본다).
  // 대신 장마다 문제 수 하한(koreanTextbook.floor)과 필수 개념(requiredPoints)을 요구하고, 사용자 요청에 따라 모두 4지선다여야 한다.
  const byTopic=new Map();
  for(const [id,rows]of byCard){const lesson=rows[0].lesson;if(rows[0].card.subject!=='국어'||!lesson)continue;
@@ -118,7 +118,8 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // LONGEST_LIMIT: 2026-09-23 20강 조선 전기(문화 I) 99문제(정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 정확한 내용으로 늘리거나 정답을 줄였다)를 더한 뒤 실측 58/3647(0.01590)을 소수 셋째 자리에서 올린 0.016으로 다시 조였다.
 // LONGEST_LIMIT: 2026-09-24 21강 조선 전기(문화 II) 94문제(정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 정확한 내용으로 늘리거나 정답을 줄였다)를 더한 뒤 실측 58/3750(0.01547). 소수 셋째 자리에서 올리면 0.016 그대로라 더 조일 자리가 없다.
 // LONGEST_LIMIT: 2026-09-24(v151) 문제집 Day 6·7 460문제(4지선다 287, 정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 자연스럽게 늘렸다)를 더한 뒤 실측 58/4037(0.01437)를 소수 셋째 자리에서 올린 0.015로 다시 조였다.
-const LONGEST_LIMIT=0.015,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
+// LONGEST_LIMIT: 2026-09-24(v153) 국어 독해 2장 122·3장 354문제(모두 4지선다, 정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 정확한 내용으로 늘렸다)를 더한 뒤 실측 58/4513(0.01285)을 소수 셋째 자리에서 올린 0.013으로 다시 조였다.
+const LONGEST_LIMIT=0.013,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
 function lengthBias(items){
  const rows=items.filter(i=>i.exercise.type==='choice'&&!VERBATIM_OFFICIAL.test(i.card.id)&&!i.exercise.choiceImages);
  assert(rows.length>0,'No self-made choice exercises to measure');

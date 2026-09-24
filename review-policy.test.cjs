@@ -92,6 +92,10 @@ assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-formula-006'?{...x,
  {const kr=list.filter(x=>x.card.id.startsWith('ko-read1-'));assert.equal(kr.length,444);assert.ok(kr.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-reading-')));assert.equal(new Set(kr.map(x=>x.conceptId)).size,61);
   assert.equal(policy.concept('ko-read1-015'),'korean-reading-but-type');assert.equal(policy.concept('ko-read1-015'),policy.concept('ko-read1-022'),'A but B 유형 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-read1-022'),policy.concept('ko-read1-023'),'A but B 유형과 물론·그러나 유형은 다른 개념');
   assert.equal(policy.concept('ko-read1-266'),'korean-reading-option-intent');assert.notEqual(policy.concept('ko-read1-266'),policy.concept('ko-read1-273'),'의도의 오류와 원인·결과 뒤바꾸기는 다른 개념');
+  {const r23=list.filter(x=>/^ko-read[23]/.test(x.card.id));assert.equal(r23.length,476);assert.ok(r23.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-reading')));assert.equal(new Set(r23.map(x=>x.conceptId)).size,77);
+   assert.equal(policy.concept('ko-read2-006'),policy.concept('ko-read2-007'),'독해 2장 같은 개념');assert.notEqual(policy.concept('ko-read2-007'),policy.concept('ko-read2-008'),'독해 2장 다른 개념');
+   assert.equal(policy.concept('ko-read3-005'),policy.concept('ko-read3-006'),'독해 3장 같은 개념');assert.notEqual(policy.concept('ko-read3-006'),policy.concept('ko-read3-007'),'독해 3장 다른 개념');
+}
   assert.equal(policy.concept('ko-read1-356'),policy.concept('ko-read1-362'),'정의의 구조 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-read1-362'),policy.concept('ko-read1-363'),'정의의 구조와 정의의 규칙은 다른 개념');}
  assert.equal(policy.concept('ko-logic6-322'),'korean-logic-fallacy-aliases');assert.equal(policy.concept('ko-logic6-322'),policy.concept('ko-logic6-329'),'딴 이름 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic6-329'),policy.concept('ko-logic6-153'),'딴 이름과 흑백 사고는 다른 개념');
  assert.equal(policy.concept('ko-logic4-094'),'korean-logic-existential-first');assert.equal(policy.concept('ko-logic4-094'),policy.concept('ko-logic4-102'),'존재 명제 먼저 활용 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic4-102'),policy.concept('ko-logic4-103'),'존재 명제 먼저 활용과 존재 명제마다 다른 이름은 다른 개념');
@@ -110,6 +114,8 @@ assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic6
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='오류의 딴 이름')),/Missing Korean coverage: 논리 6장 \/ 오류의 딴 이름/);
 assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-read1-')||Number(x.card.id.slice(-3))<=354)),/Korean textbook floor: 독해 1장 has 354, needs 355/);
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='‘물론 B, 그러나 C’ 유형')),/Missing Korean coverage: 독해 1장 \/ ‘물론 B, 그러나 C’ 유형/);
+assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-read2-')||x.card.id<='ko-read2-097')),/Korean textbook floor: 독해 2장 has 97, needs 98/);
+assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=="대비 구조 문제 풀이 원칙")),/Missing Korean coverage: 독해 3장/);
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='존재 명제 먼저 활용')),/Missing Korean coverage: 논리 4장 \/ 존재 명제 먼저 활용/);
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='잉여법')),/Missing Korean coverage: 논리 5장 \/ 잉여법/);
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='환위')),/Missing Korean coverage: 논리 3장 \/ 환위/);
