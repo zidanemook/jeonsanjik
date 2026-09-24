@@ -187,22 +187,23 @@ assert.equal(run('data.activePractice.cardId'),'gichul-'+englishPaper+'-'+String
 assert.equal(fetched.filter(u=>u.includes(englishPaper)).length,2,'실패한 회차만 한 번 더 받았다');
 // v165: 정보보호론(자체 제작 없이 기출만)도 파트 범위로 열면 그 파트 기출만 나오고, 해설 화면에 그 파트의 기초 개념 상자 —
 //   틀리면 펼침 · 맞히면 접힘, 대입이 쓰는 줄만 제자리(나머지는 닫힌 모음 하나), 문항/카드/변형이라는 말 없음.
-{const units=run("STUDY_PARTS.unitsFor('정보보호론').length");
- if(units){const pid=run("STUDY_PARTS.unitsFor('정보보호론')[0].parts[0].id");
-  run("openScope({subject:'정보보호론',topic:'',round:'part-"+pid+"'})");
+// v167: 컴퓨터일반도 같은 방식(상자 id 'com-<파트>').
+for(const [SUBJ,PRE] of [['정보보호론','sec'],['컴퓨터일반','com']]){const units=run("STUDY_PARTS.unitsFor('"+SUBJ+"').length");
+ if(units){const pid=run("STUDY_PARTS.unitsFor('"+SUBJ+"')[0].parts[0].id");
+  run("openScope({subject:'"+SUBJ+"',topic:'',round:'part-"+pid+"'})");
   for(const wrong of [true,false]){
    for(let i=0;i<5&&!run('data.activePractice');i++)await flush();
    const id=run('data.activePractice.cardId'),quiz=run('data.activePractice.exercise');
    assert.equal(run('STUDY_PARTS.partOf('+JSON.stringify(id)+')'),pid,'파트 범위의 기출: '+id);
-   assert.ok(run('BASICS.forQuestion('+JSON.stringify(id)+')?.box===\'sec-\'+'+JSON.stringify(pid)),'기출의 상자 = 그 파트 상자: '+id);
+   assert.ok(run('BASICS.forQuestion('+JSON.stringify(id)+')?.box===\''+PRE+'-\'+'+JSON.stringify(pid)),'기출의 상자 = 그 파트 상자: '+id);
    run('answerPractice('+JSON.stringify(id)+','+(wrong?(quiz.correctIndex+1)%quiz.choices.length:quiz.correctIndex)+')');
-   assert.equal(run('data.quizFeedback.result'),wrong?'wrong':'correct','정보보호론 답 채점');
+   assert.equal(run('data.quizFeedback.result'),wrong?'wrong':'correct',SUBJ+' 답 채점');
    const b=nodes.get('#card').all.find(n=>n.tag==='details'&&String(n.className||'').split(' ').includes('basics'));
-   assert.ok(b,'정보보호론 해설 화면에 기초 개념 상자: '+id);assert.equal(b.children[0]._text,'기초 개념');assert.equal(b.open,wrong,'정보보호론 '+(wrong?'틀리면 펼침':'맞히면 접힘'));
+   assert.ok(b,SUBJ+' 해설 화면에 기초 개념 상자: '+id);assert.equal(b.children[0]._text,'기초 개념');assert.equal(b.open,wrong,SUBJ+' '+(wrong?'틀리면 펼침':'맞히면 접힘'));
    const hs=b.all.filter(n=>n.className==='b-h').map(n=>n._text);hs.forEach((h,k)=>assert.ok(h.startsWith((k+1)+'. '),'번호가 이어진다: '+hs.join(' / ')));
    assert.ok(/이 문제에 대입$/.test(hs[hs.length-1]),'마지막 절은 이 문제에 대입');
    const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false);
-   assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드/g,'')),'정보보호론 해설 화면에 문항/카드/변형 없음');
+   assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드/g,'')),SUBJ+' 해설 화면에 문항/카드/변형 없음');
    next();}}}
 // 회차가 아닌 범위는 예전 그대로 복습 대기열을 따른다.
 run("openScope({subject:'한국사',round:'lecture-02-05'})");

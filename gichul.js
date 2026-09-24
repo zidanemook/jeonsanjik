@@ -41,7 +41,7 @@
  }
  function explanation(paper,q){
   const head='공식 정답: '+symbols[q.a-1]+' · '+paper.title+' '+q.n+'번 ('+paper.body+' 공식 정답표).';
-  return q.e?head+'\n\n'+q.e:head+'\n\n이 문항은 공식 문제와 정답표를 수록했으며, 상세 해설은 아직 제공하지 않습니다.';
+  return q.e?head+'\n\n'+q.e:head+'\n\n이 문제는 공식 문제와 정답표를 수록했으며, 상세 해설은 아직 제공하지 않습니다.';
  }
  // 받은 회차 파일이 색인과 어긋나면 붙이지 않는다. 틀린 정답을 가르치느니 문제를 내지 않는다.
  function attach(paper,data){
