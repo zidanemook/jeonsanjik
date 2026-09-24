@@ -15,7 +15,7 @@ for(const [id,lesson]of Object.entries(bank)){
  // 나뉜 문제는 원래 규칙의 정리를 그대로 들고 있어 해설 화면이 규칙을 가르친다.
  if(bank[lesson.ruleId]&&lesson.ruleId!==id)for(const k of ['title','rule','hook','examples','topic'])assert.deepEqual(lesson[k],bank[lesson.ruleId][k],id+' '+k);
 }
-// 영어 범위별 문제 수: 문제집 Day 1·Day 2는 각각 준비된 60문제(4지선다 40 · 직접 쓰기 20), Day 3은 178문제(4지선다 116 · 직접 쓰기 62), Day 4는 152문제(4지선다 102 · 직접 쓰기 50), Day 5는 196문제(4지선다 130 · 직접 쓰기 66), Day 6은 260문제(문제집 문제 40 · 4지선다 137 · 직접 쓰기 83), Day 7은 280문제(문제집 문제 40 · 4지선다 150 · 직접 쓰기 90), 문법 공식 훈련은 364문제(4지선다 238 · 직접 쓰기 126), 수일치 95문제, 그 밖의 문법 60문제이고 모두 한 문제씩이다.
+// 영어 범위별 문제 수: 문제집 Day 1·Day 2는 각각 준비된 60문제(4지선다 40 · 직접 쓰기 20), Day 3은 178문제(4지선다 116 · 직접 쓰기 62), Day 4는 152문제(4지선다 102 · 직접 쓰기 50), Day 5는 196문제(4지선다 130 · 직접 쓰기 66), Day 6은 220문제(4지선다 137 · 직접 쓰기 83), Day 7은 240문제(4지선다 150 · 직접 쓰기 90), 문법 공식 훈련은 364문제(4지선다 238 · 직접 쓰기 126), 수일치 95문제, 그 밖의 문법 60문제이고 모두 한 문제씩이다.
 {const count=(topic,type)=>Object.entries(bank).filter(([id,l])=>l.topic===topic&&(!type||(l.variants[0]?.type||'choice')===type)).length;
  assert.equal(count('Day 1'),60);assert.equal(count('Day 1','choice'),40);assert.equal(count('Day 1','text'),20);assert.equal(count('수일치'),95);assert.equal(count('영문법'),60);
  assert.equal(count('Day 2'),60);assert.equal(count('Day 2','choice'),40);assert.equal(count('Day 2','text'),20);
@@ -25,9 +25,10 @@ for(const [id,lesson]of Object.entries(bank)){
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='Day 4').sort(),Array.from({length:152},(_,i)=>'en-day4-'+String(i+1).padStart(3,'0')),'Day 4는 en-day4-001~152');
  assert.equal(count('Day 5'),196);assert.equal(count('Day 5','choice'),130);assert.equal(count('Day 5','text'),66);
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='Day 5').sort(),Array.from({length:196},(_,i)=>'en-day5-'+String(i+1).padStart(3,'0')),'Day 5는 en-day5-001~196');
- for(const [day,n,nc,nt,first] of [[6,260,137,123,151],[7,280,150,130,191]]){const t='Day '+day;assert.equal(count(t),n);assert.equal(count(t,'choice'),nc);assert.equal(count(t,'text'),nt);
-  const ids=Object.keys(bank).filter(id=>bank[id].topic===t),book=ids.filter(id=>/-b\d{3}$/.test(id)).sort(),self=ids.filter(id=>/-\d{3}$/.test(id)).sort();
-  assert.deepEqual(book,Array.from({length:40},(_,i)=>'en-day'+day+'-b'+(first+i)),t+' 문제집 문제 '+first+'~'+(first+39));assert.deepEqual(self,Array.from({length:n-40},(_,i)=>'en-day'+day+'-'+String(i+1).padStart(3,'0')),t+' 자체 제작');assert.equal(book.length+self.length,n);}
+ // Day 6·7은 자체 제작만 싣는다(교재 문장 151~230은 앱에 넣지 않는다 — Day 5 방침).
+ for(const [day,n,nc,nt] of [[6,220,137,83],[7,240,150,90]]){const t='Day '+day;assert.equal(count(t),n);assert.equal(count(t,'choice'),nc);assert.equal(count(t,'text'),nt);
+  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic===t).sort(),Array.from({length:n},(_,i)=>'en-day'+day+'-'+String(i+1).padStart(3,'0')),t+'는 en-day'+day+'-001~'+n);}
+ assert.equal(Object.keys(bank).filter(id=>/^en-day[67]-b/.test(id)).length,0,'교재 문장 문제 없음');
  assert.equal(count('문법 공식 훈련'),364);assert.equal(count('문법 공식 훈련','choice'),238);assert.equal(count('문법 공식 훈련','text'),126);
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='문법 공식 훈련').sort(),Array.from({length:364},(_,i)=>'en-formula-'+String(i+1).padStart(3,'0')),'문법 공식 훈련은 en-formula-001~364');
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='Day 2').sort(),Array.from({length:60},(_,i)=>'en-day2-'+String(i+1).padStart(2,'0')),'Day 2는 en-day2-01~60');
@@ -45,14 +46,12 @@ for(const [id,lesson]of Object.entries(bank)){
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='Day 7').map(l=>l.point)).size,30);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='Day 7').map(l=>l.ruleId)).size,7);
  {const before=new Set(Object.values(bank).filter(l=>['Day 1','Day 2','Day 3','Day 4','Day 5'].includes(l.topic)).map(l=>l.point)),d6=new Set(Object.values(bank).filter(l=>l.topic==='Day 6').map(l=>l.point));
   assert.ok([...d6].every(p=>!before.has(p)),'Day 6 문법 포인트는 Day 1~5 포인트와 이름이 겹치지 않는다');assert.ok(Object.values(bank).filter(l=>l.topic==='Day 7').every(l=>!before.has(l.point)&&!d6.has(l.point)),'Day 7 문법 포인트는 Day 1~6 포인트와 이름이 겹치지 않는다');}
- // Day 6·7(v151): 해설 끝은 그 포인트의 외우는 공식 4줄(공식 **색칠** · ✗ · 예), 기억 연결·꿀팁 없음. 포인트마다 자체 제작 8문제 이상, 문제집 문제는 옳으면 O · 틀리면 고친 말과 바르게 고친 문장.
+ // Day 6·7(v151): 해설 끝은 그 포인트의 외우는 공식 4줄(공식 **색칠** · ✗ · 예), 기억 연결·꿀팁 없음. 포인트마다 자체 제작 8문제 이상.
  for(const t of ['Day 6','Day 7']){const rows=Object.entries(bank).filter(([,l])=>l.topic===t),per=new Map(),blocks=new Map();
   for(const [id,l] of rows){const v=l.variants[0],paras=v.explanation.split('\n\n'),last=paras[paras.length-1],ls=last.split('\n');
    assert.ok(ls[0]==='외우는 공식'&&ls.length>=4&&ls.length<=5&&ls.some(x=>x.startsWith('✗ '))&&ls[ls.length-1].startsWith('예) ')&&last.includes('**')&&!/꿀팁|입으로 외우기|함정:|기억 연결:/.test(v.explanation),'외우는 공식 4줄: '+id);
    if(!blocks.has(l.point))blocks.set(l.point,last);assert.equal(blocks.get(l.point),last,'같은 포인트는 같은 공식: '+id);assert.ok(!/카드|문항|변형/.test(v.question+v.explanation),'내부 용어 없음: '+id);
-   if(/-b\d{3}$/.test(id)){assert.equal(v.type,'text');assert.ok(/^다음 (문장이|우리말을)/.test(v.question),id);const ox=v.answers.length===1&&v.answers[0]==='O';assert.equal(ox,v.explanation.startsWith('정답 근거: O'),'O/X와 해설: '+id);
-    if(!ox){assert.ok(v.sentence&&[].concat(v.sentence).every(s=>v.answers.includes(s.replace(/[.?!]$/,''))),'바르게 고친 문장도 정답으로 받는다: '+id);}else assert.ok(!v.sentence,id);}
-   else per.set(l.point,(per.get(l.point)||0)+1);}
+   assert.ok(!v.sentence,'교재 문장 고침 상자 없음: '+id);per.set(l.point,(per.get(l.point)||0)+1);}
   assert.ok([...per.values()].every(n=>n>=8)&&per.size===blocks.size,t+' 포인트마다 자체 제작 8문제 이상');}
  // 문법 공식 훈련(v98): Day 1~4 문제는 모두 공식(formula) 하나에 속하고, 해설의 마지막 문단은 그 공식의 외우기 블록이다(기억 연결 문단은 남지 않는다).
  {const F=globalThis.ENGLISH_FORMULAS,days=Object.entries(bank).filter(([id])=>/^en-day[1-4]-/.test(id)),drill=Object.entries(bank).filter(([id])=>id.startsWith('en-formula-'));
@@ -174,7 +173,7 @@ assert.equal(plainDetail.submittedAnswer,'1. 가');assert.equal(plainDetail.corr
 const plainText={type:'text',question:'q',answers:['ans'],explanation:'e',exerciseId:'plain-2'};
 const textDetail=record.create(plainCard,plainText,'ans',null,'concept-plain');
 assert.equal(textDetail.options,'');assert.equal(textDetail.submittedAnswer,'ans');assert.equal(textDetail.correctAnswer,'ans');
-console.log('PASS practice: one question per practice entry (Day 1 60, Day 2 60, Day 3 178, Day 4 152, Day 5 196, Day 6 260, Day 7 280, 문법 공식 훈련 364, 수일치 95, 영문법 60, 국어 논리 1장 31 · 2장 179 · 3장 181 four-option), same question on retry with a moved answer number, split questions keep their rule text, answer normalization, alternative valid answers, contrasting variants, shuffled answer mapping, photo options (shuffle, grading, history snapshot), unchanged text records, assisted progress on another device');
+console.log('PASS practice: one question per practice entry (Day 1 60, Day 2 60, Day 3 178, Day 4 152, Day 5 196, Day 6 220, Day 7 240, 문법 공식 훈련 364, 수일치 95, 영문법 60, 국어 논리 1장 31 · 2장 179 · 3장 181 four-option), same question on retry with a moved answer number, split questions keep their rule text, answer normalization, alternative valid answers, contrasting variants, shuffled answer mapping, photo options (shuffle, grading, history snapshot), unchanged text records, assisted progress on another device');
 // 보기를 섞어도 해설의 ①~④와 보기별 틀린 곳 표시는 화면에 보이는 순서를 따라간다(이어 풀기로 저장된 순서도 같다).
 {
  const choices=['Alpha one.','Bravo two.','Charlie three.','Delta four.'],marks=[null,[{wrong:'Bravo',fix:'B'}],null,[{wrong:'four',fix:'4'}]];

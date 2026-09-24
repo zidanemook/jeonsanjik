@@ -67,14 +67,14 @@ assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day5-rule-sub
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day5-rule-inversion')||x.exercise.type!=='choice')),/MCQ required: grammar-day5-rule-inversion/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day5-rule-emphasis'))),/Missing coverage/);
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day5-005'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-day5-001').lesson.point}}:x)),/One grammar point, one concept/);
-{const d=list.filter(x=>x.card.id.startsWith('en-day6-'));assert.equal(d.length,260);assert.equal(new Set(d.map(x=>x.conceptId)).size,27);assert.equal(new Set(d.map(x=>x.lesson.ruleId)).size,10);
+{const d=list.filter(x=>x.card.id.startsWith('en-day6-'));assert.equal(d.length,220);assert.equal(new Set(d.map(x=>x.conceptId)).size,27);assert.equal(new Set(d.map(x=>x.lesson.ruleId)).size,10);
  assert.ok(d.every(x=>x.lesson.topic==='Day 6'&&x.lesson.ruleId.startsWith('grammar-day6-rule-')&&x.conceptId.startsWith('grammar-day6-')&&!x.conceptId.startsWith('grammar-day6-rule-')));
- // 한 포인트의 4지선다(en-day6-001)·직접 쓰기(en-day6-138)·문제집 문제(en-day6-b153)는 같은 개념이고 다른 포인트(en-day6-006)는 다르다.
- assert.equal(policy.concept('en-day6-001'),policy.concept('en-day6-138'));assert.equal(policy.concept('en-day6-001'),policy.concept('en-day6-b153'));assert.notEqual(policy.concept('en-day6-001'),policy.concept('en-day6-006'));}
-{const d=list.filter(x=>x.card.id.startsWith('en-day7-'));assert.equal(d.length,280);assert.equal(new Set(d.map(x=>x.conceptId)).size,30);assert.equal(new Set(d.map(x=>x.lesson.ruleId)).size,7);
+ // 한 포인트의 4지선다(en-day6-001)·직접 쓰기(en-day6-138)는 같은 개념이고 다른 포인트(en-day6-006)는 다르다.
+ assert.equal(policy.concept('en-day6-001'),policy.concept('en-day6-138'));assert.notEqual(policy.concept('en-day6-001'),policy.concept('en-day6-006'));}
+{const d=list.filter(x=>x.card.id.startsWith('en-day7-'));assert.equal(d.length,240);assert.equal(new Set(d.map(x=>x.conceptId)).size,30);assert.equal(new Set(d.map(x=>x.lesson.ruleId)).size,7);
  assert.ok(d.every(x=>x.lesson.topic==='Day 7'&&x.lesson.ruleId.startsWith('grammar-day7-rule-')&&x.conceptId.startsWith('grammar-day7-')&&!x.conceptId.startsWith('grammar-day7-rule-')));
- // 한 포인트의 4지선다(en-day7-001)·직접 쓰기(en-day7-151)·문제집 문제(en-day7-b191)는 같은 개념이고 다른 포인트(en-day7-006)는 다르다.
- assert.equal(policy.concept('en-day7-001'),policy.concept('en-day7-151'));assert.equal(policy.concept('en-day7-001'),policy.concept('en-day7-b191'));assert.notEqual(policy.concept('en-day7-001'),policy.concept('en-day7-006'));}
+ // 한 포인트의 4지선다(en-day7-001)·직접 쓰기(en-day7-151)는 같은 개념이고 다른 포인트(en-day7-006)는 다르다.
+ assert.equal(policy.concept('en-day7-001'),policy.concept('en-day7-151'));assert.notEqual(policy.concept('en-day7-001'),policy.concept('en-day7-006'));}
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day6-rule-clause')||x.exercise.type!=='text')),/At least 1 written questions required: grammar-day6-rule-clause/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day7-rule-tense-mood')||x.exercise.type!=='choice')),/MCQ required: grammar-day7-rule-tense-mood/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day7-rule-modifier'))),/Missing coverage/);

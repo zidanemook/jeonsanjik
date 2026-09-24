@@ -89,10 +89,10 @@ assert.ok(!nodes.get('#retryStatus')._text.includes('같은 개념의 문제'),'
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d4=rows.indexOf('Day 4 형용사·부사와 비교 구문'),d5=rows.indexOf('Day 5 접속사·관계사·가정법과 도치');
   assert.ok(d4>=0&&d5===d4+1,'문제집 진도는 Day 4 다음에 Day 5: '+rows.slice(0,7).join(' / '));
   assert.equal(menuDetail('#rangeList','Day 5 접속사·관계사·가정법과 도치'),'풀어야 할 문제 196/196 · 첫 시도 0/196','Day 5 범위 줄');}
- // Day 6·7(v151)은 Day 5 바로 다음에 차례로 나오고, 아직 풀지 않은 260·280문제다(문제집 문제 40씩 포함).
+ // Day 6·7(v151)은 Day 5 바로 다음에 차례로 나오고, 아직 풀지 않은 220·240문제다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d5=rows.indexOf('Day 5 접속사·관계사·가정법과 도치'),d6=rows.indexOf('Day 6 무작위 문법 포인트 찾기 훈련'),d7=rows.indexOf('Day 7 무작위 문법 포인트 찾기 훈련');
   assert.ok(d5>=0&&d6===d5+1&&d7===d6+1,'문제집 진도는 Day 5 다음에 Day 6·7: '+rows.slice(0,9).join(' / '));
-  assert.equal(menuDetail('#rangeList','Day 6 무작위 문법 포인트 찾기 훈련'),'풀어야 할 문제 260/260 · 첫 시도 0/260','Day 6 범위 줄');assert.equal(menuDetail('#rangeList','Day 7 무작위 문법 포인트 찾기 훈련'),'풀어야 할 문제 280/280 · 첫 시도 0/280','Day 7 범위 줄');}
+  assert.equal(menuDetail('#rangeList','Day 6 무작위 문법 포인트 찾기 훈련'),'풀어야 할 문제 220/220 · 첫 시도 0/220','Day 6 범위 줄');assert.equal(menuDetail('#rangeList','Day 7 무작위 문법 포인트 찾기 훈련'),'풀어야 할 문제 240/240 · 첫 시도 0/240','Day 7 범위 줄');}
  // 문법 공식 훈련(v98): 마지막 Day(v115부터 Day 5, v151부터 Day 7) 다음에 ‘공식 훈련 새 문제 전체’ 범위, 그 아래 영역별로 접힌 공식 범위가 나온다. 공식 범위는 그 공식의 Day 문제와 새 문제를 함께 담는다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d7=rows.indexOf('Day 7 무작위 문법 포인트 찾기 훈련'),f=rows.indexOf('공식 훈련 새 문제 전체');
   assert.ok(d7>=0&&f===d7+1,'Day 7 다음에 공식 훈련: '+rows.slice(0,11).join(' / '));
