@@ -46,7 +46,10 @@ for(const name of ['덕종','순종','선종','헌종','강종','충숙왕','충
  for(const line of M.get('joseon-kings').lines){const firsts=line.items.map(i=>[...i.name][0]);assert.equal(new Set(firsts).size,firsts.length,'한 줄 안에서 첫 글자가 겹치지 않는다: '+line.chant);}
  for(const name of ['태조','정종','태종','세종','세조','성종','연산군','중종','명종','선조','광해군','인조','효종'])assert(jk.some(k=>k.name===name&&k.facts.length),'studied Joseon king has facts: '+name);
  // 2026-09-23 20강 조선 전기(문화 I): 문종(조선)은 『고려사』·『고려사절요』 완성으로 처음 사실이 생겼다. 20강 편찬 사업은 왕마다 책이 다르게 적혀야 한다.
- assert.deepEqual(jk.find(k=>k.name==='문종').facts,['『고려사』(기전체, 정인지 등)·『고려사절요』(편년체) 완성'],'문종 = 『고려사』·『고려사절요』');
+ assert.deepEqual(jk.find(k=>k.name==='문종').facts[0],'『고려사』(기전체, 정인지 등)·『고려사절요』(편년체) 완성','문종 = 『고려사』·『고려사절요』');
+ // 2026-09-24 21강 조선 전기(문화 II): 과학 기구·활자·역법·의학서·농서·병서·훈민정음 책·그림·문학이 왕마다 다르게 적혀야 한다(문종은 『진법』·『동국병감』이 더해졌다).
+ for(const [king,needle] of [['태조','천상열차분야지도'],['태종','계미자'],['태종','거북선'],['세종','갑인자'],['세종','측우기'],['세종','앙부일구'],['세종','자격루'],['세종','혼천의·간의'],['세종','『칠정산』'],['세종','『의방유취』'],['세종','『향약집성방』'],['세종','『농사직설』'],['세종','『용비어천가』'],['세종','『동국정운』'],['세종','몽유도원도'],['문종','『진법』'],['문종','『동국병감』'],['세조','서울 원각사지 10층 석탑'],['성종','『금양잡록』'],['성종','『동문선』'],['선조','「관동별곡」'],['선조','「사미인곡」'],['선조','도산 서원']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle+' (21강)');
+ for(const [king,needle] of [['태종','갑인자'],['세종','계미자'],['성종','『농사직설』'],['세종','『금양잡록』']])assert(!jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),'대조군: '+king+' facts do not include '+needle);
  for(const [king,needle] of [['태조','『고려국사』'],['태조','『경제육전』'],['태종','혼일강리역대국도지도'],['세종','『석보상절』'],['세종','『삼강행실도』'],['세종','팔도도'],['세종','정간보'],['세조','간경도감'],['성종','『동국통감』'],['성종','『동국여지승람』'],['성종','『악학궤범』'],['성종','『해동제국기』'],['중종','백운동 서원'],['중종','『신증동국여지승람』'],['명종','소수 서원'],['선조','『성학십도』'],['선조','『성학집요』']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle+' (20강)');
  // 18강 왕 사실: 여러 왕에 걸친 제도는 왕마다 단계가 다르게 적혀야 한다(비변사 설치/상설화, 약조 둘, 호란 둘).
  for(const [king,needle] of [['세종','계해약조'],['중종','임시 기구로 비변사'],['명종','비변사 상설'],['선조','임진왜란'],['광해군','기유약조'],['광해군','경기도에서 처음'],['광해군','강홍립'],['인조','정묘호란'],['인조','남한산성'],['효종','볼모']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle);
@@ -91,13 +94,14 @@ for(const id of ['history-people','history-books']){
 }
 assert.deepEqual(M.get('history-people').groups.map(g=>g.title),['고조선~삼국','통일 신라·발해·후삼국','고려 전기','고려 무신~원 간섭기','고려 말','조선 전기']);
 assert.deepEqual(M.get('history-books').groups.map(g=>g.title),['삼국','통일 신라','고려 전기','고려 무신~원 간섭기','고려 말','조선 전기']);
-assert.equal(M.size(M.get('history-people')),161);assert.equal(M.size(M.get('history-books')),68);
+assert.equal(M.size(M.get('history-people')),174);assert.equal(M.size(M.get('history-books')),83);
 // 왕에 걸린 앞머리: 인물 101 · 책 22. 나머지(인물 31 · 책 17)는 왕이 하나로 정해지지 않아 시기만 적었다(고조선·가야, 일본 전파, 승려·학자 등).
 // 15강(2026-09-16)으로 책 6(초조대장경 현종·『상정고금예문』 인종·팔만대장경 고종·『직지심체요절』 우왕 + 교장·『향약구급방』은 시기만)과 인물 1(혜허, 시기만)을 더했다.
 // 2026-09-18 왕 고리 넓히기: 최충 → 문종, 이규보 「동명왕편」 → 명종, 각훈 『해동고승전』 → 고종, 이제현 『사략』 → 공민왕(이제현은 충선왕과 함께 둘).
 // 2026-09-19 16강(조선 전기 정치): 인물 17(정도전·최윤덕·김종서·이종무·이징옥·성삼문·이시애·김종직·김일손·한명회·김굉필·조광조·윤임·윤원형·이언적·김효원·심의겸)과 책 7(『조선경국전』·『경제문감』·『불씨잡변』·『경국대전』·『국조오례의』·「조의제문」·『소학』)이 조선 왕에 걸렸다.
 // 2026-09-23 20강 조선 전기(문화 I): 인물 9(조준·박연·정인지·서거정·신숙주·성현·주세붕·이황·이이)과 책 14(『고려국사』·『경제육전』·『석보상절』·『삼강행실도』·『고려사』·『고려사절요』·『동국통감』·『팔도지리지』·『동국여지승람』·『해동제국기』·『악학궤범』·『신증동국여지승람』·『성학십도』·『성학집요』)이 조선 왕에 걸렸다. 개인 저술(이황·이이·박상·김장생의 책, 『동몽선습』·『동몽수지』)과 기대승·박상·김장생은 시기만 둔다.
-assert.deepEqual(anchoredCards,{'history-people':127,'history-books':43});
+// 2026-09-24 21강 조선 전기(문화 II): 인물 7(장영실·이순지·정초·안견·안평 대군·강희맹·정철)과 책 14(『칠정산』·『의방유취』·『향약집성방』·『농사직설』·『총통등록』·『용비어천가』·『동국정운』·『훈민정음 해례본』·『진법』·『동국병감』·『금양잡록』·『동문선』·「관동별곡」·「사미인곡」)이 조선 왕에 걸렸다. 강희안·김시습·박팽년·신사임당·이상좌·한호와 『금오신화』는 시기만 둔다.
+assert.deepEqual(anchoredCards,{'history-people':134,'history-books':57});
 // 대조군: 없는 왕·사실에 없는 인물은 잡혀야 한다.
 assert.throws(()=>factsOf('고려','없는왕'));
 assert(!factsOf('신라','진흥왕').some(f=>f.includes('이사부')),'control: 이사부 is 지증왕, not in 진흥왕 facts');
@@ -130,11 +134,12 @@ assert.equal(M.size(countries),30);
 // 2026-09-18: 고려만 담던 목록을 삼국·남북국까지 넓히고, 칸마다 재질(금동불·마애불·철불·소조불·석탑·모전 석탑·전탑·승탑·대리석·청자·청동·목판 등)을 적었다.
 // 2026-09-19 왕 고리 넓히기: 관촉사 석조 미륵보살 입상 → 광종(왕명·혜명), 정토사지 홍법국사탑 → 현종(왕명으로 건립), 사천대 → 현종(태복감을 고침), 수덕사 대웅전 → 충렬왕(대들보 먹글씨). 나머지 33칸은 왕이 하나로 정해지지 않아 시기만 둔다.
 {const set=M.get('history-heritage');assert(set&&set.groups&&set.subject==='한국사','history-heritage set');
- assert.deepEqual(set.groups.map(g=>g.title),['불상','탑·승탑','무덤·비석','회화·불화','청자·금속 공예','건축','과학 기술·인쇄']);assert.equal(M.size(set),61);
+ // 2026-09-24 21강: 원각사지 10층 석탑(세조)·그림 5(몽유도원도 세종, 나머지는 시기만)·새 묶음 '분청사기·백자'(시기만)·과학 기술 7(천상열차분야지도 태조·계미자 태종·갑인자·측우기·앙부일구·자격루·혼천의·간의 세종)을 더했다.
+ assert.deepEqual(set.groups.map(g=>g.title),['불상','탑·승탑','무덤·비석','회화·불화','청자·금속 공예','분청사기·백자','건축','과학 기술·인쇄']);assert.equal(M.size(set),76);
  let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)),'history-heritage: '+king+'('+country+') facts name '+front);}
- assert.equal(anchored,28,'왕에 걸린 문화유산 28(2026-09-19 경복궁 태조·종묘 태조·창덕궁 태종 + 석굴암 본존불·미륵사지 석탑·분황사 모전 석탑·황룡사 9층 목탑·감은사지 3층 석탑·불국사 3층 석탑·다보탑·경천사지 10층 석탑·무령왕릉·광개토 대왕릉비·단양 적성비·순수비·정혜 공주 묘·천산대렵도·칠지도·상원사 동종·성덕대왕 신종·무구정광대다라니경·초조대장경·팔만대장경·화통도감 + 2026-09-19 관촉사 석조 미륵보살 입상 광종·정토사지 홍법국사탑 현종·사천대 현종·수덕사 대웅전 충렬왕)');
+ assert.equal(anchored,37,'왕에 걸린 문화유산 28(2026-09-19 경복궁 태조·종묘 태조·창덕궁 태종 + 석굴암 본존불·미륵사지 석탑·분황사 모전 석탑·황룡사 9층 목탑·감은사지 3층 석탑·불국사 3층 석탑·다보탑·경천사지 10층 석탑·무령왕릉·광개토 대왕릉비·단양 적성비·순수비·정혜 공주 묘·천산대렵도·칠지도·상원사 동종·성덕대왕 신종·무구정광대다라니경·초조대장경·팔만대장경·화통도감 + 2026-09-19 관촉사 석조 미륵보살 입상 광종·정토사지 홍법국사탑 현종·사천대 현종·수덕사 대웅전 충렬왕)');
  // 재질·유형이 빠진 칸이 없어야 "왕 — 문화유산 — 재질" 묶음으로 외울 수 있다.
- assert(set.groups.flatMap(g=>g.cards).every(([,b])=>/불|탑|무덤|벽화|벽돌|비석|그림|청자|공예|칼|범종|옻칠|목조|주심포|다포|공포|목판|관청|건물|역법/.test(b)),'every heritage card names its material or type');
+ assert(set.groups.flatMap(g=>g.cards).every(([,b])=>/불|탑|무덤|벽화|벽돌|비석|그림|청자|공예|칼|범종|옻칠|목조|주심포|다포|공포|목판|관청|건물|역법|활자|기구|시계/.test(b)),'every heritage card names its material or type');
  assert(back('history-heritage','개성 경천사지 10층 석탑').includes('원의 영향')&&back('history-heritage','안동 봉정사 극락전').includes('가장 오래된'));}
 // 경제·사회 제도(07·13강 중심) → 왕·한 줄. 왕이 붙은 칸은 그 왕의 사실에 제도 이름이 들어 있어야 한다.
 {const set=M.get('history-economy');assert(set&&set.groups&&set.subject==='한국사','history-economy set');

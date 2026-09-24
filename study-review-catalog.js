@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 1529,
+  "total": 1623,
   "sets": [
     {
       "number": 1,
@@ -2737,6 +2737,172 @@ globalThis.STUDY_REVIEW_CATALOG={
         "hyang-hist-20260924-008",
         "hyang-hist-20260924-009"
       ]
+    },
+    {
+      "number": 202,
+      "title": "21강 조선 전기(문화 II) 1",
+      "ids": [
+        "joseonculture2-hist-20260924-001",
+        "joseonculture2-hist-20260924-002",
+        "joseonculture2-hist-20260924-003",
+        "joseonculture2-hist-20260924-004",
+        "joseonculture2-hist-20260924-005",
+        "joseonculture2-hist-20260924-006",
+        "joseonculture2-hist-20260924-007",
+        "joseonculture2-hist-20260924-008"
+      ]
+    },
+    {
+      "number": 203,
+      "title": "21강 조선 전기(문화 II) 2",
+      "ids": [
+        "joseonculture2-hist-20260924-009",
+        "joseonculture2-hist-20260924-010",
+        "joseonculture2-hist-20260924-011",
+        "joseonculture2-hist-20260924-012",
+        "joseonculture2-hist-20260924-013",
+        "joseonculture2-hist-20260924-014",
+        "joseonculture2-hist-20260924-015",
+        "joseonculture2-hist-20260924-016"
+      ]
+    },
+    {
+      "number": 204,
+      "title": "21강 조선 전기(문화 II) 3",
+      "ids": [
+        "joseonculture2-hist-20260924-017",
+        "joseonculture2-hist-20260924-018",
+        "joseonculture2-hist-20260924-019",
+        "joseonculture2-hist-20260924-020",
+        "joseonculture2-hist-20260924-021",
+        "joseonculture2-hist-20260924-022",
+        "joseonculture2-hist-20260924-023",
+        "joseonculture2-hist-20260924-024"
+      ]
+    },
+    {
+      "number": 205,
+      "title": "21강 조선 전기(문화 II) 4",
+      "ids": [
+        "joseonculture2-hist-20260924-025",
+        "joseonculture2-hist-20260924-026",
+        "joseonculture2-hist-20260924-027",
+        "joseonculture2-hist-20260924-028",
+        "joseonculture2-hist-20260924-029",
+        "joseonculture2-hist-20260924-030",
+        "joseonculture2-hist-20260924-031",
+        "joseonculture2-hist-20260924-032"
+      ]
+    },
+    {
+      "number": 206,
+      "title": "21강 조선 전기(문화 II) 5",
+      "ids": [
+        "joseonculture2-hist-20260924-033",
+        "joseonculture2-hist-20260924-034",
+        "joseonculture2-hist-20260924-035",
+        "joseonculture2-hist-20260924-036",
+        "joseonculture2-hist-20260924-037",
+        "joseonculture2-hist-20260924-038",
+        "joseonculture2-hist-20260924-039",
+        "joseonculture2-hist-20260924-040"
+      ]
+    },
+    {
+      "number": 207,
+      "title": "21강 조선 전기(문화 II) 6",
+      "ids": [
+        "joseonculture2-hist-20260924-041",
+        "joseonculture2-hist-20260924-042",
+        "joseonculture2-hist-20260924-043",
+        "joseonculture2-hist-20260924-044",
+        "joseonculture2-hist-20260924-045",
+        "joseonculture2-hist-20260924-046",
+        "joseonculture2-hist-20260924-047",
+        "joseonculture2-hist-20260924-048"
+      ]
+    },
+    {
+      "number": 208,
+      "title": "21강 조선 전기(문화 II) 7",
+      "ids": [
+        "joseonculture2-hist-20260924-049",
+        "joseonculture2-hist-20260924-050",
+        "joseonculture2-hist-20260924-051",
+        "joseonculture2-hist-20260924-052",
+        "joseonculture2-hist-20260924-053",
+        "joseonculture2-hist-20260924-054",
+        "joseonculture2-hist-20260924-055",
+        "joseonculture2-hist-20260924-056"
+      ]
+    },
+    {
+      "number": 209,
+      "title": "21강 조선 전기(문화 II) 8",
+      "ids": [
+        "joseonculture2-hist-20260924-057",
+        "joseonculture2-hist-20260924-058",
+        "joseonculture2-hist-20260924-059",
+        "joseonculture2-hist-20260924-060",
+        "joseonculture2-hist-20260924-061",
+        "joseonculture2-hist-20260924-062",
+        "joseonculture2-hist-20260924-063",
+        "joseonculture2-hist-20260924-064"
+      ]
+    },
+    {
+      "number": 210,
+      "title": "21강 조선 전기(문화 II) 9",
+      "ids": [
+        "joseonculture2-hist-20260924-065",
+        "joseonculture2-hist-20260924-066",
+        "joseonculture2-hist-20260924-067",
+        "joseonculture2-hist-20260924-068",
+        "joseonculture2-hist-20260924-069",
+        "joseonculture2-hist-20260924-070",
+        "joseonculture2-hist-20260924-071",
+        "joseonculture2-hist-20260924-072"
+      ]
+    },
+    {
+      "number": 211,
+      "title": "21강 조선 전기(문화 II) 10",
+      "ids": [
+        "joseonculture2-hist-20260924-073",
+        "joseonculture2-hist-20260924-074",
+        "joseonculture2-hist-20260924-075",
+        "joseonculture2-hist-20260924-076",
+        "joseonculture2-hist-20260924-077",
+        "joseonculture2-hist-20260924-078",
+        "joseonculture2-hist-20260924-079",
+        "joseonculture2-hist-20260924-080"
+      ]
+    },
+    {
+      "number": 212,
+      "title": "21강 조선 전기(문화 II) 11",
+      "ids": [
+        "joseonculture2-hist-20260924-081",
+        "joseonculture2-hist-20260924-082",
+        "joseonculture2-hist-20260924-083",
+        "joseonculture2-hist-20260924-084",
+        "joseonculture2-hist-20260924-085",
+        "joseonculture2-hist-20260924-086",
+        "joseonculture2-hist-20260924-087",
+        "joseonculture2-hist-20260924-088"
+      ]
+    },
+    {
+      "number": 213,
+      "title": "21강 조선 전기(문화 II) 12",
+      "ids": [
+        "joseonculture2-hist-20260924-089",
+        "joseonculture2-hist-20260924-090",
+        "joseonculture2-hist-20260924-091",
+        "joseonculture2-hist-20260924-092",
+        "joseonculture2-hist-20260924-093",
+        "joseonculture2-hist-20260924-094"
+      ]
     }
   ],
   "lectures": [
@@ -4363,6 +4529,106 @@ globalThis.STUDY_REVIEW_CATALOG={
         "hyang-hist-20260924-007",
         "hyang-hist-20260924-008",
         "hyang-hist-20260924-009"
+      ]
+    },
+    {
+      "id": "21",
+      "title": "21강 조선 전기(문화 II)",
+      "ids": [
+        "joseonculture2-hist-20260924-001",
+        "joseonculture2-hist-20260924-002",
+        "joseonculture2-hist-20260924-003",
+        "joseonculture2-hist-20260924-004",
+        "joseonculture2-hist-20260924-005",
+        "joseonculture2-hist-20260924-006",
+        "joseonculture2-hist-20260924-007",
+        "joseonculture2-hist-20260924-008",
+        "joseonculture2-hist-20260924-009",
+        "joseonculture2-hist-20260924-010",
+        "joseonculture2-hist-20260924-011",
+        "joseonculture2-hist-20260924-012",
+        "joseonculture2-hist-20260924-013",
+        "joseonculture2-hist-20260924-014",
+        "joseonculture2-hist-20260924-015",
+        "joseonculture2-hist-20260924-016",
+        "joseonculture2-hist-20260924-017",
+        "joseonculture2-hist-20260924-018",
+        "joseonculture2-hist-20260924-019",
+        "joseonculture2-hist-20260924-020",
+        "joseonculture2-hist-20260924-021",
+        "joseonculture2-hist-20260924-022",
+        "joseonculture2-hist-20260924-023",
+        "joseonculture2-hist-20260924-024",
+        "joseonculture2-hist-20260924-025",
+        "joseonculture2-hist-20260924-026",
+        "joseonculture2-hist-20260924-027",
+        "joseonculture2-hist-20260924-028",
+        "joseonculture2-hist-20260924-029",
+        "joseonculture2-hist-20260924-030",
+        "joseonculture2-hist-20260924-031",
+        "joseonculture2-hist-20260924-032",
+        "joseonculture2-hist-20260924-033",
+        "joseonculture2-hist-20260924-034",
+        "joseonculture2-hist-20260924-035",
+        "joseonculture2-hist-20260924-036",
+        "joseonculture2-hist-20260924-037",
+        "joseonculture2-hist-20260924-038",
+        "joseonculture2-hist-20260924-039",
+        "joseonculture2-hist-20260924-040",
+        "joseonculture2-hist-20260924-041",
+        "joseonculture2-hist-20260924-042",
+        "joseonculture2-hist-20260924-043",
+        "joseonculture2-hist-20260924-044",
+        "joseonculture2-hist-20260924-045",
+        "joseonculture2-hist-20260924-046",
+        "joseonculture2-hist-20260924-047",
+        "joseonculture2-hist-20260924-048",
+        "joseonculture2-hist-20260924-049",
+        "joseonculture2-hist-20260924-050",
+        "joseonculture2-hist-20260924-051",
+        "joseonculture2-hist-20260924-052",
+        "joseonculture2-hist-20260924-053",
+        "joseonculture2-hist-20260924-054",
+        "joseonculture2-hist-20260924-055",
+        "joseonculture2-hist-20260924-056",
+        "joseonculture2-hist-20260924-057",
+        "joseonculture2-hist-20260924-058",
+        "joseonculture2-hist-20260924-059",
+        "joseonculture2-hist-20260924-060",
+        "joseonculture2-hist-20260924-061",
+        "joseonculture2-hist-20260924-062",
+        "joseonculture2-hist-20260924-063",
+        "joseonculture2-hist-20260924-064",
+        "joseonculture2-hist-20260924-065",
+        "joseonculture2-hist-20260924-066",
+        "joseonculture2-hist-20260924-067",
+        "joseonculture2-hist-20260924-068",
+        "joseonculture2-hist-20260924-069",
+        "joseonculture2-hist-20260924-070",
+        "joseonculture2-hist-20260924-071",
+        "joseonculture2-hist-20260924-072",
+        "joseonculture2-hist-20260924-073",
+        "joseonculture2-hist-20260924-074",
+        "joseonculture2-hist-20260924-075",
+        "joseonculture2-hist-20260924-076",
+        "joseonculture2-hist-20260924-077",
+        "joseonculture2-hist-20260924-078",
+        "joseonculture2-hist-20260924-079",
+        "joseonculture2-hist-20260924-080",
+        "joseonculture2-hist-20260924-081",
+        "joseonculture2-hist-20260924-082",
+        "joseonculture2-hist-20260924-083",
+        "joseonculture2-hist-20260924-084",
+        "joseonculture2-hist-20260924-085",
+        "joseonculture2-hist-20260924-086",
+        "joseonculture2-hist-20260924-087",
+        "joseonculture2-hist-20260924-088",
+        "joseonculture2-hist-20260924-089",
+        "joseonculture2-hist-20260924-090",
+        "joseonculture2-hist-20260924-091",
+        "joseonculture2-hist-20260924-092",
+        "joseonculture2-hist-20260924-093",
+        "joseonculture2-hist-20260924-094"
       ]
     }
   ],
@@ -20310,6 +20576,1040 @@ globalThis.STUDY_REVIEW_CATALOG={
         "둘 다 혼동(오답)"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 20강 조선 전기(문화 I) 보충 · 이름이 비슷한 향교·유향소·향약·향도·향리 가르기(20강 231쪽 교육 기관 + 19강 219쪽 사회 제도 + 13강 향도)"
+    },
+    "joseonculture2-hist-20260924-001": {
+      "number": 1530,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "조선 전기 과학 기술의 특징(정답)",
+        "최무선·진포 대첩(고려 우왕, 오답)",
+        "『직지심체요절』(고려 우왕, 오답)",
+        "사천대(고려 현종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-002": {
+      "number": 1531,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "태종: 주자소·계미자(정답)",
+        "갑인자(세종, 오답)",
+        "팔만대장경(고려 고종, 오답)",
+        "무구정광대다라니경(통일 신라, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-003": {
+      "number": 1532,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "태종: 계미자(정답)",
+        "갑인자(세종, 오답)",
+        "천상열차분야지도(태조, 오답)",
+        "『금양잡록』(성종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-004": {
+      "number": 1533,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "태종: 신문고(정답)",
+        "의정부 서사제(세종, 오답)",
+        "홍문관(성종, 오답)",
+        "직전법(세조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-005": {
+      "number": 1534,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "계미자 태종 · 갑인자 세종(정답)",
+        "갑인자 성종(오답)",
+        "계미자 세조(오답)",
+        "세조·성종(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-006": {
+      "number": 1535,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "조지서: 종이 생산(정답)",
+        "주자소(태종, 오답)",
+        "서운관(오답)",
+        "간경도감(세조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-007": {
+      "number": 1536,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "천상열차분야지도: 고구려 천문도 바탕(정답)",
+        "혼일강리역대국도지도(태종, 오답)",
+        "앙부일구(세종, 오답)",
+        "자격루(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-008": {
+      "number": 1537,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "천상열차분야지도: 밝기에 따른 별 크기(정답)",
+        "혼일강리역대국도지도(태종, 오답)",
+        "팔도도(세종, 오답)",
+        "앙부일구(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-009": {
+      "number": 1538,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "측우기: 같은 규격을 지방 관아에(정답)",
+        "앙부일구(세종, 오답)",
+        "자격루(세종, 오답)",
+        "혼천의(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-010": {
+      "number": 1539,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "측우기: 금속 원통·자(정답)",
+        "자격루(세종, 오답)",
+        "앙부일구(세종, 오답)",
+        "천상열차분야지도(태조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-011": {
+      "number": 1540,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "측우기 설치 건의: 전국 강우량 보고 체계(정답)",
+        "앙부일구(세종, 오답)",
+        "『칠정산』(세종, 오답)",
+        "『농사직설』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-012": {
+      "number": 1541,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "서운관: 기후 관측·측우기 연구(정답)",
+        "주자소(태종, 오답)",
+        "조지서(오답)",
+        "간경도감(세조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-013": {
+      "number": 1542,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "앙부일구: 12지신 동물 그림(정답)",
+        "자격루(세종, 오답)",
+        "측우기(세종, 오답)",
+        "천상열차분야지도(태조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-014": {
+      "number": 1543,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "앙부일구: 24절기 계절선(정답)",
+        "자격루(세종, 오답)",
+        "측우기(세종, 오답)",
+        "혼천의(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-015": {
+      "number": 1544,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "앙부일구(정답)",
+        "자격루(세종, 오답)",
+        "측우기(세종, 오답)",
+        "천상열차분야지도(태조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-016": {
+      "number": 1545,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "자격루: 장영실(정답)",
+        "이순지(칠정산, 오답)",
+        "강희맹(금양잡록, 오답)",
+        "정초(농사직설, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-017": {
+      "number": 1546,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "자격루: 밤낮·날씨와 상관없음(정답)",
+        "앙부일구(세종, 오답)",
+        "측우기(세종, 오답)",
+        "『칠정산』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-018": {
+      "number": 1547,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "혼천의·간의: 천체 관측(정답)",
+        "앙부일구·자격루(시간, 오답)",
+        "측우기(강우량, 오답)",
+        "자격루·측우기(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-019": {
+      "number": 1548,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "세종: 갑인자(정답)",
+        "계미자(태종, 오답)",
+        "천상열차분야지도(태조, 오답)",
+        "『동문선』(성종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-020": {
+      "number": 1549,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "세종: 측우기(정답)",
+        "계미자(태종, 오답)",
+        "『금양잡록』(성종, 오답)",
+        "천상열차분야지도(태조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-021": {
+      "number": 1550,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "『칠정산』: 이순지·김담, 수시력·회회력(정답)",
+        "『농사직설』(세종, 오답)",
+        "『금양잡록』(성종, 오답)",
+        "『용비어천가』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-022": {
+      "number": 1551,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "『칠정산』: 한양 기준(정답)",
+        "『향약집성방』(세종, 오답)",
+        "『농사직설』(세종, 오답)",
+        "『의방유취』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-023": {
+      "number": 1552,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "『향약집성방』: 우리 약재·치료법(정답)",
+        "『의방유취』(세종, 오답)",
+        "『동국정운』(세종, 오답)",
+        "『총통등록』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-024": {
+      "number": 1553,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "『의방유취』: 역대 의서 집대성(정답)",
+        "『향약집성방』(세종, 오답)",
+        "『칠정산』(세종, 오답)",
+        "『농사직설』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-025": {
+      "number": 1554,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "『의방유취』 집대성 · 『향약집성방』 우리 약재(정답)",
+        "두 책의 내용을 바꾼 짝(오답)",
+        "둘 다 집대성(오답)",
+        "둘 다 우리 약재(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-026": {
+      "number": 1555,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "세종: 『칠정산』(정답)",
+        "계미자(태종, 오답)",
+        "『금양잡록』(성종, 오답)",
+        "『진법』(문종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-027": {
+      "number": 1556,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "세종: 『의방유취』(정답)",
+        "『금양잡록』(성종, 오답)",
+        "계미자(태종, 오답)",
+        "『진법』(문종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-028": {
+      "number": 1557,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "『농사직설』: 씨앗 저장법·모내기법(정답)",
+        "『금양잡록』(성종, 오답)",
+        "『향약집성방』(세종, 오답)",
+        "『칠정산』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-029": {
+      "number": 1558,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "성종: 『동문선』(정답)",
+        "『농사직설』(세종, 오답)",
+        "『칠정산』(세종, 오답)",
+        "계미자(태종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-030": {
+      "number": 1559,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "『농사직설』 세종 · 『금양잡록』 성종(정답)",
+        "『금양잡록』 태종(오답)",
+        "『농사직설』 세조(오답)",
+        "세조·태종(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-031": {
+      "number": 1560,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "『총통등록』: 화포 주조법·화약 사용법(정답)",
+        "『동국병감』(오답)",
+        "『진법』(오답)",
+        "『의방유취』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-032": {
+      "number": 1561,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "『동국병감』: 고조선~고려 말 전쟁사(정답)",
+        "『총통등록』(오답)",
+        "『진법』(오답)",
+        "『동국통감』(성종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-033": {
+      "number": 1562,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "문종: 『고려사』 완성(정답)",
+        "간경도감(세조, 오답)",
+        "『동문선』(성종, 오답)",
+        "갑인자(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-034": {
+      "number": 1563,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "조선 전기: 화포·신기전·화차·거북선(정답)",
+        "화통도감(고려 우왕, 오답)",
+        "별무반(고려 숙종, 오답)",
+        "개경 나성(고려 현종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-035": {
+      "number": 1564,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "태조: 도첩제(정답)",
+        "계미자(태종, 오답)",
+        "갑인자(세종, 오답)",
+        "간경도감(세조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-036": {
+      "number": 1565,
+      "section": "조선 전기 과학 기술",
+      "coverage": [
+        "태조 → 태종 → 세종 → 성종(정답)",
+        "태조·태종을 바꾼 배열(오답)",
+        "세종·성종을 바꾼 배열(오답)",
+        "둘 다 바꾼 배열(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 과학 기술"
+    },
+    "joseonculture2-hist-20260924-037": {
+      "number": 1566,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "훈민정음으로 펴낸 책: 『용비어천가』(정답)",
+        "『농사직설』(세종, 한문, 오답)",
+        "『향약집성방』(세종, 한문, 오답)",
+        "『칠정산』(세종, 한문, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-038": {
+      "number": 1567,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "세종: 『농사직설』(정답)",
+        "계미자(태종, 오답)",
+        "『동문선』(성종, 오답)",
+        "『진법』(문종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-039": {
+      "number": 1568,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "훈민정음: 하급 관리 선발(정답)",
+        "『동국정운』(세종, 오답)",
+        "『용비어천가』(세종, 오답)",
+        "『석보상절』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-040": {
+      "number": 1569,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "『동국정운』: 한자음의 표준(정답)",
+        "『용비어천가』(세종, 오답)",
+        "『석보상절』(세종, 오답)",
+        "『삼강행실도』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-041": {
+      "number": 1570,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "『용비어천가』: 훈민정음 최초의 글(정답)",
+        "『석보상절』(최초의 산문, 오답)",
+        "『동국정운』(세종, 오답)",
+        "『삼강행실도』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-042": {
+      "number": 1571,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "『용비어천가』: 건국 시조 찬양·창업 합리화(정답)",
+        "『동국정운』(세종, 오답)",
+        "『석보상절』(세종, 오답)",
+        "『동문선』(성종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-043": {
+      "number": 1572,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "훈민정음: 부녀자·농민에게 확산(정답)",
+        "정간보(세종, 오답)",
+        "앙부일구(세종, 오답)",
+        "측우기(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-044": {
+      "number": 1573,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "훈민정음: 백성의 문자 생활(정답)",
+        "『칠정산』(세종, 오답)",
+        "『경국대전』(세조~성종, 오답)",
+        "측우기(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-045": {
+      "number": 1574,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "훈민정음: 백성을 가르치는 바른 소리(정답)",
+        "『동국정운』(오답)",
+        "『용비어천가』(오답)",
+        "『석보상절』(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-046": {
+      "number": 1575,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "신숙주: 『용비어천가』·『해동제국기』(정답)",
+        "서거정(오답)",
+        "강희맹(오답)",
+        "성현(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-047": {
+      "number": 1576,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "훈민정음 창제 배경: 쉬운 문자의 필요(정답)",
+        "『칠정산』 배경(오답)",
+        "측우기 배경(오답)",
+        "지리서 편찬 배경(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-048": {
+      "number": 1577,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "『동국정운』(정답)",
+        "『용비어천가』(세종, 오답)",
+        "『석보상절』(세종, 오답)",
+        "『동문선』(성종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-049": {
+      "number": 1578,
+      "section": "조선 전기 훈민정음",
+      "coverage": [
+        "『용비어천가』 창업 찬양 · 『동국정운』 한자음(정답)",
+        "『삼강행실도』 내용을 붙인 짝(오답)",
+        "『석보상절』 내용을 붙인 짝(오답)",
+        "둘 다 바꾼 짝(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+    },
+    "joseonculture2-hist-20260924-050": {
+      "number": 1579,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "15세기: 궁궐·관아·성문 중심(정답)",
+        "다포 양식(고려 후기, 오답)",
+        "분황사 모전 석탑(신라, 오답)",
+        "무령왕릉(백제, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-051": {
+      "number": 1580,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "사직단: 토지와 곡식의 신(정답)",
+        "종묘(오답)",
+        "선농단(오답)",
+        "문묘(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-052": {
+      "number": 1581,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "종묘: 역대 국왕·왕비의 신주(정답)",
+        "사직단(오답)",
+        "선농단(오답)",
+        "장경판전(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-053": {
+      "number": 1582,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "선농단(정답)",
+        "사직단(오답)",
+        "종묘(오답)",
+        "문묘(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-054": {
+      "number": 1583,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "장경판전: 과학적 설계로 판목 보관(정답)",
+        "봉정사 극락전(고려, 오답)",
+        "수덕사 대웅전(고려 충렬왕, 오답)",
+        "종묘(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-055": {
+      "number": 1584,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "장경판전: 고려 대장경판 보관(정답)",
+        "종묘(오답)",
+        "부석사 무량수전(고려, 오답)",
+        "서원(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-056": {
+      "number": 1585,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "원각사지 10층 석탑: 대리석·기와집 모양(정답)",
+        "미륵사지 석탑(백제, 오답)",
+        "분황사 모전 석탑(신라, 오답)",
+        "월정사 8각 9층 석탑(고려, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-057": {
+      "number": 1586,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "서울 원각사지 10층 석탑(정답)",
+        "감은사지 3층 석탑(통일 신라, 오답)",
+        "월정사 8각 9층 석탑(고려, 오답)",
+        "미륵사지 석탑(백제, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-058": {
+      "number": 1587,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "경천사지 10층 석탑: 원의 영향·대리석(정답)",
+        "월정사 8각 9층 석탑(고려, 오답)",
+        "분황사 모전 석탑(신라, 오답)",
+        "불국사 3층 석탑(통일 신라, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-059": {
+      "number": 1588,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "세조: 6조 직계제 재실시(정답)",
+        "계미자(태종, 오답)",
+        "『동문선』(성종, 오답)",
+        "『칠정산』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-060": {
+      "number": 1589,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "조선: 원각사지 10층 석탑(정답)",
+        "경천사지 10층 석탑(고려, 오답)",
+        "미륵사지 석탑(백제, 오답)",
+        "분황사 모전 석탑(신라, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-061": {
+      "number": 1590,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "서원 건축: 강당·동재·서재·사당(정답)",
+        "종묘(오답)",
+        "장경판전(오답)",
+        "향교(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-062": {
+      "number": 1591,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "사당: 선현 제사(정답)",
+        "강당(오답)",
+        "동재(오답)",
+        "서재(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-063": {
+      "number": 1592,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "옥산 서원·도산 서원(정답)",
+        "문회 서원을 넣은 묶음(오답)",
+        "창절 서원을 넣은 묶음(오답)",
+        "창절·문회(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-064": {
+      "number": 1593,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "소수 서원 안향 · 옥산 서원 이언적(정답)",
+        "김장생(돈암 서원, 오답)",
+        "이이(문회 서원, 오답)",
+        "이이·김장생(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-065": {
+      "number": 1594,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "영남 도산 · 기호 문회(정답)",
+        "창절 서원(박팽년, 오답)",
+        "숭양 서원(정몽주, 오답)",
+        "숭양·창절(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-066": {
+      "number": 1595,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "돈암 서원: 김장생(정답)",
+        "문회 서원(이이, 오답)",
+        "창절 서원(박팽년, 오답)",
+        "숭양 서원(정몽주, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-067": {
+      "number": 1596,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "창절 서원: 박팽년(정답)",
+        "정몽주(숭양 서원, 오답)",
+        "이언적(옥산 서원, 오답)",
+        "안향(소수 서원, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-068": {
+      "number": 1597,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "사액 서원: 경제적 지원·면세(정답)",
+        "향교(오답)",
+        "성균관(오답)",
+        "서당(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-069": {
+      "number": 1598,
+      "section": "조선 전기 건축",
+      "coverage": [
+        "서원: 붕당의 토대(정답)",
+        "유향소(오답)",
+        "향약(오답)",
+        "경재소(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 건축"
+    },
+    "joseonculture2-hist-20260924-070": {
+      "number": 1599,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "분청사기: 회색 바탕흙 + 흰 흙(정답)",
+        "백자(조선, 오답)",
+        "상감 청자(고려, 오답)",
+        "순청자(고려, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-071": {
+      "number": 1600,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "분청사기: 백자 생산으로 쇠퇴(정답)",
+        "상감 청자(고려, 오답)",
+        "백자(조선, 오답)",
+        "순청자(고려, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-072": {
+      "number": 1601,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "분청사기 철화어문 편병(정답)",
+        "백자 청화매조죽문 유개항아리(조선 백자, 오답)",
+        "청자 참외모양 병(고려, 오답)",
+        "청자 상감모란문 표주박모양 주전자(고려, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-073": {
+      "number": 1602,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "백자: 사대부의 사랑(정답)",
+        "분청사기(조선, 오답)",
+        "상감 청자(고려, 오답)",
+        "나전 칠기(고려, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-074": {
+      "number": 1603,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "백자 항아리(정답)",
+        "분청사기 철화어문 편병(조선, 오답)",
+        "청자 참외모양 병(고려, 오답)",
+        "청자 상감모란문 표주박모양 주전자(고려, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-075": {
+      "number": 1604,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "고사관수도: 물을 바라보는 선비(정답)",
+        "몽유도원도(세종, 오답)",
+        "초충도(오답)",
+        "천산대렵도(고려 공민왕, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-076": {
+      "number": 1605,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "고사관수도: 강희안(정답)",
+        "몽유도원도(안견, 오답)",
+        "송하보월도(이상좌, 오답)",
+        "초충도(신사임당, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-077": {
+      "number": 1606,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "몽유도원도: 안평 대군의 꿈·안견(정답)",
+        "고사관수도(강희안, 오답)",
+        "초충도(신사임당, 오답)",
+        "수월관음도(고려, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-078": {
+      "number": 1607,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "몽유도원도(정답)",
+        "고사관수도(강희안, 오답)",
+        "송하보월도(이상좌, 오답)",
+        "천산대렵도(고려 공민왕, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-079": {
+      "number": 1608,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "사군자: 지조와 절개(정답)",
+        "초충도(오답)",
+        "몽유도원도(세종, 오답)",
+        "아미타래영도(고려, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-080": {
+      "number": 1609,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "초충도: 신사임당(정답)",
+        "몽유도원도(안견, 오답)",
+        "고사관수도(강희안, 오답)",
+        "송하보월도(이상좌, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-081": {
+      "number": 1610,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "초충도: 섬세한 필선·선명한 색채(정답)",
+        "사군자(오답)",
+        "고사관수도(오답)",
+        "몽유도원도(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-082": {
+      "number": 1611,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "송하보월도: 이상좌(정답)",
+        "고사관수도(강희안, 오답)",
+        "몽유도원도(안견, 오답)",
+        "초충도(신사임당, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-083": {
+      "number": 1612,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "고사관수도 강희안 · 몽유도원도 안견(정답)",
+        "몽유도원도 이상좌(오답)",
+        "고사관수도 안견(오답)",
+        "안견·이상좌(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-084": {
+      "number": 1613,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "『동문선』: 서거정, 문학 작품 선별(정답)",
+        "『금오신화』(오답)",
+        "『용비어천가』(세종, 오답)",
+        "「관동별곡」(선조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-085": {
+      "number": 1614,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "성종: 『동국여지승람』(정답)",
+        "『농사직설』(세종, 오답)",
+        "계미자(태종, 오답)",
+        "원각사지 10층 석탑(세조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-086": {
+      "number": 1615,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "『금오신화』: 김시습, 최초의 한문 소설(정답)",
+        "『동문선』(성종, 오답)",
+        "「관동별곡」(선조, 오답)",
+        "「사미인곡」(선조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-087": {
+      "number": 1616,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "『동문선』 서거정 · 『금오신화』 김시습(정답)",
+        "『금오신화』 강희맹(오답)",
+        "『동문선』 정철(오답)",
+        "정철·강희맹(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-088": {
+      "number": 1617,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "「관동별곡」(정답)",
+        "「사미인곡」(오답)",
+        "『금오신화』(오답)",
+        "『동문선』(성종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-089": {
+      "number": 1618,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "「사미인곡」: 임금을 향한 충심(정답)",
+        "「관동별곡」(선조, 오답)",
+        "『금오신화』(오답)",
+        "『용비어천가』(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-090": {
+      "number": 1619,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "정철: 「관동별곡」(정답)",
+        "김시습(오답)",
+        "서거정(오답)",
+        "강희맹(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-091": {
+      "number": 1620,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "송설체 안평 대군 · 석봉체 한호(정답)",
+        "석봉체 이상좌(오답)",
+        "송설체 안견(오답)",
+        "안견·이상좌(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-092": {
+      "number": 1621,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "안평 대군: 송설체(정답)",
+        "한호(오답)",
+        "강희안(오답)",
+        "신사임당(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-093": {
+      "number": 1622,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "선조: 훈련도감(정답)",
+        "비변사 임시 설치(중종, 오답)",
+        "직전법 폐지(명종, 오답)",
+        "홍문관(성종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
+    },
+    "joseonculture2-hist-20260924-094": {
+      "number": 1623,
+      "section": "조선 전기 공예·그림·문학",
+      "coverage": [
+        "세종 → 문종 → 성종 → 선조(정답)",
+        "세종·문종을 바꾼 배열(오답)",
+        "성종·선조를 바꾼 배열(오답)",
+        "둘 다 바꾼 배열(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 21강 조선 전기(문화 II) 243쪽 공예·그림·문학·글씨"
     }
   }
 };

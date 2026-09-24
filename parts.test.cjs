@@ -62,6 +62,10 @@ const counts={};
  // 2026-09-24 보충 파트 '이름이 비슷한 향교·유향소·향약·향도'(9문제, 여러 강 사실을 가르는 문제라 따로)를 교육 기관 파트 뒤에 둔다.
  assert.deepEqual(h20.parts.map(p=>p.title),['성균관·4부 학당·향교','서원·서당','이름이 비슷한 향교·유향소·향약·향도','성리학의 발달과 이황','이이·학파와 붕당','불교와 도교','역사서·실록·승정원일기','지도·지리서','의례서·법전·음악']);
  assert.equal(h20.parts.reduce((n,p)=>n+p.ids.length,0),108);assert.ok(h20.parts.every(p=>p.ids.length>=8),'20강 파트마다 8문제 이상');
+ // 2026-09-24 21강 조선 전기(문화 II): facts.cjs 묶음 11개 → 8파트, 94문제(8문제 미만 묶음은 이웃과 합침). 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
+ const h21=PARTS.units.find(u=>u.id==='hist-21');assert.equal(h21.title,'21강 조선 전기(문화 II)');
+ assert.deepEqual(h21.parts.map(p=>p.title),['인쇄술·제지술과 병서·무기','천문학과 과학 기구','역법·의학·농서','훈민정음','궁궐·종묘·장경판전·원각사지','서원 건축과 대표 서원','분청사기·백자와 그림','문학과 글씨']);
+ assert.equal(h21.parts.reduce((n,p)=>n+p.ids.length,0),94);assert.ok(h21.parts.every(p=>p.ids.length>=8),'21강 파트마다 8문제 이상');
 }
 
 // ── 3) 앱
