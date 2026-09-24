@@ -66,6 +66,10 @@ const counts={};
  const h21=PARTS.units.find(u=>u.id==='hist-21');assert.equal(h21.title,'21강 조선 전기(문화 II)');
  assert.deepEqual(h21.parts.map(p=>p.title),['인쇄술·제지술과 병서·무기','천문학과 과학 기구','역법·의학·농서','훈민정음','궁궐·종묘·장경판전·원각사지','서원 건축과 대표 서원','분청사기·백자와 그림','문학과 글씨']);
  assert.equal(h21.parts.reduce((n,p)=>n+p.ids.length,0),94);assert.ok(h21.parts.every(p=>p.ids.length>=8),'21강 파트마다 8문제 이상');
+ // 2026-09-24 주제 특강(250쪽 세시 풍속 · 252~256쪽 근·현대 인물): facts.cjs 묶음 13개 = 13파트, 552문제. 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
+ const hsp=PARTS.units.find(u=>u.id==='hist-250-256');assert.equal(hsp.title,'특강 세시 풍속과 근·현대 인물');assert.equal(hsp.short,'특강');
+ assert.deepEqual(hsp.parts.map(p=>p.title),['세시 풍속 ① 설날~유두','세시 풍속 ② 칠석~섣달그믐','개화파와 개항기 인물','동학·위정척사·의병','독립 협회·애국 계몽·헤이그 특사','한국을 도운 외국인','국외 독립운동 기지','의거와 의열 투쟁','독립군과 한국 광복군','여성 독립운동가','임시 정부와 광복 전후','국학·역사학·민족 종교','문학·예술·문화 운동']);
+ assert.equal(hsp.parts.reduce((n,p)=>n+p.ids.length,0),552);assert.ok(hsp.parts.every(p=>p.ids.length>=8),'주제 특강 파트마다 8문제 이상');
  // 2026-09-24 영어 Day 6·7(v151): 규칙 정리 10개·7개 → 8파트·7파트, 자체 제작만(교재 문장 문제 없음). 파트마다 8문제 이상.
  const d6=PARTS.units.find(u=>u.id==='en-day6'),d7=PARTS.units.find(u=>u.id==='en-day7');
  assert.deepEqual(d6.parts.map(p=>p.title),['문장 구조와 동사','보어·목적격보어와 태','조동사','명사·대명사와 도치','준동사','분사구문','비교','접속사·관계사']);
