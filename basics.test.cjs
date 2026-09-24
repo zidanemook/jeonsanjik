@@ -71,7 +71,27 @@ for(const [s,list] of Object.entries(IT_DONE)){const all=PS.STUDY_PARTS.units.fi
    const a=B.forQuestion(id);assert.ok(a&&a.box===r&&a.use.length&&a.blocks.length,s+' 대입: '+id);
    for(const u of a.use){assert.ok(lines.has(u),'대입 줄이 그 파트 상자에 없다: '+id+' '+u);itUse++;}}}}
 assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...erules,...hrules,...itRules].sort(),'상자는 논리 · 독해 · 영어 규칙마다, 한국사 · 정보보호론 · 컴퓨터일반 파트마다 하나(남는 상자 없음)');
-const covered=new Set([...logic,...reading,...english,...history,...itQuestions]);
+// 국어 · 영어 · 한국사 기출(v170~): 과목별 기출 대응 원고(research/basics-*/gichul*)가 짝지은 기출마다 대입 — box = 그 기출이 쓰는 상자(규칙 상자 또는 한국사 파트 상자),
+//   use = 그 상자의 줄, blocks = 화면에 보이는 '이 문제에 대입'. 대응하지 않은 기출(제외)은 대입이 없다. 마지막 '→ 번호'(부정 발문은 'N 틀림')가 공식 정답.
+const GICHUL_BASICS={'국어':327,'영어':102,'한국사':277,'한능검':548};
+const GOWN=/^(?:gichul-[a-z0-9]+-\d{4}b?-(korean|english|history)-(\d{2})|hanneung-\d+-\d{2})$/;
+const gichulBasics=Object.keys(B.apply).filter(id=>GOWN.test(id));let gUse=0;
+{const GF=require('./gichul-files.cjs'),HC={};vm.createContext(HC);vm.runInContext(fs.readFileSync(__dirname+'/hanneung-data.js','utf8'),HC,{filename:'hanneung-data.js'});
+ const hans=new Map(HC.HANNEUNG_DATA.map(r=>[r.id,r])),C='①②③④⑤',n={'국어':0,'영어':0,'한국사':0,'한능검':0};
+ const TOK=/(?<![A-Za-z0-9_])([a-z]{1,2}\d{1,2}k?)(?![A-Za-z0-9])/g,plain=t=>String(t).replace(/\{[spmqr]\|([^{}|]*)\}/g,'$1');
+ for(const id of gichulBasics){const a=B.forQuestion(id),m=id.match(GOWN),box=B.box(a.box);
+  assert.ok(box&&a.use.length&&a.blocks.length&&a.blocks.every(b=>typeof b==='string'&&b.trim()),'기출 대입 뼈대: '+id);
+  const lines=box.split==='lines'?hLines(box):lineIdsOf(box);for(const u of a.use){assert.ok(lines.has(u),'기출 대입 줄이 상자에 없다: '+id+' '+u);gUse++;}
+  let ans,own='';if(m[1]){const paper=id.slice(7,-3),q=GF.read(paper).questions.find(q=>q.n===+m[2]);assert.ok(q,'기출 문제가 있다: '+id);ans=q.a;own=q.q+' '+(q.c||[]).join(' ');n[{korean:'국어',english:'영어',history:'한국사'}[m[1]]]++;
+   assert.ok({korean:/^(logic|reading)-/,english:/^grammar-/,history:/^hist-/}[m[1]].test(a.box),'기출 과목과 상자가 맞다: '+id+' '+a.box);}
+  else{const r=hans.get(id);assert.ok(r,'한능검 문제가 있다: '+id);ans=r.answer;n['한능검']++;assert.match(a.box,/^hist-/,'한능검은 한국사 상자: '+id);}
+  const all=a.blocks.map(plain).join('\n'),ms=[...all.matchAll(/→\s*([①-⑤])|([①-⑤])\s*(?:이\s*|은\s*|는\s*)?(?:틀림|옳지 않음|적절하지 않음)/g)].map(x=>x[1]||x[2]);
+  assert.ok(ms.includes(C[ans-1]),'기출 대입에 공식 정답 번호: '+id+' (공식 '+C[ans-1]+')');
+  for(const b of a.blocks){const p=plain(b);assert.ok(!/두문자|비결|(?<![가-힣])상자|공통 줄/.test(p),'기출 대입에 두문자 · 비결 · 내부 말: '+id);
+   for(const t of p.matchAll(TOK))assert.ok(!lines.has(t[1]),'기출 대입에 줄 id: '+id+' '+t[1]);
+   if(box.split==='lines'&&m[1])for(const y of p.match(/(?<!\d)\d{3,4}(?!\d)/g)||[])assert.ok(own.includes(y),'한국사 기출 대입의 연도는 문제에 나온 것만: '+id+' '+y);}}
+ assert.deepEqual(n,GICHUL_BASICS,'과목별 기출 대입 수');}
+const covered=new Set([...logic,...reading,...english,...history,...itQuestions,...gichulBasics]);
 for(const id of Object.keys(B.apply))assert.ok(covered.has(id),'대입이 있는데 논리 · 독해 · 영어 파트 문제가 아니다: '+id);
 
 // ── 2) 상자 모양: 용어는 뜻 + 예), 한자가 있으면 원뜻, 규칙·비교 예문(✓와 ✗ 둘 다)
@@ -378,3 +398,4 @@ console.log('PASS basics(영어): Day 1~7 · 문법 공식 훈련 1470문제(규
 console.log('PASS basics:논리 1~6장 995문제(규칙 33) + 독해 1~3장 920문제(규칙 29 — 1장 15 · 2장 3 · 3장 11) 모두 규칙 상자(표 있는 상자 '+withTable+'개 — 표는 선택, 번호는 이어 매김) + 문제별 대입, 1915문제 절 순서(먼저 알아 둘 말 → 표 → 규칙 → 비교 예문 → 이 문제에 대입), 용어 뜻·예)·한자 원뜻, ✓/✗ 비교 예문, 해설 세 문단, 카드·문항·변형 0, 한자는 한글 뒤 괄호 안에만, 논리 '+overlapChecked+' · 독해 '+readingOverlap+'; 파트별 상태 50파트(논리 27 · 독해 23) 모두 기초 개념 보기 → 상자 전부 펼침(대입 없음) → 이 파트 문제 풀기, 뒤로 = 파트별 상태');
 console.log('PASS basics(정보보호론 · 컴퓨터일반): '+Object.entries(IT_DONE).map(([s,l])=>s+' '+l.length+'파트').join(' · ')+' '+itQuestions.length+'문제(9급 기출) — 파트마다 상자 하나 + 기출마다 대입(쓴 줄 '+itUse+'개 모두 그 파트 상자의 줄), 줄 id 노출 · 두문자 0, 해설 화면은 쓰는 줄만 제자리, 파트별 상태 기초 개념 보기');
 console.log('PASS basics(한국사): '+HIST_UNITS.join(' · ')+' '+hDone.length+'파트 '+history.length+'문제 — 파트마다 상자 하나 + 문제마다 대입(쓴 줄 '+hUse+'개 모두 그 파트 상자의 줄), 표 칸 셋까지, 두문자 · 비결 · 줄 id 노출 0, 연도는 y 줄 '+hYearLines+'개에만, 해설 화면은 쓰는 줄만 제자리('+hTopLines+'/'+hAllLines+'줄) + 나머지 모음 '+hSplit+'문제(빠짐 · 겹침 0), 파트별 상태 한국사 '+hDone.length+'파트 기초 개념 보기');
+console.log('PASS basics(국어 · 영어 · 한국사 기출): 기출 대응 원고가 짝지은 '+gichulBasics.length+'문제(국어 '+GICHUL_BASICS['국어']+' · 영어 '+GICHUL_BASICS['영어']+' · 9급 한국사 '+GICHUL_BASICS['한국사']+' · 한능검 '+GICHUL_BASICS['한능검']+')마다 대입 — 상자 줄 '+gUse+'개 모두 그 상자의 줄, 공식 정답 번호 · 줄 id 노출 0 · 한국사 연도는 문제에 나온 것만');

@@ -205,6 +205,26 @@ for(const [SUBJ,PRE] of [['정보보호론','sec'],['컴퓨터일반','com']]){c
    const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false);
    assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드/g,'')),SUBJ+' 해설 화면에 문항/카드/변형 없음');
    next();}}}
+// v170: 국어 · 영어 · 9급 한국사 기출과 한능검도 기출 대응 원고가 짝지은 문제는 해설 화면에 그 문제가 쓰는 상자 —
+//   틀리면 펼침 · 맞히면 접힘, 번호가 이어지고 마지막 절은 '이 문제에 대입'(한국사 상자는 대입이 쓰는 줄만 제자리 + 닫힌 나머지 모음 하나), 문항/카드/변형 없음.
+for(const [SUBJ,round] of [['국어','paper-national9-2026-korean'],['영어','paper-local9-2021-english'],['한국사','paper-local9-2026-history'],['한국사','79']]){
+ run("openScope({subject:'"+SUBJ+"',round:'"+round+"'})");await flush();await flush();
+ const seen={wrong:0,right:0};
+ for(let step=0;step<60&&run('data.activePractice')&&!(seen.wrong&&seen.right);step++){
+  const img=doc.querySelector('#card .paper-image img');if(img){img.complete=true;img.naturalWidth=1;}
+  const id=run('data.activePractice.cardId'),a=run('BASICS.forQuestion('+JSON.stringify(id)+')');
+  if(!a){answerCurrent(true);continue;}
+  const wrong=!seen.wrong,quiz=run('data.activePractice.exercise');
+  run('answerPractice('+JSON.stringify(id)+','+(wrong?(quiz.correctIndex+1)%quiz.choices.length:quiz.correctIndex)+')');
+  assert.equal(run('data.quizFeedback.result'),wrong?'wrong':'correct',SUBJ+' 기출 채점: '+id);
+  const b=nodes.get('#card').all.find(n=>n.tag==='details'&&String(n.className||'').split(' ').includes('basics'));
+  assert.ok(b,SUBJ+' 기출 해설 화면에 기초 개념 상자: '+id);assert.equal(b.children[0]._text,'기초 개념');assert.equal(b.open,wrong,SUBJ+' 기출 '+(wrong?'틀리면 펼침':'맞히면 접힘')+': '+id);
+  const hs=b.all.filter(n=>n.className==='b-h').map(n=>n._text);hs.forEach((h,k)=>assert.ok(h.startsWith((k+1)+'. '),'번호가 이어진다: '+hs.join(' / ')));
+  assert.ok(/이 문제에 대입$/.test(hs[hs.length-1]),'마지막 절은 이 문제에 대입: '+id);
+  if(/^hist-/.test(a.box)){const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.ok(rest.length<=1&&rest.every(r=>r.open===false),'한국사 상자: 나머지는 닫힌 모음 하나: '+id);}
+  assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드/g,'')),SUBJ+' 기출 해설 화면에 문항/카드/변형 없음: '+id);
+  seen[wrong?'wrong':'right']++;next();}
+ assert.ok(seen.wrong&&seen.right,SUBJ+' '+round+': 대입이 있는 기출을 틀리고 맞혀 봤다');}
 // 회차가 아닌 범위는 예전 그대로 복습 대기열을 따른다.
 run("openScope({subject:'한국사',round:'lecture-02-05'})");
 // 국어 범위 화면: 『사고의 힘 논리』 묶음이 맨 위에 1장 → 2장 → 3장 → 4장 → 5장 → 6장 → 제2편 독해 1장 순서로 나오고, 모두 아직 풀지 않은 4지선다 문제다.
@@ -411,5 +431,5 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
 {const mq=run(`(()=>{const c=data.cards.find(c=>isPlayable(c)&&PRACTICE_BANK[c.id]);const m={...c,streak:4,due:day(),retryAt:undefined,pendingAttempt:undefined};const off=reviewQueue([m],true).ready.length;data.includeMastered=true;const on=reviewQueue([m],true).ready.length;delete data.includeMastered;const wide=reviewQueue([m],false).ready.length;return [off,on,wide,dailyPick(m.id)?1:0];})()`);
  assert.equal(mq[0],0,'mastered question hidden in a range');assert.equal(mq[1],1,'shown when the option is on');assert.equal(mq[2],mq[3],'subject-wide: only on its random day');
  const share=run(`(()=>{let n=0;for(let i=0;i<7000;i++)if(dailyPick('x'+i))n++;return n;})()`);assert.ok(share>800&&share<1200,'about one in seven: '+share);}
-console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 · 6장 329 · 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자 펼침(틀림)·접힘(맞힘); 독해 1·3장 틀림 펼침 · 2장 맞힘 접힘), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본·틀린 문제 위주·안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
+console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 · 6장 329 · 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자 펼침(틀림)·접힘(맞힘); 독해 1·3장 틀림 펼침 · 2장 맞힘 접힘), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본·틀린 문제 위주·안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어 · 영어 · 9급 한국사 · 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침 · 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});
