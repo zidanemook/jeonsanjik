@@ -581,7 +581,10 @@ function appendNewPaperExplanation(parent,id,previous,reviewId,location){
 let sessionDirty=false;
 function sessionSnapshot(){const s=data.practiceScope||{},a=data.activePractice,e=a?.exercise;return {subject:s.subject||'',topic:s.topic||'',round:s.round||'',cardId:e?a.cardId:null,exerciseId:e?.exerciseId||null,variantIndex:e?(e.variantIndex??0):null,type:e?e.type:null,choices:e?.type==='choice'?[...e.choices]:null};}
 function stampSession(){if(!storageOK)return;let session;try{session=ProgressSync.session({at:Math.max(Date.now(),(data.session?.at||0)+1),...sessionSnapshot()});}catch{return;}data.session=session;try{writeState(KEY,data);window.dispatchEvent(new Event('study-progress-saved'));}catch{}}
-function render(){renderView();if(sessionDirty){sessionDirty=false;stampSession();}}
+// 화면 아래 출처 줄: 지금 보는 과목의 문제가 어디서 왔는지만 적는다(국어를 풀 때 국사편찬위원회가 뜨지 않게). 컴퓨터일반·정보보호론은 자체 제작 문제가 없다.
+function footerText(subject){const exam='인사혁신처 공개 9급 기출',hist='국사편찬위원회 공개 한능검 심화 기출',own='자체 제작 복습 문제';if(subject==='한국사')return [own,exam,hist].join(' · ');if(subject==='국어'||subject==='영어')return [own,exam].join(' · ');if(subject==='컴퓨터일반'||subject==='정보보호론')return exam;return [own,exam,hist].join(' · ');}
+function footerSubject(){if(view==='home')return '';if(view!=='quiz')return viewSubject;try{const sc=scopeOf();if(sc.subject)return sc.subject;const id=data.session&&data.session.cardId,c=id&&data.cards.find(x=>x.id===id);return c?c.subject:'';}catch{return viewSubject;}}
+function render(){renderView();{const f=$('#siteFooter');if(f)f.textContent=footerText(footerSubject());}if(sessionDirty){sessionDirty=false;stampSession();}}
 // Screens: home (subjects) → subject (resume / choose range) → range → quiz (question, then explanation). Progress is separate.
 const VIEWS=['home','subject','range','quiz','progress','memorize','parts'];
 let view='home',viewSubject='';

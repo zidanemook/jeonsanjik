@@ -327,6 +327,9 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  run("setQueueMode('default')");assert.equal(run('JSON.stringify(data.queueModes)'),JSON.stringify({'영어':'fresh'}),'기본 모드는 적지 않는다');
  assert.equal(run('data.queueMode'),undefined,'옛 공통 모드는 남지 않는다');
  assert.throws(()=>run("validateBackup({version:3,cards:[],history:[],queueModes:{'영어':'nope'}})"),/대기열/,'잘못된 과목별 모드는 거절');
+ // 화면 아래 출처 줄은 과목을 따른다(2026-09-24 신고: 국어를 푸는데 국사편찬위원회가 떠 있었다).
+ assert.equal(run("footerText('국어')"),'자체 제작 복습 문제 · 인사혁신처 공개 9급 기출');assert.equal(run("footerText('영어')"),'자체 제작 복습 문제 · 인사혁신처 공개 9급 기출');
+ assert.equal(run("footerText('컴퓨터일반')"),'인사혁신처 공개 9급 기출');assert.match(run("footerText('한국사')"),/국사편찬위원회/);assert.doesNotMatch(run("footerText('정보보호론')"),/국사편찬위원회|자체 제작/);
  assert.equal(run("(()=>{const s=data.queueModes;delete data.queueModes;data.queueMode='wrong';const r=queueMode('국어');delete data.queueMode;data.queueModes=s;return r;})()"),'wrong','과목별 선택이 없던 옛 저장은 공통 모드를 그대로 읽는다');
  run("openScope({subject:'영어',topic:'Day 2'})");assert.equal(run('queueMode()'),'fresh');
 
