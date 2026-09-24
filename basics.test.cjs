@@ -43,8 +43,23 @@ for(const p of enParts){const inPart=new Set(p.ids.map(id=>bank[id].ruleId));
   const a=B.forQuestion(id);assert.ok(a&&Array.isArray(a.blocks)&&a.blocks.length&&a.use.length,'이 문제에 대입이 없다: '+id);
   for(const u of a.use){const [r,l]=u.includes(':')?u.split(':'):[q.ruleId,u];assert.ok(inPart.has(r),'대입 줄이 파트 밖 상자: '+id+' '+u);assert.ok(lineIdsOf(B.box(r)).has(l),'대입 줄이 상자에 없다: '+id+' '+u);enUse++;}}}
 assert.equal(erules.size,73,'영어 규칙 73개');
-assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...erules].sort(),'상자는 논리 · 독해 · 영어 규칙마다 하나(남는 상자 없음)');
-const covered=new Set([...logic,...reading,...english]);
+// 한국사(v161~, 강별로 늘어난다): parts.js의 한국사 파트마다 상자 하나(id 'hist-<파트>', split 'lines', 표는 tables 여럿 · 줄마다 rowIds).
+//   HIST_UNITS에 든 단원의 파트는 모두 상자가 있고, 그 파트 문제마다 대입(box = 그 파트 상자 · use = 그 상자의 줄 · blocks)이 있다.
+const HIST_UNITS=['hist-02-05'];
+const hUnits=PS.STUDY_PARTS.units.filter(u=>u.subject==='한국사'),hDone=hUnits.filter(u=>HIST_UNITS.includes(u.id)).flatMap(u=>u.parts);
+assert.deepEqual(hUnits.filter(u=>HIST_UNITS.includes(u.id)).map(u=>u.id),HIST_UNITS,'상자를 붙인 한국사 단원');
+const hLines=b=>new Set([...b.terms.map(t=>t.id),...(b.tables||[]).flatMap(t=>[t.id,...t.rowIds,t.key?.id]),...b.rules.items.map(r=>r.id),...b.examples.map(x=>x.id)].filter(Boolean));
+const history=[],hrules=new Set();let hUse=0;
+for(const p of hDone){const r='hist-'+p.id,box=B.box(r);assert.ok(box,'한국사 파트 상자: '+r);hrules.add(r);
+ assert.equal(box.split,'lines','한국사 상자는 줄 단위로 접는다: '+r);assert.ok(!box.table&&box.tables.length,'한국사 상자는 tables: '+r);
+ for(const t of box.tables)assert.equal(t.rowIds.length,t.rows.length,'표 줄마다 id: '+r+' '+t.id);
+ const lines=hLines(box);
+ for(const id of p.ids){history.push(id);assert.ok(!bank[id],'한국사 문제는 practice-bank 밖(quiz-options): '+id);
+  const a=B.forQuestion(id);assert.ok(a&&a.box===r&&a.use.length&&a.blocks.length,'한국사 대입: '+id);
+  for(const u of a.use){assert.ok(lines.has(u),'대입 줄이 그 파트 상자에 없다: '+id+' '+u);hUse++;}}}
+assert.equal(history.length,220,'02~05강 220문제');assert.equal(hrules.size,8,'02~05강 8파트 = 8상자');
+assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...erules,...hrules].sort(),'상자는 논리 · 독해 · 영어 규칙마다, 한국사 파트마다 하나(남는 상자 없음)');
+const covered=new Set([...logic,...reading,...english,...history]);
 for(const id of Object.keys(B.apply))assert.ok(covered.has(id),'대입이 있는데 논리 · 독해 · 영어 파트 문제가 아니다: '+id);
 
 // ── 2) 상자 모양: 용어는 뜻 + 예), 한자가 있으면 원뜻, 규칙·비교 예문(✓와 ✗ 둘 다)
@@ -56,6 +71,7 @@ for(const [rule,box] of Object.entries(B.boxes)){
  for(const t of box.terms){assert.ok(t.word&&t.mean&&t.ex,'용어는 낱말·뜻·예): '+rule+' '+t.id);if(t.hanja)assert.ok(t.origin,'한자를 달면 원뜻도: '+rule+' '+t.id);
   [t.word,t.origin,t.mean,t.ex,...(t.rows||[])].forEach(x=>push(rule,x));}
  if(box.table){withTable++;assert.ok(box.table.title&&box.table.head.length&&box.table.rows.length,'표: '+rule);push(rule,box.table.title);box.table.head.forEach(x=>push(rule,x));box.table.rows.flat().forEach(x=>push(rule,x));if(box.table.key)push(rule,box.table.key.text);}
+ for(const t of box.tables||[]){assert.ok(t.id&&t.title&&t.head.length&&t.head.length<=3&&t.rows.length&&t.rows.every(r=>r.length===t.head.length),'한국사 표(칸 셋까지 · 줄 너비): '+rule+' '+t.id);push(rule,t.title);t.head.forEach(x=>push(rule,x));t.rows.flat().forEach(x=>push(rule,x));if(t.key)push(rule,t.key.text);}
  push(rule,box.rules.title);for(const r of box.rules.items){assert.ok(r.name&&r.text,'규칙은 이름·내용: '+rule);push(rule,r.name);push(rule,r.text);}if(box.rules.key)push(rule,box.rules.key.text);
  assert.ok(box.examples.some(x=>x.ok)&&box.examples.some(x=>!x.ok),'비교 예문은 ✓와 ✗를 함께: '+rule);
  for(const x of box.examples){assert.ok(x.text&&x.why,'비교 예문은 문장과 한 줄 까닭: '+rule);push(rule,x.text);push(rule,x.why);}
@@ -78,6 +94,21 @@ for(const [where,t] of texts){
   assert.ok(open>=0&&close>m.index&&t.lastIndexOf(')',m.index)<open,'한자는 괄호 안에만: '+where+' — '+m[0]);
   assert.ok(/[가-힣]/.test(t[open-1]||''),'한자 괄호 앞에는 한글: '+where+' — '+t.slice(Math.max(0,open-6),close+1));}
 }
+
+// 3-2) 한국사: 두문자 · 비결 없음, 글에 줄 id(a1 · r3 …)가 보이지 않음(화면에는 id가 없다), 연도는 'y'로 시작하는 줄(그 파트 문제가 연도를 직접 물을 때)에만,
+//      대입의 연도는 그 문제의 발문 · 보기에 나온 것만. 연도로 줄 세우지 않고 왕 순서로 푸는 상자여야 한다.
+let hYearLines=0;
+{const HC={};vm.createContext(HC);for(const f of ['core-review-pack.js','quiz-options.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),HC,{filename:f});
+ const card=new Map(HC.CORE_REVIEW_PACK.map(c=>[c.id,c]));
+ const YEAR=/\d{3,4}\s*년|기원전|\d+\s*만\s*년|\d+\s*세기|(?<!\d)\d{3,4}(?!\d)/,ID=/(?<![A-Za-z])[a-z]\d{0,2}[a-z]?(?:\s*표)?\)|(?<![A-Za-z])[a-z]\d{1,2}[a-z]?(?![A-Za-z0-9])/,plain=t=>String(t).replace(/\{[spmqr]\|([^{}|]*)\}/g,'$1');
+ for(const r of hrules){const b=B.box(r);
+  const lines=[['title',[b.title]],...b.terms.map(t=>[t.id,[t.word,t.origin,t.mean,t.ex]]),...b.tables.flatMap(t=>[[t.id,[t.title,...t.head]],...t.rows.map((row,i)=>[t.rowIds[i],row])]),...b.rules.items.map(x=>[x.id,[x.name,x.text]]),...b.examples.map(x=>[x.id,[x.text,x.why]])];
+  for(const [id,ts] of lines){if(id.startsWith('y'))hYearLines++;for(const t of ts.filter(Boolean)){const p=plain(t);
+   assert.ok(!/두문자|비결|앞 ?글자만/.test(p),'두문자 · 비결: '+r+' '+id);assert.ok(!ID.test(p),'글에 줄 id: '+r+' '+id+' — '+p.slice(0,50));
+   if(!id.startsWith('y'))assert.ok(!YEAR.test(p),'연도는 y 줄에만: '+r+' '+id+' — '+p.slice(0,60));}}}
+ for(const id of history){const o=HC.QUIZ_OPTIONS[id],own=(o.question||card.get(id).question)+' '+o.choices.join(' ');
+  for(const b of B.forQuestion(id).blocks){const p=plain(b);assert.ok(!ID.test(p),'대입에 줄 id: '+id+' — '+p.slice(0,50));assert.ok(!/두문자|비결/.test(p),'대입에 두문자 · 비결: '+id);
+   for(const y of p.match(/(?<!\d)\d{3,4}(?!\d)/g)||[])assert.ok(own.includes(y),'대입의 연도는 문제에 나온 것만: '+id+' '+y);}}}
 
 // ── 4) 교재 문장 겹침: 교재 옮겨 적기 노트(저장소 밖 research/korean-logic)가 있을 때만. 공백·문장부호를 뺀 16자 이상이 같으면 실패.
 const NOTES=path.join(__dirname,'..','research','korean-logic');
@@ -208,6 +239,32 @@ assert.equal(run(`${JSON.stringify([...logic,...reading])}.filter(id=>{const q=P
  assert.ok(run(`Object.entries(BASICS.boxes).some(([k,b])=>k!=='grammar-formula-structure'&&b.rules.items.some(r=>JSON.stringify(r)===${JSON.stringify(dn)}))`),'dn-1은 Day 상자에도 있다');
  assert.equal(run(`basicsShared(${dn},'grammar-formula-structure',PARTS.partOf('en-formula-001')||'enf-1')`),false,'공식 훈련 상자의 dn-1은 파트 밖 Day 상자 때문에 접히지 않는다');}
 
+// 5-1-5) 한국사: (가) 모두 보기(파트 화면과 같은 방식)는 절 = 먼저 알아 둘 말 → 표마다 제목 → 규칙 → 비교 예문 → 이 문제에 대입.
+//   (나) 해설 화면(fold): 대입이 쓰는 줄(용어 · 표 줄 · 규칙 · 예문, 표 id면 표 전체)만 제자리, 나머지는 닫힌 '이 정리의 나머지 더 보기 — …' 하나.
+//   제자리에 둘 줄이 없는 절은 제목 없이 번호를 당기고, 줄은 빠지거나 겹치지 않는다. 기대값은 여기서 따로 센다.
+let hSplit=0,hTopLines=0,hAllLines=0;
+{const res=run(`(()=>{const out=[],walk=(n,f)=>{for(const c of n.children){f(c);walk(c,f);}};
+ const count=(d,top)=>{const xs=[];if(top)xs.push(...d.children);else walk(d,c=>xs.push(c));
+  return {terms:xs.filter(c=>c.className==='b-term').length,rules:xs.filter(c=>c.className==='b-rule').length,ex:xs.filter(c=>c.tag==='p'&&String(c.className).startsWith('b-ex')&&c.children[0]?.tag==='span').length,rows:xs.filter(c=>c.tag==='table').reduce((s,t)=>s+t.children.length-1,0)};};
+ const heads=d=>{const h=[];walk(d,c=>{if(c.className==='b-h')h.push(c._text);});return h;};
+ for(const id of ${JSON.stringify(history)}){const a=BASICS.forQuestion(id),box=BASICS.box(a.box),all=basicsDetails('기초 개념',box,a),fold=basicsDetails('기초 개념',box,a,'fold',null,PARTS.partOf(id));
+  const more=fold.children.filter(c=>String(c.className).split(' ').includes('b-rest'));
+  out.push({id,heads:heads(all),fheads:heads(fold),all:count(all),top:count(fold,true),inMore:more[0]?count(more[0]):{terms:0,rules:0,ex:0,rows:0},more:more.length,moreOpen:more[0]?more[0].open:false,moreSummary:more[0]?.children[0]._text||''});}
+ return out;})()`);
+ for(const r of res){const a=B.forQuestion(r.id),box=B.box(a.box),use=new Set(a.use),num=xs=>xs.map((t,i)=>(i+1)+'. '+t);
+  const rowsOf=t=>use.has(t.id)?t.rows.length:t.rowIds.filter(x=>use.has(x)).length;
+  const want={terms:box.terms.filter(t=>use.has(t.id)).length,rules:box.rules.items.filter(x=>use.has(x.id)).length,ex:box.examples.filter(x=>use.has(x.id)).length,rows:box.tables.reduce((s,t)=>s+rowsOf(t),0)};
+  const total={terms:box.terms.length,rules:box.rules.items.length,ex:box.examples.length,rows:box.tables.reduce((s,t)=>s+t.rows.length,0)};
+  eqJ(r.heads,num(['먼저 알아 둘 말',...box.tables.map(t=>t.title),'규칙'+(box.rules.title?' — '+box.rules.title:''),'비교 예문','이 문제에 대입']),'한국사 모두 보기 절 순서: '+r.id);
+  eqJ(r.all,total,'모두 보기는 줄 전부: '+r.id);
+  eqJ(r.fheads,num([...(want.terms?['먼저 알아 둘 말']:[]),...box.tables.filter(t=>rowsOf(t)).map(t=>t.title),...(want.rules?['규칙'+(box.rules.title?' — '+box.rules.title:'')]:[]),...(want.ex?['비교 예문']:[]),'이 문제에 대입']),'해설 화면 절 = 제자리에 둔 줄이 있는 절만, 번호 이어 매김: '+r.id);
+  eqJ(r.top,want,'제자리 = 대입이 쓰는 줄: '+r.id);
+  for(const k of Object.keys(total))assert.equal(r.top[k]+r.inMore[k],total[k],'줄이 빠지거나 겹치지 않는다('+k+'): '+r.id);
+  const rest=Object.keys(total).some(k=>total[k]>want[k]);
+  assert.equal(r.more,rest?1:0,'나머지 모음 하나: '+r.id);if(rest){hSplit++;assert.equal(r.moreOpen,false,'나머지 모음은 닫혀 있다: '+r.id);assert.match(r.moreSummary,/^이 정리의 나머지 더 보기 — /,'모음 제목: '+r.id);}
+  hTopLines+=want.terms+want.rules+want.ex+want.rows;hAllLines+=total.terms+total.rules+total.ex+total.rows;}
+ assert.ok(hSplit>200,'한국사 상자는 해설 화면에서 거의 다 접힌다: '+hSplit);}
+
 // 5-2) 파트별 상태: 논리 문제가 있는 파트마다 '기초 개념 보기'가 있고, 누르면 그 파트의 상자를 모두 펼쳐 한 화면에(대입 없이).
 const P=run('PARTS');
 const logicParts=P.units.flatMap(u=>u.parts).filter(p=>p.ids.some(id=>/^ko-logic\d/.test(id)));
@@ -246,6 +303,18 @@ run("go('parts','영어')");
   const total=boxes.reduce((s,d)=>s+B.box(d.dataset.rule).rules.items.length,0);assert.ok(shownRules<=total&&(shownRules===total||noted>0),'파트 화면 규칙: 모두, 또는 앞 상자에 있다는 안내: '+p.id);
   assert.ok(!/카드|문항|변형/.test(body.textContent));
   run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'parts');}}
+// 5-2-3) 한국사: 상자를 붙인 파트마다 '기초 개념 보기'(아직 상자가 없는 강의 파트엔 없음), 누르면 상자 하나를 모두 펼쳐(대입 · 나머지 모음 없이) → 이 파트 문제 풀기.
+run("go('parts','한국사')");
+{const hs=nodes.get('#partsBody').all.filter(n=>cls(n).includes('part-basics'));
+ eqJ(hs.map(n=>n.dataset.basics).sort(),hDone.map(p=>p.id).sort(),'한국사 기초 개념 보기 버튼 = 상자를 붙인 파트');
+ for(const p of hDone){eqJ(run('partBasics(PARTS.part('+JSON.stringify(p.id)+'))'),['hist-'+p.id],'한국사 파트 상자: '+p.id);
+  hs.find(n=>n.dataset.basics===p.id).onclick();assert.equal(run('view'),'basics');
+  const body=nodes.get('#basicsBody'),boxes=body.children.filter(n=>n.tag==='details');
+  eqJ(boxes.map(d=>d.dataset.rule),['hist-'+p.id],'파트의 상자: '+p.id);assert.ok(boxes[0].open,'펼쳐져 있다: '+p.id);
+  assert.ok(!body.all.some(n=>n.className==='b-h'&&/이 문제에 대입/.test(n._text))&&!body.all.some(n=>String(n.className).includes('b-rest')),'파트 화면은 대입 · 나머지 모음 없이 모두: '+p.id);
+  const box=B.box('hist-'+p.id);assert.equal(body.all.filter(n=>n.tag==='table').length,box.tables.length,'표 전부: '+p.id);
+  assert.ok(body.children.some(n=>cls(n).includes('basics-solve')),'문제 풀기로 이어진다: '+p.id);assert.ok(!/카드|문항|변형/.test(body.textContent));
+  run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'parts');}}
 run("go('parts','국어')");
 // 5-3) 없는 파트로 들어와도 안내 문장을 보인다(빈 화면 아님).
 run("openBasics('no-such-part')");assert.equal(run('view'),'basics');assert.ok(/파트를 찾지 못했어요/.test(nodes.get('#basicsBody').textContent));
@@ -263,3 +332,4 @@ run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'par
  assert.ok(/id="basicsView"/.test(html)&&/id="basicsBody"/.test(html),'index.html에 기초 개념 화면');}
 console.log('PASS basics(영어): Day 1~7 · 문법 공식 훈련 1470문제(규칙 73 · 파트 51) 모두 상자 + 대입(쓴 줄 '+enUse+'개가 모두 파트 안 상자의 줄), 절 순서 · 번호, 해설 짜임, 해설 화면의 공식 나누기 '+splitBoxes+'문제 · 용어 나누기 '+termSplit+'문제(규칙 · 예문 · 용어 빠짐 · 겹침 0), 공통 정리는 같은 파트 안에서만, 교재 '+englishOverlap+', 파트별 상태 영어 51파트');
 console.log('PASS basics:논리 1~6장 995문제(규칙 33) + 독해 1~3장 920문제(규칙 29 — 1장 15 · 2장 3 · 3장 11) 모두 규칙 상자(표 있는 상자 '+withTable+'개 — 표는 선택, 번호는 이어 매김) + 문제별 대입, 1915문제 절 순서(먼저 알아 둘 말 → 표 → 규칙 → 비교 예문 → 이 문제에 대입), 용어 뜻·예)·한자 원뜻, ✓/✗ 비교 예문, 해설 세 문단, 카드·문항·변형 0, 한자는 한글 뒤 괄호 안에만, 논리 '+overlapChecked+' · 독해 '+readingOverlap+'; 파트별 상태 50파트(논리 27 · 독해 23) 모두 기초 개념 보기 → 상자 전부 펼침(대입 없음) → 이 파트 문제 풀기, 뒤로 = 파트별 상태');
+console.log('PASS basics(한국사): '+HIST_UNITS.join(' · ')+' '+hDone.length+'파트 '+history.length+'문제 — 파트마다 상자 하나 + 문제마다 대입(쓴 줄 '+hUse+'개 모두 그 파트 상자의 줄), 표 칸 셋까지, 두문자 · 비결 · 줄 id 노출 0, 연도는 y 줄 '+hYearLines+'개에만, 해설 화면은 쓰는 줄만 제자리('+hTopLines+'/'+hAllLines+'줄) + 나머지 모음 '+hSplit+'문제(빠짐 · 겹침 0), 파트별 상태 한국사 '+hDone.length+'파트 기초 개념 보기');

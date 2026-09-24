@@ -834,6 +834,8 @@ function renderPaperLoad(root,card,scope){
 // 해설 화면에서는 '규칙과 비교 예문 더 보기'를 대신하고, 틀렸을 때만 펼쳐 둔다. 파트별 상태의 '기초 개념 보기'는 대입 없이 파트의 상자를 모두 모아 보여 준다.
 // 자료는 글자로만 받는다: {s|글} 색 칩 · **글** 굵게 · ○/✕ 색. 표가 없는 규칙은 번호를 당겨 적는다.
 const BASICS=globalThis.STUDY_BASICS||{boxes:{},apply:{},box:()=>null,forQuestion:()=>null};
+// 문제 → 상자: 국어 · 영어는 문제의 규칙(ruleId)마다 상자, 한국사는 파트마다 상자라서 그 문제의 대입(apply)에 상자 id(box)를 적어 둔다.
+const basicsRuleFor=id=>PRACTICE_BANK[id]?.ruleId||BASICS.forQuestion(id)?.box||null;
 const basicsClosed=new Set();
 function basicsInline(text){
  const out=[],re=/\{([spmqr])\|([^{}|]*)\}|\*\*(.+?)\*\*|([○✕])/g;let last=0,m;
@@ -856,9 +858,9 @@ const basicsRuleOf=new Map(Object.entries(BASICS.boxes||{}).map(([r,b])=>[b,r]))
 let basicsSharedMaps=null;
 function basicsSharedSets(){
  if(basicsSharedMaps)return basicsSharedMaps;const byPart=new Map(),byRule=new Map();
- const keysOf=b=>[...new Set([...(b.terms||[]),...(b.rules?.items||[]),b.table].filter(Boolean).map(x=>JSON.stringify(x)))];
+ const keysOf=b=>[...new Set([...(b.terms||[]),...(b.rules?.items||[]),b.table,...(b.tables||[])].filter(Boolean).map(x=>JSON.stringify(x)))];
  for(const u of PARTS.units||[])for(const p of u.parts||[]){
-  const rules=[...new Set((p.ids||[]).map(id=>PRACTICE_BANK[id]?.ruleId).filter(r=>r&&BASICS.box(r)))];if(rules.length<2)continue;
+  const rules=[...new Set((p.ids||[]).map(basicsRuleFor).filter(r=>r&&BASICS.box(r)))];if(rules.length<2)continue;
   const n=new Map();for(const r of rules)for(const k of keysOf(BASICS.box(r)))n.set(k,(n.get(k)||0)+1);
   const shared=new Set([...n].filter(([,c])=>c>1).map(([k])=>k));if(!shared.size)continue;byPart.set(p.id,shared);
   for(const r of rules){let s=byRule.get(r);if(!s)byRule.set(r,s=new Set());for(const k of keysOf(BASICS.box(r)))if(shared.has(k))s.add(k);}
@@ -868,7 +870,7 @@ function basicsSharedSets(){
 // rule · partId를 주면 그 파트(없으면 그 상자가 나오는 파트들) 안에서 센다. 둘 다 없으면 어느 파트에서든 공통인지.
 function basicsShared(x,rule,partId){
  const k=JSON.stringify(x),{byPart,byRule}=basicsSharedSets();
- if(partId&&rule){const s=byPart.get(partId);return !!s&&s.has(k)&&!!PARTS.part(partId)?.ids?.some(id=>PRACTICE_BANK[id]?.ruleId===rule);}
+ if(partId&&rule){const s=byPart.get(partId);return !!s&&s.has(k)&&!!PARTS.part(partId)?.ids?.some(id=>basicsRuleFor(id)===rule);}
  if(rule)return !!byRule.get(rule)?.has(k);
  for(const s of byPart.values())if(s.has(k))return true;return false;
 }
@@ -894,16 +896,42 @@ function basicsTermSplit(terms,rule,split,apply){
 function basicsTerm(t){const h=elem('div',undefined,'b-term');h.append(elem('span',t.word+(t.hanja?'('+t.hanja+')':''),'b-chip'));if(t.origin)h.append(elem('small',t.origin,'b-origin'));const out=[h,basicsLines(t.mean,'b-mean')];
  if(t.rows){const r=elem('div',undefined,'b-rows');for(const row of t.rows)r.append(basicsLines(row,undefined,'div'));out.push(r);}out.push(basicsLines('예) '+t.ex,'b-ex'));return out;}
 function basicsRule(r){const d=elem('div',undefined,'b-rule');d.append(elem('b',r.name),...basicsInline(r.text));return d;}
+function basicsExample(x){const p=elem('p',undefined,'b-ex'+(x.ok?'':' bad'));p.append(elem('span',x.ok?'✓':'✗',x.ok?'b-ok':'b-no'),document.createTextNode(' '),...basicsInline(x.text),elem('br'));const s=elem('small');s.append(...basicsInline(x.why));p.append(s);return p;}
+// 한국사 상자(split:'lines', 파트마다 하나 · 표가 여럿): 해설 화면에서는 이 문제의 대입이 쓰는 줄(용어 · 표의 줄 · 규칙 · 비교 예문)만
+// 제자리에 두고, 나머지는 닫힌 '이 정리의 나머지 더 보기' 하나에 같은 순서로 모은다. 대입이 표 id를 쓰면 그 표 전체, 줄 id를 쓰면 그 줄만.
+// 제자리에 둘 줄이 없는 절은 제목도 두지 않고 번호를 당긴다. 파트 모아 보기에서는 모두 펼친다(basicsSections의 다른 모드).
+function basicsLineSections(box,apply){
+ const out=[];let n=0;const head=t=>out.push(elem('h4',(++n)+'. '+t,'b-h')),use=new Set((apply.use||[]).map(u=>String(u).split(':').pop()));
+ const split=xs=>[xs.filter(x=>use.has(x.id)),xs.filter(x=>!use.has(x.id))];
+ const [inT,restT]=split(box.terms),[inR,restR]=split(box.rules.items),[inX,restX]=split(box.examples);
+ const tables=(box.tables||[]).map(t=>{const all=use.has(t.id),keep=[],rest=[];t.rows.forEach((r,i)=>(all||use.has(t.rowIds?.[i])?keep:rest).push(r));return {t,keep,rest};});
+ const sub=(t,rows)=>basicsTable({...t,rows});
+ if(inT.length){head('먼저 알아 둘 말');for(const t of inT)out.push(...basicsTerm(t));}
+ for(const {t,keep} of tables)if(keep.length){head(t.title);out.push(sub(t,keep));if(t.key&&(use.has(t.id)||use.has(t.key.id)))out.push(basicsLines(t.key.text,'b-key'));}
+ if(inR.length){head('규칙'+(box.rules.title?' — '+box.rules.title:''));for(const r of inR)out.push(basicsRule(r));}
+ if(inX.length){head('비교 예문');for(const x of inX)out.push(basicsExample(x));}
+ const restRows=tables.reduce((s,x)=>s+x.rest.length,0),parts=[restT.length&&'말 '+restT.length,restRows&&'표 '+restRows+'줄',restR.length&&'규칙 '+restR.length,restX.length&&'예문 '+restX.length].filter(Boolean);
+ if(parts.length){const d=elem('details',undefined,'b-more b-rest');d.append(elem('summary','이 정리의 나머지 더 보기 — '+parts.join(' · ')));
+  if(restT.length){d.append(elem('h4','먼저 알아 둘 말','b-subh'));for(const t of restT)d.append(...basicsTerm(t));}
+  for(const {t,rest} of tables)if(rest.length){d.append(elem('h4',t.title,'b-subh'),sub(t,rest));if(t.key&&!(use.has(t.id)||use.has(t.key.id)))d.append(basicsLines(t.key.text,'b-key'));}
+  if(restR.length){d.append(elem('h4','규칙'+(box.rules.title?' — '+box.rules.title:''),'b-subh'));for(const r of restR)d.append(basicsRule(r));}
+  if(restX.length){d.append(elem('h4','비교 예문','b-subh'));for(const x of restX)d.append(basicsExample(x));}
+  out.push(d);}
+ head('이 문제에 대입');for(const b of apply.blocks)out.push(basicsBlock(b));
+ return out;
+}
 // mode: 'fold' = 공통 줄을 끝에 접어 둠 · 'skip' = seen에 든(앞 상자에서 보인) 줄을 빼고 한 줄 안내 · 그 밖 = 모두 제자리에
 function basicsSections(box,apply,mode,seen,partId){
+ if(mode==='fold'&&box.split==='lines'&&apply)return basicsLineSections(box,apply);
  const out=[];let n=0;const head=t=>out.push(elem('h4',(++n)+'. '+t,'b-h')),rule=basicsRuleOf.get(box);
  const moved=x=>mode==='fold'?basicsShared(x,rule,partId):mode==='skip'&&!!seen&&seen.has(JSON.stringify(x)),terms=box.terms.filter(t=>!moved(t)),rules=box.rules.items.filter(r=>!moved(r)),table=box.table&&!moved(box.table)?box.table:null;
  const sharedTerms=box.terms.filter(moved),sharedRules=box.rules.items.filter(moved),sharedTable=box.table&&moved(box.table)?box.table:null;
- const split=mode==='fold'?basicsFormulaSplit(box,rule,rules,apply):null,termSplit=split?basicsTermSplit(terms,rule,split,apply):null,exEl=x=>{const p=elem('p',undefined,'b-ex'+(x.ok?'':' bad'));p.append(elem('span',x.ok?'✓':'✗',x.ok?'b-ok':'b-no'),document.createTextNode(' '),...basicsInline(x.text),elem('br'));const s=elem('small');s.append(...basicsInline(x.why));p.append(s);return p;};
+ const split=mode==='fold'?basicsFormulaSplit(box,rule,rules,apply):null,termSplit=split?basicsTermSplit(terms,rule,split,apply):null,exEl=basicsExample;
  head('먼저 알아 둘 말');
  for(const t of termSplit?termSplit.keep:terms)out.push(...basicsTerm(t));
  if(termSplit&&termSplit.rest.length){const d=elem('details',undefined,'b-more-terms');d.append(elem('summary','이 정리의 다른 용어 '+termSplit.rest.length+'개 더 보기'));for(const t of termSplit.rest)d.append(...basicsTerm(t));out.push(d);}
  if(table){head(table.title);out.push(basicsTable(table));if(table.key)out.push(basicsLines(table.key.text,'b-key'));}
+ for(const t of box.tables||[])if(!moved(t)){head(t.title);out.push(basicsTable(t));if(t.key)out.push(basicsLines(t.key.text,'b-key'));}
  head('규칙'+(box.rules.title?' — '+box.rules.title:''));
  for(const r of split?split.rules:rules)out.push(basicsRule(r));
  if(box.rules.key)out.push(basicsLines(box.rules.key.text,'b-key'));
@@ -928,7 +956,7 @@ function basicsSections(box,apply,mode,seen,partId){
  return out;
 }
 function basicsDetails(summary,box,apply,mode,seen,partId){const d=elem('details',undefined,'lesson basics');d.append(elem('summary',summary),...basicsSections(box,apply,mode,seen,partId));return d;}
-function partBasics(p){return [...new Set(p.ids.map(id=>PRACTICE_BANK[id]?.ruleId).filter(r=>r&&BASICS.box(r)))];}
+function partBasics(p){return [...new Set(p.ids.map(basicsRuleFor).filter(r=>r&&BASICS.box(r)))];}
 // 파트 하나의 기초 개념만 모은 화면(시험 직전 외우기용). 뒤로 가면 파트별 상태로 돌아가고, 아래에서 그 파트를 바로 풀 수 있다.
 let basicsPart='';
 function openBasics(partId){basicsPart=partId;go('basics',viewSubject);}
@@ -939,7 +967,7 @@ function renderBasics(){
  body.append(elem('p',u.short+' · 이 파트 문제를 풀 때 필요한 말·표·규칙·비교 예문을 한 화면에 모았어요. 정리 '+rules.length+'개.','status'));
  const shown=new Set();
  for(const r of rules){const b=BASICS.box(r),d=basicsDetails(b.title,b,null,'skip',new Set(shown));
-  for(const x of [...b.terms,...b.rules.items,b.table])if(x&&basicsShared(x,r,p.id))shown.add(JSON.stringify(x));
+  for(const x of [...b.terms,...b.rules.items,b.table,...(b.tables||[])])if(x&&basicsShared(x,r,p.id))shown.add(JSON.stringify(x));
   d.open=true;d.dataset.rule=r;body.append(d);}
  body.append(btn('이 파트 문제 풀기',()=>openScope({subject:u.subject,topic:'',round:'part-'+p.id}),'primary basics-solve'));
 }
@@ -954,7 +982,7 @@ function renderFeedback(root,card,quiz,lesson,label){
  appendCorrection(root,quiz);
  const main=elem('details',undefined,'lesson explanation-main');main.append(elem('summary','해설 보기'));const byChoice=Practice.explainByChoice(quiz);if(byChoice)main.append(choiceExplanations(quiz,byChoice,f.selectedIndex));else{if(quiz.marks)main.append(markedList(quiz));main.append(...explanationParts(quiz.explanation||card.explanation||''));}attachExplanationCredit(main,reviewId,'feedback');root.append(main);
  appendNewPaperExplanation(root,card.id,quiz.explanation||card.explanation,reviewId,'feedback-supplement');
- const basicsBox=lesson&&BASICS.box(lesson.ruleId);
+ const basicsRule=lesson?lesson.ruleId:basicsRuleFor(card.id),basicsBox=basicsRule&&BASICS.box(basicsRule);
  if(basicsBox){const key=card.id+'|'+(reviewId||''),details=basicsDetails('기초 개념',basicsBox,BASICS.forQuestion(card.id),'fold',null,PARTS.partOf(card.id));details.open=f.result!=='correct'&&!basicsClosed.has(key);details.addEventListener('toggle',()=>{if(details.open)basicsClosed.delete(key);else basicsClosed.add(key);});attachExplanationCredit(details,reviewId,'basics');root.append(details);}
  else if(lesson){root.append(elem('p',lesson.hook,'hook'));const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),...ruleLines(lesson.rule,'rule-line'));for(const example of lesson.examples)details.append(...ruleLines(example,'example'));attachExplanationCredit(details,reviewId,'lesson');root.append(details);}
  const recap=elem('details',undefined,'lesson recap');recap.append(elem('summary','문제 다시 보기'),label,...questionNodes(quiz.question));appendPaper(recap,Hanneung.get(card.id));

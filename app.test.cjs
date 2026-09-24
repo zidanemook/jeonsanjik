@@ -268,6 +268,21 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
    next();
   }
  }
+ // v161: 한국사 02~05강도 해설 화면에 기초 개념 상자(파트마다 한 상자) — 틀리면 펼침, 맞히면 접힘. 대입이 쓰는 줄만 제자리, 나머지는 닫힌 모음 하나.
+ run("openScope({subject:'한국사',round:'lecture-02-05'})");
+ for(const wrong of [true,false]){
+  const id=run('data.activePractice.cardId'),quiz=run('data.activePractice.exercise');
+  assert.ok(run('BASICS.forQuestion('+JSON.stringify(id)+')?.box===\'hist-\'+PARTS.partOf('+JSON.stringify(id)+')'),'02~05강 문제의 상자 = 그 파트 상자: '+id);
+  run('answerPractice('+JSON.stringify(id)+','+(wrong?(quiz.correctIndex+1)%quiz.choices.length:quiz.correctIndex)+')');
+  assert.equal(run('data.quizFeedback.result'),wrong?'wrong':'correct','한국사 답 채점');
+  const shownH=screen(),bH=basicsBox();assert.ok(bH,'한국사 해설 화면에 기초 개념 상자: '+id);assert.equal(bH.children[0]._text,'기초 개념');
+  assert.equal(bH.open,wrong,'한국사 '+(wrong?'틀리면 펼침':'맞히면 접힘'));
+  const hH=bH.all.filter(n=>n.className==='b-h').map(n=>n._text);hH.forEach((h,i)=>assert.ok(h.startsWith((i+1)+'. '),'번호가 이어진다: '+hH.join(' / ')));
+  assert.ok(/이 문제에 대입$/.test(hH[hH.length-1]),'마지막 절은 이 문제에 대입: '+hH.join(' / '));
+  const rest=bH.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false,'나머지 모음은 닫혀 있다');
+  assert.ok(!/문항|카드|변형/.test(shownH),'한국사 해설 화면에 문항/카드/변형이라는 말이 없다');
+  next();
+ }
 }
 // 보기별 틀린 곳(v100): 옳은 보기의 꼬리표는 문제 유형을 따른다. 우리말→영어 옮기기는 뜻까지 보므로 ‘옳게 옮김’, 어법 문제는 그대로 ‘어법상 옳음’.
 {
