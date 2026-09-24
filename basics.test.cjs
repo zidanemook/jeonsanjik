@@ -60,7 +60,7 @@ for(const p of hDone){const r='hist-'+p.id,box=B.box(r);assert.ok(box,'한국사
 assert.equal(history.length,2175,'02~21강 + 특강 2175문제');assert.equal(hrules.size,115,'02~21강 + 특강 115파트 = 115상자');
 // 정보보호론 · 컴퓨터일반(v165~, 배치로 늘어난다): 자체 제작 문제가 없어 9급 기출을 주제로 나눈 parts.js 파트마다 상자 하나
 //   (id 'sec-<파트>' · 'com-<파트>', split 'lines', tables 여럿). IT_DONE의 파트는 상자가 있고, 그 파트 기출(gichul-<회차>-NN)마다 대입이 있다.
-const IT_DONE={'정보보호론':['is01','is02','is03','is04','is05','is06','is07','is08','is09','is10','is11','is12'],'컴퓨터일반':[]},IT_PREFIX={'정보보호론':'sec','컴퓨터일반':'com'};
+const IT_DONE={'정보보호론':['is01','is02','is03','is04','is05','is06','is07','is08','is09','is10','is11','is12','is13','is14','is15','is16','is17','is18','is19','is20','is21'],'컴퓨터일반':[]},IT_PREFIX={'정보보호론':'sec','컴퓨터일반':'com'};
 const itDone=[],itQuestions=[],itRules=new Set();let itUse=0;
 for(const [s,list] of Object.entries(IT_DONE)){const all=PS.STUDY_PARTS.units.filter(u=>u.subject===s).flatMap(u=>u.parts);
  for(const pid of list){const p=all.find(x=>x.id===pid);assert.ok(p,s+' 파트: '+pid);itDone.push({...p,subject:s});const r=IT_PREFIX[s]+'-'+pid,box=B.box(r);assert.ok(box,s+' 파트 상자: '+r);itRules.add(r);
@@ -99,7 +99,7 @@ for(const id of english){const e=bank[id].variants[0].explanation,ps=e.split('\n
  assert.ok(!/\*\*|\{[spmqr]\|/.test(ps.slice(0,2).join(' ')),'영어 해설 앞 두 문단에 **·{x| 금지: '+id);push(id+' 해설',ps.slice(0,2).join('\n\n'));}
 
 // 카드 · 문항 · 변형은 앱 내부 용어라 금지 — 단 스마트카드 · 신용카드 · IC카드 · 카드 결제처럼 기술 · 일상 용어의 '카드'는 허용(정보보호론 v165~).
-const TECH_CARD=/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사/g,noTech=t=>String(t).replace(TECH_CARD,'');
+const TECH_CARD=/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드/g,noTech=t=>String(t).replace(TECH_CARD,'');
 // ── 3) 표기: 카드·문항·변형 금지, 한자는 한글 뒤 괄호 안에만, 날 HTML 없음
 for(const [where,t] of texts){
  assert.ok(!/카드|문항|변형/.test(noTech(t)),'카드·문항·변형이라는 말: '+where+' — '+t.slice(0,60));
@@ -116,6 +116,10 @@ for(const [where,t] of texts){
  for(const r of itRules){const b=B.box(r),ids=hLines(b),texts=[b.title,...b.terms.flatMap(t=>[t.word,t.origin,t.mean,t.ex]),...b.tables.flatMap(t=>[t.title,...t.head,...t.rows.flat(),t.key?.text]),...b.rules.items.flatMap(x=>[x.name,x.text]),...b.examples.flatMap(x=>[x.text,x.why])].filter(Boolean);
   for(const t of texts){const p=plain(t);assert.ok(!/두문자|비결|앞 ?글자만/.test(p),'두문자 · 비결: '+r);for(const m of p.matchAll(TOK))assert.ok(!ids.has(m[1]),'글에 줄 id: '+r+' '+m[1]+' — '+p.slice(0,50));}}
  for(const id of itQuestions){const a=B.forQuestion(id),ids=hLines(B.box(a.box));for(const b of a.blocks){const p=plain(b);assert.ok(!/두문자|비결/.test(p),'대입에 두문자 · 비결: '+id);for(const m of p.matchAll(TOK))assert.ok(!ids.has(m[1]),'대입에 줄 id: '+id+' '+m[1]);}}}
+// 3-4) 상자를 붙인 전공 과목 기출의 해설(gichul/*.json)도 같은 화면에 나오므로 카드 · 문항 · 변형이라는 말이 없어야 한다(기술 용어 스마트카드 등은 허용, v166).
+{const GF=require('./gichul-files.cjs'),code={'정보보호론':'security','컴퓨터일반':'computer'};
+ for(const [s,list] of Object.entries(IT_DONE)){if(!list.length)continue;for(const id of GF.ids().filter(x=>x.endsWith('-'+code[s])))for(const q of GF.read(id).questions)
+  assert.ok(!/카드|문항|변형/.test(noTech(q.e||'')),'기출 해설에 카드 · 문항 · 변형: '+id+' '+q.n);}}
 let hYearLines=0;
 {const HC={};vm.createContext(HC);for(const f of ['core-review-pack.js','quiz-options.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),HC,{filename:f});
  const card=new Map(HC.CORE_REVIEW_PACK.map(c=>[c.id,c]));
