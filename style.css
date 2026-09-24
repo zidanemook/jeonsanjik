@@ -342,7 +342,6 @@ body[data-view="quiz"] main { padding-top:14px; }
 /* v145 파트별 상태 · 파트별 점검 */
 .menu-item.part-item.is-weak { border-color:#e0a24a; }
 .menu-item.part-item.is-weak strong { color:#ffd08a; }
-.menu-item.part-start { border-style:dashed; }
 .part-result { margin:12px 0 18px; padding-left:20px; line-height:1.7; }
 .part-result li.is-weak { color:#ffd08a; }
 .part-result li.is-pass { color:#bfe8c4; }
@@ -413,3 +412,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .menu-item.part-basics strong { font-size:16px; color:#ffd479; }
 #basicsBody .lesson.basics { margin-top:16px; }
 .basics-solve { margin-top:20px; }
+.b-shared { margin:16px 0 6px; padding:6px 10px; border:1px dashed #6b5a2e; border-radius:10px; }
+.b-shared > summary { color:#e8d9a8; cursor:pointer; min-height:32px; }
+.b-subh { margin:16px 0 6px; font-size:14px; color:#e8d9a8; }
+.b-shared-note { margin:12px 0 4px; color:#9aa3b0; font-size:14px; }
