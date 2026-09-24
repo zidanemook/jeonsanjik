@@ -252,6 +252,21 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
   assert.ok(run('data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).every(c=>c.subject===\'국어\'&&PRACTICE_BANK[c.id].topic==='+JSON.stringify(topic)+')'),topic+' 범위에는 그 장 문제만 있다');
   const id=run('data.activePractice.cardId'),quiz=run('data.activePractice.exercise');
   assert.ok(id.startsWith(prefix),topic+' 범위의 첫 문제: '+id);assert.equal(quiz.type,'choice');assert.equal(quiz.choices.length,4);
+  // v156: 독해 1~3장도 정리 한 줄 · ‘규칙과 비교 예문 더 보기’ 대신 기초 개념 상자 — 1 · 3장은 틀린 답(펼침), 2장은 맞힌 답(접힘).
+  if(prefix.startsWith('ko-read')){
+   const wrong=prefix!=='ko-read2-';
+   run('answerPractice('+JSON.stringify(id)+','+(wrong?(quiz.correctIndex+1)%4:quiz.correctIndex)+')');
+   assert.equal(run('data.quizFeedback.result'),wrong?'wrong':'correct',topic+' 답 채점');
+   const shownR=screen(),lessonR=run('PRACTICE_BANK['+JSON.stringify(id)+']');
+   assert.ok(/^reading-read[1-3]-/.test(lessonR.ruleId||''),topic+' 독해 규칙 id: '+lessonR.ruleId);
+   const bR=basicsBox();assert.ok(bR,topic+' 해설 화면에 기초 개념 상자');assert.equal(bR.children[0]._text,'기초 개념');
+   assert.equal(bR.open,wrong,topic+(wrong?' 틀리면 펼침':' 맞히면 접힘'));
+   const hR=bR.all.filter(n=>n.className==='b-h').map(n=>n._text);
+   assert.equal(hR[0],'1. 먼저 알아 둘 말',topic+' 첫 절');assert.ok(/이 문제에 대입$/.test(hR[hR.length-1]),topic+' 마지막 절: '+hR.join(' / '));
+   assert.ok(!shownR.includes('규칙과 비교 예문 더 보기')&&!(lessonR.hook&&shownR.includes(lessonR.hook)),topic+' 옛 정리 한 줄 · 예문 상자 대신 기초 개념 상자');
+   assert.ok(!/문항|카드|변형/.test(shownR),topic+' 해설 화면에 문항/카드/변형이라는 말이 없다');
+   next();
+  }
  }
 }
 // 보기별 틀린 곳(v100): 옳은 보기의 꼬리표는 문제 유형을 따른다. 우리말→영어 옮기기는 뜻까지 보므로 ‘옳게 옮김’, 어법 문제는 그대로 ‘어법상 옳음’.
@@ -361,5 +376,5 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
 {const mq=run(`(()=>{const c=data.cards.find(c=>isPlayable(c)&&PRACTICE_BANK[c.id]);const m={...c,streak:4,due:day(),retryAt:undefined,pendingAttempt:undefined};const off=reviewQueue([m],true).ready.length;data.includeMastered=true;const on=reviewQueue([m],true).ready.length;delete data.includeMastered;const wide=reviewQueue([m],false).ready.length;return [off,on,wide,dailyPick(m.id)?1:0];})()`);
  assert.equal(mq[0],0,'mastered question hidden in a range');assert.equal(mq[1],1,'shown when the option is on');assert.equal(mq[2],mq[3],'subject-wide: only on its random day');
  const share=run(`(()=>{let n=0;for(let i=0;i<7000;i++)if(dailyPick('x'+i))n++;return n;})()`);assert.ok(share>800&&share<1200,'about one in seven: '+share);}
-console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 · 6장 329 · 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자 펼침(틀림)·접힘(맞힘)), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본·틀린 문제 위주·안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
+console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 · 6장 329 · 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자 펼침(틀림)·접힘(맞힘); 독해 1·3장 틀림 펼침 · 2장 맞힘 접힘), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본·틀린 문제 위주·안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
 })().catch(e=>{console.error(e);process.exit(1);});
