@@ -87,7 +87,7 @@ const gichulBasics=Object.keys(B.apply).filter(id=>GOWN.test(id));let gUse=0;
   else{const r=hans.get(id);assert.ok(r,'한능검 문제가 있다: '+id);ans=r.answer;n['한능검']++;assert.match(a.box,/^hist-/,'한능검은 한국사 상자: '+id);}
   const all=a.blocks.map(plain).join('\n'),ms=[...all.matchAll(/→\s*([①-⑤])|([①-⑤])\s*(?:이\s*|은\s*|는\s*)?(?:틀림|옳지 않음|적절하지 않음)/g)].map(x=>x[1]||x[2]);
   assert.ok(ms.includes(C[ans-1]),'기출 대입에 공식 정답 번호: '+id+' (공식 '+C[ans-1]+')');
-  for(const b of a.blocks){const p=plain(b);assert.ok(!/두문자|비결|(?<![가-힣])상자|공통 줄/.test(p),'기출 대입에 두문자 · 비결 · 내부 말: '+id);
+  for(const b of a.blocks){const p=plain(b);assert.ok(!/두문자|비결|(?<![가-힣])상자|공통 줄/.test(p),'기출 대입에 두문자 · 비결 · 내부 말: '+id);assert.ok(!/\(\s*\)/.test(p),'기출 대입에 빈 괄호: '+id);
    for(const t of p.matchAll(TOK))assert.ok(!lines.has(t[1]),'기출 대입에 줄 id: '+id+' '+t[1]);
    if(box.split==='lines'&&m[1])for(const y of p.match(/(?<!\d)\d{3,4}(?!\d)/g)||[])assert.ok(own.includes(y),'한국사 기출 대입의 연도는 문제에 나온 것만: '+id+' '+y);}}
  assert.deepEqual(n,GICHUL_BASICS,'과목별 기출 대입 수');}
