@@ -98,9 +98,11 @@ for(const id of english){const e=bank[id].variants[0].explanation,ps=e.split('\n
  assert.ok(ps.length>=3&&ps[0].startsWith('정답 근거: ')&&ps[1].startsWith('보기 비교: ')&&(ps[2].startsWith('외우는 공식\n')||ps[2].startsWith('기억 연결: ')),'영어 해설 짜임: '+id);
  assert.ok(!/\*\*|\{[spmqr]\|/.test(ps.slice(0,2).join(' ')),'영어 해설 앞 두 문단에 **·{x| 금지: '+id);push(id+' 해설',ps.slice(0,2).join('\n\n'));}
 
+// 카드 · 문항 · 변형은 앱 내부 용어라 금지 — 단 스마트카드 · 신용카드 · IC카드 · 카드 결제처럼 기술 · 일상 용어의 '카드'는 허용(정보보호론 v165~).
+const TECH_CARD=/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사/g,noTech=t=>String(t).replace(TECH_CARD,'');
 // ── 3) 표기: 카드·문항·변형 금지, 한자는 한글 뒤 괄호 안에만, 날 HTML 없음
 for(const [where,t] of texts){
- assert.ok(!/카드|문항|변형/.test(t),'카드·문항·변형이라는 말: '+where+' — '+t.slice(0,60));
+ assert.ok(!/카드|문항|변형/.test(noTech(t)),'카드·문항·변형이라는 말: '+where+' — '+t.slice(0,60));
  assert.ok(!/<\/?[a-z][^>]*>/i.test(t),'날 HTML: '+where);
  for(const m of t.matchAll(/[㐀-鿿]+/g)){const open=t.lastIndexOf('(',m.index),close=t.indexOf(')',m.index);
   assert.ok(open>=0&&close>m.index&&t.lastIndexOf(')',m.index)<open,'한자는 괄호 안에만: '+where+' — '+m[0]);
@@ -351,7 +353,7 @@ for(const s of Object.keys(IT_DONE)){const done=itDone.filter(p=>p.subject===s);
   eqJ(boxes.map(d=>d.dataset.rule),[r],'파트의 상자: '+p.id);assert.ok(boxes[0].open,'펼쳐져 있다: '+p.id);
   assert.ok(!body.all.some(n=>n.className==='b-h'&&/이 문제에 대입/.test(n._text))&&!body.all.some(n=>String(n.className).includes('b-rest')),'파트 화면은 대입 · 나머지 모음 없이 모두: '+p.id);
   assert.equal(body.all.filter(n=>n.tag==='table').length,B.box(r).tables.length,'표 전부: '+p.id);
-  assert.ok(body.children.some(n=>cls(n).includes('basics-solve')),'문제 풀기로 이어진다: '+p.id);assert.ok(!/카드|문항|변형/.test(body.textContent));
+  assert.ok(body.children.some(n=>cls(n).includes('basics-solve')),'문제 풀기로 이어진다: '+p.id);assert.ok(!/카드|문항|변형/.test(noTech(body.textContent)));
   run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'parts');}}
 run("go('parts','국어')");
 // 5-3) 없는 파트로 들어와도 안내 문장을 보인다(빈 화면 아님).
