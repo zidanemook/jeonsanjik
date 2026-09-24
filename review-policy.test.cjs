@@ -67,6 +67,18 @@ assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day5-rule-sub
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day5-rule-inversion')||x.exercise.type!=='choice')),/MCQ required: grammar-day5-rule-inversion/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day5-rule-emphasis'))),/Missing coverage/);
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day5-005'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-day5-001').lesson.point}}:x)),/One grammar point, one concept/);
+{const d=list.filter(x=>x.card.id.startsWith('en-day6-'));assert.equal(d.length,260);assert.equal(new Set(d.map(x=>x.conceptId)).size,27);assert.equal(new Set(d.map(x=>x.lesson.ruleId)).size,10);
+ assert.ok(d.every(x=>x.lesson.topic==='Day 6'&&x.lesson.ruleId.startsWith('grammar-day6-rule-')&&x.conceptId.startsWith('grammar-day6-')&&!x.conceptId.startsWith('grammar-day6-rule-')));
+ // 한 포인트의 4지선다(en-day6-001)·직접 쓰기(en-day6-138)·문제집 문제(en-day6-b153)는 같은 개념이고 다른 포인트(en-day6-006)는 다르다.
+ assert.equal(policy.concept('en-day6-001'),policy.concept('en-day6-138'));assert.equal(policy.concept('en-day6-001'),policy.concept('en-day6-b153'));assert.notEqual(policy.concept('en-day6-001'),policy.concept('en-day6-006'));}
+{const d=list.filter(x=>x.card.id.startsWith('en-day7-'));assert.equal(d.length,280);assert.equal(new Set(d.map(x=>x.conceptId)).size,30);assert.equal(new Set(d.map(x=>x.lesson.ruleId)).size,7);
+ assert.ok(d.every(x=>x.lesson.topic==='Day 7'&&x.lesson.ruleId.startsWith('grammar-day7-rule-')&&x.conceptId.startsWith('grammar-day7-')&&!x.conceptId.startsWith('grammar-day7-rule-')));
+ // 한 포인트의 4지선다(en-day7-001)·직접 쓰기(en-day7-151)·문제집 문제(en-day7-b191)는 같은 개념이고 다른 포인트(en-day7-006)는 다르다.
+ assert.equal(policy.concept('en-day7-001'),policy.concept('en-day7-151'));assert.equal(policy.concept('en-day7-001'),policy.concept('en-day7-b191'));assert.notEqual(policy.concept('en-day7-001'),policy.concept('en-day7-006'));}
+assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day6-rule-clause')||x.exercise.type!=='text')),/At least 1 written questions required: grammar-day6-rule-clause/);
+assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day7-rule-tense-mood')||x.exercise.type!=='choice')),/MCQ required: grammar-day7-rule-tense-mood/);
+assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day7-rule-modifier'))),/Missing coverage/);
+assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day7-006'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-day7-001').lesson.point}}:x)),/One grammar point, one concept/);
 // 문법 공식 훈련(v98): 공식 하나가 개념 하나(grammar-formula-<공식>), 규칙 묶음은 영역 11개(grammar-formula-<영역>), 영역마다 4지선다와 직접 쓰기가 있다.
 {const f=list.filter(x=>x.card.id.startsWith('en-formula-'));assert.equal(f.length,364);assert.equal(new Set(f.map(x=>x.conceptId)).size,88,'공식 89개 중 완료형 준동사는 이미 19문제라 새 문제가 없다');assert.equal(new Set(f.map(x=>x.lesson.ruleId)).size,11);
  assert.ok(f.every(x=>x.lesson.topic==='문법 공식 훈련'&&x.conceptId==='grammar-formula-'+x.lesson.formula&&x.lesson.ruleId.startsWith('grammar-formula-')));

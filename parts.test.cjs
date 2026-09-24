@@ -55,7 +55,7 @@ const counts={};
   counts[u.short]=u.parts.length;
  }
  for(const l of CAT.lectures)assert.ok(PARTS.units.some(u=>u.scope.round==='lecture-'+l.id),'한국사 '+l.title+'에 파트가 있다');
- for(const t of ['Day 1','Day 2','Day 3','Day 4','Day 5','문법 공식 훈련','논리 1장','논리 2장','논리 3장','논리 4장','논리 5장','논리 6장','독해 1장'])assert.ok(PARTS.units.some(u=>u.scope.topic===t),t+'에 파트가 있다');
+ for(const t of ['Day 1','Day 2','Day 3','Day 4','Day 5','Day 6','Day 7','문법 공식 훈련','논리 1장','논리 2장','논리 3장','논리 4장','논리 5장','논리 6장','독해 1장'])assert.ok(PARTS.units.some(u=>u.scope.topic===t),t+'에 파트가 있다');
  const h19=PARTS.units.find(u=>u.id==='hist-19');assert.equal(h19.parts.length,8);assert.equal(h19.parts.reduce((n,p)=>n+p.ids.length,0),115);
  // 2026-09-23 20강 조선 전기(문화 I): facts.cjs 묶음 15개 → 8파트, 99문제. 파트마다 8문제 이상이고 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
  const h20=PARTS.units.find(u=>u.id==='hist-20');assert.equal(h20.title,'20강 조선 전기(문화 I)');
@@ -66,6 +66,14 @@ const counts={};
  const h21=PARTS.units.find(u=>u.id==='hist-21');assert.equal(h21.title,'21강 조선 전기(문화 II)');
  assert.deepEqual(h21.parts.map(p=>p.title),['인쇄술·제지술과 병서·무기','천문학과 과학 기구','역법·의학·농서','훈민정음','궁궐·종묘·장경판전·원각사지','서원 건축과 대표 서원','분청사기·백자와 그림','문학과 글씨']);
  assert.equal(h21.parts.reduce((n,p)=>n+p.ids.length,0),94);assert.ok(h21.parts.every(p=>p.ids.length>=8),'21강 파트마다 8문제 이상');
+ // 2026-09-24 영어 Day 6·7(v151): 규칙 정리 10개·7개 → 8파트·7파트, 문제집 문제(151~230)도 그 포인트의 파트에 들어간다. 파트마다 8문제 이상.
+ const d6=PARTS.units.find(u=>u.id==='en-day6'),d7=PARTS.units.find(u=>u.id==='en-day7');
+ assert.deepEqual(d6.parts.map(p=>p.title),['문장 구조와 동사','보어·목적격보어와 태','조동사','명사·대명사와 도치','준동사','분사구문','비교','접속사·관계사']);
+ assert.deepEqual(d7.parts.map(p=>p.title),['동사 뒤의 형태','시제와 가정법','수 일치와 명사','꾸미는 말','간접의문문·관계사절','강조와 병렬','비교·부정·차이']);
+ assert.equal(d6.parts.reduce((n,p)=>n+p.ids.length,0),260);assert.equal(d7.parts.reduce((n,p)=>n+p.ids.length,0),280);
+ assert.ok([...d6.parts,...d7.parts].every(p=>p.ids.length>=8),'Day 6·7 파트마다 8문제 이상');
+ assert.equal(d6.parts.flatMap(p=>p.ids).filter(id=>/-b\d{3}$/.test(id)).length,40);assert.equal(d7.parts.flatMap(p=>p.ids).filter(id=>/-b\d{3}$/.test(id)).length,40);
+ {const u=PARTS.units.map(u=>u.id),i=u.indexOf('en-day5');assert.deepEqual(u.slice(i,i+4),['en-day5','en-day6','en-day7','en-formula'],'Day 5 → Day 6 → Day 7 → 공식 훈련 순서');}
 }
 
 // ── 3) 앱
