@@ -884,6 +884,13 @@ function basicsFormulaSplit(box,rule,rules,apply){
  return {keep,other,rules:rules.filter(r=>keep.has(basicsGroup(r.id))),examples:box.examples.filter(x=>!inGroups.has(basicsGroup(x.id))||keep.has(basicsGroup(x.id))),
   hidden:other.map(g=>({rules:rules.filter(r=>basicsGroup(r.id)===g),examples:box.examples.filter(x=>basicsGroup(x.id)===g)}))};
 }
+// 공식을 나눈 상자는 용어도: 대입이 쓰는 용어만 제자리(쓰는 용어가 없으면 제자리에 둔 규칙 글에 나오는 용어), 나머지는 닫힌 '이 정리의 다른 용어 N개 더 보기'.
+function basicsTermSplit(terms,rule,split,apply){
+ const ids=new Set((apply.use||[]).map(u=>{const [a,b]=String(u).split(':');return b===undefined?a:a===rule?b:null;}).filter(Boolean));
+ let keep=terms.filter(t=>ids.has(t.id));
+ if(!keep.length){const text=split.rules.map(r=>r.name+' '+r.text).join(' ');keep=terms.filter(t=>{const w=t.word.replace(/\s*\([^)]*\)$/,'');return !!w&&text.includes(w);});}
+ return {keep,rest:terms.filter(t=>!keep.includes(t))};
+}
 function basicsTerm(t){const h=elem('div',undefined,'b-term');h.append(elem('span',t.word+(t.hanja?'('+t.hanja+')':''),'b-chip'));if(t.origin)h.append(elem('small',t.origin,'b-origin'));const out=[h,basicsLines(t.mean,'b-mean')];
  if(t.rows){const r=elem('div',undefined,'b-rows');for(const row of t.rows)r.append(basicsLines(row,undefined,'div'));out.push(r);}out.push(basicsLines('예) '+t.ex,'b-ex'));return out;}
 function basicsRule(r){const d=elem('div',undefined,'b-rule');d.append(elem('b',r.name),...basicsInline(r.text));return d;}
@@ -892,10 +899,11 @@ function basicsSections(box,apply,mode,seen,partId){
  const out=[];let n=0;const head=t=>out.push(elem('h4',(++n)+'. '+t,'b-h')),rule=basicsRuleOf.get(box);
  const moved=x=>mode==='fold'?basicsShared(x,rule,partId):mode==='skip'&&!!seen&&seen.has(JSON.stringify(x)),terms=box.terms.filter(t=>!moved(t)),rules=box.rules.items.filter(r=>!moved(r)),table=box.table&&!moved(box.table)?box.table:null;
  const sharedTerms=box.terms.filter(moved),sharedRules=box.rules.items.filter(moved),sharedTable=box.table&&moved(box.table)?box.table:null;
+ const split=mode==='fold'?basicsFormulaSplit(box,rule,rules,apply):null,termSplit=split?basicsTermSplit(terms,rule,split,apply):null,exEl=x=>{const p=elem('p',undefined,'b-ex'+(x.ok?'':' bad'));p.append(elem('span',x.ok?'✓':'✗',x.ok?'b-ok':'b-no'),document.createTextNode(' '),...basicsInline(x.text),elem('br'));const s=elem('small');s.append(...basicsInline(x.why));p.append(s);return p;};
  head('먼저 알아 둘 말');
- for(const t of terms)out.push(...basicsTerm(t));
+ for(const t of termSplit?termSplit.keep:terms)out.push(...basicsTerm(t));
+ if(termSplit&&termSplit.rest.length){const d=elem('details',undefined,'b-more-terms');d.append(elem('summary','이 정리의 다른 용어 '+termSplit.rest.length+'개 더 보기'));for(const t of termSplit.rest)d.append(...basicsTerm(t));out.push(d);}
  if(table){head(table.title);out.push(basicsTable(table));if(table.key)out.push(basicsLines(table.key.text,'b-key'));}
- const split=mode==='fold'?basicsFormulaSplit(box,rule,rules,apply):null,exEl=x=>{const p=elem('p',undefined,'b-ex'+(x.ok?'':' bad'));p.append(elem('span',x.ok?'✓':'✗',x.ok?'b-ok':'b-no'),document.createTextNode(' '),...basicsInline(x.text),elem('br'));const s=elem('small');s.append(...basicsInline(x.why));p.append(s);return p;};
  head('규칙'+(box.rules.title?' — '+box.rules.title:''));
  for(const r of split?split.rules:rules)out.push(basicsRule(r));
  if(box.rules.key)out.push(basicsLines(box.rules.key.text,'b-key'));
