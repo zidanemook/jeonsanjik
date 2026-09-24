@@ -372,3 +372,44 @@ body[data-view="quiz"] main { padding-top:14px; }
 .badge-info-part.is-plain { display:inline-block; border:1px solid #535d6b; border-radius:12px; color:#d1d7e0; }
 .badge-info-note { margin:10px 0 0; color:#aab3c0; font-size:14px; line-height:1.5; word-break:keep-all; overflow-wrap:break-word; }
 .xp-card .xp-text { word-break:keep-all; overflow-wrap:break-word; }
+/* 기초 개념(basics.js) — 해설 화면의 '기초 개념' 상자와 파트별 '기초 개념 보기' 화면. 용어 칩 노랑, 역할(S·P·M 등) 색 칩, 맞는 예문 초록 막대·틀린 예문 빨강 막대. */
+.lesson.basics { border-color:#6b5a2e; background:#1a1812; line-height:1.6; }
+.lesson.basics > summary { color:#ffd479; }
+.basics p, .basics div, .basics td, .basics th { overflow-wrap:anywhere; word-break:keep-all; }
+.b-h { margin:22px 0 6px; font-size:15px; color:#e8d9a8; border-bottom:1px solid #4a4128; padding-bottom:4px; }
+.b-term { margin:18px 0 4px; }
+.b-origin { color:#b9c0cc; margin-left:6px; }
+.b-chip { display:inline-block; padding:2px 10px; border-radius:999px; background:#ffd47926; color:#ffd479; font-weight:700; }
+.b-mean { margin:4px 0; }
+.b-rows div { margin:4px 0; }
+.b-ex { margin:6px 0; padding:6px 10px; border-left:3px solid #7fd1a0; background:#7fd1a012; border-radius:0 8px 8px 0; }
+.b-ex.bad { border-left-color:#ff8a80; background:#ff8a8012; }
+.b-ex small { color:#b9c0cc; }
+.b-this { margin:8px 0; padding:6px 10px; border-left:3px solid #8ec5ff; background:#8ec5ff12; border-radius:0 8px 8px 0; }
+.b-key { margin:8px 0; padding:8px 10px; border-radius:8px; background:#ffd4791a; }
+.b-rule { margin:6px 0; padding:6px 10px; border-radius:8px; background:#ffffff0a; }
+.b-rule > b { color:#ffd479; margin-right:6px; }
+.b-role { display:inline-block; min-width:1.6em; padding:0 6px; border-radius:6px; font-weight:700; text-align:center; }
+.b-s { background:#8ec5ff33; color:#8ec5ff; }
+.b-p { background:#ff9fb033; color:#ff9fb0; }
+.b-m { background:#b9a6ff33; color:#c7b8ff; }
+.b-q { background:#7fd1a033; color:#8fe0b0; }
+.b-r { background:#ffb86b33; color:#ffc285; }
+.b-ok { color:#7fd1a0; font-weight:700; }
+.b-no { color:#ff8a80; font-weight:700; }
+.b-table { width:100%; border-collapse:collapse; margin:6px 0; font-size:15px; }
+.b-table th, .b-table td { border-bottom:1px solid #353c47; padding:6px 4px; text-align:center; vertical-align:middle; }
+.b-table td:first-child, .b-table th:first-child { text-align:left; }
+.b-table td small { display:block; color:#9aa3b0; font-size:12px; }
+.b-diagram { display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; margin:8px 0; }
+.b-diagram > .b-bx { flex:1 1 150px; min-width:0; }
+.b-diagram > .b-bx-side { flex:0 1 36%; }
+.b-bx { border:2px solid #6b7280; border-radius:16px; padding:8px 10px; margin:6px 0; font-size:13px; color:#b9c0cc; min-width:0; }
+.b-bx-s { border-color:#8ec5ff; } .b-bx-p { border-color:#ff9fb0; } .b-bx-m { border-color:#c7b8ff; } .b-bx-q { border-color:#8fe0b0; } .b-bx-r { border-color:#ffc285; }
+.b-bx-gap { border:1px dashed #6b7280; border-radius:10px; color:#9aa3b0; }
+.b-bx-label { display:inline-block; padding:0 6px; border-radius:6px; font-size:12px; font-weight:700; margin-bottom:4px; }
+.b-bx-text { margin:2px 0; }
+.menu-item.part-basics { min-height:44px; padding:10px 18px; margin-left:18px; width:calc(100% - 18px); border-color:#6b5a2e; }
+.menu-item.part-basics strong { font-size:16px; color:#ffd479; }
+#basicsBody .lesson.basics { margin-top:16px; }
+.basics-solve { margin-top:20px; }

@@ -29,7 +29,7 @@ ctx.fetch=url=>{fetched.push(url);if(failNextFetch){failNextFetch=false;return P
  const m=/^gichul\/([a-z0-9-]+)\.json$/.exec(url);if(!m)return Promise.reject(Error('unexpected fetch '+url));
  return Promise.resolve({ok:true,status:200,json:()=>Promise.resolve(require('./gichul-files.cjs').read(m[1]))});};
 const flush=()=>new Promise(r=>setImmediate(r));
-for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','part-check.js','memorize.js','app.js'])
+for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','part-check.js','memorize.js','basics.js','app.js'])
  vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
 const run=code=>vm.runInContext(code,ctx);
 // 시작할 때는 회차 파일을 하나도 받지 않는다. 그래도 카드·과목 문항 수는 색인으로 모든 기출 문항을 센다.
@@ -219,7 +219,14 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  assert.equal(run('data.quizFeedback.result'),'wrong','일부러 틀린 답');
  const shown=screen(),lesson=run('PRACTICE_BANK['+JSON.stringify(koId)+']');
  assert.ok(shown.includes('국어 · '+lesson.title+' · 객관식'),'문제 머리말: 과목 · 정리 제목 · 객관식');
- assert.ok(shown.includes(lesson.hook),'해설 화면에 정리 한 줄(hook)이 나온다');
+ // v155: 논리 문제는 정리 한 줄(hook)·‘규칙과 비교 예문 더 보기’ 대신 ‘기초 개념’ 상자가 나오고, 틀리면 펼쳐져 있다.
+ const basicsBox=()=>nodes.get('#card').all.find(n=>n.tag==='details'&&String(n.className||'').split(' ').includes('basics'));
+ const b2=basicsBox();assert.ok(b2,'2장 해설 화면에 기초 개념 상자');assert.equal(b2.children[0]._text,'기초 개념','상자 제목');
+ assert.equal(b2.open,true,'틀린 답이면 기초 개념 상자가 펼쳐져 있다');
+ const heads2=b2.all.filter(n=>n.className==='b-h').map(n=>n._text);
+ assert.equal(heads2[0],'1. 먼저 알아 둘 말','첫 절: '+heads2.join(' / '));assert.ok(heads2.some(h=>/규칙 — /.test(h))&&heads2.some(h=>/비교 예문$/.test(h)),'규칙·비교 예문 절');
+ assert.ok(/이 문제에 대입$/.test(heads2[heads2.length-1]),'마지막 절은 이 문제에 대입: '+heads2.join(' / '));
+ assert.ok(!shown.includes('규칙과 비교 예문 더 보기')&&!shown.includes(lesson.hook),'옛 정리 한 줄·예문 상자는 기초 개념 상자로 바뀌었다');
  assert.ok(shown.includes('사고의 힘 논리 제1편 개념 기반 자체 제작 문제'),'출처 줄이 자체 제작임을 밝힌다');
  assert.ok(shown.includes('같은 개념의 다른 문제도 10분 뒤 이어서 나와요'),'같은 개념 문제가 이어서 나온다는 안내');
  assert.ok(!/문항|카드/.test(shown),'국어 해설 화면에 문항/카드라는 말이 없다: '+shown.slice(0,120));
@@ -234,7 +241,7 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  run('answerPractice('+JSON.stringify(k3Id)+','+k3Quiz.correctIndex+')');
  assert.equal(run('data.quizFeedback.result'),'correct','맞힌 답');
  const shown3=screen(),lesson3=run('PRACTICE_BANK['+JSON.stringify(k3Id)+']');
- assert.ok(shown3.includes('국어 · '+lesson3.title+' · 객관식'),'3장 문제 머리말');assert.ok(shown3.includes(lesson3.hook),'3장 해설 화면에 정리 한 줄');
+ assert.ok(shown3.includes('국어 · '+lesson3.title+' · 객관식'),'3장 문제 머리말');const b3=basicsBox();assert.ok(b3,'3장 해설 화면에 기초 개념 상자');assert.equal(b3.open,false,'맞힌 답이면 기초 개념 상자는 접혀 있다');assert.ok(!shown3.includes(lesson3.hook),'3장도 옛 정리 한 줄 대신 기초 개념 상자');
  assert.ok(shown3.includes('사고의 힘 논리 제1편 개념 기반 자체 제작 문제'),'3장 출처 줄');assert.ok(!/문항|카드/.test(shown3),'3장 해설 화면에 문항/카드라는 말이 없다');
  next();
  // 4장 술어 논리 147문제 · 5장 귀납 논증 128문제: 범위 이름·문제 수가 맞고, 범위 안의 첫 문제가 그 장의 4지선다다.
@@ -354,5 +361,5 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
 {const mq=run(`(()=>{const c=data.cards.find(c=>isPlayable(c)&&PRACTICE_BANK[c.id]);const m={...c,streak:4,due:day(),retryAt:undefined,pendingAttempt:undefined};const off=reviewQueue([m],true).ready.length;data.includeMastered=true;const on=reviewQueue([m],true).ready.length;delete data.includeMastered;const wide=reviewQueue([m],false).ready.length;return [off,on,wide,dailyPick(m.id)?1:0];})()`);
  assert.equal(mq[0],0,'mastered question hidden in a range');assert.equal(mq[1],1,'shown when the option is on');assert.equal(mq[2],mq[3],'subject-wide: only on its random day');
  const share=run(`(()=>{let n=0;for(let i=0;i<7000;i++)if(dailyPick('x'+i))n++;return n;})()`);assert.ok(share>800&&share<1200,'about one in seven: '+share);}
-console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 · 6장 329 · 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본·틀린 문제 위주·안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
+console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 · 6장 329 · 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자 펼침(틀림)·접힘(맞힘)), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본·틀린 문제 위주·안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다');
 })().catch(e=>{console.error(e);process.exit(1);});
