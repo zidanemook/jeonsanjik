@@ -900,7 +900,7 @@ function basicsTermSplit(terms,rule,split,apply){
  return {keep,rest:terms.filter(t=>!keep.includes(t))};
 }
 function basicsTerm(t){const h=elem('div',undefined,'b-term');h.append(elem('span',t.word+(t.hanja?'('+t.hanja+')':''),'b-chip'));if(t.origin)h.append(elem('small',t.origin,'b-origin'));const out=[h,basicsLines(t.mean,'b-mean')];
- if(t.rows){const r=elem('div',undefined,'b-rows');for(const row of t.rows)r.append(basicsLines(row,undefined,'div'));out.push(r);}out.push(basicsLines('예) '+t.ex,'b-ex'));return out;}
+ if(t.rows){const r=elem('div',undefined,'b-rows');for(const row of t.rows)r.append(basicsLines(row,undefined,'div'));out.push(r);}if(t.ex&&t.ex!=='—')out.push(basicsLines('예) '+t.ex,'b-ex'));return out;}
 function basicsRule(r){const d=elem('div',undefined,'b-rule');d.append(elem('b',r.name),...basicsInline(r.text));return d;}
 function basicsExample(x){const p=elem('p',undefined,'b-ex'+(x.ok?'':' bad'));p.append(elem('span',x.ok?'✓':'✗',x.ok?'b-ok':'b-no'),document.createTextNode(' '),...basicsInline(x.text),elem('br'));const s=elem('small');s.append(...basicsInline(x.why));p.append(s);return p;}
 // 한국사 상자(split:'lines', 파트마다 하나 · 표가 여럿): 해설 화면에서는 이 문제의 대입이 쓰는 줄(용어 · 표의 줄 · 규칙 · 비교 예문)만
