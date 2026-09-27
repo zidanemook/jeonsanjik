@@ -196,9 +196,9 @@ for(const set of M.sets.filter(s=>s.subject==='한국사'))for(const t of [set.t
  // 남은 것은 사용자가 만든 낱말뿐이다(원본 research/king-word-mnemonics/USER-WORDS.md). 내가 만든 블록이 다시 들어오면 여기서 잡힌다.
  const USER_WORDS=['인지상정','현기증 초조함','고생','화통 우직','성사림','연무갑 · 중기묘 · 명을사','무김조','중종조광조 · 조현량','신동기서 · 선동서','수양계 유정란','숙주나물 해동',
   // 2026-09-23 책 고리 여덟: 내가 후보를 내고 사용자가 채택("웃기든 어쨋든 말이 되게 만들기만 하면"). 성종 후보는 목록만 붙였다고 거절돼 책마다 고리가 있는 판으로 바꿨다.
-  '성동구 · 성종 때 성현 · 현악 · 완성 담당 성종','문고리사 · 문종고려사','수간경','불씨 잡는 소방관 정도전 · 조선건국전','숙주나물 해동 해례','거동','이이는 집요하다 · 황도','양지'];
+  '성동구 · 성종 때 성현 · 현악 · 완성 담당 성종','문고리사 · 문종고려사','수간경','불씨 잡는 소방관 정도전 · 조선건국전','숙주나물 해동 해례','거동','이이는 집요하다 · 황도','양지','기어이 축출','북받친 북인 · 남 일 같은 남인','서인 대반전','서로 같은 서인 · 남다른 남인','현타','기선 잡은 기해 서인 · 갑질 갑인 남인','경기 갑!','서남서 바람','허락 없이 적(가져)간 천막','노발대발 노론 · 소심한 소론','장희빈 기사회생','인현 왕후 갑(甲) 탈환','영속(永續)','영문학','영차영차 청계천','2인자가 왕좌를 노린 난','탕! 평!','영조 마트 균일가 1필','정통(正統)','정규직','정동','장용영 교과서','안김 풍조','누렁이·해골·이웃·족보'];
  assert.deepEqual(H.blocks.map(b=>b.hook).sort(),[...USER_WORDS].sort(),'사용자가 만든 낱말만 남는다');
- assert.equal(H.blocks.length,19);assert.equal(M.size(set),19);
+ assert.equal(H.blocks.length,43);assert.equal(M.size(set),43);
  const METHODS=['두문자','새 단어','글자 풀이','장면','이야기'];
  assert.deepEqual(set.groups.map(g=>g.title),H.era.filter((_,i)=>H.blocks.some(b=>b.era===i)),'시대 묶음 순서');
  for(const g of set.groups)assert.deepEqual(g.cards,H.blocks.filter(b=>H.era[b.era]===g.title).map(b=>[b.target,H.back(b)]),'외울 것 = 낱말 블록: '+g.title);
