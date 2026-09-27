@@ -79,6 +79,11 @@ const itCounts={};
  const h21=PARTS.units.find(u=>u.id==='hist-21');assert.equal(h21.title,'21강 조선 전기(문화 II)');
  assert.deepEqual(h21.parts.map(p=>p.title),['인쇄술·제지술과 병서·무기','천문학과 과학 기구','역법·의학·농서','훈민정음','궁궐·종묘·장경판전·원각사지','서원 건축과 대표 서원','분청사기·백자와 그림','문학과 글씨']);
  assert.equal(h21.parts.reduce((n,p)=>n+p.ids.length,0),94);assert.ok(h21.parts.every(p=>p.ids.length>=8),'21강 파트마다 8문제 이상');
+ // 2026-09-27 22강 조선 후기(정치): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 6개를 2파트로(파트 점검 5 + 3 = 8문제가 되게 파트마다 8문제 이상). 21강 다음 · 특강 앞.
+ const h22=PARTS.units.find(u=>u.id==='hist-22');assert.equal(h22.title,'22강 조선 후기(정치)');assert.equal(h22.scope.round,'lecture-22');
+ assert.deepEqual(h22.parts.map(p=>p.id),['h22-1','h22-2']);assert.deepEqual(h22.parts.map(p=>p.title),['붕당 정치와 예송·환국','탕평 정치와 세도 정치']);
+ assert.deepEqual(h22.parts.map(p=>p.ids.length),[8,12]);assert.ok(h22.parts.every(p=>p.ids.length>=8),'22강 파트마다 8문제 이상');
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-22'),hi.indexOf('hist-21')+1);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-22')+1);}
  // 2026-09-24 주제 특강(250쪽 세시 풍속 · 252~256쪽 근·현대 인물): facts.cjs 묶음 13개 = 13파트, 552문제. 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
  // 2026-09-27 두 강으로 나눔(hist-250 세시 풍속 2파트 · hist-252-256 근·현대 인물 11파트) — 파트 id는 옛 h250256-1~13 그대로.
  const hss=PARTS.units.find(u=>u.id==='hist-250'),hpp=PARTS.units.find(u=>u.id==='hist-252-256');assert.ok(!PARTS.units.some(u=>u.id==='hist-250-256'));

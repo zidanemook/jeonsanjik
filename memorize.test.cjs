@@ -40,11 +40,14 @@ for(const name of ['덕종','순종','선종','헌종','강종','충숙왕','충
 // 조선 왕 순서(16강 범위): 태조부터 선조까지 14명. 아직 사실을 배우지 않은 왕은 사건이 비어 있다.
 // 2026-09-21 18강(조선 전기 외교): 광해군·인조를 공부해 '광인효' 줄을 이었다. 효종은 봉림 대군(병자호란 뒤 볼모)으로만 나와 사실 하나뿐이다.
 {const jk=M.get('joseon-kings').lines.flatMap(l=>l.items);
- assert.deepEqual(jk.map(k=>k.name),['태조','정종','태종','세종','문종','단종','세조','예종','성종','연산군','중종','인종','명종','선조','광해군','인조','효종']);
- assert.deepEqual(M.get('joseon-kings').lines.map(l=>l.chant),['태정','태세문단','세예성','연중인명선','광인효']);
+ assert.deepEqual(jk.map(k=>k.name),['태조','정종','태종','세종','문종','단종','세조','예종','성종','연산군','중종','인종','명종','선조','광해군','인조','효종','현종','숙종','경종','영조','정조','순조','헌종','철종']);
+ assert.deepEqual(M.get('joseon-kings').lines.map(l=>l.chant),['태정','태세문단','세예성','연중인명선','광인효현숙','경영정','순헌철']);
+ // 2026-09-27 22강 조선 후기(정치): 현종 · 숙종 · 영조 · 정조 · 순조 · 헌종 · 철종에 요약 면 사실, 경종은 아직 비움. 선조 · 광해군 · 인조에 붕당 사실을 보탬.
+ for(const [king,needle] of [['선조','기축옥사'],['선조','남인(온건)과 북인(강경)'],['광해군','북인이 서인과 남인을 배제'],['인조','남인 일부와 연합'],['현종','기해예송'],['현종','갑인예송'],['현종','자의 대비'],['숙종','경신환국'],['숙종','기사환국'],['숙종','갑술환국'],['숙종','노론(강경)과 소론(온건)'],['영조','완론 탕평'],['영조','이인좌'],['영조','탕평비'],['영조','균역법'],['영조','준천사'],['영조','『속대전』'],['영조','『동국문헌비고』'],['정조','준론 탕평'],['정조','초계문신제'],['정조','장용영'],['정조','수원 화성'],['정조','신해통공'],['정조','검서관'],['정조','『대전통편』'],['정조','『무예도보통지』'],['순조','세도 정치'],['헌종','세도 정치'],['철종','삼정의 문란']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle+' (22강)');
+ for(const [king,needle] of [['영조','장용영'],['영조','『대전통편』'],['정조','균역법'],['정조','『속대전』'],['현종','경신환국'],['숙종','기해예송']])assert(!jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),'대조군(22강): '+king+' facts do not include '+needle);
  assert.equal(M.get('joseon-kings').lines.flatMap(l=>l.items).filter(i=>'letter' in i).length,0,'조선 왕은 줄을 갈라 첫 글자 겹침을 피했다');
  for(const line of M.get('joseon-kings').lines){const firsts=line.items.map(i=>[...i.name][0]);assert.equal(new Set(firsts).size,firsts.length,'한 줄 안에서 첫 글자가 겹치지 않는다: '+line.chant);}
- for(const name of ['태조','정종','태종','세종','세조','성종','연산군','중종','명종','선조','광해군','인조','효종'])assert(jk.some(k=>k.name===name&&k.facts.length),'studied Joseon king has facts: '+name);
+ for(const name of ['태조','정종','태종','세종','세조','성종','연산군','중종','명종','선조','광해군','인조','효종','현종','숙종','영조','정조','순조','헌종','철종'])assert(jk.some(k=>k.name===name&&k.facts.length),'studied Joseon king has facts: '+name);
  // 2026-09-23 20강 조선 전기(문화 I): 문종(조선)은 『고려사』·『고려사절요』 완성으로 처음 사실이 생겼다. 20강 편찬 사업은 왕마다 책이 다르게 적혀야 한다.
  assert.deepEqual(jk.find(k=>k.name==='문종').facts[0],'『고려사』(기전체, 정인지 등)·『고려사절요』(편년체) 완성','문종 = 『고려사』·『고려사절요』');
  // 2026-09-24 21강 조선 전기(문화 II): 과학 기구·활자·역법·의학서·농서·병서·훈민정음 책·그림·문학이 왕마다 다르게 적혀야 한다(문종은 『진법』·『동국병감』이 더해졌다).
@@ -54,7 +57,7 @@ for(const name of ['덕종','순종','선종','헌종','강종','충숙왕','충
  // 18강 왕 사실: 여러 왕에 걸친 제도는 왕마다 단계가 다르게 적혀야 한다(비변사 설치/상설화, 약조 둘, 호란 둘).
  for(const [king,needle] of [['세종','계해약조'],['중종','임시 기구로 비변사'],['명종','비변사 상설'],['선조','임진왜란'],['광해군','기유약조'],['광해군','경기도에서 처음'],['광해군','강홍립'],['인조','정묘호란'],['인조','남한산성'],['효종','볼모']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle);
  assert(!jk.find(k=>k.name==='효종').facts.some(f=>/어영청|나선|하멜/.test(f)),'효종은 18강에 나온 사실(볼모)만');
- for(const name of ['단종','예종','인종'])assert.equal(jk.find(k=>k.name===name).facts.length,0,'unstudied Joseon king stays blank: '+name);}
+ for(const name of ['단종','예종','인종','경종'])assert.equal(jk.find(k=>k.name===name).facts.length,0,'unstudied Joseon king stays blank: '+name);}
 assert.deepEqual(M.get('military-rulers').lines[0].items.map(i=>i.name),['이의방','정중부','경대승','이의민','최충헌','최우']);
 // 정언 논리(국어 논리 3장): 용어 뜻 21개, 알파벳 10개(A·E·I·O · S·P·M · 식 읽기), 핵심 30개.
 assert.equal(M.size(M.get('logic-categorical-terms')),21);assert.equal(M.size(M.get('logic-categorical-letters')),10);assert.equal(M.size(M.get('logic-categorical-core')),30);
@@ -92,10 +95,10 @@ for(const id of ['history-people','history-books']){
   for(const {king,country} of anchorsOf(back)){assert(factsOf(country,king).some(f=>f.includes(name)),id+': '+king+'('+country+') facts name '+name);}
  }
 }
-assert.deepEqual(M.get('history-people').groups.map(g=>g.title),['고조선~삼국','통일 신라·발해·후삼국','고려 전기','고려 무신~원 간섭기','고려 말','조선 전기','근·현대 인물']);
-assert.deepEqual(M.get('history-books').groups.map(g=>g.title),['삼국','통일 신라','고려 전기','고려 무신~원 간섭기','고려 말','조선 전기','근·현대']);
+assert.deepEqual(M.get('history-people').groups.map(g=>g.title),['고조선~삼국','통일 신라·발해·후삼국','고려 전기','고려 무신~원 간섭기','고려 말','조선 전기','조선 후기','근·현대 인물']);
+assert.deepEqual(M.get('history-books').groups.map(g=>g.title),['삼국','통일 신라','고려 전기','고려 무신~원 간섭기','고려 말','조선 전기','조선 후기','근·현대']);
 // 2026-09-24 주제 특강: 인물 80명(252~256쪽 교재 순서, 뒷면 = 시기 · 문제 해설의 기억 연결 요약)과 책·글·잡지 28을 '근·현대' 묶음으로 더했다.
-assert.equal(M.size(M.get('history-people')),254);assert.equal(M.size(M.get('history-books')),111);
+assert.equal(M.size(M.get('history-people')),263);assert.equal(M.size(M.get('history-books')),118);
 {const g=M.get('history-people').groups.at(-1);assert.equal(g.cards.length,80);for(const [f,b] of g.cards){assert(/^(개항기|대한 제국 시기|한국을 도운 외국인|일제 강점기|일제 강점기·광복 전후|광복 전후) · /.test(b),'근·현대 인물 뒷면은 시기부터: '+f);assert(!/[{}]/.test(b),'왕 표시 남음: '+f);}}
 // 왕에 걸린 앞머리: 인물 101 · 책 22. 나머지(인물 31 · 책 17)는 왕이 하나로 정해지지 않아 시기만 적었다(고조선·가야, 일본 전파, 승려·학자 등).
 // 15강(2026-09-16)으로 책 6(초조대장경 현종·『상정고금예문』 인종·팔만대장경 고종·『직지심체요절』 우왕 + 교장·『향약구급방』은 시기만)과 인물 1(혜허, 시기만)을 더했다.
@@ -103,7 +106,8 @@ assert.equal(M.size(M.get('history-people')),254);assert.equal(M.size(M.get('his
 // 2026-09-19 16강(조선 전기 정치): 인물 17(정도전·최윤덕·김종서·이종무·이징옥·성삼문·이시애·김종직·김일손·한명회·김굉필·조광조·윤임·윤원형·이언적·김효원·심의겸)과 책 7(『조선경국전』·『경제문감』·『불씨잡변』·『경국대전』·『국조오례의』·「조의제문」·『소학』)이 조선 왕에 걸렸다.
 // 2026-09-23 20강 조선 전기(문화 I): 인물 9(조준·박연·정인지·서거정·신숙주·성현·주세붕·이황·이이)과 책 14(『고려국사』·『경제육전』·『석보상절』·『삼강행실도』·『고려사』·『고려사절요』·『동국통감』·『팔도지리지』·『동국여지승람』·『해동제국기』·『악학궤범』·『신증동국여지승람』·『성학십도』·『성학집요』)이 조선 왕에 걸렸다. 개인 저술(이황·이이·박상·김장생의 책, 『동몽선습』·『동몽수지』)과 기대승·박상·김장생은 시기만 둔다.
 // 2026-09-24 21강 조선 전기(문화 II): 인물 7(장영실·이순지·정초·안견·안평 대군·강희맹·정철)과 책 14(『칠정산』·『의방유취』·『향약집성방』·『농사직설』·『총통등록』·『용비어천가』·『동국정운』·『훈민정음 해례본』·『진법』·『동국병감』·『금양잡록』·『동문선』·「관동별곡」·「사미인곡」)이 조선 왕에 걸렸다. 강희안·김시습·박팽년·신사임당·이상좌·한호와 『금오신화』는 시기만 둔다.
-assert.deepEqual(anchoredCards,{'history-people':134,'history-books':57});
+// 2026-09-27 22강 조선 후기(정치): 인물 9(정여립 · 송시열 · 허적 · 윤휴 · 희빈 장씨 · 인현 왕후 · 이인좌 · 박제가 · 유득공)와 책 7(『속대전』 · 『속오례의』 · 『동국문헌비고』 · 『대전통편』 · 『동문휘고』 · 『탁지지』 · 『무예도보통지』)이 조선 왕에 걸렸다(정철은 뒷면만 보탬).
+assert.deepEqual(anchoredCards,{'history-people':143,'history-books':64});
 // 대조군: 없는 왕·사실에 없는 인물은 잡혀야 한다.
 assert.throws(()=>factsOf('고려','없는왕'));
 assert(!factsOf('신라','진흥왕').some(f=>f.includes('이사부')),'control: 이사부 is 지증왕, not in 진흥왕 facts');
@@ -145,9 +149,9 @@ assert.equal(M.size(countries),30);
  assert(back('history-heritage','개성 경천사지 10층 석탑').includes('원의 영향')&&back('history-heritage','안동 봉정사 극락전').includes('가장 오래된'));}
 // 경제·사회 제도(07·13강 중심) → 왕·한 줄. 왕이 붙은 칸은 그 왕의 사실에 제도 이름이 들어 있어야 한다.
 {const set=M.get('history-economy');assert(set&&set.groups&&set.subject==='한국사','history-economy set');
- assert.deepEqual(set.groups.map(g=>g.title),['삼국·남북국 경제','고려 토지·수취','고려 상업·화폐·농업','고려 사회','조선 전기 제도·향촌']);assert.equal(M.size(set),59);
+ assert.deepEqual(set.groups.map(g=>g.title),['삼국·남북국 경제','고려 토지·수취','고려 상업·화폐·농업','고려 사회','조선 전기 제도·향촌','조선 후기 제도']);assert.equal(M.size(set),65);
  let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)),'history-economy: '+king+'('+country+') facts name '+front);}
- assert.equal(anchored,31,'왕에 걸린 제도 31(2026-09-19 호패법·신문고 태종, 직전법·유향소 세조 / 2026-09-23 19강 공법 세종·관수관급제 성종·직전법 폐지와 『구황촬요』 명종·경재소 선조), 나머지 28은 왕이 하나로 정해지지 않아 나라·시기만');
+ assert.equal(anchored,37,'왕에 걸린 제도 31(2026-09-19 호패법·신문고 태종, 직전법·유향소 세조 / 2026-09-23 19강 공법 세종·관수관급제 성종·직전법 폐지와 『구황촬요』 명종·경재소 선조), 나머지 28은 왕이 하나로 정해지지 않아 나라·시기만');
  // 19강: 여러 왕에 걸치거나 시작 왕이 교재에 없는 제도(오가작통법·16세기 폐단·신분·의료 기관 묶음)는 왕을 붙이지 않는다.
  for(const front of ['오가작통법','방납·대립·방군수포','신량역천','혜민서·활인서·제생원','수신전·휼양전','타조법(병작반수)','향회'])assert(anchorsOf(back('history-economy',front)).length===0,'no forced king (19강): '+front);
  for(const [front,king] of [['공법','세종(조선)'],['관수관급제','성종(조선)'],['직전법 폐지','명종(조선)'],['『구황촬요』','명종(조선)'],['경재소','선조(조선)']])assert(back('history-economy',front).startsWith(king),front+' → '+king);
@@ -158,7 +162,8 @@ assert.equal(M.size(countries),30);
 for(const [king,needle] of [['인종','『상정고금예문』'],['고종','『상정고금예문』'],['고종','장경판전'],['우왕','화통도감'],['우왕','『직지심체요절』'],['공민왕','천산대렵도'],['현종','초조대장경']])assert(kings.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle);
 // 공부 범위 지키기: 조선은 아직 공부하지 않았다(15강 고려 문화 2 낱말은 2026-09-16에 목록에서 뺐다). 한국사 목록 어디에도 나오면 멈춘다.
 // 16강(조선 전기 정치)을 공부하면서 『불씨잡변』·『경국대전』·세종이 범위 안으로 들어왔다(2026-09-19). 아직 배우지 않은 낱말만 남긴다.
-const OUT_OF_RANGE=['입학도설','발해고','조선 후기'];
+// 22강(조선 후기 정치)을 공부하면서 '조선 후기'가 범위 안으로 들어왔다(2026-09-27) — 인물 · 책 · 제도 묶음 제목.
+const OUT_OF_RANGE=['입학도설','발해고'];
 for(const set of M.sets.filter(s=>s.subject==='한국사')){
  const text=JSON.stringify(set);
  for(const word of OUT_OF_RANGE)assert(!text.includes(word),'studied range only ('+word+') in '+set.id);
