@@ -55,7 +55,7 @@ function topicScope(value){return topicRange(value)?.id||null;}
 const STUDY_LECTURES=STUDY_REVIEW_CATALOG.lectures||[];
 const LECTURE_BY_ID=new Map(STUDY_LECTURES.flatMap(l=>l.ids.map(id=>[id,l.id])));
 // 2026-09-16 없앤 범위: 07·08강 덩어리는 07강으로, 따로 떠 있던 기출형 연습은 그 문제들이 처음 들어간 강으로 이어 연다(저장된 범위가 빈 화면이 되지 않게).
-const RETIRED_LECTURES={'07-08':'07','02-03-04-05':'02-05','05-06':'06','10-12':'10'};
+const RETIRED_LECTURES={'07-08':'07','02-03-04-05':'02-05','05-06':'06','10-12':'10','250-256':'250'};
 function lectureScope(value){const match=/^lecture-([0-9][0-9-]*)$/.exec(value||'');if(!match)return null;const id=RETIRED_LECTURES[match[1]]||match[1];return STUDY_LECTURES.some(l=>l.id===id)?id:null;}
 function lectureTitle(id){return STUDY_LECTURES.find(l=>l.id===id)?.title||'';}
 // 'paper-<paperId>' is one official 기출 회차 (예: 2026 지방직 9급 컴퓨터일반). 회차는 과목을 가리지 않는다.

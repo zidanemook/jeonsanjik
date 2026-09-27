@@ -2906,7 +2906,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 214,
-      "title": "특강 세시 풍속과 근·현대 인물 1",
+      "title": "특강 세시 풍속 1",
       "ids": [
         "special-hist-20260924-001",
         "special-hist-20260924-002",
@@ -2920,7 +2920,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 215,
-      "title": "특강 세시 풍속과 근·현대 인물 2",
+      "title": "특강 세시 풍속 2",
       "ids": [
         "special-hist-20260924-009",
         "special-hist-20260924-010",
@@ -2934,7 +2934,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 216,
-      "title": "특강 세시 풍속과 근·현대 인물 3",
+      "title": "특강 세시 풍속 3",
       "ids": [
         "special-hist-20260924-017",
         "special-hist-20260924-018",
@@ -2948,7 +2948,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 217,
-      "title": "특강 세시 풍속과 근·현대 인물 4",
+      "title": "특강 세시 풍속 4",
       "ids": [
         "special-hist-20260924-025",
         "special-hist-20260924-026",
@@ -2962,7 +2962,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 218,
-      "title": "특강 세시 풍속과 근·현대 인물 5",
+      "title": "특강 세시 풍속 5",
       "ids": [
         "special-hist-20260924-033",
         "special-hist-20260924-034",
@@ -2976,7 +2976,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 219,
-      "title": "특강 세시 풍속과 근·현대 인물 6",
+      "title": "특강 세시 풍속 6",
       "ids": [
         "special-hist-20260924-041",
         "special-hist-20260924-042",
@@ -2990,7 +2990,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 220,
-      "title": "특강 세시 풍속과 근·현대 인물 7",
+      "title": "특강 세시 풍속 7",
       "ids": [
         "special-hist-20260924-049",
         "special-hist-20260924-050",
@@ -3004,7 +3004,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 221,
-      "title": "특강 세시 풍속과 근·현대 인물 8",
+      "title": "특강 세시 풍속 8",
       "ids": [
         "special-hist-20260924-057",
         "special-hist-20260924-058",
@@ -3018,7 +3018,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 222,
-      "title": "특강 세시 풍속과 근·현대 인물 9",
+      "title": "특강 세시 풍속 9",
       "ids": [
         "special-hist-20260924-065",
         "special-hist-20260924-066",
@@ -3032,7 +3032,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 223,
-      "title": "특강 세시 풍속과 근·현대 인물 10",
+      "title": "특강 세시 풍속 10",
       "ids": [
         "special-hist-20260924-073",
         "special-hist-20260924-074",
@@ -3046,7 +3046,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 224,
-      "title": "특강 세시 풍속과 근·현대 인물 11",
+      "title": "특강 세시 풍속 11",
       "ids": [
         "special-hist-20260924-081",
         "special-hist-20260924-082",
@@ -3060,7 +3060,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 225,
-      "title": "특강 세시 풍속과 근·현대 인물 12",
+      "title": "특강 세시 풍속 12",
       "ids": [
         "special-hist-20260924-089",
         "special-hist-20260924-090",
@@ -3074,7 +3074,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 226,
-      "title": "특강 세시 풍속과 근·현대 인물 13",
+      "title": "특강 세시 풍속 13",
       "ids": [
         "special-hist-20260924-097",
         "special-hist-20260924-098",
@@ -3088,7 +3088,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 227,
-      "title": "특강 세시 풍속과 근·현대 인물 14",
+      "title": "특강 세시 풍속 14",
       "ids": [
         "special-hist-20260924-105",
         "special-hist-20260924-106",
@@ -3102,7 +3102,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 228,
-      "title": "특강 세시 풍속과 근·현대 인물 15",
+      "title": "특강 세시 풍속 15",
       "ids": [
         "special-hist-20260924-113",
         "special-hist-20260924-114",
@@ -3116,7 +3116,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 229,
-      "title": "특강 세시 풍속과 근·현대 인물 16",
+      "title": "특강 세시 풍속 16",
       "ids": [
         "special-hist-20260924-121",
         "special-hist-20260924-122",
@@ -3130,742 +3130,748 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 230,
-      "title": "특강 세시 풍속과 근·현대 인물 17",
+      "title": "특강 세시 풍속 17",
       "ids": [
         "special-hist-20260924-129",
         "special-hist-20260924-130",
         "special-hist-20260924-131",
         "special-hist-20260924-132",
         "special-hist-20260924-133",
-        "special-hist-20260924-134",
-        "special-hist-20260924-135",
-        "special-hist-20260924-136"
+        "special-hist-20260924-134"
       ]
     },
     {
       "number": 231,
-      "title": "특강 세시 풍속과 근·현대 인물 18",
+      "title": "특강 근·현대 인물 1",
       "ids": [
+        "special-hist-20260924-135",
+        "special-hist-20260924-136",
         "special-hist-20260924-137",
         "special-hist-20260924-138",
         "special-hist-20260924-139",
         "special-hist-20260924-140",
         "special-hist-20260924-141",
-        "special-hist-20260924-142",
-        "special-hist-20260924-143",
-        "special-hist-20260924-144"
+        "special-hist-20260924-142"
       ]
     },
     {
       "number": 232,
-      "title": "특강 세시 풍속과 근·현대 인물 19",
+      "title": "특강 근·현대 인물 2",
       "ids": [
+        "special-hist-20260924-143",
+        "special-hist-20260924-144",
         "special-hist-20260924-145",
         "special-hist-20260924-146",
         "special-hist-20260924-147",
         "special-hist-20260924-148",
         "special-hist-20260924-149",
-        "special-hist-20260924-150",
-        "special-hist-20260924-151",
-        "special-hist-20260924-152"
+        "special-hist-20260924-150"
       ]
     },
     {
       "number": 233,
-      "title": "특강 세시 풍속과 근·현대 인물 20",
+      "title": "특강 근·현대 인물 3",
       "ids": [
+        "special-hist-20260924-151",
+        "special-hist-20260924-152",
         "special-hist-20260924-153",
         "special-hist-20260924-154",
         "special-hist-20260924-155",
         "special-hist-20260924-156",
         "special-hist-20260924-157",
-        "special-hist-20260924-158",
-        "special-hist-20260924-159",
-        "special-hist-20260924-160"
+        "special-hist-20260924-158"
       ]
     },
     {
       "number": 234,
-      "title": "특강 세시 풍속과 근·현대 인물 21",
+      "title": "특강 근·현대 인물 4",
       "ids": [
+        "special-hist-20260924-159",
+        "special-hist-20260924-160",
         "special-hist-20260924-161",
         "special-hist-20260924-162",
         "special-hist-20260924-163",
         "special-hist-20260924-164",
         "special-hist-20260924-165",
-        "special-hist-20260924-166",
-        "special-hist-20260924-167",
-        "special-hist-20260924-168"
+        "special-hist-20260924-166"
       ]
     },
     {
       "number": 235,
-      "title": "특강 세시 풍속과 근·현대 인물 22",
+      "title": "특강 근·현대 인물 5",
       "ids": [
+        "special-hist-20260924-167",
+        "special-hist-20260924-168",
         "special-hist-20260924-169",
         "special-hist-20260924-170",
         "special-hist-20260924-171",
         "special-hist-20260924-172",
         "special-hist-20260924-173",
-        "special-hist-20260924-174",
-        "special-hist-20260924-175",
-        "special-hist-20260924-176"
+        "special-hist-20260924-174"
       ]
     },
     {
       "number": 236,
-      "title": "특강 세시 풍속과 근·현대 인물 23",
+      "title": "특강 근·현대 인물 6",
       "ids": [
+        "special-hist-20260924-175",
+        "special-hist-20260924-176",
         "special-hist-20260924-177",
         "special-hist-20260924-178",
         "special-hist-20260924-179",
         "special-hist-20260924-180",
         "special-hist-20260924-181",
-        "special-hist-20260924-182",
-        "special-hist-20260924-183",
-        "special-hist-20260924-184"
+        "special-hist-20260924-182"
       ]
     },
     {
       "number": 237,
-      "title": "특강 세시 풍속과 근·현대 인물 24",
+      "title": "특강 근·현대 인물 7",
       "ids": [
+        "special-hist-20260924-183",
+        "special-hist-20260924-184",
         "special-hist-20260924-185",
         "special-hist-20260924-186",
         "special-hist-20260924-187",
         "special-hist-20260924-188",
         "special-hist-20260924-189",
-        "special-hist-20260924-190",
-        "special-hist-20260924-191",
-        "special-hist-20260924-192"
+        "special-hist-20260924-190"
       ]
     },
     {
       "number": 238,
-      "title": "특강 세시 풍속과 근·현대 인물 25",
+      "title": "특강 근·현대 인물 8",
       "ids": [
+        "special-hist-20260924-191",
+        "special-hist-20260924-192",
         "special-hist-20260924-193",
         "special-hist-20260924-194",
         "special-hist-20260924-195",
         "special-hist-20260924-196",
         "special-hist-20260924-197",
-        "special-hist-20260924-198",
-        "special-hist-20260924-199",
-        "special-hist-20260924-200"
+        "special-hist-20260924-198"
       ]
     },
     {
       "number": 239,
-      "title": "특강 세시 풍속과 근·현대 인물 26",
+      "title": "특강 근·현대 인물 9",
       "ids": [
+        "special-hist-20260924-199",
+        "special-hist-20260924-200",
         "special-hist-20260924-201",
         "special-hist-20260924-202",
         "special-hist-20260924-203",
         "special-hist-20260924-204",
         "special-hist-20260924-205",
-        "special-hist-20260924-206",
-        "special-hist-20260924-207",
-        "special-hist-20260924-208"
+        "special-hist-20260924-206"
       ]
     },
     {
       "number": 240,
-      "title": "특강 세시 풍속과 근·현대 인물 27",
+      "title": "특강 근·현대 인물 10",
       "ids": [
+        "special-hist-20260924-207",
+        "special-hist-20260924-208",
         "special-hist-20260924-209",
         "special-hist-20260924-210",
         "special-hist-20260924-211",
         "special-hist-20260924-212",
         "special-hist-20260924-213",
-        "special-hist-20260924-214",
-        "special-hist-20260924-215",
-        "special-hist-20260924-216"
+        "special-hist-20260924-214"
       ]
     },
     {
       "number": 241,
-      "title": "특강 세시 풍속과 근·현대 인물 28",
+      "title": "특강 근·현대 인물 11",
       "ids": [
+        "special-hist-20260924-215",
+        "special-hist-20260924-216",
         "special-hist-20260924-217",
         "special-hist-20260924-218",
         "special-hist-20260924-219",
         "special-hist-20260924-220",
         "special-hist-20260924-221",
-        "special-hist-20260924-222",
-        "special-hist-20260924-223",
-        "special-hist-20260924-224"
+        "special-hist-20260924-222"
       ]
     },
     {
       "number": 242,
-      "title": "특강 세시 풍속과 근·현대 인물 29",
+      "title": "특강 근·현대 인물 12",
       "ids": [
+        "special-hist-20260924-223",
+        "special-hist-20260924-224",
         "special-hist-20260924-225",
         "special-hist-20260924-226",
         "special-hist-20260924-227",
         "special-hist-20260924-228",
         "special-hist-20260924-229",
-        "special-hist-20260924-230",
-        "special-hist-20260924-231",
-        "special-hist-20260924-232"
+        "special-hist-20260924-230"
       ]
     },
     {
       "number": 243,
-      "title": "특강 세시 풍속과 근·현대 인물 30",
+      "title": "특강 근·현대 인물 13",
       "ids": [
+        "special-hist-20260924-231",
+        "special-hist-20260924-232",
         "special-hist-20260924-233",
         "special-hist-20260924-234",
         "special-hist-20260924-235",
         "special-hist-20260924-236",
         "special-hist-20260924-237",
-        "special-hist-20260924-238",
-        "special-hist-20260924-239",
-        "special-hist-20260924-240"
+        "special-hist-20260924-238"
       ]
     },
     {
       "number": 244,
-      "title": "특강 세시 풍속과 근·현대 인물 31",
+      "title": "특강 근·현대 인물 14",
       "ids": [
+        "special-hist-20260924-239",
+        "special-hist-20260924-240",
         "special-hist-20260924-241",
         "special-hist-20260924-242",
         "special-hist-20260924-243",
         "special-hist-20260924-244",
         "special-hist-20260924-245",
-        "special-hist-20260924-246",
-        "special-hist-20260924-247",
-        "special-hist-20260924-248"
+        "special-hist-20260924-246"
       ]
     },
     {
       "number": 245,
-      "title": "특강 세시 풍속과 근·현대 인물 32",
+      "title": "특강 근·현대 인물 15",
       "ids": [
+        "special-hist-20260924-247",
+        "special-hist-20260924-248",
         "special-hist-20260924-249",
         "special-hist-20260924-250",
         "special-hist-20260924-251",
         "special-hist-20260924-252",
         "special-hist-20260924-253",
-        "special-hist-20260924-254",
-        "special-hist-20260924-255",
-        "special-hist-20260924-256"
+        "special-hist-20260924-254"
       ]
     },
     {
       "number": 246,
-      "title": "특강 세시 풍속과 근·현대 인물 33",
+      "title": "특강 근·현대 인물 16",
       "ids": [
+        "special-hist-20260924-255",
+        "special-hist-20260924-256",
         "special-hist-20260924-257",
         "special-hist-20260924-258",
         "special-hist-20260924-259",
         "special-hist-20260924-260",
         "special-hist-20260924-261",
-        "special-hist-20260924-262",
-        "special-hist-20260924-263",
-        "special-hist-20260924-264"
+        "special-hist-20260924-262"
       ]
     },
     {
       "number": 247,
-      "title": "특강 세시 풍속과 근·현대 인물 34",
+      "title": "특강 근·현대 인물 17",
       "ids": [
+        "special-hist-20260924-263",
+        "special-hist-20260924-264",
         "special-hist-20260924-265",
         "special-hist-20260924-266",
         "special-hist-20260924-267",
         "special-hist-20260924-268",
         "special-hist-20260924-269",
-        "special-hist-20260924-270",
-        "special-hist-20260924-271",
-        "special-hist-20260924-272"
+        "special-hist-20260924-270"
       ]
     },
     {
       "number": 248,
-      "title": "특강 세시 풍속과 근·현대 인물 35",
+      "title": "특강 근·현대 인물 18",
       "ids": [
+        "special-hist-20260924-271",
+        "special-hist-20260924-272",
         "special-hist-20260924-273",
         "special-hist-20260924-274",
         "special-hist-20260924-275",
         "special-hist-20260924-276",
         "special-hist-20260924-277",
-        "special-hist-20260924-278",
-        "special-hist-20260924-279",
-        "special-hist-20260924-280"
+        "special-hist-20260924-278"
       ]
     },
     {
       "number": 249,
-      "title": "특강 세시 풍속과 근·현대 인물 36",
+      "title": "특강 근·현대 인물 19",
       "ids": [
+        "special-hist-20260924-279",
+        "special-hist-20260924-280",
         "special-hist-20260924-281",
         "special-hist-20260924-282",
         "special-hist-20260924-283",
         "special-hist-20260924-284",
         "special-hist-20260924-285",
-        "special-hist-20260924-286",
-        "special-hist-20260924-287",
-        "special-hist-20260924-288"
+        "special-hist-20260924-286"
       ]
     },
     {
       "number": 250,
-      "title": "특강 세시 풍속과 근·현대 인물 37",
+      "title": "특강 근·현대 인물 20",
       "ids": [
+        "special-hist-20260924-287",
+        "special-hist-20260924-288",
         "special-hist-20260924-289",
         "special-hist-20260924-290",
         "special-hist-20260924-291",
         "special-hist-20260924-292",
         "special-hist-20260924-293",
-        "special-hist-20260924-294",
-        "special-hist-20260924-295",
-        "special-hist-20260924-296"
+        "special-hist-20260924-294"
       ]
     },
     {
       "number": 251,
-      "title": "특강 세시 풍속과 근·현대 인물 38",
+      "title": "특강 근·현대 인물 21",
       "ids": [
+        "special-hist-20260924-295",
+        "special-hist-20260924-296",
         "special-hist-20260924-297",
         "special-hist-20260924-298",
         "special-hist-20260924-299",
         "special-hist-20260924-300",
         "special-hist-20260924-301",
-        "special-hist-20260924-302",
-        "special-hist-20260924-303",
-        "special-hist-20260924-304"
+        "special-hist-20260924-302"
       ]
     },
     {
       "number": 252,
-      "title": "특강 세시 풍속과 근·현대 인물 39",
+      "title": "특강 근·현대 인물 22",
       "ids": [
+        "special-hist-20260924-303",
+        "special-hist-20260924-304",
         "special-hist-20260924-305",
         "special-hist-20260924-306",
         "special-hist-20260924-307",
         "special-hist-20260924-308",
         "special-hist-20260924-309",
-        "special-hist-20260924-310",
-        "special-hist-20260924-311",
-        "special-hist-20260924-312"
+        "special-hist-20260924-310"
       ]
     },
     {
       "number": 253,
-      "title": "특강 세시 풍속과 근·현대 인물 40",
+      "title": "특강 근·현대 인물 23",
       "ids": [
+        "special-hist-20260924-311",
+        "special-hist-20260924-312",
         "special-hist-20260924-313",
         "special-hist-20260924-314",
         "special-hist-20260924-315",
         "special-hist-20260924-316",
         "special-hist-20260924-317",
-        "special-hist-20260924-318",
-        "special-hist-20260924-319",
-        "special-hist-20260924-320"
+        "special-hist-20260924-318"
       ]
     },
     {
       "number": 254,
-      "title": "특강 세시 풍속과 근·현대 인물 41",
+      "title": "특강 근·현대 인물 24",
       "ids": [
+        "special-hist-20260924-319",
+        "special-hist-20260924-320",
         "special-hist-20260924-321",
         "special-hist-20260924-322",
         "special-hist-20260924-323",
         "special-hist-20260924-324",
         "special-hist-20260924-325",
-        "special-hist-20260924-326",
-        "special-hist-20260924-327",
-        "special-hist-20260924-328"
+        "special-hist-20260924-326"
       ]
     },
     {
       "number": 255,
-      "title": "특강 세시 풍속과 근·현대 인물 42",
+      "title": "특강 근·현대 인물 25",
       "ids": [
+        "special-hist-20260924-327",
+        "special-hist-20260924-328",
         "special-hist-20260924-329",
         "special-hist-20260924-330",
         "special-hist-20260924-331",
         "special-hist-20260924-332",
         "special-hist-20260924-333",
-        "special-hist-20260924-334",
-        "special-hist-20260924-335",
-        "special-hist-20260924-336"
+        "special-hist-20260924-334"
       ]
     },
     {
       "number": 256,
-      "title": "특강 세시 풍속과 근·현대 인물 43",
+      "title": "특강 근·현대 인물 26",
       "ids": [
+        "special-hist-20260924-335",
+        "special-hist-20260924-336",
         "special-hist-20260924-337",
         "special-hist-20260924-338",
         "special-hist-20260924-339",
         "special-hist-20260924-340",
         "special-hist-20260924-341",
-        "special-hist-20260924-342",
-        "special-hist-20260924-343",
-        "special-hist-20260924-344"
+        "special-hist-20260924-342"
       ]
     },
     {
       "number": 257,
-      "title": "특강 세시 풍속과 근·현대 인물 44",
+      "title": "특강 근·현대 인물 27",
       "ids": [
+        "special-hist-20260924-343",
+        "special-hist-20260924-344",
         "special-hist-20260924-345",
         "special-hist-20260924-346",
         "special-hist-20260924-347",
         "special-hist-20260924-348",
         "special-hist-20260924-349",
-        "special-hist-20260924-350",
-        "special-hist-20260924-351",
-        "special-hist-20260924-352"
+        "special-hist-20260924-350"
       ]
     },
     {
       "number": 258,
-      "title": "특강 세시 풍속과 근·현대 인물 45",
+      "title": "특강 근·현대 인물 28",
       "ids": [
+        "special-hist-20260924-351",
+        "special-hist-20260924-352",
         "special-hist-20260924-353",
         "special-hist-20260924-354",
         "special-hist-20260924-355",
         "special-hist-20260924-356",
         "special-hist-20260924-357",
-        "special-hist-20260924-358",
-        "special-hist-20260924-359",
-        "special-hist-20260924-360"
+        "special-hist-20260924-358"
       ]
     },
     {
       "number": 259,
-      "title": "특강 세시 풍속과 근·현대 인물 46",
+      "title": "특강 근·현대 인물 29",
       "ids": [
+        "special-hist-20260924-359",
+        "special-hist-20260924-360",
         "special-hist-20260924-361",
         "special-hist-20260924-362",
         "special-hist-20260924-363",
         "special-hist-20260924-364",
         "special-hist-20260924-365",
-        "special-hist-20260924-366",
-        "special-hist-20260924-367",
-        "special-hist-20260924-368"
+        "special-hist-20260924-366"
       ]
     },
     {
       "number": 260,
-      "title": "특강 세시 풍속과 근·현대 인물 47",
+      "title": "특강 근·현대 인물 30",
       "ids": [
+        "special-hist-20260924-367",
+        "special-hist-20260924-368",
         "special-hist-20260924-369",
         "special-hist-20260924-370",
         "special-hist-20260924-371",
         "special-hist-20260924-372",
         "special-hist-20260924-373",
-        "special-hist-20260924-374",
-        "special-hist-20260924-375",
-        "special-hist-20260924-376"
+        "special-hist-20260924-374"
       ]
     },
     {
       "number": 261,
-      "title": "특강 세시 풍속과 근·현대 인물 48",
+      "title": "특강 근·현대 인물 31",
       "ids": [
+        "special-hist-20260924-375",
+        "special-hist-20260924-376",
         "special-hist-20260924-377",
         "special-hist-20260924-378",
         "special-hist-20260924-379",
         "special-hist-20260924-380",
         "special-hist-20260924-381",
-        "special-hist-20260924-382",
-        "special-hist-20260924-383",
-        "special-hist-20260924-384"
+        "special-hist-20260924-382"
       ]
     },
     {
       "number": 262,
-      "title": "특강 세시 풍속과 근·현대 인물 49",
+      "title": "특강 근·현대 인물 32",
       "ids": [
+        "special-hist-20260924-383",
+        "special-hist-20260924-384",
         "special-hist-20260924-385",
         "special-hist-20260924-386",
         "special-hist-20260924-387",
         "special-hist-20260924-388",
         "special-hist-20260924-389",
-        "special-hist-20260924-390",
-        "special-hist-20260924-391",
-        "special-hist-20260924-392"
+        "special-hist-20260924-390"
       ]
     },
     {
       "number": 263,
-      "title": "특강 세시 풍속과 근·현대 인물 50",
+      "title": "특강 근·현대 인물 33",
       "ids": [
+        "special-hist-20260924-391",
+        "special-hist-20260924-392",
         "special-hist-20260924-393",
         "special-hist-20260924-394",
         "special-hist-20260924-395",
         "special-hist-20260924-396",
         "special-hist-20260924-397",
-        "special-hist-20260924-398",
-        "special-hist-20260924-399",
-        "special-hist-20260924-400"
+        "special-hist-20260924-398"
       ]
     },
     {
       "number": 264,
-      "title": "특강 세시 풍속과 근·현대 인물 51",
+      "title": "특강 근·현대 인물 34",
       "ids": [
+        "special-hist-20260924-399",
+        "special-hist-20260924-400",
         "special-hist-20260924-401",
         "special-hist-20260924-402",
         "special-hist-20260924-403",
         "special-hist-20260924-404",
         "special-hist-20260924-405",
-        "special-hist-20260924-406",
-        "special-hist-20260924-407",
-        "special-hist-20260924-408"
+        "special-hist-20260924-406"
       ]
     },
     {
       "number": 265,
-      "title": "특강 세시 풍속과 근·현대 인물 52",
+      "title": "특강 근·현대 인물 35",
       "ids": [
+        "special-hist-20260924-407",
+        "special-hist-20260924-408",
         "special-hist-20260924-409",
         "special-hist-20260924-410",
         "special-hist-20260924-411",
         "special-hist-20260924-412",
         "special-hist-20260924-413",
-        "special-hist-20260924-414",
-        "special-hist-20260924-415",
-        "special-hist-20260924-416"
+        "special-hist-20260924-414"
       ]
     },
     {
       "number": 266,
-      "title": "특강 세시 풍속과 근·현대 인물 53",
+      "title": "특강 근·현대 인물 36",
       "ids": [
+        "special-hist-20260924-415",
+        "special-hist-20260924-416",
         "special-hist-20260924-417",
         "special-hist-20260924-418",
         "special-hist-20260924-419",
         "special-hist-20260924-420",
         "special-hist-20260924-421",
-        "special-hist-20260924-422",
-        "special-hist-20260924-423",
-        "special-hist-20260924-424"
+        "special-hist-20260924-422"
       ]
     },
     {
       "number": 267,
-      "title": "특강 세시 풍속과 근·현대 인물 54",
+      "title": "특강 근·현대 인물 37",
       "ids": [
+        "special-hist-20260924-423",
+        "special-hist-20260924-424",
         "special-hist-20260924-425",
         "special-hist-20260924-426",
         "special-hist-20260924-427",
         "special-hist-20260924-428",
         "special-hist-20260924-429",
-        "special-hist-20260924-430",
-        "special-hist-20260924-431",
-        "special-hist-20260924-432"
+        "special-hist-20260924-430"
       ]
     },
     {
       "number": 268,
-      "title": "특강 세시 풍속과 근·현대 인물 55",
+      "title": "특강 근·현대 인물 38",
       "ids": [
+        "special-hist-20260924-431",
+        "special-hist-20260924-432",
         "special-hist-20260924-433",
         "special-hist-20260924-434",
         "special-hist-20260924-435",
         "special-hist-20260924-436",
         "special-hist-20260924-437",
-        "special-hist-20260924-438",
-        "special-hist-20260924-439",
-        "special-hist-20260924-440"
+        "special-hist-20260924-438"
       ]
     },
     {
       "number": 269,
-      "title": "특강 세시 풍속과 근·현대 인물 56",
+      "title": "특강 근·현대 인물 39",
       "ids": [
+        "special-hist-20260924-439",
+        "special-hist-20260924-440",
         "special-hist-20260924-441",
         "special-hist-20260924-442",
         "special-hist-20260924-443",
         "special-hist-20260924-444",
         "special-hist-20260924-445",
-        "special-hist-20260924-446",
-        "special-hist-20260924-447",
-        "special-hist-20260924-448"
+        "special-hist-20260924-446"
       ]
     },
     {
       "number": 270,
-      "title": "특강 세시 풍속과 근·현대 인물 57",
+      "title": "특강 근·현대 인물 40",
       "ids": [
+        "special-hist-20260924-447",
+        "special-hist-20260924-448",
         "special-hist-20260924-449",
         "special-hist-20260924-450",
         "special-hist-20260924-451",
         "special-hist-20260924-452",
         "special-hist-20260924-453",
-        "special-hist-20260924-454",
-        "special-hist-20260924-455",
-        "special-hist-20260924-456"
+        "special-hist-20260924-454"
       ]
     },
     {
       "number": 271,
-      "title": "특강 세시 풍속과 근·현대 인물 58",
+      "title": "특강 근·현대 인물 41",
       "ids": [
+        "special-hist-20260924-455",
+        "special-hist-20260924-456",
         "special-hist-20260924-457",
         "special-hist-20260924-458",
         "special-hist-20260924-459",
         "special-hist-20260924-460",
         "special-hist-20260924-461",
-        "special-hist-20260924-462",
-        "special-hist-20260924-463",
-        "special-hist-20260924-464"
+        "special-hist-20260924-462"
       ]
     },
     {
       "number": 272,
-      "title": "특강 세시 풍속과 근·현대 인물 59",
+      "title": "특강 근·현대 인물 42",
       "ids": [
+        "special-hist-20260924-463",
+        "special-hist-20260924-464",
         "special-hist-20260924-465",
         "special-hist-20260924-466",
         "special-hist-20260924-467",
         "special-hist-20260924-468",
         "special-hist-20260924-469",
-        "special-hist-20260924-470",
-        "special-hist-20260924-471",
-        "special-hist-20260924-472"
+        "special-hist-20260924-470"
       ]
     },
     {
       "number": 273,
-      "title": "특강 세시 풍속과 근·현대 인물 60",
+      "title": "특강 근·현대 인물 43",
       "ids": [
+        "special-hist-20260924-471",
+        "special-hist-20260924-472",
         "special-hist-20260924-473",
         "special-hist-20260924-474",
         "special-hist-20260924-475",
         "special-hist-20260924-476",
         "special-hist-20260924-477",
-        "special-hist-20260924-478",
-        "special-hist-20260924-479",
-        "special-hist-20260924-480"
+        "special-hist-20260924-478"
       ]
     },
     {
       "number": 274,
-      "title": "특강 세시 풍속과 근·현대 인물 61",
+      "title": "특강 근·현대 인물 44",
       "ids": [
+        "special-hist-20260924-479",
+        "special-hist-20260924-480",
         "special-hist-20260924-481",
         "special-hist-20260924-482",
         "special-hist-20260924-483",
         "special-hist-20260924-484",
         "special-hist-20260924-485",
-        "special-hist-20260924-486",
-        "special-hist-20260924-487",
-        "special-hist-20260924-488"
+        "special-hist-20260924-486"
       ]
     },
     {
       "number": 275,
-      "title": "특강 세시 풍속과 근·현대 인물 62",
+      "title": "특강 근·현대 인물 45",
       "ids": [
+        "special-hist-20260924-487",
+        "special-hist-20260924-488",
         "special-hist-20260924-489",
         "special-hist-20260924-490",
         "special-hist-20260924-491",
         "special-hist-20260924-492",
         "special-hist-20260924-493",
-        "special-hist-20260924-494",
-        "special-hist-20260924-495",
-        "special-hist-20260924-496"
+        "special-hist-20260924-494"
       ]
     },
     {
       "number": 276,
-      "title": "특강 세시 풍속과 근·현대 인물 63",
+      "title": "특강 근·현대 인물 46",
       "ids": [
+        "special-hist-20260924-495",
+        "special-hist-20260924-496",
         "special-hist-20260924-497",
         "special-hist-20260924-498",
         "special-hist-20260924-499",
         "special-hist-20260924-500",
         "special-hist-20260924-501",
-        "special-hist-20260924-502",
-        "special-hist-20260924-503",
-        "special-hist-20260924-504"
+        "special-hist-20260924-502"
       ]
     },
     {
       "number": 277,
-      "title": "특강 세시 풍속과 근·현대 인물 64",
+      "title": "특강 근·현대 인물 47",
       "ids": [
+        "special-hist-20260924-503",
+        "special-hist-20260924-504",
         "special-hist-20260924-505",
         "special-hist-20260924-506",
         "special-hist-20260924-507",
         "special-hist-20260924-508",
         "special-hist-20260924-509",
-        "special-hist-20260924-510",
-        "special-hist-20260924-511",
-        "special-hist-20260924-512"
+        "special-hist-20260924-510"
       ]
     },
     {
       "number": 278,
-      "title": "특강 세시 풍속과 근·현대 인물 65",
+      "title": "특강 근·현대 인물 48",
       "ids": [
+        "special-hist-20260924-511",
+        "special-hist-20260924-512",
         "special-hist-20260924-513",
         "special-hist-20260924-514",
         "special-hist-20260924-515",
         "special-hist-20260924-516",
         "special-hist-20260924-517",
-        "special-hist-20260924-518",
-        "special-hist-20260924-519",
-        "special-hist-20260924-520"
+        "special-hist-20260924-518"
       ]
     },
     {
       "number": 279,
-      "title": "특강 세시 풍속과 근·현대 인물 66",
+      "title": "특강 근·현대 인물 49",
       "ids": [
+        "special-hist-20260924-519",
+        "special-hist-20260924-520",
         "special-hist-20260924-521",
         "special-hist-20260924-522",
         "special-hist-20260924-523",
         "special-hist-20260924-524",
         "special-hist-20260924-525",
-        "special-hist-20260924-526",
-        "special-hist-20260924-527",
-        "special-hist-20260924-528"
+        "special-hist-20260924-526"
       ]
     },
     {
       "number": 280,
-      "title": "특강 세시 풍속과 근·현대 인물 67",
+      "title": "특강 근·현대 인물 50",
       "ids": [
+        "special-hist-20260924-527",
+        "special-hist-20260924-528",
         "special-hist-20260924-529",
         "special-hist-20260924-530",
         "special-hist-20260924-531",
         "special-hist-20260924-532",
         "special-hist-20260924-533",
-        "special-hist-20260924-534",
-        "special-hist-20260924-535",
-        "special-hist-20260924-536"
+        "special-hist-20260924-534"
       ]
     },
     {
       "number": 281,
-      "title": "특강 세시 풍속과 근·현대 인물 68",
+      "title": "특강 근·현대 인물 51",
       "ids": [
+        "special-hist-20260924-535",
+        "special-hist-20260924-536",
         "special-hist-20260924-537",
         "special-hist-20260924-538",
         "special-hist-20260924-539",
         "special-hist-20260924-540",
         "special-hist-20260924-541",
-        "special-hist-20260924-542",
-        "special-hist-20260924-543",
-        "special-hist-20260924-544"
+        "special-hist-20260924-542"
       ]
     },
     {
       "number": 282,
-      "title": "특강 세시 풍속과 근·현대 인물 69",
+      "title": "특강 근·현대 인물 52",
       "ids": [
+        "special-hist-20260924-543",
+        "special-hist-20260924-544",
         "special-hist-20260924-545",
         "special-hist-20260924-546",
         "special-hist-20260924-547",
         "special-hist-20260924-548",
         "special-hist-20260924-549",
-        "special-hist-20260924-550",
+        "special-hist-20260924-550"
+      ]
+    },
+    {
+      "number": 283,
+      "title": "특강 근·현대 인물 53",
+      "ids": [
         "special-hist-20260924-551",
         "special-hist-20260924-552"
       ]
@@ -5598,8 +5604,8 @@ globalThis.STUDY_REVIEW_CATALOG={
       ]
     },
     {
-      "id": "250-256",
-      "title": "특강 세시 풍속과 근·현대 인물",
+      "id": "250",
+      "title": "특강 세시 풍속",
       "ids": [
         "special-hist-20260924-001",
         "special-hist-20260924-002",
@@ -5734,7 +5740,13 @@ globalThis.STUDY_REVIEW_CATALOG={
         "special-hist-20260924-131",
         "special-hist-20260924-132",
         "special-hist-20260924-133",
-        "special-hist-20260924-134",
+        "special-hist-20260924-134"
+      ]
+    },
+    {
+      "id": "252-256",
+      "title": "특강 근·현대 인물",
+      "ids": [
         "special-hist-20260924-135",
         "special-hist-20260924-136",
         "special-hist-20260924-137",
@@ -23144,7 +23156,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지(오답)",
         "중양절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-002": {
       "number": 1625,
@@ -23155,7 +23167,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일(오답)",
         "칠석(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-003": {
       "number": 1626,
@@ -23166,7 +23178,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 그네뛰기(오답)",
         "대보름 놋다리밟기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-004": {
       "number": 1627,
@@ -23177,7 +23189,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 놋다리밟기(오답)",
         "섣달그믐 묵은세배(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-005": {
       "number": 1628,
@@ -23188,7 +23200,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석 칠석 놀이와 시 짓기(오답)",
         "입동 김장(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-006": {
       "number": 1629,
@@ -23199,7 +23211,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 각시놀음(오답)",
         "백중 호미씻이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-007": {
       "number": 1630,
@@ -23210,7 +23222,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 활쏘기 대회(오답)",
         "대보름 부럼 깨기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-008": {
       "number": 1631,
@@ -23221,7 +23233,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 놋다리밟기(오답)",
         "삼짇날 화전놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-009": {
       "number": 1632,
@@ -23232,7 +23244,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 만석중놀이(오답)",
         "삼짇날 활쏘기 대회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-010": {
       "number": 1633,
@@ -23243,7 +23255,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 고싸움(오답)",
         "칠석 옷과 책 말리기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-011": {
       "number": 1634,
@@ -23254,7 +23266,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석 밀전병(오답)",
         "초파일 미나리·검은콩(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-012": {
       "number": 1635,
@@ -23265,7 +23277,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지 팥죽(오답)",
         "유두 상화병(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-013": {
       "number": 1636,
@@ -23276,7 +23288,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 진달래화채(오답)",
         "추석 토란국(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-014": {
       "number": 1637,
@@ -23287,7 +23299,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석(오답)",
         "동지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-015": {
       "number": 1638,
@@ -23298,7 +23310,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중(오답)",
         "유두(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-016": {
       "number": 1639,
@@ -23309,7 +23321,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 만석중놀이(오답)",
         "백중 들돌들기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-017": {
       "number": 1640,
@@ -23320,7 +23332,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "섣달그믐 묵은세배(오답)",
         "설날 새해 덕담(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-018": {
       "number": 1641,
@@ -23331,7 +23343,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 만석중놀이(오답)",
         "설날 세배(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-019": {
       "number": 1642,
@@ -23342,7 +23354,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 동쪽 냇물에 머리 감기(오답)",
         "추석 가마싸움(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-020": {
       "number": 1643,
@@ -23353,7 +23365,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동 김장(오답)",
         "한식 갈고리 던지기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-021": {
       "number": 1644,
@@ -23364,7 +23376,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중 들돌들기(오답)",
         "칠석 옷과 책 말리기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-022": {
       "number": 1645,
@@ -23375,7 +23387,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 각시놀음(오답)",
         "유두 동쪽 냇물에 머리 감기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-023": {
       "number": 1646,
@@ -23386,7 +23398,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 각시놀음(오답)",
         "동지 팥죽으로 잡귀 쫓기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-024": {
       "number": 1647,
@@ -23397,7 +23409,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설날 식혜·수정과(오답)",
         "추석 토란국(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-025": {
       "number": 1648,
@@ -23408,7 +23420,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석 토란국(오답)",
         "설날 떡국(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-026": {
       "number": 1649,
@@ -23419,7 +23431,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 찬 음식 먹기(오답)",
         "삼짇날 진달래화전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-027": {
       "number": 1650,
@@ -23430,7 +23442,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날(오답)",
         "초파일(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-028": {
       "number": 1651,
@@ -23441,7 +23453,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "섣달그믐(오답)",
         "동지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-029": {
       "number": 1652,
@@ -23452,7 +23464,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 놋다리밟기(오답)",
         "입동 김장(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-030": {
       "number": 1653,
@@ -23463,7 +23475,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 만석중놀이(오답)",
         "칠석 칠석 놀이와 시 짓기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-031": {
       "number": 1654,
@@ -23474,7 +23486,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설날 세배(오답)",
         "칠석 옷과 책 말리기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-032": {
       "number": 1655,
@@ -23485,7 +23497,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동 김장(오답)",
         "섣달그믐 묵은세배(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-033": {
       "number": 1656,
@@ -23496,7 +23508,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절 국화전(오답)",
         "단오 수리취떡(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-034": {
       "number": 1657,
@@ -23507,7 +23519,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성주제(오답)",
         "대보름(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-035": {
       "number": 1658,
@@ -23518,7 +23530,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석(오답)",
         "설날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-036": {
       "number": 1659,
@@ -23529,7 +23541,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오(오답)",
         "동지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-037": {
       "number": 1660,
@@ -23540,7 +23552,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동 겨울이 시작되는 날(오답)",
         "동지 밤이 가장 긴 날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-038": {
       "number": 1661,
@@ -23551,7 +23563,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 봉산 탈춤(오답)",
         "초파일 만석중놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-039": {
       "number": 1662,
@@ -23562,7 +23574,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 그네뛰기(오답)",
         "초파일 욕불 행사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-040": {
       "number": 1663,
@@ -23573,7 +23585,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 달집태우기(오답)",
         "동지 팥죽으로 잡귀 쫓기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-041": {
       "number": 1664,
@@ -23584,7 +23596,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 약초 떡(오답)",
         "중양절 국화전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-042": {
       "number": 1665,
@@ -23595,7 +23607,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석 밀전병(오답)",
         "중양절 국화전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-043": {
       "number": 1666,
@@ -23606,7 +23618,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석 토란국(오답)",
         "유두 상화병(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-044": {
       "number": 1667,
@@ -23617,7 +23629,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지(오답)",
         "입동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-045": {
       "number": 1668,
@@ -23628,7 +23640,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오(오답)",
         "설날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-046": {
       "number": 1669,
@@ -23639,7 +23651,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절 양수가 겹친 날(오답)",
         "유두 탁족 놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-047": {
       "number": 1670,
@@ -23650,7 +23662,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 개사초(산소 손질)(오답)",
         "백중 호미씻이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-048": {
       "number": 1671,
@@ -23661,7 +23673,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설날 새해 덕담(오답)",
         "백중 들돌들기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-049": {
       "number": 1672,
@@ -23672,7 +23684,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 화전놀이(오답)",
         "입동 김장(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-050": {
       "number": 1673,
@@ -23683,7 +23695,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설날 제기차기(오답)",
         "한식 갈고리 던지기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-051": {
       "number": 1674,
@@ -23694,7 +23706,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석 송편(오답)",
         "단오 수리취떡(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-052": {
       "number": 1675,
@@ -23705,7 +23717,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석 송편(오답)",
         "칠석 밀국수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-053": {
       "number": 1676,
@@ -23716,7 +23728,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석(오답)",
         "중양절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-054": {
       "number": 1677,
@@ -23727,7 +23739,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일(오답)",
         "칠석(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-055": {
       "number": 1678,
@@ -23738,7 +23750,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절(오답)",
         "백중(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-056": {
       "number": 1679,
@@ -23749,7 +23761,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동 김장(오답)",
         "설날 새해 덕담(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-057": {
       "number": 1680,
@@ -23760,7 +23772,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 갈고리 던지기(오답)",
         "설날 연날리기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-058": {
       "number": 1681,
@@ -23771,7 +23783,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 만석중놀이(오답)",
         "설날 세배(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-059": {
       "number": 1682,
@@ -23782,7 +23794,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 화전놀이(오답)",
         "칠석 칠석 놀이와 시 짓기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-060": {
       "number": 1683,
@@ -23793,7 +23805,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 동쪽 냇물에 머리 감기(오답)",
         "삼짇날 각시놀음(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-061": {
       "number": 1684,
@@ -23804,7 +23816,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 귀밝이술(오답)",
         "칠석 호박전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-062": {
       "number": 1685,
@@ -23815,7 +23827,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절 국화전(오답)",
         "한식 찬 음식 먹기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-063": {
       "number": 1686,
@@ -23826,7 +23838,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설날 식혜·수정과(오답)",
         "초파일 미나리·검은콩(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-064": {
       "number": 1687,
@@ -23837,7 +23849,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 수단(오답)",
         "삼짇날 진달래화채(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-065": {
       "number": 1688,
@@ -23848,7 +23860,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름(오답)",
         "동지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-066": {
       "number": 1689,
@@ -23859,7 +23871,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중(오답)",
         "대보름(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-067": {
       "number": 1690,
@@ -23870,7 +23882,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중 호미씻이(오답)",
         "대보름 쥐불놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-068": {
       "number": 1691,
@@ -23881,7 +23893,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 욕불 행사(오답)",
         "동지 팥죽으로 잡귀 쫓기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-069": {
       "number": 1692,
@@ -23892,7 +23904,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 앵두화채(오답)",
         "대보름 오곡밥(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-070": {
       "number": 1693,
@@ -23903,7 +23915,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절 국화주(오답)",
         "삼짇날 진달래화채(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-071": {
       "number": 1694,
@@ -23914,7 +23926,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 앵두화채(오답)",
         "중양절 국화주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-072": {
       "number": 1695,
@@ -23925,7 +23937,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식(오답)",
         "입동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-073": {
       "number": 1696,
@@ -23936,7 +23948,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날(오답)",
         "설날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-074": {
       "number": 1697,
@@ -23947,7 +23959,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 석전(돌싸움)(오답)",
         "중양절 제비가 강남으로 떠나는 날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-075": {
       "number": 1698,
@@ -23958,7 +23970,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 욕불 행사(오답)",
         "추석 강강술래(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-076": {
       "number": 1699,
@@ -23969,7 +23981,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 그네뛰기(오답)",
         "설날 설빔(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-077": {
       "number": 1700,
@@ -23980,7 +23992,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 앵두화채(오답)",
         "유두 상화병(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-078": {
       "number": 1701,
@@ -23991,7 +24003,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지 팥죽(오답)",
         "중양절 국화주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-079": {
       "number": 1702,
@@ -24002,7 +24014,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 상화병(오답)",
         "삼짇날 진달래화채(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-080": {
       "number": 1703,
@@ -24013,7 +24025,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동(오답)",
         "섣달그믐(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-081": {
       "number": 1704,
@@ -24024,7 +24036,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성주제(오답)",
         "중양절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-082": {
       "number": 1705,
@@ -24035,7 +24047,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석(오답)",
         "중양절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-083": {
       "number": 1706,
@@ -24046,7 +24058,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 탑돌이(오답)",
         "중양절 제비가 강남으로 떠나는 날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-084": {
       "number": 1707,
@@ -24057,7 +24069,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 탁족 놀이(오답)",
         "입동 치계미(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-085": {
       "number": 1708,
@@ -24068,7 +24080,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 창포물에 머리 감기(오답)",
         "칠석 옷과 책 말리기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-086": {
       "number": 1709,
@@ -24079,7 +24091,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름(오답)",
         "백중(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-087": {
       "number": 1710,
@@ -24090,7 +24102,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성주제(오답)",
         "대보름(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-088": {
       "number": 1711,
@@ -24101,7 +24113,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지(오답)",
         "중양절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-089": {
       "number": 1712,
@@ -24112,7 +24124,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중 들돌들기(오답)",
         "섣달그믐 밤새우기(해지킴)(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-090": {
       "number": 1713,
@@ -24123,7 +24135,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 갈고리 던지기(오답)",
         "삼짇날 각시놀음(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-091": {
       "number": 1714,
@@ -24134,7 +24146,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 놋다리밟기(오답)",
         "설날 설빔(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-092": {
       "number": 1715,
@@ -24145,7 +24157,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동 치계미(오답)",
         "대보름 쥐불놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-093": {
       "number": 1716,
@@ -24156,7 +24168,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 탑돌이(오답)",
         "백중 호미씻이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-094": {
       "number": 1717,
@@ -24167,7 +24179,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 오곡밥(오답)",
         "유두 유두면(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-095": {
       "number": 1718,
@@ -24178,7 +24190,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절 밤떡(오답)",
         "대보름 오곡밥(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-096": {
       "number": 1719,
@@ -24189,7 +24201,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동(오답)",
         "유두(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-097": {
       "number": 1720,
@@ -24200,7 +24212,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날(오답)",
         "설날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-098": {
       "number": 1721,
@@ -24211,7 +24223,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날(오답)",
         "동지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-099": {
       "number": 1722,
@@ -24222,7 +24234,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중 들돌들기(오답)",
         "유두 탁족 놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-100": {
       "number": 1723,
@@ -24233,7 +24245,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 달집태우기(오답)",
         "백중 들돌들기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-101": {
       "number": 1724,
@@ -24244,7 +24256,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 수리취떡(오답)",
         "한식 찬 음식 먹기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-102": {
       "number": 1725,
@@ -24255,7 +24267,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 유두면(오답)",
         "단오 약초 떡(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-103": {
       "number": 1726,
@@ -24266,7 +24278,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 오곡밥(오답)",
         "단오 수리취떡(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-104": {
       "number": 1727,
@@ -24277,7 +24289,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "섣달그믐(오답)",
         "입동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-105": {
       "number": 1728,
@@ -24288,7 +24300,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중(오답)",
         "대보름(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-106": {
       "number": 1729,
@@ -24299,7 +24311,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 달집태우기(오답)",
         "백중 호미씻이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-107": {
       "number": 1730,
@@ -24310,7 +24322,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 미나리·검은콩(오답)",
         "한식 찬 음식 먹기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-108": {
       "number": 1731,
@@ -24321,7 +24333,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중(오답)",
         "단오(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-109": {
       "number": 1732,
@@ -24332,7 +24344,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "섣달그믐(오답)",
         "동지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-110": {
       "number": 1733,
@@ -24343,7 +24355,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 개사초(산소 손질)(오답)",
         "대보름 달맞이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-111": {
       "number": 1734,
@@ -24354,7 +24366,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 화전놀이(오답)",
         "한식 갈고리 던지기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-112": {
       "number": 1735,
@@ -24365,7 +24377,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 쥐불놀이(오답)",
         "섣달그믐 밤새우기(해지킴)(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-113": {
       "number": 1736,
@@ -24376,7 +24388,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식(오답)",
         "설날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-114": {
       "number": 1737,
@@ -24387,7 +24399,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동(오답)",
         "한식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-115": {
       "number": 1738,
@@ -24398,7 +24410,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석(오답)",
         "중양절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-116": {
       "number": 1739,
@@ -24409,7 +24421,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설날 설빔(오답)",
         "추석 수확에 감사하는 날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-117": {
       "number": 1740,
@@ -24420,7 +24432,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 유두면(오답)",
         "설날 만두(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-118": {
       "number": 1741,
@@ -24431,7 +24443,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 개사초(산소 손질)(오답)",
         "백중 호미씻이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-119": {
       "number": 1742,
@@ -24442,7 +24454,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 진달래화채(오답)",
         "칠석 밀국수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-120": {
       "number": 1743,
@@ -24453,7 +24465,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식(오답)",
         "대보름(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-121": {
       "number": 1744,
@@ -24464,7 +24476,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식(오답)",
         "입동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-122": {
       "number": 1745,
@@ -24475,7 +24487,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지(오답)",
         "추석(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-123": {
       "number": 1746,
@@ -24486,7 +24498,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석 옷과 책 말리기(오답)",
         "입동 김장(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-124": {
       "number": 1747,
@@ -24497,7 +24509,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지 팥죽으로 잡귀 쫓기(오답)",
         "대보름 쥐불놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-125": {
       "number": 1748,
@@ -24508,7 +24520,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성주제 햇곡식 술·시루떡(오답)",
         "중양절 국화주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-126": {
       "number": 1749,
@@ -24519,7 +24531,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석 송편(오답)",
         "유두 수단(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-127": {
       "number": 1750,
@@ -24530,7 +24542,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지—송편(오답)",
         "단오—송편(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-128": {
       "number": 1751,
@@ -24541,7 +24553,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "쥐불놀이—백중(오답)",
         "가마싸움—백중(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-129": {
       "number": 1752,
@@ -24552,7 +24564,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절—느티떡(오답)",
         "삼짇날—느티떡(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-130": {
       "number": 1753,
@@ -24563,7 +24575,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "옷과 책 말리기—단오(오답)",
         "탁족 놀이—단오(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-131": {
       "number": 1754,
@@ -24574,7 +24586,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "묵은세배—입동(오답)",
         "세배—입동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-132": {
       "number": 1755,
@@ -24585,7 +24597,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "치계미—한식(오답)",
         "호미씻이—한식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-133": {
       "number": 1756,
@@ -24596,7 +24608,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "연등 행사—백중(오답)",
         "찬 음식 먹기—백중(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-134": {
       "number": 1757,
@@ -24607,7 +24619,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석—작은설(오답)",
         "단오—작은설(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 250쪽 세시 풍속"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속 250쪽"
     },
     "special-hist-20260924-135": {
       "number": 1758,
@@ -24618,7 +24630,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김홍집(오답)",
         "유길준(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-136": {
       "number": 1759,
@@ -24629,7 +24641,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준 A03-1(오답)",
         "김옥균 A04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-137": {
       "number": 1760,
@@ -24640,7 +24652,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김홍집 A02-2(오답)",
         "유길준 A03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-138": {
       "number": 1761,
@@ -24651,7 +24663,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김옥균 A04-3(오답)",
         "서재필 A06-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-139": {
       "number": 1762,
@@ -24662,7 +24674,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박정양 A05-5(오답)",
         "서재필 A06-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-140": {
       "number": 1763,
@@ -24673,7 +24685,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준(오답)",
         "박정양(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-141": {
       "number": 1764,
@@ -24684,7 +24696,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박정양 A05-5(오답)",
         "박규수 A01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-142": {
       "number": 1765,
@@ -24695,7 +24707,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박정양 A05-3(오답)",
         "박규수 A01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-143": {
       "number": 1766,
@@ -24706,7 +24718,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서재필 A06-4(오답)",
         "유길준 A03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-144": {
       "number": 1767,
@@ -24717,7 +24729,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수(오답)",
         "서재필(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-145": {
       "number": 1768,
@@ -24728,7 +24740,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수 A01-1(오답)",
         "박정양 A05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-146": {
       "number": 1769,
@@ -24739,7 +24751,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서재필 A06-4(오답)",
         "김옥균 A04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-147": {
       "number": 1770,
@@ -24750,7 +24762,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김홍집 A02-3(오답)",
         "박규수 A01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-148": {
       "number": 1771,
@@ -24761,7 +24773,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서재필 A06-3(오답)",
         "김옥균 A04-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-149": {
       "number": 1772,
@@ -24772,7 +24784,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박정양 A05-2(오답)",
         "김옥균 A04-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-150": {
       "number": 1773,
@@ -24783,7 +24795,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수(오답)",
         "유길준(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-151": {
       "number": 1774,
@@ -24794,7 +24806,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서재필 A06-3(오답)",
         "박정양 A05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-152": {
       "number": 1775,
@@ -24805,7 +24817,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박정양 A05-5(오답)",
         "유길준 A03-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-153": {
       "number": 1776,
@@ -24816,7 +24828,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박정양 A05-5(오답)",
         "서재필 A06-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-154": {
       "number": 1777,
@@ -24827,7 +24839,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준(오답)",
         "서재필(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-155": {
       "number": 1778,
@@ -24838,7 +24850,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서재필 A06-3(오답)",
         "박규수 A01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-156": {
       "number": 1779,
@@ -24849,7 +24861,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수 A01-2(오답)",
         "김옥균 A04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-157": {
       "number": 1780,
@@ -24860,7 +24872,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서재필 A06-1(오답)",
         "박규수 A01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-158": {
       "number": 1781,
@@ -24871,7 +24883,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준 A03-1(오답)",
         "박규수 A01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-159": {
       "number": 1782,
@@ -24882,7 +24894,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준 A03-3(오답)",
         "박규수 A01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-160": {
       "number": 1783,
@@ -24893,7 +24905,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준(오답)",
         "박규수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-161": {
       "number": 1784,
@@ -24904,7 +24916,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준 A03-5(오답)",
         "김홍집 A02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-162": {
       "number": 1785,
@@ -24915,7 +24927,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준 A03-3(오답)",
         "김옥균 A04-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-163": {
       "number": 1786,
@@ -24926,7 +24938,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수 A01-2(오답)",
         "유길준 A03-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-164": {
       "number": 1787,
@@ -24937,7 +24949,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수 A01-2(오답)",
         "김옥균 A04-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-165": {
       "number": 1788,
@@ -24948,7 +24960,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『사민필지』—서재필(오답)",
         "『서유견문』—서재필(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-166": {
       "number": 1789,
@@ -24959,7 +24971,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "허위(오답)",
         "신돌석(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-167": {
       "number": 1790,
@@ -24970,7 +24982,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-3(오답)",
         "최익현 B04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-168": {
       "number": 1791,
@@ -24981,7 +24993,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-3(오답)",
         "최익현 B04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-169": {
       "number": 1792,
@@ -24992,7 +25004,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-3(오답)",
         "허위 B05-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-170": {
       "number": 1793,
@@ -25003,7 +25015,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석(오답)",
         "최제우(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-171": {
       "number": 1794,
@@ -25014,7 +25026,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "손병희 B03-5(오답)",
         "허위 B05-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-172": {
       "number": 1795,
@@ -25025,7 +25037,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석 B06-1(오답)",
         "허위 B05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-173": {
       "number": 1796,
@@ -25036,7 +25048,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "허위 B05-3(오답)",
         "최익현 B04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-174": {
       "number": 1797,
@@ -25047,7 +25059,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "허위 B05-2(오답)",
         "최익현 B04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-175": {
       "number": 1798,
@@ -25058,7 +25070,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석(오답)",
         "허위(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-176": {
       "number": 1799,
@@ -25069,7 +25081,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-4(오답)",
         "신돌석 B06-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-177": {
       "number": 1800,
@@ -25080,7 +25092,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최익현 B04-3(오답)",
         "전봉준 B02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-178": {
       "number": 1801,
@@ -25091,7 +25103,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-4(오답)",
         "허위 B05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-179": {
       "number": 1802,
@@ -25102,7 +25114,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석 B06-1(오답)",
         "최익현 B04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-180": {
       "number": 1803,
@@ -25113,7 +25125,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최익현 B04-4(오답)",
         "전봉준 B02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-181": {
       "number": 1804,
@@ -25124,7 +25136,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "허위 B05-4(오답)",
         "신돌석 B06-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-182": {
       "number": 1805,
@@ -25135,7 +25147,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "손병희(오답)",
         "전봉준(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-183": {
       "number": 1806,
@@ -25146,7 +25158,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-3(오답)",
         "최제우 B01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-184": {
       "number": 1807,
@@ -25157,7 +25169,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-3(오답)",
         "손병희 B03-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-185": {
       "number": 1808,
@@ -25168,7 +25180,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최제우 B01-2(오답)",
         "손병희 B03-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-186": {
       "number": 1809,
@@ -25179,7 +25191,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "허위 B05-4(오답)",
         "전봉준 B02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-187": {
       "number": 1810,
@@ -25190,7 +25202,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준(오답)",
         "손병희(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-188": {
       "number": 1811,
@@ -25201,7 +25213,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석 B06-3(오답)",
         "전봉준 B02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-189": {
       "number": 1812,
@@ -25212,7 +25224,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석 B06-3(오답)",
         "손병희 B03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-190": {
       "number": 1813,
@@ -25223,7 +25235,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "손병희 B03-5(오답)",
         "최제우 B01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-191": {
       "number": 1814,
@@ -25234,7 +25246,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-3(오답)",
         "최익현 B04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-192": {
       "number": 1815,
@@ -25245,7 +25257,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준(오답)",
         "손병희(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-193": {
       "number": 1816,
@@ -25256,7 +25268,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-4(오답)",
         "최익현 B04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-194": {
       "number": 1817,
@@ -25267,7 +25279,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최익현 B04-2(오답)",
         "전봉준 B02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-195": {
       "number": 1818,
@@ -25278,7 +25290,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "손병희 B03-3(오답)",
         "전봉준 B02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-196": {
       "number": 1819,
@@ -25289,7 +25301,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『여유당전서』 간행—손병희(오답)",
         "『동경대전』—손병희(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-197": {
       "number": 1820,
@@ -25300,7 +25312,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설(오답)",
         "이위종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-198": {
       "number": 1821,
@@ -25311,7 +25323,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁 D05-1(오답)",
         "안창호 D06-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-199": {
       "number": 1822,
@@ -25322,7 +25334,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-1(오답)",
         "양기탁 D05-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-200": {
       "number": 1823,
@@ -25333,7 +25345,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-3(오답)",
         "양기탁 D05-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-201": {
       "number": 1824,
@@ -25344,7 +25356,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-4(오답)",
         "이상설 D03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-202": {
       "number": 1825,
@@ -25355,7 +25367,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈(오답)",
         "안창호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-203": {
       "number": 1826,
@@ -25366,7 +25378,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-2(오답)",
         "양기탁 D05-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-204": {
       "number": 1827,
@@ -25377,7 +25389,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-6(오답)",
         "안창호 D06-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-205": {
       "number": 1828,
@@ -25388,7 +25400,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재 D01-4(오답)",
         "조지 쇼 E03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-206": {
       "number": 1829,
@@ -25399,7 +25411,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-6(오답)",
         "안창호 D06-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-207": {
       "number": 1830,
@@ -25410,7 +25422,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁(오답)",
         "이승훈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-208": {
       "number": 1831,
@@ -25421,7 +25433,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-4(오답)",
         "이준 D02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-209": {
       "number": 1832,
@@ -25432,7 +25444,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-1(오답)",
         "안창호 D06-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-210": {
       "number": 1833,
@@ -25443,7 +25455,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-7(오답)",
         "이상재 D01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-211": {
       "number": 1834,
@@ -25454,7 +25466,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-7(오답)",
         "이준 D02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-212": {
       "number": 1835,
@@ -25465,7 +25477,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재 D01-1(오답)",
         "안창호 D06-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-213": {
       "number": 1836,
@@ -25476,7 +25488,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈(오답)",
         "안창호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-214": {
       "number": 1837,
@@ -25487,7 +25499,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-6(오답)",
         "이승훈 D07-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-215": {
       "number": 1838,
@@ -25498,7 +25510,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁 D05-4(오답)",
         "이준 D02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-216": {
       "number": 1839,
@@ -25509,7 +25521,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-6(오답)",
         "안창호 D06-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-217": {
       "number": 1840,
@@ -25520,7 +25532,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재(오답)",
         "이승훈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-218": {
       "number": 1841,
@@ -25531,7 +25543,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설 D03-2(오답)",
         "이준 D02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-219": {
       "number": 1842,
@@ -25542,7 +25554,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재 D01-3(오답)",
         "안창호 D06-7(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-220": {
       "number": 1843,
@@ -25553,7 +25565,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설 D03-2(오답)",
         "이상재 D01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-221": {
       "number": 1844,
@@ -25564,7 +25576,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-7(오답)",
         "이승훈 D07-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-222": {
       "number": 1845,
@@ -25575,7 +25587,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이준(오답)",
         "이승훈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-223": {
       "number": 1846,
@@ -25586,7 +25598,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁 D05-2(오답)",
         "이상설 D03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-224": {
       "number": 1847,
@@ -25597,7 +25609,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이준 D02-1(오답)",
         "이상재 D01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-225": {
       "number": 1848,
@@ -25608,7 +25620,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재 D01-4(오답)",
         "이승훈 D07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-226": {
       "number": 1849,
@@ -25619,7 +25631,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁 D05-3(오답)",
         "이상설 D03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-227": {
       "number": 1850,
@@ -25630,7 +25642,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설 D03-1(오답)",
         "양기탁 D05-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-228": {
       "number": 1851,
@@ -25641,7 +25653,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-6(오답)",
         "이준 D02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-229": {
       "number": 1852,
@@ -25652,7 +25664,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설 D03-2(오답)",
         "이준 D02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-230": {
       "number": 1853,
@@ -25663,7 +25675,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁(오답)",
         "안창호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-231": {
       "number": 1854,
@@ -25674,7 +25686,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁 D05-3(오답)",
         "이상재 D01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-232": {
       "number": 1855,
@@ -25685,7 +25697,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설 D03-1(오답)",
         "양기탁 D05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-233": {
       "number": 1856,
@@ -25696,7 +25708,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설 D03-1(오답)",
         "이위종 D04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-234": {
       "number": 1857,
@@ -25707,7 +25719,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재 D01-4(오답)",
         "안창호 D06-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-235": {
       "number": 1858,
@@ -25718,7 +25730,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-6(오답)",
         "이상재 D01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-236": {
       "number": 1859,
@@ -25729,7 +25741,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁 D05-4(오답)",
         "이상재 D01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-237": {
       "number": 1860,
@@ -25740,7 +25752,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한인 애국단—김원봉(오답)",
         "흥사단—김원봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-238": {
       "number": 1861,
@@ -25751,7 +25763,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘—신흥 강습소(오답)",
         "이상설—신흥 강습소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-239": {
       "number": 1862,
@@ -25762,7 +25774,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "파리 강화 회의 대표—안창호(오답)",
         "헤이그 특사—안창호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-240": {
       "number": 1863,
@@ -25773,7 +25785,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코(오답)",
         "스코필드(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-241": {
       "number": 1864,
@@ -25784,7 +25796,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코 E06-2(오답)",
         "조지 쇼 E03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-242": {
       "number": 1865,
@@ -25795,7 +25807,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼 E03-3(오답)",
         "스코필드 E05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-243": {
       "number": 1866,
@@ -25806,7 +25818,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼 E03-2(오답)",
         "후세 다쓰지 E04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-244": {
       "number": 1867,
@@ -25817,7 +25829,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "헐버트(오답)",
         "가네코 후미코(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-245": {
       "number": 1868,
@@ -25828,7 +25840,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "헐버트 E01-2(오답)",
         "스코필드 E05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-246": {
       "number": 1869,
@@ -25839,7 +25851,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코 E06-1(오답)",
         "후세 다쓰지 E04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-247": {
       "number": 1870,
@@ -25850,7 +25862,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코 E06-3(오답)",
         "후세 다쓰지 E04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-248": {
       "number": 1871,
@@ -25861,7 +25873,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "후세 다쓰지(오답)",
         "헐버트(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-249": {
       "number": 1872,
@@ -25872,7 +25884,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코 E06-2(오답)",
         "이승훈 D07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-250": {
       "number": 1873,
@@ -25883,7 +25895,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "스코필드 E05-3(오답)",
         "후세 다쓰지 E04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-251": {
       "number": 1874,
@@ -25894,7 +25906,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼(오답)",
         "스코필드(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-252": {
       "number": 1875,
@@ -25905,7 +25917,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-1(오답)",
         "이준 D02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-253": {
       "number": 1876,
@@ -25916,7 +25928,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "스코필드 E05-2(오답)",
         "헐버트 E01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-254": {
       "number": 1877,
@@ -25927,7 +25939,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "스코필드 E05-1(오답)",
         "조지 쇼 E03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-255": {
       "number": 1878,
@@ -25938,7 +25950,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "스코필드 E05-2(오답)",
         "베델 E02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-256": {
       "number": 1879,
@@ -25949,7 +25961,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼(오답)",
         "가네코 후미코(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-257": {
       "number": 1880,
@@ -25960,7 +25972,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코 E06-2(오답)",
         "조지 쇼 E03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-258": {
       "number": 1881,
@@ -25971,7 +25983,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "베델 E02-3(오답)",
         "후세 다쓰지 E04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-259": {
       "number": 1882,
@@ -25982,7 +25994,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "헐버트 E01-3(오답)",
         "베델 E02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-260": {
       "number": 1883,
@@ -25993,7 +26005,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코 E06-2(오답)",
         "조지 쇼 E03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-261": {
       "number": 1884,
@@ -26004,7 +26016,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼(오답)",
         "베델(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-262": {
       "number": 1885,
@@ -26015,7 +26027,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "베델 E02-2(오답)",
         "헐버트 E01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-263": {
       "number": 1886,
@@ -26026,7 +26038,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼 E03-3(오답)",
         "스코필드 E05-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-264": {
       "number": 1887,
@@ -26037,7 +26049,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "베델 E02-1(오답)",
         "헐버트 E01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-265": {
       "number": 1888,
@@ -26048,7 +26060,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼—대한매일신보(오답)",
         "가네코 후미코—대한매일신보(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-266": {
       "number": 1889,
@@ -26059,7 +26071,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전명운(오답)",
         "헐버트(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-267": {
       "number": 1890,
@@ -26070,7 +26082,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘 F06-4(오답)",
         "이동녕 F04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-268": {
       "number": 1891,
@@ -26081,7 +26093,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형(오답)",
         "이동녕(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-269": {
       "number": 1892,
@@ -26092,7 +26104,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-3(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-270": {
       "number": 1893,
@@ -26103,7 +26115,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘 F06-4(오답)",
         "최재형 F05-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-271": {
       "number": 1894,
@@ -26114,7 +26126,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘 F06-4(오답)",
         "이상룡 F03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-272": {
       "number": 1895,
@@ -26125,7 +26137,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동녕 F04-1(오답)",
         "이동휘 F06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-273": {
       "number": 1896,
@@ -26136,7 +26148,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-1(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-274": {
       "number": 1897,
@@ -26147,7 +26159,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형(오답)",
         "스코필드(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-275": {
       "number": 1898,
@@ -26158,7 +26170,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘 F06-4(오답)",
         "최재형 F05-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-276": {
       "number": 1899,
@@ -26169,7 +26181,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동녕 F04-4(오답)",
         "최재형 F05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-277": {
       "number": 1900,
@@ -26180,7 +26192,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "베델 E02-3(오답)",
         "최재형 F05-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-278": {
       "number": 1901,
@@ -26191,7 +26203,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형(오답)",
         "가네코 후미코(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-279": {
       "number": 1902,
@@ -26202,7 +26214,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-5(오답)",
         "이동휘 F06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-280": {
       "number": 1903,
@@ -26213,7 +26225,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-1(오답)",
         "이시영 F02-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-281": {
       "number": 1904,
@@ -26224,7 +26236,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-2(오답)",
         "최재형 F05-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-282": {
       "number": 1905,
@@ -26235,7 +26247,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-2(오답)",
         "이시영 F02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-283": {
       "number": 1906,
@@ -26246,7 +26258,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-5(오답)",
         "이상룡 F03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-284": {
       "number": 1907,
@@ -26257,7 +26269,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-6(오답)",
         "이시영 F02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-285": {
       "number": 1908,
@@ -26268,7 +26280,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영(오답)",
         "이동녕(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-286": {
       "number": 1909,
@@ -26279,7 +26291,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘 F06-1(오답)",
         "이시영 F02-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-287": {
       "number": 1910,
@@ -26290,7 +26302,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-5(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-288": {
       "number": 1911,
@@ -26301,7 +26313,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-5(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-289": {
       "number": 1912,
@@ -26312,7 +26324,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동녕 F04-2(오답)",
         "이동휘 F06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-290": {
       "number": 1913,
@@ -26323,7 +26335,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-2(오답)",
         "이상룡 F03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-291": {
       "number": 1914,
@@ -26334,7 +26346,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상룡 F03-1(오답)",
         "이동휘 F06-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-292": {
       "number": 1915,
@@ -26345,7 +26357,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동녕(오답)",
         "이상룡(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-293": {
       "number": 1916,
@@ -26356,7 +26368,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-1(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-294": {
       "number": 1917,
@@ -26367,7 +26379,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-5(오답)",
         "이재명 G04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-295": {
       "number": 1918,
@@ -26378,7 +26390,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-1(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-296": {
       "number": 1919,
@@ -26389,7 +26401,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-6(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-297": {
       "number": 1920,
@@ -26400,7 +26412,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-5(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-298": {
       "number": 1921,
@@ -26411,7 +26423,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동녕 F04-1(오답)",
         "최재형 F05-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-299": {
       "number": 1922,
@@ -26422,7 +26434,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘—경학사(오답)",
         "최재형—경학사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-300": {
       "number": 1923,
@@ -26433,7 +26445,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김익상(오답)",
         "나석주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-301": {
       "number": 1924,
@@ -26444,7 +26456,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤봉길 G09-1(오답)",
         "전명운 G02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-302": {
       "number": 1925,
@@ -26455,7 +26467,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명 G04-2(오답)",
         "윤봉길 G09-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-303": {
       "number": 1926,
@@ -26466,7 +26478,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김익상(오답)",
         "김원봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-304": {
       "number": 1927,
@@ -26477,7 +26489,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤봉길 G09-1(오답)",
         "김원봉 G10-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-305": {
       "number": 1928,
@@ -26488,7 +26500,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김익상(오답)",
         "김원봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-306": {
       "number": 1929,
@@ -26499,7 +26511,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나석주 G06-1(오답)",
         "장인환 G01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-307": {
       "number": 1930,
@@ -26510,7 +26522,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박상진 G05-1(오답)",
         "김원봉 G10-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-308": {
       "number": 1931,
@@ -26521,7 +26533,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전명운 G02-1(오답)",
         "윤봉길 G09-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-309": {
       "number": 1932,
@@ -26532,7 +26544,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박상진 G05-3(오답)",
         "전명운 G02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-310": {
       "number": 1933,
@@ -26543,7 +26555,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이봉창 G08-1(오답)",
         "전명운 G02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-311": {
       "number": 1934,
@@ -26554,7 +26566,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김익상(오답)",
         "박상진(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-312": {
       "number": 1935,
@@ -26565,7 +26577,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장인환 G01-1(오답)",
         "이봉창 G08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-313": {
       "number": 1936,
@@ -26576,7 +26588,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장인환 G01-2(오답)",
         "나석주 G06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-314": {
       "number": 1937,
@@ -26587,7 +26599,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박상진 G05-3(오답)",
         "윤봉길 G09-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-315": {
       "number": 1938,
@@ -26598,7 +26610,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김익상(오답)",
         "전명운(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-316": {
       "number": 1939,
@@ -26609,7 +26621,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이봉창 G08-1(오답)",
         "안중근 G03-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-317": {
       "number": 1940,
@@ -26620,7 +26632,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김원봉 G10-3(오답)",
         "안중근 G03-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-318": {
       "number": 1941,
@@ -26631,7 +26643,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전명운 G02-2(오답)",
         "김익상 G07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-319": {
       "number": 1942,
@@ -26642,7 +26654,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전명운(오답)",
         "이재명(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-320": {
       "number": 1943,
@@ -26653,7 +26665,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명 G04-2(오답)",
         "안중근 G03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-321": {
       "number": 1944,
@@ -26664,7 +26676,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장인환 G01-2(오답)",
         "이재명 G04-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-322": {
       "number": 1945,
@@ -26675,7 +26687,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명 G04-3(오답)",
         "김익상 G07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-323": {
       "number": 1946,
@@ -26686,7 +26698,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장인환(오답)",
         "전명운(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-324": {
       "number": 1947,
@@ -26697,7 +26709,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전명운 G02-2(오답)",
         "나석주 G06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-325": {
       "number": 1948,
@@ -26708,7 +26720,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명 G04-3(오답)",
         "전명운 G02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-326": {
       "number": 1949,
@@ -26719,7 +26731,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박상진(오답)",
         "안중근(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-327": {
       "number": 1950,
@@ -26730,7 +26742,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명 G04-1(오답)",
         "장인환 G01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-328": {
       "number": 1951,
@@ -26741,7 +26753,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장인환(오답)",
         "김익상(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-329": {
       "number": 1952,
@@ -26752,7 +26764,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안중근 G03-5(오답)",
         "김원봉 G10-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-330": {
       "number": 1953,
@@ -26763,7 +26775,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명(오답)",
         "윤봉길(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-331": {
       "number": 1954,
@@ -26774,7 +26786,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장인환 G01-1(오답)",
         "이봉창 G08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-332": {
       "number": 1955,
@@ -26785,7 +26797,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재 D01-2(오답)",
         "장인환 G01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-333": {
       "number": 1956,
@@ -26796,7 +26808,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안중근 G03-2(오답)",
         "전명운 G02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-334": {
       "number": 1957,
@@ -26807,7 +26819,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명 G04-1(오답)",
         "장인환 G01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-335": {
       "number": 1958,
@@ -26818,7 +26830,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안중근 G03-4(오답)",
         "이봉창 G08-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-336": {
       "number": 1959,
@@ -26829,7 +26841,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대한 광복회—김구(오답)",
         "의열단—김구(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-337": {
       "number": 1960,
@@ -26840,7 +26852,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안중근—공립 협회(오답)",
         "장인환—공립 협회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-338": {
       "number": 1961,
@@ -26851,7 +26863,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한국 광복군 총사령관—김좌진(오답)",
         "조선 의용대—김좌진(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-339": {
       "number": 1962,
@@ -26862,7 +26874,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "훙커우 공원—이봉창(오답)",
         "하얼빈역—이봉창(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-340": {
       "number": 1963,
@@ -26873,7 +26885,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김익상—일왕의 마차 행렬(오답)",
         "나석주—일왕의 마차 행렬(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-341": {
       "number": 1964,
@@ -26884,7 +26896,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린(오답)",
         "서일(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-342": {
       "number": 1965,
@@ -26895,7 +26907,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "양세봉 H05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-343": {
       "number": 1966,
@@ -26906,7 +26918,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "서일 H03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-344": {
       "number": 1967,
@@ -26917,7 +26929,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서일 H03-3(오답)",
         "노백린 H06-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-345": {
       "number": 1968,
@@ -26928,7 +26940,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양세봉 H05-2(오답)",
         "지청천 H04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-346": {
       "number": 1969,
@@ -26939,7 +26951,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린(오답)",
         "윤희순(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-347": {
       "number": 1970,
@@ -26950,7 +26962,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "전명운 G02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-348": {
       "number": 1971,
@@ -26961,7 +26973,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양세봉(오답)",
         "지청천(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-349": {
       "number": 1972,
@@ -26972,7 +26984,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-1(오답)",
         "홍범도 H01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-350": {
       "number": 1973,
@@ -26983,7 +26995,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "홍범도 H01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-351": {
       "number": 1974,
@@ -26994,7 +27006,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "김마리아 I03-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-352": {
       "number": 1975,
@@ -27005,7 +27017,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "남자현 I02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-353": {
       "number": 1976,
@@ -27016,7 +27028,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍범도(오답)",
         "양세봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-354": {
       "number": 1977,
@@ -27027,7 +27039,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍범도 H01-4(오답)",
         "양세봉 H05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-355": {
       "number": 1978,
@@ -27038,7 +27050,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-2(오답)",
         "안중근 G03-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-356": {
       "number": 1979,
@@ -27049,7 +27061,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "남자현 I02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-357": {
       "number": 1980,
@@ -27060,7 +27072,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍범도 H01-4(오답)",
         "노백린 H06-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-358": {
       "number": 1981,
@@ -27071,7 +27083,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "홍범도 H01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-359": {
       "number": 1982,
@@ -27082,7 +27094,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서일(오답)",
         "노백린(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-360": {
       "number": 1983,
@@ -27093,7 +27105,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지청천 H04-3(오답)",
         "김좌진 H02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-361": {
       "number": 1984,
@@ -27104,7 +27116,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-1(오답)",
         "홍범도 H01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-362": {
       "number": 1985,
@@ -27115,7 +27127,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서일(오답)",
         "양세봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-363": {
       "number": 1986,
@@ -27126,7 +27138,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지청천 H04-4(오답)",
         "홍범도 H01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-364": {
       "number": 1987,
@@ -27137,7 +27149,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서일 H03-3(오답)",
         "지청천 H04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-365": {
       "number": 1988,
@@ -27148,7 +27160,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍범도 H01-2(오답)",
         "지청천 H04-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-366": {
       "number": 1989,
@@ -27159,7 +27171,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지청천 H04-4(오답)",
         "홍범도 H01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-367": {
       "number": 1990,
@@ -27170,7 +27182,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "자신회—신규식(오답)",
         "중광단—신규식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-368": {
       "number": 1991,
@@ -27181,7 +27193,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한국 독립군—홍범도(오답)",
         "조선 혁명군—홍범도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-369": {
       "number": 1992,
@@ -27192,7 +27204,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대한 독립군—양세봉(오답)",
         "북로 군정서—양세봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-370": {
       "number": 1993,
@@ -27203,7 +27215,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "쌍성보 전투—양세봉(오답)",
         "봉오동 전투—양세봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-371": {
       "number": 1994,
@@ -27214,7 +27226,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김마리아(오답)",
         "남자현(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-372": {
       "number": 1995,
@@ -27225,7 +27237,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-4(오답)",
         "권기옥 I07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-373": {
       "number": 1996,
@@ -27236,7 +27248,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김마리아 I03-3(오답)",
         "박차정 I04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-374": {
       "number": 1997,
@@ -27247,7 +27259,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권기옥 I07-1(오답)",
         "오광심 I05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-375": {
       "number": 1998,
@@ -27258,7 +27270,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심(오답)",
         "박차정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-376": {
       "number": 1999,
@@ -27269,7 +27281,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤희순 I01-2(오답)",
         "오광심 I05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-377": {
       "number": 2000,
@@ -27280,7 +27292,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박차정 I04-2(오답)",
         "오광심 I05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-378": {
       "number": 2001,
@@ -27291,7 +27303,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-4(오답)",
         "김마리아 I03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-379": {
       "number": 2002,
@@ -27302,7 +27314,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-2(오답)",
         "김마리아 I03-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-380": {
       "number": 2003,
@@ -27313,7 +27325,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박차정 I04-4(오답)",
         "윤희순 I01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-381": {
       "number": 2004,
@@ -27324,7 +27336,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유관순 I06-1(오답)",
         "오광심 I05-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-382": {
       "number": 2005,
@@ -27335,7 +27347,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유관순(오답)",
         "스코필드(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-383": {
       "number": 2006,
@@ -27346,7 +27358,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-2(오답)",
         "남자현 I02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-384": {
       "number": 2007,
@@ -27357,7 +27369,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현 I02-4(오답)",
         "오광심 I05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-385": {
       "number": 2008,
@@ -27368,7 +27380,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤희순 I01-2(오답)",
         "권기옥 I07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-386": {
       "number": 2009,
@@ -27379,7 +27391,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-4(오답)",
         "남자현 I02-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-387": {
       "number": 2010,
@@ -27390,7 +27402,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심(오답)",
         "김마리아(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-388": {
       "number": 2011,
@@ -27401,7 +27413,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현 I02-4(오답)",
         "윤희순 I01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-389": {
       "number": 2012,
@@ -27412,7 +27424,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현 I02-2(오답)",
         "윤희순 I01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-390": {
       "number": 2013,
@@ -27423,7 +27435,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현 I02-6(오답)",
         "김마리아 I03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-391": {
       "number": 2014,
@@ -27434,7 +27446,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권기옥 I07-1(오답)",
         "남자현 I02-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-392": {
       "number": 2015,
@@ -27445,7 +27457,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현(오답)",
         "김마리아(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-393": {
       "number": 2016,
@@ -27456,7 +27468,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박차정 I04-1(오답)",
         "윤희순 I01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-394": {
       "number": 2017,
@@ -27467,7 +27479,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤희순 I01-2(오답)",
         "박차정 I04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-395": {
       "number": 2018,
@@ -27478,7 +27490,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유관순 I06-2(오답)",
         "남자현 I02-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-396": {
       "number": 2019,
@@ -27489,7 +27501,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이위종 D04-3(오답)",
         "권기옥 I07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-397": {
       "number": 2020,
@@ -27500,7 +27512,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현(오답)",
         "윤희순(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-398": {
       "number": 2021,
@@ -27511,7 +27523,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-4(오답)",
         "권기옥 I07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-399": {
       "number": 2022,
@@ -27522,7 +27534,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현 I02-3(오답)",
         "권기옥 I07-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-400": {
       "number": 2023,
@@ -27533,7 +27545,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-4(오답)",
         "남자현 I02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-401": {
       "number": 2024,
@@ -27544,7 +27556,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유관순(오답)",
         "박차정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-402": {
       "number": 2025,
@@ -27555,7 +27567,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유관순 I06-3(오답)",
         "김마리아 I03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-403": {
       "number": 2026,
@@ -27566,7 +27578,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지청천 H04-4(오답)",
         "김창숙 J07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-404": {
       "number": 2027,
@@ -27577,7 +27589,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김마리아 I03-4(오답)",
         "남자현 I02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-405": {
       "number": 2028,
@@ -27588,7 +27600,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권기옥—근우회(오답)",
         "남자현—근우회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-406": {
       "number": 2029,
@@ -27599,7 +27611,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장준하(오답)",
         "신규식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-407": {
       "number": 2030,
@@ -27610,7 +27622,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여운형 J05-4(오답)",
         "조소앙 J03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-408": {
       "number": 2031,
@@ -27621,7 +27633,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식 J04-4(오답)",
         "여운형 J05-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-409": {
       "number": 2032,
@@ -27632,7 +27644,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-2(오답)",
         "조소앙 J03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-410": {
       "number": 2033,
@@ -27643,7 +27655,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-4(오답)",
         "여운형 J05-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-411": {
       "number": 2034,
@@ -27654,7 +27666,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-3(오답)",
         "김규식 J04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-412": {
       "number": 2035,
@@ -27665,7 +27677,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안희제(오답)",
         "김병로(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-413": {
       "number": 2036,
@@ -27676,7 +27688,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장준하 J09-4(오답)",
         "김창숙 J07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-414": {
       "number": 2037,
@@ -27687,7 +27699,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-4(오답)",
         "김병로 J08-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-415": {
       "number": 2038,
@@ -27698,7 +27710,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식 J04-2(오답)",
         "김병로 J08-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-416": {
       "number": 2039,
@@ -27709,7 +27721,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-1(오답)",
         "김규식 J04-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-417": {
       "number": 2040,
@@ -27720,7 +27732,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여운형 J05-4(오답)",
         "김구 J01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-418": {
       "number": 2041,
@@ -27731,7 +27743,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식 J04-5(오답)",
         "김구 J01-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-419": {
       "number": 2042,
@@ -27742,7 +27754,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙(오답)",
         "여운형(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-420": {
       "number": 2043,
@@ -27753,7 +27765,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-5(오답)",
         "김구 J01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-421": {
       "number": 2044,
@@ -27764,7 +27776,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-4(오답)",
         "여운형 J05-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-422": {
       "number": 2045,
@@ -27775,7 +27787,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식 J04-4(오답)",
         "신규식 J02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-423": {
       "number": 2046,
@@ -27786,7 +27798,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김구 J01-5(오답)",
         "김창숙 J07-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-424": {
       "number": 2047,
@@ -27797,7 +27809,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안희제(오답)",
         "신규식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-425": {
       "number": 2048,
@@ -27808,7 +27820,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-3(오답)",
         "김구 J01-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-426": {
       "number": 2049,
@@ -27819,7 +27831,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-5(오답)",
         "김구 J01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-427": {
       "number": 2050,
@@ -27830,7 +27842,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-3(오답)",
         "조소앙 J03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-428": {
       "number": 2051,
@@ -27841,7 +27853,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-3(오답)",
         "장준하 J09-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-429": {
       "number": 2052,
@@ -27852,7 +27864,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조소앙 J03-4(오답)",
         "장준하 J09-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-430": {
       "number": 2053,
@@ -27863,7 +27875,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안희제(오답)",
         "신규식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-431": {
       "number": 2054,
@@ -27874,7 +27886,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조소앙 J03-2(오답)",
         "안희제 J06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-432": {
       "number": 2055,
@@ -27885,7 +27897,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장준하 J09-2(오답)",
         "김창숙 J07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-433": {
       "number": 2056,
@@ -27896,7 +27908,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-1(오답)",
         "김병로 J08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-434": {
       "number": 2057,
@@ -27907,7 +27919,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-2(오답)",
         "신규식 J02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-435": {
       "number": 2058,
@@ -27918,7 +27930,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안희제 J06-1(오답)",
         "김창숙 J07-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-436": {
       "number": 2059,
@@ -27929,7 +27941,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김구 J01-4(오답)",
         "김창숙 J07-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-437": {
       "number": 2060,
@@ -27940,7 +27952,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식(오답)",
         "김규식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-438": {
       "number": 2061,
@@ -27951,7 +27963,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-5(오답)",
         "여운형 J05-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-439": {
       "number": 2062,
@@ -27962,7 +27974,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-2(오답)",
         "김병로 J08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-440": {
       "number": 2063,
@@ -27973,7 +27985,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-6(오답)",
         "조소앙 J03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-441": {
       "number": 2064,
@@ -27984,7 +27996,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식(오답)",
         "장준하(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-442": {
       "number": 2065,
@@ -27995,7 +28007,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-3(오답)",
         "김규식 J04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-443": {
       "number": 2066,
@@ -28006,7 +28018,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-1(오답)",
         "신규식 J02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-444": {
       "number": 2067,
@@ -28017,7 +28029,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-3(오답)",
         "장준하 J09-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-445": {
       "number": 2068,
@@ -28028,7 +28040,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-3(오답)",
         "신규식 J02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-446": {
       "number": 2069,
@@ -28039,7 +28051,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조소앙 J03-1(오답)",
         "김규식 J04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-447": {
       "number": 2070,
@@ -28050,7 +28062,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-3(오답)",
         "안희제 J06-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-448": {
       "number": 2071,
@@ -28061,7 +28073,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식(오답)",
         "조소앙(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-449": {
       "number": 2072,
@@ -28072,7 +28084,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-1(오답)",
         "김창숙 J07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-450": {
       "number": 2073,
@@ -28083,7 +28095,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여운형 J05-6(오답)",
         "조소앙 J03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-451": {
       "number": 2074,
@@ -28094,7 +28106,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-2(오답)",
         "여운형 J05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-452": {
       "number": 2075,
@@ -28105,7 +28117,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안희제 J06-1(오답)",
         "김창숙 J07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-453": {
       "number": 2076,
@@ -28116,7 +28128,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식(오답)",
         "여운형(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-454": {
       "number": 2077,
@@ -28127,7 +28139,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식 J04-5(오답)",
         "김구 J01-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-455": {
       "number": 2078,
@@ -28138,7 +28150,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이준 D02-2(오답)",
         "김구 J01-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-456": {
       "number": 2079,
@@ -28149,7 +28161,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여운형 J05-4(오답)",
         "김창숙 J07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-457": {
       "number": 2080,
@@ -28160,7 +28172,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-1(오답)",
         "신규식 J02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-458": {
       "number": 2081,
@@ -28171,7 +28183,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대동 청년당—김병로(오답)",
         "동제사—김병로(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-459": {
       "number": 2082,
@@ -28182,7 +28194,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "민족 자주 연맹—장준하(오답)",
         "신한 청년당—장준하(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-460": {
       "number": 2083,
@@ -28193,7 +28205,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조소앙—한인 애국단(오답)",
         "여운형—한인 애국단(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-461": {
       "number": 2084,
@@ -28204,7 +28216,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백남운(오답)",
         "이윤재(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-462": {
       "number": 2085,
@@ -28215,7 +28227,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-4(오답)",
         "최현배 K03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-463": {
       "number": 2086,
@@ -28226,7 +28238,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나철 K09-2(오답)",
         "최현배 K03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-464": {
       "number": 2087,
@@ -28237,7 +28249,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백남운 K08-1(오답)",
         "박은식 K04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-465": {
       "number": 2088,
@@ -28248,7 +28260,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-1(오답)",
         "정인보 K06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-466": {
       "number": 2089,
@@ -28259,7 +28271,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안재홍 K07-2(오답)",
         "이윤재 K02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-467": {
       "number": 2090,
@@ -28270,7 +28282,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안재홍(오답)",
         "정인보(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-468": {
       "number": 2091,
@@ -28281,7 +28293,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안재홍 K07-3(오답)",
         "신채호 K05-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-469": {
       "number": 2092,
@@ -28292,7 +28304,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정인보 K06-1(오답)",
         "박은식 K04-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-470": {
       "number": 2093,
@@ -28303,7 +28315,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-4(오답)",
         "박은식 K04-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-471": {
       "number": 2094,
@@ -28314,7 +28326,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경 K01-1(오답)",
         "최현배 K03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-472": {
       "number": 2095,
@@ -28325,7 +28337,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-2(오답)",
         "나철 K09-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-473": {
       "number": 2096,
@@ -28336,7 +28348,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박은식(오답)",
         "백남운(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-474": {
       "number": 2097,
@@ -28347,7 +28359,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-4(오답)",
         "안재홍 K07-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-475": {
       "number": 2098,
@@ -28358,7 +28370,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박은식 K04-4(오답)",
         "안재홍 K07-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-476": {
       "number": 2099,
@@ -28369,7 +28381,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박은식 K04-3(오답)",
         "이윤재 K02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-477": {
       "number": 2100,
@@ -28380,7 +28392,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경 K01-1(오답)",
         "안재홍 K07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-478": {
       "number": 2101,
@@ -28391,7 +28403,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경(오답)",
         "나철(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-479": {
       "number": 2102,
@@ -28402,7 +28414,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최현배 K03-4(오답)",
         "주시경 K01-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-480": {
       "number": 2103,
@@ -28413,7 +28425,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최현배 K03-4(오답)",
         "이윤재 K02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-481": {
       "number": 2104,
@@ -28424,7 +28436,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-3(오답)",
         "안재홍 K07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-482": {
       "number": 2105,
@@ -28435,7 +28447,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-2(오답)",
         "안재홍 K07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-483": {
       "number": 2106,
@@ -28446,7 +28458,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-2(오답)",
         "나철 K09-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-484": {
       "number": 2107,
@@ -28457,7 +28469,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최현배 K03-4(오답)",
         "이윤재 K02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-485": {
       "number": 2108,
@@ -28468,7 +28480,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최현배(오답)",
         "주시경(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-486": {
       "number": 2109,
@@ -28479,7 +28491,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백남운 K08-2(오답)",
         "박은식 K04-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-487": {
       "number": 2110,
@@ -28490,7 +28502,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-4(오답)",
         "나철 K09-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-488": {
       "number": 2111,
@@ -28501,7 +28513,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-5(오답)",
         "안재홍 K07-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-489": {
       "number": 2112,
@@ -28512,7 +28524,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경 K01-1(오답)",
         "이윤재 K02-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-490": {
       "number": 2113,
@@ -28523,7 +28535,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경(오답)",
         "나철(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-491": {
       "number": 2114,
@@ -28534,7 +28546,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나철 K09-3(오답)",
         "백남운 K08-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-492": {
       "number": 2115,
@@ -28545,7 +28557,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백남운 K08-2(오답)",
         "박은식 K04-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-493": {
       "number": 2116,
@@ -28556,7 +28568,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경(오답)",
         "나철(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-494": {
       "number": 2117,
@@ -28567,7 +28579,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-3(오답)",
         "백남운 K08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-495": {
       "number": 2118,
@@ -28578,7 +28590,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-4(오답)",
         "나철 K09-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-496": {
       "number": 2119,
@@ -28589,7 +28601,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나철 K09-3(오답)",
         "박은식 K04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-497": {
       "number": 2120,
@@ -28600,7 +28612,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-4(오답)",
         "나철 K09-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-498": {
       "number": 2121,
@@ -28611,7 +28623,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백남운 K08-3(오답)",
         "박은식 K04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-499": {
       "number": 2122,
@@ -28622,7 +28634,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재(오답)",
         "최현배(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-500": {
       "number": 2123,
@@ -28633,7 +28645,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-3(오답)",
         "박은식 K04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-501": {
       "number": 2124,
@@ -28644,7 +28656,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박은식 K04-5(오답)",
         "나철 K09-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-502": {
       "number": 2125,
@@ -28655,7 +28667,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박은식 K04-3(오답)",
         "나철 K09-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-503": {
       "number": 2126,
@@ -28666,7 +28678,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안재홍(오답)",
         "최현배(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-504": {
       "number": 2127,
@@ -28677,7 +28689,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-1(오답)",
         "주시경 K01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-505": {
       "number": 2128,
@@ -28688,7 +28700,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-2(오답)",
         "이윤재 K02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-506": {
       "number": 2129,
@@ -28699,7 +28711,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-2(오답)",
         "안재홍 K07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 253쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 253쪽"
     },
     "special-hist-20260924-507": {
       "number": 2130,
@@ -28710,7 +28722,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재—동제사(오답)",
         "주시경—동제사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-508": {
       "number": 2131,
@@ -28721,7 +28733,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『조선상고사』—정인보(오답)",
         "『한국통사』—정인보(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 252쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 252쪽"
     },
     "special-hist-20260924-509": {
       "number": 2132,
@@ -28732,7 +28744,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『조선상고사감』—신채호(오답)",
         "『조선사회경제사』—신채호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-510": {
       "number": 2133,
@@ -28743,7 +28755,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『조선상고사감』—백남운(오답)",
         "「5천 년간 조선의 얼」—백남운(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-511": {
       "number": 2134,
@@ -28754,7 +28766,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『우리말본』—이윤재(오답)",
         "『국어문법』—이윤재(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-512": {
       "number": 2135,
@@ -28765,7 +28777,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "「독사신론」—국혼 강조(오답)",
         "「조선 혁명 선언」—국혼 강조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-513": {
       "number": 2136,
@@ -28776,7 +28788,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전형필(오답)",
         "윤동주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-514": {
       "number": 2137,
@@ -28787,7 +28799,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "심훈 L02-3(오답)",
         "이육사 L03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-515": {
       "number": 2138,
@@ -28798,7 +28810,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤동주 L04-3(오답)",
         "정세권 L08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-516": {
       "number": 2139,
@@ -28809,7 +28821,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전형필 L07-1(오답)",
         "이육사 L03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-517": {
       "number": 2140,
@@ -28820,7 +28832,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-3(오답)",
         "윤동주 L04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-518": {
       "number": 2141,
@@ -28831,7 +28843,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "심훈 L02-2(오답)",
         "나운규 L06-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-519": {
       "number": 2142,
@@ -28842,7 +28854,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나운규(오답)",
         "정세권(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-520": {
       "number": 2143,
@@ -28853,7 +28865,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-3(오답)",
         "윤동주 L04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-521": {
       "number": 2144,
@@ -28864,7 +28876,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-4(오답)",
         "이육사 L03-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-522": {
       "number": 2145,
@@ -28875,7 +28887,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정세권 L08-2(오답)",
         "방정환 L05-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-523": {
       "number": 2146,
@@ -28886,7 +28898,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤동주 L04-4(오답)",
         "이육사 L03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-524": {
       "number": 2147,
@@ -28897,7 +28909,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤동주(오답)",
         "방정환(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-525": {
       "number": 2148,
@@ -28908,7 +28920,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-2(오답)",
         "심훈 L02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-526": {
       "number": 2149,
@@ -28919,7 +28931,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한용운 L01-2(오답)",
         "전형필 L07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-527": {
       "number": 2150,
@@ -28930,7 +28942,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정세권 L08-2(오답)",
         "나운규 L06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-528": {
       "number": 2151,
@@ -28941,7 +28953,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정세권 L08-2(오답)",
         "윤동주 L04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-529": {
       "number": 2152,
@@ -28952,7 +28964,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나운규 L06-2(오답)",
         "심훈 L02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-530": {
       "number": 2153,
@@ -28963,7 +28975,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이육사(오답)",
         "심훈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-531": {
       "number": 2154,
@@ -28974,7 +28986,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-2(오답)",
         "심훈 L02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-532": {
       "number": 2155,
@@ -28985,7 +28997,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정세권 L08-2(오답)",
         "전형필 L07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-533": {
       "number": 2156,
@@ -28996,7 +29008,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한용운 L01-2(오답)",
         "정세권 L08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-534": {
       "number": 2157,
@@ -29007,7 +29019,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "심훈 L02-4(오답)",
         "정세권 L08-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-535": {
       "number": 2158,
@@ -29018,7 +29030,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정세권(오답)",
         "심훈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-536": {
       "number": 2159,
@@ -29029,7 +29041,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한용운 L01-5(오답)",
         "나운규 L06-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-537": {
       "number": 2160,
@@ -29040,7 +29052,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이육사 L03-1(오답)",
         "한용운 L01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-538": {
       "number": 2161,
@@ -29051,7 +29063,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한용운 L01-4(오답)",
         "윤동주 L04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-539": {
       "number": 2162,
@@ -29062,7 +29074,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤동주 L04-2(오답)",
         "이육사 L03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-540": {
       "number": 2163,
@@ -29073,7 +29085,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이육사(오답)",
         "정인보(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-541": {
       "number": 2164,
@@ -29084,7 +29096,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이육사 L03-5(오답)",
         "윤동주 L04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-542": {
       "number": 2165,
@@ -29095,7 +29107,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-1(오답)",
         "윤동주 L04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-543": {
       "number": 2166,
@@ -29106,7 +29118,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "심훈(오답)",
         "윤동주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-544": {
       "number": 2167,
@@ -29117,7 +29129,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경 K01-4(오답)",
         "윤동주 L04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-545": {
       "number": 2168,
@@ -29128,7 +29140,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정세권 L08-1(오답)",
         "이육사 L03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-546": {
       "number": 2169,
@@ -29139,7 +29151,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나운규(오답)",
         "전형필(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-547": {
       "number": 2170,
@@ -29150,7 +29162,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤동주 L04-3(오답)",
         "전형필 L07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-548": {
       "number": 2171,
@@ -29161,7 +29173,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-4(오답)",
         "심훈 L02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-549": {
       "number": 2172,
@@ -29172,7 +29184,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이육사 L03-3(오답)",
         "윤동주 L04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 255쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 255쪽"
     },
     "special-hist-20260924-550": {
       "number": 2173,
@@ -29183,7 +29195,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "근화회—남자현(오답)",
         "색동회—남자현(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     },
     "special-hist-20260924-551": {
       "number": 2174,
@@ -29194,7 +29206,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동양 평화론』—박은식(오답)",
         "『조선불교유신론』—박은식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 254쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 254쪽"
     },
     "special-hist-20260924-552": {
       "number": 2175,
@@ -29205,7 +29217,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『하늘과 바람과 별과 시』—이육사(오답)",
         "『상록수』—이육사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) · 특강 세시 풍속과 근·현대 인물 256쪽 근·현대 인물"
+      "sourceSection": "자체 제작(기출 원문 아님) · 특강 근·현대 인물 256쪽"
     }
   }
 };
