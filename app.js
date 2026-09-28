@@ -931,7 +931,7 @@ function basicsLineSections(box,apply){
 // 암기법 = 사용자가 만든 외우는 낱말(quiz-options.js HISTORY_MNEMONICS 블록 — 상자에는 id와 부르는 낱말만). 풀이 줄 · 상상 장면 · '소리만 빌린 말' 주의만 보인다.
 // 블록이 넷 이상인 상자는 해설 화면에서 이 문제의 대입에 나오는 블록만 제자리에 두고 나머지는 닫힌 '이 파트의 다른 암기법 N개 더 보기'에.
 function basicsMnemonic(id){const b=globalThis.HISTORY_MNEMONICS?.get(id);if(!b)return null;const d=elem('div',undefined,'b-mn');d.dataset.mn=id;
- if(b.items.map(i=>i[0]).join(' · ')!==b.hook)d.append(elem('p',b.hook,'b-mn-hook'));
+ const words=b.items.map(i=>i[0]);if(words.join(' · ')!==b.hook&&words[0]!==b.hook)d.append(elem('p',b.hook,'b-mn-hook'));
  for(const [w,t] of b.items){const p=elem('p',undefined,'b-mn-item');p.append(elem('b',w),document.createTextNode(' — '+t));d.append(p);}
  if(b.scene)d.append(elem('p','상상 장면: '+b.scene,'b-mn-scene'));
  if(b.trap&&/소리만|잘못 만든|외우면 틀린/.test(b.trap))d.append(elem('p','주의: '+b.trap,'b-mn-trap'));
