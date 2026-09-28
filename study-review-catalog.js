@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 2215,
+  "total": 2235,
   "sets": [
     {
       "number": 1,
@@ -3951,6 +3951,44 @@ globalThis.STUDY_REVIEW_CATALOG={
         "joseonlate2-hist-20260928-019",
         "joseonlate2-hist-20260928-020"
       ]
+    },
+    {
+      "number": 290,
+      "title": "24강 조선 후기(경제) 1",
+      "ids": [
+        "joseonlate3-hist-20260928-001",
+        "joseonlate3-hist-20260928-002",
+        "joseonlate3-hist-20260928-003",
+        "joseonlate3-hist-20260928-004",
+        "joseonlate3-hist-20260928-005",
+        "joseonlate3-hist-20260928-006",
+        "joseonlate3-hist-20260928-007",
+        "joseonlate3-hist-20260928-008"
+      ]
+    },
+    {
+      "number": 291,
+      "title": "24강 조선 후기(경제) 2",
+      "ids": [
+        "joseonlate3-hist-20260928-009",
+        "joseonlate3-hist-20260928-010",
+        "joseonlate3-hist-20260928-011",
+        "joseonlate3-hist-20260928-012",
+        "joseonlate3-hist-20260928-013",
+        "joseonlate3-hist-20260928-014",
+        "joseonlate3-hist-20260928-015",
+        "joseonlate3-hist-20260928-016"
+      ]
+    },
+    {
+      "number": 292,
+      "title": "24강 조선 후기(경제) 3",
+      "ids": [
+        "joseonlate3-hist-20260928-017",
+        "joseonlate3-hist-20260928-018",
+        "joseonlate3-hist-20260928-019",
+        "joseonlate3-hist-20260928-020"
+      ]
     }
   ],
   "lectures": [
@@ -6207,6 +6245,54 @@ globalThis.STUDY_REVIEW_CATALOG={
         "joseonlate2-hist-20260928-018",
         "joseonlate2-hist-20260928-019",
         "joseonlate2-hist-20260928-020"
+      ]
+    },
+    {
+      "id": "24",
+      "title": "24강 조선 후기(경제)",
+      "ids": [
+        "joseonlate3-hist-20260928-001",
+        "joseonlate3-hist-20260928-002",
+        "joseonlate3-hist-20260928-003",
+        "joseonlate3-hist-20260928-004",
+        "joseonlate3-hist-20260928-005",
+        "joseonlate3-hist-20260928-006",
+        "joseonlate3-hist-20260928-007",
+        "joseonlate3-hist-20260928-008",
+        "joseonlate3-hist-20260928-009",
+        "joseonlate3-hist-20260928-010",
+        "joseonlate3-hist-20260928-011",
+        "joseonlate3-hist-20260928-012",
+        "joseonlate3-hist-20260928-013",
+        "joseonlate3-hist-20260928-014",
+        "joseonlate3-hist-20260928-015",
+        "joseonlate3-hist-20260928-016",
+        "joseonlate3-hist-20260928-017",
+        "joseonlate3-hist-20260928-018",
+        "joseonlate3-hist-20260928-019",
+        "joseonlate3-hist-20260928-020"
+      ],
+      "core": [
+        "joseonlate3-hist-20260928-001",
+        "joseonlate3-hist-20260928-002",
+        "joseonlate3-hist-20260928-003",
+        "joseonlate3-hist-20260928-004",
+        "joseonlate3-hist-20260928-005",
+        "joseonlate3-hist-20260928-006",
+        "joseonlate3-hist-20260928-007",
+        "joseonlate3-hist-20260928-008",
+        "joseonlate3-hist-20260928-009",
+        "joseonlate3-hist-20260928-010",
+        "joseonlate3-hist-20260928-011",
+        "joseonlate3-hist-20260928-012",
+        "joseonlate3-hist-20260928-013",
+        "joseonlate3-hist-20260928-014",
+        "joseonlate3-hist-20260928-015",
+        "joseonlate3-hist-20260928-016",
+        "joseonlate3-hist-20260928-017",
+        "joseonlate3-hist-20260928-018",
+        "joseonlate3-hist-20260928-019",
+        "joseonlate3-hist-20260928-020"
       ]
     },
     {
@@ -30346,6 +30432,242 @@ globalThis.STUDY_REVIEW_CATALOG={
         "송시열 북벌(효종, 오답)"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 23강 조선 후기(조직, 외교) 025쪽 일본과의 외교(독도 문제)"
+    },
+    "joseonlate3-hist-20260928-001": {
+      "number": 2216,
+      "section": "조선 후기 수취 체제",
+      "coverage": [
+        "대동법 → 공인 등장(정답)",
+        "방납·토지 결수·경기도(단서)",
+        "결작·선무군관포(균역법, 영조, 오답)",
+        "연분 9등법(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 수취 체제의 개편"
+    },
+    "joseonlate3-hist-20260928-002": {
+      "number": 2217,
+      "section": "조선 후기 농촌 경제",
+      "coverage": [
+        "상품 작물 재배(정답)",
+        "이앙법 사료(단서)",
+        "우경(지증왕, 오답)",
+        "『농사직설』(세종, 오답)",
+        "관료전(신문왕, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 농촌 경제의 변화"
+    },
+    "joseonlate3-hist-20260928-003": {
+      "number": 2218,
+      "section": "사상과 장시·포구 상업",
+      "coverage": [
+        "송상 송방(정답)",
+        "개성·인삼·사개치부법(단서)",
+        "만상(오답)",
+        "내상(오답)",
+        "경강상인(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 상업의 발달(사상·장시·포구)"
+    },
+    "joseonlate3-hist-20260928-004": {
+      "number": 2219,
+      "section": "조선 후기 대외 무역",
+      "coverage": [
+        "왜관 무역(정답)",
+        "책문 후시 사료(단서)",
+        "삼포 개항·계해약조(세종, 오답)",
+        "청해진(흥덕왕, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 상업의 발달(대외 무역)"
+    },
+    "joseonlate3-hist-20260928-005": {
+      "number": 2220,
+      "section": "화폐 경제의 발달",
+      "coverage": [
+        "상평통보(숙종, 정답)",
+        "백두산정계비·금위영(단서)",
+        "대동법 경기도(광해군, 오답)",
+        "영정법(인조, 오답)",
+        "균역법(영조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 화폐 경제의 발달"
+    },
+    "joseonlate3-hist-20260928-006": {
+      "number": 2221,
+      "section": "조선 후기 수공업과 광업",
+      "coverage": [
+        "덕대(정답)",
+        "책문 후시·은 수요(단서)",
+        "건원중보(고려 성종, 오답)",
+        "동시전(지증왕, 오답)",
+        "은병(고려 숙종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 수공업과 광업의 발달"
+    },
+    "joseonlate3-hist-20260928-007": {
+      "number": 2222,
+      "section": "조선 후기 수취 체제",
+      "coverage": [
+        "균역법 재정 보충 결작(정답)",
+        "균역법 사료(단서)",
+        "대동법(광해군, 오답)",
+        "호포제(고종, 오답)",
+        "연분 9등법(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 수취 체제의 개편"
+    },
+    "joseonlate3-hist-20260928-008": {
+      "number": 2223,
+      "section": "사상과 장시·포구 상업",
+      "coverage": [
+        "보부상(정답)",
+        "봇짐·등짐·장시 순회(단서)",
+        "객주·여각(오답)",
+        "만상(오답)",
+        "공인(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 상업의 발달(사상·장시·포구)"
+    },
+    "joseonlate3-hist-20260928-009": {
+      "number": 2224,
+      "section": "조선 후기 수취 체제",
+      "coverage": [
+        "대동법 토지 결수 기준(정답)",
+        "대동법 확대 사료(단서)",
+        "영정법(인조, 오답)",
+        "호포제(고종, 오답)",
+        "공법(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 수취 체제의 개편"
+    },
+    "joseonlate3-hist-20260928-010": {
+      "number": 2225,
+      "section": "조선 후기 농촌 경제",
+      "coverage": [
+        "구황 작물(정답)",
+        "『경세유표』 상품 작물(단서)",
+        "전시과(고려 경종, 오답)",
+        "관료전(신문왕, 오답)",
+        "과전법(공양왕, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 농촌 경제의 변화"
+    },
+    "joseonlate3-hist-20260928-011": {
+      "number": 2226,
+      "section": "조선 후기 대외 무역",
+      "coverage": [
+        "만상 대청 무역(정답)",
+        "의주·유상·송상(단서)",
+        "내상(오답)",
+        "경강상인(오답)",
+        "보부상(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 상업의 발달(대외 무역)"
+    },
+    "joseonlate3-hist-20260928-012": {
+      "number": 2227,
+      "section": "사상과 장시·포구 상업",
+      "coverage": [
+        "도고(정답)",
+        "「허생전」 매점매석(단서)",
+        "보부상(오답)",
+        "객주·여각(오답)",
+        "공인(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 상업의 발달(사상·장시·포구)"
+    },
+    "joseonlate3-hist-20260928-013": {
+      "number": 2228,
+      "section": "조선 후기 수공업과 광업",
+      "coverage": [
+        "설점수세제(효종, 정답)",
+        "은점·세금·물주 사료(단서)",
+        "조선 초기 정부 채굴(오답)",
+        "잠채(오답)",
+        "선대제(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 수공업과 광업의 발달"
+    },
+    "joseonlate3-hist-20260928-014": {
+      "number": 2229,
+      "section": "조선 후기 수취 체제",
+      "coverage": [
+        "영정법(인조, 정답)",
+        "양 난 뒤 전세 문란(단서)",
+        "공법(세종, 오답)",
+        "직전법(세조, 오답)",
+        "균역법(영조, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 수취 체제의 개편"
+    },
+    "joseonlate3-hist-20260928-015": {
+      "number": 2230,
+      "section": "사상과 장시·포구 상업",
+      "coverage": [
+        "객주·여각(정답)",
+        "강경포·선상(단서)",
+        "동시전(지증왕, 오답)",
+        "청해진(흥덕왕, 오답)",
+        "건원중보(고려 성종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 상업의 발달(사상·장시·포구)"
+    },
+    "joseonlate3-hist-20260928-016": {
+      "number": 2231,
+      "section": "화폐 경제의 발달",
+      "coverage": [
+        "전황(정답)",
+        "『우서』·『비변사등록』 사료(단서)",
+        "방납(대동법 배경, 오답)",
+        "도고(오답)",
+        "잠채(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 화폐 경제의 발달"
+    },
+    "joseonlate3-hist-20260928-017": {
+      "number": 2232,
+      "section": "조선 후기 농촌 경제",
+      "coverage": [
+        "벼·보리 이모작(정답)",
+        "이앙법·광작 사료(단서)",
+        "우경(지증왕, 오답)",
+        "관료전(신문왕, 오답)",
+        "과전법(공양왕, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 농촌 경제의 변화"
+    },
+    "joseonlate3-hist-20260928-018": {
+      "number": 2233,
+      "section": "조선 후기 수취 체제",
+      "coverage": [
+        "균역법 1필(영조, 정답)",
+        "영정법·대동법 내용 뒤바꿈(오답)",
+        "연분 9등법(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 수취 체제의 개편"
+    },
+    "joseonlate3-hist-20260928-019": {
+      "number": 2234,
+      "section": "조선 후기 대외 무역",
+      "coverage": [
+        "중강·책문 개시·후시(정답)",
+        "왜관·만상·내상·송상(단서)",
+        "삼포 개항(세종, 오답)",
+        "청해진(흥덕왕, 오답)",
+        "계해약조(세종, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 상업의 발달(대외 무역)"
+    },
+    "joseonlate3-hist-20260928-020": {
+      "number": 2235,
+      "section": "사상과 장시·포구 상업",
+      "coverage": [
+        "전국 장시(정답)",
+        "상평통보·이현·칠패(단서)",
+        "동시전(지증왕, 오답)",
+        "해동통보(고려 숙종, 오답)",
+        "관료전(신문왕, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 24강 조선 후기(경제) 037쪽 상업의 발달(사상·장시·포구)"
     }
   }
 };

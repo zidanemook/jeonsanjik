@@ -88,7 +88,12 @@ const itCounts={};
  const h23=PARTS.units.find(u=>u.id==='hist-23');assert.equal(h23.title,'23강 조선 후기(조직, 외교)');assert.equal(h23.scope.round,'lecture-23');
  assert.deepEqual(h23.parts.map(p=>p.id),['h23-1','h23-2']);assert.deepEqual(h23.parts.map(p=>p.title),['비변사와 군사 제도','청·일본과의 관계와 간도·독도']);
  assert.deepEqual(h23.parts.map(p=>p.ids.length),[8,12]);assert.ok(h23.parts.every(p=>p.ids.length>=8),'23강 파트마다 8문제 이상');
- {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-23')+1);}
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-24'),hi.indexOf('hist-23')+1);}
+ // 2026-09-28 24강 조선 후기(경제): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 6개를 2파트로(파트마다 8문제 이상). 23강 다음 · 특강 앞.
+ const h24=PARTS.units.find(u=>u.id==='hist-24');assert.equal(h24.title,'24강 조선 후기(경제)');assert.equal(h24.scope.round,'lecture-24');
+ assert.deepEqual(h24.parts.map(p=>p.id),['h24-1','h24-2']);assert.deepEqual(h24.parts.map(p=>p.title),['수취 체제와 농촌 경제','상업·화폐·수공업과 광업']);
+ assert.deepEqual(h24.parts.map(p=>p.ids.length),[8,12]);assert.ok(h24.parts.every(p=>p.ids.length>=8),'24강 파트마다 8문제 이상');
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-24')+1);}
  // 2026-09-24 주제 특강(250쪽 세시 풍속 · 252~256쪽 근·현대 인물): facts.cjs 묶음 13개 = 13파트, 552문제. 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
  // 2026-09-27 두 강으로 나눔(hist-250 세시 풍속 2파트 · hist-252-256 근·현대 인물 11파트) — 파트 id는 옛 h250256-1~13 그대로.
  const hss=PARTS.units.find(u=>u.id==='hist-250'),hpp=PARTS.units.find(u=>u.id==='hist-252-256');assert.ok(!PARTS.units.some(u=>u.id==='hist-250-256'));
