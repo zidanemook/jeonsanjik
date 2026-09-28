@@ -43,6 +43,7 @@ function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.
 // 공무원 기출은 회차 파일을 받기 전에도 풀 수 있는 카드다(색인에 있으면 된다). 보기는 그 회차의 문항을 처음 낼 때 받는다.
 function playableRaw(c){return !!c&&(!!QUIZ_OPTIONS[c.id]||!!PRACTICE_BANK[c.id]||Gichul.known(c.id));}
 // BEGIN CORE 20 — 한국사 강마다 핵심 20문제(v179, 2026-09-28 사용자 "20문제가 딱 좋은거 같어" · "강 마다 20문제로").
+// '강'은 교재 강: 앱 범위 02~05강은 교재 강 넷이라 핵심 80(강마다 20). 화면 문구의 수는 core 길이를 그대로 쓴다(coreSize).
 // 강 범위(STUDY_REVIEW_CATALOG.lectures)의 core = 한능검 심화 57~79회 빈도로 고른 20문제(research/core20-20260928). core가 없는 강은 전부 핵심.
 // 나머지 문제는 지우지 않고 접어 둔다: 강마다 '이 강 문제 더 풀기'를 켜면(data.openLectures, 이 기기 설정 — 대기열 모드처럼) 다시 모든 범위·대기열·수·뱃지에 들어온다.
 // 접힌 문제는 어디에서도 풀 수 있는 문제로 치지 않는다(isPlayable) — 수·복습 대기열·파트·뱃지가 모두 보이는 문제로만 계산된다. 풀이 기록과 일정은 그대로 남는다.
@@ -52,6 +53,7 @@ function lectureCores(){if(!coreMaps){const byId=new Map(),core=new Map();for(co
 function openLectureSet(){const o=data.openLectures;if(!openCache||openCache.src!==o)openCache={src:o,set:new Set(Array.isArray(o)?o.filter(x=>typeof x==='string'):[])};return openCache.set;}
 // 접힌 문제면 그 강 id, 아니면 null.
 function foldedLecture(id){const m=lectureCores(),l=m.byId.get(id);return l&&!m.core.get(l).has(id)&&!openLectureSet().has(l)?l:null;}
+function coreSize(lecture){return lectureCores().core.get(lecture)?.size||0;}
 function hasFold(lecture){const m=lectureCores(),core=m.core.get(lecture);return !!core&&[...m.byId].some(([id,l])=>l===lecture&&!core.has(id));}
 // END CORE 20
 function isPlayable(c){return playableRaw(c)&&!foldedLecture(c.id);}
@@ -170,7 +172,7 @@ function renderMoreToggle(scope){const lecture=moreScope(scope),n=lecture?moreCo
 function setLectureOpen(lecture,open){
  const next=structuredClone(data),list=(Array.isArray(next.openLectures)?next.openLectures:[]).filter(x=>x!==lecture);if(open)list.push(lecture);
  if(list.length)next.openLectures=list;else delete next.openLectures;delete next.quizFeedback;delete next.activePractice;
- if(commit(next)){sessionDirty=true;notify(open?lectureTitle(lecture)+' — 이 강의 나머지 문제도 함께 풀어요.':lectureTitle(lecture)+' — 핵심 20문제만 풀어요. 푼 기록은 그대로 남아요.');render();}
+ if(commit(next)){sessionDirty=true;notify(open?lectureTitle(lecture)+' — 이 강의 나머지 문제도 함께 풀어요.':lectureTitle(lecture)+' — 핵심 '+coreSize(lecture)+'문제만 풀어요. 푼 기록은 그대로 남아요.');render();}
 }
 function renderScopeStatus(scope){renderMasteredToggle(scope);renderMoreToggle(scope);
  const r=hasRanges(scope.subject)?scope.round||'':'',numeric=Number(r),isRound=!!r&&Hanneung.rounds.includes(numeric),el=$('#roundScore');el.hidden=true;el.textContent='';
@@ -811,7 +813,7 @@ function renderQuiz(){
   const nextTopic=t&&StudyTopics.list.slice(index+1).find(x=>data.cards.some(c=>isPlayable(c)&&inScope(c,{subject:'한국사',round:(t.papers?'papers-':'topic-')+x.id})));
   const lecture=STUDY_LECTURES.findIndex(l=>l.id===lectureScope(scope.round)),nextLecture=lecture>=0?STUDY_LECTURES[lecture+1]:null;
   const more=moreScope(scope),moreN=more&&!openLectureSet().has(more)?moreCount(scope,more):0;
-  if(moreN)root.append(elem('p','이 강은 핵심 20문제만 보여 주고 있어요. 나머지 '+moreN+'문제도 풀려면 아래 버튼을 누르세요.','status'));
+  if(moreN)root.append(elem('p','이 강은 핵심 '+coreSize(more)+'문제만 보여 주고 있어요. 나머지 '+moreN+'문제도 풀려면 아래 버튼을 누르세요.','status'));
   if(nextTopic)root.append(btn('다음 주제 풀기 · '+nextTopic.title,()=>openScope({subject:'한국사',round:(t.papers?'papers-':'topic-')+nextTopic.id}),'primary'));
   else if(nextLecture)root.append(btn('다음 강 풀기 · '+nextLecture.title,()=>openScope({subject:'한국사',round:'lecture-'+nextLecture.id}),'primary'));
   else if(set>0&&set<STUDY_SETS.length)root.append(btn('다음 묶음 풀기',()=>openScope({subject:'한국사',round:'study-20260910-'+(set+1)}),'primary'));
