@@ -159,6 +159,8 @@ const cardText=()=>app.text('#card');
 const lecture19=PARTS.units.find(u=>u.id==='hist-19');
 
 // 3-1) 19강 · 파트별 점검 · 모두 맞힘 → 파트마다 5문제, 8파트 = 40문제
+// v179: 19강은 '이 강 문제 더 풀기'를 켠 상태로(핵심 20만이면 파트가 1~4문제라 5문제 · 3문제 규칙을 검사할 수 없다 — 접힘 자체는 core20.test).
+R("setLectureOpen('19',true)");
 R("openScope({subject:'한국사',round:'lecture-19'})");
 const countBefore=R("countLine(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)))");
 R("setQueueMode('parts')");

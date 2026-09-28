@@ -55,7 +55,8 @@ const seed=R(`(()=>{const today=ReviewSchedule.day(),ago=n=>ReviewSchedule.plus(
  exam('정보보호론').slice(0,3).forEach(id=>add(id,3,'correct'));
  data.cards.filter(c=>/^hanneung-/.test(c.id)).slice(0,11).forEach((c,i)=>add(c.id,3,i<8?'correct':'wrong'));
  exam('한국사').slice(0,4).forEach(id=>add(id,3,'correct'));
- const next=ProgressSync.merge(data,rows);commit(next);go('home');return {rows:rows.length,p0:p19[0].id,p3:p19[3].id,p3title:'19강 '+p19[3].title,sec:exam('정보보호론').slice(3,10)};})()`);
+ // v179: 19강은 '이 강 문제 더 풀기'를 켠 상태(외운 파트 · 틀린 파트가 핵심 20 밖 문제에 걸려 있다 — 접힘 자체는 core20.test).
+ const next=ProgressSync.merge(data,rows);next.openLectures=['19'];commit(next);go('home');return {rows:rows.length,p0:p19[0].id,p3:p19[3].id,p3title:'19강 '+p19[3].title,sec:exam('정보보호론').slice(3,10)};})()`);
 const badges=J('subjectBadges()');
 assert.equal(badges['컴퓨터일반'].exam.ready,true);assert.equal(badges['컴퓨터일반'].exam.score,R('ExamScore.estimate(9,12).score'));
 assert.equal(badges['컴퓨터일반'].exam.tier.id,R('StudyXp.tier(ExamScore.estimate(9,12).score).id'));
