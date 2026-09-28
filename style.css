@@ -419,5 +419,13 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-shared > summary { color:#e8d9a8; cursor:pointer; min-height:32px; }
 .b-subh { margin:16px 0 6px; font-size:14px; color:#e8d9a8; }
 .b-shared-note { margin:12px 0 4px; color:#9aa3b0; font-size:14px; }
+.b-memo-line { margin:4px 0; padding:4px 10px; border-left:3px solid #ffd479; background:#ffd47910; border-radius:0 8px 8px 0; }
+.b-memo-line b { color:#ffd479; }
+.b-mn { margin:8px 0; padding:8px 10px; border-radius:10px; background:#b9a6ff14; border:1px solid #b9a6ff40; }
+.b-mn p { margin:4px 0; }
+.b-mn-hook { font-weight:700; color:#c7b8ff; }
+.b-mn-item > b { color:#c7b8ff; }
+.b-mn-scene { color:#b9c0cc; font-size:14px; }
+.b-mn-trap { color:#ffc285; font-size:14px; }
 .b-more, .b-more-terms { margin:12px 0 6px; padding:6px 10px; border:1px dashed #4b5563; border-radius:10px; }
 .b-more > summary, .b-more-terms > summary { color:#b9c0cc; cursor:pointer; min-height:32px; }

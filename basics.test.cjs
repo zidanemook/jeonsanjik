@@ -286,6 +286,8 @@ assert.equal(run(`${JSON.stringify([...logic,...reading])}.filter(id=>{const q=P
 //   (나) 해설 화면(fold): 대입이 쓰는 줄(용어 · 표 줄 · 규칙 · 예문, 표 id면 표 전체)만 제자리, 나머지는 닫힌 '이 정리의 나머지 더 보기 — …' 하나.
 //   제자리에 둘 줄이 없는 절은 제목 없이 번호를 당기고, 줄은 빠지거나 겹치지 않는다. 기대값은 여기서 따로 센다.
 let hSplit=0,hTopLines=0,hAllLines=0;
+// v177: 한국사 상자 끝에 '외울 것'(줄이 있으면) · '암기법'(블록이 있으면) — 대입 뒤, 번호 이어 매김.
+const memoHeads=box=>[...(box.memorize?.length?['외울 것']:[]),...(box.mnemonics?.length?['암기법']:[])];
 {const res=run(`(()=>{const out=[],walk=(n,f)=>{for(const c of n.children){f(c);walk(c,f);}};
  const count=(d,top)=>{const xs=[];if(top)xs.push(...d.children);else walk(d,c=>xs.push(c));
   return {terms:xs.filter(c=>c.className==='b-term').length,rules:xs.filter(c=>c.className==='b-rule').length,ex:xs.filter(c=>c.tag==='p'&&String(c.className).startsWith('b-ex')&&c.children[0]?.tag==='span').length,rows:xs.filter(c=>c.tag==='table').reduce((s,t)=>s+t.children.length-1,0)};};
@@ -298,9 +300,9 @@ let hSplit=0,hTopLines=0,hAllLines=0;
   const rowsOf=t=>use.has(t.id)?t.rows.length:t.rowIds.filter(x=>use.has(x)).length;
   const want={terms:box.terms.filter(t=>use.has(t.id)).length,rules:box.rules.items.filter(x=>use.has(x.id)).length,ex:box.examples.filter(x=>use.has(x.id)).length,rows:box.tables.reduce((s,t)=>s+rowsOf(t),0)};
   const total={terms:box.terms.length,rules:box.rules.items.length,ex:box.examples.length,rows:box.tables.reduce((s,t)=>s+t.rows.length,0)};
-  eqJ(r.heads,num(['먼저 알아 둘 말',...box.tables.map(t=>t.title),'규칙'+(box.rules.title?' — '+box.rules.title:''),'비교 예문','이 문제에 대입']),'한국사 모두 보기 절 순서: '+r.id);
+  eqJ(r.heads,num(['먼저 알아 둘 말',...box.tables.map(t=>t.title),'규칙'+(box.rules.title?' — '+box.rules.title:''),'비교 예문','이 문제에 대입',...memoHeads(box)]),'한국사 모두 보기 절 순서: '+r.id);
   eqJ(r.all,total,'모두 보기는 줄 전부: '+r.id);
-  eqJ(r.fheads,num([...(want.terms?['먼저 알아 둘 말']:[]),...box.tables.filter(t=>rowsOf(t)).map(t=>t.title),...(want.rules?['규칙'+(box.rules.title?' — '+box.rules.title:'')]:[]),...(want.ex?['비교 예문']:[]),'이 문제에 대입']),'해설 화면 절 = 제자리에 둔 줄이 있는 절만, 번호 이어 매김: '+r.id);
+  eqJ(r.fheads,num([...(want.terms?['먼저 알아 둘 말']:[]),...box.tables.filter(t=>rowsOf(t)).map(t=>t.title),...(want.rules?['규칙'+(box.rules.title?' — '+box.rules.title:'')]:[]),...(want.ex?['비교 예문']:[]),'이 문제에 대입',...memoHeads(box)]),'해설 화면 절 = 제자리에 둔 줄이 있는 절만, 번호 이어 매김: '+r.id);
   eqJ(r.top,want,'제자리 = 대입이 쓰는 줄: '+r.id);
   for(const k of Object.keys(total))assert.equal(r.top[k]+r.inMore[k],total[k],'줄이 빠지거나 겹치지 않는다('+k+'): '+r.id);
   const rest=Object.keys(total).some(k=>total[k]>want[k]);
@@ -316,6 +318,65 @@ let hSplit=0,hTopLines=0,hAllLines=0;
    if(nw!==(ci===0&&L<=6)||lg!==(ci>0&&L>20))bad.push(k+' '+src[ti].rowIds[ri]+' '+ci);}));});}
  return {bad:bad.slice(0,5),nowrap,long,other};})()`);
  eqJ(r.bad,[],'한국사 · 전공 과목 표 칸 표시');assert.equal(r.other,0,'다른 과목 표에는 b-hist 없음');assert.ok(r.nowrap>30&&r.long>30,'짧은 첫 칸 · 긴 칸이 있다: '+JSON.stringify(r));}
+// 5-1-7) 한국사 상자 끝의 외울 것 · 암기법(v177, 사용자 "기초개념에 외울것을 정리하고 창의적암기법도 같이 표시").
+//   (가) 데이터: 한국사 상자마다 외울 것 1~12줄("**대상** → …"), 대상은 외울 것 목록(memorize.js)의 카드 앞면 · 짝 이름 · 왕 · 순서 목록 이름,
+//        연도 · 카드/문항/변형 · 두문자/비결 없음. 암기법은 HISTORY_MNEMONICS에 있는 블록 id + 부르는 낱말. 다른 과목 상자에는 둘 다 없다.
+//   (나) 화면: 해설 화면(fold)과 파트 화면 모두 대입 뒤에 외울 것 줄 수 그대로, 암기법 블록 수 그대로(블록 넷 이상이면 이 문제 대입에
+//        부르는 낱말이 나오는 블록만 제자리, 나머지는 닫힌 '이 파트의 다른 암기법 N개 더 보기'). 블록 글은 풀이 줄 · 상상 장면 · '소리만' 주의만.
+let memoLines=0,memoBoxes=0,mnBoxes=0;const mnUsed=new Set();
+{const MC={};vm.createContext(MC);for(const f of ['quiz-options.js','memorize.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),MC,{filename:f});
+ const MN=MC.HISTORY_MNEMONICS,MEM=MC.STUDY_MEMORIZE||require('./memorize.js');
+ const fronts=new Set();for(const set of MEM.sets){if(set.subject!=='한국사')continue;
+  if(set.groups)for(const g of set.groups)for(const c of g.cards)fronts.add(c[0]);
+  if(set.pairs)for(const p of set.pairs){fronts.add(p[0]);fronts.add(p[2]);}
+  if(set.lines){fronts.add(set.title);for(const l of set.lines)for(const it of l.items)fronts.add(it.name);}}
+ const YEARS=/\d{3,4}\s*년|\b[1-9]\d{2,3}\b/;
+ for(const [r,b] of Object.entries(B.boxes)){
+  if(!/^hist-/.test(r)){assert.ok(!b.memorize&&!b.mnemonics,'외울 것 · 암기법은 한국사 상자에만: '+r);continue;}
+  assert.ok(Array.isArray(b.memorize)&&b.memorize.length>=1&&b.memorize.length<=12,'한국사 상자마다 외울 것 1~12줄: '+r);memoBoxes++;
+  assert.equal(new Set(b.memorize).size,b.memorize.length,'외울 것 줄이 겹치지 않는다: '+r);
+  for(const l of b.memorize){memoLines++;const m=/^\*\*([^*]+)\*\* → \S/.exec(l);assert.ok(m,'외울 것 줄 꼴: '+r+' — '+l);assert.ok(fronts.has(m[1]),'외울 것 대상이 외울 것 목록에 있다: '+r+' — '+m[1]);
+   const p2=/\n↔ \*\*([^*]+)\*\* → /.exec(l);if(p2)assert.ok(fronts.has(p2[1]),'헷갈리는 짝 오른쪽도 외울 것 목록에: '+r+' — '+p2[1]);
+   const t=l.replace(/\*\*/g,'');assert.ok(!YEARS.test(t),'외울 것에 연도 없음: '+r+' — '+t);assert.ok(!/카드|문항|변형|두문자|비결/.test(t),'외울 것 금지어: '+r+' — '+t);
+   assert.ok(!/[㐀-鿿]/.test(t.replace(/\([^()]*\)/g,'')),'외울 것 한자는 괄호 안: '+r+' — '+t);}
+  assert.ok(Array.isArray(b.mnemonics),'암기법 목록(비어도 됨): '+r);if(b.mnemonics.length)mnBoxes++;
+  assert.equal(new Set(b.mnemonics.map(x=>x.id)).size,b.mnemonics.length,'암기법 블록이 겹치지 않는다: '+r);
+  for(const x of b.mnemonics){const blk=MN.get(x.id);assert.ok(blk,'암기법은 HISTORY_MNEMONICS 블록: '+r+' '+x.id);mnUsed.add(x.id);
+   assert.ok(Array.isArray(x.keys)&&x.keys.length&&x.keys.every(k=>typeof k==='string'&&k.length>=2),'암기법을 부르는 낱말: '+r+' '+x.id);
+   const t=MN.back(blk);assert.ok(!YEARS.test(t),'암기법 글에 연도 없음: '+x.id);assert.ok(!/카드|문항|변형/.test(t),'암기법 글 금지어: '+x.id);}}
+ assert.equal(memoBoxes,hrules.size,'한국사 상자 모두 외울 것');
+ for(const id of mnUsed)assert.ok(MN.get(id));
+ // 대조군: 연도가 든 줄 · 목록에 없는 대상은 걸려야 한다.
+ assert.ok(YEARS.test('**훈련도감** → 선조 · 1593년 설치')&&!fronts.has('없는 대상'),'외울 것 검사 대조군');
+ // (나) 화면
+ const R=run(`(()=>{const out=[],walk=(n,f)=>{for(const c of n.children){f(c);walk(c,f);}};
+  const stat=d=>{const heads=[],memo=[],mnTop=[],mnRest=[],rest=[];let text='';walk(d,c=>{if(c.className==='b-h')heads.push(c._text);if(c.className==='b-memo-line')memo.push(c);});
+   for(const c of d.children){if(c.className==='b-mn')mnTop.push(c.dataset.mn);if(String(c.className).includes('b-mn-rest')){rest.push({open:c.open,summary:c.children[0]._text});for(const k of c.children)if(k.className==='b-mn')mnRest.push(k.dataset.mn);}}
+   const mnText=[];walk(d,c=>{if(c.className==='b-mn')mnText.push(c.textContent);});
+   return {heads,memo:memo.length,memoText:memo.map(m=>m.textContent),mnTop,mnRest,rest,mnText};};
+  for(const [r,b] of Object.entries(BASICS.boxes)){if(!/^hist-/.test(r))continue;
+   const id=Object.keys(BASICS.apply).find(k=>BASICS.apply[k].box===r&&!/^(gichul|hanneung)-/.test(k)),a=BASICS.forQuestion(id);
+   out.push({r,id,fold:stat(basicsDetails('기초 개념',b,a,'fold',null,PARTS.partOf(id))),part:stat(basicsDetails(b.title,b,null,'skip',new Set()))});}
+  return out;})()`);
+ for(const x of R){const b=B.box(x.r),a=B.forQuestion(x.id),mns=b.mnemonics.map(m=>m.id);
+  for(const v of [x.fold,x.part]){assert.equal(v.memo,b.memorize.length,'외울 것 줄 전부: '+x.r);
+   const h=v.heads.map(s=>s.replace(/^\d+\. /,''));const i=h.indexOf('외울 것');assert.ok(i>=0&&i===h.length-(b.mnemonics.length?2:1),'외울 것 · 암기법은 상자 끝: '+x.r+' '+h.join(' / '));
+   if(b.mnemonics.length)assert.equal(h[h.length-1],'암기법','암기법 절: '+x.r);
+   eqJ([...v.mnTop,...v.mnRest].sort(),[...mns].sort(),'암기법 블록 전부(제자리 + 모음): '+x.r);
+   for(const t of [...v.mnText,...v.memoText])assert.ok(!/카드|문항|변형|두문자|비결|덧붙임/.test(t),'암기법 · 외울 것 화면 글 금지어: '+x.r);}
+  eqJ(x.part.mnRest,[],'파트 화면은 암기법 모두 제자리: '+x.r);
+  const pl=s=>typeof s==='string'?s.replace(/\{[spmqr]\|([^{}|]*)\}/g,'$1').replace(/\*\*/g,''):'',first=pl(a.blocks[0]),others=a.blocks.slice(1).map(pl).join(' ');
+  const sc=m=>2*m.keys.filter(k=>first.includes(k)).length+m.keys.filter(k=>others.includes(k)).length;
+  const ranked=b.mnemonics.map((m,i)=>[m,i,sc(m)]).filter(z=>z[2]>0).sort((p,q)=>q[2]-p[2]||p[1]-q[1]).slice(0,3).map(z=>z[0].id);
+  const want=mns.length>3?mns.filter(id=>ranked.includes(id)):mns;
+  assert.ok(want.length<=3||mns.length<=3,'해설 화면 제자리 암기법은 셋까지(블록 넷 이상 상자): '+x.r);
+  eqJ(x.fold.mnTop,want,'해설 화면 제자리 암기법 = 블록 셋까지는 모두, 넷 이상이면 대입에 부르는 낱말이 가장 많이 나오는 셋(정답 줄 2점 · 다른 줄 1점): '+x.r+' '+x.id);
+  if(want.length<mns.length){assert.equal(x.fold.rest.length,1,'나머지 암기법 모음 하나: '+x.r);assert.equal(x.fold.rest[0].open,false,'모음은 닫혀 있다: '+x.r);assert.match(x.fold.rest[0].summary,/^이 파트의 (다른 )?암기법 \d+개 (더 )?보기$/,'모음 제목: '+x.r);}
+  else assert.equal(x.fold.rest.length,0,'모음 없음: '+x.r);}
+ // 블록 글: 풀이 줄 · 상상 장면 · '소리만 빌린 말' 주의가 그대로 보이고, 덧붙임(tip)은 안 보인다.
+ const w=run(`(()=>{const d=basicsMnemonic('l22-hwanguk-winner');return d.textContent;})()`);
+ assert.ok(/서남서 바람/.test(w)&&/경신환국 서인 집권 → 기사환국 남인 집권 → 갑술환국 서인 집권/.test(w)&&/상상 장면: 숙종이 풍향계/.test(w)&&/주의: 소리만 빌린 말이다/.test(w),'서남서 바람 블록 글: '+w);
+ const t2=run(`basicsMnemonic('king-word-injong').textContent`);assert.ok(/인지상정/.test(t2)&&!/삼국사기/.test(t2)&&!/주의/.test(t2),'덧붙임 · 소리 아닌 주의는 안 보인다: '+t2);}
 
 // 5-2) 파트별 상태: 논리 문제가 있는 파트마다 '기초 개념 보기'가 있고, 누르면 그 파트의 상자를 모두 펼쳐 한 화면에(대입 없이).
 const P=run('PARTS');
@@ -397,5 +458,5 @@ run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'par
 console.log('PASS basics(영어): Day 1~7 · 문법 공식 훈련 1470문제(규칙 73 · 파트 51) 모두 상자 + 대입(쓴 줄 '+enUse+'개가 모두 파트 안 상자의 줄), 절 순서 · 번호, 해설 짜임, 해설 화면의 공식 나누기 '+splitBoxes+'문제 · 용어 나누기 '+termSplit+'문제(규칙 · 예문 · 용어 빠짐 · 겹침 0), 공통 정리는 같은 파트 안에서만, 교재 '+englishOverlap+', 파트별 상태 영어 51파트');
 console.log('PASS basics:논리 1~6장 995문제(규칙 33) + 독해 1~3장 920문제(규칙 29 — 1장 15 · 2장 3 · 3장 11) 모두 규칙 상자(표 있는 상자 '+withTable+'개 — 표는 선택, 번호는 이어 매김) + 문제별 대입, 1915문제 절 순서(먼저 알아 둘 말 → 표 → 규칙 → 비교 예문 → 이 문제에 대입), 용어 뜻·예)·한자 원뜻, ✓/✗ 비교 예문, 해설 세 문단, 카드·문항·변형 0, 한자는 한글 뒤 괄호 안에만, 논리 '+overlapChecked+' · 독해 '+readingOverlap+'; 파트별 상태 50파트(논리 27 · 독해 23) 모두 기초 개념 보기 → 상자 전부 펼침(대입 없음) → 이 파트 문제 풀기, 뒤로 = 파트별 상태');
 console.log('PASS basics(정보보호론 · 컴퓨터일반): '+Object.entries(IT_DONE).map(([s,l])=>s+' '+l.length+'파트').join(' · ')+' '+itQuestions.length+'문제(9급 기출) — 파트마다 상자 하나 + 기출마다 대입(쓴 줄 '+itUse+'개 모두 그 파트 상자의 줄), 줄 id 노출 · 두문자 0, 해설 화면은 쓰는 줄만 제자리, 파트별 상태 기초 개념 보기');
-console.log('PASS basics(한국사): '+HIST_UNITS.join(' · ')+' '+hDone.length+'파트 '+history.length+'문제 — 파트마다 상자 하나 + 문제마다 대입(쓴 줄 '+hUse+'개 모두 그 파트 상자의 줄), 표 칸 셋까지, 두문자 · 비결 · 줄 id 노출 0, 연도는 y 줄 '+hYearLines+'개에만, 해설 화면은 쓰는 줄만 제자리('+hTopLines+'/'+hAllLines+'줄) + 나머지 모음 '+hSplit+'문제(빠짐 · 겹침 0), 파트별 상태 한국사 '+hDone.length+'파트 기초 개념 보기');
+console.log('PASS basics(한국사): '+HIST_UNITS.join(' · ')+' '+hDone.length+'파트 '+history.length+'문제 — 파트마다 상자 하나 + 문제마다 대입(쓴 줄 '+hUse+'개 모두 그 파트 상자의 줄), 표 칸 셋까지, 두문자 · 비결 · 줄 id 노출 0, 연도는 y 줄 '+hYearLines+'개에만, 해설 화면은 쓰는 줄만 제자리('+hTopLines+'/'+hAllLines+'줄) + 나머지 모음 '+hSplit+'문제(빠짐 · 겹침 0), 파트별 상태 한국사 '+hDone.length+'파트 기초 개념 보기, 상자 끝 외울 것 '+memoBoxes+'상자 '+memoLines+'줄 · 암기법 '+mnBoxes+'상자(블록 '+mnUsed.size+'개)');
 console.log('PASS basics(국어 · 영어 · 한국사 기출): 기출 대응 원고가 짝지은 '+gichulBasics.length+'문제(국어 '+GICHUL_BASICS['국어']+' · 영어 '+GICHUL_BASICS['영어']+' · 9급 한국사 '+GICHUL_BASICS['한국사']+' · 한능검 '+GICHUL_BASICS['한능검']+')마다 대입 — 상자 줄 '+gUse+'개 모두 그 상자의 줄, 공식 정답 번호 · 줄 id 노출 0 · 한국사 연도는 문제에 나온 것만');

@@ -29,6 +29,8 @@ ctx.fetch=url=>{fetched.push(url);if(failNextFetch){failNextFetch=false;return P
  const m=/^gichul\/([a-z0-9-]+)\.json$/.exec(url);if(!m)return Promise.reject(Error('unexpected fetch '+url));
  return Promise.resolve({ok:true,status:200,json:()=>Promise.resolve(require('./gichul-files.cjs').read(m[1]))});};
 const flush=()=>new Promise(r=>setImmediate(r));
+// v177: 한국사 상자는 '이 문제에 대입' 뒤에 '외울 것' · '암기법'이 올 수 있다(그 둘만, 이 순서로). 다른 상자는 대입이 마지막.
+const applyLast=hs=>{const t=hs.map(h=>h.replace(/^\d+\. /,'')),i=t.lastIndexOf('이 문제에 대입');return i>=0&&JSON.stringify(t.slice(i+1))===JSON.stringify(['외울 것','암기법'].slice(0,t.length-i-1));};
 for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','part-check.js','memorize.js','basics.js','app.js'])
  vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
 const run=code=>vm.runInContext(code,ctx);
@@ -201,7 +203,7 @@ for(const [SUBJ,PRE] of [['정보보호론','sec'],['컴퓨터일반','com']]){c
    const b=nodes.get('#card').all.find(n=>n.tag==='details'&&String(n.className||'').split(' ').includes('basics'));
    assert.ok(b,SUBJ+' 해설 화면에 기초 개념 상자: '+id);assert.equal(b.children[0]._text,'기초 개념');assert.equal(b.open,wrong,SUBJ+' '+(wrong?'틀리면 펼침':'맞히면 접힘'));
    const hs=b.all.filter(n=>n.className==='b-h').map(n=>n._text);hs.forEach((h,k)=>assert.ok(h.startsWith((k+1)+'. '),'번호가 이어진다: '+hs.join(' / ')));
-   assert.ok(/이 문제에 대입$/.test(hs[hs.length-1]),'마지막 절은 이 문제에 대입');
+   assert.ok(applyLast(hs),'마지막 절은 이 문제에 대입');
    const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false);
    assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드/g,'')),SUBJ+' 해설 화면에 문항/카드/변형 없음');
    next();}}}
@@ -220,7 +222,7 @@ for(const [SUBJ,round] of [['국어','paper-national9-2026-korean'],['영어','p
   const b=nodes.get('#card').all.find(n=>n.tag==='details'&&String(n.className||'').split(' ').includes('basics'));
   assert.ok(b,SUBJ+' 기출 해설 화면에 기초 개념 상자: '+id);assert.equal(b.children[0]._text,'기초 개념');assert.equal(b.open,wrong,SUBJ+' 기출 '+(wrong?'틀리면 펼침':'맞히면 접힘')+': '+id);
   const hs=b.all.filter(n=>n.className==='b-h').map(n=>n._text);hs.forEach((h,k)=>assert.ok(h.startsWith((k+1)+'. '),'번호가 이어진다: '+hs.join(' / ')));
-  assert.ok(/이 문제에 대입$/.test(hs[hs.length-1]),'마지막 절은 이 문제에 대입: '+id);
+  assert.ok(applyLast(hs),'마지막 절은 이 문제에 대입: '+id);
   if(/^hist-/.test(a.box)){const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.ok(rest.length<=1&&rest.every(r=>r.open===false),'한국사 상자: 나머지는 닫힌 모음 하나: '+id);}
   assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드/g,'')),SUBJ+' 기출 해설 화면에 문항/카드/변형 없음: '+id);
   seen[wrong?'wrong':'right']++;next();}
@@ -265,7 +267,7 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  assert.equal(b2.open,true,'틀린 답이면 기초 개념 상자가 펼쳐져 있다');
  const heads2=b2.all.filter(n=>n.className==='b-h').map(n=>n._text);
  assert.equal(heads2[0],'1. 먼저 알아 둘 말','첫 절: '+heads2.join(' / '));assert.ok(heads2.some(h=>/규칙 — /.test(h))&&heads2.some(h=>/비교 예문$/.test(h)),'규칙·비교 예문 절');
- assert.ok(/이 문제에 대입$/.test(heads2[heads2.length-1]),'마지막 절은 이 문제에 대입: '+heads2.join(' / '));
+ assert.ok(applyLast(heads2),'마지막 절은 이 문제에 대입: '+heads2.join(' / '));
  assert.ok(!shown.includes('규칙과 비교 예문 더 보기')&&!shown.includes(lesson.hook),'옛 정리 한 줄·예문 상자는 기초 개념 상자로 바뀌었다');
  assert.ok(shown.includes('사고의 힘 논리 제1편 개념 기반 자체 제작 문제'),'출처 줄이 자체 제작임을 밝힌다');
  assert.ok(shown.includes('같은 개념의 다른 문제도 10분 뒤 이어서 나와요'),'같은 개념 문제가 이어서 나온다는 안내');
@@ -302,7 +304,7 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
    const bR=basicsBox();assert.ok(bR,topic+' 해설 화면에 기초 개념 상자');assert.equal(bR.children[0]._text,'기초 개념');
    assert.equal(bR.open,wrong,topic+(wrong?' 틀리면 펼침':' 맞히면 접힘'));
    const hR=bR.all.filter(n=>n.className==='b-h').map(n=>n._text);
-   assert.equal(hR[0],'1. 먼저 알아 둘 말',topic+' 첫 절');assert.ok(/이 문제에 대입$/.test(hR[hR.length-1]),topic+' 마지막 절: '+hR.join(' / '));
+   assert.equal(hR[0],'1. 먼저 알아 둘 말',topic+' 첫 절');assert.ok(applyLast(hR),topic+' 마지막 절: '+hR.join(' / '));
    assert.ok(!shownR.includes('규칙과 비교 예문 더 보기')&&!(lessonR.hook&&shownR.includes(lessonR.hook)),topic+' 옛 정리 한 줄 · 예문 상자 대신 기초 개념 상자');
    assert.ok(!/문항|카드|변형/.test(shownR),topic+' 해설 화면에 문항/카드/변형이라는 말이 없다');
    next();
@@ -318,7 +320,7 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
   const shownH=screen(),bH=basicsBox();assert.ok(bH,'한국사 해설 화면에 기초 개념 상자: '+id);assert.equal(bH.children[0]._text,'기초 개념');
   assert.equal(bH.open,wrong,'한국사 '+(wrong?'틀리면 펼침':'맞히면 접힘'));
   const hH=bH.all.filter(n=>n.className==='b-h').map(n=>n._text);hH.forEach((h,i)=>assert.ok(h.startsWith((i+1)+'. '),'번호가 이어진다: '+hH.join(' / ')));
-  assert.ok(/이 문제에 대입$/.test(hH[hH.length-1]),'마지막 절은 이 문제에 대입: '+hH.join(' / '));
+  assert.ok(applyLast(hH),'마지막 절은 이 문제에 대입: '+hH.join(' / '));
   const rest=bH.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false,'나머지 모음은 닫혀 있다');
   assert.ok(!/문항|카드|변형/.test(shownH),'한국사 해설 화면에 문항/카드/변형이라는 말이 없다');
   next();

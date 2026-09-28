@@ -924,7 +924,32 @@ function basicsLineSections(box,apply){
   if(restX.length){d.append(elem('h4','비교 예문','b-subh'));for(const x of restX)d.append(basicsExample(x));}
   out.push(d);}
  head('이 문제에 대입');for(const b of apply.blocks)out.push(basicsBlock(b));
+ basicsMemoSections(box,apply,head,out);
  return out;
+}
+// 한국사 상자 끝(v177, 사용자 "기초개념에 외울것을 정리하고 창의적암기법도 같이 표시"): 외울 것 = 외울 것 목록(memorize.js)에서 그 파트에 맞는 짝만 고른 줄,
+// 암기법 = 사용자가 만든 외우는 낱말(quiz-options.js HISTORY_MNEMONICS 블록 — 상자에는 id와 부르는 낱말만). 풀이 줄 · 상상 장면 · '소리만 빌린 말' 주의만 보인다.
+// 블록이 넷 이상인 상자는 해설 화면에서 이 문제의 대입에 나오는 블록만 제자리에 두고 나머지는 닫힌 '이 파트의 다른 암기법 N개 더 보기'에.
+function basicsMnemonic(id){const b=globalThis.HISTORY_MNEMONICS?.get(id);if(!b)return null;const d=elem('div',undefined,'b-mn');d.dataset.mn=id;
+ if(b.items.map(i=>i[0]).join(' · ')!==b.hook)d.append(elem('p',b.hook,'b-mn-hook'));
+ for(const [w,t] of b.items){const p=elem('p',undefined,'b-mn-item');p.append(elem('b',w),document.createTextNode(' — '+t));d.append(p);}
+ if(b.scene)d.append(elem('p','상상 장면: '+b.scene,'b-mn-scene'));
+ if(b.trap&&/소리만|잘못 만든|외우면 틀린/.test(b.trap))d.append(elem('p','주의: '+b.trap,'b-mn-trap'));
+ return d;}
+// 제자리에 둘 블록(셋까지): 부르는 낱말이 대입 첫 줄(정답 근거)에 나오면 2점, 다른 줄(오답 지우기)에 나오면 1점 — 점수 높은 셋을 상자 순서대로.
+function basicsMnemonicKeep(mn,apply){
+ const plain=b=>typeof b==='string'?b.replace(/\{[spmqr]\|([^{}|]*)\}/g,'$1').replace(/\*\*/g,''):'',blocks=(apply.blocks||[]).map(plain),first=blocks[0]||'',others=blocks.slice(1).join(' ');
+ const score=x=>x.keys.filter(k=>first.includes(k)).length*2+x.keys.filter(k=>others.includes(k)).length;
+ const top=new Set(mn.map((x,i)=>({x,i,s:score(x)})).filter(o=>o.s>0).sort((a,b)=>b.s-a.s||a.i-b.i).slice(0,3).map(o=>o.x));
+ return mn.filter(x=>top.has(x));}
+function basicsMemoSections(box,apply,head,out){
+ if(box.memorize?.length){head('외울 것');const d=elem('div',undefined,'b-memo');for(const l of box.memorize)d.append(basicsLines(l,'b-memo-line','div'));out.push(d);}
+ const mn=(box.mnemonics||[]).filter(x=>globalThis.HISTORY_MNEMONICS?.get(x.id));if(!mn.length)return;
+ head('암기법');
+ let keep=mn,rest=[];
+ if(apply&&mn.length>3){keep=basicsMnemonicKeep(mn,apply);rest=mn.filter(x=>!keep.includes(x));}
+ for(const x of keep)out.push(basicsMnemonic(x.id));
+ if(rest.length){const d=elem('details',undefined,'b-more b-mn-rest');d.append(elem('summary',keep.length?'이 파트의 다른 암기법 '+rest.length+'개 더 보기':'이 파트의 암기법 '+rest.length+'개 보기'));for(const x of rest)d.append(basicsMnemonic(x.id));out.push(d);}
 }
 // mode: 'fold' = 공통 줄을 끝에 접어 둠 · 'skip' = seen에 든(앞 상자에서 보인) 줄을 빼고 한 줄 안내 · 그 밖 = 모두 제자리에
 function basicsSections(box,apply,mode,seen,partId){
@@ -959,6 +984,7 @@ function basicsSections(box,apply,mode,seen,partId){
   out.push(d);
  }
  if(apply){head('이 문제에 대입');for(const b of apply.blocks)out.push(basicsBlock(b));}
+ basicsMemoSections(box,apply,head,out);
  return out;
 }
 function basicsDetails(summary,box,apply,mode,seen,partId){const d=elem('details',undefined,'lesson basics');d.append(elem('summary',summary),...basicsSections(box,apply,mode,seen,partId));return d;}
