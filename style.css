@@ -403,6 +403,15 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-table.b-hist td.b-nowrap { white-space:nowrap; }
 .b-table.b-hist td.b-long { text-align:left; }
 .b-table td small { display:block; color:#9aa3b0; font-size:12px; }
+/* 2026-09-28 사용자: "표가 좌우 구분이 없어서 읽다가 헷갈린다" — 칸마다 세로줄, 머리줄·첫 칸 음영, 한국사 표는 왼쪽 정렬 */
+.b-table { border:1px solid #3d4552; }
+.b-table th + th, .b-table td + td { border-left:1px solid #3d4552; }
+.b-table th { background:#232a36; color:#f0d9a8; padding:7px 6px; }
+.b-table td { padding:7px 6px; }
+.b-table td:first-child { background:#1a1f28; color:#d1d7e0; font-weight:600; }
+.b-table tr:nth-child(even) td + td { background:#16191f; }
+.b-table.b-hist th, .b-table.b-hist td { text-align:left; vertical-align:top; word-break:keep-all; overflow-wrap:break-word; }
+.b-table.b-hist td:first-child { min-width:3.2em; }
 .b-diagram { display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; margin:8px 0; }
 .b-diagram > .b-bx { flex:1 1 150px; min-width:0; }
 .b-diagram > .b-bx-side { flex:0 1 36%; }
