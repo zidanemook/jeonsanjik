@@ -29,10 +29,10 @@ for(const set of M.sets){
 // 고려 왕 순서는 태조부터 공양왕까지 34명이며(12강까지 공부), 공부한 범위의 왕에만 사건이 붙는다.
 const kings=M.get('goryeo-kings').lines.flatMap(l=>l.items);
 assert.equal(kings.length,34);assert.equal(kings[0].name,'태조');assert.equal(kings.at(-1).name,'공양왕');
-assert.deepEqual(M.get('goryeo-kings').lines.map(l=>l.chant),['태혜정광경성목','현덕정문순선헌','숙예인의명신희','강고원','렬선숙혜목정','공우창공']);
+assert.deepEqual(M.get('goryeo-kings').lines.map(l=>l.chant),['태혜정광경성목','현덕정문순선헌','숙예인의명신희','강고원','렬선숙혜목정','공우창양']);
 assert.deepEqual(kings.slice(21).map(k=>k.name),['강종','고종','원종','충렬왕','충선왕','충숙왕','충혜왕','충목왕','충정왕','공민왕','우왕','창왕','공양왕']);
-// 첫 글자가 같은 충- 왕 여섯은 모두 letter를 갖고, 그 밖의 왕은 letter를 갖지 않는다.
-assert.deepEqual(kings.filter(k=>'letter' in k).map(k=>k.name),['충렬왕','충선왕','충숙왕','충혜왕','충목왕','충정왕']);
+// 첫 글자가 같은 충- 왕 여섯은 모두 letter를 갖고, 공양왕도 '공'이 공민왕과 겹쳐 '양'을 쓴다(2026-09-29 사용자: 공우창공 → 공우창양). 그 밖의 왕은 letter를 갖지 않는다.
+assert.deepEqual(kings.filter(k=>'letter' in k).map(k=>k.name),['충렬왕','충선왕','충숙왕','충혜왕','충목왕','충정왕','공양왕']);
 for(const name of ['태조','정종','광종','경종','성종','현종','숙종','예종','인종','의종','명종','신종','희종','고종','원종','충렬왕','충선왕','충목왕','공민왕','우왕','창왕','공양왕'])assert(kings.some(k=>k.name===name&&k.facts.length),'studied king has facts: '+name);
 // 13강(고려 경제·사회)을 공부하면서 목종(개정 전시과)·문종(경정 전시과)에도 공부한 사실이 생겼다. 그래서 문종은 "비움" 목록에서 "사실 있음" 목록으로 옮겼다(2026-09-16).
 for(const name of ['목종','문종'])assert(kings.some(k=>k.name===name&&k.facts.length),'studied king has facts (13강 전시과): '+name);
