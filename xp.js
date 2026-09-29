@@ -95,7 +95,7 @@
  // 다음 등급과 남은 차이(뱃지 설명). 가장 높은 등급이면 null.
  function nextTier(value){const i=TIERS.findIndex(t=>value>=t[0]),n=TIERS[i-1];return n?{id:n[1],name:n[2],pct:n[0],gap:round1(n[0]-value)}:null;}
  // ── 뱃지(v146, 사용자 결정 2026-09-23): 과목마다 레벨(노력, 숫자 하나)과 뱃지 둘.
- //  · 기출 뱃지 = 예상 점수(score.js: 공무원 9급 기출을 처음 풀었을 때의 정답률)를 0~100%로 보고 같은 12등급에 댄다. 10문제 미만이면 등급 없음('아직').
+ //  · 기출 뱃지 = 예상 점수(score.js: 공무원 9급 기출을 처음 풀었을 때의 정답률)를 0~100%로 보고 같은 12등급에 댄다. 20문제 미만이면 등급 없음('아직').
  //  · 자체제작 뱃지 = 파트마다 외운 비율(외운 규칙 / 파트의 규칙 수)의 평균. 파트는 문제 수와 상관없이 같은 무게 — 큰 파트가 덮지 않고 약한 파트가 끌어내린다.
  //    파트가 없는 자체제작 문제는 앱이 범위(연습 주제)마다 한 파트로, 그것도 없으면 과목마다 '그 밖의 문제' 한 파트로 묶어 넘긴다(app.js selfGroups).
  //    TODO(모의고사): 자체제작 문제로 만든 모의고사(docs/MOCK-EXAM-PLAN-2026-09-20.md, 아직 없음)가 생기면 그 결과도 여기서 센다 — 아직은 아무것도 하지 않는다.
@@ -103,7 +103,7 @@
  function examBadge(row){
   const n=row?.n||0;
   const source=row?.source||null;
-  if(!row||!row.ready||!Number.isFinite(row.score))return {kind:'exam',source,ready:false,n,need:Math.max(0,(row?.need??10)),score:null,tier:null,next:null};
+  if(!row||!row.ready||!Number.isFinite(row.score))return {kind:'exam',source,ready:false,n,need:Math.max(0,(row?.need??20)),score:null,tier:null,next:null};
   return {kind:'exam',source,ready:true,n,correct:row.correct,score:row.score,tier:tier(row.score),next:nextTier(row.score)};
  }
  // states: conceptStates(자체제작 풀이 행) · groups: [{id,title,ids,scope}] — 과목의 파트(+대체 묶음).
@@ -142,7 +142,7 @@
    else{lines.push(src+'을 처음 풀었을 때 기준 예상 점수로 등급을 매겨요.',b.n?'지금까지 처음 푼 '+src+' '+b.n+'문제 — '+b.need+'문제 더 풀면 등급이 나와요.':'아직 푼 '+src+'이 없어요 — '+b.need+'문제를 풀면 등급이 나와요.');}
   }else if(exam){
    if(b.ready){lines.push('과목마다 기출 예상 점수의 평균: '+num(b.score)+'점',b.subjects.map(x=>x.subject+' '+x.value+'점').join(' · '),nextLine());}
-   else lines.push('기출을 10문제 이상 처음 푼 과목이 생기면 등급이 나와요.');
+   else lines.push('기출을 20문제 이상 처음 푼 과목이 생기면 등급이 나와요.');
    if(b.waiting.length)note='아직 등급이 없는 과목: '+b.waiting.map(x=>x.subject+'('+x.need+'문제 더)').join(' · ');
   }else if(!b.overall){
    if(b.ready){lines.push('파트별로 외운 비율의 평균: '+num(b.pct)+'%',nextLine());weak=b.weakest.map(g=>({title:g.title,pct:g.pct,scope:g.scope}));

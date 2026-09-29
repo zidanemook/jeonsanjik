@@ -339,18 +339,19 @@ function renderPartSummary(root,scope,r){
  if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
 }
 // 파트별 상태: 외움 = 7·14·30일 단계를 모두 넘긴 문제(뱃지·경험치와 같은 ReviewSchedule 단계), 틀린 적 있음 = 풀이 기록에 오답이 있는 문제.
-// 약한 파트 = 3문제 이상 풀었고 그중 30% 이상을 틀린 적 있음.
-const WEAK_MIN=3,WEAK_RATE=0.3;
+// 약한 파트 = 20문제 이상(파트 문제가 20개보다 적으면 그 파트 전부) 풀었고 그중 30% 이상을 틀린 적 있음.
+// 2026-09-29 사용자: "최소 20문제부터 계산" — 몇 문제만 풀고 약하다고 판정하지 않는다.
+const WEAK_MIN=20,WEAK_RATE=0.3;
 // 자체 제작 문제 없이 9급 기출만 파트로 나눈 과목(2026-09-25~): 파트별 상태 첫 줄만 다르다.
 const GICHUL_PART_SUBJECTS=new Set(['정보보호론','컴퓨터일반']);
 function partStats(p,byId){const {wrong,seen}=historyStats();let n=0,mastered=0,wrongN=0,fresh=0,tried=0;
  for(const id of p.ids){const c=byId.get(id);if(!c)continue;n++;if(isMastered(c))mastered++;if(wrong.has(id))wrongN++;if(seen.has(id))tried++;else fresh++;}
- return {n,mastered,wrong:wrongN,fresh,tried,weak:tried>=WEAK_MIN&&wrongN/tried>=WEAK_RATE};}
+ return {n,mastered,wrong:wrongN,fresh,tried,weak:tried>0&&tried>=Math.min(WEAK_MIN,n)&&wrongN/tried>=WEAK_RATE};}
 function currentPartUnit(subject){const s=scopeOf();if(s.subject!==subject)return null;const part=partScope(s.round);if(part)return PARTS.unitOf(part).id;const u=scopeUnits(s);return u&&u.length===1?u[0].id:null;}
 function renderParts(){
  const s=viewSubject,units=PARTS.unitsFor(s),body=$('#partsBody');$('#partsTitle').textContent=s+' · 파트별 상태';body.replaceChildren();
  const byId=new Map(data.cards.filter(c=>isPlayable(c)&&c.subject===s).map(c=>[c.id,c])),open=currentPartUnit(s)||units[0]?.id;
- body.append(elem('p',(GICHUL_PART_SUBJECTS.has(s)?'파트 = 같은 주제를 묻는 9급 기출 묶음이에요.':'파트 = 한 강 안에서 같은 내용을 묻는 문제 묶음이에요.')+' 외움 = 7일·14일·30일 뒤에 다시 맞힌 문제 · ⚠ 약함 = '+WEAK_MIN+'문제 이상 풀었고 그중 '+Math.round(WEAK_RATE*100)+'% 이상을 틀린 적 있음. 파트를 누르면 그 파트만 풀어요.','status'));
+ body.append(elem('p',(GICHUL_PART_SUBJECTS.has(s)?'파트 = 같은 주제를 묻는 9급 기출 묶음이에요.':'파트 = 한 강 안에서 같은 내용을 묻는 문제 묶음이에요.')+' 외움 = 7일·14일·30일 뒤에 다시 맞힌 문제 · ⚠ 약함 = '+WEAK_MIN+'문제 이상(파트 문제가 그보다 적으면 전부) 풀었고 그중 '+Math.round(WEAK_RATE*100)+'% 이상을 틀린 적 있음. 파트를 누르면 그 파트만 풀어요.','status'));
  for(const u of units){
   const rows=u.parts.map(p=>[p,partStats(p,byId)]).filter(([,x])=>x.n),weak=rows.filter(([,x])=>x.weak).length,total=rows.reduce((n,[,x])=>n+x.n,0);if(!rows.length)continue;
   const fold=elem('details',undefined,'range-fold part-unit'),g=elem('div',undefined,'menu-list');fold.open=u.id===open;fold.dataset.unit=u.id;
@@ -392,7 +393,7 @@ function renderSubjectGoal(s){
 function subjectLevels(history=data.history){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));try{return StudyXp.bySubject(history,data.explanationViews||[],id=>bySubject.get(id)||null);}catch{return {};}}
 function levelBadge(level=1,big){const b=elem('span',undefined,'level-badge lv-plain'+(big?' big':''));b.setAttribute('aria-label','레벨 '+level);b.title='Lv '+level;b.append(elem('small','Lv'),elem('b',String(level)));return b;}
 // 뱃지(v146, 사용자 결정 2026-09-23) — 과목마다 둘:
-//  · 기출 뱃지: 예상 점수(score.js, 공무원 9급 기출 첫 풀이)를 등급표(xp.js TIERS)에 %로 댄다. 10문제 미만이면 '아직'.
+//  · 기출 뱃지: 예상 점수(score.js, 공무원 9급 기출 첫 풀이)를 등급표(xp.js TIERS)에 %로 댄다. 20문제 미만이면 '아직'.
 //  · 자체제작 뱃지: 파트마다 외운 비율의 평균(파트마다 같은 무게). 외움 = 복습 일정과 같은 단계 규칙(ReviewSchedule.step)으로 7·14·30일 통과.
 // selfGroups: 과목의 자체제작 문제를 파트로 나눈다. 파트(parts.js)가 없는 문제는 연습 주제(영어 수일치 · 그 밖의 문법 연습)마다 한 파트,
 // 주제도 없으면 과목마다 '그 밖의 문제' 한 파트(누를 범위가 없어 설명에서 링크 없이 보인다). 컴퓨터일반·정보보호론은 자체제작 문제가 없어 '아직'.
@@ -476,7 +477,7 @@ function renderScore(){
  $('#scoreTarget').textContent='목표: '+s.target.name+' · 합격선 '+fmt1(s.target.cutoff)+'점(가산점 포함) · 내 가산점 '+fmt1(s.target.bonus)+'점';
  if(s.total){$('#scoreTotal').replaceChildren(document.createTextNode('예상 '+fmt1(s.total.score)+'점'),elem('small','범위 '+fmt1(s.total.low)+'~'+fmt1(s.total.high)+' · 4과목 평균 '+fmt1(s.total.raw)+' + 가산 '+fmt1(s.target.bonus),'score-sub'));
   $('#scoreGap').textContent=s.total.gap>=0?'✅ 목표보다 '+fmt1(s.total.gap)+'점 높아요':'목표까지 '+fmt1(-s.total.gap)+'점 더 필요해요';$('#scoreGap').className='score-gap '+(s.total.gap>=0?'is-over':'is-under');}
- else{$('#scoreTotal').textContent='4과목 모두 기출을 10문제 이상 처음 풀면 예상점수가 나와요.';$('#scoreGap').textContent='남은 것: '+s.missing.map(m=>m.subject+' '+m.need+'문제').join(' · ');$('#scoreGap').className='score-gap';}
+ else{$('#scoreTotal').textContent='4과목 모두 기출을 20문제 이상 처음 풀면 예상점수가 나와요.';$('#scoreGap').textContent='남은 것: '+s.missing.map(m=>m.subject+' '+m.need+'문제').join(' · ');$('#scoreGap').className='score-gap';}
  const body=$('#scoreRows');body.replaceChildren();
  for(const x of s.subjects){if(!x.ranked&&!x.n&&!x.self)continue;const tr=elem('tr',undefined,x.ranked?'':'score-unranked');
   const name=elem('td',x.subject);if(!x.ranked)name.append(elem('small',' 평균 제외'));const tried=elem('td',x.n?x.correct+'/'+x.n:'0');if(x.self)tried.append(elem('small','자체제작 '+x.self.rate+'% ('+x.self.n+')','score-self'));

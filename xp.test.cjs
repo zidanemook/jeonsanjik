@@ -97,12 +97,12 @@ const many=Array.from({length:5},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'))
   assert.ok(!/카드|변형|스코프|streak|stage|규칙|쌍둥이/.test(JSON.stringify(e)));assert.match(e.note,/7일 · 14일 · 30일/);assert.match(e.note,/같은 무게/);
   assert.equal(X.explainBadge(top).lines[1],'가장 높은 등급(레전드)이에요');
   assert.deepEqual(X.explainBadge(X.selfBadge(st,[])),{title:'자체제작 뱃지 · 아직',lines:['이 과목은 아직 자체제작 문제가 없어요.'],weakLabel:'',weak:[],note:''});}
- // v146 기출 뱃지 = 예상 점수(score.js 기출 첫 풀이)를 등급표에. 10문제 미만이면 '아직'.
+ // v146 기출 뱃지 = 예상 점수(score.js 기출 첫 풀이)를 등급표에. 20문제 미만이면 '아직'.
  {const S=require('./score.js'),row=(i,ok)=>({id:'x'+String(i).padStart(3,'0'),cardId:'gichul-local9-2025-computer-'+String(i).padStart(2,'0'),date:'2026-09-01',at:'2026-09-01T00:00:'+String(i).padStart(2,'0')+'Z',result:ok?'correct':'wrong',mode:'quiz'});
   const subj=()=>'컴퓨터일반',sum=h=>S.summary(h,subj).subjects.find(s=>s.subject==='컴퓨터일반');
-  const nine=Array.from({length:9},(_,i)=>row(i+1,true));
-  const not=X.examBadge(sum(nine));assert.deepEqual([not.ready,not.tier,not.n,not.need],[false,null,9,1],'9문제는 아직 — 만점이어도 등급 없음');
-  const ten=[...nine,row(10,false)],r10=sum(ten),b10=X.examBadge(r10);
+  const nine=Array.from({length:19},(_,i)=>row(i+1,true));
+  const not=X.examBadge(sum(nine));assert.deepEqual([not.ready,not.tier,not.n,not.need],[false,null,19,1],'19문제는 아직 — 만점이어도 등급 없음');
+  const ten=[...nine,row(20,false)],r10=sum(ten),b10=X.examBadge(r10);
   assert.equal(b10.ready,true);assert.equal(b10.score,r10.score);assert.equal(b10.tier.id,X.tier(r10.score).id,'예상 점수를 %로 보고 같은 문턱');
   for(const [score,id] of [[0,'iron'],[24,'iron'],[25,'bronze'],[58,'silver'],[60,'gold'],[64,'gold'],[65,'platinum'],[95,'legend']])assert.equal(X.examBadge({n:20,correct:10,ready:true,need:0,score}).tier.id,id,'score '+score);
   const e=X.explainBadge(X.examBadge({n:24,correct:14,ready:true,need:0,score:58}));
@@ -110,7 +110,7 @@ const many=Array.from({length:5},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'))
   assert.equal(e.note,'처음 푼 기출 24문제 기준이에요. 다시 풀어서 맞힌 건 점수에 넣지 않아요.');assert.deepEqual(e.weak,[]);
   const e3=X.explainBadge(X.examBadge({n:3,correct:2,ready:false,need:7}));
   assert.equal(e3.title,'기출 뱃지 · 아직');assert.deepEqual(e3.lines,['기출을 처음 풀었을 때 기준 예상 점수로 등급을 매겨요.','지금까지 처음 푼 기출 3문제 — 7문제 더 풀면 등급이 나와요.']);
-  assert.equal(X.explainBadge(X.examBadge(undefined)).lines[1],'아직 푼 기출이 없어요 — 10문제를 풀면 등급이 나와요.');
+  assert.equal(X.explainBadge(X.examBadge(undefined)).lines[1],'아직 푼 기출이 없어요 — 20문제를 풀면 등급이 나와요.');
   // 전체 뱃지(홈 카드) = 과목 뱃지의 평균(과목마다 같은 무게), 등급 없는 과목은 빼고 알려 준다
   const o=X.overallBadges({'국어':{exam:X.examBadge({n:20,ready:true,score:62}),self:{kind:'self',ready:true,pct:40}},'영어':{exam:X.examBadge({n:12,ready:true,score:54}),self:{kind:'self',ready:true,pct:61}},'정보보호론':{exam:X.examBadge({n:3,ready:false,need:7}),self:X.selfBadge(new Map(),[])}});
   assert.deepEqual([o.exam.score,o.exam.tier.id,o.self.pct,o.self.tier.id],[58,'silver',50.5,'silver']);

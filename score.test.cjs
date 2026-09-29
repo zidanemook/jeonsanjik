@@ -7,8 +7,11 @@ const paper=(s,k,total,day)=>Array.from({length:total},(_,i)=>row('gichul-local9
 const h=[...paper('computer',14,20),...paper('computer',20,20,'2026-09-10')];
 let s=S.summary(h,subjectOf);let c=s.subjects.find(x=>x.subject==='컴퓨터일반');assert.equal(c.n,20);assert.equal(c.correct,14);assert.equal(c.raw,70);
 assert.equal(S.summary([row('gichul-local9-2025-korean-01','unsure')],subjectOf).subjects.find(x=>x.subject==='국어').correct,0);
-// 10문항 미만이면 점수를 내지 않고 몇 문제 더 풀어야 하는지만.
-s=S.summary(paper('korean',5,6),subjectOf);c=s.subjects.find(x=>x.subject==='국어');assert.equal(c.ready,false);assert.equal(c.need,4);assert.equal(c.score,undefined);
+// 20문제 미만이면 점수를 내지 않고 몇 문제 더 풀어야 하는지만(2026-09-29 사용자 "최소 20문제부터").
+s=S.summary(paper('korean',5,6),subjectOf);c=s.subjects.find(x=>x.subject==='국어');assert.equal(c.ready,false);assert.equal(c.need,14);
+// 점수 = 맞힌 수 / 푼 수 그대로: 25문제 중 20개 → 80, 40문제 중 30개 → 75, 20문제 만점 → 100.
+assert.equal(S.summary(paper('computer',20,25),subjectOf).subjects.find(x=>x.subject==='컴퓨터일반').score,80);
+assert.equal(S.estimate(30,40).score,75);assert.equal(S.estimate(20,20).score,100);assert.equal(S.summary(paper('computer',19,19),subjectOf).subjects.find(x=>x.subject==='컴퓨터일반').ready,false);assert.equal(c.score,undefined);
 // 범위는 표본이 많을수록 좁다.
 const w=(k,t)=>{const e=S.estimate(k,t);assert.ok(e.low<=e.score&&e.score<=e.high);return e.high-e.low;};assert.ok(w(15,20)>w(75,100));
 // 자체제작은 점수에 안 들어가고 참고로만. 한능검도 기출 점수에 안 들어간다.
@@ -23,9 +26,9 @@ assert.equal(S.summary(paper('korean',18,20),subjectOf).total,null);
 // 사용자가 정한 목표. 이상한 값이면 기본값.
 assert.deepEqual(S.summary(all,subjectOf,{name:'서울 전산9급',cutoff:92,bonus:0}).target,{name:'서울 전산9급',cutoff:92,bonus:0});
 assert.deepEqual(S.target({name:'',cutoff:87,bonus:5}),S.DEFAULT_TARGET);assert.deepEqual(S.target({name:'x',cutoff:500,bonus:5}),S.DEFAULT_TARGET);
-// 한능검 심화 기출은 순위 점수와 따로 한국사 행의 hanneung에 모인다(한국사 기출 뱃지용). 처음 푼 것만, 10문제부터.
-{const hh=Array.from({length:12},(_,i)=>row('hanneung-75-'+String(i+1).padStart(2,'0'),i<9?'correct':'wrong'));
+// 한능검 심화 기출은 순위 점수와 따로 한국사 행의 hanneung에 모인다(한국사 기출 뱃지용). 처음 푼 것만, 20문제부터.
+{const hh=Array.from({length:22},(_,i)=>row('hanneung-75-'+String(i+1).padStart(2,'0'),i<17?'correct':'wrong'));
  const t=S.summary([...hh,row('hanneung-75-01','correct','2026-09-20')],subjectOf).subjects.find(x=>x.subject==='한국사');
- assert.equal(t.n,0);assert.equal(t.hanneung.source,'한능검 심화');assert.equal(t.hanneung.n,12);assert.equal(t.hanneung.correct,9);assert.equal(t.hanneung.ready,true);assert.equal(t.hanneung.score,S.estimate(9,12).score);
- const few=S.summary(hh.slice(0,9),subjectOf).subjects.find(x=>x.subject==='한국사').hanneung;assert.equal(few.ready,false);assert.equal(few.need,1);assert.equal(few.score,undefined);}
-console.log('PASS score: official first attempts only, 80% range, self-made as reference, 4-subject average + bonus vs custom target');
+ assert.equal(t.n,0);assert.equal(t.hanneung.source,'한능검 심화');assert.equal(t.hanneung.n,22);assert.equal(t.hanneung.correct,17);assert.equal(t.hanneung.ready,true);assert.equal(t.hanneung.score,S.estimate(17,22).score);
+ const few=S.summary(hh.slice(0,19),subjectOf).subjects.find(x=>x.subject==='한국사').hanneung;assert.equal(few.ready,false);assert.equal(few.need,1);assert.equal(few.score,undefined);}
+console.log('PASS score: official first attempts only, from 20, correct/answered, 80% range, self-made as reference, 4-subject average + bonus vs custom target');

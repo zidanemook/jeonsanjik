@@ -1,10 +1,11 @@
 'use strict';
 // 예상점수(v121). 실제 시험 점수는 공무원 9급 기출을 "처음 풀었을 때"의 정답률로만 추정한다.
 // 자체제작 문제는 같은 규칙을 여러 번 풀고 해설도 보므로 정답률이 부풀어 점수에 넣지 않고 참고로만 보여 준다.
-// 표본이 적으면 한 숫자가 크게 흔들리므로 80% 범위를 함께 낸다(베타 사후분포의 정규 근사, 사전 1/1).
+// 2026-09-29 사용자: "최소 20문제부터 계산 … 25문제 풀었으면 맞힌거/25" — 점수 = 처음 풀어 맞힌 수 / 처음 푼 수 그대로(보정 없음), 20문제부터.
+// 범위(80%)는 참고로만 함께 낸다(정규 근사).
 // 기본 목표는 국가직 전산9급 95(가산 포함) · 가산 5(사용자 지정, 2026-09-21). 2027년부터 순위는 국어·영어·컴퓨터일반·정보보호론 4과목 평균(한국사는 한능검 대체) + 가산점으로 본다.
 (function(root){
- const RANKED=['국어','영어','컴퓨터일반','정보보호론'],MIN=10,Z80=1.2816;
+ const RANKED=['국어','영어','컴퓨터일반','정보보호론'],MIN=20,Z80=1.2816;
  const DEFAULT_TARGET={name:'국가직 전산9급',cutoff:95,bonus:5};
  const official=id=>/^gichul-/.test(id),hanneung=id=>/^hanneung-/.test(id);
  function target(t){
@@ -18,8 +19,8 @@
   return first;
  }
  function estimate(k,n){
-  const m=(k+1)/(n+2),sd=Math.sqrt(m*(1-m)/(n+3)),clip=x=>Math.max(0,Math.min(100,x*100));
-  return {score:Math.round(clip(m)),low:Math.round(clip(m-Z80*sd)),high:Math.round(clip(m+Z80*sd)),raw:n?Math.round(k/n*100):0};
+  const p=n?k/n:0,sd=Math.sqrt(p*(1-p)/Math.max(n,1)),clip=x=>Math.max(0,Math.min(100,x*100));
+  return {score:Math.round(clip(p)),low:Math.round(clip(p-Z80*sd)),high:Math.round(clip(p+Z80*sd)),raw:Math.round(clip(p))};
  }
  // subjectOf(cardId) → 과목 이름(없으면 null). 과목마다 기출 첫 풀이 k/n과 자체제작 첫 풀이 정답률.
  function summary(history,subjectOf,t){
