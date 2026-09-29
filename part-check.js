@@ -42,5 +42,24 @@
    if(!bestScore||less(score,bestScore)){best=c;bestScore=score;}});
   return best;
  }
- const api={FIRST,MORE,evaluate,round,pick};root.PartCheck=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+ // 복습 판정(v184, 2026-09-29 사용자: "자체문제 풀때 해설을 보면 뒤에 문제 풀때 맞히기 쉬워지니까").
+ // 문제마다 노출 = 풀이 기록(history 한 줄, 어느 모드든) 또는 해설 펼침(explanationViews {id: 그 풀이 기록 id, openedAt}).
+ // 판정에 넣는 풀이 = 퀴즈 풀이 중 바로 앞 노출이 '이전 날'인 것 — 하루 이상 지나 다시 푼 풀이. 같은 날 앞서 풀었거나 해설을 봤으면 연습이라 뺀다(처음 푼 풀이도 앞 노출이 없어 빠진다).
+ // 날짜: 풀이는 기록의 date(앱의 day(), 복습 일정과 같은 날), 해설은 dayOf(openedAt)(앱이 같은 day()를 넘긴다). 같은 날 안의 앞뒤는 시각(at · openedAt)으로.
+ // 돌려주는 값: Map(문제 id → 판정에 넣는 가장 최근 풀이의 결과 'correct'|'unsure'|'wrong').
+ function delayed(history,views,dayOf){
+  const events=new Map(),owner=new Map(),add=(id,e)=>{let a=events.get(id);if(!a)events.set(id,a=[]);a.push(e);};
+  for(const h of history||[]){if(!h||typeof h.cardId!=='string'||typeof h.date!=='string')continue;const t=Date.parse(h.at||h.date);
+   if(typeof h.id==='string')owner.set(h.id,h.cardId);add(h.cardId,{day:h.date,t:Number.isFinite(t)?t:0,o:0,k:String(h.id),result:h.mode==='quiz'?h.result:null});}
+  for(const v of views||[]){const id=owner.get(v?.id);if(!id||!Number.isFinite(v.openedAt))continue;add(id,{day:dayOf(v.openedAt),t:v.openedAt,o:1,k:String(v.id),result:null});}
+  const out=new Map();
+  for(const [id,list] of events){list.sort((a,b)=>a.t-b.t||a.o-b.o||(a.k<b.k?-1:a.k>b.k?1:0));let prev=null;
+   for(const e of list){if(e.result&&prev!==null&&prev<e.day)out.set(id,e.result);prev=e.day;}}
+  return out;
+ }
+ // ⚠ 약함: 판정에 넣은 문제가 min(WEAK_MIN, 파트 문제 수) 이상이고 그중 가장 최근 판정 풀이가 틀림(설명 보고 맞힘 포함)인 비율이 WEAK_RATE 이상.
+ const WEAK_MIN=20,WEAK_RATE=0.3;
+ function judge(ids,results){let reviewed=0,right=0;for(const id of ids){const r=results.get(id);if(!r)continue;reviewed++;if(r==='correct')right++;}
+  const n=ids.length,wrong=reviewed-right;return {n,reviewed,right,wrong,weak:reviewed>0&&reviewed>=Math.min(WEAK_MIN,n)&&wrong/reviewed>=WEAK_RATE};}
+ const api={FIRST,MORE,WEAK_MIN,WEAK_RATE,evaluate,round,pick,delayed,judge};root.PartCheck=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(globalThis);

@@ -1,7 +1,7 @@
 // 파트(parts.js)와 파트별 점검 모드(part-check.js + app.js)를 확인한다.
 // 1) 파트 규칙(5문제 → 틀리면 3문제씩 더 → 통과·다시 볼 파트)  2) 파트 범위: 모든 문제가 정확히 한 파트에
 // 3) 앱을 가짜 DOM 위에서 돌려 19강 파트별 점검(모두 맞힘 = 5×파트 수 · 하나 틀리면 +3 · 바닥나면 다시 볼 파트 · 새로고침 뒤 이어짐)
-// 4) 파트별 상태 화면의 수(문제·외움·틀린 적 있음·안 푼 문제)가 기록과 같다.
+// 4) 파트별 상태 화면의 수(문제·외움·복습 판정·안 푼 문제 · 한국사 기출 첫 풀이)가 기록과 같다. 4-3) 복습 판정(v184): 하루 이상 지나 다시 푼 풀이만.
 'use strict';
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const PartCheck=require('./part-check.js');
@@ -31,6 +31,43 @@ const PartCheck=require('./part-check.js');
  assert.equal(pick([{id:'a:1',fresh:false,due:false},{id:'b:1',fresh:false,due:true}],{},null),'b:1','복습일이 된 문제가 나머지보다 먼저');
  const r=PartCheck.round([{id:'p1',ids:['x1','x2']},{id:'p2',ids:['y1','y2','y3']}],new Map([['x1',{result:C,at:'1'}],['x2',{result:C,at:'2'}]]),()=>true);
  assert.deepEqual([r.parts[0].status,r.current,r.done],['pass',1,false],'2문제 파트는 2문제로 통과하고 다음 파트로');
+}
+
+// ── 1-2) 복습 판정(v184, 2026-09-29 사용자: "자체문제 풀때 해설을 보면 뒤에 문제 풀때 맞히기 쉬워지니까")
+// 판정에 넣는 풀이 = 바로 앞 노출(풀이 · 해설 펼침)이 이전 날인 퀴즈 풀이. 문제마다 가장 최근 판정 풀이. 'unsure'는 틀림.
+{
+ const T=(d,hm)=>Date.parse('2026-09-'+d+'T'+hm+':00Z'),row=(id,card,d,hm,result,mode='quiz')=>({id,cardId:card,date:'2026-09-'+d,at:new Date(T(d,hm)).toISOString(),result,mode});
+ const dayOf=ms=>new Date(ms).toISOString().slice(0,10);
+ const history=[
+  row('a1','A','20','09:00','wrong'),row('a2','A','20','09:05','correct'),            // A: 같은 날 해설 보고 다시 맞힘 → 연습(판정 없음)
+  row('b1','B','20','09:00','wrong'),row('b2','B','21','10:00','correct'),            // B: 다음 날 맞힘 → 판정 정답
+  row('c1','C','20','09:00','correct'),row('c2','C','21','09:00','wrong'),row('c3','C','23','09:00','correct'), // C: 가장 최근 판정 풀이(23일 정답)가 이긴다
+  row('d1','D','20','09:00','correct'),row('d2','D','23','09:00','correct'),row('d3','D','23','09:30','wrong'), // D: 23일 두 번째 풀이는 같은 날 → 23일 첫 풀이(정답)가 남는다
+  row('e1','E','20','09:00','wrong'),row('e2','E','21','09:00','correct'),            // E: 21일 풀기 전에 20일 풀이의 해설을 21일에 펼침 → 같은 날 노출 → 연습
+  row('f1','F','20','09:00','correct'),row('f2','F','22','09:00','unsure'),           // F: 설명 보고 맞힘 = 틀림
+  row('g1','G','20','09:00','wrong','legacy'),row('g2','G','21','09:00','wrong'),     // G: 옛 기록도 노출로 센다 → 21일 풀이는 판정(틀림)
+  row('h1','H','20','09:00','correct'),                                                // H: 한 번만 푼 문제 → 판정 없음
+ ];
+ const views=[{id:'a1',openedAt:T('20','09:01')},{id:'e1',openedAt:T('21','08:00')},{id:'zz',openedAt:T('21','08:00')}];
+ const got=PartCheck.delayed(history,views,dayOf);
+ assert.deepEqual(Object.fromEntries([...got].sort()),{B:'correct',C:'correct',D:'correct',F:'unsure',G:'wrong'},'복습 판정: 같은 날 해설 뒤 풀이 · 처음 풀이는 빠지고, 다음 날 풀이는 들어간다');
+ // 기록 순서가 섞여 있어도 같다(동기화로 다른 기기 기록이 뒤에 붙는 경우)
+ assert.deepEqual(Object.fromEntries([...PartCheck.delayed([...history].reverse(),views,dayOf)].sort()),Object.fromEntries([...got].sort()));
+ // 해설을 안 봤으면 E의 21일 풀이는 판정에 들어간다
+ assert.equal(PartCheck.delayed(history,views.filter(v=>v.id!=='e1'),dayOf).get('E'),'correct');
+ const j=PartCheck.judge(['A','B','C','D','E','F','G','H'],got);
+ assert.deepEqual([j.n,j.reviewed,j.right,j.wrong],[8,5,3,2]);
+ assert.equal(j.weak,false,'8문제 파트에서 판정 5문제는 min(20, 8) = 8에 못 미친다');
+ // 약함 문턱: min(20, 파트 문제 수) 이상 판정 · 30% 이상 틀림
+ const res=(ok,bad)=>new Map([...Array.from({length:ok},(_,i)=>['o'+i,'correct']),...Array.from({length:bad},(_,i)=>['x'+i,i%2?'unsure':'wrong'])]);
+ const ids=n=>[...Array.from({length:n},(_,i)=>'o'+i),...Array.from({length:n},(_,i)=>'x'+i)];
+ const judgeN=(n,ok,bad)=>PartCheck.judge(ids(n).slice(0,0).concat([...res(ok,bad).keys()],Array.from({length:Math.max(0,n-ok-bad)},(_,i)=>'u'+i)),res(ok,bad));
+ assert.equal(judgeN(8,5,3).weak,true,'8문제 파트: 8문제 모두 판정 · 3/8 = 37.5% 틀림 → 약함');
+ assert.equal(judgeN(8,5,2).weak,false,'8문제 파트: 7문제만 판정이면 아직(파트 전부 필요)');
+ assert.equal(judgeN(30,14,6).weak,true,'30문제 파트: 판정 20문제 · 6/20 = 30% → 약함');
+ assert.equal(judgeN(30,0,19).weak,false,'30문제 파트: 판정 19문제면 모두 틀려도 아직');
+ assert.equal(judgeN(30,15,5).weak,false,'30문제 파트: 5/20 = 25% → 약함 아님');
+ assert.equal(PartCheck.WEAK_MIN,20);assert.equal(PartCheck.WEAK_RATE,0.3);
 }
 
 // ── 2) 파트 범위
@@ -223,6 +260,7 @@ assert.equal(wrongs.length,8,'모두 틀리면 5 + 3 = 8문제로 파트가 바�
 assert.match(wrongs.at(-1).line,/다시 볼 파트로 표시 · 다음: 점검 결과/);
 card=cardText();
 assert.match(card,/19강 지대·수취 제도의 문란 파트 점검 끝/);assert.match(card,/1파트 중 통과 0 · 다시 볼 파트: 지대·수취 제도의 문란/);assert.match(card,/다시 볼 파트만 다시 점검하기 \(1파트\)/);
+assert.match(card,/다시 보기 · 지대·수취 제도의 문란 · 8문제 중 0개 정답 · 복습 판정 아직/,'점검 결과에 복습 판정(같은 날 풀이뿐이라 아직)');assert.match(card,/복습 판정은 하루 이상 지나 다시 푼 문제만 센 파트 전체 기록이고\(같은 날 해설 보고 푼 건 연습이라 안 넣어요\)/);
 // 다시 볼 파트만 다시 점검 → 5문제 모두 맞혀 통과
 tick();R("startPartRound(scopeOf(),["+JSON.stringify(weakPart.id)+"])");
 let again=0;while(onQuestion()){answer(false);again++;assert.ok(again<=8);}
@@ -246,14 +284,19 @@ R("go('parts','한국사')");
 const body=app.nodes.get('#partsBody');
 const fold=body.all.find(n=>n.dataset?.unit==='hist-19');assert.ok(fold?.open,'지금 풀던 강(19강)은 펼쳐 둔다');
 assert.ok(body.all.filter(n=>n.dataset?.unit&&n.dataset.unit!=='hist-19').every(n=>!n.open),'다른 강은 접어 둔다');
-const expect=p=>{const s=R("(()=>{const ids="+JSON.stringify(p.ids)+",wrong=new Set(data.history.filter(h=>h.result==='wrong').map(h=>h.cardId)),seen=new Set(data.history.map(h=>h.cardId)),cards=data.cards.filter(c=>ids.includes(c.id));return {n:cards.length,m:cards.filter(c=>c.streak>=4).length,w:cards.filter(c=>wrong.has(c.id)).length,f:cards.filter(c=>!seen.has(c.id)).length,t:cards.filter(c=>seen.has(c.id)).length};})()");return s;};
+// v184: 복습 판정 = 하루 이상 지나 다시 푼 풀이만. 이 검사의 풀이는 모두 같은 날이라 판정 0 → 약한 파트도 없다(같은 날 연습은 판정에 안 넣는다).
+const histApply=Object.entries(R('STUDY_BASICS.apply')).filter(([id,a])=>/^(hanneung|gichul)-/.test(id)&&/^hist-/.test(a.box));
+const gichulOf=pid=>histApply.filter(([,a])=>a.box==='hist-'+pid).length;
+const expect=p=>{const s=R("(()=>{const ids="+JSON.stringify(p.ids)+",seen=new Set(data.history.map(h=>h.cardId)),cards=data.cards.filter(c=>ids.includes(c.id)&&isPlayable(c));return {n:cards.length,m:cards.filter(c=>c.streak>=4).length,f:cards.filter(c=>!seen.has(c.id)).length};})()");return s;};
 for(const p of lecture19.parts){
- const item=body.all.find(n=>n.dataset?.part===p.id),e=expect(p),spans=item.children.map(c=>c.textContent);
- assert.equal(spans[1],e.n+'문제 · 외움 '+e.m+' · 틀린 적 있음 '+e.w+' · 안 푼 문제 '+e.f,p.title);
- assert.equal(/⚠ 약함/.test(spans[0]),e.t>=3&&e.w/e.t>=0.3,p.title+' 약함 표시');
+ const item=body.all.find(n=>n.dataset?.part===p.id),e=expect(p),spans=item.children.map(c=>c.textContent),k=gichulOf(p.id);
+ assert.equal(spans[1],e.n+'문제 · 외움 '+e.m+' · 복습 판정 아직 · 안 푼 문제 '+e.f+(k?' · 이 파트 기출 '+k+'문제 — 아직 안 풂':''),p.title);
+ assert.ok(!/⚠ 약함/.test(spans[0]),p.title+' 같은 날 푼 것만으로는 약함이 아니다');
 }
-{const item=body.all.find(n=>n.dataset?.part===weakPart.id);assert.match(item.children[0].textContent,/⚠ 약함$/);assert.equal(item.children[1].textContent,'8문제 · 외움 0 · 틀린 적 있음 8 · 안 푼 문제 0');}
-assert.match(fold.children[0].textContent,/^19강 조선 전기\(경제, 사회\) · 8파트 · 115문제 · 약한 파트 [1-9]/);
+{const item=body.all.find(n=>n.dataset?.part===weakPart.id);assert.equal(item.children[0].textContent,'지대·수취 제도의 문란','8문제를 모두 틀렸어도 같은 날 연습이라 약함 판정 아님');assert.match(item.children[1].textContent,/^8문제 · 외움 0 · 복습 판정 아직 · 안 푼 문제 0/);}
+assert.ok(body.children[0].textContent.includes('복습 판정 맞힘/푼 수 = 하루 이상 지나 다시 푼 문제 중 맞힌 수(문제마다 가장 최근 풀이) · ⚠ 약함 = 하루 이상 지나 다시 푼 문제가 20개(파트가 작으면 전부) 이상이고 그중 30% 이상 틀림. 같은 날 해설 보고 푼 건 연습이라 판정에 안 넣어요.'),body.children[0].textContent);
+assert.ok(body.children[0].textContent.includes('기출 첫 풀이 맞힘/푼 수 = 이 파트 내용을 묻는 한능검 심화·9급 기출을 처음 풀었을 때 맞힌 수(설명 보고 맞힘은 틀림) · 5문제 이상 풀어 70% 미만이면 기출 약함.'));
+assert.equal(fold.children[0].textContent,'19강 조선 전기(경제, 사회) · 8파트 · 115문제');
 // 파트를 누르면 그 파트만 푸는 범위가 열린다
 const second=lecture19.parts[1];body.all.find(n=>n.dataset?.part===second.id).onclick();
 assert.equal(R('scopeOf().round'),'part-'+second.id);assert.ok(R("data.cards.filter(inCurrent).every(c=>STUDY_PARTS.partOf(c.id)==="+JSON.stringify(second.id)+")"));
@@ -273,5 +316,55 @@ for(const s of GICHUL_SUBJECTS){const us=PARTS.unitsFor(s);if(!us.length)continu
 R("go('subject','한국사')");assert.equal(app.nodes.get('#openParts').hidden,false);
 if(!PARTS.unitsFor('컴퓨터일반').length){R("go('subject','컴퓨터일반')");assert.equal(app.nodes.get('#openParts').hidden,true);}
 
+
+assert.deepEqual([R('WEAK_MIN'),R('WEAK_RATE')],[PartCheck.WEAK_MIN,PartCheck.WEAK_RATE],'안내 문구의 20 · 30% = 판정 규칙');
+// ── 4-3) 복습 판정(v184)을 앱 위에서: 이 강 문제 더 풀기를 끈 새 앱(v179 접힘 — 핵심 20 밖 문제는 판정에도 안 센다)
+{
+ const a=boot(),Q=code=>a.run(code);
+ const T=(d,h,m=0)=>Q('new Date(2026,8,'+d+','+h+','+m+').getTime()'),row=(id,card,d,h,m,result)=>({id,cardId:card,date:'2026-09-'+String(d).padStart(2,'0'),at:new Date(T(d,h,m)).toISOString(),result,mode:'quiz'});
+ const visOf=p=>p.ids.filter(id=>Q('isPlayable(data.cards.find(c=>c.id==='+JSON.stringify(id)+'))'));
+ const p19=lecture19.parts.find(p=>visOf(p).length>=2&&visOf(p).length<p.ids.length);
+ const vis=visOf(p19),hid=p19.ids.filter(id=>!vis.includes(id));
+ assert.ok(vis.length>=2&&hid.length>=1,'19강 이 파트에 핵심 문제와 접힌 문제가 둘 다 있다: '+vis.length+'/'+hid.length);
+ const [v1,v2]=vis,h1=hid[0];
+ const hist=[
+  row('r1',v1,20,9,0,'correct'),row('r2',v1,21,9,0,'wrong'),                           // v1: 다음 날 틀림 → 판정 틀림
+  row('r3',v2,20,9,0,'wrong'),row('r4',v2,20,9,5,'correct'),                           // v2: 같은 날 해설 보고 맞힘 → 연습
+  row('r5',h1,20,9,0,'correct'),row('r6',h1,22,9,0,'wrong'),                           // 접힌 문제: 판정 틀림이지만 보이지 않으니 안 센다
+ ];
+ // 한국사 02~05강 '구석기·신석기' 파트 기출(기초 개념 대입이 이 파트 상자를 가리키는 한능검 심화)
+ const hp='h0205-1',hIds=Object.entries(Q('STUDY_BASICS.apply')).filter(([id,x])=>/^hanneung-/.test(id)&&x.box==='hist-'+hp).map(([id])=>id);
+ assert.ok(hIds.length>=6,'구석기·신석기 파트 기출 '+hIds.length);
+ const hTotal=Object.entries(Q('STUDY_BASICS.apply')).filter(([id,x])=>/^(hanneung|gichul)-/.test(id)&&x.box==='hist-'+hp).length;assert.ok(hTotal>hIds.length,'9급 한국사 기출도 이 파트에 든다');
+ hist.push(row('k1',hIds[0],19,8,0,'correct'),row('k2',hIds[1],19,8,1,'unsure'),row('k3',hIds[2],19,8,2,'wrong'),row('k4',hIds[2],19,8,3,'correct'));
+ Q("(()=>{const s=structuredClone(data);s.history="+JSON.stringify(hist)+";s.explanationViews=[{id:'r3',openedAt:"+T(20,9,1)+"}];commit(s);})()");
+ const j=Q('reviewJudge('+JSON.stringify(p19.ids.filter(id=>vis.includes(id)))+')');
+ assert.deepEqual([j.reviewed,j.right],[1,0],'보이는 문제 중 판정은 v1 하나(틀림)');
+ const stats=()=>Q("(()=>{const byId=new Map(data.cards.filter(c=>isPlayable(c)&&c.subject==='한국사').map(c=>[c.id,c]));return partStats(STUDY_PARTS.part("+JSON.stringify(p19.id)+"),byId);})()");
+ let x=stats();assert.deepEqual([x.n,x.reviewed,x.right,x.weak],[vis.length,1,0,vis.length<=1],'접힌 문제는 수에도 판정에도 안 들어간다');
+ // 기출 첫 풀이 1/3 (unsure = 틀림, 첫 풀이만)
+ const g=()=>JSON.parse(Q("JSON.stringify(partStats(STUDY_PARTS.part('"+hp+"'),new Map(data.cards.filter(c=>isPlayable(c)&&c.subject==='한국사').map(c=>[c.id,c]))).gichul)"));
+ assert.deepEqual(g(),{total:hTotal,n:3,k:1,weak:false},'기출 첫 풀이 1/3 — 5문제 미만이라 기출 약함은 아직');
+ Q("go('parts','한국사')");let b=a.nodes.get('#partsBody');
+ const line=pid=>b.all.find(n=>n.dataset?.part===pid).children[1].textContent;
+ assert.match(line(hp),/ · 기출 첫 풀이 1\/3$/,line(hp));
+ assert.match(line(p19.id),new RegExp('^'+vis.length+'문제 · 외움 0 · 복습 판정 0/1 · 안 푼 문제 '+(vis.length-2)),line(p19.id));
+ // 기출 5문제 이상 · 70% 미만 → '· 기출 약함'
+ hist.push(row('k5',hIds[3],19,8,4,'correct'),row('k6',hIds[4],19,8,5,'correct'));
+ Q("(()=>{const s=structuredClone(data);s.history="+JSON.stringify(hist)+";commit(s);render();})()");
+ assert.deepEqual(g(),{total:hTotal,n:5,k:3,weak:true});
+ Q("go('parts','한국사')");b=a.nodes.get('#partsBody');assert.match(line(hp),/ · 기출 첫 풀이 3\/5 · 기출 약함$/);
+ assert.ok(!/⚠ 약함/.test(b.all.find(n=>n.dataset?.part===hp).children[0].textContent),'기출 약함은 ⚠ 약함과 따로');
+ // 파트 범위 화면의 한 줄
+ Q("openScope({subject:'한국사',topic:'',round:'part-"+hp+"'})");assert.match(a.text('#roundScore'),/ · 복습 판정 아직 · 기출 첫 풀이 3\/5 · 기출 약함$/,a.text('#roundScore'));
+ // 이 강 문제 더 풀기를 켜면 접힌 문제도 보이고 판정에 들어간다
+ Q("setLectureOpen('19',true)");x=stats();assert.deepEqual([x.reviewed,x.right],[2,0],'펼치면 접혔던 문제의 판정도 센다');
+ // 다음 날 v2를 맞히면 판정에 들어간다(20일엔 연습이었지만 23일 풀이의 바로 앞 노출은 20일)
+ hist.push(row('r7',v2,23,9,0,'correct'));Q("(()=>{const s=structuredClone(data);s.history="+JSON.stringify(hist)+";commit(s);})()");
+ x=stats();assert.deepEqual([x.reviewed,x.right],[3,1]);
+ // 같은 날 v1 해설을 다시 보고 또 맞혀도(21일 풀이 뒤) 판정은 21일 틀림 그대로 → 23일 풀이 먼저 해설: 23일 해설 뒤 23일 정답은 연습
+ hist.push(row('r8',v1,23,10,0,'correct'));Q("(()=>{const s=structuredClone(data);s.history="+JSON.stringify(hist)+";s.explanationViews=[...s.explanationViews,{id:'r2',openedAt:"+T(23,9,50)+"}];commit(s);})()");
+ x=stats();assert.deepEqual([x.reviewed,x.right],[3,1],'같은 날 해설을 펼친 뒤 푼 풀이는 판정을 바꾸지 않는다');
+}
 console.log('PASS parts: '+PARTS.units.length+'단위 · '+Object.entries(itCounts).map(([k,v])=>k+' '+v+' · ').join('')+PARTS.units.reduce((n,u)=>n+u.parts.length,0)+'파트, 모든 문제가 정확히 한 파트(기타 0) — '+Object.entries(counts).map(([k,v])=>k+' '+v).join(' · ')+
- '; 파트별 점검: 19강 모두 맞힘 = 5×8 = 40문제, 하나 틀리면 같은 파트 3문제 더(8문제로 통과), 8문제 파트를 모두 틀리면 5+3에서 다시 볼 파트, 다시 볼 파트만 다시 점검, 새로고침 뒤 이어짐, 파트 없는 범위는 기본 순서, 기록·일정은 평소대로; 파트별 상태 수 = 기록');
+ '; 파트별 점검: 19강 모두 맞힘 = 5×8 = 40문제, 하나 틀리면 같은 파트 3문제 더(8문제로 통과), 8문제 파트를 모두 틀리면 5+3에서 다시 볼 파트, 다시 볼 파트만 다시 점검, 새로고침 뒤 이어짐, 파트 없는 범위는 기본 순서, 기록·일정은 평소대로; 파트별 상태 수 = 기록; 복습 판정: 하루 이상 지나 다시 푼 풀이만(같은 날 해설 뒤 풀이는 연습) · 문제마다 가장 최근 판정 · 약함 min(20, n) · 접힌 문제 제외 · 한국사 파트 기출 첫 풀이 M/N(unsure = 틀림) · 기출 약함 5문제 이상 70% 미만');
