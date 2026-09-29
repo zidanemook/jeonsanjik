@@ -343,7 +343,7 @@ function renderPartSummary(root,scope,r){
 }
 // 파트별 상태: 외움 = 7·14·30일 단계를 모두 넘긴 문제(뱃지·경험치와 같은 ReviewSchedule 단계).
 // 복습 판정(v184, 2026-09-29 사용자: "파트별 판정이 애매하긴하다. 자체문제 풀때 해설을 보면 뒤에 문제 풀때 맞히기 쉬워지니까"):
-// 하루 이상 지나 다시 푼 풀이만 센다 — 같은 날 앞서 풀었거나 해설을 본 문제의 풀이는 연습이라 뺀다(규칙은 part-check.js delayed · judge).
+// 하루 이상 지나 다시 푼 풀이만 센다 — 같은 날 앞서 그 문제나 같은 개념의 쌍둥이를 풀었거나 해설을 봤으면 연습이라 뺀다(규칙은 part-check.js delayed · judge).
 // 문제마다 가장 최근의 판정 풀이 하나(지금 기억). 약한 파트 = 판정 문제가 20개(파트 문제가 20개보다 적으면 전부) 이상이고 그중 30% 이상이 틀림(설명 보고 맞힘 포함).
 // v183의 "푼 적 있음 · 틀린 적 있음" 기준은 같은 날 해설을 보고 푼 풀이까지 섞여 판정이 흐렸다.
 // 판정 자체는 PartCheck.judge(같은 20 · 30%). 여기 값은 안내 문구용 — parts.test가 둘이 같은지 본다(review-policy.test는 이 줄을 PartCheck 없이 읽는다).
@@ -353,12 +353,20 @@ const GICHUL_PART_SUBJECTS=new Set(['정보보호론','컴퓨터일반']);
 let delayedCache=null;
 function delayedResults(){
  const views=data.explanationViews||[];if(delayedCache?.rows===data.history&&delayedCache.views===views)return delayedCache.value;
- let value;try{value=PartCheck.delayed(data.history,views,ms=>day(new Date(ms)));}catch{value=new Map();}
+ let value;try{value=PartCheck.delayed(data.history,views,ms=>day(new Date(ms)),h=>h.detail?.conceptId||ReviewPolicy.concept(h.cardId));}catch{value=new Map();}
  delayedCache={rows:data.history,views,value};return value;
 }
 function reviewJudge(ids){return PartCheck.judge(ids,delayedResults());}
 const reviewLine=j=>'복습 판정 '+(j.reviewed?j.right+'/'+j.reviewed:'아직');
-const REVIEW_NOTE='복습 판정 맞힘/푼 수 = 하루 이상 지나 다시 푼 문제 중 맞힌 수(문제마다 가장 최근 풀이) · ⚠ 약함 = 하루 이상 지나 다시 푼 문제가 '+WEAK_MIN+'개(파트가 작으면 전부) 이상이고 그중 '+Math.round(WEAK_RATE*100)+'% 이상 틀림. 같은 날 해설 보고 푼 건 연습이라 판정에 안 넣어요.';
+// 파트별 상태 맨 위 범례(v184 부모 검토: 긴 문단 대신 한 줄에 하나).
+function partLegend(s){
+ const lines=[GICHUL_PART_SUBJECTS.has(s)?'파트 = 같은 주제를 묻는 9급 기출 묶음 (누르면 그 파트만 풀어요)':'파트 = 한 강에서 같은 내용을 묻는 문제 묶음 (누르면 그 파트만 풀어요)',
+  '외움 = 7·14·30일 뒤에 다시 맞힌 문제',
+  '복습 판정 = 하루 이상 지나 다시 푼 문제 중 맞힌 수 (같은 날 해설 보고 푼 건 빼요)',
+  '⚠ 약함 = 복습 판정 '+WEAK_MIN+'문제(파트가 작으면 전부) 중 '+Math.round(WEAK_RATE*100)+'% 이상 틀림'];
+ if(s==='한국사')lines.push('기출 첫 풀이 = 이 파트 기출을 처음 풀어 맞힌 수 · '+GICHUL_WEAK_MIN+'문제 이상 '+Math.round(GICHUL_WEAK_RATE*100)+'% 미만이면 기출 약함');
+ const ul=elem('ul',undefined,'status part-legend');for(const t of lines)ul.append(elem('li',t));return ul;
+}
 // 한국사 파트의 기출(v184): 기초 개념 대입(basics.js apply)이 그 파트 상자(hist-<파트>)를 가리키는 한능검 심화 · 9급 한국사 기출.
 // 첫 풀이만(score.js firstAttempts — 설명 보고 맞힘은 틀림). ⚠ 약함과는 따로 보여 주고, 5문제 이상 풀어 70% 미만이면 '기출 약함'.
 const GICHUL_WEAK_MIN=5,GICHUL_WEAK_RATE=0.7;
@@ -370,7 +378,6 @@ function partGichulIds(partId){
 function firstTries(){if(firstCache?.rows!==data.history){let value;try{value=ExamScore.firstAttempts(data.history);}catch{value=new Map();}firstCache={rows:data.history,value};}return firstCache.value;}
 function partGichul(partId){const ids=partGichulIds(partId);if(!ids.length)return null;const first=firstTries();let n=0,k=0;for(const id of ids){const a=first.get(id);if(!a)continue;n++;if(a.ok)k++;}
  return {total:ids.length,n,k,weak:n>=GICHUL_WEAK_MIN&&k/n<GICHUL_WEAK_RATE};}
-const GICHUL_NOTE='기출 첫 풀이 맞힘/푼 수 = 이 파트 내용을 묻는 한능검 심화·9급 기출을 처음 풀었을 때 맞힌 수(설명 보고 맞힘은 틀림) · '+GICHUL_WEAK_MIN+'문제 이상 풀어 '+Math.round(GICHUL_WEAK_RATE*100)+'% 미만이면 기출 약함.';
 const gichulLine=g=>g.n?'기출 첫 풀이 '+g.k+'/'+g.n+(g.weak?' · 기출 약함':''):'이 파트 기출 '+g.total+'문제 — 아직 안 풂';
 function partStats(p,byId){const ids=p.ids.filter(id=>byId.has(id));let mastered=0,fresh=0;const {seen}=historyStats();
  for(const id of ids){if(isMastered(byId.get(id)))mastered++;if(!seen.has(id))fresh++;}
@@ -379,7 +386,7 @@ function currentPartUnit(subject){const s=scopeOf();if(s.subject!==subject)retur
 function renderParts(){
  const s=viewSubject,units=PARTS.unitsFor(s),body=$('#partsBody');$('#partsTitle').textContent=s+' · 파트별 상태';body.replaceChildren();
  const byId=new Map(data.cards.filter(c=>isPlayable(c)&&c.subject===s).map(c=>[c.id,c])),open=currentPartUnit(s)||units[0]?.id;
- body.append(elem('p',(GICHUL_PART_SUBJECTS.has(s)?'파트 = 같은 주제를 묻는 9급 기출 묶음이에요.':'파트 = 한 강 안에서 같은 내용을 묻는 문제 묶음이에요.')+' 외움 = 7일·14일·30일 뒤에 다시 맞힌 문제 · '+REVIEW_NOTE+(s==='한국사'?' '+GICHUL_NOTE:'')+' 파트를 누르면 그 파트만 풀어요.','status'));
+ body.append(partLegend(s));
  for(const u of units){
   const rows=u.parts.map(p=>[p,partStats(p,byId)]).filter(([,x])=>x.n),weak=rows.filter(([,x])=>x.weak).length,total=rows.reduce((n,[,x])=>n+x.n,0);if(!rows.length)continue;
   const fold=elem('details',undefined,'range-fold part-unit'),g=elem('div',undefined,'menu-list');fold.open=u.id===open;fold.dataset.unit=u.id;

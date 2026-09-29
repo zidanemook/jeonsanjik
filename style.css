@@ -438,3 +438,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-mn-trap { color:#ffc285; font-size:14px; }
 .b-more, .b-more-terms { margin:12px 0 6px; padding:6px 10px; border:1px dashed #4b5563; border-radius:10px; }
 .b-more > summary, .b-more-terms > summary { color:#b9c0cc; cursor:pointer; min-height:32px; }
+/* 파트별 상태 범례(v184): 한 줄에 하나 */
+.part-legend { list-style:none; margin:4px 0 14px; padding:0; line-height:1.6; font-size:.92em; }
+.part-legend li { padding-left:1em; text-indent:-1em; overflow-wrap:anywhere; }
+.part-legend li::before { content:'· '; }
