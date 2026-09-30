@@ -45,7 +45,7 @@ for(const p of enParts){const inPart=new Set(p.ids.map(id=>bank[id].ruleId));
 assert.equal(erules.size,73,'영어 규칙 73개');
 // 한국사(v161~, 강별로 늘어난다): parts.js의 한국사 파트마다 상자 하나(id 'hist-<파트>', split 'lines', 표는 tables 여럿 · 줄마다 rowIds).
 //   HIST_UNITS에 든 단원의 파트는 모두 상자가 있고, 그 파트 문제마다 대입(box = 그 파트 상자 · use = 그 상자의 줄 · blocks)이 있다.
-const HIST_UNITS=['hist-02-05','hist-06','hist-07','hist-08','hist-09','hist-10','hist-11','hist-12','hist-13','hist-14','hist-15','hist-16','hist-17','hist-18','hist-19','hist-20','hist-21','hist-22','hist-23','hist-24','hist-25','hist-26','hist-27','hist-28','hist-29','hist-250','hist-252-256'];
+const HIST_UNITS=['hist-02-05','hist-06','hist-07','hist-08','hist-09','hist-10','hist-11','hist-12','hist-13','hist-14','hist-15','hist-16','hist-17','hist-18','hist-19','hist-20','hist-21','hist-22','hist-23','hist-24','hist-25','hist-26','hist-27','hist-28','hist-29','hist-30','hist-250','hist-252-256'];
 const hUnits=PS.STUDY_PARTS.units.filter(u=>u.subject==='한국사'),hDone=hUnits.filter(u=>HIST_UNITS.includes(u.id)).flatMap(u=>u.parts);
 assert.deepEqual(hUnits.filter(u=>HIST_UNITS.includes(u.id)).map(u=>u.id),HIST_UNITS,'상자를 붙인 한국사 단원');
 const hLines=b=>new Set([...b.terms.map(t=>t.id),...(b.tables||[]).flatMap(t=>[t.id,...t.rowIds,t.key?.id]),...b.rules.items.map(r=>r.id),...b.examples.map(x=>x.id)].filter(Boolean));
@@ -57,7 +57,7 @@ for(const p of hDone){const r='hist-'+p.id,box=B.box(r);assert.ok(box,'한국사
  for(const id of p.ids){history.push(id);assert.ok(!bank[id],'한국사 문제는 practice-bank 밖(quiz-options): '+id);
   const a=B.forQuestion(id);assert.ok(a&&a.box===r&&a.use.length&&a.blocks.length,'한국사 대입: '+id);
   for(const u of a.use){assert.ok(lines.has(u),'대입 줄이 그 파트 상자에 없다: '+id+' '+u);hUse++;}}}
-assert.equal(history.length,2335,'02~29강 + 특강 2335문제(22~29강 20문제씩 · 2파트씩, 2026-09-27 · 28 · 30)');assert.equal(hrules.size,131,'02~29강 + 특강 131파트 = 131상자');
+assert.equal(history.length,2355,'02~30강 + 특강 2355문제(22~30강 20문제씩 · 2파트씩, 2026-09-27 · 28 · 30)');assert.equal(hrules.size,133,'02~30강 + 특강 133파트 = 133상자');
 // 정보보호론 · 컴퓨터일반(v165~, 배치로 늘어난다): 자체 제작 문제가 없어 9급 기출을 주제로 나눈 parts.js 파트마다 상자 하나
 //   (id 'sec-<파트>' · 'com-<파트>', split 'lines', tables 여럿). IT_DONE의 파트는 상자가 있고, 그 파트 기출(gichul-<회차>-NN)마다 대입이 있다.
 const IT_DONE={'정보보호론':['is01','is02','is03','is04','is05','is06','is07','is08','is09','is10','is11','is12','is13','is14','is15','is16','is17','is18','is19','is20','is21'],'컴퓨터일반':['cg01','cg02','cg03','cg04','cg05','cg06','cg07','cg08','cg09','cg10','cg11','cg12','cg13','cg14','cg15','cg16','cg17','cg18','cg19','cg20','cg21','cg22','cg23','cg24','cg25','cg26']},IT_PREFIX={'정보보호론':'sec','컴퓨터일반':'com'};
