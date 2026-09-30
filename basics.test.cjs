@@ -243,7 +243,7 @@ const enRes=run(`(()=>{const out=[],walk=(n,f)=>{for(const c of n.children){f(c)
   const own=box.rules.items.filter(r=>!basicsShared(r,rule,part)),groups=[...new Set(own.map(r=>grp(r.id)))];
   const used=new Set(a.use.map(u=>{const [x,y]=u.split(':');return y===undefined?x:x===rule?y:null;}).filter(Boolean).map(grp)),kept=groups.filter(g=>used.has(g));
   const split=own.every(r=>r.id.includes('-'))&&groups.length>=4&&kept.length>0&&kept.length<groups.length;
-  const more=fold.children.filter(c=>c.className==='b-more'),mt=fold.children.filter(c=>c.className==='b-more-terms');
+  const tf=fold.children.find(c=>c.className==='b-terms-fold'),tbox=tf||fold,more=fold.children.filter(c=>c.className==='b-more'),mt=tbox.children.filter(c=>c.className==='b-more-terms');
   const chips=(d,top)=>{const r=[];(top?d.children:(()=>{const x=[];walk(d,c=>x.push(c));return x;})()).forEach(c=>{if(c.className==='b-term')r.push(c.children[0]._text);});return r;};
   const ownT=box.terms.filter(t=>!basicsShared(t,rule,part)),tid=new Set(a.use.map(u=>{const [x,y]=u.split(':');return y===undefined?x:x===rule?y:null;}).filter(Boolean));
   let keepT=ownT.filter(t=>tid.has(t.id));if(split&&!keepT.length){const txt=own.filter(r=>kept.includes(grp(r.id))).map(r=>r.name+' '+r.text).join(' ');keepT=ownT.filter(t=>txt.includes(t.word.replace(/ *[(][^)]*[)]$/,'')));}
@@ -252,7 +252,7 @@ const enRes=run(`(()=>{const out=[],walk=(n,f)=>{for(const c of n.children){f(c)
    more:more.length,moreOpen:more[0]?more[0].open:false,moreSummary:more[0]?.children[0]._text||'',
    wantMore:split?groups.length-kept.length:0,topRules:names(fold,true),wantTop:split?own.filter(r=>kept.includes(grp(r.id))).map(r=>r.name):own.map(r=>r.name),
    inMore:more[0]?names(more[0]).length:0,wantInMore:split?own.filter(r=>!kept.includes(grp(r.id))).length:0,
-   allTerms:chips(all).length,foldTerms:chips(fold).length,topTerms:chips(fold,true),wantTopTerms:(split?keepT:ownT).map(label),
+   allTerms:chips(all).length,foldTerms:chips(fold).length,topTerms:chips(tbox,true),tf:!!tf,tfOpen:tf?tf.open:false,tfSummary:tf?.children[0]._text||'',ownTerms:ownT.length,bareTop:chips(fold,true).length,wantTopTerms:(split?keepT:ownT).map(label),
    mt:mt.length,mtOpen:mt[0]?mt[0].open:false,mtSummary:mt[0]?.children[0]._text||'',wantMt:split?ownT.length-keepT.length:0});}
  return out;})()`);
 let splitBoxes=0,termSplit=0;const splitSeen=new Set();
@@ -260,6 +260,9 @@ for(const r of enRes){const box=B.box(r.rule),want=['먼저 알아 둘 말',...(
  eqJ(r.heads,want,'영어 절 순서: '+r.id);eqJ(r.fheads,want,'해설 화면에서도 번호가 이어진다: '+r.id);
  assert.equal(r.foldRules,r.allRules,'규칙이 빠지거나 겹치지 않는다: '+r.id);assert.equal(r.foldEx,r.allEx,'비교 예문이 빠지거나 겹치지 않는다: '+r.id);
  eqJ(r.topRules,r.wantTop,'제자리에 두는 규칙 = 대입이 쓰는 공식의 규칙: '+r.id);
+ // v194 사용자 "문법 용어설명은 기본은 접혀잇도록": 해설 화면의 용어 풀이는 닫힌 'b-terms-fold' 하나 안에(바로 보이는 용어 0).
+ if(r.ownTerms){assert.ok(r.tf,'용어 접기 있음: '+r.id);assert.equal(r.tfOpen,false,'용어 접기는 닫혀 있다: '+r.id);assert.equal(r.tfSummary,'문법 용어 풀이 '+r.ownTerms+'개 보기');}else assert.ok(!r.tf,'용어 없으면 접기 없음: '+r.id);
+ assert.equal(r.bareTop,0,'바로 펼쳐진 용어 없음: '+r.id);
  assert.equal(r.foldTerms,r.allTerms,'용어가 빠지거나 겹치지 않는다: '+r.id);eqJ(r.topTerms,r.wantTopTerms,'제자리에 두는 용어: '+r.id);
  if(r.wantMt){termSplit++;assert.equal(r.mt,1,'다른 용어 모음 하나: '+r.id);assert.equal(r.mtOpen,false);assert.equal(r.mtSummary,'이 정리의 다른 용어 '+r.wantMt+'개 더 보기');}else assert.equal(r.mt,0,'용어 모음 없음: '+r.id);
  if(!r.wantMore)assert.equal(r.wantMt,0,'공식을 안 나눈 상자는 용어도 그대로: '+r.id);

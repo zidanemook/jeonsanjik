@@ -1024,8 +1024,11 @@ function basicsSections(box,apply,mode,seen,partId){
  const sharedTerms=box.terms.filter(moved),sharedRules=box.rules.items.filter(moved),sharedTable=box.table&&moved(box.table)?box.table:null;
  const split=mode==='fold'?basicsFormulaSplit(box,rule,rules,apply):null,termSplit=split?basicsTermSplit(terms,rule,split,apply):null,exEl=basicsExample;
  head('먼저 알아 둘 말');
- for(const t of termSplit?termSplit.keep:terms)out.push(...basicsTerm(t));
- if(termSplit&&termSplit.rest.length){const d=elem('details',undefined,'b-more-terms');d.append(elem('summary','이 정리의 다른 용어 '+termSplit.rest.length+'개 더 보기'));for(const t of termSplit.rest)d.append(...basicsTerm(t));out.push(d);}
+ // 영어 해설 화면(v194, 사용자 "문법 용어설명은 기본은 접혀있도록"): 용어 풀이는 닫힌 'b-terms-fold' 하나에 넣는다. 파트 모아 보기는 그대로 펼친다.
+ const termFold=mode==='fold'&&/^grammar-/.test(rule||'')&&terms.length?elem('details',undefined,'b-terms-fold'):null,termOut=termFold||{append:(...x)=>out.push(...x)};
+ if(termFold){termFold.append(elem('summary','문법 용어 풀이 '+terms.length+'개 보기'));out.push(termFold);}
+ for(const t of termSplit?termSplit.keep:terms)termOut.append(...basicsTerm(t));
+ if(termSplit&&termSplit.rest.length){const d=elem('details',undefined,'b-more-terms');d.append(elem('summary','이 정리의 다른 용어 '+termSplit.rest.length+'개 더 보기'));for(const t of termSplit.rest)d.append(...basicsTerm(t));termOut.append(d);}
  if(table){head(table.title);out.push(basicsTable(table));if(table.key)out.push(basicsLines(table.key.text,'b-key'));}
  for(const t of box.tables||[])if(!moved(t)){head(t.title);out.push(basicsHistTable(t));if(t.key)out.push(basicsLines(t.key.text,'b-key'));}
  head('규칙'+(box.rules.title?' — '+box.rules.title:''));
