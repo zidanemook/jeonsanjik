@@ -150,7 +150,12 @@ const itCounts={};
  const h26=PARTS.units.find(u=>u.id==='hist-26');assert.equal(h26.title,'26강 조선 후기(문화 1)');assert.equal(h26.scope.round,'lecture-26');
  assert.deepEqual(h26.parts.map(p=>p.id),['h26-1','h26-2']);assert.deepEqual(h26.parts.map(p=>p.title),['성리학·양명학과 농업 중심 개혁론','상공업 중심 개혁론과 국학']);
  assert.deepEqual(h26.parts.map(p=>p.ids.length),[8,12]);assert.ok(h26.parts.every(p=>p.ids.length>=8),'26강 파트마다 8문제 이상');
- {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-26')+1);}
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-27'),hi.indexOf('hist-26')+1);}
+ // 2026-09-30 27강 조선 후기(문화 2): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 7개를 2파트로(파트마다 8문제 이상). 26강 다음 · 특강 앞.
+ const h27=PARTS.units.find(u=>u.id==='hist-27');assert.equal(h27.title,'27강 조선 후기(문화 2)');assert.equal(h27.scope.round,'lecture-27');
+ assert.deepEqual(h27.parts.map(p=>p.id),['h27-1','h27-2']);assert.deepEqual(h27.parts.map(p=>p.title),['서양 문물·과학 기술과 공예·건축','서민 문화와 예술']);
+ assert.deepEqual(h27.parts.map(p=>p.ids.length),[8,12]);assert.ok(h27.parts.every(p=>p.ids.length>=8),'27강 파트마다 8문제 이상');
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-27')+1);}
  // 2026-09-24 주제 특강(250쪽 세시 풍속 · 252~256쪽 근·현대 인물): facts.cjs 묶음 13개 = 13파트, 552문제. 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
  // 2026-09-27 두 강으로 나눔(hist-250 세시 풍속 2파트 · hist-252-256 근·현대 인물 11파트) — 파트 id는 옛 h250256-1~13 그대로.
  const hss=PARTS.units.find(u=>u.id==='hist-250'),hpp=PARTS.units.find(u=>u.id==='hist-252-256');assert.ok(!PARTS.units.some(u=>u.id==='hist-250-256'));

@@ -69,6 +69,9 @@ for(const name of ['덕종','순종','선종','헌종','강종','충숙왕','충
  // 2026-09-30 26강 조선 후기(문화 1): 광해군 지봉유설 · 동국지리지, 현종 반계수록, 숙종 사변록 · 정제두, 영조 우서 · 성호사설 · 의산문답 · 택리지 · 동국지도, 정조 열하일기 · 발해고 · 동사강목 · 여전론, 순조 경세유표 · 금석과안록 · 자산어보, 철종 대동여지도.
  for(const [king,needle] of [['광해군','『지봉유설』'],['광해군','한백겸'],['현종','유형원'],['숙종','박세당'],['숙종','정제두'],['영조','유수원'],['영조','이익'],['영조','홍대용'],['영조','이중환'],['영조','정상기'],['정조','박지원'],['정조','『발해고』'],['정조','안정복'],['정조','여전론'],['순조','『경세유표』'],['순조','김정희'],['순조','정약전'],['철종','김정호']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle+' (26강)');
  for(const [king,needle] of [['정조','김정희'],['순조','박지원'],['영조','김정호'],['철종','정상기'],['숙종','유형원'],['현종','정제두']])assert(!jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),'대조군(26강): '+king+' facts do not include '+needle);
+ // 2026-09-30 27강 조선 후기(문화 2): 선조 곤여만국전도, 인조 정두원 · 침구경험방 · 팔상전, 효종 시헌력 · 농가집성, 숙종 색경 · 각황전, 영조 정선 · 강세황, 정조 배다리 · 거중기 · 마과회통 · 김홍도, 헌종 세한도.
+ for(const [king,needle] of [['선조','곤여만국전도'],['인조','정두원'],['인조','『침구경험방』'],['인조','보은 법주사 팔상전'],['효종','시헌력'],['효종','『농가집성』'],['숙종','『색경』'],['숙종','구례 화엄사 각황전'],['영조','인왕제색도'],['영조','영통동구도'],['정조','거중기'],['정조','배다리'],['정조','『마과회통』'],['정조','김홍도'],['헌종','세한도']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle+' (27강)');
+ for(const [king,needle] of [['영조','김홍도'],['정조','인왕제색도'],['순조','세한도'],['인조','시헌력'],['숙종','팔상전']])assert(!jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),'대조군(27강): '+king+' facts do not include '+needle);
  for(const name of ['단종','예종','인종','경종'])assert.equal(jk.find(k=>k.name===name).facts.length,0,'unstudied Joseon king stays blank: '+name);}
 assert.deepEqual(M.get('military-rulers').lines[0].items.map(i=>i.name),['이의방','정중부','경대승','이의민','최충헌','최우']);
 // 정언 논리(국어 논리 3장): 용어 뜻 21개, 알파벳 10개(A·E·I·O · S·P·M · 식 읽기), 핵심 30개.
@@ -110,7 +113,7 @@ for(const id of ['history-people','history-books']){
 assert.deepEqual(M.get('history-people').groups.map(g=>g.title),['고조선~삼국','통일 신라·발해·후삼국','고려 전기','고려 무신~원 간섭기','고려 말','조선 전기','조선 후기','근·현대 인물']);
 assert.deepEqual(M.get('history-books').groups.map(g=>g.title),['삼국','통일 신라','고려 전기','고려 무신~원 간섭기','고려 말','조선 전기','조선 후기','근·현대']);
 // 2026-09-24 주제 특강: 인물 80명(252~256쪽 교재 순서, 뒷면 = 시기 · 문제 해설의 기억 연결 요약)과 책·글·잡지 28을 '근·현대' 묶음으로 더했다.
-assert.equal(M.size(M.get('history-people')),291);assert.equal(M.size(M.get('history-books')),139);
+assert.equal(M.size(M.get('history-people')),303);assert.equal(M.size(M.get('history-books')),148);
 {const g=M.get('history-people').groups.at(-1);assert.equal(g.cards.length,80);for(const [f,b] of g.cards){assert(/^(개항기|대한 제국 시기|한국을 도운 외국인|일제 강점기|일제 강점기·광복 전후|광복 전후) · /.test(b),'근·현대 인물 뒷면은 시기부터: '+f);assert(!/[{}]/.test(b),'왕 표시 남음: '+f);}}
 // 왕에 걸린 앞머리: 인물 101 · 책 22. 나머지(인물 31 · 책 17)는 왕이 하나로 정해지지 않아 시기만 적었다(고조선·가야, 일본 전파, 승려·학자 등).
 // 15강(2026-09-16)으로 책 6(초조대장경 현종·『상정고금예문』 인종·팔만대장경 고종·『직지심체요절』 우왕 + 교장·『향약구급방』은 시기만)과 인물 1(혜허, 시기만)을 더했다.
@@ -123,7 +126,8 @@ assert.equal(M.size(M.get('history-people')),291);assert.equal(M.size(M.get('his
 // 2026-09-28 24강 조선 후기(경제): 인물 2(이원익 광해군 · 김육 효종)가 조선 왕에 걸렸다. 허적은 뒷면만 보탬(상평통보).
 // 2026-09-28 25강 조선 후기(사회): 인물 4(윤지충 정조 · 황사영 · 홍경래 순조 · 유계춘 철종)가 조선 왕에 걸렸다. 최시형은 동학 2대 교주로만(고종은 조선 왕 목록 밖), 책 『정감록』은 '조선 후기'.
 // 2026-09-30 26강 조선 후기(문화 1): 인물 15(박세당 · 정제두 숙종 · 유형원 현종 · 이익 · 유수원 · 홍대용 · 이중환 · 정상기 영조 · 정약용 정조·순조 · 박지원 · 안정복 정조 · 김정희 순조 · 이수광 · 한백겸 광해군 · 김정호 철종)와 책 15가 조선 왕에 걸렸다. 『곽우록』 · 『해동역사』 · 『연려실기술』 · 『언문지』는 '조선 후기'. 유득공 · 박제가는 뒷면만 보탬.
-assert.deepEqual(anchoredCards,{'history-people':169,'history-books':80});
+// 2026-09-30 27강 조선 후기(문화 2): 인물 7(정두원 · 허임 인조 · 허준 광해군 · 신속 효종 · 정선 · 강세황 영조 · 김홍도 정조)과 책 5(『동의보감』 · 『침구경험방』 · 『마과회통』 · 『농가집성』 · 『색경』)가 조선 왕에 걸렸다. 이제마 · 『동의수세보원』은 조선 말(고종은 조선 왕 목록 밖), 신윤복 · 김득신 · 허균 · 신재효 · 『홍길동전』 등은 '조선 후기'. 김육 · 박세당 · 김정희는 뒷면만 보탬(김정희는 순조·헌종).
+assert.deepEqual(anchoredCards,{'history-people':176,'history-books':85});
 // 대조군: 없는 왕·사실에 없는 인물은 잡혀야 한다.
 assert.throws(()=>factsOf('고려','없는왕'));
 assert(!factsOf('신라','진흥왕').some(f=>f.includes('이사부')),'control: 이사부 is 지증왕, not in 진흥왕 facts');
@@ -157,9 +161,10 @@ assert.equal(M.size(countries),30);
 // 2026-09-19 왕 고리 넓히기: 관촉사 석조 미륵보살 입상 → 광종(왕명·혜명), 정토사지 홍법국사탑 → 현종(왕명으로 건립), 사천대 → 현종(태복감을 고침), 수덕사 대웅전 → 충렬왕(대들보 먹글씨). 나머지 33칸은 왕이 하나로 정해지지 않아 시기만 둔다.
 {const set=M.get('history-heritage');assert(set&&set.groups&&set.subject==='한국사','history-heritage set');
  // 2026-09-24 21강: 원각사지 10층 석탑(세조)·그림 5(몽유도원도 세종, 나머지는 시기만)·새 묶음 '분청사기·백자'(시기만)·과학 기술 7(천상열차분야지도 태조·계미자 태종·갑인자·측우기·앙부일구·자격루·혼천의·간의 세종)을 더했다.
- assert.deepEqual(set.groups.map(g=>g.title),['불상','탑·승탑','무덤·비석','회화·불화','청자·금속 공예','분청사기·백자','건축','과학 기술·인쇄']);assert.equal(M.size(set),76);
+ assert.deepEqual(set.groups.map(g=>g.title),['불상','탑·승탑','무덤·비석','회화·불화','청자·금속 공예','분청사기·백자','건축','과학 기술·인쇄']);assert.equal(M.size(set),90);
  let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)),'history-heritage: '+king+'('+country+') facts name '+front);}
- assert.equal(anchored,37,'왕에 걸린 문화유산 28(2026-09-19 경복궁 태조·종묘 태조·창덕궁 태종 + 석굴암 본존불·미륵사지 석탑·분황사 모전 석탑·황룡사 9층 목탑·감은사지 3층 석탑·불국사 3층 석탑·다보탑·경천사지 10층 석탑·무령왕릉·광개토 대왕릉비·단양 적성비·순수비·정혜 공주 묘·천산대렵도·칠지도·상원사 동종·성덕대왕 신종·무구정광대다라니경·초조대장경·팔만대장경·화통도감 + 2026-09-19 관촉사 석조 미륵보살 입상 광종·정토사지 홍법국사탑 현종·사천대 현종·수덕사 대웅전 충렬왕)');
+ // 2026-09-30 27강: 인왕제색도 · 금강전도 · 영통동구도(영조) · 서당 · 씨름 · 거중기(정조) · 세한도(헌종) · 보은 법주사 팔상전(인조) · 구례 화엄사 각황전(숙종) · 곤여만국전도(선조) 9개가 더 걸림 → 46. 단오풍정 · 월하정인 · 파적도 · 까치와 호랑이 · 청화 백자 · 김제 금산사 미륵전은 '조선 후기'.
+ assert.equal(anchored,46,'왕에 걸린 문화유산 28(2026-09-19 경복궁 태조·종묘 태조·창덕궁 태종 + 석굴암 본존불·미륵사지 석탑·분황사 모전 석탑·황룡사 9층 목탑·감은사지 3층 석탑·불국사 3층 석탑·다보탑·경천사지 10층 석탑·무령왕릉·광개토 대왕릉비·단양 적성비·순수비·정혜 공주 묘·천산대렵도·칠지도·상원사 동종·성덕대왕 신종·무구정광대다라니경·초조대장경·팔만대장경·화통도감 + 2026-09-19 관촉사 석조 미륵보살 입상 광종·정토사지 홍법국사탑 현종·사천대 현종·수덕사 대웅전 충렬왕)');
  // 재질·유형이 빠진 칸이 없어야 "왕 — 문화유산 — 재질" 묶음으로 외울 수 있다.
  assert(set.groups.flatMap(g=>g.cards).every(([,b])=>/불|탑|무덤|벽화|벽돌|비석|그림|청자|공예|칼|범종|옻칠|목조|주심포|다포|공포|목판|관청|건물|역법|활자|기구|시계/.test(b)),'every heritage card names its material or type');
  assert(back('history-heritage','개성 경천사지 10층 석탑').includes('원의 영향')&&back('history-heritage','안동 봉정사 극락전').includes('가장 오래된'));}
