@@ -162,7 +162,12 @@ const itCounts={};
  const h28=PARTS.units.find(u=>u.id==='hist-28');assert.equal(h28.title,'28강 개항기(흥선 대원군)');assert.equal(h28.scope.round,'lecture-28');
  assert.deepEqual(h28.parts.map(p=>p.id),['h28-1','h28-2']);assert.deepEqual(h28.parts.map(p=>p.title),['흥선 대원군의 개혁 정치','통상 수교 거부 정책과 양요']);
  assert.deepEqual(h28.parts.map(p=>p.ids.length),[11,9]);assert.ok(h28.parts.every(p=>p.ids.length>=8),'28강 파트마다 8문제 이상');
- {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-28')+1);}
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-29'),hi.indexOf('hist-28')+1);}
+ // 2026-09-30 29강 개항기(개항 ~ 갑신정변): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 5개를 2파트로(파트마다 8문제 이상). 28강 다음 · 특강 앞.
+ const h29=PARTS.units.find(u=>u.id==='hist-29');assert.equal(h29.title,'29강 개항기(개항 ~ 갑신정변)');assert.equal(h29.scope.round,'lecture-29');
+ assert.deepEqual(h29.parts.map(p=>p.id),['h29-1','h29-2']);assert.deepEqual(h29.parts.map(p=>p.title),['강화도 조약과 개화 정책','위정척사 운동 · 임오군란 · 갑신정변']);
+ assert.deepEqual(h29.parts.map(p=>p.ids.length),[8,12]);assert.ok(h29.parts.every(p=>p.ids.length>=8),'29강 파트마다 8문제 이상');
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-29')+1);}
  // 2026-09-24 주제 특강(250쪽 세시 풍속 · 252~256쪽 근·현대 인물): facts.cjs 묶음 13개 = 13파트, 552문제. 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
  // 2026-09-27 두 강으로 나눔(hist-250 세시 풍속 2파트 · hist-252-256 근·현대 인물 11파트) — 파트 id는 옛 h250256-1~13 그대로.
  const hss=PARTS.units.find(u=>u.id==='hist-250'),hpp=PARTS.units.find(u=>u.id==='hist-252-256');assert.ok(!PARTS.units.some(u=>u.id==='hist-250-256'));
