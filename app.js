@@ -215,12 +215,18 @@ function queueMode(subject=scopeOf().subject){const m=data.queueModes;if(m&&type
 function withQueueMode(state,subject,value){const modes={...(state.queueModes&&typeof state.queueModes==='object'?state.queueModes:{})};delete state.queueMode;if(value==='default')delete modes[subject];else modes[subject]=value;state.queueModes=modes;return state;}
 let queueModeFilled=false,partsOption=null;
 let historyStatsCache=null;
-// 문제별 오답 횟수와 시도 여부를 기존 history에서만 읽는다. 새 저장 필드가 없어 기기 간 동기화에도 그대로 남는다.
+// 문제별 오답 횟수 · 푼 횟수와 시도 여부를 기존 history에서만 읽는다. 새 저장 필드가 없어 기기 간 동기화에도 그대로 남는다.
 function historyStats(){
  if(historyStatsCache?.rows===data.history)return historyStatsCache.value;
- const wrong=new Map(),seen=new Set();
- for(const h of data.history){seen.add(h.cardId);if(h.result==='wrong')wrong.set(h.cardId,(wrong.get(h.cardId)||0)+1);}
- const value={wrong,seen};historyStatsCache={rows:data.history,value};return value;
+ const wrong=new Map(),seen=new Set(),solves=new Map();
+ for(const h of data.history){seen.add(h.cardId);solves.set(h.cardId,(solves.get(h.cardId)||0)+1);if(h.result==='wrong')wrong.set(h.cardId,(wrong.get(h.cardId)||0)+1);}
+ const value={wrong,seen,solves};historyStatsCache={rows:data.history,value};return value;
+}
+// 많이 푼 문제는 뒤로(v195, 2026-09-30 사용자 "이미 풀었던거는 푼횟수가 많을수록 덜나오게"): 풀던 문제 · 5분 재시도는 그대로 앞에 두고,
+// 나머지 복습일이 된 문제는 푼 횟수가 적은 것부터(같으면 원래 순서 — 복습일 순). 빠지는 문제는 없고 순서만 바뀐다.
+function fewerSolvesFirst(list){
+ const {solves}=historyStats(),head=c=>c.pendingAttempt?0:c.retryAt?1:2,rank=new Map(list.map((c,i)=>[c.id,i]));
+ return [...list].sort((a,b)=>head(a)-head(b)||(head(a)===2?(solves.get(a.id)||0)-(solves.get(b.id)||0):0)||rank.get(a.id)-rank.get(b.id));
 }
 function waitingRetry(c){return !!c.retryAt&&Date.parse(c.retryAt)>Date.now();}
 // 형제 간격은 다른 문제가 있을 때만 사이를 벌린다. 풀 문제가 그것뿐이면 막지 않고 먼저 풀린 순서대로 낸다.
@@ -251,7 +257,7 @@ function reviewQueue(cards,ranged=false,subject=cardsSubject(cards)){
  // 파트별 점검은 풀이 화면에서만 따로 고른다(partRound). 수 세기·목록 화면에서는 기본 대기열과 같다.
  const mode=queueMode(subject)==='parts'?'default':queueMode(subject);
  if(mode==='wrong')return wrongQueue(cards);
- const due=ReviewLearning.queue(cards),ids=new Set(due.map(c=>c.id)),today=day(),missed=new Map(),last=new Map();
+ const due=fewerSolvesFirst(ReviewLearning.queue(cards)),ids=new Set(due.map(c=>c.id)),today=day(),missed=new Map(),last=new Map();
  for(const h of data.history){const at=h.at||h.date;if((last.get(h.cardId)||'')<at)last.set(h.cardId,at);if(h.mode==='quiz'&&h.result==='wrong'&&h.date===today){const k=ReviewPolicy.concept(h.cardId);if((missed.get(k)||'')<at)missed.set(k,at);}}
  const extra=missed.size?cards.filter(c=>{if(ids.has(c.id))return false;const at=missed.get(ReviewPolicy.concept(c.id));return !!at&&(last.get(c.id)||'')<at;}):[];
  const queue=settle(ReviewPolicy.skipTwins([...due,...extra],data.history).cards);
@@ -303,7 +309,7 @@ function partRound(scope,inside){
   card=cands.find(c=>c.id===data.activePractice?.cardId)||null;
   if(!card){const used=new Map();for(const id of cur.answeredIds){const k=partKeyOf(id);used.set(k,(used.get(k)||0)+1);}
    const last=[...r.log].sort((a,b)=>b[1].at.localeCompare(a[1].at))[0];
-   const pickId=PartCheck.pick(cands.map(c=>({id:c.id,fresh:!seen.has(c.id),due:!!c.due&&c.due<=today})),used,last?partKeyOf(last[0]):null,partKeyOf)?.id;
+   const solves=historyStats().solves,pickId=PartCheck.pick(cands.map(c=>({id:c.id,fresh:!seen.has(c.id),due:!!c.due&&c.due<=today,solves:solves.get(c.id)||0})),used,last?partKeyOf(last[0]):null,partKeyOf)?.id;
    card=cands.find(c=>c.id===pickId)||cands[0]||null;}
  }
  return {...r,units,mark,card,multi:units.length>1};

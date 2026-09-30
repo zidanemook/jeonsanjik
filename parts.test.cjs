@@ -28,6 +28,8 @@ const PartCheck=require('./part-check.js');
  assert.equal(pick([{id:'a:1',fresh:true},{id:'b:1',fresh:false,due:true}],{},'a'),'b:1','바로 앞과 같은 내용이면 다른 내용 먼저');
  assert.equal(pick([{id:'a:1',fresh:true},{id:'a:2',fresh:true}],{},'a'),'a:1','같은 내용뿐이면 그래도 낸다(막다른 화면 없음)');
  assert.equal(pick([{id:'a:1',fresh:true},{id:'b:1',fresh:true}],{a:2},null),'b:1','이 판에 덜 나온 내용 먼저');
+ assert.equal(pick([{id:'a:1',fresh:false,solves:5},{id:'b:1',fresh:false,solves:1}],{},null),'b:1','v195: 이미 푼 문제끼리는 푼 횟수 적은 것 먼저');
+ assert.equal(pick([{id:'a:1',fresh:false,due:true,solves:9},{id:'b:1',fresh:false,solves:0}],{},null),'a:1','대조군: 복습일이 된 문제가 먼저인 규칙은 그대로');
  assert.equal(pick([{id:'a:1',fresh:false,due:false},{id:'b:1',fresh:false,due:true}],{},null),'b:1','복습일이 된 문제가 나머지보다 먼저');
  const r=PartCheck.round([{id:'p1',ids:['x1','x2']},{id:'p2',ids:['y1','y2','y3']}],new Map([['x1',{result:C,at:'1'}],['x2',{result:C,at:'2'}]]),()=>true);
  assert.deepEqual([r.parts[0].status,r.current,r.done],['pass',1,false],'2문제 파트는 2문제로 통과하고 다음 파트로');

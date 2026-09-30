@@ -34,11 +34,12 @@
   return {parts:out,current,done:current<0,passed:out.filter(p=>p.status==='pass'),weak:out.filter(p=>p.status==='weak')};
  }
  // 다음 문제: 같은 내용이 바로 이어 나오지 않게 → 안 푼 문제 → 복습일이 된 문제 → 나머지, 그 안에서 이 판에 덜 나온 사실 먼저, 교재 순서.
- // c: {id, fresh, due} · keyOf(id): 고르게 섞을 기준(사실·개념 묶음) · lastKey: 이 판에서 바로 앞에 푼 문제의 기준.
+ // c: {id, fresh, due, solves} · keyOf(id): 고르게 섞을 기준(사실·개념 묶음) · lastKey: 이 판에서 바로 앞에 푼 문제의 기준.
  const less=(a,b)=>{for(let i=0;i<a.length;i++)if(a[i]!==b[i])return a[i]<b[i];return false;};
  function pick(cands,used,lastKey,keyOf){
   let best=null,bestScore=null;
-  cands.forEach((c,i)=>{const k=keyOf(c.id),score=[lastKey!==null&&k===lastKey?1:0,c.fresh?0:c.due?1:2,used.get(k)||0,i];
+  // v195: 같은 칸(안 푼 · 복습일 · 나머지)과 같은 사실 안에서는 푼 횟수(c.solves, 모든 기록)가 적은 문제 먼저.
+  cands.forEach((c,i)=>{const k=keyOf(c.id),score=[lastKey!==null&&k===lastKey?1:0,c.fresh?0:c.due?1:2,used.get(k)||0,c.solves||0,i];
    if(!bestScore||less(score,bestScore)){best=c;bestScore=score;}});
   return best;
  }

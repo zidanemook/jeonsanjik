@@ -433,5 +433,12 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
 {const mq=run(`(()=>{const c=data.cards.find(c=>isPlayable(c)&&PRACTICE_BANK[c.id]);const m={...c,streak:4,due:day(),retryAt:undefined,pendingAttempt:undefined};const off=reviewQueue([m],true).ready.length;data.includeMastered=true;const on=reviewQueue([m],true).ready.length;delete data.includeMastered;const wide=reviewQueue([m],false).ready.length;return [off,on,wide,dailyPick(m.id)?1:0];})()`);
  assert.equal(mq[0],0,'mastered question hidden in a range');assert.equal(mq[1],1,'shown when the option is on');assert.equal(mq[2],mq[3],'subject-wide: only on its random day');
  const share=run(`(()=>{let n=0;for(let i=0;i<7000;i++)if(dailyPick('x'+i))n++;return n;})()`);assert.ok(share>800&&share<1200,'about one in seven: '+share);}
+// v195 많이 푼 문제는 뒤로: 복습일이 된 문제끼리는 푼 횟수가 적은 것부터, 풀던 문제 · 5분 재시도는 그대로 앞, 빠지는 문제 없음.
+{const r=run(`(()=>{const d=day(),base=data.cards.filter(c=>PRACTICE_BANK[c.id]).slice(0,4).map(c=>({...c,streak:1,due:d,retryAt:undefined,pendingAttempt:undefined}));
+ const [a,b,c,e]=base;const keep=data.history;data.history=[...keep,...[a,a,a,b,b,e].map((x,i)=>({cardId:x.id,date:'2026-01-0'+(i+1),at:'2026-01-0'+(i+1)+'T00:00:00Z',result:'correct',mode:'quiz'}))];
+ const retry={...e,retryAt:new Date(Date.now()-1000).toISOString()};
+ const order=fewerSolvesFirst([a,b,c]).map(x=>x.id),withRetry=fewerSolvesFirst([a,b,retry]).map(x=>x.id);data.history=keep;
+ return {order,withRetry,want:[c.id,b.id,a.id],wantR:[e.id,b.id,a.id]};})()`);
+ assert.deepEqual(r.order,r.want,'푼 횟수 적은 문제 먼저(0 → 2 → 3번)');assert.deepEqual(r.withRetry,r.wantR,'5분 재시도는 푼 횟수와 상관없이 앞');}
 console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 · 2장 179 · 3장 181 · 4장 147 · 5장 128 · 6장 329 · 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자 펼침(틀림)·접힘(맞힘); 독해 1·3장 틀림 펼침 · 2장 맞힘 접힘), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본·틀린 문제 위주·안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항·한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어 · 영어 · 9급 한국사 · 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침 · 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});
