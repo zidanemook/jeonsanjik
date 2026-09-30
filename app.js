@@ -38,7 +38,7 @@ function validDay(s){if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s))retu
 function validateContent(c){if(!c||typeof c!=='object'||['subject','question','answer'].some(k=>typeof c[k]!=='string'||!c[k].trim())||['explanation','source'].some(k=>c[k]!==undefined&&typeof c[k]!=='string'))throw Error('과목·질문·정답과 텍스트 형식을 확인하세요.');}
 // 의견은 학습 기록이 아니다. 형식이 맞지 않는 의견 하나 때문에 기록 불러오기(=저장 전체)가 멈추지 않도록 막지 않고 걸러낸다.
 function cleanNotes(list){const out=[];if(Array.isArray(list))for(const n of list){try{out.push(ProgressSync.note(n));}catch{}}return out;}
-function validateBackup(v){if(v?.explanationViews!==undefined){if(!Array.isArray(v.explanationViews))throw Error('Invalid explanation records');StudyCredit.unionExplanations([],v.explanationViews);}if(![1,2,3].includes(v?.version)||!Array.isArray(v.cards)||!Array.isArray(v.history))throw Error('지원하지 않는 백업입니다.');const ids=new Set();for(const c of v.cards){if(v.version!==3||c.question!==undefined)validateContent(c);if(typeof c.id!=='string'||ids.has(c.id)||!validDay(c.created)||!(c.due===null||validDay(c.due))||(v.version===1?(!Number.isInteger(c.stage)||c.stage<0||c.stage>4):(!Number.isFinite(c.ease)||c.ease<1.3||c.ease>3||!Number.isInteger(c.interval)||c.interval<0||c.interval>365||!Number.isInteger(c.streak)||c.streak<0||c.due===null)))throw Error('문제 일정 또는 ID가 올바르지 않습니다.');if(c.retryAt!==undefined&&!Number.isFinite(Date.parse(c.retryAt)))throw Error('잘못된 재학습 시간');if(c.pendingAttempt!==undefined&&(!['remember','partial','none'].includes(c.pendingAttempt.recall)||!validDay(c.pendingAttempt.date)||!Number.isFinite(Date.parse(c.pendingAttempt.at))||typeof c.pendingAttempt.delayedFirst!=='boolean'))throw Error('잘못된 회상 기록');ids.add(c.id);}for(const h of v.history){if(typeof h.id!=='string'||typeof h.cardId!=='string'||!validDay(h.date)||!['correct','unsure','wrong'].includes(h.result))throw Error('복습 기록이 올바르지 않습니다.');}if(v.quizFeedback!==undefined&&(!v.quizFeedback||typeof v.quizFeedback.cardId!=='string'||!Number.isInteger(v.quizFeedback.selectedIndex)||!['correct','wrong','unsure'].includes(v.quizFeedback.result)))throw Error('퀴즈 피드백이 올바르지 않습니다.');if(v.queueMode!==undefined&&!queueModeList().some(([m])=>m===v.queueMode))throw Error('대기열 모드가 올바르지 않습니다.');if(v.queueModes!==undefined&&(!v.queueModes||typeof v.queueModes!=='object'||Array.isArray(v.queueModes)||Object.entries(v.queueModes).some(([k,m])=>typeof k!=='string'||k.length>40||!queueModeList().some(([x])=>x===m))))throw Error('과목별 대기열 모드가 올바르지 않습니다.');if(v.targetExam!==undefined&&JSON.stringify(ExamScore.target(v.targetExam))!==JSON.stringify(v.targetExam))throw Error('목표 점수가 올바르지 않습니다.');if(v.dailyGoals!==undefined&&(!v.dailyGoals||typeof v.dailyGoals!=='object'||Array.isArray(v.dailyGoals)||Object.entries(v.dailyGoals).some(([k,g])=>typeof k!=='string'||k.length>40||!Number.isInteger(g)||g<1||g>500)))throw Error('과목별 하루 목표가 올바르지 않습니다.');if(v.includeMastered!==undefined&&v.includeMastered!==true)throw Error('외운 문제 옵션이 올바르지 않습니다.');if(v.openLectures!==undefined&&(!Array.isArray(v.openLectures)||v.openLectures.length>60||v.openLectures.some(x=>typeof x!=='string'||!x||x.length>20)))throw Error('이 강 문제 더 풀기 설정이 올바르지 않습니다.');if(v.scheduleVersion!==undefined&&!Number.isInteger(v.scheduleVersion))throw Error('일정 버전이 올바르지 않습니다.');if(v.dailyGoal!==undefined&&!(Number.isInteger(v.dailyGoal)&&v.dailyGoal>=1&&v.dailyGoal<=500))throw Error('하루 목표가 올바르지 않습니다.');}
+function validateBackup(v){if(v?.explanationViews!==undefined){if(!Array.isArray(v.explanationViews))throw Error('Invalid explanation records');StudyCredit.unionExplanations([],v.explanationViews);}if(![1,2,3].includes(v?.version)||!Array.isArray(v.cards)||!Array.isArray(v.history))throw Error('지원하지 않는 백업입니다.');const ids=new Set();for(const c of v.cards){if(v.version!==3||c.question!==undefined)validateContent(c);if(typeof c.id!=='string'||ids.has(c.id)||!validDay(c.created)||!(c.due===null||validDay(c.due))||(v.version===1?(!Number.isInteger(c.stage)||c.stage<0||c.stage>4):(!Number.isFinite(c.ease)||c.ease<1.3||c.ease>3||!Number.isInteger(c.interval)||c.interval<0||c.interval>365||!Number.isInteger(c.streak)||c.streak<0||c.due===null)))throw Error('문제 일정 또는 ID가 올바르지 않습니다.');if(c.retryAt!==undefined&&!Number.isFinite(Date.parse(c.retryAt)))throw Error('잘못된 재학습 시간');if(c.pendingAttempt!==undefined&&(!['remember','partial','none'].includes(c.pendingAttempt.recall)||!validDay(c.pendingAttempt.date)||!Number.isFinite(Date.parse(c.pendingAttempt.at))||typeof c.pendingAttempt.delayedFirst!=='boolean'))throw Error('잘못된 회상 기록');ids.add(c.id);}for(const h of v.history){if(typeof h.id!=='string'||typeof h.cardId!=='string'||!validDay(h.date)||!['correct','unsure','wrong'].includes(h.result))throw Error('복습 기록이 올바르지 않습니다.');}if(v.quizFeedback!==undefined&&(!v.quizFeedback||typeof v.quizFeedback.cardId!=='string'||!Number.isInteger(v.quizFeedback.selectedIndex)||!['correct','wrong','unsure'].includes(v.quizFeedback.result)))throw Error('퀴즈 피드백이 올바르지 않습니다.');if(v.queueMode!==undefined&&!queueModeList().some(([m])=>m===v.queueMode))throw Error('대기열 모드가 올바르지 않습니다.');if(v.queueModes!==undefined&&(!v.queueModes||typeof v.queueModes!=='object'||Array.isArray(v.queueModes)||Object.entries(v.queueModes).some(([k,m])=>typeof k!=='string'||k.length>40||!queueModeList().some(([x])=>x===m))))throw Error('과목별 대기열 모드가 올바르지 않습니다.');if(v.targetExam!==undefined&&JSON.stringify(ExamScore.target(v.targetExam))!==JSON.stringify(v.targetExam))throw Error('목표 점수가 올바르지 않습니다.');if(v.dailyGoals!==undefined&&(!v.dailyGoals||typeof v.dailyGoals!=='object'||Array.isArray(v.dailyGoals)||Object.entries(v.dailyGoals).some(([k,g])=>typeof k!=='string'||k.length>40||!Number.isInteger(g)||g<1||g>500)))throw Error('과목별 하루 목표가 올바르지 않습니다.');if(v.includeMastered!==undefined&&v.includeMastered!==true)throw Error('외운 문제 옵션이 올바르지 않습니다.');if(v.openLectures!==undefined&&(!Array.isArray(v.openLectures)||v.openLectures.length>200||v.openLectures.some(x=>typeof x!=='string'||!x||x.length>60)))throw Error('이 강 문제 더 풀기 설정이 올바르지 않습니다.');if(v.scheduleVersion!==undefined&&!Number.isInteger(v.scheduleVersion))throw Error('일정 버전이 올바르지 않습니다.');if(v.dailyGoal!==undefined&&!(Number.isInteger(v.dailyGoal)&&v.dailyGoal>=1&&v.dailyGoal<=500))throw Error('하루 목표가 올바르지 않습니다.');}
 function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.subject.trim(),question:c.question.trim(),answer:c.answer.trim(),explanation:c.explanation||'',source:c.source||'',verified:c.verified===true,created:day(),due:day(),ease:2.5,interval:0,streak:0};}
 // 공무원 기출은 회차 파일을 받기 전에도 풀 수 있는 카드다(색인에 있으면 된다). 보기는 그 회차의 문항을 처음 낼 때 받는다.
 function playableRaw(c){return !!c&&(!!QUIZ_OPTIONS[c.id]||!!PRACTICE_BANK[c.id]||Gichul.known(c.id));}
@@ -48,13 +48,27 @@ function playableRaw(c){return !!c&&(!!QUIZ_OPTIONS[c.id]||!!PRACTICE_BANK[c.id]
 // 나머지 문제는 지우지 않고 접어 둔다: 강마다 '이 강 문제 더 풀기'를 켜면(data.openLectures, 이 기기 설정 — 대기열 모드처럼) 다시 모든 범위·대기열·수·뱃지에 들어온다.
 // 접힌 문제는 어디에서도 풀 수 있는 문제로 치지 않는다(isPlayable) — 수·복습 대기열·파트·뱃지가 모두 보이는 문제로만 계산된다. 풀이 기록과 일정은 그대로 남는다.
 // 표는 처음 쓸 때 만든다(파일 위쪽 저장소 읽기보다 먼저 불려도 초기화 전 참조가 없게).
+// v199(2026-09-30 사용자 "영어도 하루 20문제, 국어도 하루 20문제정도로" → "단원마다 핵심 20"): 영어 Day 1~7 · 문법 공식 훈련, 국어 논리 1~6장 · 독해 1~3장도
+// 단원(parts.js 단원 id)마다 core-units.js(STUDY_CORE_UNITS)의 핵심 20만 보이고 나머지는 접는다(9급 기출 빈도로 고름, research/core20-en-ko-20260930).
+// 켜는 열쇠(data.openLectures) = 강 id(한국사) · 단원 id('en-day1' · 'ko-ko2' …) · 'formula:<공식 id>'(영어 문법 공식 하나 — 공식 범위는 여러 단원의 문제를 담아
+// 그 공식만 펼 수 있게). 접힌 문제는 자기 열쇠(강 · 단원, 영어는 + 공식) 가운데 하나라도 켜져 있으면 보인다. 한국사는 열쇠가 강 하나뿐이라 v179와 같다.
 let coreMaps=null,openCache=null;
-function lectureCores(){if(!coreMaps){const byId=new Map(),core=new Map();for(const l of globalThis.STUDY_REVIEW_CATALOG?.lectures||[]){if(!Array.isArray(l.core))continue;core.set(l.id,new Set(l.core));for(const id of l.ids)byId.set(id,l.id);}coreMaps={byId,core};}return coreMaps;}
+function lectureCores(){if(!coreMaps){const byId=new Map(),core=new Map(),foldable=new Set();for(const l of globalThis.STUDY_REVIEW_CATALOG?.lectures||[]){if(!Array.isArray(l.core))continue;core.set(l.id,new Set(l.core));for(const id of l.ids)byId.set(id,l.id);}
+ const units=new Map((globalThis.STUDY_PARTS?.units||[]).map(u=>[u.id,u]));
+ for(const u of globalThis.STUDY_CORE_UNITS||[]){const pu=units.get(u.id);if(!pu||!Array.isArray(u.core))continue;core.set(u.id,new Set(u.core));for(const p of pu.parts)for(const id of p.ids)byId.set(id,u.id);}
+ for(const [id,l] of byId)if(!core.get(l).has(id)){foldable.add(l);const f=globalThis.PRACTICE_BANK?.[id]?.formula;if(f)foldable.add('formula:'+f);}
+ coreMaps={byId,core,foldable};}return coreMaps;}
 function openLectureSet(){const o=data.openLectures;if(!openCache||openCache.src!==o)openCache={src:o,set:new Set(Array.isArray(o)?o.filter(x=>typeof x==='string'):[])};return openCache.set;}
-// 접힌 문제면 그 강 id, 아니면 null.
-function foldedLecture(id){const m=lectureCores(),l=m.byId.get(id);return l&&!m.core.get(l).has(id)&&!openLectureSet().has(l)?l:null;}
+// 핵심 밖 문제면 그 문제를 펴는 열쇠들(첫째 = 강 · 단원 id), 핵심이거나 접는 단원 밖이면 null.
+function foldKeys(id){const m=lectureCores(),l=m.byId.get(id);if(!l||m.core.get(l).has(id))return null;const f=globalThis.PRACTICE_BANK?.[id]?.formula;return f?[l,'formula:'+f]:[l];}
+// 접힌 문제면 그 강 · 단원 id, 아니면 null.
+function foldedLecture(id){const k=foldKeys(id);if(!k)return null;const o=openLectureSet();return k.some(x=>o.has(x))?null:k[0];}
 function coreSize(lecture){return lectureCores().core.get(lecture)?.size||0;}
-function hasFold(lecture){const m=lectureCores(),core=m.core.get(lecture);return !!core&&[...m.byId].some(([id,l])=>l===lecture&&!core.has(id));}
+function hasFold(lecture){return lectureCores().foldable.has(lecture);}
+// 열쇠의 종류: 'lecture'(한국사 강) · 'unit'(영어 · 국어 단원) · 'formula'(영어 문법 공식 하나). 화면 문구가 갈린다.
+function foldKind(key){return key.startsWith('formula:')?'formula':STUDY_LECTURES.some(l=>l.id===key)?'lecture':'unit';}
+function foldTitle(key){const k=foldKind(key);return k==='lecture'?lectureTitle(key):k==='formula'?'문법 공식 · '+ENGLISH_FORMULAS.title(key.slice(8)):PARTS.units.find(u=>u.id===key)?.title||'';}
+function foldLabel(key){return {lecture:'이 강 문제 더 풀기',unit:'이 단원 문제 더 풀기',formula:'이 공식 문제 더 풀기'}[foldKind(key)];}
 // END CORE 20
 function isPlayable(c){return playableRaw(c)&&!foldedLecture(c.id);}
 const STUDY_SETS=STUDY_REVIEW_CATALOG.sets;
@@ -166,13 +180,19 @@ function renderMasteredToggle(scope){const ranged=rangedScope(scope)&&!sequentia
  $('#masteredLabel').hidden=!ranged||!n;$('#includeMastered').checked=data.includeMastered===true;$('#masteredCount').textContent=n?'('+n+'문제)':'';}
 // '이 강 문제 더 풀기'(v179): 핵심 20 밖의 문제가 있는 한국사 강 범위와 그 강의 파트 범위에서만 보인다.
 // 수 = 켜면 지금 범위에 더해지는 문제 수(켜 둔 동안에도 같은 수). 켜고 끄는 것은 강 단위(data.openLectures).
-function moreScope(scope){if((scope.subject||'')!=='한국사')return null;const r=scope.round||'',part=partScope(r),lecture=lectureScope(r)||(part?lectureScope(PARTS.unitOf(part)?.scope?.round):null);return lecture&&hasFold(lecture)?lecture:null;}
-function moreCount(scope,lecture){const m=lectureCores(),core=m.core.get(lecture);return data.cards.filter(c=>m.byId.get(c.id)===lecture&&!core.has(c.id)&&inScope(c,scope,true)).length;}
-function renderMoreToggle(scope){const lecture=moreScope(scope),n=lecture?moreCount(scope,lecture):0;$('#moreLabel').hidden=!n;$('#moreLecture').checked=!!lecture&&openLectureSet().has(lecture);$('#moreCount').textContent=n?'('+n+'문제)':'';}
+// v199 영어 · 국어: 단원 범위(Day · 장)와 그 단원의 파트 범위는 단원 열쇠, 문법 공식 범위는 그 공식 열쇠('이 단원 문제 더 풀기' · '이 공식 문제 더 풀기').
+function moreScope(scope){const s=scope.subject||'';if(s!=='한국사'){if(!TOPIC_SUBJECTS.has(s))return null;const t=scope.topic||'',part=partScope(scope.round||''),unit=part?PARTS.unitOf(part):t?PARTS.units.find(u=>u.subject===s&&u.scope?.topic===t):null,key=t.startsWith('formula:')&&!part?t:unit?.id;return key&&hasFold(key)?key:null;}
+ const r=scope.round||'',part=partScope(r),lecture=lectureScope(r)||(part?lectureScope(PARTS.unitOf(part)?.scope?.round):null);return lecture&&hasFold(lecture)?lecture:null;}
+// 수 = 그 열쇠를 켜면 이 범위에 더해지는 문제 수(다른 열쇠로 이미 보이는 문제는 빼고, 켜 둔 동안에도 같은 수).
+function moreCount(scope,lecture){const o=openLectureSet();return data.cards.filter(c=>{const k=foldKeys(c.id);return !!k&&k.includes(lecture)&&!k.some(x=>x!==lecture&&o.has(x))&&inScope(c,scope,true);}).length;}
+function renderMoreToggle(scope){const lecture=moreScope(scope),n=lecture?moreCount(scope,lecture):0;$('#moreLabel').hidden=!n;$('#moreLecture').checked=!!lecture&&openLectureSet().has(lecture);$('#moreText').textContent=lecture?foldLabel(lecture):'이 강 문제 더 풀기';$('#moreCount').textContent=n?'('+n+'문제)':'';}
+// 범위 목록 한 줄에 붙이는 말(v179 강 줄과 같은 모양): '더 풀기 N문제' / '이 단원 문제 더 풀기 켬'.
+function moreNote(sc){const k=moreScope(sc),n=k?moreCount(sc,k):0;return n?(openLectureSet().has(k)?foldLabel(k)+' 켬':'더 풀기 '+n+'문제'):'';}
 function setLectureOpen(lecture,open){
  const next=structuredClone(data),list=(Array.isArray(next.openLectures)?next.openLectures:[]).filter(x=>x!==lecture);if(open)list.push(lecture);
  if(list.length)next.openLectures=list;else delete next.openLectures;delete next.quizFeedback;delete next.activePractice;
- if(commit(next)){sessionDirty=true;notify(open?lectureTitle(lecture)+' — 이 강의 나머지 문제도 함께 풀어요.':lectureTitle(lecture)+' — 핵심 '+coreSize(lecture)+'문제만 풀어요. 푼 기록은 그대로 남아요.');render();}
+ const kind=foldKind(lecture),title=foldTitle(lecture);
+ if(commit(next)){sessionDirty=true;notify(kind==='lecture'?(open?title+' — 이 강의 나머지 문제도 함께 풀어요.':title+' — 핵심 '+coreSize(lecture)+'문제만 풀어요. 푼 기록은 그대로 남아요.'):kind==='unit'?(open?title+' — 이 단원의 나머지 문제도 함께 풀어요.':title+' — 핵심 '+coreSize(lecture)+'문제만 풀어요. 푼 기록은 그대로 남아요.'):(open?title+' — 이 공식의 나머지 문제도 함께 풀어요.':title+' — 단원마다 고른 핵심 문제만 풀어요. 푼 기록은 그대로 남아요.'));render();}
 }
 function renderScopeStatus(scope){renderMasteredToggle(scope);renderMoreToggle(scope);
  const r=hasRanges(scope.subject)?scope.round||'':'',numeric=Number(r),isRound=!!r&&Hanneung.rounds.includes(numeric),el=$('#roundScore');el.hidden=true;el.textContent='';
@@ -755,7 +775,7 @@ function renderRange(){
  const group=(title,folded)=>{const g=elem('div',undefined,'menu-list');if(folded){const d=elem('details',undefined,'range-fold');d.append(elem('summary',title,'range-heading'),g);root.append(d);}else root.append(elem('h3',title,'range-heading'),g);return g;};
  const scope=(round,topic='')=>({subject:s,topic,round});
  // 회차 범위는 대기열과 무관하게 1번부터 끝까지 나오므로 '지금 풀 차례' 수를 붙이지 않는다. 대신 순서를 알린다.
- const option=(g,title,sc,extra)=>{const inside=cards.filter(c=>inScope(c,sc)),p=firstPass(new Set(inside.map(c=>c.id)));if(!inside.length)return;
+ const option=(g,title,sc,extra)=>{const inside=cards.filter(c=>inScope(c,sc)),p=firstPass(new Set(inside.map(c=>c.id)));if(!inside.length&&!extra)return;
   const total=questionCount(inside),first='첫 시도 '+p.answered+'/'+total+(p.answered?' · 정답 '+p.correct:'');
   const detail=sequentialScope(sc)?'전체 '+total+'문제 · '+first+' · 1번부터 순서대로':'풀어야 할 문제 '+questionCount(reviewQueue(inside,rangedScope(sc)).ready)+'/'+total+' · '+first;
   g.append(menuItem(title,detail+(extra?' · '+extra:''),()=>openScope(sc)));};
@@ -780,17 +800,17 @@ function renderRange(){
   const papers=group('기출 · 회차별 심화 ('+Math.min(...Hanneung.rounds)+'~'+Math.max(...Hanneung.rounds)+'회)',!Hanneung.rounds.includes(Number(round)));for(const n of Hanneung.rounds){const count=Hanneung.rows.filter(r=>r.round===n&&Hanneung.hasExplanation(r.id)).length;option(papers,n+'회',scope(String(n)),count?'해설 '+count+'개':'');}
   const exams=group('기출 · 공무원 9급 ('+paperCount+'회차)',!paperScope(round));paperYears(exams,round);
   const other=group('그 밖의 범위',!(studyScope(round)!==null||round==='core'));option(other,'한국사 전체',scope(''));
- }else if(s==='영어'){const g=group('문제집 진도');option(g,'Day 1 문장의 구조·동사 유형',scope('','Day 1'));option(g,'Day 2 동사의 형태·명사·일치',scope('','Day 2'));option(g,'Day 3 분사·준동사·관사와 도치',scope('','Day 3'));option(g,'Day 4 형용사·부사와 비교 구문',scope('','Day 4'));option(g,'Day 5 접속사·관계사·가정법과 도치',scope('','Day 5'));option(g,'Day 6 무작위 문법 포인트 찾기 훈련',scope('','Day 6'));option(g,'Day 7 무작위 문법 포인트 찾기 훈련',scope('','Day 7'));
+ }else if(s==='영어'){const g=group('문제집 진도');option(g,'Day 1 문장의 구조·동사 유형',scope('','Day 1'),moreNote(scope('','Day 1')));option(g,'Day 2 동사의 형태·명사·일치',scope('','Day 2'),moreNote(scope('','Day 2')));option(g,'Day 3 분사·준동사·관사와 도치',scope('','Day 3'),moreNote(scope('','Day 3')));option(g,'Day 4 형용사·부사와 비교 구문',scope('','Day 4'),moreNote(scope('','Day 4')));option(g,'Day 5 접속사·관계사·가정법과 도치',scope('','Day 5'),moreNote(scope('','Day 5')));option(g,'Day 6 무작위 문법 포인트 찾기 훈련',scope('','Day 6'),moreNote(scope('','Day 6')));option(g,'Day 7 무작위 문법 포인트 찾기 훈련',scope('','Day 7'),moreNote(scope('','Day 7')));
   // 문법 공식 훈련: 공식(규칙) 하나가 범위 하나다. 그 공식의 문제집 Day 문제와 새 훈련 문제를 함께 담고, 영역별로 접어 둔다(지금 풀던 공식의 영역만 펼침).
-  const formulas=group('문법 공식 훈련');option(formulas,'공식 훈련 새 문제 전체',scope('','문법 공식 훈련'));
+  const formulas=group('문법 공식 훈련');option(formulas,'공식 훈련 새 문제 전체',scope('','문법 공식 훈련'),moreNote(scope('','문법 공식 훈련')));
   const nowFormula=(scopeOf().topic||'').startsWith('formula:')?scopeOf().topic.slice(8):'';
   for(const area of ENGLISH_FORMULAS.areas){const fold=elem('details',undefined,'range-fold formula-area'),box=elem('div',undefined,'menu-list');fold.open=area.rules.some(r=>r.id===nowFormula);
    fold.append(elem('summary',area.title+' · 공식 '+area.rules.length+'개','range-heading'),box);formulas.append(fold);
-   for(const rule of area.rules)option(box,rule.title,scope('','formula:'+rule.id));}
+   for(const rule of area.rules){const sc=scope('','formula:'+rule.id);option(box,rule.title,sc,moreNote(sc));}}
   const exams=group('기출 · 회차별 ('+paperCount+'회차)',!paperScope(scopeOf().round));paperYears(exams,scopeOf().round);
   const rest=group('그 밖의 범위',true);option(rest,'수일치',scope('','수일치'));option(rest,'그 밖의 문법 연습',scope('','영문법'));option(rest,'영어 전체',scope(''));}
  // 국어는 교재(사고의 힘 논리) 장별 자체 제작 문제를 먼저 두고, 기출은 영어처럼 풀던 회차가 없으면 접어 둔다.
- else if(s==='국어'){const g=group('사고의 힘 논리');for(const [topic,title]of Object.entries(KOREAN_TOPICS))option(g,title,scope('',topic));
+ else if(s==='국어'){const g=group('사고의 힘 논리');for(const [topic,title]of Object.entries(KOREAN_TOPICS))option(g,title,scope('',topic),moreNote(scope('',topic)));
   const exams=group('기출 · 회차별 ('+paperCount+'회차)',!paperScope(scopeOf().round));paperYears(exams,scopeOf().round);
   option(group('그 밖의 범위',true),'국어 전체',scope(''));}
  else if(PAPER_SUBJECTS.has(s)){
@@ -850,16 +870,16 @@ function renderQuiz(){
    if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
    return;
   }
-  root.append(elem('h2',queue.waiting.length?'비슷한 내용은 잠시 뒤 다시 풀어요':waiting.length?'잠시 뒤 틀린 문제를 다시 풀어요':data.cards.length&&!playable.length?'풀 수 있는 문제가 아직 없어요':'오늘 풀 문제를 마쳤어요'));
+  const more=moreScope(scope),moreN=more&&!openLectureSet().has(more)?moreCount(scope,more):0,kind=more?foldKind(more):'';
+  root.append(elem('h2',moreN&&!chosen.length?(kind==='formula'?'이 공식 문제는 모두 더 풀기에 있어요':'이 범위 문제는 모두 더 풀기에 있어요'):queue.waiting.length?'비슷한 내용은 잠시 뒤 다시 풀어요':waiting.length?'잠시 뒤 틀린 문제를 다시 풀어요':data.cards.length&&!playable.length?'풀 수 있는 문제가 아직 없어요':'오늘 풀 문제를 마쳤어요'));
   const t=topicRange(scope.round),index=StudyTopics.list.findIndex(x=>x.id===t?.id),set=studyScope(scope.round);
   const nextTopic=t&&StudyTopics.list.slice(index+1).find(x=>data.cards.some(c=>isPlayable(c)&&inScope(c,{subject:'한국사',round:(t.papers?'papers-':'topic-')+x.id})));
   const lecture=STUDY_LECTURES.findIndex(l=>l.id===lectureScope(scope.round)),nextLecture=lecture>=0?STUDY_LECTURES[lecture+1]:null;
-  const more=moreScope(scope),moreN=more&&!openLectureSet().has(more)?moreCount(scope,more):0;
-  if(moreN)root.append(elem('p','이 강은 핵심 '+coreSize(more)+'문제만 보여 주고 있어요. 나머지 '+moreN+'문제도 풀려면 아래 버튼을 누르세요.','status'));
+  if(moreN)root.append(elem('p',(kind==='lecture'?'이 강은 핵심 '+coreSize(more)+'문제만':kind==='unit'?'이 단원은 핵심 '+coreSize(more)+'문제만':'이 공식은 단원마다 고른 핵심 문제만')+' 보여 주고 있어요. 나머지 '+moreN+'문제도 풀려면 아래 버튼을 누르세요.','status'));
   if(nextTopic)root.append(btn('다음 주제 풀기 · '+nextTopic.title,()=>openScope({subject:'한국사',round:(t.papers?'papers-':'topic-')+nextTopic.id}),'primary'));
   else if(nextLecture)root.append(btn('다음 강 풀기 · '+nextLecture.title,()=>openScope({subject:'한국사',round:'lecture-'+nextLecture.id}),'primary'));
   else if(set>0&&set<STUDY_SETS.length)root.append(btn('다음 묶음 풀기',()=>openScope({subject:'한국사',round:'study-20260910-'+(set+1)}),'primary'));
-  if(moreN)root.append(btn('이 강 문제 더 풀기 ('+moreN+'문제)',()=>setLectureOpen(more,true)));
+  if(moreN)root.append(btn(foldLabel(more)+' ('+moreN+'문제)',()=>setLectureOpen(more,true)));
   if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
   return;
  }

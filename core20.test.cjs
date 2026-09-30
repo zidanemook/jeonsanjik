@@ -14,7 +14,7 @@ function el(tag='div'){
   get all(){const out=[];(function walk(n){for(const c of n.children){out.push(c);walk(c);}})(node);return out;}};
  return node;
 }
-const FILES=['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','part-check.js','memorize.js','basics.js','app.js'];
+const FILES=['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','part-check.js','memorize.js','basics.js','core-units.js','app.js'];
 const SRC=new Map(FILES.map(f=>[f,fs.readFileSync(__dirname+'/'+f,'utf8')]));
 function boot(store){
  const nodes=new Map();
@@ -165,3 +165,96 @@ open('lecture-07');
 
 console.log('PASS core20: 29개 강 범위 × 핵심 20(02~05강은 교재 강 넷 × 20 = 80, 22~31강은 전부, 파트마다 하나 이상, 같은 정답 없음, 640문제), 기본은 강 · 파트 · 과목 전체 · 수 · 뱃지 · 대기열 모두 핵심 20만(접힌 '+folded+'문제), '+
  '이 강 문제 더 풀기 켜기/끄기(강 단위, 파트 화면은 그 파트 수), 접힌 문제는 복습일이 와도 대기열 밖, 핵심을 다 풀면 끝 화면에 더 풀기 버튼, 새로고침 뒤 설정 유지 · 잘못된 설정 거부');
+
+// ── 8) v199 영어 · 국어 단원마다 핵심 20(2026-09-30 사용자 "단원마다 핵심 20").
+// 자료: core-units.js 17단원(영어 Day 1~7 · 문법 공식 훈련, 국어 논리 1~6장 · 독해 1~3장) × 20, 단원 순서 · 파트마다 하나 이상 · 쌍둥이(같은 요점) 두 번 없음.
+// 앱: 단원 · 파트 · 과목 전체 · 수 · 뱃지 · 대기열이 모두 보이는 문제로, '이 단원 문제 더 풀기' 켜기/끄기, 문제가 모두 접힌 문법 공식은 '이 공식 문제 더 풀기'로 그 공식만,
+// 접힌 문제는 풀 수 없고(대조군: 핵심은 풀 수 있음) 복습일이 와도 대기열 밖, 핵심을 다 풀면 끝 화면 버튼, 설정은 새로고침 뒤에도, 한국사는 그대로.
+{
+ const store2=new Map(),A=boot(store2);
+ const UNIT_IDS=['en-day1','en-day2','en-day3','en-day4','en-day5','en-day6','en-day7','en-formula','ko-ko1','ko-ko2','ko-ko3','ko-ko4','ko-ko5','ko-ko6','ko-kr1','ko-kr2','ko-kr3'];
+ const units=A.J('STUDY_CORE_UNITS');assert.deepEqual(units.map(u=>u.id),UNIT_IDS,'17단원');
+ const P=id=>A.J(`STUDY_PARTS.units.find(u=>u.id===${JSON.stringify(id)})`);
+ const folded={영어:0,국어:0},info={};
+ for(const u of units){const p=P(u.id),ids=p.parts.flatMap(x=>x.ids);info[u.id]={p,ids,n:ids.length};
+  assert.equal(u.core.length,20,p.title+': 핵심 20');assert.equal(new Set(u.core).size,20,p.title+': 서로 다른 문제');
+  assert.deepEqual(u.core,ids.filter(id=>u.core.includes(id)),p.title+': 단원 안의 문제 · 단원 순서');
+  for(const id of u.core)assert.equal(A.R(`PRACTICE_BANK[${JSON.stringify(id)}]?.topic`),p.scope.topic,'자체 제작 문제만(기출 아님): '+id);
+  for(const x of p.parts)assert.ok(x.ids.some(id=>u.core.includes(id)),p.title+' 파트 '+x.title+': 핵심이 하나 이상');
+  const concepts=new Set(u.core.map(id=>A.R(`ReviewPolicy.concept(${JSON.stringify(id)})`))),points=new Set(ids.map(id=>A.R(`ReviewPolicy.concept(${JSON.stringify(id)})`)));
+  assert.equal(concepts.size,Math.min(20,points.size),p.title+': 같은 요점(쌍둥이)은 요점이 20개보다 적을 때만 두 번');
+  folded[u.subject]+=ids.length-20;}
+ // 대조군: 접히는 문제는 풀 수 없고 핵심은 풀 수 있다.
+ {const u=units[0],f=info[u.id].ids.find(id=>!u.core.includes(id));
+  assert.equal(A.R(`isPlayable(data.cards.find(c=>c.id===${JSON.stringify(f)}))`),false,'접힌 문제는 풀 수 없다');assert.equal(A.R(`playableRaw(data.cards.find(c=>c.id===${JSON.stringify(f)}))`),true,'대조군: 내용은 있다');
+  assert.equal(A.R(`isPlayable(data.cards.find(c=>c.id===${JSON.stringify(u.core[0])}))`),true,'대조군: 핵심은 풀 수 있다');}
+ const cur="data.cards.filter(c=>isPlayable(c)&&inCurrent(c))";
+ const openU=sc=>A.R(`openScope(${JSON.stringify(sc)})`),scopeOfUnit=id=>({subject:info[id].p.subject,topic:info[id].p.scope.topic,round:''});
+ for(const u of units){openU(scopeOfUnit(u.id));const t=info[u.id].p.title;
+  assert.equal(A.R(cur+'.length'),20,t+': 범위 = 핵심 20');assert.match(A.R(`countLine(${cur})`),/^풀어야 할 문제 [0-9]+\/20$/,t);
+  assert.equal(A.node('#moreLabel').hidden,false,t+': 더 풀기가 보인다');assert.equal(text(A.node('#moreText')),'이 단원 문제 더 풀기');assert.equal(text(A.node('#moreCount')),'('+(info[u.id].n-20)+'문제)',t);}
+ // 과목 전체 = 전체 − 접힌 문제(수일치 · 그 밖의 문법 · 기출은 접지 않는다)
+ for(const s of ['영어','국어'])assert.equal(A.R(`data.cards.filter(c=>isPlayable(c)&&c.subject===${JSON.stringify(s)}).length`),A.R(`data.cards.filter(c=>playableRaw(c)&&c.subject===${JSON.stringify(s)}).length`)-folded[s],s+' 전체에서 접힌 문제만 빠진다');
+ // 자체제작 뱃지 묶음(파트별 외운 비율)에 접힌 문제가 없다
+ for(const s of ['영어','국어'])assert.ok(!A.R(`selfGroups(${JSON.stringify(s)}).some(x=>x.ids.some(id=>foldedLecture(id)))`),s+' 뱃지 묶음에 접힌 문제가 없다');
+ // 연습 범위 목록 줄
+ A.R("go('range','영어')");
+ const row=title=>{const b=A.node('#rangeList').all.find(n=>n.tag==='button'&&n.children[0]?._text===title);return b?.children[1]?._text;};
+ assert.equal(row('Day 1 문장의 구조·동사 유형'),'풀어야 할 문제 20/20 · 첫 시도 0/20 · 더 풀기 40문제');assert.equal(row('공식 훈련 새 문제 전체'),'풀어야 할 문제 20/20 · 첫 시도 0/20 · 더 풀기 344문제');
+ // 켜기 / 끄기(Day 1)
+ const toggle=on=>{A.node('#moreLecture').checked=on;A.node('#moreLecture').onchange({target:{checked:on}});};
+ openU(scopeOfUnit('en-day1'));toggle(true);
+ assert.deepEqual(A.J('data.openLectures'),['en-day1']);assert.equal(A.R(cur+'.length'),60,'켜면 Day 1 전부');assert.equal(text(A.node('#moreCount')),'(40문제)','켠 뒤에도 같은 수');
+ assert.match(text(A.node('#message')),/^Day 1 문장의 구조·동사 유형 — 이 단원의 나머지 문제도 함께 풀어요\.$/);assert.ok(!BANNED.test(text(A.node('#message'))));
+ A.R("go('range','영어')");assert.equal(row('Day 1 문장의 구조·동사 유형'),'풀어야 할 문제 60/60 · 첫 시도 0/60 · 이 단원 문제 더 풀기 켬');
+ openU(scopeOfUnit('en-day2'));assert.equal(A.R(cur+'.length'),20,'다른 단원은 그대로');
+ openU(scopeOfUnit('en-day1'));toggle(false);assert.equal(A.R('data.openLectures'),undefined);assert.equal(A.R(cur+'.length'),20);assert.match(text(A.node('#message')),/— 핵심 20문제만 풀어요\. 푼 기록은 그대로 남아요\.$/);
+ // 파트 범위: 그 파트의 핵심만, 수 = 그 파트에 더해지는 문제
+ {const p=info['ko-ko2'].p.parts[5],core=units.find(u=>u.id==='ko-ko2').core,inPart=p.ids.filter(id=>core.includes(id)).length;
+  openU({subject:'국어',topic:'',round:'part-'+p.id});assert.equal(A.R(cur+'.length'),inPart,'국어 2장 파트 = 그 파트의 핵심');assert.equal(text(A.node('#moreCount')),'('+(p.ids.length-inPart)+'문제)');assert.equal(text(A.node('#moreText')),'이 단원 문제 더 풀기');}
+ // 파트별 상태: 단원 = 20문제
+ A.R("go('parts','국어')");{const f=A.node('#partsBody').children.find(c=>c.dataset?.unit==='ko-ko2');assert.match(text(f.children[0]),/· 6파트 · 20문제/,'파트별 상태 2장 = 20문제');}
+ // 문제가 모두 접힌 문법 공식(Day 2 + 공식 훈련): 목록에 남고, 그 공식만 펼 수 있다.
+ const ff=A.J(`(()=>{const m=new Map();for(const [id,l] of Object.entries(PRACTICE_BANK)){if(!l.formula)continue;const x=m.get(l.formula)||{id:l.formula,vis:0,topics:[],all:0};x.all++;if(isPlayable({id}))x.vis++;if(!x.topics.includes(l.topic))x.topics.push(l.topic);m.set(l.formula,x);}
+  return [...m.values()].find(x=>!x.vis&&x.topics.includes('Day 2')&&!x.topics.includes('Day 1'));})()`);
+ assert.ok(ff,'모두 접힌 공식이 있다(대조군)');const fTitle=A.R(`ENGLISH_FORMULAS.title(${JSON.stringify(ff.id)})`);
+ A.R("go('range','영어')");assert.equal(row(fTitle),'풀어야 할 문제 0/0 · 첫 시도 0/0 · 더 풀기 '+ff.all+'문제','모두 접힌 공식도 목록에 남는다');
+ openU({subject:'영어',topic:'formula:'+ff.id,round:''});assert.equal(A.R(cur+'.length'),0);assert.equal(text(A.node('#moreText')),'이 공식 문제 더 풀기');assert.equal(text(A.node('#moreCount')),'('+ff.all+'문제)');
+ {const card=A.node('#card'),buttons=card.all.filter(n=>n.tag==='button'),more=buttons.find(b=>text(b)==='이 공식 문제 더 풀기 ('+ff.all+'문제)');
+  assert.ok(card.all.some(n=>n.tag==='h2'&&text(n)==='이 공식 문제는 모두 더 풀기에 있어요'),'끝 화면 제목');assert.ok(more,'끝 화면 버튼: '+buttons.map(text).join(' / '));assert.ok(!BANNED.test(text(card)));
+  more.onclick();}
+ assert.deepEqual(A.J('data.openLectures'),['formula:'+ff.id],'공식 하나만 편다');assert.equal(A.R(cur+'.length'),ff.all,'그 공식 문제 전부');
+ assert.equal(A.R(`PRACTICE_BANK[data.activePractice.cardId].formula`),ff.id,'누르면 바로 그 공식 문제');
+ {const add=A.R(`Object.values(PRACTICE_BANK).filter(l=>l.topic==='Day 2'&&l.formula===${JSON.stringify(ff.id)}).length`);openU(scopeOfUnit('en-day2'));
+  assert.equal(A.R(cur+'.length'),20+add,'그 공식의 Day 2 문제도 Day 2에 들어온다');assert.equal(text(A.node('#moreCount')),'('+(40-add)+'문제)','Day 2 더 풀기 수 = 아직 접힌 문제');
+  openU(scopeOfUnit('en-day3'));assert.equal(A.R(cur+'.length'),20,'다른 단원은 그대로');}
+ A.R(`setLectureOpen('formula:${ff.id}',false)`);assert.equal(A.R('data.openLectures'),undefined);assert.match(text(A.node('#message')),/— 단원마다 고른 핵심 문제만 풀어요/);
+ // 접힌 문제는 복습일이 와도 대기열 밖(켜면 안)
+ {const f=info['ko-kr3'].ids.find(id=>!units.find(u=>u.id==='ko-kr3').core.includes(id));
+  A.R(`(()=>{const d=ReviewSchedule.plus(ReviewSchedule.day(),-9);commit(ProgressSync.merge(data,[{id:'due-k',cardId:${JSON.stringify(f)},date:d,at:d+'T09:00:00+09:00',result:'correct',mode:'quiz'}]));})()`);
+  assert.ok(A.R(`data.cards.find(c=>c.id===${JSON.stringify(f)}).due<=ReviewSchedule.day()`),'대조군: 복습일이 왔다');
+  A.R("openScope({subject:'국어',topic:'',round:''})");const due=()=>Array.from(A.R(`reviewQueue(${cur}).ready.map(c=>c.id)`));
+  assert.ok(!due().includes(f),'접힌 동안 국어 전체 대기열에 없다');A.R("setLectureOpen('ko-kr3',true)");assert.ok(due().includes(f),'켜면 들어온다');A.R("setLectureOpen('ko-kr3',false)");
+  assert.equal(A.R(`data.history.filter(h=>h.cardId===${JSON.stringify(f)}).length`),1,'접어도 풀이 기록은 그대로');}
+ // 막다른 화면 없음: Day 5 핵심 20을 오늘 다 풀면 끝 화면에 '이 단원 문제 더 풀기 (176문제)'
+ {const core=units.find(u=>u.id==='en-day5').core;
+  A.R(`(()=>{const today=ReviewSchedule.day(),rows=${JSON.stringify(core)}.map((id,i)=>({id:'e5-'+i,cardId:id,date:today,at:today+'T08:'+String(i).padStart(2,'0')+':00+09:00',result:'correct',mode:'quiz'}));commit(ProgressSync.merge(data,rows));})()`);
+  openU(scopeOfUnit('en-day5'));const card=A.node('#card'),buttons=card.all.filter(n=>n.tag==='button'),more=buttons.find(b=>text(b)==='이 단원 문제 더 풀기 (176문제)');
+  assert.ok(!card.all.some(n=>n.className==='question'),'핵심 20을 다 풀어 낼 문제가 없다');assert.ok(more,'끝 화면에 이 단원 문제 더 풀기: '+buttons.map(text).join(' / '));
+  assert.ok(card.all.some(n=>/^이 단원은 핵심 20문제만 보여 주고 있어요\. 나머지 176문제도/.test(n._text||'')));assert.ok(!BANNED.test(text(card)));
+  more.onclick();assert.deepEqual(A.J('data.openLectures'),['en-day5']);assert.ok(A.R("!!document.querySelector('#card').all.find(n=>n.className==='question')"),'누르면 바로 다음 문제');}
+ // 설정은 새로고침 뒤에도 남고, 공식 열쇠(긴 이름)도 받는다 · 잘못된 값은 거부
+ A.R(`setLectureOpen('formula:${ff.id}',true)`);
+ {const again=boot(store2);assert.deepEqual(again.J('data.openLectures'),['en-day5','formula:'+ff.id],'새로고침 뒤에도 켜져 있다');
+  again.R("openScope({subject:'영어',topic:'Day 5',round:''})");assert.equal(again.R(cur+'.length'),196);
+  for(const bad of ['[""]','["'+'x'.repeat(61)+'"]','[1]'])assert.throws(()=>again.R(`validateBackup({...structuredClone(data),openLectures:${bad}})`),/더 풀기/,bad);
+  again.R("validateBackup({...structuredClone(data),openLectures:['07','en-day1','formula:object-complement-passive']})");}
+ // 한국사는 그대로: 12강 20 · '이 강 문제 더 풀기 (167문제)'
+ A.R("openScope({subject:'한국사',topic:'',round:'lecture-12'})");assert.equal(A.R(cur+'.length'),20);assert.equal(text(A.node('#moreText')),'이 강 문제 더 풀기');assert.equal(text(A.node('#moreCount')),'(167문제)');
+ // 배포: 앱 파일 목록(index.html · sw.js · pages.yml)에 core-units.js
+ {const html=fs.readFileSync(__dirname+'/index.html','utf8'),sw=fs.readFileSync(__dirname+'/sw.js','utf8'),yml=fs.readFileSync(__dirname+'/.github/workflows/pages.yml','utf8'),v=(html.match(/core-units\.js\?v=(\d+)/)||[])[1];
+  assert.ok(v&&html.indexOf('core-units.js?v=')<html.indexOf('src="app.js'),'index.html: core-units.js를 app.js 앞에서 읽는다');assert.ok(sw.includes("'./core-units.js?v="+v+"'"),'sw.js가 core-units.js를 담는다');assert.ok(/cp [^\n]*\bcore-units\.js\b/.test(yml),'Pages 배포에 core-units.js');
+  assert.ok(html.includes('<span id="moreText">이 강 문제 더 풀기</span>'));}
+ console.log('PASS core20 영어 · 국어: 17단원 × 핵심 20(단원 순서 · 파트마다 하나 이상 · 쌍둥이 한 번), 접힌 영어 '+folded['영어']+' · 국어 '+folded['국어']+'문제는 풀 수 없고 수 · 파트 · 대기열 밖, '+
+  "'이 단원 문제 더 풀기' 켜기/끄기, 모두 접힌 문법 공식은 목록에 남고 '이 공식 문제 더 풀기'로 그 공식만, 핵심을 다 풀면 끝 화면 버튼, 새로고침 뒤 유지 · 잘못된 설정 거부, 한국사 그대로, 배포 목록");
+}
