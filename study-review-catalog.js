@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 2415,
+  "total": 2435,
   "sets": [
     {
       "number": 1,
@@ -4331,6 +4331,44 @@ globalThis.STUDY_REVIEW_CATALOG={
         "openecon1-hist-20261005-019",
         "openecon1-hist-20261005-020"
       ]
+    },
+    {
+      "number": 320,
+      "title": "33강 개항기(문화) 1",
+      "ids": [
+        "openculture1-hist-20261005-001",
+        "openculture1-hist-20261005-002",
+        "openculture1-hist-20261005-003",
+        "openculture1-hist-20261005-004",
+        "openculture1-hist-20261005-005",
+        "openculture1-hist-20261005-006",
+        "openculture1-hist-20261005-007",
+        "openculture1-hist-20261005-008"
+      ]
+    },
+    {
+      "number": 321,
+      "title": "33강 개항기(문화) 2",
+      "ids": [
+        "openculture1-hist-20261005-009",
+        "openculture1-hist-20261005-010",
+        "openculture1-hist-20261005-011",
+        "openculture1-hist-20261005-012",
+        "openculture1-hist-20261005-013",
+        "openculture1-hist-20261005-014",
+        "openculture1-hist-20261005-015",
+        "openculture1-hist-20261005-016"
+      ]
+    },
+    {
+      "number": 322,
+      "title": "33강 개항기(문화) 3",
+      "ids": [
+        "openculture1-hist-20261005-017",
+        "openculture1-hist-20261005-018",
+        "openculture1-hist-20261005-019",
+        "openculture1-hist-20261005-020"
+      ]
     }
   ],
   "lectures": [
@@ -7019,6 +7057,54 @@ globalThis.STUDY_REVIEW_CATALOG={
         "openecon1-hist-20261005-018",
         "openecon1-hist-20261005-019",
         "openecon1-hist-20261005-020"
+      ]
+    },
+    {
+      "id": "33",
+      "title": "33강 개항기(문화)",
+      "ids": [
+        "openculture1-hist-20261005-001",
+        "openculture1-hist-20261005-002",
+        "openculture1-hist-20261005-003",
+        "openculture1-hist-20261005-004",
+        "openculture1-hist-20261005-005",
+        "openculture1-hist-20261005-006",
+        "openculture1-hist-20261005-007",
+        "openculture1-hist-20261005-008",
+        "openculture1-hist-20261005-009",
+        "openculture1-hist-20261005-010",
+        "openculture1-hist-20261005-011",
+        "openculture1-hist-20261005-012",
+        "openculture1-hist-20261005-013",
+        "openculture1-hist-20261005-014",
+        "openculture1-hist-20261005-015",
+        "openculture1-hist-20261005-016",
+        "openculture1-hist-20261005-017",
+        "openculture1-hist-20261005-018",
+        "openculture1-hist-20261005-019",
+        "openculture1-hist-20261005-020"
+      ],
+      "core": [
+        "openculture1-hist-20261005-001",
+        "openculture1-hist-20261005-002",
+        "openculture1-hist-20261005-003",
+        "openculture1-hist-20261005-004",
+        "openculture1-hist-20261005-005",
+        "openculture1-hist-20261005-006",
+        "openculture1-hist-20261005-007",
+        "openculture1-hist-20261005-008",
+        "openculture1-hist-20261005-009",
+        "openculture1-hist-20261005-010",
+        "openculture1-hist-20261005-011",
+        "openculture1-hist-20261005-012",
+        "openculture1-hist-20261005-013",
+        "openculture1-hist-20261005-014",
+        "openculture1-hist-20261005-015",
+        "openculture1-hist-20261005-016",
+        "openculture1-hist-20261005-017",
+        "openculture1-hist-20261005-018",
+        "openculture1-hist-20261005-019",
+        "openculture1-hist-20261005-020"
       ]
     },
     {
@@ -33577,6 +33663,243 @@ globalThis.STUDY_REVIEW_CATALOG={
         "무역 규칙 · 조미 · 수륙 장정 · 통상 장정(항목)"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 32강 개항기(경제) 133쪽 개항 초기 경제 침탈"
+    },
+    "openculture1-hist-20261005-001": {
+      "number": 2416,
+      "section": "근대 교육의 발달",
+      "coverage": [
+        "한성 사범 학교 관제(정답)",
+        "덕양 · 체양 · 지양 조서(교육 입국 조서, 단서)",
+        "원산 학사(앞, 오답)",
+        "동문학(앞, 오답)",
+        "육영 공원(앞, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 근대 교육의 발달"
+    },
+    "openculture1-hist-20261005-002": {
+      "number": 2417,
+      "section": "개항기 언론의 발달",
+      "coverage": [
+        "양기탁 · 베델(정답)",
+        "을사늑약 비판 · 의병 보도 · 국채 보상 후원(단서)",
+        "남궁억(황성신문, 오답)",
+        "상업 광고(한성주보, 오답)",
+        "부녀자(제국신문, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 언론의 발달"
+    },
+    "openculture1-hist-20261005-003": {
+      "number": 2418,
+      "section": "근대 교육의 발달",
+      "coverage": [
+        "헐버트 · 길모어(정답)",
+        "정부가 세운 학교 · 고관 자제 · 영어(단서)",
+        "원산 학사(오답)",
+        "동문학(오답)",
+        "오산 · 대성 학교(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 근대 교육의 발달"
+    },
+    "openculture1-hist-20261005-004": {
+      "number": 2419,
+      "section": "문예와 국학, 종교의 변화",
+      "coverage": [
+        "만세보(정답)",
+        "손병희 · 일진회와 결별(단서)",
+        "대종교(오답)",
+        "경향신문(천주교, 오답)",
+        "유교 구신론(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 문예와 국학, 종교의 변화"
+    },
+    "openculture1-hist-20261005-005": {
+      "number": 2420,
+      "section": "개항기 언론의 발달",
+      "coverage": [
+        "박문국 · 열흘(정답)",
+        "최초의 근대 신문 · 정부 · 갑신정변으로 중단(단서)",
+        "서재필(독립신문, 오답)",
+        "이종일(제국신문, 오답)",
+        "남궁억(황성신문, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 언론의 발달"
+    },
+    "openculture1-hist-20261005-006": {
+      "number": 2421,
+      "section": "문예와 국학, 종교의 변화",
+      "coverage": [
+        "주시경 · 지석영(정답)",
+        "학부 안 한글 연구 기관(단서)",
+        "조선 광문회(오답)",
+        "원각사(오답)",
+        "독사신론(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 문예와 국학, 종교의 변화"
+    },
+    "openculture1-hist-20261005-007": {
+      "number": 2422,
+      "section": "근대 교육의 발달",
+      "coverage": [
+        "개신교 선교사(정답)",
+        "아펜젤러 · 스크랜턴(단서)",
+        "원산 학사(오답)",
+        "육영 공원(오답)",
+        "오산 · 대성 학교(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 근대 교육의 발달"
+    },
+    "openculture1-hist-20261005-008": {
+      "number": 2423,
+      "section": "근대 문물과 기술의 도입",
+      "coverage": [
+        "기기창(정답)",
+        "영선사 · 무기 공장(단서)",
+        "우정총국(오답)",
+        "광혜원(오답)",
+        "한성 전기 회사(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 근대 문물과 기술의 도입"
+    },
+    "openculture1-hist-20261005-009": {
+      "number": 2424,
+      "section": "근대 교육의 발달",
+      "coverage": [
+        "최초의 근대식 학교(정답)",
+        "덕원부 · 개항지 · 학교 설립(단서)",
+        "육영 공원(오답)",
+        "한성 사범 학교 · 소학교(오답)",
+        "이화 학당(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 근대 교육의 발달"
+    },
+    "openculture1-hist-20261005-010": {
+      "number": 2425,
+      "section": "근대 문물과 기술의 도입",
+      "coverage": [
+        "제중원(정답)",
+        "알렌의 건의 · 최초 근대식 병원(단서)",
+        "기기창(오답)",
+        "박문국(오답)",
+        "한성 전기 회사(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 근대 문물과 기술의 도입"
+    },
+    "openculture1-hist-20261005-011": {
+      "number": 2426,
+      "section": "문예와 국학, 종교의 변화",
+      "coverage": [
+        "은세계(정답)",
+        "최초의 서양식 극장 · 신소설 연극(단서)",
+        "혈의 누(오답)",
+        "금수회의록(오답)",
+        "해에게서 소년에게(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 문예와 국학, 종교의 변화"
+    },
+    "openculture1-hist-20261005-012": {
+      "number": 2427,
+      "section": "개항기 언론의 발달",
+      "coverage": [
+        "영문판(정답)",
+        "서재필 · 최초 민간 · 순 한글(단서)",
+        "한성순보(오답)",
+        "황성신문(오답)",
+        "대한매일신보(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 언론의 발달"
+    },
+    "openculture1-hist-20261005-013": {
+      "number": 2428,
+      "section": "근대 교육의 발달",
+      "coverage": [
+        "황성신문 등에 실림(정답)",
+        "북촌 양반 여성 · 여학교 설립(여권통문, 단서)",
+        "교육 입국 조서(오답)",
+        "독사신론(오답)",
+        "유교 구신론(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 근대 교육의 발달"
+    },
+    "openculture1-hist-20261005-014": {
+      "number": 2429,
+      "section": "근대 문물과 기술의 도입",
+      "coverage": [
+        "독립 협회 모금(정답)",
+        "영은문 자리(단서)",
+        "우정총국(오답)",
+        "광혜원(오답)",
+        "원각사(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 근대 문물과 기술의 도입"
+    },
+    "openculture1-hist-20261005-015": {
+      "number": 2430,
+      "section": "문예와 국학, 종교의 변화",
+      "coverage": [
+        "국외 무장 투쟁(정답)",
+        "나철 · 오기호 · 단군(단서)",
+        "만세보(천도교, 오답)",
+        "경향신문(천주교, 오답)",
+        "한용운(불교, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 문예와 국학, 종교의 변화"
+    },
+    "openculture1-hist-20261005-016": {
+      "number": 2431,
+      "section": "문예와 국학, 종교의 변화",
+      "coverage": [
+        "조선 광문회(정답)",
+        "유교 3대 문제 · 양명학(유교 구신론, 단서)",
+        "국문 연구소(오답)",
+        "독사신론(오답)",
+        "조선 불교 유신론(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 문예와 국학, 종교의 변화"
+    },
+    "openculture1-hist-20261005-017": {
+      "number": 2432,
+      "section": "개항기 언론의 발달",
+      "coverage": [
+        "시일야방성대곡(정답)",
+        "남궁억 · 국한문 · 지식인(단서)",
+        "영문판(독립신문, 오답)",
+        "순 한문 관보(한성순보, 오답)",
+        "경향신문(천주교, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 언론의 발달"
+    },
+    "openculture1-hist-20261005-018": {
+      "number": 2433,
+      "section": "근대 문물과 기술의 도입",
+      "coverage": [
+        "일본 · 서울과 부산(정답)",
+        "남대문 · 용산역 · 경부철도가(단서)",
+        "최초 개통(경인선, 오답)",
+        "프랑스(경의선, 오답)",
+        "미국(경인선, 오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 근대 문물과 기술의 도입"
+    },
+    "openculture1-hist-20261005-019": {
+      "number": 2434,
+      "section": "문예와 국학, 종교의 변화",
+      "coverage": [
+        "대한매일신보(정답)",
+        "신채호 · 민족 중심 역사(독사신론, 단서)",
+        "한성순보(오답)",
+        "독립신문(오답)",
+        "만세보(오답)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 문예와 국학, 종교의 변화"
+    },
+    "openculture1-hist-20261005-020": {
+      "number": 2435,
+      "section": "근대 문물과 기술의 도입",
+      "coverage": [
+        "다 → 라 → 나 → 가(정답)",
+        "우정총국 · 전신 · 전등 · 전차(항목)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 33강 개항기(문화) 145쪽 근대 문물과 기술의 도입"
     }
   }
 };

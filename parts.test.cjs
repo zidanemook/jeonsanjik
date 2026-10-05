@@ -181,7 +181,12 @@ const itCounts={};
  // 2026-10-05 38강 현대(광복 ~ 6·25 전쟁): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(31강 다음 · 특강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-32'),hi.indexOf('hist-31')+1);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-38')+1);}
  // 2026-10-05 32강 개항기(경제): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(31강 다음 · 38강 앞).
- {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-32'),hi.indexOf('hist-31')+1);assert.equal(hi.indexOf('hist-38'),hi.indexOf('hist-32')+1);}
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-32'),hi.indexOf('hist-31')+1);assert.equal(hi.indexOf('hist-33'),hi.indexOf('hist-32')+1);}
+ // 2026-10-05 33강 개항기(문화): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(32강 다음 · 38강 앞).
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-33'),hi.indexOf('hist-32')+1);assert.equal(hi.indexOf('hist-38'),hi.indexOf('hist-33')+1);}
+ const h33=PARTS.units.find(u=>u.id==='hist-33');assert.equal(h33.title,'33강 개항기(문화)');assert.equal(h33.scope.round,'lecture-33');
+ assert.deepEqual(h33.parts.map(p=>p.id),['h33-1','h33-2']);assert.deepEqual(h33.parts.map(p=>p.title),['언론과 근대 문물','근대 교육과 국학 · 종교']);
+ assert.deepEqual(h33.parts.map(p=>p.ids.length),[9,11]);assert.ok(h33.parts.every(p=>p.ids.length>=8),'33강 파트마다 8문제 이상');
  const h32=PARTS.units.find(u=>u.id==='hist-32');assert.equal(h32.title,'32강 개항기(경제)');assert.equal(h32.scope.round,'lecture-32');
  assert.deepEqual(h32.parts.map(p=>p.id),['h32-1','h32-2']);assert.deepEqual(h32.parts.map(p=>p.title),['열강의 경제 침탈','경제적 구국 운동']);
  assert.deepEqual(h32.parts.map(p=>p.ids.length),[12,8]);assert.ok(h32.parts.every(p=>p.ids.length>=8),'32강 파트마다 8문제 이상');

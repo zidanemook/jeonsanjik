@@ -40,7 +40,7 @@ const BANNED=/카드|문항|변형|스코프/;
 const store=new Map();
 const {R,J,node}=boot(store);
 const lectures=J('STUDY_REVIEW_CATALOG.lectures');
-assert.deepEqual(lectures.map(l=>l.id),['02-05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','38','250','252-256']);
+assert.deepEqual(lectures.map(l=>l.id),['02-05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','38','250','252-256']);
 const answerOf=id=>R(`(()=>{const q=QUIZ_OPTIONS[${JSON.stringify(id)}];return q&&q.choices?q.choices[q.correctIndex]:CORE_REVIEW_PACK.find(c=>c.id===${JSON.stringify(id)}).answer;})()`);
 let folded=0;
 // 교재 강마다 20: 앱 범위 '02~05강'만 교재 강 넷(02 선사 · 03 고조선·여러 나라 · 04 고구려·가야 · 05 백제·신라·통일)을 묶은 범위라 80(부모 검토 2026-09-28).
@@ -58,8 +58,8 @@ for(const l of lectures){
  folded+=l.ids.length-want;
 }
 // 2026-09-28 24강부터 강마다 20문제로 만든다 → core = 그 강의 20문제 전부(접는 문제 없음, 22 · 23강과 같음).
-for(const id of ['22','23','24','25','26','27','28','29','30','31','32','38']){const l=lectures.find(x=>x.id===id);assert.deepEqual(l.core,l.ids,l.title+': 이미 20문제 → 전부 핵심');}
-assert.equal(lectures.reduce((n,l)=>n+l.core.length,0),680,'30범위 × 20 + 02~05강 80');
+for(const id of ['22','23','24','25','26','27','28','29','30','31','32','33','38']){const l=lectures.find(x=>x.id===id);assert.deepEqual(l.core,l.ids,l.title+': 이미 20문제 → 전부 핵심');}
+assert.equal(lectures.reduce((n,l)=>n+l.core.length,0),700,'31범위 × 20 + 02~05강 80');
 // 02~05강 80은 교재 강 넷에 고루: 선사(파트 둘) · 고조선·여러 나라(둘) · 고구려 · 백제 파트마다 5 이상(한 교재 강 20이 그 파트들에 있다)
 {const l=lectures.find(x=>x.id==='02-05'),unit=J("STUDY_PARTS.units.find(u=>u.id==='hist-02-05')");
  for(const p of unit.parts)assert.ok(p.ids.filter(id=>l.core.includes(id)).length>=5,'02~05강 '+p.title+': 핵심 5 이상');
@@ -163,7 +163,7 @@ open('lecture-07');
  for(const bad of ['"07"','[7]','[""]','{}'])assert.throws(()=>again.R(`validateBackup({...structuredClone(data),openLectures:${bad}})`),/이 강 문제 더 풀기/,bad);
  again.R("validateBackup({...structuredClone(data),openLectures:['07','12']})");}
 
-console.log('PASS core20: 31개 강 범위 × 핵심 20(02~05강은 교재 강 넷 × 20 = 80, 22~32 · 38강은 전부, 파트마다 하나 이상, 같은 정답 없음, 680문제), 기본은 강 · 파트 · 과목 전체 · 수 · 뱃지 · 대기열 모두 핵심 20만(접힌 '+folded+'문제), '+
+console.log('PASS core20: 32개 강 범위 × 핵심 20(02~05강은 교재 강 넷 × 20 = 80, 22~33 · 38강은 전부, 파트마다 하나 이상, 같은 정답 없음, 700문제), 기본은 강 · 파트 · 과목 전체 · 수 · 뱃지 · 대기열 모두 핵심 20만(접힌 '+folded+'문제), '+
  '이 강 문제 더 풀기 켜기/끄기(강 단위, 파트 화면은 그 파트 수), 접힌 문제는 복습일이 와도 대기열 밖, 핵심을 다 풀면 끝 화면에 더 풀기 버튼, 새로고침 뒤 설정 유지 · 잘못된 설정 거부');
 
 // ── 8) v199 영어 · 국어 단원마다 핵심 20(2026-09-30 사용자 "단원마다 핵심 20").
