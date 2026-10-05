@@ -120,7 +120,8 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // LONGEST_LIMIT: 2026-09-24(v151) 문제집 Day 6·7 460문제(4지선다 287, 정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 자연스럽게 늘렸다)를 더한 뒤 실측 58/4037(0.01437)를 소수 셋째 자리에서 올린 0.015로 다시 조였다.
 // LONGEST_LIMIT: 2026-09-24(v153) 국어 독해 2장 122·3장 354문제(모두 4지선다, 정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 정확한 내용으로 늘렸다)를 더한 뒤 실측 58/4513(0.01285)을 소수 셋째 자리에서 올린 0.013으로 다시 조였다.
 // LONGEST_LIMIT: 2026-09-24 주제 특강(세시 풍속·근·현대 인물) 552문제(모두 4지선다, 정답이 유일하게 가장 긴 보기 0개 — 생성기가 오답을 고를 때 정답보다 긴 보기를 하나 이상 두었다)를 더한 뒤 실측 58/5065(0.01145)를 소수 셋째 자리에서 올린 0.012로 다시 조였다.
-const LONGEST_LIMIT=0.012,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
+// LONGEST_LIMIT: 2026-10-05(v218) 문제집 Day 8 · 9 · 10 60문제(4지선다 43, 정답이 유일하게 가장 긴 보기 0개)를 더한 뒤 실측 59/5518(0.01069)를 소수 셋째 자리에서 올린 0.011로 다시 조였다.
+const LONGEST_LIMIT=0.011,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
 function lengthBias(items){
  const rows=items.filter(i=>i.exercise.type==='choice'&&!VERBATIM_OFFICIAL.test(i.card.id)&&!i.exercise.choiceImages);
  assert(rows.length>0,'No self-made choice exercises to measure');

@@ -117,7 +117,7 @@ const itCounts={};
   counts[u.short]=u.parts.length;
  }
  for(const l of CAT.lectures)assert.ok(PARTS.units.some(u=>u.scope.round==='lecture-'+l.id),'한국사 '+l.title+'에 파트가 있다');
- for(const t of ['Day 1','Day 2','Day 3','Day 4','Day 5','Day 6','Day 7','문법 공식 훈련','논리 1장','논리 2장','논리 3장','논리 4장','논리 5장','논리 6장','독해 1장','독해 2장','독해 3장'])assert.ok(PARTS.units.some(u=>u.scope.topic===t),t+'에 파트가 있다');
+ for(const t of ['Day 1','Day 2','Day 3','Day 4','Day 5','Day 6','Day 7','Day 8','Day 9','Day 10','문법 공식 훈련','논리 1장','논리 2장','논리 3장','논리 4장','논리 5장','논리 6장','독해 1장','독해 2장','독해 3장'])assert.ok(PARTS.units.some(u=>u.scope.topic===t),t+'에 파트가 있다');
  const h19=PARTS.units.find(u=>u.id==='hist-19');assert.equal(h19.parts.length,8);assert.equal(h19.parts.reduce((n,p)=>n+p.ids.length,0),115);
  // 2026-09-23 20강 조선 전기(문화 I): facts.cjs 묶음 15개 → 8파트, 99문제. 파트마다 8문제 이상이고 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
  const h20=PARTS.units.find(u=>u.id==='hist-20');assert.equal(h20.title,'20강 조선 전기(문화 I)');
@@ -243,7 +243,11 @@ const itCounts={};
  assert.equal(d6.parts.reduce((n,p)=>n+p.ids.length,0),220);assert.equal(d7.parts.reduce((n,p)=>n+p.ids.length,0),240);
  assert.ok([...d6.parts,...d7.parts].every(p=>p.ids.length>=8),'Day 6·7 파트마다 8문제 이상');
  assert.ok([...d6.parts,...d7.parts].every(p=>p.ids.every(id=>/^en-day[67]-\d{3}$/.test(id))),'Day 6·7 파트는 자체 제작 문제만');
- {const u=PARTS.units.map(u=>u.id),i=u.indexOf('en-day5');assert.deepEqual(u.slice(i,i+4),['en-day5','en-day6','en-day7','en-formula'],'Day 5 → Day 6 → Day 7 → 공식 훈련 순서');}
+ {const u=PARTS.units.map(u=>u.id),i=u.indexOf('en-day5');assert.deepEqual(u.slice(i,i+7),['en-day5','en-day6','en-day7','en-day8','en-day9','en-day10','en-formula'],'Day 5 → Day 6 → Day 7 → Day 8 · 9 · 10 → 공식 훈련 순서');}
+ // 2026-10-05 영어 Day 8 · 9 · 10(v204, 핵심 20): 규칙 정리 하나가 파트 하나(5 · 6 · 6파트), 단원마다 20문제, 자체 제작만.
+ {const want={'en-day8':['동사 뒤의 꼴','시제','어순','비교','꾸미는 말과 수 일치'],'en-day9':['동사와 태','가정과 당위','절','분사','수 일치와 명사','비교'],'en-day10':['목적격보어와 수동','준동사','시제와 도치','관계사와 대명사','비교와 부정','수량과 used to']};
+  for(const [id,titles] of Object.entries(want)){const u=PARTS.units.find(x=>x.id===id);assert.deepEqual(u.parts.map(p=>p.title),titles,id+' 파트');assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),20,id+' 20문제');
+   assert.ok(u.parts.every(p=>p.ids.length>=2&&p.ids.every(id2=>(id2.startsWith(id+'-')&&id2.length===id.length+4))),id+' 파트는 자체 제작 문제만');}}
 }
 
 // ── 3) 앱

@@ -98,9 +98,13 @@ assert.ok(!nodes.get('#retryStatus')._text.includes('같은 개념의 문제'),'
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d5=rows.indexOf('Day 5 접속사·관계사·가정법과 도치'),d6=rows.indexOf('Day 6 무작위 문법 포인트 찾기 훈련'),d7=rows.indexOf('Day 7 무작위 문법 포인트 찾기 훈련');
   assert.ok(d5>=0&&d6===d5+1&&d7===d6+1,'문제집 진도는 Day 5 다음에 Day 6·7: '+rows.slice(0,9).join(' / '));
   assert.equal(menuDetail('#rangeList','Day 6 무작위 문법 포인트 찾기 훈련'),'풀어야 할 문제 220/220 · 첫 시도 0/220 · 이 단원 문제 더 풀기 켬','Day 6 범위 줄');assert.equal(menuDetail('#rangeList','Day 7 무작위 문법 포인트 찾기 훈련'),'풀어야 할 문제 240/240 · 첫 시도 0/240 · 이 단원 문제 더 풀기 켬','Day 7 범위 줄');}
- // 문법 공식 훈련(v98): 마지막 Day(v115부터 Day 5, v151부터 Day 7) 다음에 ‘공식 훈련 새 문제 전체’ 범위, 그 아래 영역별로 접힌 공식 범위가 나온다. 공식 범위는 그 공식의 Day 문제와 새 문제를 함께 담는다.
- {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d7=rows.indexOf('Day 7 무작위 문법 포인트 찾기 훈련'),f=rows.indexOf('공식 훈련 새 문제 전체');
-  assert.ok(d7>=0&&f===d7+1,'Day 7 다음에 공식 훈련: '+rows.slice(0,11).join(' / '));
+ // Day 8 · 9 · 10(v204)은 Day 7 바로 다음, 단원마다 핵심 20문제뿐이라 접힌 문제가 없다(‘더 풀기’ 없음).
+ {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d7=rows.indexOf('Day 7 무작위 문법 포인트 찾기 훈련');
+  assert.deepEqual(rows.slice(d7+1,d7+4),["Day 8 무작위 문법 포인트 찾기 훈련","Day 9 무작위 문법 포인트 찾기 훈련","Day 10 무작위 문법 포인트 찾기 훈련"],'Day 7 다음에 Day 8 · 9 · 10');
+  for(const n of ["Day 8 무작위 문법 포인트 찾기 훈련","Day 9 무작위 문법 포인트 찾기 훈련","Day 10 무작위 문법 포인트 찾기 훈련"])assert.equal(menuDetail('#rangeList',n),'풀어야 할 문제 20/20 · 첫 시도 0/20',n+' 범위 줄');}
+ // 문법 공식 훈련(v98): 마지막 Day(v115부터 Day 5, v151부터 Day 7, v204부터 Day 10) 다음에 ‘공식 훈련 새 문제 전체’ 범위, 그 아래 영역별로 접힌 공식 범위가 나온다. 공식 범위는 그 공식의 Day 문제와 새 문제를 함께 담는다.
+ {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d7=rows.indexOf('Day 10 무작위 문법 포인트 찾기 훈련'),f=rows.indexOf('공식 훈련 새 문제 전체');
+  assert.ok(d7>=0&&f===d7+1,'Day 10 다음에 공식 훈련: '+rows.slice(0,14).join(' / '));
   assert.equal(menuDetail('#rangeList','공식 훈련 새 문제 전체'),'풀어야 할 문제 364/364 · 첫 시도 0/364 · 이 단원 문제 더 풀기 켬','공식 훈련 새 문제 범위 줄');
   assert.equal(rows.filter(t=>run('ENGLISH_FORMULAS.areas.flatMap(a=>a.rules.map(r=>r.title))').includes(t)).length,89,'공식 범위 89개');}
  run("go('progress')");assert.equal(nodes.get('#total')._text,String(run('questionCount(data.cards.filter(isPlayable))')),'진행상황의 전체 문제');
