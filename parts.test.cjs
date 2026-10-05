@@ -185,7 +185,12 @@ const itCounts={};
  // 2026-10-05 33강 개항기(문화): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(32강 다음 · 38강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-33'),hi.indexOf('hist-32')+1);assert.equal(hi.indexOf('hist-34'),hi.indexOf('hist-33')+1);}
  // 2026-10-05 34강 일제 강점기(식민 통치): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 3개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(33강 다음 · 38강 앞).
- {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-34'),hi.indexOf('hist-33')+1);assert.equal(hi.indexOf('hist-38'),hi.indexOf('hist-34')+1);}
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-34'),hi.indexOf('hist-33')+1);assert.equal(hi.indexOf('hist-35'),hi.indexOf('hist-34')+1);}
+ // 2026-10-05 35강 일제 강점기(1910년대 저항): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 3개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(34강 다음 · 38강 앞).
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-35'),hi.indexOf('hist-34')+1);assert.equal(hi.indexOf('hist-38'),hi.indexOf('hist-35')+1);}
+ const h35=PARTS.units.find(u=>u.id==='hist-35');assert.equal(h35.title,'35강 일제 강점기(1910년대 저항)');assert.equal(h35.scope.round,'lecture-35');
+ assert.deepEqual(h35.parts.map(p=>p.id),['h35-1','h35-2']);assert.deepEqual(h35.parts.map(p=>p.title),['국외 독립운동 기지와 비밀 결사','3·1 운동과 대한민국 임시 정부']);
+ assert.deepEqual(h35.parts.map(p=>p.ids.length),[9,11]);assert.ok(h35.parts.every(p=>p.ids.length>=8),'35강 파트마다 8문제 이상');
  const h34=PARTS.units.find(u=>u.id==='hist-34');assert.equal(h34.title,'34강 일제 강점기(식민 통치)');assert.equal(h34.scope.round,'lecture-34');
  assert.deepEqual(h34.parts.map(p=>p.id),['h34-1','h34-2']);assert.deepEqual(h34.parts.map(p=>p.title),['무단 통치와 문화 통치','민족 말살 통치와 전시 수탈']);
  assert.deepEqual(h34.parts.map(p=>p.ids.length),[12,8]);assert.ok(h34.parts.every(p=>p.ids.length>=8),'34강 파트마다 8문제 이상');
