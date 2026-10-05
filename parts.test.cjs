@@ -189,7 +189,12 @@ const itCounts={};
  // 2026-10-05 35강 일제 강점기(1910년대 저항): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 3개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(34강 다음 · 38강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-35'),hi.indexOf('hist-34')+1);assert.equal(hi.indexOf('hist-36'),hi.indexOf('hist-35')+1);}
  // 2026-10-05 36강 일제 강점기(1920년대 저항): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(35강 다음 · 38강 앞).
- {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-36'),hi.indexOf('hist-35')+1);assert.equal(hi.indexOf('hist-38'),hi.indexOf('hist-36')+1);}
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-36'),hi.indexOf('hist-35')+1);assert.equal(hi.indexOf('hist-37'),hi.indexOf('hist-36')+1);}
+ // 2026-10-05 37강 일제 강점기(1930년대 이후 저항): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(36강 다음 · 38강 앞).
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-37'),hi.indexOf('hist-36')+1);assert.equal(hi.indexOf('hist-38'),hi.indexOf('hist-37')+1);}
+ const h37=PARTS.units.find(u=>u.id==='hist-37');assert.equal(h37.title,'37강 일제 강점기(1930년대 이후 저항)');assert.equal(h37.scope.round,'lecture-37');
+ assert.deepEqual(h37.parts.map(p=>p.id),['h37-1','h37-2']);assert.deepEqual(h37.parts.map(p=>p.title),['의열 투쟁과 무장 독립 전쟁','민족 문화 수호와 건국 준비']);
+ assert.deepEqual(h37.parts.map(p=>p.ids.length),[8,12]);assert.ok(h37.parts.every(p=>p.ids.length>=8),'37강 파트마다 8문제 이상');
  const h36=PARTS.units.find(u=>u.id==='hist-36');assert.equal(h36.title,'36강 일제 강점기(1920년대 저항)');assert.equal(h36.scope.round,'lecture-36');
  assert.deepEqual(h36.parts.map(p=>p.id),['h36-1','h36-2']);assert.deepEqual(h36.parts.map(p=>p.title),['실력 양성 · 사회 운동과 신간회','의열 투쟁 · 민족 문화와 무장 독립 전쟁']);
  assert.deepEqual(h36.parts.map(p=>p.ids.length),[11,9]);assert.ok(h36.parts.every(p=>p.ids.length>=8),'36강 파트마다 8문제 이상');
