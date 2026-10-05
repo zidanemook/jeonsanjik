@@ -118,8 +118,9 @@ assert.deepEqual(M.get('history-books').groups.map(g=>g.title),['삼국','통일
 // 2026-09-30 30강 개항기(동학 농민 운동 ~ 대한 제국): 인물 3(조병갑 · 이용태 · 부들러), 제도 10(집강소 · 교정청 · 군국기무처 · 홍범 14조 · 교육 입국 조서 · 단발령 · 헌의 6조 · 대한국 국제 · 원수부 · 지계), 문화유산 1(독립문).
 // 2026-09-30 31강 국권 피탈과 저항: 인물 8(장지연 · 민영환 · 유인석 · 민종식 · 이인영 · 안규홍 · 스티븐스 · 메가타), 책 1(「시일야방성대곡」), 제도 8(국권 침탈 조약 다섯 · 보안회 · 대한 자강회 · 신민회).
 // 2026-10-05 38강 현대(광복 ~ 6·25 전쟁): 인물 3(이승만 · 애치슨 · 맥아더), 책 1(「삼천만 동포에게 읍고함」), 새 묶음 '현대 제도·사건' 13(조선 건국 준비 위원회 ~ 국민 방위군 사건), 짝 5.
-assert.equal(M.size(M.get('history-people')),329);assert.equal(M.size(M.get('history-books')),152);
-{const g=M.get('history-people').groups.at(-1);assert.equal(g.cards.length,106);for(const [f,b] of g.cards){assert(/^(개항기|대한 제국 시기|한국을 도운 외국인|일제 강점기|일제 강점기·광복 전후|광복 전후|현대) · /.test(b),'근·현대 인물 뒷면은 시기부터: '+f);assert(!/[{}]/.test(b),'왕 표시 남음: '+f);}}
+// 2026-10-05 32강 개항기(경제): 인물 2(서상돈 · 김광제), 제도 12(개항 초기 조약 넷 · 방곡령 · 상회소 · 황국 중앙 총상회 · 농광 회사 · 화폐 정리 사업 · 국채 보상 운동 · 동양 척식 주식회사 · 대한 천일 은행), 짝 3.
+assert.equal(M.size(M.get('history-people')),331);assert.equal(M.size(M.get('history-books')),152);
+{const g=M.get('history-people').groups.at(-1);assert.equal(g.cards.length,108);for(const [f,b] of g.cards){assert(/^(개항기|대한 제국 시기|한국을 도운 외국인|일제 강점기|일제 강점기·광복 전후|광복 전후|현대) · /.test(b),'근·현대 인물 뒷면은 시기부터: '+f);assert(!/[{}]/.test(b),'왕 표시 남음: '+f);}}
 // 왕에 걸린 앞머리: 인물 101 · 책 22. 나머지(인물 31 · 책 17)는 왕이 하나로 정해지지 않아 시기만 적었다(고조선·가야, 일본 전파, 승려·학자 등).
 // 15강(2026-09-16)으로 책 6(초조대장경 현종·『상정고금예문』 인종·팔만대장경 고종·『직지심체요절』 우왕 + 교장·『향약구급방』은 시기만)과 인물 1(혜허, 시기만)을 더했다.
 // 2026-09-18 왕 고리 넓히기: 최충 → 문종, 이규보 「동명왕편」 → 명종, 각훈 『해동고승전』 → 고종, 이제현 『사략』 → 공민왕(이제현은 충선왕과 함께 둘).
@@ -175,7 +176,7 @@ assert.equal(M.size(countries),30);
  assert(back('history-heritage','개성 경천사지 10층 석탑').includes('원의 영향')&&back('history-heritage','안동 봉정사 극락전').includes('가장 오래된'));}
 // 경제·사회 제도(07·13강 중심) → 왕·한 줄. 왕이 붙은 칸은 그 왕의 사실에 제도 이름이 들어 있어야 한다.
 {const set=M.get('history-economy');assert(set&&set.groups&&set.subject==='한국사','history-economy set');
- assert.deepEqual(set.groups.map(g=>g.title),['삼국·남북국 경제','고려 토지·수취','고려 상업·화폐·농업','고려 사회','조선 전기 제도·향촌','조선 후기 제도','현대 제도·사건']);assert.equal(M.size(set),148);
+ assert.deepEqual(set.groups.map(g=>g.title),['삼국·남북국 경제','고려 토지·수취','고려 상업·화폐·농업','고려 사회','조선 전기 제도·향촌','조선 후기 제도','현대 제도·사건']);assert.equal(M.size(set),160);
  let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)),'history-economy: '+king+'('+country+') facts name '+front);}
  // 2026-09-28 23강: 비변사(중종·명종) · 훈련도감 · 속오군(선조) · 어영청 · 총융청 · 수어청(인조) · 금위영(숙종) 7개가 더 걸림 → 44.
  // 2026-09-28 24강: 영정법(인조) · 대동법(광해군·숙종) · 결작 · 선무군관포(영조) · 설점수세제(효종) · 상평통보(숙종) 6개가 더 걸림 → 50. 공인 · 도고 · 송상 · 보부상 · 덕대 등 14개는 '조선 후기'.
