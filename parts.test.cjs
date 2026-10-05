@@ -179,7 +179,12 @@ const itCounts={};
  assert.deepEqual(h31.parts.map(p=>p.ids.length),[9,11]);assert.ok(h31.parts.every(p=>p.ids.length>=8),'31강 파트마다 8문제 이상');
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-32'),hi.indexOf('hist-31')+1);}
  // 2026-10-05 38강 현대(광복 ~ 6·25 전쟁): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(31강 다음 · 특강 앞).
- {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-32'),hi.indexOf('hist-31')+1);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-38')+1);}
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-32'),hi.indexOf('hist-31')+1);assert.equal(hi.indexOf('hist-39'),hi.indexOf('hist-38')+1);}
+ // 2026-10-05 39강 현대(민주주의의 발전): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(38강 다음 · 특강 앞).
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-39'),hi.indexOf('hist-38')+1);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-39')+1);}
+ const h39=PARTS.units.find(u=>u.id==='hist-39');assert.equal(h39.title,'39강 현대(민주주의의 발전)');assert.equal(h39.scope.round,'lecture-39');
+ assert.deepEqual(h39.parts.map(p=>p.id),['h39-1','h39-2']);assert.deepEqual(h39.parts.map(p=>p.title),['이승만 · 장면 · 박정희 정부','신군부와 민주화 이후']);
+ assert.deepEqual(h39.parts.map(p=>p.ids.length),[12,8]);assert.ok(h39.parts.every(p=>p.ids.length>=8),'39강 파트마다 8문제 이상');
  // 2026-10-05 32강 개항기(경제): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(31강 다음 · 38강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-32'),hi.indexOf('hist-31')+1);assert.equal(hi.indexOf('hist-33'),hi.indexOf('hist-32')+1);}
  // 2026-10-05 33강 개항기(문화): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(32강 다음 · 38강 앞).
