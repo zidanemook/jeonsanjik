@@ -40,11 +40,12 @@ const BANNED=/카드|문항|변형|스코프/;
 const store=new Map();
 const {R,J,node}=boot(store);
 const lectures=J('STUDY_REVIEW_CATALOG.lectures');
-assert.deepEqual(lectures.map(l=>l.id),['02-05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','250','252-256']);
+assert.deepEqual(lectures.map(l=>l.id),['02-05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','28-40','250','252-256']);
 const answerOf=id=>R(`(()=>{const q=QUIZ_OPTIONS[${JSON.stringify(id)}];return q&&q.choices?q.choices[q.correctIndex]:CORE_REVIEW_PACK.find(c=>c.id===${JSON.stringify(id)}).answer;})()`);
 let folded=0;
 // 교재 강마다 20: 앱 범위 '02~05강'만 교재 강 넷(02 선사 · 03 고조선·여러 나라 · 04 고구려·가야 · 05 백제·신라·통일)을 묶은 범위라 80(부모 검토 2026-09-28).
-const WANT=id=>id==='02-05'?80:20;
+// 2026-10-05 근대 순서 훈련(28~40강) 범위는 교재 강이 아니라 사건 순서 30문제 묶음 — core = 30 전부(접는 문제 없음).
+const WANT=id=>id==='02-05'?80:id==='28-40'?30:20;
 for(const l of lectures){
  assert.ok(Array.isArray(l.core),l.title+': core가 있다');
  const want=WANT(l.id);
@@ -58,8 +59,8 @@ for(const l of lectures){
  folded+=l.ids.length-want;
 }
 // 2026-09-28 24강부터 강마다 20문제로 만든다 → core = 그 강의 20문제 전부(접는 문제 없음, 22 · 23강과 같음).
-for(const id of ['22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40']){const l=lectures.find(x=>x.id===id);assert.deepEqual(l.core,l.ids,l.title+': 이미 20문제 → 전부 핵심');}
-assert.equal(lectures.reduce((n,l)=>n+l.core.length,0),820,'37범위 × 20 + 02~05강 80');
+for(const id of ['22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','28-40']){const l=lectures.find(x=>x.id===id);assert.deepEqual(l.core,l.ids,l.title+': 이미 20문제 → 전부 핵심');}
+assert.equal(lectures.reduce((n,l)=>n+l.core.length,0),850,'37범위 × 20 + 02~05강 80 + 근대 순서 훈련 30');
 // 02~05강 80은 교재 강 넷에 고루: 선사(파트 둘) · 고조선·여러 나라(둘) · 고구려 · 백제 파트마다 5 이상(한 교재 강 20이 그 파트들에 있다)
 {const l=lectures.find(x=>x.id==='02-05'),unit=J("STUDY_PARTS.units.find(u=>u.id==='hist-02-05')");
  for(const p of unit.parts)assert.ok(p.ids.filter(id=>l.core.includes(id)).length>=5,'02~05강 '+p.title+': 핵심 5 이상');

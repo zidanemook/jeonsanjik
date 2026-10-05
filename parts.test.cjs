@@ -183,7 +183,12 @@ const itCounts={};
  // 2026-10-05 39강 현대(민주주의의 발전): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(38강 다음 · 특강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-39'),hi.indexOf('hist-38')+1);assert.equal(hi.indexOf('hist-40'),hi.indexOf('hist-39')+1);}
  // 2026-10-05 40강 현대(경제 발전과 통일 정책): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 3개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(39강 다음 · 특강 앞).
- {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-40'),hi.indexOf('hist-39')+1);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-40')+1);}
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-40'),hi.indexOf('hist-39')+1);assert.equal(hi.indexOf('hist-28-40'),hi.indexOf('hist-40')+1);}
+ // 2026-10-05 28~40강 근대 순서 훈련: 30문제(28~40강 사건 순서) → 3파트(① 흥선 대원군 ~ 국권 피탈 · ② 일제 강점기 · ③ 광복 이후, 파트마다 8문제 이상). 40강 다음 · 특강 앞.
+ {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-28-40'),hi.indexOf('hist-40')+1);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-28-40')+1);}
+ const h2840=PARTS.units.find(u=>u.id==='hist-28-40');assert.equal(h2840.title,'28~40강 근대 순서 훈련');assert.equal(h2840.scope.round,'lecture-28-40');
+ assert.deepEqual(h2840.parts.map(p=>p.id),['h2840-1','h2840-2','h2840-3']);assert.deepEqual(h2840.parts.map(p=>p.title),['근대 사건 순서 ① 흥선 대원군 ~ 국권 피탈','근대 사건 순서 ② 일제 강점기','근대 사건 순서 ③ 광복 이후']);
+ assert.deepEqual(h2840.parts.map(p=>p.ids.length),[13,9,8]);assert.ok(h2840.parts.every(p=>p.ids.length>=8),'근대 순서 훈련 파트마다 8문제 이상');
  const h40=PARTS.units.find(u=>u.id==='hist-40');assert.equal(h40.title,'40강 현대(경제 발전과 통일 정책)');assert.equal(h40.scope.round,'lecture-40');
  assert.deepEqual(h40.parts.map(p=>p.id),['h40-1','h40-2']);assert.deepEqual(h40.parts.map(p=>p.title),['경제 성장과 사회 변화','통일을 위한 노력']);
  assert.deepEqual(h40.parts.map(p=>p.ids.length),[12,8]);assert.ok(h40.parts.every(p=>p.ids.length>=8),'40강 파트마다 8문제 이상');

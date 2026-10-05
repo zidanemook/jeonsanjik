@@ -1,7 +1,7 @@
 // Summary-based practice scope; no learner records or private source links.
 globalThis.STUDY_REVIEW_CATALOG={
   "schema": 1,
-  "total": 2555,
+  "total": 2585,
   "sets": [
     {
       "number": 1,
@@ -4597,6 +4597,60 @@ globalThis.STUDY_REVIEW_CATALOG={
         "economy1-hist-20261005-019",
         "economy1-hist-20261005-020"
       ]
+    },
+    {
+      "number": 341,
+      "title": "28~40강 근대 순서 훈련 1",
+      "ids": [
+        "modernorder-hist-20261005-001",
+        "modernorder-hist-20261005-002",
+        "modernorder-hist-20261005-003",
+        "modernorder-hist-20261005-004",
+        "modernorder-hist-20261005-005",
+        "modernorder-hist-20261005-006",
+        "modernorder-hist-20261005-007",
+        "modernorder-hist-20261005-008"
+      ]
+    },
+    {
+      "number": 342,
+      "title": "28~40강 근대 순서 훈련 2",
+      "ids": [
+        "modernorder-hist-20261005-009",
+        "modernorder-hist-20261005-010",
+        "modernorder-hist-20261005-011",
+        "modernorder-hist-20261005-012",
+        "modernorder-hist-20261005-013",
+        "modernorder-hist-20261005-014",
+        "modernorder-hist-20261005-015",
+        "modernorder-hist-20261005-016"
+      ]
+    },
+    {
+      "number": 343,
+      "title": "28~40강 근대 순서 훈련 3",
+      "ids": [
+        "modernorder-hist-20261005-017",
+        "modernorder-hist-20261005-018",
+        "modernorder-hist-20261005-019",
+        "modernorder-hist-20261005-020",
+        "modernorder-hist-20261005-021",
+        "modernorder-hist-20261005-022",
+        "modernorder-hist-20261005-023",
+        "modernorder-hist-20261005-024"
+      ]
+    },
+    {
+      "number": 344,
+      "title": "28~40강 근대 순서 훈련 4",
+      "ids": [
+        "modernorder-hist-20261005-025",
+        "modernorder-hist-20261005-026",
+        "modernorder-hist-20261005-027",
+        "modernorder-hist-20261005-028",
+        "modernorder-hist-20261005-029",
+        "modernorder-hist-20261005-030"
+      ]
     }
   ],
   "lectures": [
@@ -7669,6 +7723,74 @@ globalThis.STUDY_REVIEW_CATALOG={
         "economy1-hist-20261005-018",
         "economy1-hist-20261005-019",
         "economy1-hist-20261005-020"
+      ]
+    },
+    {
+      "id": "28-40",
+      "title": "28~40강 근대 순서 훈련",
+      "ids": [
+        "modernorder-hist-20261005-001",
+        "modernorder-hist-20261005-002",
+        "modernorder-hist-20261005-003",
+        "modernorder-hist-20261005-004",
+        "modernorder-hist-20261005-005",
+        "modernorder-hist-20261005-006",
+        "modernorder-hist-20261005-007",
+        "modernorder-hist-20261005-008",
+        "modernorder-hist-20261005-009",
+        "modernorder-hist-20261005-010",
+        "modernorder-hist-20261005-011",
+        "modernorder-hist-20261005-012",
+        "modernorder-hist-20261005-013",
+        "modernorder-hist-20261005-014",
+        "modernorder-hist-20261005-015",
+        "modernorder-hist-20261005-016",
+        "modernorder-hist-20261005-017",
+        "modernorder-hist-20261005-018",
+        "modernorder-hist-20261005-019",
+        "modernorder-hist-20261005-020",
+        "modernorder-hist-20261005-021",
+        "modernorder-hist-20261005-022",
+        "modernorder-hist-20261005-023",
+        "modernorder-hist-20261005-024",
+        "modernorder-hist-20261005-025",
+        "modernorder-hist-20261005-026",
+        "modernorder-hist-20261005-027",
+        "modernorder-hist-20261005-028",
+        "modernorder-hist-20261005-029",
+        "modernorder-hist-20261005-030"
+      ],
+      "core": [
+        "modernorder-hist-20261005-001",
+        "modernorder-hist-20261005-002",
+        "modernorder-hist-20261005-003",
+        "modernorder-hist-20261005-004",
+        "modernorder-hist-20261005-005",
+        "modernorder-hist-20261005-006",
+        "modernorder-hist-20261005-007",
+        "modernorder-hist-20261005-008",
+        "modernorder-hist-20261005-009",
+        "modernorder-hist-20261005-010",
+        "modernorder-hist-20261005-011",
+        "modernorder-hist-20261005-012",
+        "modernorder-hist-20261005-013",
+        "modernorder-hist-20261005-014",
+        "modernorder-hist-20261005-015",
+        "modernorder-hist-20261005-016",
+        "modernorder-hist-20261005-017",
+        "modernorder-hist-20261005-018",
+        "modernorder-hist-20261005-019",
+        "modernorder-hist-20261005-020",
+        "modernorder-hist-20261005-021",
+        "modernorder-hist-20261005-022",
+        "modernorder-hist-20261005-023",
+        "modernorder-hist-20261005-024",
+        "modernorder-hist-20261005-025",
+        "modernorder-hist-20261005-026",
+        "modernorder-hist-20261005-027",
+        "modernorder-hist-20261005-028",
+        "modernorder-hist-20261005-029",
+        "modernorder-hist-20261005-030"
       ]
     },
     {
@@ -35826,6 +35948,276 @@ globalThis.STUDY_REVIEW_CATALOG={
         "농지 개혁 · 수출 100억 달러 · 3저 호황 · IMF 구제 금융(항목)"
       ],
       "sourceSection": "자체 제작(기출 원문 아님) · 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(전두환 정부 이후)"
+    },
+    "modernorder-hist-20261005-001": {
+      "number": 2556,
+      "section": "근대 사건 순서 — 개항·개화기",
+      "coverage": [
+        "병인양요(정족산성) → 오페르트(남연군 묘) → 신미양요(광성보) → 운요호 사건 = 나 → 라 → 다 → 가(정답)",
+        "오답: 운요호 사건은 흥선 대원군이 물러난 뒤 — 넷 가운데 가장 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-002": {
+      "number": 2557,
+      "section": "근대 사건 순서 — 개항·개화기",
+      "coverage": [
+        "(가) 강화도 조약 ~ (나) 임오군란 사이 = 2차 수신사 김홍집의 『조선책략』(정답)",
+        "오답: 셔먼호 = 더 앞, 갑신정변 · 톈진 조약 = 더 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-003": {
+      "number": 2558,
+      "section": "근대 사건 순서 — 개항·개화기",
+      "coverage": [
+        "우정총국 축하연 · 사흘 만에 실패 = 갑신정변 → 뒤의 일 = 영국의 거문도 점령(정답)",
+        "오답: 임오군란 · 수륙 무역 장정 · 통리기무아문 = 모두 앞"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-004": {
+      "number": 2559,
+      "section": "근대 사건 순서 — 개항·개화기",
+      "coverage": [
+        "갑신정변 → 거문도 사건 → 방곡령 → 고부 농민 봉기 = 나 → 라 → 가 → 다(정답)",
+        "오답: 거문도 사건 = 갑신정변 뒤 열강 대립의 결과"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-005": {
+      "number": 2560,
+      "section": "근대 사건 순서 — 개항·개화기",
+      "coverage": [
+        "(가) 조 · 미 수호 통상 조약 ~ (나) 갑신정변 사이 = 박문국 · 한성순보(정답)",
+        "오답: 통리기무아문 · 운요호 = 앞, 거문도 = 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-006": {
+      "number": 2561,
+      "section": "근대 사건 순서 — 개항·개화기",
+      "coverage": [
+        "서원 철폐 · 양반도 호마다 군포(호포제) = 흥선 대원군 집권기 → 같은 때 = 척화비(정답)",
+        "오답: 통리기무아문 · 임오군란 · 운요호 = 흥선 대원군이 물러난 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-007": {
+      "number": 2562,
+      "section": "근대 사건 순서 — 갑오개혁·대한제국",
+      "coverage": [
+        "전주 화약 → 군국기무처 → 논산 연합 → 홍범 14조 = 가 → 다 → 라 → 나(정답)",
+        "오답: 군국기무처 = 경복궁 점령 뒤, 홍범 14조 = 우금치 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-008": {
+      "number": 2563,
+      "section": "근대 사건 순서 — 갑오개혁·대한제국",
+      "coverage": [
+        "(가) 아관 파천 ~ (나) 대한 제국 선포 사이 = 독립 협회 창립(정답)",
+        "오답: 단발령 = 앞, 헌의 6조 · 원수부 = 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-009": {
+      "number": 2564,
+      "section": "근대 사건 순서 — 갑오개혁·대한제국",
+      "coverage": [
+        "청에 의존하지 않음 · 왕실과 국정 분리 = 홍범 14조 → 뒤의 일 = 을미사변(정답)",
+        "오답: 전주성 · 경복궁 점령 · 군국기무처 = 모두 앞"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-010": {
+      "number": 2565,
+      "section": "근대 사건 순서 — 갑오개혁·대한제국",
+      "coverage": [
+        "국외 중립 → 보안회 → 「시일야방성대곡」 → 헤이그 특사 = 다 → 가 → 라 → 나(정답)",
+        "오답: 보안회 = 러 · 일 전쟁 중, 헤이그 특사 = 을사늑약 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-011": {
+      "number": 2566,
+      "section": "근대 사건 순서 — 갑오개혁·대한제국",
+      "coverage": [
+        "(가) 제1차 한 · 일 협약 ~ (나) 군대 해산 사이 = 메가타의 화폐 정리 사업(정답)",
+        "오답: 만민 공동회 = 앞, 서울 진공 · 안중근 = 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-012": {
+      "number": 2567,
+      "section": "근대 사건 순서 — 갑오개혁·대한제국",
+      "coverage": [
+        "대한국 국제 · 첫 전차 = 대한 제국 광무개혁 때 → 같은 때 = 관립 의학교(정답)",
+        "오답: 한성순보 · 을미의병 = 앞, 회사령 = 국권 피탈 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-013": {
+      "number": 2568,
+      "section": "근대 사건 순서 — 갑오개혁·대한제국",
+      "coverage": [
+        "박승환 자결 · 해산 군인의 시가전 = 군대 해산 → 뒤의 일 = 13도 창의군 결성(정답)",
+        "오답: 보안회 · 민영환 자결 · 최익현 태인 의병 = 모두 앞"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-014": {
+      "number": 2569,
+      "section": "근대 사건 순서 — 일제 강점기",
+      "coverage": [
+        "태형령 → 회사령 철폐 → 제2차 조선 교육령 → 치안 유지법 = 나 → 가 → 라 → 다(정답)",
+        "오답: 태형령 = 무단 통치, 나머지 셋 = 문화 통치"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-015": {
+      "number": 2570,
+      "section": "근대 사건 순서 — 일제 강점기",
+      "coverage": [
+        "(가) 회사령 철폐 ~ (나) 농촌 진흥 운동 사이 = 광주 학생 항일 운동 · 신간회 조사단(정답)",
+        "오답: 헌병 경찰 = 앞, 국가 총동원법 · 창씨개명 = 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-016": {
+      "number": 2571,
+      "section": "근대 사건 순서 — 일제 강점기",
+      "coverage": [
+        "봉오동 → 간도 참변 → 자유시 참변 → 미쓰야 협정 = 다 → 나 → 가 → 라(정답)",
+        "오답: 간도 참변 = 봉오동 · 청산리 패배의 보복"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-017": {
+      "number": 2572,
+      "section": "근대 사건 순서 — 일제 강점기",
+      "coverage": [
+        "보통학교 6년 = 제2차 조선 교육령 → 뒤의 일 = 6 · 10 만세 운동(정답)",
+        "오답: 독립 의군부 · 대한 광복회 · 2 · 8 독립 선언 = 모두 무단 통치 때"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-018": {
+      "number": 2573,
+      "section": "근대 사건 순서 — 일제 강점기",
+      "coverage": [
+        "교사의 제복과 칼 · 헌병의 즉결 태형 = 무단 통치 → 같은 때 = 회사령(총독 허가)(정답)",
+        "오답: 치안 유지법 = 문화 통치, 신사 참배 · 애국반 = 민족 말살 통치"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-019": {
+      "number": 2574,
+      "section": "근대 사건 순서 — 일제 강점기",
+      "coverage": [
+        "(가) 3 · 1 운동 ~ (나) 국민 대표 회의 사이 = 연통제 · 교통국(정답)",
+        "오답: 삼원보 = 앞, 윤봉길 의거 · 한국 광복군 = 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-020": {
+      "number": 2575,
+      "section": "근대 사건 순서 — 일제 강점기",
+      "coverage": [
+        "형평사 → 6 · 10 만세 운동 → 신간회 → 광주 학생 항일 운동 = 라 → 나 → 가 → 다(정답)",
+        "오답: 6 · 10 = 신간회의 계기, 광주 = 신간회가 지원"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-021": {
+      "number": 2576,
+      "section": "근대 사건 순서 — 일제 강점기",
+      "coverage": [
+        "지원병 · 놋그릇 공출 · 애국반 = 국가 총동원법 뒤 민족 말살 통치 → 같은 때 = 국민학교(정답)",
+        "오답: 토지 조사 사업 = 무단 통치, 물산 장려 = 문화 통치"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-022": {
+      "number": 2577,
+      "section": "근대 사건 순서 — 일제 강점기",
+      "coverage": [
+        "쌍성보 → 조선 의용대 → 건국 강령 → 인도 · 미얀마 전선 = 나 → 다 → 라 → 가(정답)",
+        "오답: 조선 의용대 = 중 · 일 전쟁 뒤, 인도 · 미얀마 전선 = 대일 선전 포고 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-023": {
+      "number": 2578,
+      "section": "근대 사건 순서 — 현대",
+      "coverage": [
+        "모스크바 → 좌우 합작 7원칙 → 유엔 소총회 → 남북 협상 = 나 → 다 → 가 → 라(정답)",
+        "오답: 남북 협상 = 소총회의 단독 선거 결정에 반대"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-024": {
+      "number": 2579,
+      "section": "근대 사건 순서 — 현대",
+      "coverage": [
+        "(가) 5·10 총선거 ~ (나) 애치슨 선언 사이 = 농지 개혁법(정답)",
+        "오답: 좌우 합작 = 앞, 흥남 철수 · 반공 포로 석방 = 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-025": {
+      "number": 2580,
+      "section": "근대 사건 순서 — 현대",
+      "coverage": [
+        "중국군 공세로 다시 서울을 내줌 = 1·4 후퇴 → 뒤의 일 = 반공 포로 석방(정답)",
+        "오답: 남침 · 인천 상륙 · 압록강 진격 = 모두 앞"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-026": {
+      "number": 2581,
+      "section": "근대 사건 순서 — 현대",
+      "coverage": [
+        "여운형 · 전국 지부 · 치안대 = 조선 건국 준비 위원회(광복 직후) → 그 무렵 = 미군의 군정(정답)",
+        "오답: 유엔 소총회 · 김구의 글 = 정부 수립 직전, 반민족 행위 처벌법 = 정부 수립 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-027": {
+      "number": 2582,
+      "section": "근대 사건 순서 — 현대",
+      "coverage": [
+        "사사오입 → 3선 개헌 → 유신 헌법 → 7년 단임 간선제 = 라 → 가 → 다 → 나(정답)",
+        "오답: 3선 개헌(연임 허용) 뒤에 유신(중임 제한 없앰 · 통일 주체 국민 회의)"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-028": {
+      "number": 2583,
+      "section": "근대 사건 순서 — 현대",
+      "coverage": [
+        "(가) 4·19 혁명 ~ (나) 유신 헌법 사이 = 6·3 시위(정답)",
+        "오답: 진보당 사건 = 앞, 부 · 마 민주 항쟁 · 언론사 통폐합 = 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-029": {
+      "number": 2584,
+      "section": "근대 사건 순서 — 현대",
+      "coverage": [
+        "(가) 7·4 남북 공동 성명 ~ (나) 남북 기본 합의서 사이 = 이산가족 고향 방문단(정답)",
+        "오답: 경부 고속 국도 = 앞, 6·15 · 10·4 = 뒤"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
+    },
+    "modernorder-hist-20261005-030": {
+      "number": 2585,
+      "section": "근대 사건 순서 — 현대",
+      "coverage": [
+        "사채 동결(8·3 조치) · 포항 제철 = 박정희 정부 → 같은 때 = 제1차 석유 파동 극복(정답)",
+        "오답: 삼백 산업 = 이승만, 3저 호황 = 전두환, 금융 실명제 = 김영삼 정부"
+      ],
+      "sourceSection": "자체 제작(기출 원문 아님) · 28~40강 근대 순서 훈련 28~40강 요약 면 사건 순서"
     }
   }
 };
