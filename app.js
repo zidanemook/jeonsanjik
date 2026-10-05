@@ -110,7 +110,7 @@ function roundMatch(c,round){
 // 교재 진도(topic) 범위를 가진 과목: 영어는 문제집 Day, 국어는 『사고의 힘 논리』의 장.
 const TOPIC_SUBJECTS=new Set(['영어','국어']);
 // 국어 문법(v219~): 『사고의 힘 논리』와 다른 책(선재국어 제3편 개념 중심 문법 독해)이라 범위 묶음을 따로 둔다.
-const KOREAN_GRAMMAR_TOPICS={'문법 1장':'국어 문법 1장 음운론'};
+const KOREAN_GRAMMAR_TOPICS={'문법 1장':'국어 문법 1장 음운론','문법 2장':'국어 문법 2장 형태론'};
 const KOREAN_TOPICS={'논리 1장':'1장 논증의 개념과 유형','논리 2장':'2장 명제 논리','논리 3장':'3장 정언 논리','논리 4장':'4장 술어 논리','논리 5장':'5장 귀납 논증','논리 6장':'6장 논리의 오류','독해 1장':'독해 1장 독해의 원리','독해 2장':'독해 2장 독해와 논증','독해 3장':'독해 3장 실전 독해 훈련'};
 // 영어 ‘문법 공식 훈련’의 공식 하나 범위는 topic을 'formula:<공식 id>'로 두고, 그 공식에 속한 문제집 Day 문제와 새 훈련 문제를 함께 담는다.
 function topicMatch(lesson,topic){return !!lesson&&(lesson.topic===topic||(topic.startsWith('formula:')&&lesson.formula===topic.slice(8)));}

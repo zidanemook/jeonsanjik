@@ -45,12 +45,12 @@ for(const p of enParts){const inPart=new Set(p.ids.map(id=>bank[id].ruleId));
 assert.equal(erules.size,90,'영어 규칙 90개(Day 1~7 · 공식 73 + Day 8~10 17)');
 // 국어 문법(선재국어 제3편, 장마다 핵심 20): 규칙 정리 5개씩. ruleId = 'kgrammar-g<장>-<lesson>', 대입 줄은 그 규칙 상자의 줄.
 const grammar=Object.keys(bank).filter(id=>/^ko-gram[12]-/.test(id));
-assert.deepEqual([1].map(n=>grammar.filter(id=>id.startsWith('ko-gram'+n+'-')).length),[20],'국어 문법 장별 문제 수');
+assert.deepEqual([1,2].map(n=>grammar.filter(id=>id.startsWith('ko-gram'+n+'-')).length),[20,20],'국어 문법 장별 문제 수');
 const grules=new Set();
 for(const id of grammar){const q=bank[id];assert.ok(/^kgrammar-g[12]-/.test(q.ruleId||''),'국어 문법 규칙 id: '+id);assert.equal(q.variants.length,1,'문제 하나: '+id);grules.add(q.ruleId);
  assert.ok(B.box(q.ruleId),'규칙 상자가 없다: '+q.ruleId);const a=B.forQuestion(id);assert.ok(a&&Array.isArray(a.blocks)&&a.blocks.length,'이 문제에 대입이 없다: '+id);
  for(const u of a.use)assert.ok(lineIdsOf(B.box(q.ruleId)).has(u),'대입 줄이 상자에 없다: '+id+' '+u);}
-assert.equal(grules.size,5,'국어 문법 규칙 수(장마다 5)');
+assert.equal(grules.size,10,'국어 문법 규칙 수(장마다 5)');
 // 한국사(v161~, 강별로 늘어난다): parts.js의 한국사 파트마다 상자 하나(id 'hist-<파트>', split 'lines', 표는 tables 여럿 · 줄마다 rowIds).
 //   HIST_UNITS에 든 단원의 파트는 모두 상자가 있고, 그 파트 문제마다 대입(box = 그 파트 상자 · use = 그 상자의 줄 · blocks)이 있다.
 const HIST_UNITS=['hist-02-05','hist-06','hist-07','hist-08','hist-09','hist-10','hist-11','hist-12','hist-13','hist-14','hist-15','hist-16','hist-17','hist-18','hist-19','hist-20','hist-21','hist-22','hist-23','hist-24','hist-25','hist-26','hist-27','hist-28','hist-29','hist-30','hist-31','hist-32','hist-33','hist-34','hist-35','hist-36','hist-37','hist-38','hist-39','hist-40','hist-28-40','hist-250','hist-252-256'];
@@ -397,7 +397,7 @@ const readingParts=P.units.flatMap(u=>u.parts).filter(p=>p.ids.some(id=>/^ko-rea
 assert.equal(readingParts.length,23,'독해 1~3장 파트 23개(1장 9 · 2장 3 · 3장 11)');
 assert.ok(readingParts.every(p=>p.ids.every(id=>/^ko-read[1-3]-/.test(id))),'독해 파트에는 독해 문제만');
 const grammarParts=P.units.flatMap(u=>u.parts).filter(p=>p.ids.some(id=>/^ko-gram[12]-/.test(id)));
-assert.equal(grammarParts.length,5,'국어 문법 파트(장마다 5)');assert.ok(grammarParts.every(p=>p.ids.every(id=>/^ko-gram[12]-/.test(id))),'문법 파트에는 문법 문제만');
+assert.equal(grammarParts.length,10,'국어 문법 파트(장마다 5)');assert.ok(grammarParts.every(p=>p.ids.every(id=>/^ko-gram[12]-/.test(id))),'문법 파트에는 문법 문제만');
 logicParts.push(...readingParts,...grammarParts);
 for(const p of logicParts){const want=[...new Set(p.ids.map(id=>bank[id].ruleId))];eqJ(run('partBasics(PARTS.part('+JSON.stringify(p.id)+'))'),want,'파트 상자 = 파트 문제들의 규칙 전부: '+p.id);}
 run("go('parts','국어')");

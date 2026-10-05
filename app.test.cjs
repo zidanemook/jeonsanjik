@@ -256,8 +256,8 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  assert.equal(rowDetail('독해 1장 독해의 원리'),'풀어야 할 문제 444/444 · 첫 시도 0/444 · 이 단원 문제 더 풀기 켬','독해 1장 범위 줄');
  assert.equal(rows[7],'독해 2장 독해와 논증','독해 2장은 독해 1장 바로 다음 줄');assert.equal(rows[8],'독해 3장 실전 독해 훈련','독해 3장은 독해 2장 바로 다음 줄');
   // 국어 문법: 독해 3장 다음 '국어 문법' 묶음에 장 순서대로, 핵심 20문제뿐이라 접힌 문제가 없다.
-  assert.equal(rows[9],'국어 문법 1장 음운론','문법 1장은 독해 3장 다음');
-  assert.equal(rowDetail('국어 문법 1장 음운론'),'풀어야 할 문제 20/20 · 첫 시도 0/20','문법 1장 범위 줄');
+  assert.equal(rows[9],'국어 문법 1장 음운론','문법 1장은 독해 3장 다음');assert.equal(rows[10],'국어 문법 2장 형태론','문법 2장은 문법 1장 다음');
+  assert.equal(rowDetail('국어 문법 1장 음운론'),'풀어야 할 문제 20/20 · 첫 시도 0/20','문법 1장 범위 줄');assert.equal(rowDetail('국어 문법 2장 형태론'),'풀어야 할 문제 20/20 · 첫 시도 0/20','문법 2장 범위 줄');
  assert.equal(rowDetail('독해 2장 독해와 논증'),'풀어야 할 문제 122/122 · 첫 시도 0/122 · 이 단원 문제 더 풀기 켬','독해 2장 범위 줄');assert.equal(rowDetail('독해 3장 실전 독해 훈련'),'풀어야 할 문제 354/354 · 첫 시도 0/354 · 이 단원 문제 더 풀기 켬','독해 3장 범위 줄');
  assert.ok(rows.includes('국어 전체')&&heads.some(h=>h.startsWith('기출 · 회차별')),'국어 기출과 국어 전체 범위는 그대로 있다');
  const rangeText=[...nodes.get('#rangeList').all.map(n=>n._text)].join(' | ');assert.ok(!/문항|카드/.test(rangeText),'국어 범위 화면에 문항/카드라는 말이 없다');

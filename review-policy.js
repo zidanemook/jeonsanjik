@@ -4715,7 +4715,27 @@
   "ko-gram1-017": "korean-grammar1-017",
   "ko-gram1-018": "korean-grammar1-018",
   "ko-gram1-019": "korean-grammar1-019",
-  "ko-gram1-020": "korean-grammar1-020"
+  "ko-gram1-020": "korean-grammar1-020",
+  "ko-gram2-001": "korean-grammar2-001",
+  "ko-gram2-002": "korean-grammar2-002",
+  "ko-gram2-003": "korean-grammar2-003",
+  "ko-gram2-004": "korean-grammar2-004",
+  "ko-gram2-005": "korean-grammar2-005",
+  "ko-gram2-006": "korean-grammar2-006",
+  "ko-gram2-007": "korean-grammar2-007",
+  "ko-gram2-008": "korean-grammar2-008",
+  "ko-gram2-009": "korean-grammar2-009",
+  "ko-gram2-010": "korean-grammar2-010",
+  "ko-gram2-011": "korean-grammar2-011",
+  "ko-gram2-012": "korean-grammar2-012",
+  "ko-gram2-013": "korean-grammar2-013",
+  "ko-gram2-014": "korean-grammar2-014",
+  "ko-gram2-015": "korean-grammar2-015",
+  "ko-gram2-016": "korean-grammar2-016",
+  "ko-gram2-017": "korean-grammar2-017",
+  "ko-gram2-018": "korean-grammar2-018",
+  "ko-gram2-019": "korean-grammar2-019",
+  "ko-gram2-020": "korean-grammar2-020"
  });
  // END KOREAN GRAMMAR GROUPS
  const concept=id=>groups[id]||id;
