@@ -398,6 +398,10 @@ assert.equal(catalog.sets.filter(s=>s.title.startsWith('21강 조선 전기(문�
  // 사진 없이 글로: 27강 문제에는 사진 보기가 없다(그림 · 건축은 생김새 글).
  for(const id of ids27)assert(!ctx.QUIZ_OPTIONS[id].choiceImages,'27강은 글 보기: '+id);
 }
+// 연표 줄(2026-10-05 사용자 메모 "정확한 시기를 남겨야지"): 28~31강 해설 끝에도 '연표: 사건 1876 → 사건 1882.7 → …' 한 줄(32~40강과 같은 꼴) — 연도 오름차순(같은 해 달이 둘 다 있으면 달도).
+// 아래 28~31강 블록의 연도 금지 · 세 칸 검사는 이 줄을 뺀 해설로 한다. 보기 · 발문에는 여전히 연도가 없다.
+const TL2831=/\n연표: ([^\n]*)$/,tl2831=t=>{let last=[0,0];for(const seg of t.split(' → ')){const m=/^(.+) (\d{4})(?:\.(\d{1,2}))?$/.exec(seg);if(!m)return false;const y=+m[2],mo=m[3]?+m[3]:0;if(y<last[0]||(y===last[0]&&mo&&last[1]&&mo<last[1]))return false;last=[y,mo||(y===last[0]?last[1]:0)];}return true;};
+assert(tl2831('갑 1866.1 → 을 1866.9 → 병 1871')&&!tl2831('갑 1871 → 을 1866')&&!tl2831('갑 1866.9 → 을 1866.1')&&!tl2831('갑 → 을 1866'),'28~31강 연표 검사 대조군');
 // 28강(085쪽 요약 '한국사를 읽다' 개항기(흥선 대원군))은 사용자 요청(80회까지 강마다 20문제)으로 한능검 57~79회 기출 빈도 상위 사실만 고른 20문제다(빈도표 research/hanneung-lecture28-20260930/frequency.md).
 // 강 범위는 교재 순서대로 27강 뒤 · 특강 앞. 8문제 묶음은 맨 끝(302~304). 단원 다섯은 개항·개화기 주제 맨 앞. core는 20문제 전부.
 // 사료는 교재 '한국사를 보다' 082~084쪽 글자 그대로(괄호 속 한자는 뺌, 세 자리 숫자가 든 문장은 ……): 경복궁 타령 · 『근세조선정감』 둘 · 『고종실록』 · 신효철의 서신 · 정약용의 시 · 최익현의 상소.
@@ -412,7 +416,7 @@ assert.equal(catalog.sets.filter(s=>s.title.startsWith('21강 조선 전기(문�
  const material=ids28.filter(id=>cards.get(id).question.includes('\n'));for(const id of material)assert(cards.get(id).question.includes('\n\n['),'Material format: '+id);assert(material.length*2>=ids28.length,'28강 자료 제시형이 절반 이상: '+material.length);
  assert(ids28.filter(id=>/옳지 않은 것은/.test(cards.get(id).question)).length<=1,'28강(개항기) 부정 발문 거의 없음');
  const KINGS='중종|명종|선조|광해군|인조|효종|현종|숙종|경종|영조|정조|순조|헌종|철종|고종|태조|태종|세종|성종|광종|문종|신종|원성왕|진흥왕|진성 여왕';
- for(const id of ids28){const c=cards.get(id),o=ctx.QUIZ_OPTIONS[id],e=c.explanation;
+ for(const id of ids28){const c=cards.get(id),o=ctx.QUIZ_OPTIONS[id],tm=c.explanation.match(TL2831),e=c.explanation.replace(TL2831,'');assert(tm&&tl2831(tm[1]),'28강 연표 줄(연도 오름차순): '+id);
   assert.equal(o.correctIndex,0);assert.equal(c.answer,o.choices[0]);assert.equal(o.choices.length,4);
   for(const x of o.choices.concat([c.question]))assert(!/\d{3,4}\s*년|\b1[0-9]{3}\b/.test(x)&&!new RegExp('[(]('+KINGS+'|대한 제국)[^()]* 때[)]').test(x),'28강 보기·발문에 연도·왕 표기: '+id);
   for(const x of o.choices)assert(!new RegExp('('+KINGS+')').test(x.replace(/흥선 대원군|대원군/g,'')),'28강 보기에 왕 이름: '+id+' '+x);
@@ -442,7 +446,7 @@ assert.equal(catalog.sets.filter(s=>s.title.startsWith('21강 조선 전기(문�
  const material=ids29.filter(id=>cards.get(id).question.includes('\n'));for(const id of material)assert(cards.get(id).question.includes('\n\n['),'Material format: '+id);assert(material.length*2>=ids29.length,'29강 자료 제시형이 절반 이상: '+material.length);
  assert(ids29.filter(id=>/옳지 않은 것은/.test(cards.get(id).question)).length<=1,'29강(개항기) 부정 발문 거의 없음');
  const KINGS='중종|명종|선조|광해군|인조|효종|현종|숙종|경종|영조|정조|순조|헌종|철종|고종|순종|태조|태종|세종|성종|광종|문종|신종|원성왕|진흥왕|진성 여왕';
- for(const id of ids29){const c=cards.get(id),o=ctx.QUIZ_OPTIONS[id],e=c.explanation;
+ for(const id of ids29){const c=cards.get(id),o=ctx.QUIZ_OPTIONS[id],tm=c.explanation.match(TL2831),e=c.explanation.replace(TL2831,'');assert(tm&&tl2831(tm[1]),'29강 연표 줄(연도 오름차순): '+id);
   assert.equal(o.correctIndex,0);assert.equal(c.answer,o.choices[0]);assert.equal(o.choices.length,4);
   for(const x of o.choices.concat([c.question]))assert(!/\d{3,4}\s*년|\b1[0-9]{3}\b/.test(x)&&!new RegExp('[(]('+KINGS+'|대한 제국)[^()]* 때[)]').test(x),'29강 보기·발문에 연도·왕 표기: '+id);
   for(const x of o.choices)assert(!new RegExp('('+KINGS+')').test(x.replace(/흥선 대원군|대원군/g,'')),'29강 보기에 왕 이름: '+id+' '+x);
@@ -474,7 +478,7 @@ assert.equal(catalog.sets.filter(s=>s.title.startsWith('21강 조선 전기(문�
  const material=ids30.filter(id=>cards.get(id).question.includes('\n'));for(const id of material)assert(cards.get(id).question.includes('\n\n['),'Material format: '+id);assert(material.length*2>=ids30.length,'30강 자료 제시형이 절반 이상: '+material.length);
  assert(ids30.filter(id=>/옳지 않은 것은/.test(cards.get(id).question)).length<=1,'30강 부정 발문 거의 없음');
  const KINGS='중종|명종|선조|광해군|인조|효종|현종|숙종|경종|영조|정조|순조|헌종|철종|고종|순종|태조|태종|세종|성종|광종|문종|신종|원성왕|진흥왕|진성 여왕';
- for(const id of ids30){const c=cards.get(id),o=ctx.QUIZ_OPTIONS[id],e=c.explanation;
+ for(const id of ids30){const c=cards.get(id),o=ctx.QUIZ_OPTIONS[id],tm=c.explanation.match(TL2831),e=c.explanation.replace(TL2831,'');assert(tm&&tl2831(tm[1]),'30강 연표 줄(연도 오름차순): '+id);
   assert.equal(o.correctIndex,0);assert.equal(c.answer,o.choices[0]);assert.equal(o.choices.length,4);
   for(const x of o.choices.concat([c.question]))assert(!/\d{3,4}\s*년|\b1[0-9]{3}\b/.test(x)&&!new RegExp('[(]('+KINGS+'|대한 제국)[^()]* 때[)]').test(x),'30강 보기·발문에 연도·왕 표기: '+id);
   for(const x of o.choices)assert(!new RegExp('('+KINGS+')').test(x.replace(/흥선 대원군|대원군/g,'')),'30강 보기에 왕 이름: '+id+' '+x);
@@ -506,7 +510,7 @@ assert.equal(catalog.sets.filter(s=>s.title.startsWith('21강 조선 전기(문�
  const material=ids31.filter(id=>cards.get(id).question.includes('\n'));for(const id of material)assert(cards.get(id).question.includes('\n\n['),'Material format: '+id);assert(material.length*2>=ids31.length,'31강 자료 제시형이 절반 이상: '+material.length);
  assert(ids31.filter(id=>/옳지 않은 것은/.test(cards.get(id).question)).length<=1,'31강 부정 발문 거의 없음');
  const KINGS='중종|명종|선조|광해군|인조|효종|현종|숙종|경종|영조|정조|순조|헌종|철종|고종|순종|태조|태종|세종|성종|광종|문종|신종|원성왕|진흥왕|진성 여왕';
- for(const id of ids31){const c=cards.get(id),o=ctx.QUIZ_OPTIONS[id],e=c.explanation;
+ for(const id of ids31){const c=cards.get(id),o=ctx.QUIZ_OPTIONS[id],tm=c.explanation.match(TL2831),e=c.explanation.replace(TL2831,'');assert(tm&&tl2831(tm[1]),'31강 연표 줄(연도 오름차순): '+id);
   assert.equal(o.correctIndex,0);assert.equal(c.answer,o.choices[0]);assert.equal(o.choices.length,4);
   for(const x of o.choices.concat([c.question]))assert(!/\d{3,4}\s*년|\b1[0-9]{3}\b/.test(x)&&!new RegExp('[(]('+KINGS+'|대한 제국)[^()]* 때[)]').test(x),'31강 보기·발문에 연도·왕 표기: '+id);
   for(const x of o.choices)assert(!new RegExp('('+KINGS+')').test(x.replace(/흥선 대원군|대원군/g,'')),'31강 보기에 왕 이름: '+id+' '+x);
