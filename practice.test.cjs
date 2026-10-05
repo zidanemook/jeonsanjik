@@ -85,6 +85,11 @@ for(const [id,lesson]of Object.entries(bank)){
  assert.equal(count('독해 1장'),444);assert.equal(count('독해 1장','choice'),444);assert.equal(count('독해 1장','text'),0);
  // 제2편 독해 2장(독해와 논증) 122문제 · 3장(실전 독해 훈련) 354문제(자체 제작 354 · 교재 문장은 싣지 않음), 모두 4지선다.
  assert.equal(count('독해 2장'),122);assert.equal(count('독해 2장','choice'),122);assert.equal(count('독해 3장'),354);assert.equal(count('독해 3장','choice'),354);
+ // 국어 문법(선재국어 제3편 개념 중심 문법 독해): 장마다 핵심 20문제, 모두 4지선다, id는 ko-gram<장>-001~020, 요점은 문제마다 다르다, 규칙 정리 5개.
+ for(const n of [1]){const t='문법 '+n+'장';assert.equal(count(t),20);assert.equal(count(t,'choice'),20);assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic===t).sort(),Array.from({length:20},(_,i)=>'ko-gram'+n+'-'+String(i+1).padStart(3,'0')),t+'는 ko-gram'+n+'-001~020');
+  const rows=Object.values(bank).filter(l=>l.topic===t);assert.equal(new Set(rows.map(l=>l.point)).size,20);assert.equal(new Set(rows.map(l=>l.ruleId)).size,5);assert.ok(rows.every(l=>/^kgrammar-g[12]-/.test(l.ruleId)&&l.srcLine&&/교재 문장·예문은 옮기지 않음/.test(l.srcLine)),t+' 규칙 id · 출처 줄');}
+ // 교재 예시 낱말(전사 노트 research/korean-grammar-20261005/transcript-notes.md에서 고른 두드러진 낱말)은 문제 · 보기 · 해설 · 정리 어디에도 없다.
+ {const text=Object.entries(bank).filter(([id])=>id.startsWith('ko-gram')).map(([,l])=>JSON.stringify(l)).join('');for(const w of ["시름","바보","바느질","부엌","밥만","국물","감리","종로","칼날","물난리","해돋이","굳히다","잔디","느티나무","밭이랑","국밥","옷고름","솜이불","한여름","맨입","등불","콧날","예삿일","히죽","해죽","쪽문","담요","굳이","여덟","식용유","입학생","헛기침","붓꽃","밤하늘","민아","시큼한","동창회","대궐","젊은이","덮밥","흰머리","회덮밥","봄비","풋사과","손가락질","손놀림","군식구","맨주먹","불개미","신라"])assert.ok(!text.includes(w),'국어 문법 교재 낱말 '+w);}
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 1장').sort(),Array.from({length:31},(_,i)=>'ko-logic1-'+String(i+1).padStart(2,'0')),'논리 1장은 ko-logic1-01~31');
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 2장').sort(),Array.from({length:179},(_,i)=>'ko-logic2-'+String(i+1).padStart(3,'0')),'논리 2장은 ko-logic2-001~179');
  assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic==='논리 3장').sort(),Array.from({length:181},(_,i)=>'ko-logic3-'+String(i+1).padStart(3,'0')),'논리 3장은 ko-logic3-001~181');
@@ -97,7 +102,7 @@ for(const [id,lesson]of Object.entries(bank)){
  // 교재 문장은 싣지 않는다(--book=none): 교재 문제(ko-read3b-*)와 p.143 예제 제시문을 쓴 문제(ko-read2-115·120)가 없고, 교재 제시문에만 나오는 낱말도 없다.
  {const r=Object.entries(bank).filter(([id])=>id.startsWith('ko-read'));assert.ok(!r.some(([id])=>/^ko-read3b-/.test(id)),'교재 문제 없음');assert.ok(!('ko-read2-115' in bank)&&!('ko-read2-120' in bank),'예제 제시문 문제 없음');
   const text=r.map(([,l])=>JSON.stringify(l)).join('');for(const w of ['사피어','허무두','스톤헨지','방각본','마시멜로','로빈 후드','이육사','권력 거리','아이젠버거','기유조약'])assert.ok(!text.includes(w),'교재 제시문 낱말 '+w);assert.ok(!/교재 문장 그대로|교재 예제의 제시문/.test(text),'교재 출처 줄 없음');}
- assert.ok(Object.values(bank).every(l=>(l.subject==='국어')===/^(논리 [1-6]장|독해 [1-3]장)$/.test(l.topic)),'국어 교재 문제만 subject가 국어이고, 영어 문제에는 subject가 없다');
+ assert.ok(Object.values(bank).every(l=>(l.subject==='국어')===/^(논리 [1-6]장|독해 [1-3]장|문법 [12]장)$/.test(l.topic)),'국어 교재 문제만 subject가 국어이고, 영어 문제에는 subject가 없다');
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 1장').map(l=>l.point)).size,11);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 2장').map(l=>l.point)).size,45);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 3장').map(l=>l.point)).size,27);
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 4장').map(l=>l.point)).size,14);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 5장').map(l=>l.point)).size,14);
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 6장').map(l=>l.point)).size,43);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 6장').map(l=>l.ruleId)).size,8);
@@ -107,8 +112,9 @@ for(const [id,lesson]of Object.entries(bank)){
  {const p123=new Set(Object.values(bank).filter(l=>/^논리 [123]장$/.test(l.topic)).map(l=>l.point)),p4=new Set(Object.values(bank).filter(l=>l.topic==='논리 4장').map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='논리 4장').every(l=>!p123.has(l.point)),'4장 개념은 1~3장 개념과 이름이 겹치지 않는다');assert.ok(Object.values(bank).filter(l=>l.topic==='논리 5장').every(l=>!p123.has(l.point)&&!p4.has(l.point)),'5장 개념은 1~4장 개념과 이름이 겹치지 않는다');}
  {const p15=new Set(Object.values(bank).filter(l=>/^논리 [1-5]장$/.test(l.topic)).map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='논리 6장').every(l=>!p15.has(l.point)),'6장 개념은 1~5장 개념과 이름이 겹치지 않는다');}
  {const p16=new Set(Object.values(bank).filter(l=>/^논리 [1-6]장$/.test(l.topic)).map(l=>l.point));assert.ok(Object.values(bank).filter(l=>l.topic==='독해 1장').every(l=>!p16.has(l.point)),'독해 1장 개념은 논리 1~6장 개념과 이름이 겹치지 않는다');}
+ {const old=new Set(Object.values(bank).filter(l=>/^(논리 [1-6]장|독해 [1-3]장)$/.test(l.topic)).map(l=>l.point));assert.ok(Object.values(bank).filter(l=>/^문법 [12]장$/.test(l.topic)).every(l=>!old.has(l.point)),'국어 문법 요점은 논리 · 독해 개념과 이름이 겹치지 않는다');}
  {const old=new Set(Object.values(bank).filter(l=>/^(논리 [1-6]장|독해 1장)$/.test(l.topic)).map(l=>l.point));assert.ok(Object.values(bank).filter(l=>/^독해 [23]장$/.test(l.topic)).every(l=>!old.has(l.point)),'독해 2·3장 개념은 앞 장 개념과 이름이 겹치지 않는다');}
- assert.ok(Object.entries(bank).filter(([id])=>/^ko-(logic|read)/.test(id)).every(([,l])=>!/문항|카드/.test(JSON.stringify([l.title,l.rule,l.hook,l.examples,l.variants]))),'국어 교재 문제의 문제·보기·해설·정리에 문항/카드라는 말이 없다');}
+ assert.ok(Object.entries(bank).filter(([id])=>/^ko-(logic|read|gram)/.test(id)).every(([,l])=>!/문항|카드/.test(JSON.stringify([l.title,l.rule,l.hook,l.examples,l.variants]))),'국어 교재 문제의 문제·보기·해설·정리에 문항/카드라는 말이 없다');}
 const c=ctx.CORE_REVIEW_PACK[0],options=ctx.QUIZ_OPTIONS;
 const picks=Array.from({length:8},(_,i)=>practice.select(c,Array.from({length:i},()=>({cardId:c.id})),bank,options));
 for(const e of picks)assert.equal(e.choices[e.correctIndex],options[c.id].choices[options[c.id].correctIndex]);

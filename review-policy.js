@@ -4693,6 +4693,31 @@
   "ko-read3-354": "korean-reading3-dialogue-manner"
  });
  // END KOREAN READING 2-3 GROUPS
+ // BEGIN KOREAN GRAMMAR GROUPS
+ // 국어 문법(핵심 20, 장마다 20문제): 문제마다 다른 요점이라 묶음 하나에 한 문제다(쌍둥이 없음).
+ Object.assign(groups,{
+  "ko-gram1-001": "korean-grammar1-001",
+  "ko-gram1-002": "korean-grammar1-002",
+  "ko-gram1-003": "korean-grammar1-003",
+  "ko-gram1-004": "korean-grammar1-004",
+  "ko-gram1-005": "korean-grammar1-005",
+  "ko-gram1-006": "korean-grammar1-006",
+  "ko-gram1-007": "korean-grammar1-007",
+  "ko-gram1-008": "korean-grammar1-008",
+  "ko-gram1-009": "korean-grammar1-009",
+  "ko-gram1-010": "korean-grammar1-010",
+  "ko-gram1-011": "korean-grammar1-011",
+  "ko-gram1-012": "korean-grammar1-012",
+  "ko-gram1-013": "korean-grammar1-013",
+  "ko-gram1-014": "korean-grammar1-014",
+  "ko-gram1-015": "korean-grammar1-015",
+  "ko-gram1-016": "korean-grammar1-016",
+  "ko-gram1-017": "korean-grammar1-017",
+  "ko-gram1-018": "korean-grammar1-018",
+  "ko-gram1-019": "korean-grammar1-019",
+  "ko-gram1-020": "korean-grammar1-020"
+ });
+ // END KOREAN GRAMMAR GROUPS
  const concept=id=>groups[id]||id;
  const order=(a,b)=>at(a)-at(b)||a.id.localeCompare(b.id),order_=order;
  const at=row=>Date.parse(row.at||row.date+'T12:00:00+09:00');

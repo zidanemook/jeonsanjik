@@ -43,6 +43,14 @@ for(const p of enParts){const inPart=new Set(p.ids.map(id=>bank[id].ruleId));
   const a=B.forQuestion(id);assert.ok(a&&Array.isArray(a.blocks)&&a.blocks.length&&a.use.length,'이 문제에 대입이 없다: '+id);
   for(const u of a.use){const [r,l]=u.includes(':')?u.split(':'):[q.ruleId,u];assert.ok(inPart.has(r),'대입 줄이 파트 밖 상자: '+id+' '+u);assert.ok(lineIdsOf(B.box(r)).has(l),'대입 줄이 상자에 없다: '+id+' '+u);enUse++;}}}
 assert.equal(erules.size,90,'영어 규칙 90개(Day 1~7 · 공식 73 + Day 8~10 17)');
+// 국어 문법(선재국어 제3편, 장마다 핵심 20): 규칙 정리 5개씩. ruleId = 'kgrammar-g<장>-<lesson>', 대입 줄은 그 규칙 상자의 줄.
+const grammar=Object.keys(bank).filter(id=>/^ko-gram[12]-/.test(id));
+assert.deepEqual([1].map(n=>grammar.filter(id=>id.startsWith('ko-gram'+n+'-')).length),[20],'국어 문법 장별 문제 수');
+const grules=new Set();
+for(const id of grammar){const q=bank[id];assert.ok(/^kgrammar-g[12]-/.test(q.ruleId||''),'국어 문법 규칙 id: '+id);assert.equal(q.variants.length,1,'문제 하나: '+id);grules.add(q.ruleId);
+ assert.ok(B.box(q.ruleId),'규칙 상자가 없다: '+q.ruleId);const a=B.forQuestion(id);assert.ok(a&&Array.isArray(a.blocks)&&a.blocks.length,'이 문제에 대입이 없다: '+id);
+ for(const u of a.use)assert.ok(lineIdsOf(B.box(q.ruleId)).has(u),'대입 줄이 상자에 없다: '+id+' '+u);}
+assert.equal(grules.size,5,'국어 문법 규칙 수(장마다 5)');
 // 한국사(v161~, 강별로 늘어난다): parts.js의 한국사 파트마다 상자 하나(id 'hist-<파트>', split 'lines', 표는 tables 여럿 · 줄마다 rowIds).
 //   HIST_UNITS에 든 단원의 파트는 모두 상자가 있고, 그 파트 문제마다 대입(box = 그 파트 상자 · use = 그 상자의 줄 · blocks)이 있다.
 const HIST_UNITS=['hist-02-05','hist-06','hist-07','hist-08','hist-09','hist-10','hist-11','hist-12','hist-13','hist-14','hist-15','hist-16','hist-17','hist-18','hist-19','hist-20','hist-21','hist-22','hist-23','hist-24','hist-25','hist-26','hist-27','hist-28','hist-29','hist-30','hist-31','hist-32','hist-33','hist-34','hist-35','hist-36','hist-37','hist-38','hist-39','hist-40','hist-28-40','hist-250','hist-252-256'];
@@ -70,7 +78,7 @@ for(const [s,list] of Object.entries(IT_DONE)){const all=PS.STUDY_PARTS.units.fi
   for(const id of p.ids){itQuestions.push(id);assert.match(id,/^gichul-/,'전공 과목 파트는 기출만: '+id);
    const a=B.forQuestion(id);assert.ok(a&&a.box===r&&a.use.length&&a.blocks.length,s+' 대입: '+id);
    for(const u of a.use){assert.ok(lines.has(u),'대입 줄이 그 파트 상자에 없다: '+id+' '+u);itUse++;}}}}
-assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...erules,...hrules,...itRules].sort(),'상자는 논리 · 독해 · 영어 규칙마다, 한국사 · 정보보호론 · 컴퓨터일반 파트마다 하나(남는 상자 없음)');
+assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...grules,...erules,...hrules,...itRules].sort(),'상자는 논리 · 독해 · 영어 규칙마다, 한국사 · 정보보호론 · 컴퓨터일반 파트마다 하나(남는 상자 없음)');
 // 국어 · 영어 · 한국사 기출(v170~): 과목별 기출 대응 원고(research/basics-*/gichul*)가 짝지은 기출마다 대입 — box = 그 기출이 쓰는 상자(규칙 상자 또는 한국사 파트 상자),
 //   use = 그 상자의 줄, blocks = 화면에 보이는 '이 문제에 대입'. 대응하지 않은 기출(제외)은 대입이 없다. 마지막 '→ 번호'(부정 발문은 'N 틀림')가 공식 정답.
 const GICHUL_BASICS={'국어':327,'영어':102,'한국사':277,'한능검':548};
@@ -91,7 +99,7 @@ const gichulBasics=Object.keys(B.apply).filter(id=>GOWN.test(id));let gUse=0;
    for(const t of p.matchAll(TOK))assert.ok(!lines.has(t[1]),'기출 대입에 줄 id: '+id+' '+t[1]);
    if(box.split==='lines'&&m[1])for(const y of p.match(/(?<!\d)\d{3,4}(?!\d)/g)||[])assert.ok(own.includes(y),'한국사 기출 대입의 연도는 문제에 나온 것만: '+id+' '+y);}}
  assert.deepEqual(n,GICHUL_BASICS,'과목별 기출 대입 수');}
-const covered=new Set([...logic,...reading,...english,...history,...itQuestions,...gichulBasics]);
+const covered=new Set([...logic,...reading,...grammar,...english,...history,...itQuestions,...gichulBasics]);
 for(const id of Object.keys(B.apply))assert.ok(covered.has(id),'대입이 있는데 논리 · 독해 · 영어 파트 문제가 아니다: '+id);
 
 // ── 2) 상자 모양: 용어는 뜻 + 예), 한자가 있으면 원뜻, 규칙·비교 예문(✓와 ✗ 둘 다)
@@ -109,7 +117,7 @@ for(const [rule,box] of Object.entries(B.boxes)){
  for(const x of box.examples){assert.ok(x.text&&x.why,'비교 예문은 문장과 한 줄 까닭: '+rule);push(rule,x.text);push(rule,x.why);}
 }
 for(const [id,a] of Object.entries(B.apply))applyTexts(id+' 대입',a.blocks);
-for(const id of [...logic,...reading]){const e=bank[id].variants[0].explanation;push(id+' 해설',e);
+for(const id of [...logic,...reading,...grammar]){const e=bank[id].variants[0].explanation;push(id+' 해설',e);
  const ps=e.split('\n\n');assert.equal(ps.length,3,'해설은 세 문단: '+id);
  assert.ok(ps[0].startsWith('정답 근거: ')&&ps[1].startsWith('보기 비교: ')&&ps[2].startsWith('기억 연결: '),'해설 짜임(정답 근거 · 보기 비교 · 기억 연결): '+id);
  assert.ok(!/\*\*|\{[spmqr]\|/.test(e),'해설은 앱에서 글자 그대로 보이니 **·{x| 표시 금지: '+id);}
@@ -225,7 +233,7 @@ const eqJ=(x,y,m)=>assert.deepEqual(JSON.parse(JSON.stringify(x)),JSON.parse(JSO
 const cls=n=>String(n.className||'').split(' ');
 // 5-1) 논리 995 · 독해 920문제 모두: 상자를 그려 절 제목이 1부터 이어지고 순서가 맞는지.
 let tableSections=0;
-for(const id of [...logic,...reading]){
+for(const id of [...logic,...reading,...grammar]){
  const heads=run(`(()=>{const q=PRACTICE_BANK[${JSON.stringify(id)}];const d=basicsDetails('기초 개념',BASICS.box(q.ruleId),BASICS.forQuestion(${JSON.stringify(id)}));const out=[];(function w(n){for(const c of n.children){if(c.className==='b-h')out.push(c._text);w(c);}})(d);return out;})()`);
  const box=B.box(bank[id].ruleId),want=['먼저 알아 둘 말',...(box.table?[box.table.title]:[]),'규칙 — '+box.rules.title,'비교 예문','이 문제에 대입'];
  if(box.table)tableSections++;
@@ -272,7 +280,7 @@ for(const r of enRes){const box=B.box(r.rule),want=['먼저 알아 둘 말',...(
 assert.ok(splitBoxes>500&&splitSeen.has('grammar-formula-structure')&&splitSeen.has('grammar-formula-verbal'),'공식 훈련 큰 상자는 나뉜다: '+splitBoxes);
 assert.ok(termSplit>500,'나눈 상자의 용어도 나뉜다: '+termSplit);
 // 5-1-3) 국어 상자(규칙 id에 '-' 없음)는 공식 나누기를 하지 않는다.
-assert.equal(run(`${JSON.stringify([...logic,...reading])}.filter(id=>{const q=PRACTICE_BANK[id];return basicsDetails('기초 개념',BASICS.box(q.ruleId),BASICS.forQuestion(id),'fold',null,PARTS.partOf(id)).children.some(c=>c.className==='b-more');}).length`),0,'국어 상자에는 다른 공식 모음이 없다');
+assert.equal(run(`${JSON.stringify([...logic,...reading,...grammar])}.filter(id=>{const q=PRACTICE_BANK[id];return basicsDetails('기초 개념',BASICS.box(q.ruleId),BASICS.forQuestion(id),'fold',null,PARTS.partOf(id)).children.some(c=>c.className==='b-more');}).length`),0,'국어 상자에는 다른 공식 모음이 없다');
 // 5-1-4) '함께 보는 정리'로 접는 줄 = 같은 파트의 다른 상자에 똑같이 있는 줄(모든 과목 · 모든 파트). 파트 밖 상자와만 같은 줄은 접지 않는다.
 {const r=run(`(()=>{let checked=0,shared=0,crossOnly=0;const bad=[];const keys=b=>[...b.terms,...b.rules.items,b.table].filter(Boolean);
  for(const u of PARTS.units)for(const p of u.parts){const rs=[...new Set(p.ids.map(id=>PRACTICE_BANK[id]?.ruleId).filter(r=>r&&BASICS.box(r)))];
@@ -388,11 +396,13 @@ assert.equal(logicParts.length,27,'논리 1~6장 파트 27개');
 const readingParts=P.units.flatMap(u=>u.parts).filter(p=>p.ids.some(id=>/^ko-read[1-3]-/.test(id)));
 assert.equal(readingParts.length,23,'독해 1~3장 파트 23개(1장 9 · 2장 3 · 3장 11)');
 assert.ok(readingParts.every(p=>p.ids.every(id=>/^ko-read[1-3]-/.test(id))),'독해 파트에는 독해 문제만');
-logicParts.push(...readingParts);
+const grammarParts=P.units.flatMap(u=>u.parts).filter(p=>p.ids.some(id=>/^ko-gram[12]-/.test(id)));
+assert.equal(grammarParts.length,5,'국어 문법 파트(장마다 5)');assert.ok(grammarParts.every(p=>p.ids.every(id=>/^ko-gram[12]-/.test(id))),'문법 파트에는 문법 문제만');
+logicParts.push(...readingParts,...grammarParts);
 for(const p of logicParts){const want=[...new Set(p.ids.map(id=>bank[id].ruleId))];eqJ(run('partBasics(PARTS.part('+JSON.stringify(p.id)+'))'),want,'파트 상자 = 파트 문제들의 규칙 전부: '+p.id);}
 run("go('parts','국어')");
 const entries=nodes.get('#partsBody').all.filter(n=>cls(n).includes('part-basics'));
-eqJ(entries.map(n=>n.dataset.basics).sort(),logicParts.map(p=>p.id).sort(),'기초 개념 보기 버튼 = 논리 파트 27개 + 독해 파트 23개');
+eqJ(entries.map(n=>n.dataset.basics).sort(),logicParts.map(p=>p.id).sort(),'기초 개념 보기 버튼 = 논리 파트 27개 + 독해 파트 23개 + 국어 문법 파트');
 for(const n of entries)assert.equal(n.children[0]._text,'기초 개념 보기');
 for(const p of logicParts){
  const entry=entries.find(n=>n.dataset.basics===p.id);entry.onclick();
