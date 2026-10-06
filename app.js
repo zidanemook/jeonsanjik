@@ -285,9 +285,14 @@ function reviewQueue(cards,ranged=false,subject=cardsSubject(cards)){
  const extra=missed.size?cards.filter(c=>{if(ids.has(c.id))return false;const at=missed.get(ReviewPolicy.concept(c.id));return !!at&&(last.get(c.id)||'')<at;}):[];
  const queue=settle(ReviewPolicy.skipTwins([...due,...extra],data.history).cards);
  // 안 푼 문제 먼저: 대기열을 그대로 두고 한 번도 안 푼 문제만 앞으로 당긴다. 빠지는 카드는 없다.
+ let out=queue;
  if(mode==='fresh'&&queue.ready.length){const {seen}=historyStats(),fresh=queue.ready.filter(c=>!seen.has(c.id));
-  if(fresh.length&&fresh.length<queue.ready.length)return {...queue,ready:[...fresh,...queue.ready.filter(c=>seen.has(c.id))]};}
- return queue;
+  if(fresh.length&&fresh.length<queue.ready.length)out={...queue,ready:[...fresh,...queue.ready.filter(c=>seen.has(c.id))]};}
+ // 오늘 틀린 문제는 맨 뒤로(v227, 2026-10-06 사용자 "틀린문제가 왜 몇분만에 또나오는거냐"): 5분 대기가 끝나도 앞으로 끼어들지 않고
+ // 남은 다른 문제를 다 푼 뒤에 나온다. 빠지는 문제는 없다 — 그것뿐이면 바로 낸다(막다른 화면 없음).
+ const later=c=>!c.pendingAttempt&&!!c.retryAt&&day(new Date(c.retryAt))===today;
+ const now=out.ready.filter(c=>!later(c)),after=out.ready.filter(later);
+ return now.length&&after.length?{...out,ready:[...now,...after]}:out;
 }
 // END QUEUE MODES
 // BEGIN PART CHECK — 파트별 점검(대기열 모드 'parts', 규칙은 part-check.js). 고른 범위(강·Day·장·파트 하나·과목 전체)의 파트를
@@ -1120,7 +1125,7 @@ function renderFeedback(root,card,quiz,lesson,label){
  else if(quiz.type==='choice'){const choices=elem('div',undefined,'quiz-choices recap-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const b=elem('button',quiz.fixedOrder?choice:(i+1)+'. '+(quiz.marks?'':choice));if(quiz.marks)b.append(markedChoice(choice,quiz.marks[i],okLabel(quiz)));b.type='button';b.disabled=true;if(i===quiz.correctIndex)b.classList.add('quiz-correct');else if(i===f.selectedIndex)b.classList.add('quiz-wrong');choices.append(b);});recap.append(choices);}
  root.append(recap);
  const dueCard=data.cards.find(c=>c.id===card.id),concept=ReviewPolicy.concept(card.id),siblings=data.cards.some(c=>c.id!==card.id&&isPlayable(c)&&ReviewPolicy.concept(c.id)===concept);
- root.append(elem('p','풀이 완료 · 환산 시간 +1분','study-credit-award'),elem('small','다음 복습: '+dueCard.due+(f.result==='wrong'?' · 5분 뒤 다시 풀 수 있어요.'+(siblings?' 같은 개념의 다른 문제도 10분 뒤 이어서 나와요.':''):''),'next-review'));
+ root.append(elem('p','풀이 완료 · 환산 시간 +1분','study-credit-award'),elem('small','다음 복습: '+dueCard.due+(f.result==='wrong'?(queueMode()==='wrong'?' · 5분 뒤 다시 풀 수 있어요.':' · 남은 문제를 다 푼 뒤에 다시 나와요.')+(siblings?' 같은 개념의 다른 문제도 10분 뒤 이어서 나와요.':''):''),'next-review'));
  const source=(CORE_REVIEW_PACK.find(c=>c.id===card.id)||card).source;if(quiz.type==='text'||source)root.append(elem('small',quiz.type==='text'?(card.id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조·동사 유형 정리 기반 자체 제작 연습':card.id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습':card.id.startsWith('en-day3-')?'문제집 Day 3 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-day4-')?'문제집 Day 4 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-day5-')?'문제집 Day 5 문법 포인트 찾기 훈련 기반 자체 제작 연습':/^en-day([6-9]|10)-/.test(card.id)?'문제집 Day '+card.id.slice(6,card.id.indexOf('-',6))+' 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-formula-')?'문법 공식 훈련 자체 제작 연습':'대화 학습·수일치 정리 기반 자체 제작 연습'):source,'source-line'));
  const next=btn(nextLabel(reviewId),()=>{const state=structuredClone(data);delete state.quizFeedback;delete state.activePractice;if(commit(state)){sessionDirty=true;render();window.scrollTo(0,0);}},'primary next-question');next.id='nextQuestion';next.dataset.review=reviewId||'';root.append(next);
  appendNoteBox(root,card,quiz,'explanation',label.textContent);
