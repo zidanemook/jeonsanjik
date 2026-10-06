@@ -400,7 +400,7 @@ let hookBoxes=0,hookCount=0;
    for(const h of m[1].split(' · ')){n++;const w=h.slice(1,-1);assert.ok(!/\d{3}/.test(w)&&w.replace(/\s/g,'').length<=14,'고리는 짧게 · 연도 · 세 자리 숫자 없음: '+r+' '+w);}}
   for(const t of [b.title,...b.terms.flatMap(t=>[t.word,t.ex])])assert.ok(!/고리:/.test(t),'고리는 뜻 · 표 칸 · 규칙 · 까닭 줄에만: '+r);
   if(n){hookBoxes++;hookCount+=n;assert.equal(b.mnemonics.length,0,'고리가 줄 안에 든 상자는 암기법 칸이 없다: '+r);}}
- assert.ok(hookBoxes>=143&&hookCount>=800,'줄 안 고리(02~15강 · 22~40강 · 근대 순서 훈련): 상자 '+hookBoxes+' · 고리 '+hookCount);
+ assert.ok(hookBoxes>=156&&hookCount>=850,'줄 안 고리(한국사 기초 개념 상자 전부): 상자 '+hookBoxes+' · 고리 '+hookCount);
  const all=JSON.stringify(B.boxes);for(const w of ['보아와 무지','보안사령부','병제병오신','뻐큐수','순순히 공노비 해방','현자의 대비','선동서','신동기서','한전은 이익 많이 나는 기업','안정된 강목','북한에서는 박제해버려','마을밭에서 일하는 용','화려한 의상','인지상정','현기증 초조함','고생','우직하다','우왕 화통이다','경종을 울려 시정','쑥이든 주전자','쑥을 해동','수양계 유정란','성사림','연무갑','중기묘','명을사','무김조','조현량','신동기서','선동서','중임 명상','월급 받는 삼수생','속옷군','몰빵했다 털리고 원위치','광 내는 기름은 약간만','서인 대반전','북벌 대장이 이완','성동구','현악','수간경','문고리사','중이 백 번 종 치고 운동한다','황도','이이는 집요하다','양지','거동','숙주나물 해동','조선건국전'])assert.ok(all.includes('‘'+w+'’'),'사용자 낱말이 고리로: '+w);
  for(const [r,b] of Object.entries(B.boxes))if(/^hist-/.test(r))assert.ok(!JSON.stringify(b).includes('↔'),'한국사 상자에 ↔ 없음(사용자가 서로 반대로 읽음): '+r);
  assert.ok(!HK.test('뜻 → 고리: 따옴표 없음')&&!HK.test('뜻 → 고리: ‘가’ 뒤에 글')&&HK.test('뜻 → 고리: ‘가’ · ‘나’'),'고리 꼴 대조군');}
