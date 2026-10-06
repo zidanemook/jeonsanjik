@@ -388,6 +388,20 @@ let memoLines=0,memoBoxes=0,mnBoxes=0;const mnUsed=new Set();
  const w=run(`(()=>{const d=basicsMnemonic('l22-hwanguk-winner');return d.textContent;})()`);
  assert.ok(/서남서 바람/.test(w)&&/경신환국 서인 집권 → 기사환국 남인 집권 → 갑술환국 서인 집권/.test(w)&&/상상 장면: 숙종이 풍향계/.test(w)&&/주의: 소리만 빌린 말이다/.test(w),'서남서 바람 블록 글: '+w);
  const t2=run(`basicsMnemonic('king-word-injong').textContent`);assert.ok(/인지상정/.test(t2)&&!/삼국사기/.test(t2)&&!/주의/.test(t2),'덧붙임 · 소리 아닌 주의는 안 보인다: '+t2);}
+// 5-1-8) 줄 안 고리(2026-10-06, 사용자 "연결고리도 블록마다 넣자. 연결고리를 따로 블록화하지말고"): 고리는 상자 줄(\n으로 나눈 한 줄) 맨 끝
+//   ' → 고리: ‘…’'(여럿이면 ' · '), 고리마다 공백 빼고 14자까지 · 숫자 없음. 고리가 든 상자는 끝의 '암기법' 칸이 없다(블록 데이터 HISTORY_MNEMONICS는 그대로).
+//   사용자가 만든 낱말은 그 사실의 고리로 나온다.
+let hookBoxes=0,hookCount=0;
+{const HK=/ → 고리: ((?:‘[^’‘]+’(?: · (?=‘))?)+)$/;
+ for(const [r,b] of Object.entries(B.boxes)){if(!/^hist-/.test(r))continue;
+  const texts=[...b.terms.map(t=>t.mean),...b.tables.flatMap(t=>t.rows.flat()),...b.rules.items.map(x=>x.text),...b.examples.map(x=>x.why)];let n=0;
+  for(const t of texts)for(const line of String(t).split('\n'))if(line.includes('고리:')){const m=HK.exec(line);assert.ok(m,'고리 꼴(줄 끝): '+r+' — '+line.slice(-50));
+   for(const h of m[1].split(' · ')){n++;const w=h.slice(1,-1);assert.ok(!/\d/.test(w)&&w.replace(/\s/g,'').length<=14,'고리는 짧게 · 숫자 없음: '+r+' '+w);}}
+  for(const t of [b.title,...b.terms.flatMap(t=>[t.word,t.ex])])assert.ok(!/고리:/.test(t),'고리는 뜻 · 표 칸 · 규칙 · 까닭 줄에만: '+r);
+  if(n){hookBoxes++;hookCount+=n;assert.equal(b.mnemonics.length,0,'고리가 줄 안에 든 상자는 암기법 칸이 없다: '+r);}}
+ assert.ok(hookBoxes>=29&&hookCount>=150,'줄 안 고리(28~40강 · 근대 순서 훈련부터): 상자 '+hookBoxes+' · 고리 '+hookCount);
+ const all=JSON.stringify(B.boxes);for(const w of ['보아와 무지','보안사령부','병제병오신','뻐큐수','순순히 공노비 해방'])assert.ok(all.includes('‘'+w+'’'),'사용자 낱말이 고리로: '+w);
+ assert.ok(!HK.test('뜻 → 고리: 따옴표 없음')&&!HK.test('뜻 → 고리: ‘가’ 뒤에 글')&&HK.test('뜻 → 고리: ‘가’ · ‘나’'),'고리 꼴 대조군');}
 
 // 5-2) 파트별 상태: 논리 문제가 있는 파트마다 '기초 개념 보기'가 있고, 누르면 그 파트의 상자를 모두 펼쳐 한 화면에(대입 없이).
 const P=run('PARTS');
@@ -471,5 +485,5 @@ run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'par
 console.log('PASS basics(영어): Day 1~10 · 문법 공식 훈련 1530문제(규칙 90 · 파트 68) 모두 상자 + 대입(쓴 줄 '+enUse+'개가 모두 파트 안 상자의 줄), 절 순서 · 번호, 해설 짜임, 해설 화면의 공식 나누기 '+splitBoxes+'문제 · 용어 나누기 '+termSplit+'문제(규칙 · 예문 · 용어 빠짐 · 겹침 0), 공통 정리는 같은 파트 안에서만, 교재 '+englishOverlap+', 파트별 상태 영어 51파트');
 console.log('PASS basics:논리 1~6장 995문제(규칙 33) + 독해 1~3장 920문제(규칙 29 — 1장 15 · 2장 3 · 3장 11) 모두 규칙 상자(표 있는 상자 '+withTable+'개 — 표는 선택, 번호는 이어 매김) + 문제별 대입, 1915문제 절 순서(먼저 알아 둘 말 → 표 → 규칙 → 비교 예문 → 이 문제에 대입), 용어 뜻·예)·한자 원뜻, ✓/✗ 비교 예문, 해설 세 문단, 카드·문항·변형 0, 한자는 한글 뒤 괄호 안에만, 논리 '+overlapChecked+' · 독해 '+readingOverlap+'; 파트별 상태 50파트(논리 27 · 독해 23) 모두 기초 개념 보기 → 상자 전부 펼침(대입 없음) → 이 파트 문제 풀기, 뒤로 = 파트별 상태');
 console.log('PASS basics(정보보호론 · 컴퓨터일반): '+Object.entries(IT_DONE).map(([s,l])=>s+' '+l.length+'파트').join(' · ')+' '+itQuestions.length+'문제(9급 기출) — 파트마다 상자 하나 + 기출마다 대입(쓴 줄 '+itUse+'개 모두 그 파트 상자의 줄), 줄 id 노출 · 두문자 0, 해설 화면은 쓰는 줄만 제자리, 파트별 상태 기초 개념 보기');
-console.log('PASS basics(한국사): '+HIST_UNITS.join(' · ')+' '+hDone.length+'파트 '+history.length+'문제 — 파트마다 상자 하나 + 문제마다 대입(쓴 줄 '+hUse+'개 모두 그 파트 상자의 줄), 표 칸 셋까지, 두문자 · 비결 · 줄 id 노출 0, 연도는 y 줄 '+hYearLines+'개에만, 해설 화면은 쓰는 줄만 제자리('+hTopLines+'/'+hAllLines+'줄) + 나머지 모음 '+hSplit+'문제(빠짐 · 겹침 0), 파트별 상태 한국사 '+hDone.length+'파트 기초 개념 보기, 상자 끝 외울 것 '+memoBoxes+'상자 '+memoLines+'줄 · 암기법 '+mnBoxes+'상자(블록 '+mnUsed.size+'개)');
+console.log('PASS basics(한국사): '+HIST_UNITS.join(' · ')+' '+hDone.length+'파트 '+history.length+'문제 — 파트마다 상자 하나 + 문제마다 대입(쓴 줄 '+hUse+'개 모두 그 파트 상자의 줄), 표 칸 셋까지, 두문자 · 비결 · 줄 id 노출 0, 연도는 y 줄 '+hYearLines+'개에만, 해설 화면은 쓰는 줄만 제자리('+hTopLines+'/'+hAllLines+'줄) + 나머지 모음 '+hSplit+'문제(빠짐 · 겹침 0), 파트별 상태 한국사 '+hDone.length+'파트 기초 개념 보기, 상자 끝 외울 것 '+memoBoxes+'상자 '+memoLines+'줄 · 암기법 '+mnBoxes+'상자(블록 '+mnUsed.size+'개) · 줄 안 고리 '+hookBoxes+'상자 '+hookCount+'개');
 console.log('PASS basics(국어 · 영어 · 한국사 기출): 기출 대응 원고가 짝지은 '+gichulBasics.length+'문제(국어 '+GICHUL_BASICS['국어']+' · 영어 '+GICHUL_BASICS['영어']+' · 9급 한국사 '+GICHUL_BASICS['한국사']+' · 한능검 '+GICHUL_BASICS['한능검']+')마다 대입 — 상자 줄 '+gUse+'개 모두 그 상자의 줄, 공식 정답 번호 · 줄 id 노출 0 · 한국사 연도는 문제에 나온 것만');
