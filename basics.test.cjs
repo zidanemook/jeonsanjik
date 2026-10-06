@@ -347,7 +347,8 @@ let memoLines=0,memoBoxes=0,mnBoxes=0;const mnUsed=new Set();
   assert.ok(Array.isArray(b.memorize)&&b.memorize.length>=1&&b.memorize.length<=12,'한국사 상자마다 외울 것 1~12줄: '+r);memoBoxes++;
   assert.equal(new Set(b.memorize).size,b.memorize.length,'외울 것 줄이 겹치지 않는다: '+r);
   for(const l of b.memorize){memoLines++;const m=/^\*\*([^*]+)\*\* → \S/.exec(l);assert.ok(m,'외울 것 줄 꼴: '+r+' — '+l);assert.ok(fronts.has(m[1]),'외울 것 대상이 외울 것 목록에 있다: '+r+' — '+m[1]);
-   const p2=/\n↔ \*\*([^*]+)\*\* → /.exec(l);if(p2)assert.ok(fronts.has(p2[1]),'헷갈리는 짝 오른쪽도 외울 것 목록에: '+r+' — '+p2[1]);
+   const p2=/\n헷갈리는 짝: \*\*([^*]+)\*\* → /.exec(l);if(p2)assert.ok(fronts.has(p2[1]),'헷갈리는 짝 오른쪽도 외울 것 목록에: '+r+' — '+p2[1]);
+   assert.ok(!l.includes('↔'),'외울 것에 ↔ 없음(사용자가 \'서로 반대\'로 읽음): '+r+' — '+l);
    const t=l.replace(/\*\*/g,'');assert.ok(!YEARS.test(t),'외울 것에 연도 없음: '+r+' — '+t);assert.ok(!/카드|문항|변형|두문자|비결/.test(t),'외울 것 금지어: '+r+' — '+t);
    assert.ok(!/[㐀-鿿]/.test(t.replace(/\([^()]*\)/g,'')),'외울 것 한자는 괄호 안: '+r+' — '+t);}
   assert.ok(Array.isArray(b.mnemonics),'암기법 목록(비어도 됨): '+r);if(b.mnemonics.length)mnBoxes++;
@@ -401,6 +402,7 @@ let hookBoxes=0,hookCount=0;
   if(n){hookBoxes++;hookCount+=n;assert.equal(b.mnemonics.length,0,'고리가 줄 안에 든 상자는 암기법 칸이 없다: '+r);}}
  assert.ok(hookBoxes>=41&&hookCount>=280,'줄 안 고리(22~40강 · 근대 순서 훈련부터): 상자 '+hookBoxes+' · 고리 '+hookCount);
  const all=JSON.stringify(B.boxes);for(const w of ['보아와 무지','보안사령부','병제병오신','뻐큐수','순순히 공노비 해방','현자의 대비','선동서','신동기서','한전은 이익 많이 나는 기업','안정된 강목','북한에서는 박제해버려','마을밭에서 일하는 용'])assert.ok(all.includes('‘'+w+'’'),'사용자 낱말이 고리로: '+w);
+ for(const [r,b] of Object.entries(B.boxes))if(/^hist-/.test(r))assert.ok(!JSON.stringify(b).includes('↔'),'한국사 상자에 ↔ 없음(사용자가 서로 반대로 읽음): '+r);
  assert.ok(!HK.test('뜻 → 고리: 따옴표 없음')&&!HK.test('뜻 → 고리: ‘가’ 뒤에 글')&&HK.test('뜻 → 고리: ‘가’ · ‘나’'),'고리 꼴 대조군');}
 
 // 5-2) 파트별 상태: 논리 문제가 있는 파트마다 '기초 개념 보기'가 있고, 누르면 그 파트의 상자를 모두 펼쳐 한 화면에(대입 없이).
