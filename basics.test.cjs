@@ -389,18 +389,18 @@ let memoLines=0,memoBoxes=0,mnBoxes=0;const mnUsed=new Set();
  assert.ok(/서남서 바람/.test(w)&&/경신환국 서인 집권 → 기사환국 남인 집권 → 갑술환국 서인 집권/.test(w)&&/상상 장면: 숙종이 풍향계/.test(w)&&/주의: 소리만 빌린 말이다/.test(w),'서남서 바람 블록 글: '+w);
  const t2=run(`basicsMnemonic('king-word-injong').textContent`);assert.ok(/인지상정/.test(t2)&&!/삼국사기/.test(t2)&&!/주의/.test(t2),'덧붙임 · 소리 아닌 주의는 안 보인다: '+t2);}
 // 5-1-8) 줄 안 고리(2026-10-06, 사용자 "연결고리도 블록마다 넣자. 연결고리를 따로 블록화하지말고"): 고리는 상자 줄(\n으로 나눈 한 줄) 맨 끝
-//   ' → 고리: ‘…’'(여럿이면 ' · '), 고리마다 공백 빼고 14자까지 · 숫자 없음. 고리가 든 상자는 끝의 '암기법' 칸이 없다(블록 데이터 HISTORY_MNEMONICS는 그대로).
+//   ' → 고리: ‘…’'(여럿이면 ' · '), 고리마다 공백 빼고 14자까지 · 연도 · 세 자리 숫자 없음(한 자리 숫자는 됨: 균일가 1필). 고리가 든 상자는 끝의 '암기법' 칸이 없다(블록 데이터 HISTORY_MNEMONICS는 그대로).
 //   사용자가 만든 낱말은 그 사실의 고리로 나온다.
 let hookBoxes=0,hookCount=0;
 {const HK=/ → 고리: ((?:‘[^’‘]+’(?: · (?=‘))?)+)$/;
  for(const [r,b] of Object.entries(B.boxes)){if(!/^hist-/.test(r))continue;
   const texts=[...b.terms.map(t=>t.mean),...b.tables.flatMap(t=>t.rows.flat()),...b.rules.items.map(x=>x.text),...b.examples.map(x=>x.why)];let n=0;
   for(const t of texts)for(const line of String(t).split('\n'))if(line.includes('고리:')){const m=HK.exec(line);assert.ok(m,'고리 꼴(줄 끝): '+r+' — '+line.slice(-50));
-   for(const h of m[1].split(' · ')){n++;const w=h.slice(1,-1);assert.ok(!/\d/.test(w)&&w.replace(/\s/g,'').length<=14,'고리는 짧게 · 숫자 없음: '+r+' '+w);}}
+   for(const h of m[1].split(' · ')){n++;const w=h.slice(1,-1);assert.ok(!/\d{3}/.test(w)&&w.replace(/\s/g,'').length<=14,'고리는 짧게 · 연도 · 세 자리 숫자 없음: '+r+' '+w);}}
   for(const t of [b.title,...b.terms.flatMap(t=>[t.word,t.ex])])assert.ok(!/고리:/.test(t),'고리는 뜻 · 표 칸 · 규칙 · 까닭 줄에만: '+r);
   if(n){hookBoxes++;hookCount+=n;assert.equal(b.mnemonics.length,0,'고리가 줄 안에 든 상자는 암기법 칸이 없다: '+r);}}
- assert.ok(hookBoxes>=29&&hookCount>=150,'줄 안 고리(28~40강 · 근대 순서 훈련부터): 상자 '+hookBoxes+' · 고리 '+hookCount);
- const all=JSON.stringify(B.boxes);for(const w of ['보아와 무지','보안사령부','병제병오신','뻐큐수','순순히 공노비 해방'])assert.ok(all.includes('‘'+w+'’'),'사용자 낱말이 고리로: '+w);
+ assert.ok(hookBoxes>=41&&hookCount>=280,'줄 안 고리(22~40강 · 근대 순서 훈련부터): 상자 '+hookBoxes+' · 고리 '+hookCount);
+ const all=JSON.stringify(B.boxes);for(const w of ['보아와 무지','보안사령부','병제병오신','뻐큐수','순순히 공노비 해방','현자의 대비','선동서','신동기서','한전은 이익 많이 나는 기업','안정된 강목','북한에서는 박제해버려','마을밭에서 일하는 용'])assert.ok(all.includes('‘'+w+'’'),'사용자 낱말이 고리로: '+w);
  assert.ok(!HK.test('뜻 → 고리: 따옴표 없음')&&!HK.test('뜻 → 고리: ‘가’ 뒤에 글')&&HK.test('뜻 → 고리: ‘가’ · ‘나’'),'고리 꼴 대조군');}
 
 // 5-2) 파트별 상태: 논리 문제가 있는 파트마다 '기초 개념 보기'가 있고, 누르면 그 파트의 상자를 모두 펼쳐 한 화면에(대입 없이).
