@@ -34,7 +34,7 @@ assert.deepEqual([1,2,3].map(n=>[...rrules].filter(r=>r.startsWith('reading-read
 // 영어(v159): parts.js의 영어 단원(Day 1~7 · 문법 공식 훈련) 1470문제, 규칙 73개 — v204 Day 8 · 9 · 10(핵심 20씩, 규칙 17 · 파트 17)을 더해 1530문제 · 규칙 90 · 파트 68, 2026-10-07 Day 8~10 더 풀기 203문제를 더해 1733문제(규칙 · 파트 · 상자 글은 그대로). 대입이 쓰는 줄은 그 문제 파트 안 상자의 줄이어야 한다.
 const PS={};new Function('globalThis','module',fs.readFileSync(__dirname+'/parts.js','utf8'))(PS,{});
 const enParts=PS.STUDY_PARTS.units.filter(u=>/^en-/.test(u.id)).flatMap(u=>u.parts),english=[...new Set(enParts.flatMap(p=>p.ids))];
-assert.equal(enParts.length,88,'영어 파트 88개(Day 1~7 40 · Day 8~10 17 · Day 11 5 · Day 12 5 · Day 13 5 · Day 14 5 · 공식 훈련 11)');assert.equal(english.length,2070,'영어 파트 문제 2070');
+assert.equal(enParts.length,93,'영어 파트 93개(Day 1~7 40 · Day 8~10 17 · Day 11 5 · Day 12 5 · Day 13 5 · Day 14 5 · Day 15 5 · 공식 훈련 11)');assert.equal(english.length,2163,'영어 파트 문제 2163');
 const lineIdsOf=b=>new Set([...b.terms.map(t=>t.id),...(b.table?[b.table.id,b.table.key?.id]:[]),...b.rules.items.map(r=>r.id),b.rules.key?.id,...b.examples.map(x=>x.id)].filter(Boolean));
 const erules=new Set();let enUse=0;
 for(const p of enParts){const inPart=new Set(p.ids.map(id=>bank[id].ruleId));
@@ -42,7 +42,7 @@ for(const p of enParts){const inPart=new Set(p.ids.map(id=>bank[id].ruleId));
   assert.ok(B.box(q.ruleId),'규칙 상자가 없다: '+q.ruleId+' ('+id+')');
   const a=B.forQuestion(id);assert.ok(a&&Array.isArray(a.blocks)&&a.blocks.length&&a.use.length,'이 문제에 대입이 없다: '+id);
   for(const u of a.use){const [r,l]=u.includes(':')?u.split(':'):[q.ruleId,u];assert.ok(inPart.has(r),'대입 줄이 파트 밖 상자: '+id+' '+u);assert.ok(lineIdsOf(B.box(r)).has(l),'대입 줄이 상자에 없다: '+id+' '+u);enUse++;}}}
-assert.equal(erules.size,110,'영어 규칙 110개(Day 1~7 · 공식 73 + Day 8~10 17 + Day 11 5 + Day 12 5 + Day 13 5 + Day 14 5)');
+assert.equal(erules.size,115,'영어 규칙 115개(Day 1~7 · 공식 73 + Day 8~10 17 + Day 11 5 + Day 12 5 + Day 13 5 + Day 14 5 + Day 15 5)');
 // 국어 문법(선재국어 제3편, 장마다 핵심 20 + 2026-10-07 더 풀기): 규칙 정리 5개씩. ruleId = 'kgrammar-g<장>-<lesson>', 대입 줄은 그 규칙 상자의 줄.
 const grammar=Object.keys(bank).filter(id=>/^ko-gram[12]-/.test(id));
 assert.deepEqual([1,2].map(n=>grammar.filter(id=>id.startsWith('ko-gram'+n+'-')).length),[89,91],'국어 문법 장별 문제 수');
@@ -239,7 +239,7 @@ for(const id of [...logic,...reading,...grammar]){
  if(box.table)tableSections++;
  eqJ(heads,want.map((t,i)=>(i+1)+'. '+t),'절 순서: '+id);
 }
-// 5-1-2) 영어 2070문제. (가) 모두 보기에서 절 순서. (나) 해설 화면(fold, 그 문제의 파트)에서 번호가 이어지고, 규칙 · 비교 예문이
+// 5-1-2) 영어 2163문제. (가) 모두 보기에서 절 순서. (나) 해설 화면(fold, 그 문제의 파트)에서 번호가 이어지고, 규칙 · 비교 예문이
 //   빠짐없이 한 번씩 있다. (다) 공식(규칙 id 앞머리, 'm-' 줄은 줄마다)이 넷 이상인 상자는 대입이 쓰는 공식의 규칙 · 예문만 제자리,
 //   나머지 공식은 닫힌 '이 정리의 다른 공식 N개 더 보기' 하나에. 그런 상자는 용어도 대입이 쓰는 것만 제자리(쓰는 용어가 없으면
 //   제자리 규칙 글에 나오는 용어), 나머지는 닫힌 '이 정리의 다른 용어 N개 더 보기'. 기대값은 여기서 따로 계산한다.
@@ -484,7 +484,7 @@ run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'par
  assert.ok(sw.includes("'./basics.js?v="+v+"'"),'sw.js가 basics.js를 담는다');
  assert.ok(/cp [^\n]*\bbasics\.js\b/.test(yml)&&/node basics\.test\.cjs/.test(yml),'pages.yml이 basics.js를 올리고 basics.test.cjs를 돌린다');
  assert.ok(/id="basicsView"/.test(html)&&/id="basicsBody"/.test(html),'index.html에 기초 개념 화면');}
-console.log('PASS basics(영어): Day 1~14 · 문법 공식 훈련 2070문제(규칙 110 · 파트 88) 모두 상자 + 대입(쓴 줄 '+enUse+'개가 모두 파트 안 상자의 줄), 절 순서 · 번호, 해설 짜임, 해설 화면의 공식 나누기 '+splitBoxes+'문제 · 용어 나누기 '+termSplit+'문제(규칙 · 예문 · 용어 빠짐 · 겹침 0), 공통 정리는 같은 파트 안에서만, 교재 '+englishOverlap+', 파트별 상태 영어 51파트');
+console.log('PASS basics(영어): Day 1~15 · 문법 공식 훈련 2163문제(규칙 115 · 파트 93) 모두 상자 + 대입(쓴 줄 '+enUse+'개가 모두 파트 안 상자의 줄), 절 순서 · 번호, 해설 짜임, 해설 화면의 공식 나누기 '+splitBoxes+'문제 · 용어 나누기 '+termSplit+'문제(규칙 · 예문 · 용어 빠짐 · 겹침 0), 공통 정리는 같은 파트 안에서만, 교재 '+englishOverlap+', 파트별 상태 영어 51파트');
 console.log('PASS basics:논리 1~6장 995문제(규칙 33) + 독해 1~3장 920문제(규칙 29 — 1장 15 · 2장 3 · 3장 11) 모두 규칙 상자(표 있는 상자 '+withTable+'개 — 표는 선택, 번호는 이어 매김) + 문제별 대입, 1915문제 절 순서(먼저 알아 둘 말 → 표 → 규칙 → 비교 예문 → 이 문제에 대입), 용어 뜻·예)·한자 원뜻, ✓/✗ 비교 예문, 해설 세 문단, 카드·문항·변형 0, 한자는 한글 뒤 괄호 안에만, 논리 '+overlapChecked+' · 독해 '+readingOverlap+'; 파트별 상태 50파트(논리 27 · 독해 23) 모두 기초 개념 보기 → 상자 전부 펼침(대입 없음) → 이 파트 문제 풀기, 뒤로 = 파트별 상태');
 console.log('PASS basics(정보보호론 · 컴퓨터일반): '+Object.entries(IT_DONE).map(([s,l])=>s+' '+l.length+'파트').join(' · ')+' '+itQuestions.length+'문제(9급 기출) — 파트마다 상자 하나 + 기출마다 대입(쓴 줄 '+itUse+'개 모두 그 파트 상자의 줄), 줄 id 노출 · 두문자 0, 해설 화면은 쓰는 줄만 제자리, 파트별 상태 기초 개념 보기');
 console.log('PASS basics(한국사): '+HIST_UNITS.join(' · ')+' '+hDone.length+'파트 '+history.length+'문제 — 파트마다 상자 하나 + 문제마다 대입(쓴 줄 '+hUse+'개 모두 그 파트 상자의 줄), 표 칸 셋까지, 두문자 · 비결 · 줄 id 노출 0, 연도는 y 줄 '+hYearLines+'개에만, 해설 화면은 쓰는 줄만 제자리('+hTopLines+'/'+hAllLines+'줄) + 나머지 모음 '+hSplit+'문제(빠짐 · 겹침 0), 파트별 상태 한국사 '+hDone.length+'파트 기초 개념 보기, 상자 끝 외울 것 '+memoBoxes+'상자 '+memoLines+'줄 · 암기법 '+mnBoxes+'상자(블록 '+mnUsed.size+'개) · 줄 안 고리 '+hookBoxes+'상자 '+hookCount+'개');
