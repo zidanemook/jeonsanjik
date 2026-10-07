@@ -108,9 +108,12 @@ assert.ok(!nodes.get('#retryStatus')._text.includes('같은 개념의 문제'),'
  // Day 12(WEEK 03 실전문제 연습, 2026-10-07): Day 11 바로 다음, 83문제(핵심 20 + 접힘 63) — 이 검사는 모든 단원을 켠 채 돈다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text);assert.equal(rows.indexOf('Day 12 실전문제 연습'),rows.indexOf('Day 11 실전문제 연습')+1,'Day 11 다음에 Day 12');
   assert.equal(menuDetail('#rangeList','Day 12 실전문제 연습'),'풀어야 할 문제 83/83 · 첫 시도 0/83 · 이 단원 문제 더 풀기 켬','Day 12 범위 줄');}
+ // Day 13(WEEK 03 실전문제 연습, 2026-10-07): Day 12 바로 다음, 80문제(핵심 20 + 접힘 60) — 이 검사는 모든 단원을 켠 채 돈다.
+ {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text);assert.equal(rows.indexOf('Day 13 실전문제 연습'),rows.indexOf('Day 12 실전문제 연습')+1,'Day 12 다음에 Day 13');
+  assert.equal(menuDetail('#rangeList','Day 13 실전문제 연습'),'풀어야 할 문제 80/80 · 첫 시도 0/80 · 이 단원 문제 더 풀기 켬','Day 13 범위 줄');}
  // 문법 공식 훈련(v98): 마지막 Day(v115부터 Day 5, v151부터 Day 7, v204부터 Day 10) 다음에 ‘공식 훈련 새 문제 전체’ 범위, 그 아래 영역별로 접힌 공식 범위가 나온다. 공식 범위는 그 공식의 Day 문제와 새 문제를 함께 담는다.
- {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d7=rows.indexOf('Day 12 실전문제 연습'),f=rows.indexOf('공식 훈련 새 문제 전체');
-  assert.ok(d7>=0&&f===d7+1,'Day 12 다음에 공식 훈련: '+rows.slice(0,16).join(' / '));
+ {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d7=rows.indexOf('Day 13 실전문제 연습'),f=rows.indexOf('공식 훈련 새 문제 전체');
+  assert.ok(d7>=0&&f===d7+1,'Day 13 다음에 공식 훈련: '+rows.slice(0,17).join(' / '));
   assert.equal(menuDetail('#rangeList','공식 훈련 새 문제 전체'),'풀어야 할 문제 364/364 · 첫 시도 0/364 · 이 단원 문제 더 풀기 켬','공식 훈련 새 문제 범위 줄');
   assert.equal(rows.filter(t=>run('ENGLISH_FORMULAS.areas.flatMap(a=>a.rules.map(r=>r.title))').includes(t)).length,89,'공식 범위 89개');}
  run("go('progress')");assert.equal(nodes.get('#total')._text,String(run('questionCount(data.cards.filter(isPlayable))')),'진행상황의 전체 문제');
