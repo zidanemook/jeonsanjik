@@ -121,22 +121,53 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // LONGEST_LIMIT: 2026-09-24(v153) 국어 독해 2장 122·3장 354문제(모두 4지선다, 정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 정확한 내용으로 늘렸다)를 더한 뒤 실측 58/4513(0.01285)을 소수 셋째 자리에서 올린 0.013으로 다시 조였다.
 // LONGEST_LIMIT: 2026-09-24 주제 특강(세시 풍속·근·현대 인물) 552문제(모두 4지선다, 정답이 유일하게 가장 긴 보기 0개 — 생성기가 오답을 고를 때 정답보다 긴 보기를 하나 이상 두었다)를 더한 뒤 실측 58/5065(0.01145)를 소수 셋째 자리에서 올린 0.012로 다시 조였다.
 // LONGEST_LIMIT: 2026-10-05(v218) 문제집 Day 8 · 9 · 10 60문제(4지선다 43, 정답이 유일하게 가장 긴 보기 0개)를 더한 뒤 실측 59/5518(0.01069)를 소수 셋째 자리에서 올린 0.011로 다시 조였다.
-// LONGEST_LIMIT: 2026-10-07 영어 Day 12 83문제를 더한 뒤 실측 59/5957(0.00990)를 소수 셋째 자리에서 올린 0.01로 다시 조였다.
-const LONGEST_LIMIT=0.01,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
+const LONGEST_LIMIT=0.011,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
+// LENGTH_BALANCED: 2026-10-07 독립 검토 — 한쪽 래칫('정답이 유일하게 가장 긴 보기'를 1%까지 조임) 때문에 가장 긴 보기가 정답인 적이 거의 없어, 가장 긴 보기를 지우는 소거 단서가 됐다
+// (영어 Day 11~15 초안: 정답이 가장 긴 보기 5/305, 가장 짧은 보기는 Day 12에서 24/58). 그래서 아래 목록의 id 앞머리로 시작하는 문제는 한쪽 래칫에서 빼고,
+// 앞머리마다 두 쪽 띠로 잰다: 정답이 유일하게 가장 긴 보기인 비율과 유일하게 가장 짧은 보기인 비율이 모두 BALANCE_BAND(15~35%, 우연이면 25% 안팎) 안.
+// 목록에 없는 문제는 예전 래칫(LONGEST_LIMIT) 그대로이고 분모도 그 문제들만이다(그래서 Day 11~15를 넣기 전 값 그대로 — 조였다 풀린 것이 아니다). MARGIN은 모든 문제에 그대로.
+// 새 단원을 띠로 재려면 이 목록에 앞머리 한 줄만 더한다.
+const LENGTH_BALANCED=[
+ 'en-day11-','en-day12-','en-day13-','en-day14-','en-day15-',
+];
+const BALANCE_BAND=[0.15,0.35];
+const balancedPrefix=id=>LENGTH_BALANCED.find(p=>id.startsWith(p));
+// rows: [{lengths:[…], correctIndex}] — 띠 밖이면 던진다.
+function lengthBand(rows,label){
+ let longest=0,shortest=0;
+ for(const r of rows){const c=r.lengths[r.correctIndex],others=r.lengths.filter((_,i)=>i!==r.correctIndex);if(c>Math.max(...others))longest++;if(c<Math.min(...others))shortest++;}
+ for(const [n,name] of [[longest,'longest'],[shortest,'shortest']]){const ratio=n/rows.length;
+  assert(ratio>=BALANCE_BAND[0]&&ratio<=BALANCE_BAND[1],'Length balance ('+label+'): correct option is uniquely '+name+' in '+n+'/'+rows.length+' ('+(ratio*100).toFixed(1)+'%), outside the '+(BALANCE_BAND[0]*100)+'~'+(BALANCE_BAND[1]*100)+'% band. Reword options so neither the longest nor the shortest option gives the answer away.');}
+ return {total:rows.length,longest,shortest};
+}
+// 대조군: 띠의 두 쪽 · 두 방향이 모두 잡히고, 띠 안은 통과해야 한다(검사가 헛돌지 않는지).
+function lengthBandControls(){
+ const make=(nLong,nShort,n=40)=>Array.from({length:n},(_,i)=>({lengths:i<nLong?[30,20,20,20]:i<nLong+nShort?[10,20,20,20]:[20,25,15,20],correctIndex:0}));
+ lengthBand(make(10,10),'control: in band');
+ for(const [l,s,what] of [[2,10,'longest too rare'],[20,10,'longest too common'],[10,2,'shortest too rare'],[10,20,'shortest too common']])
+  assert.throws(()=>lengthBand(make(l,s),'control'),/Length balance/,'length band control not caught: '+what);
+ return 4;
+}
 function lengthBias(items){
- const rows=items.filter(i=>i.exercise.type==='choice'&&!VERBATIM_OFFICIAL.test(i.card.id)&&!i.exercise.choiceImages);
- assert(rows.length>0,'No self-made choice exercises to measure');
+ const all=items.filter(i=>i.exercise.type==='choice'&&!VERBATIM_OFFICIAL.test(i.card.id)&&!i.exercise.choiceImages);
+ assert(all.length>0,'No self-made choice exercises to measure');
+ // 모든 문제: 정답이 가장 긴 오답보다 MARGIN 넘게 길면 안 된다.
+ for(const item of all){const e=item.exercise,lengths=e.choices.map(c=>c.length),top=Math.max(...lengths.filter((_,i)=>i!==e.correctIndex));
+  assert(lengths[e.correctIndex]-top<=MARGIN,'Correct option longer than every distractor by more than '+MARGIN+' characters ('+(lengths[e.correctIndex]-top)+'): '+item.exercise.exerciseId);}
+ // 띠로 재는 문제(LENGTH_BALANCED)와 예전 래칫으로 재는 문제를 가른다.
+ const rows=all.filter(i=>!balancedPrefix(i.card.id)),balanced={};
+ for(const p of LENGTH_BALANCED){const part=all.filter(i=>balancedPrefix(i.card.id)===p);assert(part.length>0,'LENGTH_BALANCED prefix without questions: '+p);
+  balanced[p]=lengthBand(part.map(i=>({lengths:i.exercise.choices.map(c=>c.length),correctIndex:i.exercise.correctIndex})),p);}
  let longest=0,sum=0;
  for(const item of rows){
   const e=item.exercise,lengths=e.choices.map(c=>c.length),correct=lengths[e.correctIndex];
   const others=lengths.filter((_,i)=>i!==e.correctIndex),top=Math.max(...others);
   if(correct>top)longest++;
   sum+=correct-others.reduce((a,b)=>a+b,0)/others.length;
-  assert(correct-top<=MARGIN,'Correct option longer than every distractor by more than '+MARGIN+' characters ('+(correct-top)+'): '+item.exercise.exerciseId);
  }
  const ratio=longest/rows.length;
  assert(ratio<=LONGEST_LIMIT,'Length bias regression: correct option is uniquely longest in '+longest+'/'+rows.length+' ('+(ratio*100).toFixed(1)+'%), above the '+(LONGEST_LIMIT*100).toFixed(1)+'% ratchet. Pad distractors instead of shortening correct answers.');
- return {total:rows.length,longest,ratio,delta:sum/rows.length,photo:items.filter(i=>i.exercise.choiceImages).length};
+ return {total:rows.length,longest,ratio,delta:sum/rows.length,photo:items.filter(i=>i.exercise.choiceImages).length,balanced};
 }
 // 순서 배열 문항: 항목을 실제 순서대로 적으면 정답이 늘 '가 → 나 → 다 → 라'가 되어 지식 없이 풀린다(2026-09-15 사용자 지적, 23문제 중 12개).
 // 자체 제작 문항에서는 가나다(라) 차례 그대로인 배열을 정답으로도 오답으로도 두지 않는다. 정답 하나를 늘 빼 두면 그것도 요령이 되기 때문이다.
@@ -173,5 +204,5 @@ function eraLabels(items,allow=JSON.parse(fs.readFileSync(__dirname+'/era-label-
  return {checked,allowed:seen.size};
 }
 function verify(items,ledger){single(items);structural(items);concepts(items);coverage(items);lengthBias(items);sequenceBias(items);eraLabels(items);assert.equal(ledger.schema,1);assert.equal(Object.keys(ledger.items).length,items.length,'Unreviewed addition/deletion');for(const item of items)assert.equal(ledger.items[item.exercise.exerciseId],digest(item),'Content changed: review meaning, alternatives and context before updating ledger: '+item.exercise.exerciseId);}
-module.exports={catalog,digest,single,concepts,structural,coverage,lengthBias,sequenceBias,eraLabelHits,eraLabels,verify};
-if(require.main===module){const items=catalog();verify(items,JSON.parse(fs.readFileSync(__dirname+'/content-review.json','utf8')));const bias=lengthBias(items),era=eraLabels(items);console.log('PASS content audit: '+items.length+' reviewed exercises, every card exactly one question; structure, answer acceptance, context regression and review fingerprints; length bias '+bias.longest+'/'+bias.total+' ('+(bias.ratio*100).toFixed(1)+'%, limit '+(LONGEST_LIMIT*100).toFixed(1)+'%, chance 25%) self-made choice answers uniquely longest, mean +'+bias.delta.toFixed(1)+' chars vs distractor average, per-question margin <='+MARGIN+'; '+bias.photo+' photo-option exercises gated by image/licence checks instead of option length; era-label giveaway check over '+era.checked+' self-made history choice questions ('+era.allowed+' reviewed exceptions)');}
+module.exports={catalog,digest,single,concepts,structural,coverage,lengthBias,lengthBand,lengthBandControls,LENGTH_BALANCED,BALANCE_BAND,sequenceBias,eraLabelHits,eraLabels,verify};
+if(require.main===module){const items=catalog();verify(items,JSON.parse(fs.readFileSync(__dirname+'/content-review.json','utf8')));const bias=lengthBias(items),era=eraLabels(items),bandControls=lengthBandControls();console.log('PASS content audit: '+items.length+' reviewed exercises, every card exactly one question; structure, answer acceptance, context regression and review fingerprints; length bias '+bias.longest+'/'+bias.total+' ('+(bias.ratio*100).toFixed(1)+'%, limit '+(LONGEST_LIMIT*100).toFixed(1)+'%, chance 25%) self-made choice answers uniquely longest, mean +'+bias.delta.toFixed(1)+' chars vs distractor average, per-question margin <='+MARGIN+'; two-sided length band '+(BALANCE_BAND[0]*100)+'~'+(BALANCE_BAND[1]*100)+'% for '+Object.entries(bias.balanced).map(([p,b])=>p+' longest '+b.longest+' · shortest '+b.shortest+' of '+b.total).join(', ')+' ('+bandControls+' band controls caught); '+bias.photo+' photo-option exercises gated by image/licence checks instead of option length; era-label giveaway check over '+era.checked+' self-made history choice questions ('+era.allowed+' reviewed exceptions)');}
