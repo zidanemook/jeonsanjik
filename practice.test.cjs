@@ -88,8 +88,12 @@ for(const [id,lesson]of Object.entries(bank)){
  assert.equal(count('독해 1장'),444);assert.equal(count('독해 1장','choice'),444);assert.equal(count('독해 1장','text'),0);
  // 제2편 독해 2장(독해와 논증) 122문제 · 3장(실전 독해 훈련) 354문제(자체 제작 354 · 교재 문장은 싣지 않음), 모두 4지선다.
  assert.equal(count('독해 2장'),122);assert.equal(count('독해 2장','choice'),122);assert.equal(count('독해 3장'),354);assert.equal(count('독해 3장','choice'),354);
- // 국어 문법(선재국어 제3편 개념 중심 문법 독해): 장마다 핵심 20문제, 모두 4지선다, id는 ko-gram<장>-001~020, 요점은 문제마다 다르다, 규칙 정리 5개.
- for(const n of [1,2]){const t='문법 '+n+'장';assert.equal(count(t),20);assert.equal(count(t,'choice'),20);assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic===t).sort(),Array.from({length:20},(_,i)=>'ko-gram'+n+'-'+String(i+1).padStart(3,'0')),t+'는 ko-gram'+n+'-001~020');
+ // 국어 문법(선재국어 제3편 개념 중심 문법 독해): 장마다 핵심 20문제(001~020, 요점마다 한 문제) + 2026-10-07 더 풀기(021~, 같은 요점의 다른 문제), 모두 4지선다, 요점 20개 · 규칙 정리 5개.
+ for(const [n,k] of [[1,89],[2,91]]){const t='문법 '+n+'장';assert.equal(count(t),k);assert.equal(count(t,'choice'),k);const ids=Array.from({length:k},(_,i)=>'ko-gram'+n+'-'+String(i+1).padStart(3,'0'));assert.deepEqual(Object.keys(bank).filter(id=>bank[id].topic===t).sort(),ids,t+'는 ko-gram'+n+'-001~'+k);
+  assert.equal(new Set(ids.slice(0,20).map(id=>bank[id].point)).size,20,t+' 앞 20문제(핵심)는 요점마다 하나');
+  {const per=new Map();for(const id of ids)per.set(bank[id].point,(per.get(bank[id].point)||0)+1);assert.ok([...per.values()].every(c=>c>=4&&c<=7),t+' 요점마다 4~7문제');
+   const rule=new Map(ids.slice(0,20).map(id=>[bank[id].point,bank[id].ruleId]));assert.ok(ids.every(id=>bank[id].ruleId===rule.get(bank[id].point)),t+' 더 풀기는 같은 요점의 핵심 문제와 규칙 정리가 같다');
+   const key=id=>bank[id].variants[0].question+'|'+bank[id].variants[0].choices[bank[id].variants[0].correctIndex];assert.equal(new Set(ids.map(key)).size,k,t+' 발문과 정답이 같은 문제는 없다');}
   const rows=Object.values(bank).filter(l=>l.topic===t);assert.equal(new Set(rows.map(l=>l.point)).size,20);assert.equal(new Set(rows.map(l=>l.ruleId)).size,5);assert.ok(rows.every(l=>/^kgrammar-g[12]-/.test(l.ruleId)&&l.srcLine&&/교재 문장·예문은 옮기지 않음/.test(l.srcLine)),t+' 규칙 id · 출처 줄');}
  // 교재 예시 낱말(전사 노트 research/korean-grammar-20261005/transcript-notes.md에서 고른 두드러진 낱말)은 문제 · 보기 · 해설 · 정리 어디에도 없다.
  {const text=Object.entries(bank).filter(([id])=>id.startsWith('ko-gram')).map(([,l])=>JSON.stringify(l)).join('');for(const w of ["시름","바보","바느질","부엌","밥만","국물","감리","종로","칼날","물난리","해돋이","굳히다","잔디","느티나무","밭이랑","국밥","옷고름","솜이불","한여름","맨입","등불","콧날","예삿일","히죽","해죽","쪽문","담요","굳이","여덟","식용유","입학생","헛기침","붓꽃","밤하늘","민아","시큼한","동창회","대궐","젊은이","덮밥","흰머리","회덮밥","봄비","풋사과","손가락질","손놀림","군식구","맨주먹","불개미","신라"])assert.ok(!text.includes(w),'국어 문법 교재 낱말 '+w);}

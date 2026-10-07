@@ -118,11 +118,11 @@ const itCounts={};
  }
  for(const l of CAT.lectures)assert.ok(PARTS.units.some(u=>u.scope.round==='lecture-'+l.id),'한국사 '+l.title+'에 파트가 있다');
  for(const t of ['Day 1','Day 2','Day 3','Day 4','Day 5','Day 6','Day 7','Day 8','Day 9','Day 10','문법 공식 훈련','논리 1장','논리 2장','논리 3장','논리 4장','논리 5장','논리 6장','독해 1장','독해 2장','독해 3장','문법 1장','문법 2장'])assert.ok(PARTS.units.some(u=>u.scope.topic===t),t+'에 파트가 있다');
- // 2026-10-05 국어 문법(핵심 20): 규칙 정리 하나가 파트 하나(장마다 5파트), 독해 3장 다음에 장 순서대로.
+ // 2026-10-05 국어 문법(핵심 20): 규칙 정리 하나가 파트 하나(장마다 5파트), 독해 3장 다음에 장 순서대로. 2026-10-07 더 풀기를 더해 89 · 91문제(파트는 그대로).
  {const g1=PARTS.units.find(u=>u.id==='ko-kg1'),g2=PARTS.units.find(u=>u.id==='ko-kg2');
   assert.deepEqual(g1.parts.map(p=>p.title),['음운과 음절','국어 음운의 체계','음운 변동의 갈래와 개수','교체','탈락 · 축약 · 첨가']);
   assert.deepEqual(g2.parts.map(p=>p.title),['형태소 · 단어 · 어절','품사 분류와 체언 · 수식언','용언','조사와 품사의 통용','단어의 형성']);
-  for(const u of [g1,g2])assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),20,u.id+' 20문제');
+  for(const [u,k] of [[g1,89],[g2,91]]){assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),k,u.id+' 문제 수');assert.ok(u.parts.every(p=>p.ids.length>=8),u.id+' 파트마다 8문제 이상');}
   const ids=PARTS.units.map(u=>u.id);assert.equal(ids.indexOf('ko-kg1'),ids.indexOf('ko-kr3')+1,'독해 3장 다음에 문법 1장');assert.equal(ids.indexOf('ko-kg2'),ids.indexOf('ko-kg1')+1,'문법 1장 다음에 2장');}
  const h19=PARTS.units.find(u=>u.id==='hist-19');assert.equal(h19.parts.length,8);assert.equal(h19.parts.reduce((n,p)=>n+p.ids.length,0),115);
  // 2026-09-23 20강 조선 전기(문화 I): facts.cjs 묶음 15개 → 8파트, 99문제. 파트마다 8문제 이상이고 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.

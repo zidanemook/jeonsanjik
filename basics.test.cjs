@@ -43,9 +43,9 @@ for(const p of enParts){const inPart=new Set(p.ids.map(id=>bank[id].ruleId));
   const a=B.forQuestion(id);assert.ok(a&&Array.isArray(a.blocks)&&a.blocks.length&&a.use.length,'이 문제에 대입이 없다: '+id);
   for(const u of a.use){const [r,l]=u.includes(':')?u.split(':'):[q.ruleId,u];assert.ok(inPart.has(r),'대입 줄이 파트 밖 상자: '+id+' '+u);assert.ok(lineIdsOf(B.box(r)).has(l),'대입 줄이 상자에 없다: '+id+' '+u);enUse++;}}}
 assert.equal(erules.size,90,'영어 규칙 90개(Day 1~7 · 공식 73 + Day 8~10 17)');
-// 국어 문법(선재국어 제3편, 장마다 핵심 20): 규칙 정리 5개씩. ruleId = 'kgrammar-g<장>-<lesson>', 대입 줄은 그 규칙 상자의 줄.
+// 국어 문법(선재국어 제3편, 장마다 핵심 20 + 2026-10-07 더 풀기): 규칙 정리 5개씩. ruleId = 'kgrammar-g<장>-<lesson>', 대입 줄은 그 규칙 상자의 줄.
 const grammar=Object.keys(bank).filter(id=>/^ko-gram[12]-/.test(id));
-assert.deepEqual([1,2].map(n=>grammar.filter(id=>id.startsWith('ko-gram'+n+'-')).length),[20,20],'국어 문법 장별 문제 수');
+assert.deepEqual([1,2].map(n=>grammar.filter(id=>id.startsWith('ko-gram'+n+'-')).length),[89,91],'국어 문법 장별 문제 수');
 const grules=new Set();
 for(const id of grammar){const q=bank[id];assert.ok(/^kgrammar-g[12]-/.test(q.ruleId||''),'국어 문법 규칙 id: '+id);assert.equal(q.variants.length,1,'문제 하나: '+id);grules.add(q.ruleId);
  assert.ok(B.box(q.ruleId),'규칙 상자가 없다: '+q.ruleId);const a=B.forQuestion(id);assert.ok(a&&Array.isArray(a.blocks)&&a.blocks.length,'이 문제에 대입이 없다: '+id);
