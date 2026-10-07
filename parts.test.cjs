@@ -117,7 +117,7 @@ const itCounts={};
   counts[u.short]=u.parts.length;
  }
  for(const l of CAT.lectures)assert.ok(PARTS.units.some(u=>u.scope.round==='lecture-'+l.id),'한국사 '+l.title+'에 파트가 있다');
- for(const t of ['Day 1','Day 2','Day 3','Day 4','Day 5','Day 6','Day 7','Day 8','Day 9','Day 10','Day 11','문법 공식 훈련','논리 1장','논리 2장','논리 3장','논리 4장','논리 5장','논리 6장','독해 1장','독해 2장','독해 3장','문법 1장','문법 2장'])assert.ok(PARTS.units.some(u=>u.scope.topic===t),t+'에 파트가 있다');
+ for(const t of ['Day 1','Day 2','Day 3','Day 4','Day 5','Day 6','Day 7','Day 8','Day 9','Day 10','Day 11','Day 12','문법 공식 훈련','논리 1장','논리 2장','논리 3장','논리 4장','논리 5장','논리 6장','독해 1장','독해 2장','독해 3장','문법 1장','문법 2장'])assert.ok(PARTS.units.some(u=>u.scope.topic===t),t+'에 파트가 있다');
  // 2026-10-05 국어 문법(핵심 20): 규칙 정리 하나가 파트 하나(장마다 5파트), 독해 3장 다음에 장 순서대로. 2026-10-07 더 풀기를 더해 89 · 91문제(파트는 그대로).
  {const g1=PARTS.units.find(u=>u.id==='ko-kg1'),g2=PARTS.units.find(u=>u.id==='ko-kg2');
   assert.deepEqual(g1.parts.map(p=>p.title),['음운과 음절','국어 음운의 체계','음운 변동의 갈래와 개수','교체','탈락 · 축약 · 첨가']);
@@ -249,7 +249,10 @@ const itCounts={};
  assert.equal(d6.parts.reduce((n,p)=>n+p.ids.length,0),220);assert.equal(d7.parts.reduce((n,p)=>n+p.ids.length,0),240);
  assert.ok([...d6.parts,...d7.parts].every(p=>p.ids.length>=8),'Day 6·7 파트마다 8문제 이상');
  assert.ok([...d6.parts,...d7.parts].every(p=>p.ids.every(id=>/^en-day[67]-\d{3}$/.test(id))),'Day 6·7 파트는 자체 제작 문제만');
- {const u=PARTS.units.map(u=>u.id),i=u.indexOf('en-day5');assert.deepEqual(u.slice(i,i+8),['en-day5','en-day6','en-day7','en-day8','en-day9','en-day10','en-day11','en-formula'],'Day 5 → Day 6 → Day 7 → Day 8 · 9 · 10 → 공식 훈련 순서');}
+ {const u=PARTS.units.map(u=>u.id),i=u.indexOf('en-day5');assert.deepEqual(u.slice(i,i+9),['en-day5','en-day6','en-day7','en-day8','en-day9','en-day10','en-day11','en-day12','en-formula'],'Day 5 → Day 6 → Day 7 → Day 8 · 9 · 10 → 공식 훈련 순서');}
+ // 2026-10-07 영어 Day 12(WEEK 03 실전문제 연습): 규칙 정리 하나가 파트 하나(5파트), 83문제(핵심 20 + 더 풀기 63), 자체 제작만.
+ {const u=PARTS.units.find(x=>x.id==='en-day12');assert.deepEqual(u.parts.map(p=>p.title),["시제와 때 표현","가정법과 조동사","동사와 목적어","수동태와 준동사","수량 표현과 절"],'en-day12 파트');assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),83,'en-day12 문제 수');
+  assert.ok(u.parts.every(p=>p.ids.length>=2&&p.ids.every(id2=>/^en-day12-\d{3}$/.test(id2))),'en-day12 파트는 자체 제작 문제만');}
  // 2026-10-07 영어 Day 11(WEEK 03 실전문제 연습): 규칙 정리 하나가 파트 하나(5파트), 83문제(핵심 20 + 더 풀기 63), 자체 제작만.
  {const u=PARTS.units.find(x=>x.id==='en-day11');assert.deepEqual(u.parts.map(p=>p.title),["동사 자리와 대동사","조동사와 가정법","동명사와 to부정사","접속사와 관계부사","형용사·대명사·보어"],'en-day11 파트');assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),83,'en-day11 문제 수');
   assert.ok(u.parts.every(p=>p.ids.length>=2&&p.ids.every(id2=>/^en-day11-\d{3}$/.test(id2))),'en-day11 파트는 자체 제작 문제만');}
