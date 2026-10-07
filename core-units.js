@@ -1,7 +1,7 @@
 'use strict';
 // 영어 · 국어 단원마다 핵심 20(v199, 2026-09-30 사용자 "영어도 하루 20문제, 국어도 하루 20문제정도로" → "단원마다 핵심 20").
 // 자동 생성 파일 — 손으로 고치지 말고 research/core20-en-ko-20260930/integrate.cjs(selection.json)로 다시 만든다. 고른 방법 · 요점 빈도표는 그 폴더 notes.md.
-// id = parts.js 단원 id(영어 Day 1~7 · 문법 공식 훈련, 국어 논리 1~6장 · 독해 1~3장), core = 기본으로 보이는 20문제(단원 순서, 9급 기출 빈도 순으로 고름).
+// id = parts.js 단원 id(영어 Day 1~10 · 문법 공식 훈련, 국어 논리 1~6장 · 독해 1~3장 — Day 8 · 9 · 10은 2026-10-07 더 풀기를 더하며 넣음), core = 기본으로 보이는 20문제(단원 순서, 9급 기출 빈도 순으로 고름).
 // 나머지 문제는 지우지 않는다 — app.js BEGIN CORE 20이 접어 두고, '이 단원 문제 더 풀기'(또는 공식 하나의 '이 공식 문제 더 풀기')를 켜면 다시 들어온다.
 (function(root){
  const units=[
@@ -12,6 +12,9 @@
  {id:"en-day5",subject:"영어",core:["en-day5-001","en-day5-005","en-day5-009","en-day5-014","en-day5-022","en-day5-031","en-day5-036","en-day5-041","en-day5-046","en-day5-050","en-day5-063","en-day5-068","en-day5-076","en-day5-080","en-day5-085","en-day5-089","en-day5-094","en-day5-102","en-day5-111","en-day5-121"]},
  {id:"en-day6",subject:"영어",core:["en-day6-001","en-day6-006","en-day6-011","en-day6-016","en-day6-021","en-day6-031","en-day6-036","en-day6-046","en-day6-051","en-day6-056","en-day6-061","en-day6-071","en-day6-082","en-day6-133","en-day6-093","en-day6-098","en-day6-103","en-day6-108","en-day6-113","en-day6-123"]},
  {id:"en-day7",subject:"영어",core:["en-day7-001","en-day7-061","en-day7-066","en-day7-131","en-day7-006","en-day7-016","en-day7-051","en-day7-121","en-day7-011","en-day7-026","en-day7-031","en-day7-071","en-day7-036","en-day7-056","en-day7-086","en-day7-096","en-day7-021","en-day7-081","en-day7-091","en-day7-106"]},
+ {id:"en-day8",subject:"영어",core:["en-day8-004","en-day8-007","en-day8-009","en-day8-020","en-day8-001","en-day8-015","en-day8-019","en-day8-002","en-day8-005","en-day8-013","en-day8-017","en-day8-008","en-day8-012","en-day8-014","en-day8-016","en-day8-003","en-day8-006","en-day8-010","en-day8-011","en-day8-018"]},
+ {id:"en-day9",subject:"영어",core:["en-day9-001","en-day9-010","en-day9-012","en-day9-014","en-day9-015","en-day9-002","en-day9-005","en-day9-020","en-day9-004","en-day9-006","en-day9-009","en-day9-016","en-day9-008","en-day9-019","en-day9-003","en-day9-007","en-day9-017","en-day9-011","en-day9-013","en-day9-018"]},
+ {id:"en-day10",subject:"영어",core:["en-day10-001","en-day10-002","en-day10-003","en-day10-018","en-day10-004","en-day10-005","en-day10-006","en-day10-015","en-day10-007","en-day10-008","en-day10-016","en-day10-009","en-day10-010","en-day10-020","en-day10-011","en-day10-012","en-day10-013","en-day10-017","en-day10-014","en-day10-019"]},
  {id:"en-formula",subject:"영어",core:["en-formula-014","en-formula-043","en-formula-057","en-formula-074","en-formula-080","en-formula-088","en-formula-103","en-formula-123","en-formula-135","en-formula-172","en-formula-175","en-formula-203","en-formula-232","en-formula-259","en-formula-263","en-formula-279","en-formula-285","en-formula-310","en-formula-339","en-formula-347"]},
  {id:"ko-ko1",subject:"국어",core:["ko-logic1-01","ko-logic1-02","ko-logic1-03","ko-logic1-04","ko-logic1-06","ko-logic1-07","ko-logic1-09","ko-logic1-10","ko-logic1-12","ko-logic1-13","ko-logic1-15","ko-logic1-18","ko-logic1-19","ko-logic1-20","ko-logic1-21","ko-logic1-24","ko-logic1-25","ko-logic1-27","ko-logic1-30","ko-logic1-31"]},
  {id:"ko-ko2",subject:"국어",core:["ko-logic2-006","ko-logic2-009","ko-logic2-023","ko-logic2-021","ko-logic2-052","ko-logic2-055","ko-logic2-058","ko-logic2-061","ko-logic2-065","ko-logic2-082","ko-logic2-087","ko-logic2-096","ko-logic2-098","ko-logic2-105","ko-logic2-109","ko-logic2-113","ko-logic2-121","ko-logic2-129","ko-logic2-138","ko-logic2-164"]},

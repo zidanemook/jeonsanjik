@@ -250,9 +250,9 @@ const itCounts={};
  assert.ok([...d6.parts,...d7.parts].every(p=>p.ids.length>=8),'Day 6·7 파트마다 8문제 이상');
  assert.ok([...d6.parts,...d7.parts].every(p=>p.ids.every(id=>/^en-day[67]-\d{3}$/.test(id))),'Day 6·7 파트는 자체 제작 문제만');
  {const u=PARTS.units.map(u=>u.id),i=u.indexOf('en-day5');assert.deepEqual(u.slice(i,i+7),['en-day5','en-day6','en-day7','en-day8','en-day9','en-day10','en-formula'],'Day 5 → Day 6 → Day 7 → Day 8 · 9 · 10 → 공식 훈련 순서');}
- // 2026-10-05 영어 Day 8 · 9 · 10(v204, 핵심 20): 규칙 정리 하나가 파트 하나(5 · 6 · 6파트), 단원마다 20문제, 자체 제작만.
+ // 2026-10-05 영어 Day 8 · 9 · 10(v204, 핵심 20): 규칙 정리 하나가 파트 하나(5 · 6 · 6파트), 자체 제작만. 2026-10-07 더 풀기를 더해 단원마다 89 · 88 · 86문제(파트는 그대로).
  {const want={'en-day8':['동사 뒤의 꼴','시제','어순','비교','꾸미는 말과 수 일치'],'en-day9':['동사와 태','가정과 당위','절','분사','수 일치와 명사','비교'],'en-day10':['목적격보어와 수동','준동사','시제와 도치','관계사와 대명사','비교와 부정','수량과 used to']};
-  for(const [id,titles] of Object.entries(want)){const u=PARTS.units.find(x=>x.id===id);assert.deepEqual(u.parts.map(p=>p.title),titles,id+' 파트');assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),20,id+' 20문제');
+  for(const [id,titles] of Object.entries(want)){const u=PARTS.units.find(x=>x.id===id);assert.deepEqual(u.parts.map(p=>p.title),titles,id+' 파트');assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),{'en-day8':89,'en-day9':88,'en-day10':86}[id],id+' 문제 수');
    assert.ok(u.parts.every(p=>p.ids.length>=2&&p.ids.every(id2=>(id2.startsWith(id+'-')&&id2.length===id.length+4))),id+' 파트는 자체 제작 문제만');}}
 }
 
