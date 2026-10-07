@@ -102,9 +102,12 @@ assert.ok(!nodes.get('#retryStatus')._text.includes('같은 개념의 문제'),'
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d7=rows.indexOf('Day 7 무작위 문법 포인트 찾기 훈련');
   assert.deepEqual(rows.slice(d7+1,d7+4),["Day 8 무작위 문법 포인트 찾기 훈련","Day 9 무작위 문법 포인트 찾기 훈련","Day 10 무작위 문법 포인트 찾기 훈련"],'Day 7 다음에 Day 8 · 9 · 10');
   for(const n of ["Day 8 무작위 문법 포인트 찾기 훈련","Day 9 무작위 문법 포인트 찾기 훈련","Day 10 무작위 문법 포인트 찾기 훈련"]){const k={8:89,9:88,10:86}[n.split(' ')[1]];assert.equal(menuDetail('#rangeList',n),'풀어야 할 문제 '+k+'/'+k+' · 첫 시도 0/'+k+' · 이 단원 문제 더 풀기 켬',n+' 범위 줄');}}
+ // Day 11(WEEK 03 실전문제 연습, 2026-10-07): Day 10 바로 다음, 83문제(핵심 20 + 접힘 63) — 이 검사는 모든 단원을 켠 채 돈다.
+ {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text);assert.equal(rows.indexOf('Day 11 실전문제 연습'),rows.indexOf('Day 10 무작위 문법 포인트 찾기 훈련')+1,'Day 10 다음에 Day 11');
+  assert.equal(menuDetail('#rangeList','Day 11 실전문제 연습'),'풀어야 할 문제 83/83 · 첫 시도 0/83 · 이 단원 문제 더 풀기 켬','Day 11 범위 줄');}
  // 문법 공식 훈련(v98): 마지막 Day(v115부터 Day 5, v151부터 Day 7, v204부터 Day 10) 다음에 ‘공식 훈련 새 문제 전체’ 범위, 그 아래 영역별로 접힌 공식 범위가 나온다. 공식 범위는 그 공식의 Day 문제와 새 문제를 함께 담는다.
- {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d7=rows.indexOf('Day 10 무작위 문법 포인트 찾기 훈련'),f=rows.indexOf('공식 훈련 새 문제 전체');
-  assert.ok(d7>=0&&f===d7+1,'Day 10 다음에 공식 훈련: '+rows.slice(0,14).join(' / '));
+ {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d7=rows.indexOf('Day 11 실전문제 연습'),f=rows.indexOf('공식 훈련 새 문제 전체');
+  assert.ok(d7>=0&&f===d7+1,'Day 11 다음에 공식 훈련: '+rows.slice(0,15).join(' / '));
   assert.equal(menuDetail('#rangeList','공식 훈련 새 문제 전체'),'풀어야 할 문제 364/364 · 첫 시도 0/364 · 이 단원 문제 더 풀기 켬','공식 훈련 새 문제 범위 줄');
   assert.equal(rows.filter(t=>run('ENGLISH_FORMULAS.areas.flatMap(a=>a.rules.map(r=>r.title))').includes(t)).length,89,'공식 범위 89개');}
  run("go('progress')");assert.equal(nodes.get('#total')._text,String(run('questionCount(data.cards.filter(isPlayable))')),'진행상황의 전체 문제');

@@ -173,12 +173,12 @@ console.log('PASS core20: 38개 강 범위 × 핵심 20(02~05강은 교재 강 �
 // 접힌 문제는 풀 수 없고(대조군: 핵심은 풀 수 있음) 복습일이 와도 대기열 밖, 핵심을 다 풀면 끝 화면 버튼, 설정은 새로고침 뒤에도, 한국사는 그대로.
 {
  const store2=new Map(),A=boot(store2);
- const UNIT_IDS=['en-day1','en-day2','en-day3','en-day4','en-day5','en-day6','en-day7','en-day8','en-day9','en-day10','en-formula','ko-ko1','ko-ko2','ko-ko3','ko-ko4','ko-ko5','ko-ko6','ko-kr1','ko-kr2','ko-kr3','ko-kg1','ko-kg2'];
+ const UNIT_IDS=['en-day1','en-day2','en-day3','en-day4','en-day5','en-day6','en-day7','en-day8','en-day9','en-day10','en-day11','en-formula','ko-ko1','ko-ko2','ko-ko3','ko-ko4','ko-ko5','ko-ko6','ko-kr1','ko-kr2','ko-kr3','ko-kg1','ko-kg2'];
  // 국어 문법 1 · 2장(2026-10-07 더 풀기를 더하며 들어옴): 핵심 = 001~020(요점마다 한 문제), 더 풀기 = 021~ 전부.
- const units=A.J('STUDY_CORE_UNITS');assert.deepEqual(units.map(u=>u.id),UNIT_IDS,'22단원');
+ const units=A.J('STUDY_CORE_UNITS');assert.deepEqual(units.map(u=>u.id),UNIT_IDS,'23단원');
  for(const g of [1,2]){const u=units.find(x=>x.id==='ko-kg'+g);assert.deepEqual([...u.core].sort(),Array.from({length:20},(_,i)=>'ko-gram'+g+'-'+String(i+1).padStart(3,'0')),'문법 '+g+'장 핵심 = 001~020');}
  // Day 8 · 9 · 10: 핵심 = 001~020(먼저 만든 포인트마다 한 문제), 더 풀기 = 021~ 전부.
- for(const d of [8,9,10]){const u=units.find(x=>x.id==='en-day'+d);assert.deepEqual([...u.core].sort(),Array.from({length:20},(_,i)=>'en-day'+d+'-'+String(i+1).padStart(3,'0')),'Day '+d+' 핵심 = 001~020');}
+ for(const d of [8,9,10,11]){const u=units.find(x=>x.id==='en-day'+d);assert.deepEqual([...u.core].sort(),Array.from({length:20},(_,i)=>'en-day'+d+'-'+String(i+1).padStart(3,'0')),'Day '+d+' 핵심 = 001~020');}
  const P=id=>A.J(`STUDY_PARTS.units.find(u=>u.id===${JSON.stringify(id)})`);
  const folded={영어:0,국어:0},info={};
  for(const u of units){const p=P(u.id),ids=p.parts.flatMap(x=>x.ids);info[u.id]={p,ids,n:ids.length};
@@ -260,6 +260,6 @@ console.log('PASS core20: 38개 강 범위 × 핵심 20(02~05강은 교재 강 �
  {const html=fs.readFileSync(__dirname+'/index.html','utf8'),sw=fs.readFileSync(__dirname+'/sw.js','utf8'),yml=fs.readFileSync(__dirname+'/.github/workflows/pages.yml','utf8'),v=(html.match(/core-units\.js\?v=(\d+)/)||[])[1];
   assert.ok(v&&html.indexOf('core-units.js?v=')<html.indexOf('src="app.js'),'index.html: core-units.js를 app.js 앞에서 읽는다');assert.ok(sw.includes("'./core-units.js?v="+v+"'"),'sw.js가 core-units.js를 담는다');assert.ok(/cp [^\n]*\bcore-units\.js\b/.test(yml),'Pages 배포에 core-units.js');
   assert.ok(html.includes('<span id="moreText">이 강 문제 더 풀기</span>'));}
- console.log('PASS core20 영어 · 국어: 22단원 × 핵심 20(단원 순서 · 파트마다 하나 이상 · 쌍둥이 한 번), 접힌 영어 '+folded['영어']+' · 국어 '+folded['국어']+'문제는 풀 수 없고 수 · 파트 · 대기열 밖, '+
+ console.log('PASS core20 영어 · 국어: 23단원 × 핵심 20(단원 순서 · 파트마다 하나 이상 · 쌍둥이 한 번), 접힌 영어 '+folded['영어']+' · 국어 '+folded['국어']+'문제는 풀 수 없고 수 · 파트 · 대기열 밖, '+
   "'이 단원 문제 더 풀기' 켜기/끄기, 모두 접힌 문법 공식은 목록에 남고 '이 공식 문제 더 풀기'로 그 공식만, 핵심을 다 풀면 끝 화면 버튼, 새로고침 뒤 유지 · 잘못된 설정 거부, 한국사 그대로, 배포 목록");
 }

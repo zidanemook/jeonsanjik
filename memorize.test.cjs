@@ -217,10 +217,10 @@ for(const set of M.sets.filter(s=>s.subject==='한국사'))for(const t of [set.t
  base.forEach((g,i)=>assert.deepEqual(g.cards.map(c=>c[0]),F.areas[i].rules.map(r=>r.title),'앞면은 공식 이름: '+g.title));
  const blockOf=new Map();for(const l of Object.values(bank))if(l.formula&&l.variants[0]&&!blockOf.has(l.formula))blockOf.set(l.formula,l.variants[0].explanation.split('\n\n').pop());
  base.forEach((g,i)=>g.cards.forEach((c,j)=>assert.equal('외우는 공식\n'+c[1],blockOf.get(F.areas[i].rules[j].id),'해설 블록과 같은 글: '+c[0])));
- assert(day5.length>=3&&day5.every(g=>/^Day ([5-9]|10) /.test(g.title)));
+ assert(day5.length>=3&&day5.every(g=>/^Day ([5-9]|1[0-5]) /.test(g.title)));
  // Day 6·7(v151): 포인트마다 한 칸, 뒷면은 그 포인트 문제의 해설 끝 외우는 공식 블록과 같은 글.
  // Day 8 · 9 · 10(v204)도 포인트마다 한 칸(규칙 정리마다 한 묶음).
- for(const day of [6,7,8,9,10]){const gs=day5.filter(g=>g.title.startsWith('Day '+day+' ')),pts=new Map();for(const [k,l] of Object.entries(bank))if(k.startsWith('en-day'+day+'-'))pts.set(l.point,l.variants[0].explanation.split('\n\n').pop());
+ for(const day of [6,7,8,9,10,11]){const gs=day5.filter(g=>g.title.startsWith('Day '+day+' ')),pts=new Map();for(const [k,l] of Object.entries(bank))if(k.startsWith('en-day'+day+'-'))pts.set(l.point,l.variants[0].explanation.split('\n\n').pop());
   assert(gs.length>=3);assert.deepEqual(new Set(gs.flatMap(g=>g.cards.map(c=>c[0]))),new Set(pts.keys()),'Day '+day+' 포인트 전부');for(const [f,b] of gs.flatMap(g=>g.cards))assert.equal('외우는 공식\n'+b,pts.get(f),'해설 블록과 같은 글: '+f);}
  const points=new Set(Object.entries(bank).filter(([k])=>k.startsWith('en-day5-')).map(([,l])=>l.point));assert.deepEqual(new Set(day5.filter(g=>g.title.startsWith('Day 5')).flatMap(g=>g.cards.map(c=>c[0]))),points,'Day 5 포인트 전부');
  for(const [front,back] of set.groups.flatMap(g=>g.cards)){const lines=back.split('\n');assert(lines.length>=3&&lines.length<=4&&lines.some(x=>x.startsWith('✗ '))&&lines[lines.length-1].startsWith('예) ')&&back.includes('**')&&!/꿀팁|입으로|함정:/.test(back),'공식·✗·예: '+front);
