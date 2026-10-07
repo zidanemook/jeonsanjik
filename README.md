@@ -10,7 +10,7 @@
 - 먼저 있던 20문제가 그대로 **핵심 20**이고, 새 문제는 모두 **‘이 단원 문제 더 풀기’**로 접혀 있습니다(범위 줄 ‘20/20 · 더 풀기 69문제’). 핵심 20을 다 풀면 끝 화면에 같은 버튼이 나옵니다.
 - 새 문제도 보기마다 틀린 곳 표시 · 올바른 문장 · 외우는 공식 4줄 · 기초 개념 ‘이 문제에 대입’을 갖습니다. 교재 문장은 쓰지 않았고, 앱에 이미 있는 문장과 겹치지 않게 했습니다.
 - 원고 `research/english-days/`(`gen810_more.py` · `day8_more.py` · `day9_more.py` · `day10_more.py`, 검사 `check_day8_10.py` → `check_more810.py`, 통합 `integrate_day8_10_more.cjs`).
-- 자산 v203, 캐시 `chagog-v235-english-day8-10-more`.
+- 자산 v203, 캐시 `chagog-v235-english-day8-10-more`. v236: Day 10 한 문제(069)의 보기 하나를 더 분명한 오류로 교체 — 자산 v204, 캐시 `chagog-v236-english-day10-069-fix`.
 
 ## 국어 문법 2장 형태론 · 국어 (v220)
 
