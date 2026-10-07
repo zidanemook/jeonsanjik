@@ -1,7 +1,7 @@
 'use strict';
 // 영어 · 국어 단원마다 핵심 20(v199, 2026-09-30 사용자 "영어도 하루 20문제, 국어도 하루 20문제정도로" → "단원마다 핵심 20").
 // 자동 생성 파일 — 손으로 고치지 말고 research/core20-en-ko-20260930/integrate.cjs(selection.json)로 다시 만든다. 고른 방법 · 요점 빈도표는 그 폴더 notes.md.
-// id = parts.js 단원 id(영어 Day 1~10 · 문법 공식 훈련, 국어 논리 1~6장 · 독해 1~3장 · 국어 문법 1 · 2장 — 영어 Day 8 · 9 · 10과 국어 문법은 2026-10-07 더 풀기를 더하며 넣음), core = 기본으로 보이는 20문제(단원 순서, 9급 기출 빈도 순으로 고름).
+// id = parts.js 단원 id(영어 Day 1~10 · 문법 공식 훈련, 국어 논리 1~6장 · 독해 1~3장 · 국어 문법 1~3장 · 공문서 수정 1~3장 · 어휘 1~2장 — 영어 Day 8 · 9 · 10과 국어 문법은 2026-10-07 더 풀기를 더하며 넣음), core = 기본으로 보이는 20문제(단원 순서, 9급 기출 빈도 순으로 고름).
 // 나머지 문제는 지우지 않는다 — app.js BEGIN CORE 20이 접어 두고, '이 단원 문제 더 풀기'(또는 공식 하나의 '이 공식 문제 더 풀기')를 켜면 다시 들어온다.
 (function(root){
  const units=[
@@ -31,7 +31,13 @@
  {id:"ko-kr2",subject:"국어",core:["ko-read2-001","ko-read2-002","ko-read2-008","ko-read2-009","ko-read2-016","ko-read2-024","ko-read2-031","ko-read2-037","ko-read2-044","ko-read2-050","ko-read2-056","ko-read2-064","ko-read2-070","ko-read2-076","ko-read2-083","ko-read2-090","ko-read2-097","ko-read2-105","ko-read2-111","ko-read2-118"]},
  {id:"ko-kr3",subject:"국어",core:["ko-read3-007","ko-read3-038","ko-read3-093","ko-read3-121","ko-read3-127","ko-read3-138","ko-read3-155","ko-read3-160","ko-read3-165","ko-read3-199","ko-read3-221","ko-read3-227","ko-read3-238","ko-read3-244","ko-read3-250","ko-read3-267","ko-read3-289","ko-read3-295","ko-read3-301","ko-read3-324"]},
  {id:"ko-kg1",subject:"국어",core:["ko-gram1-001","ko-gram1-002","ko-gram1-003","ko-gram1-004","ko-gram1-005","ko-gram1-006","ko-gram1-007","ko-gram1-008","ko-gram1-009","ko-gram1-010","ko-gram1-011","ko-gram1-012","ko-gram1-013","ko-gram1-014","ko-gram1-015","ko-gram1-016","ko-gram1-017","ko-gram1-018","ko-gram1-019","ko-gram1-020"]},
- {id:"ko-kg2",subject:"국어",core:["ko-gram2-001","ko-gram2-002","ko-gram2-003","ko-gram2-004","ko-gram2-005","ko-gram2-006","ko-gram2-007","ko-gram2-010","ko-gram2-008","ko-gram2-009","ko-gram2-014","ko-gram2-015","ko-gram2-016","ko-gram2-017","ko-gram2-011","ko-gram2-012","ko-gram2-013","ko-gram2-018","ko-gram2-019","ko-gram2-020"]}
+ {id:"ko-kg2",subject:"국어",core:["ko-gram2-001","ko-gram2-002","ko-gram2-003","ko-gram2-004","ko-gram2-005","ko-gram2-006","ko-gram2-007","ko-gram2-010","ko-gram2-008","ko-gram2-009","ko-gram2-014","ko-gram2-015","ko-gram2-016","ko-gram2-017","ko-gram2-011","ko-gram2-012","ko-gram2-013","ko-gram2-018","ko-gram2-019","ko-gram2-020"]},
+ {id:"ko-kg3",subject:"국어",core:["ko-gram3-001","ko-gram3-002","ko-gram3-003","ko-gram3-004","ko-gram3-005","ko-gram3-006","ko-gram3-007","ko-gram3-008","ko-gram3-009","ko-gram3-010","ko-gram3-011","ko-gram3-012","ko-gram3-013","ko-gram3-014","ko-gram3-015","ko-gram3-016","ko-gram3-017","ko-gram3-018","ko-gram3-019","ko-gram3-020"]},
+ {id:"ko-kd1",subject:"국어",core:["ko-doc1-001","ko-doc1-002","ko-doc1-003","ko-doc1-004","ko-doc1-005","ko-doc1-006","ko-doc1-007","ko-doc1-008","ko-doc1-009","ko-doc1-010","ko-doc1-011","ko-doc1-012","ko-doc1-013","ko-doc1-014","ko-doc1-015","ko-doc1-016","ko-doc1-017","ko-doc1-018","ko-doc1-019","ko-doc1-020"]},
+ {id:"ko-kd2",subject:"국어",core:["ko-doc2-001","ko-doc2-002","ko-doc2-003","ko-doc2-004","ko-doc2-005","ko-doc2-006","ko-doc2-007","ko-doc2-008","ko-doc2-009","ko-doc2-010","ko-doc2-011","ko-doc2-012","ko-doc2-013","ko-doc2-014","ko-doc2-015","ko-doc2-016","ko-doc2-017","ko-doc2-018","ko-doc2-019","ko-doc2-020"]},
+ {id:"ko-kd3",subject:"국어",core:["ko-doc3-001","ko-doc3-002","ko-doc3-003","ko-doc3-004","ko-doc3-005","ko-doc3-006","ko-doc3-007","ko-doc3-008","ko-doc3-009","ko-doc3-010","ko-doc3-011","ko-doc3-012","ko-doc3-013","ko-doc3-014","ko-doc3-015","ko-doc3-016","ko-doc3-017","ko-doc3-018","ko-doc3-019","ko-doc3-020"]},
+ {id:"ko-kv1",subject:"국어",core:["ko-voc1-001","ko-voc1-002","ko-voc1-003","ko-voc1-004","ko-voc1-005","ko-voc1-006","ko-voc1-007","ko-voc1-008","ko-voc1-009","ko-voc1-010","ko-voc1-011","ko-voc1-012","ko-voc1-013","ko-voc1-014","ko-voc1-015","ko-voc1-016","ko-voc1-017","ko-voc1-018","ko-voc1-019","ko-voc1-020"]},
+ {id:"ko-kv2",subject:"국어",core:["ko-voc2-001","ko-voc2-002","ko-voc2-003","ko-voc2-004","ko-voc2-005","ko-voc2-006","ko-voc2-007","ko-voc2-008","ko-voc2-009","ko-voc2-010","ko-voc2-011","ko-voc2-012","ko-voc2-013","ko-voc2-014","ko-voc2-015","ko-voc2-016","ko-voc2-017","ko-voc2-018","ko-voc2-019","ko-voc2-020"]}
  ];
  root.STUDY_CORE_UNITS=units;if(typeof module!=='undefined'&&module.exports)module.exports=units;
 })(globalThis);

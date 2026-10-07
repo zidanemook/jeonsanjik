@@ -117,13 +117,16 @@ const itCounts={};
   counts[u.short]=u.parts.length;
  }
  for(const l of CAT.lectures)assert.ok(PARTS.units.some(u=>u.scope.round==='lecture-'+l.id),'한국사 '+l.title+'에 파트가 있다');
- for(const t of ['Day 1','Day 2','Day 3','Day 4','Day 5','Day 6','Day 7','Day 8','Day 9','Day 10','Day 11','Day 12','Day 13','Day 14','Day 15','문법 공식 훈련','논리 1장','논리 2장','논리 3장','논리 4장','논리 5장','논리 6장','독해 1장','독해 2장','독해 3장','문법 1장','문법 2장'])assert.ok(PARTS.units.some(u=>u.scope.topic===t),t+'에 파트가 있다');
+ for(const t of ['Day 1','Day 2','Day 3','Day 4','Day 5','Day 6','Day 7','Day 8','Day 9','Day 10','Day 11','Day 12','Day 13','Day 14','Day 15','문법 공식 훈련','논리 1장','논리 2장','논리 3장','논리 4장','논리 5장','논리 6장','독해 1장','독해 2장','독해 3장','문법 1장','문법 2장','문법 3장','공문서 1장','공문서 2장','공문서 3장','어휘 1장','어휘 2장'])assert.ok(PARTS.units.some(u=>u.scope.topic===t),t+'에 파트가 있다');
  // 2026-10-05 국어 문법(핵심 20): 규칙 정리 하나가 파트 하나(장마다 5파트), 독해 3장 다음에 장 순서대로. 2026-10-07 더 풀기를 더해 89 · 91문제(파트는 그대로).
  {const g1=PARTS.units.find(u=>u.id==='ko-kg1'),g2=PARTS.units.find(u=>u.id==='ko-kg2');
   assert.deepEqual(g1.parts.map(p=>p.title),['음운과 음절','국어 음운의 체계','음운 변동의 갈래와 개수','교체','탈락 · 축약 · 첨가']);
   assert.deepEqual(g2.parts.map(p=>p.title),['형태소 · 단어 · 어절','품사 분류와 체언 · 수식언','용언','조사와 품사의 통용','단어의 형성']);
   for(const [u,k] of [[g1,89],[g2,91]]){assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),k,u.id+' 문제 수');assert.ok(u.parts.every(p=>p.ids.length>=8),u.id+' 파트마다 8문제 이상');}
-  const ids=PARTS.units.map(u=>u.id);assert.equal(ids.indexOf('ko-kg1'),ids.indexOf('ko-kr3')+1,'독해 3장 다음에 문법 1장');assert.equal(ids.indexOf('ko-kg2'),ids.indexOf('ko-kg1')+1,'문법 1장 다음에 2장');}
+  const ids=PARTS.units.map(u=>u.id);assert.equal(ids.indexOf('ko-kg1'),ids.indexOf('ko-kr3')+1,'독해 3장 다음에 문법 1장');assert.equal(ids.indexOf('ko-kg2'),ids.indexOf('ko-kg1')+1,'문법 1장 다음에 2장');
+  // 2026-10-07 국어 묶음: 문법 2장 다음에 문법 3장 · 공문서 수정 1~3장 · 어휘 1~2장, 규칙 정리 하나가 파트 하나.
+  {let prev='ko-kg2';for(const s of [{"unit":"ko-kg3","n":149,"parts":["문장 성분","서술어의 자릿수","홑문장과 겹문장","사동 표현과 피동 표현","높임 표현"]},{"unit":"ko-kd1","n":103,"parts":["문장 성분의 호응","성분의 생략과 대등한 연결","꾸미는 말 · 명사화 · 번역 투","조사 · 어미와 피동 · 사동","원칙에 따라 공문서 고치기"]},{"unit":"ko-kd2","n":87,"parts":["마침표 · 물음표 · 느낌표","쉼표 · 가운뎃점 · 쌍점 · 빗금","따옴표와 괄호","낫표 · 화살괄호와 그 밖의 부호"]},{"unit":"ko-kd3","n":184,"parts":["두음 법칙의 표기","사이시옷의 표기","준말의 표기","꼴이 비슷한 어미와 조사","띄어쓰기","외래어 표기와 다듬은 말","중의적 표현과 잉여적 표현"]},{"unit":"ko-kv1","n":112,"parts":["발음이 비슷한 한자어 ①","발음이 비슷한 한자어 ②","발음이 비슷한 한자어 ③","문맥에 맞는 낱말 ①","문맥에 맞는 낱말 ②","문맥에 맞는 낱말 ③"]},{"unit":"ko-kv2","n":205,"parts":["한자 어휘 ① 각광 ~ 난마","한자 어휘 ② 난항 ~ 미봉책","한자 어휘 ③ 미상불 ~ 사족","한자 어휘 ④ 서광 ~ 유기","한자 어휘 ⑤ 유명세 ~ 천착","한자 어휘 ⑥ 초미 ~ 흉금","지문 속 낱말 바꿔 쓰기"]}]){const u=PARTS.units.find(x=>x.id===s.unit);assert.ok(u,s.unit);assert.deepEqual(u.parts.map(p=>p.title),s.parts,s.unit+' 파트');
+    assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),s.n,s.unit+' 문제 수');assert.ok(u.parts.every(p=>p.ids.length>=8),s.unit+' 파트마다 8문제 이상');assert.equal(ids.indexOf(s.unit),ids.indexOf(prev)+1,prev+' 다음에 '+s.unit);prev=s.unit;}}}
  const h19=PARTS.units.find(u=>u.id==='hist-19');assert.equal(h19.parts.length,8);assert.equal(h19.parts.reduce((n,p)=>n+p.ids.length,0),115);
  // 2026-09-23 20강 조선 전기(문화 I): facts.cjs 묶음 15개 → 8파트, 99문제. 파트마다 8문제 이상이고 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
  const h20=PARTS.units.find(u=>u.id==='hist-20');assert.equal(h20.title,'20강 조선 전기(문화 I)');

@@ -110,7 +110,10 @@ function roundMatch(c,round){
 // 교재 진도(topic) 범위를 가진 과목: 영어는 문제집 Day, 국어는 『사고의 힘 논리』의 장.
 const TOPIC_SUBJECTS=new Set(['영어','국어']);
 // 국어 문법(v219~): 『사고의 힘 논리』와 다른 책(선재국어 제3편 개념 중심 문법 독해)이라 범위 묶음을 따로 둔다.
-const KOREAN_GRAMMAR_TOPICS={'문법 1장':'국어 문법 1장 음운론','문법 2장':'국어 문법 2장 형태론'};
+const KOREAN_GRAMMAR_TOPICS={'문법 1장':'국어 문법 1장 음운론','문법 2장':'국어 문법 2장 형태론','문법 3장':'국어 문법 3장 통사론'};
+// 같은 책의 제4편 공문서 수정하기 · 제5편 문맥의 힘 어휘(2026-10-07): 범위 묶음을 하나씩 더 둔다.
+const KOREAN_DOC_TOPICS={'공문서 1장':'국어 공문서 수정 1장 올바른 문장 쓰기','공문서 2장':'국어 공문서 수정 2장 문장 부호 바로 쓰기','공문서 3장':'국어 공문서 수정 3장 〈한글 맞춤법〉 바로 쓰기'};
+const KOREAN_VOCAB_TOPICS={'어휘 1장':'국어 어휘 1장 구별해서 써야 하는 주요 어휘','어휘 2장':'국어 어휘 2장 독해에 필요한 주요 한자 어휘'};
 const KOREAN_TOPICS={'논리 1장':'1장 논증의 개념과 유형','논리 2장':'2장 명제 논리','논리 3장':'3장 정언 논리','논리 4장':'4장 술어 논리','논리 5장':'5장 귀납 논증','논리 6장':'6장 논리의 오류','독해 1장':'독해 1장 독해의 원리','독해 2장':'독해 2장 독해와 논증','독해 3장':'독해 3장 실전 독해 훈련'};
 // 영어 ‘문법 공식 훈련’의 공식 하나 범위는 topic을 'formula:<공식 id>'로 두고, 그 공식에 속한 문제집 Day 문제와 새 훈련 문제를 함께 담는다.
 function topicMatch(lesson,topic){return !!lesson&&(lesson.topic===topic||(topic.startsWith('formula:')&&lesson.formula===topic.slice(8)));}
@@ -127,6 +130,7 @@ function scopeLabel(scope){
  if(s==='영어')return '영어 · '+({'':'전체','수일치':'수일치','영문법':'그 밖의 문법 연습','문법 공식 훈련':'문법 공식 훈련 새 문제'}[scope.topic||'']??scope.topic);
  if(s==='국어'&&KOREAN_TOPICS[scope.topic])return '국어 · 사고의 힘 논리 '+KOREAN_TOPICS[scope.topic];
  if(s==='국어'&&KOREAN_GRAMMAR_TOPICS[scope.topic])return '국어 · '+KOREAN_GRAMMAR_TOPICS[scope.topic];
+ if(s==='국어'&&(KOREAN_DOC_TOPICS[scope.topic]||KOREAN_VOCAB_TOPICS[scope.topic]))return '국어 · '+(KOREAN_DOC_TOPICS[scope.topic]||KOREAN_VOCAB_TOPICS[scope.topic]).replace(/^국어 /,'');
  if(s!=='한국사')return s+' · 전체';
  const r=scope.round||'',t=topicRange(r),set=studyScope(r),lecture=lectureScope(r);
  if(t)return '한국사 · '+StudyTopics.title(t.id)+(t.papers?' · 기출만':'');if(lecture)return '한국사 · '+lectureTitle(lecture);if(set===0)return '한국사 · 요약자료 전체';if(set)return '한국사 · 요약자료 '+set+'묶음';if(r==='core')return '한국사 · 기존 핵심 복습';if(r)return '한국사 · 기출 '+r+'회';return '한국사 · 전체';
@@ -820,6 +824,7 @@ function renderRange(){
  // 국어는 교재(사고의 힘 논리) 장별 자체 제작 문제를 먼저 두고, 기출은 영어처럼 풀던 회차가 없으면 접어 둔다.
  else if(s==='국어'){const g=group('사고의 힘 논리');for(const [topic,title]of Object.entries(KOREAN_TOPICS))option(g,title,scope('',topic),moreNote(scope('',topic)));
   {const gg=group('국어 문법');for(const [topic,title]of Object.entries(KOREAN_GRAMMAR_TOPICS))option(gg,title,scope('',topic),moreNote(scope('',topic)));}
+  for(const [name,topics]of [['국어 공문서 수정',KOREAN_DOC_TOPICS],['국어 어휘',KOREAN_VOCAB_TOPICS]]){const gg=group(name);for(const [topic,title]of Object.entries(topics))option(gg,title,scope('',topic),moreNote(scope('',topic)));}
   const exams=group('기출 · 회차별 ('+paperCount+'회차)',!paperScope(scopeOf().round));paperYears(exams,scopeOf().round);
   option(group('그 밖의 범위',true),'국어 전체',scope(''));}
  else if(PAPER_SUBJECTS.has(s)){
@@ -1188,7 +1193,7 @@ function answerPractice(id,input){
  next.quizFeedback={cardId:id,reviewId,selectedIndex:quiz.type==='choice'?input:-1,userAnswer:quiz.type==='text'?String(input):'',result,exercise:quiz};
  delete next.activePractice;notify('');if(commit(next)){if(sequential)paperAdvance();sessionDirty=true;render();window.scrollTo(0,0);}
 }
-// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제 · 문제집 Day 1~15 · 문법 공식 훈련, 국어: 사고의 힘 논리 1~6장·독해 1~3장·국어 문법)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
+// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제 · 문제집 Day 1~15 · 문법 공식 훈련, 국어: 사고의 힘 논리 1~6장·독해 1~3장·국어 문법·공문서 수정·어휘)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
 // 과목은 연습 문제에 적힌 subject를 따르고, 적혀 있지 않으면 영어다(기존 영어 문제는 subject를 따로 적지 않았다).
 // 새로 만든 문제는 '팩 이름'이 바뀔 때만 기기에 들어왔다. 배포할 때 이름을 손으로 안 올리면 영영 안 들어온다 —
 // 2026-09-17 뒤에 만든 158문항(16강 80 · 문화유산 사진 70 · 궁궐 사진 8)이 그래서 이미 쓰던 기기에서 안 보였다.

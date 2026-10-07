@@ -76,7 +76,7 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
   assert(rows.some(x=>x.exercise.type==='choice'),'MCQ required: '+ruleId);
   assert.equal(new Set(typed.map(x=>practice.normalize(x.exercise.question))).size,typed.length,'Distinct written questions required: '+ruleId);
  }
- // 국어 교재 범위(사고의 힘 논리 제1편 1장~6장, 제2편 독해 1장~3장, 국어 문법 1장~2장). 영어의 직접쓰기 하한은 걸지 않는다(위 반복문은 영어만 본다).
+ // 국어 교재 범위(사고의 힘 논리 제1편 1장~6장, 제2편 독해 1장~3장, 국어 문법 1장~3장 · 공문서 수정 1장~3장 · 어휘 1장~2장). 영어의 직접쓰기 하한은 걸지 않는다(위 반복문은 영어만 본다).
  // 대신 장마다 문제 수 하한(koreanTextbook.floor)과 필수 개념(requiredPoints)을 요구하고, 사용자 요청에 따라 모두 4지선다여야 한다.
  const byTopic=new Map();
  for(const [id,rows]of byCard){const lesson=rows[0].lesson;if(rows[0].card.subject!=='국어'||!lesson)continue;
@@ -129,6 +129,7 @@ const LONGEST_LIMIT=0.011,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
 // 새 단원을 띠로 재려면 이 목록에 앞머리 한 줄만 더한다.
 const LENGTH_BALANCED=[
  'en-day11-','en-day12-','en-day13-','en-day14-','en-day15-',
+ 'ko-gram3-','ko-doc1-','ko-doc2-','ko-doc3-','ko-voc1-','ko-voc2-', // 2026-10-07 국어 독립 검토: 가장 긴 보기가 정답인 적이 없어(문법 3장 115/149) 소거 단서가 됐다 — 단원마다 두 쪽 띠로 잰다
 ];
 const BALANCE_BAND=[0.15,0.35];
 const balancedPrefix=id=>LENGTH_BALANCED.find(p=>id.startsWith(p));
