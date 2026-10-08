@@ -37,7 +37,7 @@ const run=code=>vm.runInContext(code,ctx);
 // 시작할 때는 회차 파일을 하나도 받지 않는다. 그래도 카드·과목 문항 수는 색인으로 모든 기출 문항을 센다.
 assert.deepEqual(fetched,[],'앱을 열 때 기출 회차 파일을 받지 않는다');
 const indexedComputer=run("Gichul.forSubject('컴퓨터일반').reduce((n,p)=>n+p.numbers.length,0)");
-assert.equal(run("questionCount(data.cards.filter(c=>isPlayable(c)&&c.subject==='컴퓨터일반'))"),indexedComputer+/*COMQ-VISIBLE*/220/*END-COMQ-VISIBLE*/,'받지 않은 회차의 문항도 과목 문항 수에 들어간다(+ 보이는 자체 제작 문제)');
+assert.equal(run("questionCount(data.cards.filter(c=>isPlayable(c)&&c.subject==='컴퓨터일반'))"),indexedComputer+/*COMQ-VISIBLE*/512/*END-COMQ-VISIBLE*/,'받지 않은 회차의 문항도 과목 문항 수에 들어간다(+ 보이는 자체 제작 문제)');
 assert.equal(run("Object.keys(QUIZ_OPTIONS).filter(id=>id.startsWith('gichul-')).length"),0,'받기 전에는 기출 보기가 없다');
 const screen=()=>nodes.get('#card').all.map(n=>n._text).filter(Boolean).join(' | ');
 // 채점 뒤 해설 화면에서 "다음 문제"를 누른 것과 같다.

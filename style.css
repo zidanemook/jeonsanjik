@@ -397,6 +397,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-m { background:#b9a6ff33; color:#c7b8ff; }
 .b-q { background:#7fd1a033; color:#8fe0b0; }
 .b-r { background:#ffb86b33; color:#ffc285; }
+.b-code { font-family:Consolas,'D2Coding','Noto Sans Mono CJK KR','Noto Sans Mono','Roboto Mono','Droid Sans Mono',ui-monospace,monospace; font-size:.94em; padding:0 4px; border-radius:5px; background:#ffffff14; white-space:pre-wrap; overflow-wrap:anywhere; }
 .b-ok { color:#7fd1a0; font-weight:700; }
 .b-no { color:#ff8a80; font-weight:700; }
 .b-table { width:100%; border-collapse:collapse; margin:6px 0; font-size:15px; }

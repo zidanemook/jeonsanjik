@@ -44,7 +44,7 @@ assert.deepEqual(cover['영어'].fallback.map(f=>[f[0],f[1],f[3]&&f[3].topic]).s
 assert.deepEqual(cover['한국사'].fallback.map(f=>[f[0],f[1],f[3]]),[['rest','그 밖의 문제',null]],'한국사: 강에 없는 문화유산 사진 문제는 한 묶음(누를 범위 없음)');
 for(const s of ['정보보호론'])assert.equal(cover[s].groups,0,s+'는 자체제작 문제가 없다');
 // 컴퓨터일반 자체 제작(research/computer-20261007): 뱃지 묶음 = 자체 제작 단원의 파트 전부(그 밖의 묶음 없음 — 모든 문제가 parts.js 파트에 있다).
-{const n=/*COMQ-PARTS*/175/*END-COMQ-PARTS*/;assert.equal(cover['컴퓨터일반'].groups,n,'컴퓨터일반 자체제작 묶음 = 자체 제작 파트');assert.equal(cover['컴퓨터일반'].parts,n,'컴퓨터일반 자체제작 묶음은 모두 parts.js 파트');assert.deepEqual(cover['컴퓨터일반'].fallback,[],'컴퓨터일반: 파트 밖 묶음 없음');}
+{const n=/*COMQ-PARTS*/369/*END-COMQ-PARTS*/;assert.equal(cover['컴퓨터일반'].groups,n,'컴퓨터일반 자체제작 묶음 = 자체 제작 파트');assert.equal(cover['컴퓨터일반'].parts,n,'컴퓨터일반 자체제작 묶음은 모두 parts.js 파트');assert.deepEqual(cover['컴퓨터일반'].fallback,[],'컴퓨터일반: 파트 밖 묶음 없음');}
 
 // ── 2) 저장된 기록(실제 동기화 경로로 합침): 19강 첫 파트는 전부 외움 · 지대 파트 둘은 틀림 · 컴퓨터일반 기출 12문제(9개 정답) · 정보보호론 기출 3문제
 const seed=R(`(()=>{const today=ReviewSchedule.day(),ago=n=>ReviewSchedule.plus(today,-n),rows=[];let k=0;

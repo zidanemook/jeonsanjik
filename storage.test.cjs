@@ -205,7 +205,13 @@ const time=async(label,fn)=>{const t=Date.now(),v=await fn();return [v,Date.now(
   const state=Heavy.make(N),raw=JSON.stringify(state),local=makeLocal(),backend=createBackend();local.setItem('chagog-v1',raw);
   const [a,ms]=await time('migrate',()=>boot({local,backend}));assert.equal(a.mode(),'idb');
   const s=a.state();assert.equal(s.history.length,N);assert.equal(backend.keysOf('detail','chagog-v1').length,N);
-  assert.equal(canon({...s,cards:leanCards(s.cards),history:fullHistory(a,s.history)}),canon({...state,cards:leanCards(state.cards)}),'풀이 '+N+'건: 옮긴 상태가 옛 상태와 같다');
+  // 옛 상태를 만든 뒤에 앱에 더해진 문제는 켜질 때 새 기록이 생긴다(정상) — 옛 상태에 있던 id만 견준다. 새로 생긴 기록은 아직 풀지 않은 새 문제여야 한다.
+  const oldIds=new Set(state.cards.map(c=>c.id)),kept=s.cards.filter(c=>oldIds.has(c.id)),added=s.cards.filter(c=>!oldIds.has(c.id));
+  assert.equal(kept.length,state.cards.length,'풀이 '+N+'건: 옛 기록이 하나도 빠지지 않는다');
+  assert.ok(added.every(c=>!c.streak&&!c.interval),'풀이 '+N+'건: 새로 생긴 기록은 풀지 않은 새 문제뿐이다');
+  const sameOld=cards=>canon({...s,cards:leanCards(cards),history:fullHistory(a,s.history)})===canon({...state,cards:leanCards(state.cards)});
+  assert.ok(sameOld(kept),'풀이 '+N+'건: 옮긴 상태가 옛 상태와 같다');
+  assert.ok(!sameOld(kept.map((c,i)=>i?c:{...c,ease:(c.ease||2.5)+0.1})),'풀이 '+N+'건 대조군: 옛 기록 하나의 값이 달라지면 같다고 하지 않는다');
   assert.ok(local.getItem('chagog-v1')===raw,'옛 글이 그대로다');
   const segChars=Object.values(backend.dump().seg).reduce((n,x)=>n+x.s.length,0),detailChars=backend.size()-segChars-raw.length;
   const t0=Date.now();const ids=await a.solve(2,{subject:'영어',topic:'Day 2',round:''});const per=(Date.now()-t0)/2;assert.equal(a.state().history.length,N+2);

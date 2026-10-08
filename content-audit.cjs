@@ -140,6 +140,7 @@ const LENGTH_BALANCED=[
  'en-day11-','en-day12-','en-day13-','en-day14-','en-day15-',
  'ko-gram3-','ko-doc1-','ko-doc2-','ko-doc3-','ko-voc1-','ko-voc2-', // 2026-10-07 국어 독립 검토: 가장 긴 보기가 정답인 적이 없어(문법 3장 115/149) 소거 단서가 됐다 — 단원마다 두 쪽 띠로 잰다
  'comq-cg01-','comq-cg02-','comq-cg03-','comq-cg04-','comq-cg05-','comq-cg06-','comq-cg07-','comq-cg17-','comq-cg18-','comq-cg19-','comq-cg20-', // 2026-10-07 컴퓨터일반 자체 제작 — 단원마다 두 쪽 띠(research/computer-20261007)
+ 'comq-cg08-','comq-cg09-','comq-cg10-','comq-cg11-','comq-cg12-','comq-cg13-','comq-cg14-','comq-cg15-','comq-cg16-','comq-cg21-','comq-cg22-','comq-cg23-','comq-cg24-','comq-cg25-','comq-cg26-', // 2026-10-08 컴퓨터일반 자체 제작 — 단원마다 두 쪽 띠(research/computer-20261007)
 ];
 const BALANCE_BAND=[0.15,0.35];
 const balancedPrefix=id=>LENGTH_BALANCED.find(p=>id.startsWith(p));

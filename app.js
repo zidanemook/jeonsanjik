@@ -1102,22 +1102,22 @@ function renderPaperLoad(root,card,scope){
 }
 // 기초 개념(basics.js): 규칙마다 한 번 쓴 상자(1. 먼저 알아 둘 말 · 2. 표 · 3. 규칙 · 4. 비교 예문)에 문제마다 5. 이 문제에 대입을 붙인다.
 // 해설 화면에서는 '규칙과 비교 예문 더 보기'를 대신하고, 틀렸을 때만 펼쳐 둔다. 파트별 상태의 '기초 개념 보기'는 대입 없이 파트의 상자를 모두 모아 보여 준다.
-// 자료는 글자로만 받는다: {s|글} 색 칩 · **글** 굵게 · ○/✕ 색. 표가 없는 규칙은 번호를 당겨 적는다.
+// 자료는 글자로만 받는다: {s|글} 색 칩 · {c|코드} 고정폭 글자 그대로(안의 ** 는 굵게가 아니다) · **글** 굵게 · ○/✕ 색. 표가 없는 규칙은 번호를 당겨 적는다.
 const BASICS=globalThis.STUDY_BASICS||{boxes:{},apply:{},box:()=>null,forQuestion:()=>null};
 // 문제 → 상자: 국어 · 영어는 문제의 규칙(ruleId)마다 상자, 한국사는 파트마다 상자라서 그 문제의 대입(apply)에 상자 id(box)를 적어 둔다.
 const basicsRuleFor=id=>Content.lesson(id)?.ruleId||Content.applyBox(id)||null;
 const basicsClosed=new Set();
 function basicsInline(text){
- const out=[],re=/\{([spmqr])\|([^{}|]*)\}|\*\*(.+?)\*\*|([○✕])/g;let last=0,m;
+ const out=[],re=/\{([spmqrc])\|([^{}|]*)\}|\*\*(.+?)\*\*|([○✕])/g;let last=0,m;
  while((m=re.exec(text))){if(m.index>last)out.push(document.createTextNode(text.slice(last,m.index)));
-  out.push(m[1]?elem('span',m[2],'b-role b-'+m[1]):m[3]?elem('b',m[3]):elem('span',m[4],m[4]==='○'?'b-ok':'b-no'));last=re.lastIndex;}
+  out.push(m[1]==='c'?elem('code',m[2],'b-code'):m[1]?elem('span',m[2],'b-role b-'+m[1]):m[3]?elem('b',m[3]):elem('span',m[4],m[4]==='○'?'b-ok':'b-no'));last=re.lastIndex;}
  if(last<text.length)out.push(document.createTextNode(text.slice(last)));return out;
 }
 function basicsLines(text,cls,tag='p'){const p=elem(tag,undefined,cls);String(text).split('\n').forEach((line,i)=>{if(i)p.append(elem('br'));p.append(...basicsInline(line));});return p;}
 function basicsTable(t){const table=elem('table',undefined,'b-table'),head=elem('tr');for(const h of t.head){const th=elem('th');th.append(...basicsInline(h));head.append(th);}table.append(head);
  for(const row of t.rows){const tr=elem('tr');for(const cell of row){const td=elem('td'),[main,...sub]=String(cell).split('\n');td.append(...basicsInline(main));if(sub.length){const s=elem('small');s.append(...basicsInline(sub.join(' ')));td.append(s);}tr.append(td);}table.append(tr);}return table;}
 // 한국사 표(상자의 tables): 첫 칸이 짧으면(6자까지) 한 줄로 두고, 긴 칸(20자 넘음)은 문장처럼 왼쪽 맞춤. 다른 과목 표(basicsTable)는 그대로.
-const basicsPlainLen=t=>String(t).split('\n')[0].replace(/\{[spmqr]\|([^{}|]*)\}/g,'$1').replace(/\*\*/g,'').length;
+const basicsPlainLen=t=>String(t).split('\n')[0].replace(/\{[spmqrc]\|([^{}|]*)\}/g,'$1').replace(/\*\*/g,'').length;
 function basicsHistTable(t){const table=basicsTable(t);table.classList.add('b-hist');
  [...table.children].slice(1).forEach((tr,r)=>[...tr.children].forEach((td,i)=>{const len=basicsPlainLen(t.rows[r][i]);if(i===0&&len<=6)td.classList.add('b-nowrap');else if(i>0&&len>20)td.classList.add('b-long');}));return table;}
 function basicsDiagram(nodes){const wrap=elem('div',undefined,'b-diagram');
@@ -1189,7 +1189,7 @@ function basicsMnemonic(id){const b=globalThis.HISTORY_MNEMONICS?.get(id);if(!b)
  return d;}
 // 제자리에 둘 블록(셋까지): 부르는 낱말이 대입 첫 줄(정답 근거)에 나오면 2점, 다른 줄(오답 지우기)에 나오면 1점 — 점수 높은 셋을 상자 순서대로.
 function basicsMnemonicKeep(mn,apply){
- const plain=b=>typeof b==='string'?b.replace(/\{[spmqr]\|([^{}|]*)\}/g,'$1').replace(/\*\*/g,''):'',blocks=(apply.blocks||[]).map(plain),first=blocks[0]||'',others=blocks.slice(1).join(' ');
+ const plain=b=>typeof b==='string'?b.replace(/\{[spmqrc]\|([^{}|]*)\}/g,'$1').replace(/\*\*/g,''):'',blocks=(apply.blocks||[]).map(plain),first=blocks[0]||'',others=blocks.slice(1).join(' ');
  const score=x=>x.keys.filter(k=>first.includes(k)).length*2+x.keys.filter(k=>others.includes(k)).length;
  const top=new Set(mn.map((x,i)=>({x,i,s:score(x)})).filter(o=>o.s>0).sort((a,b)=>b.s-a.s||a.i-b.i).slice(0,3).map(o=>o.x));
  return mn.filter(x=>top.has(x));}
