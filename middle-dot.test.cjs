@@ -1,5 +1,5 @@
 // 가운뎃점 금지(2026-10-08 사용자: "· <== 글자사용 금지한다."). 자체 제작 글에 · (U+00B7) ‧ (U+2027) ・ (U+30FB) ㆍ (U+318D)가 다시 들어오면 실패한다.
-// 지금 검사하는 곳: 기초 개념 상자(basics.js boxes) 전부 · 외울 것(memorize.js). 아직 고치지 않은 곳(파트 · 단원 이름, 화면 글, 대입, 해설 · 보기)은
+// 지금 검사하는 곳: 기초 개념 상자(basics.js boxes) 전부 · 대입(basics.js apply) · 외울 것(memorize.js). 아직 고치지 않은 곳(파트 · 단원 이름, 화면 글, 해설 · 보기)은
 // PENDING에 적어 두고 고칠 때마다 이 파일에서 한 줄씩 지운다 — 지우면 그 범위도 바로 검사된다.
 // 예외는 아래 ALLOW 한 곳에만 둔다(사용자 답을 기다리는 것들 — 답이 오면 여기서 지운다).
 'use strict';
@@ -18,7 +18,7 @@ const ALLOW={
  memorizeSets:['english-grammar-formulas','history-mnemonics'],
 };
 // 아직 고치지 않아 검사에서 빼 둔 범위(고치면 지운다)
-const PENDING=['파트 · 단원 · 범위 이름(parts.js · core-units.js · topics.js)','화면 글(app.js · index.html)','대입(basics.js apply)','해설 · 보기(practice-bank.js · core-review-pack.js · quiz-options.js · hanneung-explanations.js · study-review-catalog.js)'];
+const PENDING=['파트 · 단원 · 범위 이름(parts.js · core-units.js · topics.js)','화면 글(app.js · index.html)','해설 · 보기(practice-bank.js · core-review-pack.js · quiz-options.js · hanneung-explanations.js · study-review-catalog.js)'];
 const DATE_RE=new RegExp('(?<![0-9])(?:'+ALLOW.dates.map(d=>d.replace('·',' ?· ?')).join('|')+')(?![0-9])','g');
 const NATION_RE=new RegExp('(?<![가-힣])['+ALLOW.nations+'] ?· ?['+ALLOW.nations+'](?:(?![가-힣])|(?=(?:이|가|은|는|의|과|와|을|를|에|도|로)(?![가-힣])))','g');
 const NAMES_RE=new RegExp(ALLOW.names.join('|'),'g');
@@ -36,10 +36,15 @@ const walk=(o,where,history)=>{if(typeof o==='string'){fields++;if(bad(o,history
  if(Array.isArray(o)){o.forEach((x,i)=>walk(x,where+'['+i+']',history));return;}
  if(o&&typeof o==='object')for(const k of Object.keys(o))if(k!=='id'&&k!=='rowIds'&&k!=='mnemonics')walk(o[k],where+'.'+k,history);};
 for(const [id,b] of Object.entries(B.boxes)){if(ALLOW.boxes.includes(id))continue;walk(b,id,/^hist-/.test(id));}
+// ── 대입: 한국사는 상자가 hist-이거나 한국사 기출(한능검 · 9급 한국사). 예외 상자(문장 부호)의 문제에 붙은 대입은 그대로 둔다.
+require('./practice-bank.js');const ruleOf=id=>(globalThis.PRACTICE_BANK[id]||{}).ruleId||'';
+const boxFields=fields;let applySkipped=0;
+for(const [id,a] of Object.entries(B.apply)){if(ALLOW.boxes.includes(a.box||ruleOf(id))){applySkipped++;continue;}walk(a.blocks,'대입 '+id,/^hist-/.test(a.box||'')||/^(hanneung-|gichul-[^-]+-[^-]+-history)/.test(id)||/-hist-/.test(id));}
+const applyFields=fields-boxFields;assert.ok(applySkipped>0&&applySkipped<100,'문장 부호 상자의 대입만 예외: '+applySkipped);
 // ── 외울 것
 const M=require('./memorize.js');let memo=0;
 for(const set of M.sets){if(ALLOW.memorizeSets.includes(set.id))continue;const before=fields;walk(set,'외울 것 '+set.id,set.subject==='한국사');memo+=fields-before;}
 assert.equal(fails.length,0,'가운뎃점이 든 글 '+fails.length+'곳:\n'+fails.slice(0,20).join('\n'));
 for(const id of ALLOW.boxes)assert.ok(B.boxes[id],'예외 상자가 있다: '+id);
 for(const id of ALLOW.memorizeSets)assert.ok(M.get(id),'예외 묶음이 있다: '+id);
-console.log('PASS middle-dot: 기초 개념 상자 '+(Object.keys(B.boxes).length-ALLOW.boxes.length)+'개와 외울 것 '+(M.sets.length-ALLOW.memorizeSets.length)+'묶음의 글 '+fields+'칸에 가운뎃점 없음(외울 것 '+memo+'칸 포함), 예외 이름으로 남긴 칸 '+kept+', 대조군 5종. 아직 검사 밖: '+PENDING.join(' / '));
+console.log('PASS middle-dot: 기초 개념 상자 '+(Object.keys(B.boxes).length-ALLOW.boxes.length)+'개 · 대입 '+(Object.keys(B.apply).length-applySkipped)+'문제 · 외울 것 '+(M.sets.length-ALLOW.memorizeSets.length)+'묶음의 글 '+fields+'칸에 가운뎃점 없음(대입 '+applyFields+'칸 · 외울 것 '+memo+'칸 포함), 예외 이름으로 남긴 칸 '+kept+', 대조군 5종. 아직 검사 밖: '+PENDING.join(' / '));
