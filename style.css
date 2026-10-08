@@ -445,3 +445,11 @@ body[data-view="quiz"] main { padding-top:14px; }
 .part-legend { list-style:none; margin:4px 0 14px; padding:0; line-height:1.6; font-size:.92em; }
 .part-legend li { padding-left:1em; text-indent:-1em; overflow-wrap:anywhere; }
 .part-legend li::before { content:'· '; }
+/* v248: 저장이 실패한 동안 화면 위에 떠 있는 띠(막지 않는다) · 진행상황 화면의 기록 파일 줄 */
+.save-alert { position: sticky; top: 8px; z-index: 5; margin: 0 0 12px; padding: 12px 14px; border: 1px solid #c98a2b; border-radius: 12px; background: #3a2b12; color: #ffe9c2; }
+.save-alert[hidden] { display: none; }
+.save-alert p { margin: 0 0 10px; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
+.save-alert-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.save-alert-actions button { padding: 10px 14px; }
+.export-line { margin-top: 16px; }
+.export-line small { display: block; margin-top: 8px; line-height: 1.6; }

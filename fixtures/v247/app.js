@@ -18,137 +18,16 @@ function cardContent(){return Content.contentMap();}
 // 앱 파일이 기준이다. 저장된 옛 사본이 있어도 앱 파일 문장으로 덮어쓴다(문장 수정이 바로 반영된다).
 // v131 복습 일정 규칙(7일 → 14일 → 30일 → 외운 문제)으로 한 번 다시 계산한다. 일정은 풀이 기록에서 나오므로 기록은 그대로다.
 const SCHEDULE_VERSION=3; // v139: 기회 한 번 · 한 단계 내림 규칙으로 다시 계산
-function reschedule(state,write=true){if(state.scheduleVersion===SCHEDULE_VERSION||typeof ProgressSync==='undefined')return state;let next;try{next=ProgressSync.merge(state,[]);}catch{return state;}next.scheduleVersion=SCHEDULE_VERSION;if(write)try{writeState(KEY,next);}catch{}return next;}
+function reschedule(state){if(state.scheduleVersion===SCHEDULE_VERSION||typeof ProgressSync==='undefined')return state;let next;try{next=ProgressSync.merge(state,[]);}catch{return state;}next.scheduleVersion=SCHEDULE_VERSION;try{writeState(KEY,next);}catch{}return next;}
 function hydrateCards(state){const m=cardContent();state.cards=state.cards.map(c=>{const base=m.get(c.id);return base?{...c,...base}:c;});return state;}
 function leanState(state){const m=cardContent();return {...state,version:3,cards:state.cards.map(c=>{if(!m.has(c.id))return c;const out={...c};for(const k of CARD_CONTENT)delete out[k];return out;})};}
 function writeState(key,state){localStorage.setItem(key,JSON.stringify(leanState(state)));}
 let data={version:3,cards:[],history:[]}, storageOK=true;
-// v248 저장: 큰 것(문제 일정 · 풀이 · 해설 열람 · 풀이 사본)은 IndexedDB에 조각으로 둔다(storage.js StudyStorage). localStorage 한 줄(한도 5,242,880자)은 풀이 3,000건쯤에서 막혔다.
-//  · idb가 있으면 IndexedDB 방식, null이면 옛 방식(localStorage 한 줄 — IndexedDB를 못 쓰는 브라우저와 검사 환경, 그리고 옮기기가 실패한 날).
-//  · IndexedDB 방식에서 메모리의 풀이 줄은 사본(detail) 대신 두 칸만 든다: ex = exerciseId, cid = conceptId. 사본은 IndexedDB에만 있고 올릴 때 · 기록 파일을 만들 때 읽는다.
-//  · 저장이 실패해도 답은 버리지 않는다: 메모리의 상태를 바꾸고 화면을 넘긴 뒤, 띠로 알리고 계속 다시 쓴다(못 쓴 풀이는 localStorage의 chagog-spill:<프로필>에 넘겨 두었다가 다음에 합친다).
-const Store=globalThis.StudyStorage||null;
-let idb=null,lastWrite=null,saveFailing=false,saveRetry=null,rebasing=false,lastConfirmedAt=Date.now(),spillKey='';
-const pendingDetails=new Map(); // 풀이 id → 사본. IndexedDB에 쓰였다고 확인되면 비운다.
-const SPILL='chagog-spill:',MARK='chagog-idb:',LEGACY_KEEP_MS=14*86400000;
-function slimRows(rows,into=pendingDetails){let out=rows;for(let i=0;i<rows.length;i++){const h=rows[i];if(h.detail===undefined)continue;if(out===rows)out=rows.slice();const {detail,...row}=h;if(row.ex===undefined){into.set(h.id,detail);row.ex=detail.exerciseId;row.cid=detail.conceptId;}out[i]=row;}return out;}
-function fullRows(rows,details){return rows.map(h=>{if(h.ex===undefined&&h.cid===undefined)return h;const {ex,cid,...row}=h,d=h.detail||details.get(h.id);return d?{...row,detail:d}:row;});}
-// 다른 상태를 합친다(덮어쓰지 않는다): 풀이는 id로 합집합이고 일정은 합친 기록에서 다시 계산, 해설 열람 · 의견도 합집합, 기준에 없는 문제 줄만 뒤에 붙임, 설정은 기준 것. 두 번 해도 같다.
-function foldIn(base,other){
- const ids=new Set(base.cards.map(c=>c.id));let next={...base,cards:[...base.cards,...other.cards.filter(c=>!ids.has(c.id))]};
- next=ProgressSync.merge(next,other.history);
- const hint=new Map(other.history.filter(h=>h.ex!==undefined).map(h=>[h.id,h]));for(const h of next.history){if(h.detail===undefined&&h.ex===undefined){const o=hint.get(h.id);if(o){h.ex=o.ex;h.cid=o.cid;}}}
- next.explanationViews=StudyCredit.unionExplanations(next.explanationViews||[],other.explanationViews||[]);
- next.notes=ProgressSync.unionNotes(cleanNotes(next.notes),cleanNotes(other.notes));
- return next;
-}
-function sameValue(a,b){
- if(a===b)return true;if(typeof a!=='object'||typeof b!=='object'||a===null||b===null)return false;
- if(Array.isArray(a)||Array.isArray(b)){if(!Array.isArray(a)||!Array.isArray(b)||a.length!==b.length)return false;for(let i=0;i<a.length;i++)if(!sameValue(a[i],b[i]))return false;return true;}
- const ka=Object.keys(a).filter(k=>a[k]!==undefined),kb=Object.keys(b).filter(k=>b[k]!==undefined);if(ka.length!==kb.length)return false;for(const k of ka)if(!sameValue(a[k],b[k]))return false;return true;
-}
-function readLegacy(raw,key,write){
- const parsed=JSON.parse(raw);validateBackup(parsed);let state=reschedule(hydrateCards(migrate(parsed)),write);if(state.notes!==undefined)state.notes=cleanNotes(state.notes);
- if(parsed.version===1&&!localStorage.getItem(key+'-before-adaptive')){if(write)localStorage.setItem(key+'-before-adaptive',raw);else try{localStorage.setItem(key+'-before-adaptive',raw);}catch{}}
- if(write&&parsed.version!==3)writeState(key,state);return state;
-}
-function loadLocal(){try{const raw=localStorage.getItem(KEY);if(raw)data=readLegacy(raw,KEY,true);}catch(e){storageOK=false;notify('저장 데이터를 읽지 못했어요. 기존 데이터를 보호하기 위해 저장을 중지했어요.');}}
-// 옛 형식 → IndexedDB. 한 트랜잭션으로 쓰고, 다시 읽어 옛 상태와 값이 모두 같은지 본 뒤에야 '확인됨'을 찍는다. 옛 글은 지우지 않는다(backup 저장소에도 그대로 한 부).
-// 어느 걸음에서 끊겨도 IndexedDB의 그 프로필은 '확인 안 됨'으로 남아 쓰이지 않고, 다음에 열 때 처음부터 다시 한다.
-async function adopt(key,state,raw){
- const lean=leanState(state),details=new Map(),slim={...lean,history:slimRows(lean.history,details)};
- const handle=Store.handle(key,null,null),fp={...Store.fingerprint(raw),at:Date.now()};
- await Store.write(handle,slim,details,{replace:true,verified:false,legacy:fp,backup:{raw,at:fp.at}});
- const loaded=await Store.read(key),asm=Store.assemble(loaded),got=new Map();await Store.eachDetail(key,(id,d)=>got.set(id,d));
- if(got.size!==details.size||!sameValue({...asm.state,history:fullRows(asm.state.history,got)},lean))throw Error('Migrated copy differs');
- await Store.mark(handle,{verified:true});
- try{localStorage.setItem(MARK+key,String(fp.at));}catch{}
- return {state:{...state,history:slim.history},handle};
-}
-// 프로필을 IndexedDB 방식으로 연다. {state, handle, dirty, note} — null이면 옛 방식으로 돌아야 한다(IndexedDB를 못 쓰거나 옮기기가 실패함). 읽은 상태가 깨져 있으면 던진다(저장을 멈춘다).
-async function openProfile(key,boot){
- let loaded;
- if(boot&&boot.key===key){if(!boot.available)return null;loaded=boot.loaded;}else{try{loaded=await Store.read(key);}catch{return null;}}
- let marker=null,legacyRaw=null;try{marker=localStorage.getItem(MARK+key);legacyRaw=localStorage.getItem(key);}catch{}
- let state,handle,dirty=false,note='';
- if(loaded&&loaded.meta.verified){
-  const asm=Store.assemble(loaded);validateBackup(asm.state);
-  state=hydrateCards(asm.state);handle=Store.handle(key,loaded,asm);
-  const before=state.scheduleVersion;state=reschedule(state,false);if(state.scheduleVersion!==before)dirty=true;
-  if(state.notes!==undefined)state.notes=cleanNotes(state.notes);
-  if(legacyRaw){
-   const fp=Store.fingerprint(legacyRaw),was=handle.legacy;
-   // 옮긴 뒤에 옛 글이 바뀌었다(옛 판 탭이 더 썼다) → 합친다. 그대로면 14일 뒤에 localStorage의 옛 글만 지운다(backup 저장소의 사본은 남는다).
-   if(!was||was.len!==fp.len||was.hash!==fp.hash){try{state=foldIn(state,readLegacy(legacyRaw,key,false));handle.legacyNext={...fp,at:Date.now()};dirty=true;}catch{}}
-   else if(Date.now()-was.at>LEGACY_KEEP_MS){try{localStorage.removeItem(key);}catch{}}
-  }
-  if(!marker)try{localStorage.setItem(MARK+key,String(Date.now()));}catch{}
- }else if(legacyRaw){
-  const legacy=readLegacy(legacyRaw,key,false);
-  try{({state,handle}=await adopt(key,legacy,legacyRaw));}catch(e){return null;}
-  if(marker)note='restored';
- }else{
-  state={version:3,cards:[],history:[]};handle=Store.handle(key,null,null);if(marker)note='lost';
- }
- let spill=null;try{spill=localStorage.getItem(SPILL+key);}catch{}
- if(spill){try{const s=JSON.parse(spill);validateBackup(s);state=foldIn(state,s);dirty=true;spillKey=key;}catch{}}
- return {state,handle,dirty,note};
-}
-function saveAlert(){const box=$('#saveAlert');if(box)box.hidden=!saveFailing;}
-// 아직 IndexedDB에 못 쓴 풀이(사본째) · 그 무렵의 해설 열람 · 의견을 localStorage에 넘겨 둔다. 다음에 열 때 foldIn으로 합친다.
-function writeSpill(key){
- try{const since=lastConfirmedAt-60000,rows=fullRows(data.history.filter(h=>pendingDetails.has(h.id)),pendingDetails);
-  localStorage.setItem(SPILL+key,JSON.stringify({version:3,cards:[],history:rows,explanationViews:(data.explanationViews||[]).filter(v=>v.openedAt>=since||pendingDetails.has(v.id)),notes:cleanNotes(data.notes).filter(n=>n.at>=since)}));spillKey=key;}catch{}
-}
-function saveFailed(key){
- if(idb)writeSpill(key);
- if(!saveFailing){saveFailing=true;notify('이 기기에 저장하지 못했어요. 푼 기록은 화면에 남아 있어요 · 위 안내를 봐 주세요.');}
- saveAlert();
- if(saveRetry===null&&typeof setTimeout==='function')saveRetry=setTimeout(()=>{saveRetry=null;if(saveFailing&&storageOK)persist();},15000);
-}
-function saveWorked(key){
- lastConfirmedAt=Date.now();
- // 이 프로필이 IndexedDB에 있다는 작은 표시(브라우저가 IndexedDB를 지웠는지 다음에 알아채려고).
- if(idb&&idb.key===key&&!idb.marked){idb.marked=true;try{if(!localStorage.getItem(MARK+key))localStorage.setItem(MARK+key,String(Date.now()));}catch{}}
- if(spillKey===key){try{localStorage.removeItem(SPILL+key);}catch{}spillKey='';}
- if(!saveFailing)return;saveFailing=false;if(saveRetry!==null){if(typeof clearTimeout==='function')clearTimeout(saveRetry);saveRetry=null;}saveAlert();notify('다시 저장됐어요.');
-}
-// 다른 탭이 먼저 썼다(rev가 다르다): 그 상태를 다시 읽어 내 것과 합친 뒤 쓴다. 풀이는 양쪽 다 남는다.
-async function rebase(){
- if(rebasing||!idb)return;rebasing=true;const key=KEY;
- try{const loaded=await Store.read(key);if(KEY!==key||!idb)return;
-  // 저장소에서 이 프로필이 통째로 사라졌으면(브라우저가 지움) 메모리의 상태를 처음부터 다시 쓴다.
-  if(!loaded){idb=Store.handle(key,null,null);rebasing=false;persist();return;}
-  const asm=Store.assemble(loaded);validateBackup(asm.state);
-  data=foldIn(data,hydrateCards(asm.state));idb=Store.handle(key,loaded,asm);rebasing=false;persist();render();
- }catch(e){saveFailed(key);}finally{rebasing=false;}
-}
-// 지금 상태를 기기에 쓴다. 실패해도 던지지 않는다(saveFailed가 알리고 다시 시도한다).
-function persist(){
- if(!idb){try{writeState(KEY,data);saveWorked(KEY);}catch(e){saveFailed(KEY);}return;}
- if(data.history.some(h=>h.detail!==undefined))data.history=slimRows(data.history);
- const p=idb,key=KEY,details=new Map(pendingDetails),opt=p.legacyNext?{legacy:p.legacyNext}:{};let job;
- try{job=Store.write(p,leanState(data),details,opt);}catch(e){job=Promise.reject(e);}
- lastWrite=job.then(()=>{for(const [id,d]of details)if(pendingDetails.get(id)===d)pendingDetails.delete(id);if(opt.legacy&&p.legacyNext===opt.legacy)delete p.legacyNext;if(idb===p)saveWorked(key);},
-  e=>{if(idb!==p)return;if(e&&e.conflict)return rebase();saveFailed(key);});
-}
-// 기록 파일(옛 형식 version 3 그대로 — 문제 일정 · 풀이와 그 사본 · 해설 열람 · 의견 · 설정 전부). 글 조각의 배열로 낸다(풀이가 많으면 한 줄 글로는 너무 크다).
-async function buildExport(){
- const lean=leanState(data),details=new Map(pendingDetails);let complete=true;
- if(idb){try{await Store.eachDetail(KEY,(id,d)=>{if(!details.has(id))details.set(id,d);});}catch{complete=false;}}
- const {history,...rest}=lean,head=JSON.stringify({...rest,exportedAt:new Date().toISOString(),exportComplete:complete});
- const parts=[head.slice(0,-1)+',"history":['];fullRows(history,details).forEach((row,i)=>parts.push((i?',':'')+JSON.stringify(row)));parts.push(']}');return parts;
-}
-async function downloadExport(){
- try{const parts=await buildExport(),url=URL.createObjectURL(new Blob(parts,{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='chagog-backup-'+day()+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);
-  notify('기록 파일을 내려받았어요 · 풀이 '+data.history.length+'건. 안전한 곳에 보관해 주세요.');}
- catch(e){notify('기록 파일을 만들지 못했어요. 다시 시도해 주세요.');}
-}
 // 조각이 붙으면 그 문제들의 카드에 글을 붙인다(일정 칸은 건드리지 않는다. 저장소에는 원래도 글을 남기지 않는다 — leanState).
 Content.onAttach(ids=>{if(!ids.length)return;const m=cardContent(),set=new Set(ids);for(const c of data.cards)if(set.has(c.id)){const base=m.get(c.id);if(base)Object.assign(c,base);}});
+try{const raw=localStorage.getItem(KEY);if(raw){const parsed=JSON.parse(raw);validateBackup(parsed);data=reschedule(hydrateCards(migrate(parsed)));if(data.notes!==undefined)data.notes=cleanNotes(data.notes);if(parsed.version===1&&!localStorage.getItem(KEY+'-before-adaptive'))localStorage.setItem(KEY+'-before-adaptive',raw);if(parsed.version!==3)writeState(KEY,data);}}catch(e){storageOK=false;notify('저장 데이터를 읽지 못했어요. 기존 데이터를 보호하기 위해 저장을 중지했어요.');}
 function notify(t){$('#message').textContent=t;}
-// v248: 저장이 실패해도 답을 버리지 않는다 — 메모리의 상태를 바꾸고(화면이 넘어간다) persist가 알리고 다시 쓴다. false는 읽은 상태가 깨져 저장을 멈춘 때뿐이다.
-function commit(next){if(!storageOK){notify('저장소를 확인해야 합니다. 새로고침 후 다시 시도하세요.');return false;}data=next;persist();window.dispatchEvent(new Event('study-progress-saved'));return true;}
+function commit(next){if(!storageOK){notify('저장소를 확인해야 합니다. 새로고침 후 다시 시도하세요.');return false;}try{writeState(KEY,next);data=next;window.dispatchEvent(new Event('study-progress-saved'));return true;}catch(e){notify('저장 공간이 부족하거나 저장이 차단됐어요. 기록은 변경되지 않았습니다.');return false;}}
 function elem(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
 function btn(text,fn,cls){const b=elem('button',text,cls);b.onclick=fn;return b;}
 function validDay(s){if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s))return false;return plus(s,0)===s;}
@@ -330,7 +209,7 @@ function renderScopeStatus(scope){renderMasteredToggle(scope);renderMoreToggle(s
   const part=partScope(r);if(part){const byId=new Map(data.cards.filter(c=>isPlayable(c)&&c.subject===scope.subject).map(c=>[c.id,c])),x=partStats(PARTS.part(part),byId);el.textContent+=' · '+reviewLine(x)+(x.weak?' · ⚠ 약함':'')+(x.gichul?' · '+gichulLine(x.gichul):'');}}
  const cancelled=$('#annulledQuestion');cancelled.hidden=!(isRound&&numeric===63);if(!cancelled.hidden&&!cancelled.querySelector('img'))appendPaper(cancelled,Hanneung.get('hanneung-63-42'));
 }
-function saveDraft(){if(!storageOK)return;persist();}
+function saveDraft(){if(!storageOK)return;try{writeState(KEY,data);}catch{notify('입력 내용을 저장하지 못했어요.');}}
 function setQueueMode(value){
  if(queueMode()===value)return;
  // 파트별 점검을 다시 고르면: 이 범위의 판이 이미 끝났으면 새 판, 하던 판이면 이어서.
@@ -512,7 +391,7 @@ const GICHUL_PART_SUBJECTS=new Set(['정보보호론','컴퓨터일반']);
 let delayedCache=null;
 function delayedResults(){
  const views=data.explanationViews||[];if(delayedCache?.rows===data.history&&delayedCache.views===views)return delayedCache.value;
- let value;try{value=PartCheck.delayed(data.history,views,ms=>day(new Date(ms)),h=>h.detail?.conceptId||h.cid||ReviewPolicy.concept(h.cardId));}catch{value=new Map();}
+ let value;try{value=PartCheck.delayed(data.history,views,ms=>day(new Date(ms)),h=>h.detail?.conceptId||ReviewPolicy.concept(h.cardId));}catch{value=new Map();}
  delayedCache={rows:data.history,views,value};return value;
 }
 function reviewJudge(ids){return PartCheck.judge(ids,delayedResults());}
@@ -716,7 +595,7 @@ function attachExplanationCredit(details,reviewId,location){
 }
 function feedbackReviewId(feedback){
  if(feedback.reviewId)return feedback.reviewId;
- return data.history.filter(h=>h.cardId===feedback.cardId&&h.mode==='quiz'&&(!feedback.exercise?.exerciseId||!(h.detail?.exerciseId||h.ex)||(h.detail?.exerciseId||h.ex)===feedback.exercise.exerciseId)).sort((a,b)=>(a.at||a.date).localeCompare(b.at||b.date)||a.id.localeCompare(b.id)).at(-1)?.id;
+ return data.history.filter(h=>h.cardId===feedback.cardId&&h.mode==='quiz'&&(!feedback.exercise?.exerciseId||!h.detail||h.detail.exerciseId===feedback.exercise.exerciseId)).sort((a,b)=>(a.at||a.date).localeCompare(b.at||b.date)||a.id.localeCompare(b.id)).at(-1)?.id;
 }
 function restoreExplanationPanels(keys){for(const node of document.querySelectorAll('[data-explanation-key]'))if(keys.has(node.dataset.explanationKey))node.open=true;}
 function appendCorrection(parent,snapshot){const update=ContentCorrections.find(snapshot);if(!update)return;const note=elem('div',undefined,'content-correction');note.append(elem('strong','문제·해설 수정 안내'),elem('p','아래 기록은 수정 전 문제의 당시 채점 결과입니다.'),elem('p',update.note),elem('p','현재 문제: '+update.question),elem('p','현재 정답: '+update.answer),elem('p',update.explanation));parent.append(note);}
@@ -801,7 +680,7 @@ function appendNewPaperExplanation(parent,id,previous,reviewId,location){
 // Only explicit user choices move the shared study position; incoming sync and redraws never do.
 let sessionDirty=false;
 function sessionSnapshot(){const s=data.practiceScope||{},a=data.activePractice,e=a?.exercise;return {subject:s.subject||'',topic:s.topic||'',round:s.round||'',cardId:e?a.cardId:null,exerciseId:e?.exerciseId||null,variantIndex:e?(e.variantIndex??0):null,type:e?e.type:null,choices:e?.type==='choice'?[...e.choices]:null};}
-function stampSession(){if(!storageOK)return;let session;try{session=ProgressSync.session({at:Math.max(Date.now(),(data.session?.at||0)+1),...sessionSnapshot()});}catch{return;}data.session=session;persist();window.dispatchEvent(new Event('study-progress-saved'));}
+function stampSession(){if(!storageOK)return;let session;try{session=ProgressSync.session({at:Math.max(Date.now(),(data.session?.at||0)+1),...sessionSnapshot()});}catch{return;}data.session=session;try{writeState(KEY,data);window.dispatchEvent(new Event('study-progress-saved'));}catch{}}
 // 화면 아래 출처 줄: 지금 보는 과목의 문제가 어디서 왔는지만 적는다(국어를 풀 때 국사편찬위원회가 뜨지 않게). 컴퓨터일반·정보보호론은 자체 제작 문제가 없다.
 function footerText(subject){const exam='인사혁신처 공개 9급 기출',hist='국사편찬위원회 공개 한능검 심화 기출',own='자체 제작 복습 문제';if(subject==='한국사')return [own,exam,hist].join(' · ');if(subject==='국어'||subject==='영어'||(subject==='컴퓨터일반'&&COMPUTER_SELF.length))return [own,exam].join(' · ');if(subject==='컴퓨터일반'||subject==='정보보호론')return exam;return [own,exam,hist].join(' · ');}
 function footerSubject(){if(view==='home')return '';if(view!=='quiz')return viewSubject;try{const sc=scopeOf();if(sc.subject)return sc.subject;const id=data.session&&data.session.cardId,c=id&&data.cards.find(x=>x.id===id);return c?c.subject:'';}catch{return viewSubject;}}
@@ -1350,8 +1229,6 @@ function answerPractice(id,input){
 // 이제 이름을 보지 않고 대조한다. 기기에 없는 문제는 언제나 넣고, 넣을 것이 없으면 저장도 하지 않는다.
 // v247: 글을 아직 받지 않은 문제는 과목만 가진 일정 카드로 넣는다(일정 칸은 같다. 글은 조각이 붙을 때 채운다).
 function installCorePack(){const ids=new Set(data.cards.map(c=>c.id));const cards=[...cardContent()].filter(([id])=>!ids.has(id)).map(([id,c])=>c.question===undefined?{id,subject:c.subject,verified:true,created:day(),due:day(),ease:2.5,interval:0,streak:0}:({...newCard(c),id}));if(!cards.length)return;commit({...data,cards:[...data.cards,...cards]});}
-// v248: 여기부터 첫 그리기까지는 저장 상태를 읽은 뒤에 돈다(startApp). IndexedDB 읽기는 storage.js가 맨 앞에서 시작해 두었다.
-function startApp(){
 installCorePack();
 // 더는 없는 문제(v57에서 문제 하나씩으로 나눈 영어 규칙 카드 등)를 가리키던 풀이 화면·채점 화면만 비운다.
 // 그대로 두면 채점 화면이 남아 다음 답을 받지 못한다. 채점 기록(history)과 카드 일정은 한 건도 지우지 않는다.
@@ -1380,36 +1257,11 @@ $('#targetReset').onclick=()=>saveTarget(null);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)render();});render();
 setInterval(()=>{if(view==='quiz'&&!document.hidden&&!$('#card .question')&&reviewQueue(data.cards.filter(inCurrent),rangedScope(scopeOf()),scopeOf().subject).ready.length)render();},15000);
 if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
-for(const id of ['#exportState','#saveAlertExport']){const b=$(id);if(b)b.onclick=()=>{void downloadExport();};}
-{const b=$('#saveAlertRetry');if(b)b.onclick=()=>{if(storageOK)persist();};}
-document.addEventListener('visibilitychange',()=>{if(document.hidden&&saveFailing&&storageOK)persist();});
-saveAlert();
-}
-const START_NOTES={lost:'이 기기에 저장해 둔 기록을 브라우저가 지웠어요. 로그인돼 있으면 서버의 기록을 다시 받아요.',restored:'이 기기에 저장해 둔 기록을 브라우저가 지워서, 남아 있던 예전 기록으로 되살렸어요. 로그인돼 있으면 서버의 기록을 다시 받아요.',unavailable:'저장소를 열지 못해 예전 방식으로 열었어요. 지금 푸는 기록은 따로 저장했다가 다음에 열 때 합쳐요.'};
-// 저장 상태를 읽고 앱을 시작한다. StudyStorage가 없으면(검사 환경) 지금 자리에서 바로, 있으면 IndexedDB 읽기가 끝난 뒤에.
-function begin(){
- if(!Store||Store.none){loadLocal();startApp();return Promise.resolve();}
- return Store.ready.then(async boot=>{
-  let note='';
-  try{const o=await openProfile(KEY,boot);
-   if(o){data=o.state;idb=o.handle;note=o.note;if(o.dirty)persist();void Store.persist();}
-   else{loadLocal();try{if(localStorage.getItem(MARK+KEY))note='unavailable';}catch{}}
-  }catch(e){storageOK=false;notify('저장 데이터를 읽지 못했어요. 기존 데이터를 보호하기 위해 저장을 중지했어요.');}
-  startApp();if(note&&storageOK)notify(START_NOTES[note]);
- });
-}
 
 let sessionWait=0;
 globalThis.StudyProgress={
  get:()=>structuredClone(data),
- merge(rows){const next=ProgressSync.merge(data,rows);if(idb)next.history=slimRows(next.history);if(JSON.stringify(next)!==JSON.stringify(data)){if(!commit(next))throw Error('Local save failed');render();}},
- // 올릴 풀이 문서에 사본을 붙인다(IndexedDB 방식의 메모리 줄에는 사본이 없다). 읽기가 실패하면 던진다 — 사본 없이 올리면 서버 문서를 다시는 못 고친다.
- async withDetails(events){
-  if(!idb)return events;const rows=new Map(data.history.map(h=>[h.id,h])),found=new Map(),miss=[];
-  for(const e of events){if(e.detail!==undefined)continue;const d=pendingDetails.get(e.id);if(d)found.set(e.id,d);else if(rows.get(e.id)?.ex!==undefined)miss.push(e.id);}
-  if(miss.length)for(const [id,d]of await Store.details(KEY,miss))found.set(id,d);
-  return events.map(e=>found.has(e.id)?ProgressSync.event({...e,detail:found.get(e.id)}):e);
- },
+ merge(rows){const next=ProgressSync.merge(data,rows);if(JSON.stringify(next)!==JSON.stringify(data)){if(!commit(next))throw Error('Local save failed');render();}},
  session:()=>data.session?structuredClone(data.session):null,
  // A newer position from another device reopens the same scope, question and choice order.
  mergeSession(row){
@@ -1426,40 +1278,14 @@ globalThis.StudyProgress={
  notes:()=>structuredClone(data.notes||[]),
  mergeNotes(rows){const notes=ProgressSync.unionNotes(cleanNotes(data.notes),rows);if(JSON.stringify(notes)!==JSON.stringify(data.notes||[])){if(!commit({...data,notes}))throw Error('Local save failed');}},
  mergeExplanations(rows){const views=StudyCredit.unionExplanations(data.explanationViews||[],rows);if(JSON.stringify(views)!==JSON.stringify(data.explanationViews||[])){if(!commit({...data,explanationViews:views}))throw Error('Local save failed');renderStudyCredit();updateExplanationCredits();}},
- // 계정 바꾸기. IndexedDB 방식에서는 비동기다(sync.js가 기다린다). 시작이 끝난 뒤에, 한 번에 하나씩 돈다.
- switchUser(uid){if(!Store||Store.none)return switchLocal(uid);const job=switching.then(()=>started).then(()=>switchProfile(uid));switching=job.catch(()=>{});return job;}
+ switchUser(uid){
+  const target=profileKey(uid);if(target===KEY)return;
+  const raw=localStorage.getItem(target);let next=raw?JSON.parse(raw):{version:3,cards:[],history:[]};validateBackup(next);next=reschedule(hydrateCards(migrate(next)));if(next.notes!==undefined)next.notes=cleanNotes(next.notes);
+  const owner=localStorage.getItem('chagog-owner');
+  if(uid&&!owner){const guest=localStorage.getItem('chagog-v1');if(guest){const parsed=JSON.parse(guest);validateBackup(parsed);const old=migrate(parsed);const ids=new Set(next.cards.map(c=>c.id));next.cards.push(...old.cards.filter(c=>!ids.has(c.id)));next=ProgressSync.merge(next,old.history);next.explanationViews=StudyCredit.unionExplanations(next.explanationViews||[],old.explanationViews||[]);next.notes=ProgressSync.unionNotes(cleanNotes(next.notes),cleanNotes(old.notes));}}
+  delete next.quizFeedback;delete next.activePractice;for(const c of next.cards)delete c.pendingAttempt;
+  writeState(target,next);
+  if(uid){if(!owner)localStorage.setItem('chagog-owner',uid);localStorage.setItem('chagog-active-user',uid);}else localStorage.removeItem('chagog-active-user');
+  KEY=target;data=next;creditHistoryLimit=14;storageOK=true;paperCursor=null;installCorePack();render();
+ }
 };
-// 옛 방식(localStorage 한 줄)의 계정 바꾸기.
-// v248: 여기서 reschedule이 '지금 프로필'(KEY)에 쓰지 않게 한다 — v247까지는 옮겨 갈 프로필의 상태(처음이면 빈 상태)를 지금 프로필 자리에 써서,
-// 처음 로그인할 때 손님 기록이 합쳐지기 직전에 지워졌고, 로그아웃할 때는 계정의 기기 사본이 빈 상태로 덮였다(서버 기록은 그대로라 다시 로그인하면 내려받았다).
-function switchLocal(uid){
- const target=profileKey(uid);if(target===KEY)return;
- const raw=localStorage.getItem(target);let next=raw?JSON.parse(raw):{version:3,cards:[],history:[]};validateBackup(next);next=reschedule(hydrateCards(migrate(next)),false);if(next.notes!==undefined)next.notes=cleanNotes(next.notes);
- const owner=localStorage.getItem('chagog-owner');
- if(uid&&!owner){const guest=localStorage.getItem('chagog-v1');if(guest){const parsed=JSON.parse(guest);validateBackup(parsed);const old=migrate(parsed);const ids=new Set(next.cards.map(c=>c.id));next.cards.push(...old.cards.filter(c=>!ids.has(c.id)));next=ProgressSync.merge(next,old.history);next.explanationViews=StudyCredit.unionExplanations(next.explanationViews||[],old.explanationViews||[]);next.notes=ProgressSync.unionNotes(cleanNotes(next.notes),cleanNotes(old.notes));next=hydrateCards(next);}}
- delete next.quizFeedback;delete next.activePractice;for(const c of next.cards)delete c.pendingAttempt;
- writeState(target,next);
- if(uid){if(!owner)localStorage.setItem('chagog-owner',uid);localStorage.setItem('chagog-active-user',uid);}else localStorage.removeItem('chagog-active-user');
- KEY=target;data=next;creditHistoryLimit=14;storageOK=true;paperCursor=null;installCorePack();render();
-}
-// IndexedDB 방식의 계정 바꾸기: 그 프로필을 열고(없으면 옛 글에서 옮기고), 처음 로그인이면 손님 기록(chagog-v1)을 합친다.
-async function readProfile(key){
- try{const loaded=await Store.read(key);if(loaded&&loaded.meta.verified){const asm=Store.assemble(loaded);validateBackup(asm.state);const got=new Map();await Store.eachDetail(key,(id,d)=>got.set(id,d));return {...asm.state,history:fullRows(asm.state.history,got)};}}catch{}
- const raw=localStorage.getItem(key);if(!raw)return null;const parsed=JSON.parse(raw);validateBackup(parsed);return migrate(parsed);
-}
-async function switchProfile(uid){
- const target=profileKey(uid);if(target===KEY)return;
- if(lastWrite)await lastWrite.catch(()=>{});
- const o=await openProfile(target,null);
- if(!o){idb=null;pendingDetails.clear();saveFailing=false;saveAlert();switchLocal(uid);return;}
- let next=o.state;const owner=localStorage.getItem('chagog-owner');
- // 합친 손님 문제 줄에는 글 없는 일정 칸만 있다 → 과목 · 글을 다시 붙인다(안 붙이면 그 문제들이 범위에서 빠진다).
- if(uid&&!owner){const guest=await readProfile('chagog-v1');if(guest)next=hydrateCards(foldIn(next,guest));}
- delete next.quizFeedback;delete next.activePractice;for(const c of next.cards)delete c.pendingAttempt;
- if(uid){if(!owner)localStorage.setItem('chagog-owner',uid);localStorage.setItem('chagog-active-user',uid);}else localStorage.removeItem('chagog-active-user');
- pendingDetails.clear();saveFailing=false;saveAlert();
- KEY=target;idb=o.handle;data=next;creditHistoryLimit=14;storageOK=true;paperCursor=null;persist();installCorePack();render();
- if(o.note)notify(START_NOTES[o.note]);
-}
-let switching=Promise.resolve();
-const started=begin();

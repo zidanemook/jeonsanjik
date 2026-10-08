@@ -86,9 +86,7 @@
      if(!pending.length&&!views.length)break;
      say('학습 기록 동기화 중…');const batch=db.batch(),isView=!pending.length,chunk=isView?views.slice(0,10):pending.slice(0,50);
      // Save the parent quiz first; view batches stay within rule document-access limits.
-     // v248: 기기의 풀이 줄은 사본(detail)을 따로 둔다 — 올릴 묶음에만 붙인다. 붙이지 못하면(읽기 실패) 이번에는 올리지 않는다.
-     const docs=!isView&&typeof store.withDetails==='function'?await store.withDetails(chunk):chunk;if(token!==generation)return;
-     for(const e of docs)batch.set(db.collection('users').doc(user).collection(isView?'explanationViews':'events').doc(e.id),e);
+     for(const e of chunk)batch.set(db.collection('users').doc(user).collection(isView?'explanationViews':'events').doc(e.id),e);
      await batch.commit();if(token!==generation)return;
      if(isView)chunk.forEach(e=>knownViews.set(e.id,Math.min(knownViews.get(e.id)??Infinity,e.openedAt)));else chunk.forEach(e=>known.add(e.id));
     }
@@ -144,12 +142,12 @@
   async function account(user){
    const token=++generation;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribeNotes?.();unsubscribe=null;unsubscribeViews=null;unsubscribeSession=null;unsubscribeNotes=null;knownNotes=new Set();refusedNotes=new Set();notesReady=false;notesLive=false;notesWait=0;cancel(sessionCooldown);sessionCooldown=null;sessionPending=false;sentPosition='';knownSession=0;sessionReady=false;ready=false;reviewsReady=false;viewsReady=!withViews;known=new Set();knownViews=new Map();uid=null;
    access?.reset();
-   if(!user){try{await store.switchUser(null);if(token===generation)say('이 기기에 저장 중 · 로그인하면 자동 동기화돼요.');}catch{if(token===generation)say('이 기기의 저장 공간을 확인해 주세요.');}return;}
+   if(!user){try{store.switchUser(null);say('이 기기에 저장 중 · 로그인하면 자동 동기화돼요.');}catch{say('이 기기의 저장 공간을 확인해 주세요.');}return;}
    say('동기화 계정 확인 중…');
    try{
     const allowed=await db.collection('allowedUsers').doc(user.uid).get({source:'server'});if(token!==generation)return;
-    if(!allowed.exists){await store.switchUser(null);if(token!==generation)return;await denied(user,token);return;}
-    await store.switchUser(user.uid);if(token!==generation)return;uid=user.uid;
+    if(!allowed.exists){store.switchUser(null);await denied(user,token);return;}
+    store.switchUser(user.uid);uid=user.uid;
     // The rules mark the owner on their own allowlist document, which was just read: the admin
     // section costs no extra read, and an approved account without the flag renders nothing.
     if(allowed.data?.()?.role==='owner')access?.admin(gate);

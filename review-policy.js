@@ -9633,7 +9633,7 @@
  const order=(a,b)=>at(a)-at(b)||a.id.localeCompare(b.id),order_=order;
  const at=row=>Date.parse(row.at||row.date+'T12:00:00+09:00');
  function separate(due,history,now=Date.now()){
-  const latest=new Map();for(const row of history){const group=row.detail?.conceptId||concept(row.cardId),prev=latest.get(group);if(!prev||order(row,prev)>0)latest.set(group,row);}
+  const latest=new Map();for(const row of history){const group=row.detail?.conceptId||row.cid||concept(row.cardId),prev=latest.get(group);if(!prev||order(row,prev)>0)latest.set(group,row);}
   const ready=[],waiting=[];for(const card of due){const last=latest.get(concept(card.id));const until=last&&last.cardId!==card.id?at(last)+GAP_MS:0;if(until>now)waiting.push({card,until});else ready.push(card);}
   return {ready,waiting,nextAt:waiting.length?Math.min(...waiting.map(w=>w.until)):null};
  }
@@ -9644,7 +9644,7 @@
  const TWIN_MIN=3;
  function skipTwins(order,history){
   const latest=new Map(),seen=new Set(),solved=new Map();
-  for(const row of history){seen.add(row.cardId);if(row.mode!=='quiz')continue;const group=row.detail?.conceptId||concept(row.cardId),prev=latest.get(group);if(!prev||order_(row,prev)>0)latest.set(group,row);
+  for(const row of history){seen.add(row.cardId);if(row.mode!=='quiz')continue;const group=row.detail?.conceptId||row.cid||concept(row.cardId),prev=latest.get(group);if(!prev||order_(row,prev)>0)latest.set(group,row);
    if(row.result==='correct'){if(!solved.has(group))solved.set(group,new Set());solved.get(group).add(row.cardId);}}
   const twin=card=>{const g=concept(card.id);return g!==card.id&&!seen.has(card.id)&&latest.get(g)?.result==='correct'&&(solved.get(g)?.size||0)>=TWIN_MIN;};
   const keep=order.filter(c=>!twin(c));

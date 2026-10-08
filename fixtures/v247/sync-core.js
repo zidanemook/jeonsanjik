@@ -26,9 +26,7 @@
    }
    const updated={...card,...progress};delete updated.pendingAttempt;delete updated.retryAt;if(retryAt)updated.retryAt=retryAt;return updated;
   });
-  // v248: 기기의 줄을 id로 한 번만 찾는다(줄마다 find를 돌리면 풀이 수의 제곱으로 느려진다). 같은 id가 둘이면 앞의 것(find와 같다).
-  const local=new Map();for(const h of state.history)if(!local.has(h.id))local.set(h.id,h);
-  next.history=rows.map(r=>({...local.get(r.id),...(derived.get(r.id)||r)}));return next;
+  next.history=rows.map(r=>({...state.history.find(h=>h.id===r.id),...(derived.get(r.id)||r)}));return next;
  }
  // Shared study position: the latest explicit scope and open question across devices.
  function session(row){

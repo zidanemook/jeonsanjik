@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111318">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="style.css?v=215">
+  <link rel="stylesheet" href="style.css?v=216">
   <title>차곡 — 문제 복습</title>
 </head>
 <body>
@@ -15,6 +15,7 @@
     <time id="date" aria-label="오늘 날짜"></time>
   </header>
   <main>
+    <div id="saveAlert" class="save-alert" role="alert" hidden><p><strong>이 기기에 저장하지 못하고 있어요.</strong> 푼 기록은 이 화면에 남아 있고, 계속 다시 저장해 볼게요. 화면을 닫기 전에 기록을 파일로 받아 두세요.</p><div class="save-alert-actions"><button id="saveAlertExport" type="button">기록 파일로 받기</button><button id="saveAlertRetry" type="button" class="secondary">지금 다시 저장</button></div></div>
     <section id="homeView" aria-labelledby="homeTitle">
       <section id="xpCard" class="xp-card" aria-label="레벨과 경험치">
         <div class="xp-top"><strong id="xpLevel">Lv 1</strong><span id="xpStreak" class="xp-streak"></span></div>
@@ -110,6 +111,7 @@
         <small>풀이 채점 +1분 · 해설 펼치기 +1분. 같은 풀이의 해설은 한 번만 더해요. 실제로 잰 시간은 아니에요.</small>
         <details><summary>날짜별 환산 시간</summary><ul id="studyTimeHistory"></ul><button id="studyTimeMore" type="button" hidden>이전 날짜 더 보기</button><small>전체 과목 · 기존 풀이도 환산해요. 해설은 처음 연 날에 더하고, 새로고침·다른 기기에서 다시 열어도 중복 가산하지 않아요.</small><small id="studyCreditExcluded"></small></details>
       </section>
+      <section class="export-line" aria-label="기록 파일"><button id="exportState" type="button" class="secondary">기록 파일로 받기</button><small>이 기기의 풀이 기록 · 복습 일정 · 설정을 파일 하나로 내려받아요. 기기를 바꾸거나 저장이 걱정될 때 받아 두세요.</small></section>
     </section>
     <div class="sync-line"><span id="syncStatus" role="status">이 기기에 저장 중</span><button id="syncRequest" type="button" hidden>승인 요청</button><button id="adminOpen" type="button" hidden>승인 관리</button><button id="syncAccount" type="button" hidden>Google 로그인</button></div>
     <section id="adminPanel" class="admin-panel" aria-labelledby="adminTitle" hidden>
@@ -122,29 +124,30 @@
     <section id="badgeInfo" class="badge-info" role="dialog" aria-labelledby="badgeInfoTitle" hidden></section>
     <footer id="siteFooter">자체 제작 복습 문제 · 인사혁신처 공개 9급 기출 · 국사편찬위원회 공개 한능검 심화 기출</footer>
   </main>
-  <script src="scheduler.js?v=215"></script>
-  <script src="learning.js?v=215"></script>
-  <script src="content-index.js?v=215"></script>
-  <script src="hanneung-data.js?v=215"></script>
-  <script src="hanneung.js?v=215"></script>
-  <script src="gichul-index.js?v=215"></script>
-  <script src="gichul.js?v=215"></script>
-  <script src="practice.js?v=215"></script>
-  <script src="content-corrections.js?v=215"></script>
-  <script src="review-record.js?v=215"></script>
-  <script src="review-policy.js?v=215"></script>
-  <script src="sync-core.js?v=215"></script>
-  <script src="study-credit.js?v=215"></script>
-  <script src="xp.js?v=215"></script>
-  <script src="score.js?v=215"></script>
-  <script src="hanneung-topics.js?v=215"></script>
-  <script src="topics.js?v=215"></script>
-  <script src="parts.js?v=215"></script>
-  <script src="part-check.js?v=215"></script>
-  <script src="core-units.js?v=215"></script>
-  <script src="content-store.js?v=215"></script>
-  <script src="app.js?v=215"></script>
-  <script src="firebase-config.js?v=215"></script>
-  <script src="sync.js?v=215"></script>
+  <script src="storage.js?v=216"></script>
+  <script src="scheduler.js?v=216"></script>
+  <script src="learning.js?v=216"></script>
+  <script src="content-index.js?v=216"></script>
+  <script src="hanneung-data.js?v=216"></script>
+  <script src="hanneung.js?v=216"></script>
+  <script src="gichul-index.js?v=216"></script>
+  <script src="gichul.js?v=216"></script>
+  <script src="practice.js?v=216"></script>
+  <script src="content-corrections.js?v=216"></script>
+  <script src="review-record.js?v=216"></script>
+  <script src="review-policy.js?v=216"></script>
+  <script src="sync-core.js?v=216"></script>
+  <script src="study-credit.js?v=216"></script>
+  <script src="xp.js?v=216"></script>
+  <script src="score.js?v=216"></script>
+  <script src="hanneung-topics.js?v=216"></script>
+  <script src="topics.js?v=216"></script>
+  <script src="parts.js?v=216"></script>
+  <script src="part-check.js?v=216"></script>
+  <script src="core-units.js?v=216"></script>
+  <script src="content-store.js?v=216"></script>
+  <script src="app.js?v=216"></script>
+  <script src="firebase-config.js?v=216"></script>
+  <script src="sync.js?v=216"></script>
 </body>
 </html>
