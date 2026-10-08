@@ -254,13 +254,13 @@ tick('전체 붙이기');
  await open(B,{subject:'국어',topic:'논리 5장'});assert.match(B.card(),/문제를 불러오지 못했어요/);B.net.offline=false;B.click('#card','다시 불러오기');await B.settle();assert.ok(B.run('!!data.activePractice'));
  // (나) 판이 바뀜: 받은 바이트의 지문이 색인과 다르다 → 한 번 더 받아 보고(HTTP 캐시 건너뜀) 그래도 다르면 새 버전 안내.
  B.net.tamper.add('u-ko-ko3');const at=B.net.log.length;await open(B,{subject:'국어',topic:'논리 3장'});
- assert.match(B.card(),/앱이 새 버전으로 바뀌었어요/);assert.match(B.card(),/새 버전으로 다시 열기/);assert.match(B.card(),/다시 불러오기/);assert.match(B.card(),/다른 범위 고르기/);
+ assert.match(B.card(),/새 버전으로 바뀌었어요/);assert.match(B.card(),/새 버전으로 다시 열기/);assert.match(B.card(),/다시 불러오기/);assert.match(B.card(),/다른 범위 고르기/);
  D(B.net.log.slice(at).map(u=>u.replace(/\?h=[0-9a-f]+/,'')),['chunks/u-ko-ko3.json','chunks/u-ko-ko3.json [reload]'],'지문이 다르면 캐시를 건너뛰고 한 번만 더 받는다');
  assert.equal(B.run('Object.keys(PRACTICE_BANK).filter(id=>id.startsWith("ko-logic3")).length'),0,'지문이 다른 조각은 붙이지 않는다');
  B.click('#card','새 버전으로 다시 열기');assert.equal(B.reloads,1,'새 버전으로 다시 열기 = 새로고침');
  B.net.tamper.clear();B.click('#card','다시 불러오기');await B.settle();assert.ok(B.run('!!data.activePractice'));
  // 조각이 없어짐(404)도 판이 바뀐 것.
- B.net.missing.add('u-ko-ko4');await open(B,{subject:'국어',topic:'논리 4장'});assert.match(B.card(),/앱이 새 버전으로 바뀌었어요/);B.net.missing.clear();
+ B.net.missing.add('u-ko-ko4');await open(B,{subject:'국어',topic:'논리 4장'});assert.match(B.card(),/새 버전으로 바뀌었어요/);B.net.missing.clear();
  // (다) 기초 개념 보기 · 외울 것: 같은 안내, 뒤로 가기는 그대로.
  B.net.offline=true;B.run('go("parts","한국사");openBasics("h13-1")');await B.settle();assert.match(B.text('#basicsBody'),/문제를 불러오지 못했어요/);assert.match(B.text('#basicsBody'),/다시 불러오기/);
  B.net.offline=false;B.click('#basicsBody','다시 불러오기');await B.settle();assert.match(B.text('#basicsBody'),/이 파트 문제 풀기/);

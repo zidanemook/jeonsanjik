@@ -954,7 +954,7 @@ function renderContentLoad(root,head,names,elsewhere,hold=false){
  const st=Content.status(names),again=()=>{Content.load(names).then(render,render);render();};
  if(head)root.append(elem('small',head));
  if(st.state==='error'){
-  root.append(elem('h2',st.stale?'앱이 새 버전으로 바뀌었어요':'문제를 불러오지 못했어요'),elem('p',st.stale?'이 화면을 열어 둔 사이에 문제 파일이 새 버전으로 바뀌었어요. 다시 열면 풀던 곳부터 이어져요. 푼 기록은 그대로 남아 있어요.':'문제 파일을 받지 못했어요. 인터넷 연결을 확인하고 다시 불러오세요. 한 번 받은 범위는 이 기기에 남아 연결 없이도 풀 수 있어요.'));
+  root.append(elem('h2',st.stale?'새 버전으로 바뀌었어요':'문제를 불러오지 못했어요'),elem('p',st.stale?'이 화면을 열어 둔 사이에 문제 파일이 새 버전으로 바뀌었어요. 다시 열면 풀던 곳부터 이어져요. 푼 기록은 그대로 남아 있어요.':'문제 파일을 받지 못했어요. 인터넷 연결을 확인하고 다시 불러오세요. 한 번 받은 범위는 이 기기에 남아 연결 없이도 풀 수 있어요.'));
   if(st.stale)root.append(btn('새 버전으로 다시 열기',()=>location.reload(),'primary'));
   root.append(btn('다시 불러오기',again,st.stale?'':'primary'));
   if(elsewhere)root.append(btn('다른 범위 고르기',elsewhere));
