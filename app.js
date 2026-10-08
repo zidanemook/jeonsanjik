@@ -877,7 +877,7 @@ function renderMemorize(){
  if(set.lines)set.lines.forEach((line,li)=>{
   const group=elem('div',undefined,'memorize-line'),grid=elem('div',undefined,'memorize-grid');
   group.append(elem('p',line.chant,'memorize-chant'));
-  line.items.forEach((item,i)=>grid.append(cell(set.id+':'+li+':'+i,(i+1)+'. '+[...line.chant][i],(i+1)+'. '+item.name,item.facts.length?item.facts.join(' · '):'아직 공부하지 않은 범위')));
+  line.items.forEach((item,i)=>grid.append(cell(set.id+':'+li+':'+i,(i+1)+'. '+[...line.chant][i],(i+1)+'. '+item.name,item.facts.length?item.facts.join(String.fromCharCode(10)):'아직 공부하지 않은 범위')));
   group.append(grid);content.push(group);
  });
  else if(set.pairs)set.pairs.forEach(([left,leftDetail,right,rightDetail],pi)=>{

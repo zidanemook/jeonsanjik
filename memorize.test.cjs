@@ -49,16 +49,16 @@ for(const name of ['덕종','순종','선종','헌종','강종','충숙왕','충
  for(const line of M.get('joseon-kings').lines){const firsts=line.items.map(i=>[...i.name][0]);assert.equal(new Set(firsts).size,firsts.length,'한 줄 안에서 첫 글자가 겹치지 않는다: '+line.chant);}
  for(const name of ['태조','정종','태종','세종','세조','성종','연산군','중종','명종','선조','광해군','인조','효종','현종','숙종','영조','정조','순조','헌종','철종'])assert(jk.some(k=>k.name===name&&k.facts.length),'studied Joseon king has facts: '+name);
  // 2026-09-23 20강 조선 전기(문화 I): 문종(조선)은 『고려사』·『고려사절요』 완성으로 처음 사실이 생겼다. 20강 편찬 사업은 왕마다 책이 다르게 적혀야 한다.
- assert.deepEqual(jk.find(k=>k.name==='문종').facts[0],'『고려사』(기전체, 정인지 등)·『고려사절요』(편년체) 완성','문종 = 『고려사』·『고려사절요』');
+ assert.deepEqual(jk.find(k=>k.name==='문종').facts[0],'『고려사』(기전체, 정인지 등)와 『고려사절요』(편년체) 완성','문종 = 『고려사』·『고려사절요』');
  // 2026-09-24 21강 조선 전기(문화 II): 과학 기구·활자·역법·의학서·농서·병서·훈민정음 책·그림·문학이 왕마다 다르게 적혀야 한다(문종은 『진법』·『동국병감』이 더해졌다).
- for(const [king,needle] of [['태조','천상열차분야지도'],['태종','계미자'],['태종','거북선'],['세종','갑인자'],['세종','측우기'],['세종','앙부일구'],['세종','자격루'],['세종','혼천의·간의'],['세종','『칠정산』'],['세종','『의방유취』'],['세종','『향약집성방』'],['세종','『농사직설』'],['세종','『용비어천가』'],['세종','『동국정운』'],['세종','몽유도원도'],['문종','『진법』'],['문종','『동국병감』'],['세조','서울 원각사지 10층 석탑'],['성종','『금양잡록』'],['성종','『동문선』'],['선조','「관동별곡」'],['선조','「사미인곡」'],['선조','도산 서원']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle+' (21강)');
+ for(const [king,needle] of [['태조','천상열차분야지도'],['태종','계미자'],['태종','거북선'],['세종','갑인자'],['세종','측우기'],['세종','앙부일구'],['세종','자격루'],['세종','혼천의와 간의'],['세종','『칠정산』'],['세종','『의방유취』'],['세종','『향약집성방』'],['세종','『농사직설』'],['세종','『용비어천가』'],['세종','『동국정운』'],['세종','몽유도원도'],['문종','『진법』'],['문종','『동국병감』'],['세조','서울 원각사지 10층 석탑'],['성종','『금양잡록』'],['성종','『동문선』'],['선조','「관동별곡」'],['선조','「사미인곡」'],['선조','도산 서원']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle+' (21강)');
  for(const [king,needle] of [['태종','갑인자'],['세종','계미자'],['성종','『농사직설』'],['세종','『금양잡록』']])assert(!jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),'대조군: '+king+' facts do not include '+needle);
  for(const [king,needle] of [['태조','『고려국사』'],['태조','『경제육전』'],['태종','혼일강리역대국도지도'],['세종','『석보상절』'],['세종','『삼강행실도』'],['세종','팔도도'],['세종','정간보'],['세조','간경도감'],['성종','『동국통감』'],['성종','『동국여지승람』'],['성종','『악학궤범』'],['성종','『해동제국기』'],['중종','백운동 서원'],['중종','『신증동국여지승람』'],['명종','소수 서원'],['선조','『성학십도』'],['선조','『성학집요』']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle+' (20강)');
  // 18강 왕 사실: 여러 왕에 걸친 제도는 왕마다 단계가 다르게 적혀야 한다(비변사 설치/상설화, 약조 둘, 호란 둘).
  for(const [king,needle] of [['세종','계해약조'],['중종','임시 기구로 비변사'],['명종','비변사 상설'],['선조','임진왜란'],['광해군','기유약조'],['광해군','경기도에서 처음'],['광해군','강홍립'],['인조','정묘호란'],['인조','남한산성'],['효종','볼모']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle);
  assert(!jk.find(k=>k.name==='효종').facts.some(f=>/하멜/.test(f)),'효종은 18강(볼모) · 23강(북벌 · 나선 정벌)에 나온 사실만 — 하멜은 아직 공부 전');
  // 2026-09-28 23강 조선 후기(조직, 외교): 선조 회답 겸 쇄환사 · 인조 세 군영 · 효종 북벌과 나선 정벌 · 숙종 금위영 · 백두산정계비 · 안용복 · 정조 『북학의』.
- for(const [king,needle] of [['선조','회답 겸 쇄환사'],['선조','두모포'],['인조','어영청'],['인조','총융청'],['인조','수어청'],['효종','북벌'],['효종','나선 정벌'],['효종','신류'],['숙종','금위영'],['숙종','백두산정계비'],['숙종','목극등'],['숙종','안용복'],['숙종','윤휴 · 허적 등 남인이 북벌론'],['정조','『북학의』']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle+' (23강)');
+ for(const [king,needle] of [['선조','회답 겸 쇄환사'],['선조','두모포'],['인조','어영청'],['인조','총융청'],['인조','수어청'],['효종','북벌'],['효종','나선 정벌'],['효종','신류'],['숙종','금위영'],['숙종','백두산정계비'],['숙종','목극등'],['숙종','안용복'],['숙종','윤휴, 허적 등 남인이 북벌론'],['정조','『북학의』']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle+' (23강)');
  for(const [king,needle] of [['효종','백두산정계비'],['효종','금위영'],['숙종','나선 정벌'],['광해군','회답 겸 쇄환사'],['인조','금위영'],['선조','기유약조']])assert(!jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),'대조군(23강): '+king+' facts do not include '+needle);
  // 2026-09-28 24강 조선 후기(경제): 광해군 선혜청 · 인조 영정법 · 효종 설점수세제 · 김육 · 숙종 상평통보 · 대동법 전국 · 영조 결작 · 선무군관포.
  for(const [king,needle] of [['광해군','선혜청'],['광해군','이원익'],['인조','영정법'],['효종','설점수세제'],['효종','김육'],['숙종','상평통보'],['숙종','대동법을 평안도'],['영조','결작'],['영조','선무군관포']])assert(jk.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle+' (24강)');
@@ -96,8 +96,9 @@ for(const [id,withLetter] of [['goguryeo-kings',['고국천왕','고국원왕']]
  for(const item of set.lines.flatMap(l=>l.items))assert(item.facts.length>0,'ancient king has studied facts: '+item.name);
 }
 // 뒤집기 묶음의 앞머리(첫 " · " 앞)에 적힌 "왕(나라)"는 그 나라 왕 목록에 있어야 하고, 그 왕의 사실에 앞면 이름이 들어 있어야 한다.
-const KING_TOKEN=/((?:[가-힣]+(?: 여왕| 마립간| 대왕)?)(?:·[가-힣]+(?: 여왕| 마립간| 대왕)?)*)\((고구려|백제|신라|발해|고려|조선)\)/g;
-const anchorsOf=back=>[...back.split(' · ')[0].matchAll(KING_TOKEN)].flatMap(m=>m[1].split('·').map(king=>({king,country:m[2]})));
+const KING_TOKEN=/((?:[가-힣]+(?: 여왕| 마립간| 대왕)?)(?:, [가-힣]+(?: 여왕| 마립간| 대왕)?)*)\((고구려|백제|신라|발해|고려|조선)\)/g;
+// 2026-10-08 가운뎃점 금지: 뒷면의 마디는 줄 바꿈으로 나누고(첫 줄 = 앞머리), 왕 둘은 쉼표로 잇는다.
+const anchorsOf=back=>[...back.split('\n')[0].matchAll(KING_TOKEN)].flatMap(m=>m[1].split(', ').map(king=>({king,country:m[2]})));
 const factsOf=(country,king)=>{const items=M.get(KING_SETS[country]).lines.flatMap(l=>l.items).filter(i=>i.name===king);assert(items.length,'anchor king is in the '+country+' king list: '+king);return items.map(i=>i.facts.join(' | '));};
 const anchoredCards={};
 for(const id of ['history-people','history-books']){
@@ -107,27 +108,27 @@ for(const id of ['history-people','history-books']){
   assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);
   const name=front.replace(/\([^)]*\)/g,'').trim();
   if(anchorsOf(back).length)anchoredCards[id]++;
-  for(const {king,country} of anchorsOf(back)){assert(factsOf(country,king).some(f=>f.includes(name)),id+': '+king+'('+country+') facts name '+name);}
+  for(const {king,country} of anchorsOf(back)){assert(factsOf(country,king).some(f=>(f.includes(name)||name.split(', ').every(p=>f.includes(p)))),id+': '+king+'('+country+') facts name '+name);}
  }
 }
-assert.deepEqual(M.get('history-people').groups.map(g=>g.title),['고조선~삼국','통일 신라·발해·후삼국','고려 전기','고려 무신~원 간섭기','고려 말','조선 전기','조선 후기','근·현대 인물']);
-assert.deepEqual(M.get('history-books').groups.map(g=>g.title),['삼국','통일 신라','고려 전기','고려 무신~원 간섭기','고려 말','조선 전기','조선 후기','근·현대']);
-// 2026-09-24 주제 특강: 인물 80명(252~256쪽 교재 순서, 뒷면 = 시기 · 문제 해설의 기억 연결 요약)과 책·글·잡지 28을 '근·현대' 묶음으로 더했다.
-// 2026-09-30 28강 개항기(흥선 대원군): 인물 6(흥선 대원군 · 남종삼 · 오페르트 · 한성근 · 양헌수 · 어재연)을 '근·현대 인물' 끝에, 책 2(『대전회통』 · 『육전조례』)를 '근·현대' 끝에 더했다. 모두 '개항기'로 시작(고종은 조선 왕 목록 밖이라 왕 고리 없음).
-// 2026-09-30 29강 개항기(개항 ~ 갑신정변): 인물 6(이항로 · 이만손 · 김기수 · 김윤식 · 민영익 · 묄렌도르프)을 '근·현대 인물' 끝에(『조선책략』은 이미 있음), 개화 기구 · 사절단 6을 '조선 후기 제도' 끝에 '개항기'로.
+assert.deepEqual(M.get('history-people').groups.map(g=>g.title),['고조선~삼국','통일 신라, 발해, 후삼국','고려 전기','고려 무신~원 간섭기','고려 말','조선 전기','조선 후기','근, 현대 인물']);
+assert.deepEqual(M.get('history-books').groups.map(g=>g.title),['삼국','통일 신라','고려 전기','고려 무신~원 간섭기','고려 말','조선 전기','조선 후기','근, 현대']);
+// 2026-09-24 주제 특강: 인물 80명(252~256쪽 교재 순서, 뒷면 = 시기 · 문제 해설의 기억 연결 요약)과 책·글·잡지 28을 '근, 현대' 묶음으로 더했다.
+// 2026-09-30 28강 개항기(흥선 대원군): 인물 6(흥선 대원군 · 남종삼 · 오페르트 · 한성근 · 양헌수 · 어재연)을 '근, 현대 인물' 끝에, 책 2(『대전회통』 · 『육전조례』)를 '근, 현대' 끝에 더했다. 모두 '개항기'로 시작(고종은 조선 왕 목록 밖이라 왕 고리 없음).
+// 2026-09-30 29강 개항기(개항 ~ 갑신정변): 인물 6(이항로 · 이만손 · 김기수 · 김윤식 · 민영익 · 묄렌도르프)을 '근, 현대 인물' 끝에(『조선책략』은 이미 있음), 개화 기구 · 사절단 6을 '조선 후기 제도' 끝에 '개항기'로.
 // 2026-09-30 30강 개항기(동학 농민 운동 ~ 대한 제국): 인물 3(조병갑 · 이용태 · 부들러), 제도 10(집강소 · 교정청 · 군국기무처 · 홍범 14조 · 교육 입국 조서 · 단발령 · 헌의 6조 · 대한국 국제 · 원수부 · 지계), 문화유산 1(독립문).
 // 2026-09-30 31강 국권 피탈과 저항: 인물 8(장지연 · 민영환 · 유인석 · 민종식 · 이인영 · 안규홍 · 스티븐스 · 메가타), 책 1(「시일야방성대곡」), 제도 8(국권 침탈 조약 다섯 · 보안회 · 대한 자강회 · 신민회).
-// 2026-10-05 38강 현대(광복 ~ 6·25 전쟁): 인물 3(이승만 · 애치슨 · 맥아더), 책 1(「삼천만 동포에게 읍고함」), 새 묶음 '현대 제도·사건' 13(조선 건국 준비 위원회 ~ 국민 방위군 사건), 짝 5.
+// 2026-10-05 38강 현대(광복 ~ 6·25 전쟁): 인물 3(이승만 · 애치슨 · 맥아더), 책 1(「삼천만 동포에게 읍고함」), 새 묶음 '현대 제도, 사건' 13(조선 건국 준비 위원회 ~ 국민 방위군 사건), 짝 5.
 // 2026-10-05 32강 개항기(경제): 인물 2(서상돈 · 김광제), 제도 12(개항 초기 조약 넷 · 방곡령 · 상회소 · 황국 중앙 총상회 · 농광 회사 · 화폐 정리 사업 · 국채 보상 운동 · 동양 척식 주식회사 · 대한 천일 은행), 짝 3.
 // 2026-10-05 33강 개항기(문화): 인물 6(남궁억 · 이종일 · 알렌 · 지석영 · 이인직 · 안국선), 책 3(『혈의 누』 · 『금수회의록』 · 「유교 구신론」), 제도 12(신문 · 근대 시설 · 학교 · 국학 · 종교), 짝 3.
 // 2026-10-05 34강 일제 강점기(식민 통치): 인물 1(사이토 마코토), 새 묶음 '일제 강점기 정책' 13(헌병 경찰 ~ 국가 총동원법), 짝 4.
 // 2026-10-05 35강 일제 강점기(1910년대 저항): 인물 2(임병찬 · 박용만), 새 묶음 '일제 강점기 민족 운동' 17(경학사 ~ 국민 대표 회의), 짝 5.
 // 2026-10-05 36강 일제 강점기(1920년대 저항): 인물 2(조만식 · 김상옥), '일제 강점기 민족 운동'에 19(물산 장려 운동 ~ 미쓰야 협정), 짝 5.
 // 2026-10-05 37강 일제 강점기(1930년대 이후 저항): 인물 2(김두봉 · 이병도), '일제 강점기 민족 운동'에 14(한인 애국단 ~ 조선 건국 동맹), 짝 4.
-// 2026-10-05 39강 현대(민주주의의 발전): 인물 5(조봉암 ~ 김영삼), '현대 제도·사건'에 18(발췌 개헌 ~ 역사 바로 세우기), 짝 4.
-// 2026-10-05 40강 현대(경제 발전과 통일 정책): 인물 1(전태일), '현대 제도·사건'에 15(삼백 산업 ~ 10·4 남북 공동 선언), 짝 4.
+// 2026-10-05 39강 현대(민주주의의 발전): 인물 5(조봉암 ~ 김영삼), '현대 제도, 사건'에 18(발췌 개헌 ~ 역사 바로 세우기), 짝 4.
+// 2026-10-05 40강 현대(경제 발전과 통일 정책): 인물 1(전태일), '현대 제도, 사건'에 15(삼백 산업 ~ 10·4 남북 공동 선언), 짝 4.
 assert.equal(M.size(M.get('history-people')),350);assert.equal(M.size(M.get('history-books')),155);
-{const g=M.get('history-people').groups.at(-1);assert.equal(g.cards.length,127);for(const [f,b] of g.cards){assert(/^(개항기|대한 제국 시기|한국을 도운 외국인|일제 강점기|일제 강점기·광복 전후|광복 전후|현대) · /.test(b),'근·현대 인물 뒷면은 시기부터: '+f);assert(!/[{}]/.test(b),'왕 표시 남음: '+f);}}
+{const g=M.get('history-people').groups.at(-1);assert.equal(g.cards.length,127);for(const [f,b] of g.cards){assert(/^(개항기|대한 제국 시기|한국을 도운 외국인|일제 강점기|일제 강점기, 광복 전후|광복 전후|현대)\n/.test(b),'근·현대 인물 뒷면은 시기부터: '+f);assert(!/[{}]/.test(b),'왕 표시 남음: '+f);}}
 // 왕에 걸린 앞머리: 인물 101 · 책 22. 나머지(인물 31 · 책 17)는 왕이 하나로 정해지지 않아 시기만 적었다(고조선·가야, 일본 전파, 승려·학자 등).
 // 15강(2026-09-16)으로 책 6(초조대장경 현종·『상정고금예문』 인종·팔만대장경 고종·『직지심체요절』 우왕 + 교장·『향약구급방』은 시기만)과 인물 1(혜허, 시기만)을 더했다.
 // 2026-09-18 왕 고리 넓히기: 최충 → 문종, 이규보 「동명왕편」 → 명종, 각훈 『해동고승전』 → 고종, 이제현 『사략』 → 공민왕(이제현은 충선왕과 함께 둘).
@@ -144,9 +145,9 @@ assert.deepEqual(anchoredCards,{'history-people':176,'history-books':85});
 // 대조군: 없는 왕·사실에 없는 인물은 잡혀야 한다.
 assert.throws(()=>factsOf('고려','없는왕'));
 assert(!factsOf('신라','진흥왕').some(f=>f.includes('이사부')),'control: 이사부 is 지증왕, not in 진흥왕 facts');
-assert.deepEqual(anchorsOf('보장왕(고구려)·문무왕(신라) 멸망 뒤 · x'),[{king:'보장왕',country:'고구려'},{king:'문무왕',country:'신라'}]);
-assert.deepEqual(anchorsOf('명종·희종(고려) · x'),[{king:'명종',country:'고려'},{king:'희종',country:'고려'}]);
-assert.deepEqual(anchorsOf('고려 무신 집권기 · 인종(고려) 뒤쪽은 보지 않음'),[]);
+assert.deepEqual(anchorsOf('보장왕(고구려), 문무왕(신라) 멸망 뒤\nx'),[{king:'보장왕',country:'고구려'},{king:'문무왕',country:'신라'}]);
+assert.deepEqual(anchorsOf('명종, 희종(고려)\nx'),[{king:'명종',country:'고려'},{king:'희종',country:'고려'}]);
+assert.deepEqual(anchorsOf('고려 무신 집권기\n인종(고려) 뒤쪽은 보지 않음'),[]);
 // 인물·책의 핵심 고리 몇 개를 못 박는다(시험이 인물·책을 단서로 왕을 묻는 짝).
 const back=(id,front)=>M.get(id).groups.flatMap(g=>g.cards).find(c=>c[0]===front)[1];
 for(const [front,king] of [['거칠부','진흥왕(신라)'],['이사부','지증왕(신라)'],['을파소','고국천왕(고구려)'],['장문휴','무왕(발해)'],['김헌창','헌덕왕(신라)'],['쌍기','광종(고려)'],['서희','성종(고려)'],['최우','고종(고려)'],['안향','충렬왕(고려)'],['최무선','우왕(고려)']])assert(back('history-people',front).startsWith(king),front+' → '+king);
@@ -166,16 +167,16 @@ for(const [front,backText] of countries.groups.flatMap(g=>g.cards)){
 }
 assert(parenChecks>=40,'country cards cross-check kings: '+parenChecks);
 for(const [front,king,needle] of [['금관가야','법흥왕','금관가야'],['대가야','진흥왕','대가야']]){assert(back('history-countries',front).includes('('+king+')'));assert(M.get('silla-kings').lines.flatMap(l=>l.items).find(i=>i.name===king).facts.some(f=>f.includes(needle)),king+' facts name '+needle);}
-for(const [token,king] of [['인안','무왕'],['대흥','문왕'],['건흥','선왕']])assert(back('history-countries','발해').includes(token+'('+king+')')&&M.get('balhae-kings').lines[0].items.find(i=>i.name===king).facts.some(f=>f.includes(token)),'발해 연호 '+token+' = '+king);
-assert.deepEqual(countries.groups.map(g=>g.title),['선사 시대','고조선·여러 나라','삼국·가야','남북국','고려 경제·사회','고려 정치·문화']);
+for(const [token,king] of [['인안','무왕'],['대흥','문왕'],['건흥','선왕']])assert(back('history-countries','발해').includes(token+'('+king+')')&&M.get('balhae-kings').lines[0].items.find(i=>i.name===king).facts.some(f=>f.includes(token)||token.split(', ').every(p=>f.includes(p))),'발해 연호 '+token+' = '+king);
+assert.deepEqual(countries.groups.map(g=>g.title),['선사 시대','고조선, 여러 나라','삼국, 가야','남북국','고려 경제, 사회','고려 정치, 문화']);
 assert.equal(M.size(countries),30);
 // 문화유산(03~15강): 앞머리 "왕(나라)"가 붙은 칸은 그 왕의 사실에 이름이 들어 있어야 한다. 나머지는 나라·시기(고려 초기·중기·후기 등)만 적었다.
 // 2026-09-18: 고려만 담던 목록을 삼국·남북국까지 넓히고, 칸마다 재질(금동불·마애불·철불·소조불·석탑·모전 석탑·전탑·승탑·대리석·청자·청동·목판 등)을 적었다.
 // 2026-09-19 왕 고리 넓히기: 관촉사 석조 미륵보살 입상 → 광종(왕명·혜명), 정토사지 홍법국사탑 → 현종(왕명으로 건립), 사천대 → 현종(태복감을 고침), 수덕사 대웅전 → 충렬왕(대들보 먹글씨). 나머지 33칸은 왕이 하나로 정해지지 않아 시기만 둔다.
 {const set=M.get('history-heritage');assert(set&&set.groups&&set.subject==='한국사','history-heritage set');
- // 2026-09-24 21강: 원각사지 10층 석탑(세조)·그림 5(몽유도원도 세종, 나머지는 시기만)·새 묶음 '분청사기·백자'(시기만)·과학 기술 7(천상열차분야지도 태조·계미자 태종·갑인자·측우기·앙부일구·자격루·혼천의·간의 세종)을 더했다.
- assert.deepEqual(set.groups.map(g=>g.title),['불상','탑·승탑','무덤·비석','회화·불화','청자·금속 공예','분청사기·백자','건축','과학 기술·인쇄']);assert.equal(M.size(set),92);
- let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)),'history-heritage: '+king+'('+country+') facts name '+front);}
+ // 2026-09-24 21강: 원각사지 10층 석탑(세조)·그림 5(몽유도원도 세종, 나머지는 시기만)·새 묶음 '분청사기, 백자'(시기만)·과학 기술 7(천상열차분야지도 태조·계미자 태종·갑인자·측우기·앙부일구·자격루·혼천의·간의 세종)을 더했다.
+ assert.deepEqual(set.groups.map(g=>g.title),['불상','탑, 승탑','무덤, 비석','회화, 불화','청자, 금속 공예','분청사기, 백자','건축','과학 기술, 인쇄']);assert.equal(M.size(set),92);
+ let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)||front.split(', ').every(p=>f.includes(p))),'history-heritage: '+king+'('+country+') facts name '+front);}
  // 2026-09-30 27강: 인왕제색도 · 금강전도 · 영통동구도(영조) · 서당 · 씨름 · 거중기(정조) · 세한도(헌종) · 보은 법주사 팔상전(인조) · 구례 화엄사 각황전(숙종) · 곤여만국전도(선조) 9개가 더 걸림 → 46. 단오풍정 · 월하정인 · 파적도 · 까치와 호랑이 · 청화 백자 · 김제 금산사 미륵전은 '조선 후기'.
  assert.equal(anchored,46,'왕에 걸린 문화유산 28(2026-09-19 경복궁 태조·종묘 태조·창덕궁 태종 + 석굴암 본존불·미륵사지 석탑·분황사 모전 석탑·황룡사 9층 목탑·감은사지 3층 석탑·불국사 3층 석탑·다보탑·경천사지 10층 석탑·무령왕릉·광개토 대왕릉비·단양 적성비·순수비·정혜 공주 묘·천산대렵도·칠지도·상원사 동종·성덕대왕 신종·무구정광대다라니경·초조대장경·팔만대장경·화통도감 + 2026-09-19 관촉사 석조 미륵보살 입상 광종·정토사지 홍법국사탑 현종·사천대 현종·수덕사 대웅전 충렬왕)');
  // 재질·유형이 빠진 칸이 없어야 "왕 — 문화유산 — 재질" 묶음으로 외울 수 있다.
@@ -183,19 +184,19 @@ assert.equal(M.size(countries),30);
  assert(back('history-heritage','개성 경천사지 10층 석탑').includes('원의 영향')&&back('history-heritage','안동 봉정사 극락전').includes('가장 오래된'));}
 // 경제·사회 제도(07·13강 중심) → 왕·한 줄. 왕이 붙은 칸은 그 왕의 사실에 제도 이름이 들어 있어야 한다.
 {const set=M.get('history-economy');assert(set&&set.groups&&set.subject==='한국사','history-economy set');
- assert.deepEqual(set.groups.map(g=>g.title),['삼국·남북국 경제','고려 토지·수취','고려 상업·화폐·농업','고려 사회','조선 전기 제도·향촌','조선 후기 제도','일제 강점기 정책','일제 강점기 민족 운동','현대 제도·사건']);assert.equal(M.size(set),268);
- let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)),'history-economy: '+king+'('+country+') facts name '+front);}
+ assert.deepEqual(set.groups.map(g=>g.title),['삼국, 남북국 경제','고려 토지, 수취','고려 상업, 화폐, 농업','고려 사회','조선 전기 제도, 향촌','조선 후기 제도','일제 강점기 정책','일제 강점기 민족 운동','현대 제도, 사건']);assert.equal(M.size(set),268);
+ let anchored=0;const fronts=new Set();for(const [front,backText] of set.groups.flatMap(g=>g.cards)){assert(!fronts.has(front),'no duplicate front: '+front);fronts.add(front);const a=anchorsOf(backText);if(a.length)anchored++;for(const {king,country} of a)assert(factsOf(country,king).some(f=>f.includes(front)||front.split(', ').every(p=>f.includes(p))),'history-economy: '+king+'('+country+') facts name '+front);}
  // 2026-09-28 23강: 비변사(중종·명종) · 훈련도감 · 속오군(선조) · 어영청 · 총융청 · 수어청(인조) · 금위영(숙종) 7개가 더 걸림 → 44.
  // 2026-09-28 24강: 영정법(인조) · 대동법(광해군·숙종) · 결작 · 선무군관포(영조) · 설점수세제(효종) · 상평통보(숙종) 6개가 더 걸림 → 50. 공인 · 도고 · 송상 · 보부상 · 덕대 등 14개는 '조선 후기'.
  // 2026-09-28 25강: 공명첩(선조) · 노비종모법(영조) · 공노비 해방(순조) · 소청 운동 · 삼정이정청(철종) 5개가 더 걸림 → 55. 납속 · 통청 운동 · 시사 · 향전은 '조선 후기'.
  // 2026-09-30 26강: 균전론(현종) · 여전론(정조) 2개가 더 걸림 → 57. 한전론 · 정전제는 '조선 후기'.
  assert.equal(anchored,57,'왕에 걸린 제도 31(2026-09-19 호패법·신문고 태종, 직전법·유향소 세조 / 2026-09-23 19강 공법 세종·관수관급제 성종·직전법 폐지와 『구황촬요』 명종·경재소 선조), 나머지 28은 왕이 하나로 정해지지 않아 나라·시기만');
  // 19강: 여러 왕에 걸치거나 시작 왕이 교재에 없는 제도(오가작통법·16세기 폐단·신분·의료 기관 묶음)는 왕을 붙이지 않는다.
- for(const front of ['오가작통법','방납·대립·방군수포','신량역천','혜민서·활인서·제생원','수신전·휼양전','타조법(병작반수)','향회'])assert(anchorsOf(back('history-economy',front)).length===0,'no forced king (19강): '+front);
+ for(const front of ['오가작통법','방납, 대립, 방군수포','신량역천','혜민서, 활인서, 제생원','수신전, 휼양전','타조법(병작반수)','향회'])assert(anchorsOf(back('history-economy',front)).length===0,'no forced king (19강): '+front);
  for(const [front,king] of [['공법','세종(조선)'],['관수관급제','성종(조선)'],['직전법 폐지','명종(조선)'],['『구황촬요』','명종(조선)'],['경재소','선조(조선)']])assert(back('history-economy',front).startsWith(king),front+' → '+king);
- for(const [front,king] of [['진대법','고국천왕(고구려)'],['관료전','신문왕(신라)'],['정전','성덕왕(신라)'],['녹읍 부활','경덕왕(신라)'],['역분전','태조(고려)'],['시정 전시과','경종(고려)'],['개정 전시과','목종(고려)'],['경정 전시과','문종(고려)'],['과전법','공양왕(고려)'],['건원중보','성종(고려)'],['은병·해동통보','숙종(고려)'],['흑창','태조(고려)'],['의창·상평창','성종(고려)'],['제위보','광종(고려)']])assert(back('history-economy',front).startsWith(king),front+' → '+king);
+ for(const [front,king] of [['진대법','고국천왕(고구려)'],['관료전','신문왕(신라)'],['정전','성덕왕(신라)'],['녹읍 부활','경덕왕(신라)'],['역분전','태조(고려)'],['시정 전시과','경종(고려)'],['개정 전시과','목종(고려)'],['경정 전시과','문종(고려)'],['과전법','공양왕(고려)'],['건원중보','성종(고려)'],['은병, 해동통보','숙종(고려)'],['흑창','태조(고려)'],['의창, 상평창','성종(고려)'],['제위보','광종(고려)']])assert(back('history-economy',front).startsWith(king),front+' → '+king);
  // 여러 왕에 걸치거나 기록이 갈리는 제도는 왕을 붙이지 않는다(공음전·녹과전·경시서·벽란도·민정 문서·구제 기관).
- for(const front of ['공음전','녹과전','경시서','벽란도','민정 문서(신라 촌락 문서)','동·서 대비원','혜민국','구제도감·구급도감'])assert(anchorsOf(back('history-economy',front)).length===0,'no forced king: '+front);}
+ for(const front of ['공음전','녹과전','경시서','벽란도','민정 문서(신라 촌락 문서)','동, 서 대비원','혜민국','구제도감, 구급도감'])assert(anchorsOf(back('history-economy',front)).length===0,'no forced king: '+front);}
 // 15강 왕 사실: 인종 편찬 · 고종 강화도 인쇄 · 우왕 화통도감·직지 · 공민왕 천산대렵도(선종·충숙왕 등 빈 왕은 위에서 비어 있음을 확인한다).
 for(const [king,needle] of [['인종','『상정고금예문』'],['고종','『상정고금예문』'],['고종','장경판전'],['우왕','화통도감'],['우왕','『직지심체요절』'],['공민왕','천산대렵도'],['현종','초조대장경']])assert(kings.find(k=>k.name===king).facts.some(f=>f.includes(needle)),king+' facts include '+needle);
 // 공부 범위 지키기: 조선은 아직 공부하지 않았다(15강 고려 문화 2 낱말은 2026-09-16에 목록에서 뺐다). 한국사 목록 어디에도 나오면 멈춘다.
@@ -250,7 +251,9 @@ for(const set of M.sets.filter(s=>s.subject==='한국사'))for(const t of [set.t
   for(const [k,v,o={}] of b.items){if(o.pun){if(!b.trap||!b.trap.includes('소리만 빌린'))out.push('pun needs trap: '+k);continue;}let at=0;for(const ch of k.replace(/ /g,'')){const i=v.indexOf(ch,at);if(i<0){out.push(k+' not in '+v);break;}at=i+1;}
    if([...k].length===1){if(!o.w||!v.includes(o.w)||!o.w.includes(k))out.push('word for '+k);for(const [k2,,o2={}] of b.items)if(k2!==k&&o2.w&&o2.w.startsWith(k))out.push('two words start with '+k);}}
   return out;};
- const kingProblems=b=>{const out=[];for(const [k,v,o={}] of b.items){const spec=o.king||b.king;if(!spec)continue;const [country,king]=spec.split(':');let facts;try{facts=factsOf(country,king).join(' | ');}catch{out.push('no king '+spec);continue;}for(const f of [].concat(o.from??v))if(!facts.includes(f))out.push(spec+' lacks '+f);}return out;};
+ // 2026-10-08: 왕의 사실 줄은 가운뎃점을 쉼표 · 와/과로 고쳤고 낱말 블록(사용자 낱말 묶음)은 아직 그대로라, 나열 구분자를 지우고 견준다.
+ const sepNorm=s=>String(s).replace(/([가-힣』」)])[와과] /g,'$1').replace(/[·,\s]/g,'');
+ const kingProblems=b=>{const out=[];for(const [k,v,o={}] of b.items){const spec=o.king||b.king;if(!spec)continue;const [country,king]=spec.split(':');let facts;try{facts=factsOf(country,king).join(' | ');}catch{out.push('no king '+spec);continue;}for(const f of [].concat(o.from??v))if(!facts.includes(f)&&!sepNorm(facts).includes(sepNorm(f)))out.push(spec+' lacks '+f);}return out;};
  const ids=new Set(),targets=new Set();
  for(const b of H.blocks){assert(!ids.has(b.id)&&!targets.has(b.target),'unique block: '+b.id);ids.add(b.id);targets.add(b.target);
   assert(METHODS.includes(b.method)&&b.hook&&b.items.length>=1&&b.items.length<=8,'block shape: '+b.id);
