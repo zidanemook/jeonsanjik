@@ -228,7 +228,7 @@ function el(tag='div'){
   get all(){const out=[];(function walk(n){for(const c of n.children){out.push(c);walk(c);}})(node);return out;}};
  return node;
 }
-const FILES=['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','part-check.js','memorize.js','basics.js','core-units.js','app.js'];
+const FILES=['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','part-check.js','memorize.js','basics.js','core-units.js','content-store.js','app.js'];
 const nodes=new Map(),store=new Map();
 const doc={createElement:tag=>el(tag),createTextNode(t){const n=el('#text');n._text=String(t);return n;},body:el('body'),activeElement:null,
  querySelector(sel){if(!nodes.has(sel))nodes.set(sel,el(sel));return nodes.get(sel);},querySelectorAll(){return [];},addEventListener(){}};
@@ -489,10 +489,11 @@ run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'par
 
 // ── 6) 배포: 화면이 basics.js를 app.js보다 먼저 읽고, 서비스 워커가 같은 판을 담고, 배포가 파일을 올리고 이 검사를 돌린다.
 {const html=fs.readFileSync(__dirname+'/index.html','utf8'),sw=fs.readFileSync(__dirname+'/sw.js','utf8'),yml=fs.readFileSync(__dirname+'/.github/workflows/pages.yml','utf8');
- const v=/app\.js\?v=(\d+)/.exec(html)[1],bi=html.indexOf('basics.js?v='+v),ai=html.indexOf('app.js?v='+v);
- assert.ok(bi>0&&bi<ai,'index.html: basics.js(같은 판)를 app.js 앞에서 읽는다');
- assert.ok(sw.includes("'./basics.js?v="+v+"'"),'sw.js가 basics.js를 담는다');
- assert.ok(/cp [^\n]*\bbasics\.js\b/.test(yml)&&/node basics\.test\.cjs/.test(yml),'pages.yml이 basics.js를 올리고 basics.test.cjs를 돌린다');
+ // v247: basics.js는 저작 원본이고 브라우저는 상자를 조각(chunks/*.json — build-chunks.cjs가 basics.js에서 만든다)으로 받는다. 색인 · 내용 창고를 app.js 앞에서 읽는다(조각이 원본과 같은지는 lazy.test.cjs).
+ const v=/app\.js\?v=(\d+)/.exec(html)[1],bi=html.indexOf('content-store.js?v='+v),ai=html.indexOf('app.js?v='+v);
+ assert.ok(bi>0&&bi<ai&&html.indexOf('content-index.js?v='+v)>0,'index.html: 색인 · 내용 창고(같은 판)를 app.js 앞에서 읽는다');
+ assert.ok(sw.includes("'./content-index.js?v="+v+"'")&&sw.includes("'./content-store.js?v="+v+"'")&&sw.includes('chunk-manifest.json'),'sw.js가 색인 · 내용 창고를 담고 조각 목록을 받는다');
+ assert.ok(yml.includes('cp -r chunks _site/')&&/node basics\.test\.cjs/.test(yml)&&/node lazy\.test\.cjs/.test(yml),'pages.yml이 조각을 올리고 basics.test.cjs · lazy.test.cjs를 돌린다');
  assert.ok(/id="basicsView"/.test(html)&&/id="basicsBody"/.test(html),'index.html에 기초 개념 화면');}
 console.log('PASS basics(영어): Day 1~15 · 문법 공식 훈련 2163문제(규칙 115 · 파트 93) 모두 상자 + 대입(쓴 줄 '+enUse+'개가 모두 파트 안 상자의 줄), 절 순서 · 번호, 해설 짜임, 해설 화면의 공식 나누기 '+splitBoxes+'문제 · 용어 나누기 '+termSplit+'문제(규칙 · 예문 · 용어 빠짐 · 겹침 0), 공통 정리는 같은 파트 안에서만, 교재 '+englishOverlap+', 파트별 상태 영어 51파트');
 console.log('PASS basics:논리 1~6장 995문제(규칙 33) + 독해 1~3장 920문제(규칙 29 — 1장 15 · 2장 3 · 3장 11) 모두 규칙 상자(표 있는 상자 '+withTable+'개 — 표는 선택, 번호는 이어 매김) + 문제별 대입, 1915문제 절 순서(먼저 알아 둘 말 → 표 → 규칙 → 비교 예문 → 이 문제에 대입), 용어 뜻·예)·한자 원뜻, ✓/✗ 비교 예문, 해설 세 문단, 카드·문항·변형 0, 한자는 한글 뒤 괄호 안에만, 논리 '+overlapChecked+' · 독해 '+readingOverlap+'; 파트별 상태 50파트(논리 27 · 독해 23) 모두 기초 개념 보기 → 상자 전부 펼침(대입 없음) → 이 파트 문제 풀기, 뒤로 = 파트별 상태');
