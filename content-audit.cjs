@@ -78,6 +78,15 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
  }
  // 국어 교재 범위(사고의 힘 논리 제1편 1장~6장, 제2편 독해 1장~3장, 국어 문법 1장~3장 · 공문서 수정 1장~3장 · 어휘 1장~2장). 영어의 직접쓰기 하한은 걸지 않는다(위 반복문은 영어만 본다).
  // 대신 장마다 문제 수 하한(koreanTextbook.floor)과 필수 개념(requiredPoints)을 요구하고, 사용자 요청에 따라 모두 4지선다여야 한다.
+ // 컴퓨터일반 자체 제작(computerTextbook, 2026-10-07~): 국어 교재 범위와 같은 틀 — 단원(topic '컴일 <파트>')마다 문제 수 하한 · 필수 요점, 모두 4지선다, 기출이 아닌 컴퓨터일반 문제는 모두 이 목록의 단원에 속한다.
+ {const spec=policy.computerTextbook||{},byUnit=new Map();
+  for(const [id,rows]of byCard){const lesson=rows[0].lesson;if(rows[0].card.subject!=='컴퓨터일반'||!lesson)continue;
+   assert(lesson.rule&&lesson.ruleId&&lesson.point&&lesson.topic,'Computer textbook lesson required: '+id);assert(spec[lesson.topic],'Unknown computer textbook range: '+lesson.topic+' / '+id);
+   for(const x of rows)assert.equal(x.exercise.type,'choice','Computer textbook questions are four-option only: '+id);
+   if(!byUnit.has(lesson.topic))byUnit.set(lesson.topic,[]);byUnit.get(lesson.topic).push(...rows);}
+  for(const [topic,s]of Object.entries(spec)){const rows=byUnit.get(topic)||[],points=new Set(rows.map(x=>x.lesson.point));
+   assert(Number.isInteger(s.floor)&&s.floor>=1&&s.requiredPoints.length>0,'Computer textbook spec required: '+topic);assert(rows.length>=s.floor,'Computer textbook floor: '+topic+' has '+rows.length+', needs '+s.floor);
+   for(const point of s.requiredPoints)assert(points.has(point),'Missing computer coverage: '+topic+' / '+point);}}
  const byTopic=new Map();
  for(const [id,rows]of byCard){const lesson=rows[0].lesson;if(rows[0].card.subject!=='국어'||!lesson)continue;
   assert(lesson.rule&&lesson.ruleId&&lesson.point&&lesson.topic,'Korean textbook lesson required: '+id);
@@ -130,6 +139,7 @@ const LONGEST_LIMIT=0.011,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
 const LENGTH_BALANCED=[
  'en-day11-','en-day12-','en-day13-','en-day14-','en-day15-',
  'ko-gram3-','ko-doc1-','ko-doc2-','ko-doc3-','ko-voc1-','ko-voc2-', // 2026-10-07 국어 독립 검토: 가장 긴 보기가 정답인 적이 없어(문법 3장 115/149) 소거 단서가 됐다 — 단원마다 두 쪽 띠로 잰다
+ 'comq-cg01-','comq-cg02-','comq-cg03-','comq-cg04-','comq-cg05-','comq-cg06-','comq-cg07-','comq-cg17-','comq-cg18-','comq-cg19-','comq-cg20-', // 2026-10-07 컴퓨터일반 자체 제작 — 단원마다 두 쪽 띠(research/computer-20261007)
 ];
 const BALANCE_BAND=[0.15,0.35];
 const balancedPrefix=id=>LENGTH_BALANCED.find(p=>id.startsWith(p));

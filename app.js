@@ -108,7 +108,10 @@ function roundMatch(c,round){
  return Hanneung.get(c.id)?.round===Number(round);
 }
 // 교재 진도(topic) 범위를 가진 과목: 영어는 문제집 Day, 국어는 『사고의 힘 논리』의 장.
-const TOPIC_SUBJECTS=new Set(['영어','국어']);
+const TOPIC_SUBJECTS=new Set(['영어','국어','컴퓨터일반']);
+// 컴퓨터일반 자체 제작(2026-10-07~): parts.js에서 scope.topic이 있는 컴퓨터일반 단원('comq-<파트>' — 교재의 장 하나, topic '컴일 <파트>')이 범위 하나다. 9급 기출 단원(com-u1~)은 scope가 비어 있다.
+// 단원 id는 그 장과 같은 주제의 9급 기출 파트 id에 'comq-'를 붙인 것이라, 범위 목록은 기출 단원(com-u1~) 아래에 그 파트 순서로 묶는다. 핵심 20 · '이 단원 문제 더 풀기'는 영어 Day · 국어 장과 같은 길(core-units.js).
+const COMPUTER_SELF=PARTS.units.filter(u=>u.subject==='컴퓨터일반'&&!!u.scope?.topic);
 // 국어 문법(v219~): 『사고의 힘 논리』와 다른 책(선재국어 제3편 개념 중심 문법 독해)이라 범위 묶음을 따로 둔다.
 const KOREAN_GRAMMAR_TOPICS={'문법 1장':'국어 문법 1장 음운론','문법 2장':'국어 문법 2장 형태론','문법 3장':'국어 문법 3장 통사론'};
 // 같은 책의 제4편 공문서 수정하기 · 제5편 문맥의 힘 어휘(2026-10-07): 범위 묶음을 하나씩 더 둔다.
@@ -131,6 +134,7 @@ function scopeLabel(scope){
  if(s==='국어'&&KOREAN_TOPICS[scope.topic])return '국어 · 사고의 힘 논리 '+KOREAN_TOPICS[scope.topic];
  if(s==='국어'&&KOREAN_GRAMMAR_TOPICS[scope.topic])return '국어 · '+KOREAN_GRAMMAR_TOPICS[scope.topic];
  if(s==='국어'&&(KOREAN_DOC_TOPICS[scope.topic]||KOREAN_VOCAB_TOPICS[scope.topic]))return '국어 · '+(KOREAN_DOC_TOPICS[scope.topic]||KOREAN_VOCAB_TOPICS[scope.topic]).replace(/^국어 /,'');
+ {const u=s==='컴퓨터일반'&&scope.topic?COMPUTER_SELF.find(x=>x.scope.topic===scope.topic):null;if(u)return s+' · '+u.title;}
  if(s!=='한국사')return s+' · 전체';
  const r=scope.round||'',t=topicRange(r),set=studyScope(r),lecture=lectureScope(r);
  if(t)return '한국사 · '+StudyTopics.title(t.id)+(t.papers?' · 기출만':'');if(lecture)return '한국사 · '+lectureTitle(lecture);if(set===0)return '한국사 · 요약자료 전체';if(set)return '한국사 · 요약자료 '+set+'묶음';if(r==='core')return '한국사 · 기존 핵심 복습';if(r)return '한국사 · 기출 '+r+'회';return '한국사 · 전체';
@@ -398,7 +402,7 @@ function reviewJudge(ids){return PartCheck.judge(ids,delayedResults());}
 const reviewLine=j=>'복습 판정 '+(j.reviewed?j.right+'/'+j.reviewed:'아직');
 // 파트별 상태 맨 위 범례(v184 부모 검토: 긴 문단 대신 한 줄에 하나).
 function partLegend(s){
- const lines=[GICHUL_PART_SUBJECTS.has(s)?'파트 = 같은 주제를 묻는 9급 기출 묶음 (누르면 그 파트만 풀어요)':'파트 = 한 강에서 같은 내용을 묻는 문제 묶음 (누르면 그 파트만 풀어요)',
+ const lines=[GICHUL_PART_SUBJECTS.has(s)?(s==='컴퓨터일반'&&COMPUTER_SELF.length?'파트 = 같은 주제를 묻는 문제 묶음 · 9급 기출과 자체 제작 (누르면 그 파트만 풀어요)':'파트 = 같은 주제를 묻는 9급 기출 묶음 (누르면 그 파트만 풀어요)'):'파트 = 한 강에서 같은 내용을 묻는 문제 묶음 (누르면 그 파트만 풀어요)',
   '외움 = 7·14·30일 뒤에 다시 맞힌 문제',
   '복습 판정 = 하루 이상 지나 다시 푼 문제 중 맞힌 수 (같은 날 해설 보고 푼 건 빼요)',
   '⚠ 약함 = 복습 판정 '+WEAK_MIN+'문제(파트가 작으면 전부) 중 '+Math.round(WEAK_RATE*100)+'% 이상 틀림'];
@@ -646,7 +650,11 @@ function choiceExplanations(quiz,split,picked){
 }
 function markedList(quiz){const box=elem('div',undefined,'marked-choices');box.append(elem('strong','보기별 틀린 곳'));quiz.choices.forEach((c,i)=>{const p=elem('p',(i+1)+'. ','example');p.append(markedChoice(c,quiz.marks[i],okLabel(quiz),!!quiz.fixes?.[i]?.length));box.append(p,...fixLines(quiz,i));});return box;}
 // 기출형 자료 제시 문제는 발문 뒤 빈 줄 다음에 [자료 이름]으로 시작하는 자료를 둔다. 발문은 크게, 자료는 상자에 보통 글씨로 보여 준다.
-function questionNodes(text){const at=text.indexOf('\n\n[');if(at<0)return [elem('div',text,'question')];return [elem('div',text.slice(0,at),'question'),elem('div',text.slice(at+2),'question-clue')];}
+// 자료 상자가 코드('[코드]')이거나 표처럼 칸을 맞춘 글(세로줄 ' | ' · 들여쓴 줄)이면 고정폭 글꼴로 보인다(.question-clue.mono) — 들여쓰기와 칸이 어긋나지 않게.
+function clueMono(clue){return clue.startsWith('[코드]')||clue.split('\n').some(l=>l.includes(' | ')||/^ {2,}\S/.test(l));}
+// 고정폭 자료는 모든 줄에 같이 붙은 앞 공백을 떼고 보인다(폰 화면에서 줄이 덜 꺾인다). 줄끼리의 들여쓰기 차이는 그대로다.
+function clueDedent(clue){const [head,...body]=clue.split('\n'),n=Math.min(...body.filter(l=>l.trim()).map(l=>l.match(/^ */)[0].length));return n>0&&Number.isFinite(n)?[head,...body.map(l=>l.slice(Math.min(n,l.match(/^ */)[0].length)))].join('\n'):clue;}
+function questionNodes(text){const at=text.indexOf('\n\n[');if(at<0)return [elem('div',text,'question')];const clue=text.slice(at+2),mono=clueMono(clue);return [elem('div',text.slice(0,at),'question'),elem('div',mono?clueDedent(clue):clue,'question-clue'+(mono?' mono':''))];}
 // 영어 해설 끝의 ‘외우는 공식’ 문단(규칙마다 같은 외우기 블록)은 상자로 따로 보여 준다. 줄 머리(외우는 공식·입으로 외우기)와 이름표(꿀팁·함정)만 굵게 한다.
 // 2026-09-19: 한국사 해설의 ‘외우는 비결’ 문단은 전수 뗐다(사용자 요청 — 문제에서는 요약만 본다). 이 상자는 이제 영어 공식 전용이다.
 function explanationParts(text){
@@ -678,7 +686,7 @@ let sessionDirty=false;
 function sessionSnapshot(){const s=data.practiceScope||{},a=data.activePractice,e=a?.exercise;return {subject:s.subject||'',topic:s.topic||'',round:s.round||'',cardId:e?a.cardId:null,exerciseId:e?.exerciseId||null,variantIndex:e?(e.variantIndex??0):null,type:e?e.type:null,choices:e?.type==='choice'?[...e.choices]:null};}
 function stampSession(){if(!storageOK)return;let session;try{session=ProgressSync.session({at:Math.max(Date.now(),(data.session?.at||0)+1),...sessionSnapshot()});}catch{return;}data.session=session;try{writeState(KEY,data);window.dispatchEvent(new Event('study-progress-saved'));}catch{}}
 // 화면 아래 출처 줄: 지금 보는 과목의 문제가 어디서 왔는지만 적는다(국어를 풀 때 국사편찬위원회가 뜨지 않게). 컴퓨터일반·정보보호론은 자체 제작 문제가 없다.
-function footerText(subject){const exam='인사혁신처 공개 9급 기출',hist='국사편찬위원회 공개 한능검 심화 기출',own='자체 제작 복습 문제';if(subject==='한국사')return [own,exam,hist].join(' · ');if(subject==='국어'||subject==='영어')return [own,exam].join(' · ');if(subject==='컴퓨터일반'||subject==='정보보호론')return exam;return [own,exam,hist].join(' · ');}
+function footerText(subject){const exam='인사혁신처 공개 9급 기출',hist='국사편찬위원회 공개 한능검 심화 기출',own='자체 제작 복습 문제';if(subject==='한국사')return [own,exam,hist].join(' · ');if(subject==='국어'||subject==='영어'||(subject==='컴퓨터일반'&&COMPUTER_SELF.length))return [own,exam].join(' · ');if(subject==='컴퓨터일반'||subject==='정보보호론')return exam;return [own,exam,hist].join(' · ');}
 function footerSubject(){if(view==='home')return '';if(view!=='quiz')return viewSubject;try{const sc=scopeOf();if(sc.subject)return sc.subject;const id=data.session&&data.session.cardId,c=id&&data.cards.find(x=>x.id===id);return c?c.subject:'';}catch{return viewSubject;}}
 function render(){renderView();{const f=$('#siteFooter');if(f)f.textContent=footerText(footerSubject());}if(sessionDirty){sessionDirty=false;stampSession();}}
 // Screens: home (subjects) → subject (resume / choose range) → range → quiz (question, then explanation). Progress is separate.
@@ -827,6 +835,13 @@ function renderRange(){
   for(const [name,topics]of [['국어 공문서 수정',KOREAN_DOC_TOPICS],['국어 어휘',KOREAN_VOCAB_TOPICS]]){const gg=group(name);for(const [topic,title]of Object.entries(topics))option(gg,title,scope('',topic),moreNote(scope('',topic)));}
   const exams=group('기출 · 회차별 ('+paperCount+'회차)',!paperScope(scopeOf().round));paperYears(exams,scopeOf().round);
   option(group('그 밖의 범위',true),'국어 전체',scope(''));}
+ // 컴퓨터일반: 교재 장별 자체 제작 문제(기출 단원 제목 아래에 그 단원의 장들)를 먼저 두고, 기출 회차는 그대로 펼쳐 둔다.
+ else if(s==='컴퓨터일반'&&COMPUTER_SELF.length){
+  for(const u of PARTS.unitsFor(s)){if(u.scope?.topic)continue;const mine=u.parts.map(p=>COMPUTER_SELF.find(x=>x.id==='comq-'+p.id)).filter(Boolean);if(!mine.length)continue;
+   const g=group('자체 제작 · '+u.title);for(const x of mine){const sc=scope('',x.scope.topic);option(g,x.short,sc,moreNote(sc));}}
+  const exams=group('기출 · 회차별 ('+paperCount+'회차)');paperYears(exams,scopeOf().round);
+  option(group('그 밖의 범위',true),s+' 전체',scope(''));
+ }
  else if(PAPER_SUBJECTS.has(s)){
   const exams=group('기출 · 회차별 ('+paperCount+'회차)');paperYears(exams,scopeOf().round);
   option(group('그 밖의 범위',true),s+' 전체',scope(''));
@@ -1018,7 +1033,7 @@ function basicsLineSections(box,apply){
  const tables=(box.tables||[]).map(t=>{const all=use.has(t.id),keep=[],rest=[];t.rows.forEach((r,i)=>(all||use.has(t.rowIds?.[i])?keep:rest).push(r));return {t,keep,rest};});
  const sub=(t,rows)=>basicsHistTable({...t,rows});
  if(inT.length){head('먼저 알아 둘 말');for(const t of inT)out.push(...basicsTerm(t));}
- for(const {t,keep} of tables)if(keep.length){head(t.title);out.push(sub(t,keep));if(t.key&&(use.has(t.id)||use.has(t.key.id)))out.push(basicsLines(t.key.text,'b-key'));}
+ for(const {t,keep} of tables){const keyIn=!!t.key&&(use.has(t.id)||use.has(t.key.id));if(keep.length||keyIn){head(t.title);if(keep.length)out.push(sub(t,keep));if(keyIn)out.push(basicsLines(t.key.text,'b-key'));}}
  if(inR.length){head('규칙'+(box.rules.title?' — '+box.rules.title:''));for(const r of inR)out.push(basicsRule(r));}
  if(inX.length){head('비교 예문');for(const x of inX)out.push(basicsExample(x));}
  const restRows=tables.reduce((s,x)=>s+x.rest.length,0),parts=[restT.length&&'말 '+restT.length,restRows&&'표 '+restRows+'줄',restR.length&&'규칙 '+restR.length,restX.length&&'예문 '+restX.length].filter(Boolean);

@@ -37,7 +37,7 @@ const run=code=>vm.runInContext(code,ctx);
 // 시작할 때는 회차 파일을 하나도 받지 않는다. 그래도 카드·과목 문항 수는 색인으로 모든 기출 문항을 센다.
 assert.deepEqual(fetched,[],'앱을 열 때 기출 회차 파일을 받지 않는다');
 const indexedComputer=run("Gichul.forSubject('컴퓨터일반').reduce((n,p)=>n+p.numbers.length,0)");
-assert.equal(run("questionCount(data.cards.filter(c=>isPlayable(c)&&c.subject==='컴퓨터일반'))"),indexedComputer,'받지 않은 회차의 문항도 과목 문항 수에 들어간다');
+assert.equal(run("questionCount(data.cards.filter(c=>isPlayable(c)&&c.subject==='컴퓨터일반'))"),indexedComputer+/*COMQ-VISIBLE*/220/*END-COMQ-VISIBLE*/,'받지 않은 회차의 문항도 과목 문항 수에 들어간다(+ 보이는 자체 제작 문제)');
 assert.equal(run("Object.keys(QUIZ_OPTIONS).filter(id=>id.startsWith('gichul-')).length"),0,'받기 전에는 기출 보기가 없다');
 const screen=()=>nodes.get('#card').all.map(n=>n._text).filter(Boolean).join(' | ');
 // 채점 뒤 해설 화면에서 "다음 문제"를 누른 것과 같다.
@@ -227,7 +227,7 @@ for(const [SUBJ,PRE] of [['정보보호론','sec'],['컴퓨터일반','com']]){c
    const hs=b.all.filter(n=>n.className==='b-h').map(n=>n._text);hs.forEach((h,k)=>assert.ok(h.startsWith((k+1)+'. '),'번호가 이어진다: '+hs.join(' / ')));
    assert.ok(applyLast(hs),'마지막 절은 이 문제에 대입');
    const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false);
-   assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드/g,'')),SUBJ+' 해설 화면에 문항/카드/변형 없음');
+   assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드|천공 ?카드|그래픽 ?카드|인터페이스 ?카드|확장 ?카드|메모리 ?카드|LAN ?카드|사운드 ?카드|비디오 ?카드/g,'')),SUBJ+' 해설 화면에 문항/카드/변형 없음');
    next();}}}
 // v170: 국어 · 영어 · 9급 한국사 기출과 한능검도 기출 대응 원고가 짝지은 문제는 해설 화면에 그 문제가 쓰는 상자 —
 //   틀리면 펼침 · 맞히면 접힘, 번호가 이어지고 마지막 절은 '이 문제에 대입'(한국사 상자는 대입이 쓰는 줄만 제자리 + 닫힌 나머지 모음 하나), 문항/카드/변형 없음.
@@ -246,7 +246,7 @@ for(const [SUBJ,round] of [['국어','paper-national9-2026-korean'],['영어','p
   const hs=b.all.filter(n=>n.className==='b-h').map(n=>n._text);hs.forEach((h,k)=>assert.ok(h.startsWith((k+1)+'. '),'번호가 이어진다: '+hs.join(' / ')));
   assert.ok(applyLast(hs),'마지막 절은 이 문제에 대입: '+id);
   if(/^hist-/.test(a.box)){const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.ok(rest.length<=1&&rest.every(r=>r.open===false),'한국사 상자: 나머지는 닫힌 모음 하나: '+id);}
-  assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드/g,'')),SUBJ+' 기출 해설 화면에 문항/카드/변형 없음: '+id);
+  assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드|천공 ?카드|그래픽 ?카드|인터페이스 ?카드|확장 ?카드|메모리 ?카드|LAN ?카드|사운드 ?카드|비디오 ?카드/g,'')),SUBJ+' 기출 해설 화면에 문항/카드/변형 없음: '+id);
   seen[wrong?'wrong':'right']++;next();}
  assert.ok(seen.wrong&&seen.right,SUBJ+' '+round+': 대입이 있는 기출을 틀리고 맞혀 봤다');}
 // 회차가 아닌 범위는 예전 그대로 복습 대기열을 따른다.
@@ -439,7 +439,7 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  assert.throws(()=>run("validateBackup({version:3,cards:[],history:[],queueModes:{'영어':'nope'}})"),/대기열/,'잘못된 과목별 모드는 거절');
  // 화면 아래 출처 줄은 과목을 따른다(2026-09-24 신고: 국어를 푸는데 국사편찬위원회가 떠 있었다).
  assert.equal(run("footerText('국어')"),'자체 제작 복습 문제 · 인사혁신처 공개 9급 기출');assert.equal(run("footerText('영어')"),'자체 제작 복습 문제 · 인사혁신처 공개 9급 기출');
- assert.equal(run("footerText('컴퓨터일반')"),'인사혁신처 공개 9급 기출');assert.match(run("footerText('한국사')"),/국사편찬위원회/);assert.doesNotMatch(run("footerText('정보보호론')"),/국사편찬위원회|자체 제작/);
+ assert.equal(run("footerText('컴퓨터일반')"),'자체 제작 복습 문제 · 인사혁신처 공개 9급 기출');assert.match(run("footerText('한국사')"),/국사편찬위원회/);assert.doesNotMatch(run("footerText('정보보호론')"),/국사편찬위원회|자체 제작/);
  assert.equal(run("(()=>{const s=data.queueModes;delete data.queueModes;data.queueMode='wrong';const r=queueMode('국어');delete data.queueMode;data.queueModes=s;return r;})()"),'wrong','과목별 선택이 없던 옛 저장은 공통 모드를 그대로 읽는다');
  run("openScope({subject:'영어',topic:'Day 2'})");assert.equal(run('queueMode()'),'fresh');
 

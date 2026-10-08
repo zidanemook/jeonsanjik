@@ -231,7 +231,9 @@ body[data-view="quiz"] main { padding-top:14px; }
 .choice-picked-tag { background:#49282e; color:#ff9c9c; }
 .memorize-group-title { margin:0 0 8px; font-size:18px; font-weight:700; color:#d4e5ff; }
 .question-clue { margin:14px 0 0; padding:12px 14px; border:1px solid #4a5a70; border-radius:10px; background:#1b2230; color:#e3e8ef; font-size:17px; font-weight:400; line-height:1.75; white-space:pre-wrap; overflow-wrap:anywhere; }
+.question-clue.mono { font-family:Consolas,'D2Coding','Noto Sans Mono CJK KR','Noto Sans Mono','Roboto Mono','Droid Sans Mono',ui-monospace,monospace; font-size:15px; line-height:1.7; tab-size:4; }
 .recap .question-clue { font-size:15px; }
+.recap .question-clue.mono { font-size:14px; }
 /* 문법 공식 훈련(v98): 해설 끝 외우기 상자와 외울 것 칸의 줄바꿈 */
 .formula-box { margin:14px 0 4px; padding:12px 14px; border:1px solid #6f8fb8; border-radius:12px; background:#1c2635; overflow-wrap:anywhere; }
 .formula-box p { margin:0 0 6px; line-height:1.55; }
@@ -373,6 +375,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .xp-card .xp-text { word-break:keep-all; overflow-wrap:break-word; }
 /* 기초 개념(basics.js) — 해설 화면의 '기초 개념' 상자와 파트별 '기초 개념 보기' 화면. 용어 칩 노랑, 역할(S·P·M 등) 색 칩, 맞는 예문 초록 막대·틀린 예문 빨강 막대. */
 .lesson.basics { border-color:#6b5a2e; background:#1a1812; line-height:1.6; }
+.lesson.basics { overflow-x:auto; }
 .lesson.basics > summary { color:#ffd479; }
 .basics p, .basics div, .basics td, .basics th { overflow-wrap:anywhere; word-break:keep-all; }
 .b-h { margin:22px 0 6px; font-size:15px; color:#e8d9a8; border-bottom:1px solid #4a4128; padding-bottom:4px; }

@@ -42,7 +42,9 @@ for(const [s,c] of Object.entries(cover)){assert.equal(c.dup,0,s+' 문제가 두
 assert.equal(cover['한국사'].parts,R("STUDY_PARTS.unitsFor('한국사').reduce((n,u)=>n+u.parts.length,0)"),'한국사 파트 전부');
 assert.deepEqual(cover['영어'].fallback.map(f=>[f[0],f[1],f[3]&&f[3].topic]).sort(),[['rest','그 밖의 문제',null],['topic:수일치','수일치','수일치'],['topic:영문법','그 밖의 문법 연습','영문법']],'영어: 파트 없는 연습 주제마다 한 파트 + 주제 없는 문제 한 묶음');
 assert.deepEqual(cover['한국사'].fallback.map(f=>[f[0],f[1],f[3]]),[['rest','그 밖의 문제',null]],'한국사: 강에 없는 문화유산 사진 문제는 한 묶음(누를 범위 없음)');
-for(const s of ['컴퓨터일반','정보보호론'])assert.equal(cover[s].groups,0,s+'는 자체제작 문제가 없다');
+for(const s of ['정보보호론'])assert.equal(cover[s].groups,0,s+'는 자체제작 문제가 없다');
+// 컴퓨터일반 자체 제작(research/computer-20261007): 뱃지 묶음 = 자체 제작 단원의 파트 전부(그 밖의 묶음 없음 — 모든 문제가 parts.js 파트에 있다).
+{const n=/*COMQ-PARTS*/175/*END-COMQ-PARTS*/;assert.equal(cover['컴퓨터일반'].groups,n,'컴퓨터일반 자체제작 묶음 = 자체 제작 파트');assert.equal(cover['컴퓨터일반'].parts,n,'컴퓨터일반 자체제작 묶음은 모두 parts.js 파트');assert.deepEqual(cover['컴퓨터일반'].fallback,[],'컴퓨터일반: 파트 밖 묶음 없음');}
 
 // ── 2) 저장된 기록(실제 동기화 경로로 합침): 19강 첫 파트는 전부 외움 · 지대 파트 둘은 틀림 · 컴퓨터일반 기출 12문제(9개 정답) · 정보보호론 기출 3문제
 const seed=R(`(()=>{const today=ReviewSchedule.day(),ago=n=>ReviewSchedule.plus(today,-n),rows=[];let k=0;
@@ -61,7 +63,7 @@ const badges=J('subjectBadges()');
 assert.equal(badges['컴퓨터일반'].exam.ready,true);assert.equal(badges['컴퓨터일반'].exam.score,R('ExamScore.estimate(18,24).score'));
 assert.equal(badges['컴퓨터일반'].exam.tier.id,R('StudyXp.tier(ExamScore.estimate(18,24).score).id'));
 assert.deepEqual([badges['정보보호론'].exam.ready,badges['정보보호론'].exam.n,badges['정보보호론'].exam.need],[false,3,17],'20문제 미만 → 아직');
-assert.equal(badges['컴퓨터일반'].self.ready,false,'자체제작 문제가 없는 과목 → 아직');
+assert.equal(badges['정보보호론'].self.ready,false,'자체제작 문제가 없는 과목 → 아직');assert.equal(badges['컴퓨터일반'].self.ready,true,'컴퓨터일반 자체제작 뱃지에 묶음이 있다');assert.equal(badges['컴퓨터일반'].self.groups.length,cover['컴퓨터일반'].groups,'컴퓨터일반 자체제작 뱃지 묶음 = 자체 제작 파트');
 assert.deepEqual([badges['한국사'].exam.source,badges['한국사'].exam.ready,badges['한국사'].exam.n,badges['한국사'].exam.score],['한능검 심화',true,21,R('ExamScore.estimate(16,21).score')],'한국사 기출 뱃지 = 한능검 심화 첫 풀이(9급 한국사 기출은 안 셈)');
 const hist=badges['한국사'].self,groupsN=cover['한국사'].groups;
 assert.equal(hist.groups.find(g=>g.id===seed.p0).pct,100,'19강 첫 파트 전부 외움');
@@ -71,7 +73,7 @@ assert.equal(hist.weakest[0].id,seed.p3,'가장 약한 파트: 0% 중 풀어 본
 const rows=node('#subjectList').children;
 assert.ok(rows.every(r=>r.className==='subject-row'&&r.children[0].tag==='button'&&r.children[0].all.every(n=>n.tag!=='button')),'과목 버튼 안에 버튼이 없다');
 const chipsOf=s=>rows.find(r=>r.dataset.subject===s).children[1].children.map(c=>[c.dataset.badge,c.dataset.tier,text(c)]);
-assert.deepEqual(chipsOf('컴퓨터일반'),[['exam',badges['컴퓨터일반'].exam.tier.id,'기출 '+badges['컴퓨터일반'].exam.tier.name],['self','none','자체제작 아직']]);
+assert.deepEqual(chipsOf('컴퓨터일반'),[['exam',badges['컴퓨터일반'].exam.tier.id,'기출 '+badges['컴퓨터일반'].exam.tier.name],['self',badges['컴퓨터일반'].self.tier.id,'자체제작 '+badges['컴퓨터일반'].self.tier.name]]);assert.equal(badges['컴퓨터일반'].self.pct,0,'안 푼 자체 제작 파트는 0%');assert.deepEqual(chipsOf('정보보호론')[1],['self','none','자체제작 아직']);
 assert.deepEqual(chipsOf('정보보호론')[0],['exam','none','기출 아직']);
 assert.deepEqual(chipsOf('한국사')[1],['self',hist.tier.id,'자체제작 '+hist.tier.name]);
 assert.ok(rows.every(r=>r.children[0].all.some(n=>n.className==='level-badge lv-plain')),'레벨 육각형은 과목마다 하나(색 없음)');
