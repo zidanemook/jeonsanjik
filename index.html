@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111318">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="style.css?v=221">
+  <link rel="stylesheet" href="style.css?v=222">
   <title>차곡 — 문제 복습</title>
 </head>
 <body>
@@ -27,7 +27,7 @@
       </section>
       <h2 id="homeTitle">과목 선택</h2>
       <div id="subjectList" class="menu-list"></div>
-      <button id="openProgress" type="button" class="menu-item secondary"><strong>진행상황</strong><span>지금 풀 차례 · 전체 문제 · 오늘 푼 문제 · 학습량</span></button>
+      <button id="openProgress" type="button" class="menu-item secondary"><strong>진행상황</strong><span>지금 풀 차례, 전체 문제, 오늘 푼 문제, 학습량</span></button>
     </section>
     <section id="subjectView" aria-labelledby="subjectTitle" hidden>
       <button type="button" class="back" data-back>← 과목 선택</button>
@@ -62,7 +62,7 @@
       </article>
       <p id="retryStatus" class="status" role="status"></p>
       <p id="roundScore" class="status" role="status" hidden></p>
-      <details id="annulledQuestion" hidden><summary>63회 42번 · 공식 오류 문제 안내</summary><p>정답 없음으로 정정되어 응시자 전원에게 2점이 부여된 문제입니다. 일반 문제풀이와 오답 복습에서 제외합니다.</p></details>
+      <details id="annulledQuestion" hidden><summary>63회 42번: 공식 오류 문제 안내</summary><p>정답 없음으로 정정되어 응시자 전원에게 2점이 부여된 문제입니다. 일반 문제풀이와 오답 복습에서 제외합니다.</p></details>
     </section>
     <section id="memorizeView" aria-labelledby="memorizeTitle" hidden>
       <button type="button" class="back" data-back>← 뒤로</button>
@@ -88,12 +88,12 @@
         <p id="scoreTotal" class="score-total"></p>
         <p id="scoreGap" class="score-gap"></p>
         <div class="table-wrap"><table class="score-table"><thead><tr><th>과목</th><th>예상</th><th>범위</th><th>기출 정답</th></tr></thead><tbody id="scoreRows"></tbody></table></div>
-        <small>공무원 9급 기출을 <b>처음 풀었을 때</b>의 정답률로만 계산해요(다시 푼 것·설명 보고 맞힌 것은 제외). 과목마다 기출 10문제부터 나오고, 범위는 실제 점수가 들어갈 가능성이 80%인 구간이에요 — 많이 풀수록 좁아져요. 평균은 순위에 들어가는 국어·영어·컴퓨터일반·정보보호론 4과목이고 한국사는 한능검 대체라 빼요. 자체제작 문제 정답률은 반복·해설로 높게 나오기 쉬워 참고로만 보여 줘요.</small>
+        <small>공무원 9급 기출을 <b>처음 풀었을 때</b>의 정답률로만 계산해요(다시 푼 것과 설명 보고 맞힌 것은 제외). 과목마다 기출 10문제부터 나오고, 범위는 실제 점수가 들어갈 가능성이 80%인 구간이에요 — 많이 풀수록 좁아져요. 평균은 순위에 들어가는 국어, 영어, 컴퓨터일반, 정보보호론 4과목이고 한국사는 한능검 대체라 빼요. 자체제작 문제 정답률은 반복과 해설로 높게 나오기 쉬워 참고로만 보여 줘요.</small>
         <details id="targetEdit" class="target-edit"><summary>목표 바꾸기</summary>
-          <label for="targetName">목표 이름(지역·직렬)</label><input id="targetName" type="text" maxlength="40" placeholder="국가직 전산9급">
+          <label for="targetName">목표 이름(지역과 직렬)</label><input id="targetName" type="text" maxlength="40" placeholder="국가직 전산9급">
           <label for="targetCutoff">목표 점수(합격선, 가산점 포함 평균)</label><input id="targetCutoff" type="number" inputmode="decimal" min="1" max="110" step="0.1" placeholder="95">
           <label for="targetBonus">내 가산점</label><input id="targetBonus" type="number" inputmode="decimal" min="0" max="10" step="0.5" placeholder="5">
-          <div class="xp-goal-row"><button id="targetSave" type="button">저장</button><button id="targetReset" type="button" class="secondary">기본값(국가직 전산9급 95 · 가산 5)</button></div>
+          <div class="xp-goal-row"><button id="targetSave" type="button">저장</button><button id="targetReset" type="button" class="secondary">기본값(국가직 전산9급 95, 가산 5)</button></div>
           <small>목표는 이 기기에만 저장돼요.</small>
         </details>
       </section>
@@ -108,10 +108,10 @@
         <h2 id="studyTimeTitle">학습량 환산 시간</h2>
         <div class="study-time-totals"><div><span>오늘</span><strong id="studyToday">0분</strong></div><div><span>누적</span><strong id="studyTotal">0분</strong></div></div>
         <p id="studyCreditCount">아직 완료한 풀이가 없어요.</p>
-        <small>풀이 채점 +1분 · 해설 펼치기 +1분. 같은 풀이의 해설은 한 번만 더해요. 실제로 잰 시간은 아니에요.</small>
-        <details><summary>날짜별 환산 시간</summary><ul id="studyTimeHistory"></ul><button id="studyTimeMore" type="button" hidden>이전 날짜 더 보기</button><small>전체 과목 · 기존 풀이도 환산해요. 해설은 처음 연 날에 더하고, 새로고침·다른 기기에서 다시 열어도 중복 가산하지 않아요.</small><small id="studyCreditExcluded"></small></details>
+        <small>풀이 채점 +1분, 해설 펼치기 +1분. 같은 풀이의 해설은 한 번만 더해요. 실제로 잰 시간은 아니에요.</small>
+        <details><summary>날짜별 환산 시간</summary><ul id="studyTimeHistory"></ul><button id="studyTimeMore" type="button" hidden>이전 날짜 더 보기</button><small>전체 과목을 세고, 기존 풀이도 환산해요. 해설은 처음 연 날에 더하고, 새로고침하거나 다른 기기에서 다시 열어도 중복 가산하지 않아요.</small><small id="studyCreditExcluded"></small></details>
       </section>
-      <section class="export-line" aria-label="기록 파일"><button id="exportState" type="button" class="secondary">기록 파일로 받기</button><small>이 기기의 풀이 기록 · 복습 일정 · 설정을 파일 하나로 내려받아요. 기기를 바꾸거나 저장이 걱정될 때 받아 두세요.</small></section>
+      <section class="export-line" aria-label="기록 파일"><button id="exportState" type="button" class="secondary">기록 파일로 받기</button><small>이 기기의 풀이 기록, 복습 일정, 설정을 파일 하나로 내려받아요. 기기를 바꾸거나 저장이 걱정될 때 받아 두세요.</small></section>
     </section>
     <div class="sync-line"><span id="syncStatus" role="status">이 기기에 저장 중</span><button id="syncRequest" type="button" hidden>승인 요청</button><button id="adminOpen" type="button" hidden>승인 관리</button><button id="syncAccount" type="button" hidden>Google 로그인</button></div>
     <section id="adminPanel" class="admin-panel" aria-labelledby="adminTitle" hidden>
@@ -122,32 +122,32 @@
     </section>
     <p id="message" role="status" aria-live="polite"></p>
     <section id="badgeInfo" class="badge-info" role="dialog" aria-labelledby="badgeInfoTitle" hidden></section>
-    <footer id="siteFooter">자체 제작 복습 문제 · 인사혁신처 공개 9급 기출 · 국사편찬위원회 공개 한능검 심화 기출</footer>
+    <footer id="siteFooter">자체 제작 복습 문제, 인사혁신처 공개 9급 기출, 국사편찬위원회 공개 한능검 심화 기출</footer>
   </main>
-  <script src="storage.js?v=221"></script>
-  <script src="scheduler.js?v=221"></script>
-  <script src="learning.js?v=221"></script>
-  <script src="content-index.js?v=221"></script>
-  <script src="hanneung-data.js?v=221"></script>
-  <script src="hanneung.js?v=221"></script>
-  <script src="gichul-index.js?v=221"></script>
-  <script src="gichul.js?v=221"></script>
-  <script src="practice.js?v=221"></script>
-  <script src="content-corrections.js?v=221"></script>
-  <script src="review-record.js?v=221"></script>
-  <script src="review-policy.js?v=221"></script>
-  <script src="sync-core.js?v=221"></script>
-  <script src="study-credit.js?v=221"></script>
-  <script src="xp.js?v=221"></script>
-  <script src="score.js?v=221"></script>
-  <script src="hanneung-topics.js?v=221"></script>
-  <script src="topics.js?v=221"></script>
-  <script src="parts.js?v=221"></script>
-  <script src="part-check.js?v=221"></script>
-  <script src="core-units.js?v=221"></script>
-  <script src="content-store.js?v=221"></script>
-  <script src="app.js?v=221"></script>
-  <script src="firebase-config.js?v=221"></script>
-  <script src="sync.js?v=221"></script>
+  <script src="storage.js?v=222"></script>
+  <script src="scheduler.js?v=222"></script>
+  <script src="learning.js?v=222"></script>
+  <script src="content-index.js?v=222"></script>
+  <script src="hanneung-data.js?v=222"></script>
+  <script src="hanneung.js?v=222"></script>
+  <script src="gichul-index.js?v=222"></script>
+  <script src="gichul.js?v=222"></script>
+  <script src="practice.js?v=222"></script>
+  <script src="content-corrections.js?v=222"></script>
+  <script src="review-record.js?v=222"></script>
+  <script src="review-policy.js?v=222"></script>
+  <script src="sync-core.js?v=222"></script>
+  <script src="study-credit.js?v=222"></script>
+  <script src="xp.js?v=222"></script>
+  <script src="score.js?v=222"></script>
+  <script src="hanneung-topics.js?v=222"></script>
+  <script src="topics.js?v=222"></script>
+  <script src="parts.js?v=222"></script>
+  <script src="part-check.js?v=222"></script>
+  <script src="core-units.js?v=222"></script>
+  <script src="content-store.js?v=222"></script>
+  <script src="app.js?v=222"></script>
+  <script src="firebase-config.js?v=222"></script>
+  <script src="sync.js?v=222"></script>
 </body>
 </html>

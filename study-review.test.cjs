@@ -15,7 +15,7 @@ for(const card of cards.values())if(/^(?:joseonecosoc-hist-20260923-|joseonforei
 // 2026-09-16 사용자 지시: 따로 떠 있던 기출형 연습 범위 셋(선사~삼국·가야 / 통일 신라·발해·후삼국 / 고려)을 없애고 문제마다 실제 소속 강에 넣는다. 07·08강 덩어리도 둘로 나눈다.
 const lectures=JSON.parse(JSON.stringify(catalog.lectures)),inLecture=new Map();
 assert.deepEqual(lectures.map(l=>l.id),['02-05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','28-40','250','252-256']);
-assert.deepEqual(lectures.map(l=>l.title),['02~05강 선사 시대~삼국 통일','06강 통일 신라·발해·후삼국','07강 고대(경제, 사회)','08강 고대(문화 1)','09강 고대(문화 2)','10강 고려(초기 정치)','11강 고려(중기 정치~무신 정변)','12강 고려(외교)','13강 고려(경제, 사회)','14강 고려(문화 I)','15강 고려(문화 2)','16강 조선 전기(정치)','17강 조선(조직)','18강 조선 전기(외교)','19강 조선 전기(경제, 사회)','20강 조선 전기(문화 I)','21강 조선 전기(문화 II)','22강 조선 후기(정치)','23강 조선 후기(조직, 외교)','24강 조선 후기(경제)','25강 조선 후기(사회)','26강 조선 후기(문화 1)','27강 조선 후기(문화 2)','28강 개항기(흥선 대원군)','29강 개항기(개항 ~ 갑신정변)','30강 개항기(동학 농민 운동 ~ 대한 제국)','31강 국권 피탈과 저항','32강 개항기(경제)','33강 개항기(문화)','34강 일제 강점기(식민 통치)','35강 일제 강점기(1910년대 저항)','36강 일제 강점기(1920년대 저항)','37강 일제 강점기(1930년대 이후 저항)','38강 현대(광복 ~ 6·25 전쟁)','39강 현대(민주주의의 발전)','40강 현대(경제 발전과 통일 정책)','28~40강 근대 순서 훈련','특강 세시 풍속','특강 근·현대 인물']);
+assert.deepEqual(lectures.map(l=>l.title),['02~05강 선사 시대~삼국 통일','06강 통일 신라, 발해, 후삼국','07강 고대(경제, 사회)','08강 고대(문화 1)','09강 고대(문화 2)','10강 고려(초기 정치)','11강 고려(중기 정치~무신 정변)','12강 고려(외교)','13강 고려(경제, 사회)','14강 고려(문화 I)','15강 고려(문화 2)','16강 조선 전기(정치)','17강 조선(조직)','18강 조선 전기(외교)','19강 조선 전기(경제, 사회)','20강 조선 전기(문화 I)','21강 조선 전기(문화 II)','22강 조선 후기(정치)','23강 조선 후기(조직, 외교)','24강 조선 후기(경제)','25강 조선 후기(사회)','26강 조선 후기(문화 1)','27강 조선 후기(문화 2)','28강 개항기(흥선 대원군)','29강 개항기(개항 ~ 갑신정변)','30강 개항기(동학 농민 운동 ~ 대한 제국)','31강 국권 피탈과 저항','32강 개항기(경제)','33강 개항기(문화)','34강 일제 강점기(식민 통치)','35강 일제 강점기(1910년대 저항)','36강 일제 강점기(1920년대 저항)','37강 일제 강점기(1930년대 이후 저항)','38강 현대(광복 ~ 6·25 전쟁)','39강 현대(민주주의의 발전)','40강 현대(경제 발전과 통일 정책)','28~40강 근대 순서 훈련','특강 세시 풍속','특강 근현대 인물']);
 for(const l of lectures){assert(l.ids.length>0,'Empty lecture '+l.id);for(const id of l.ids){assert(!inLecture.has(id),'Question in two lectures: '+id);assert(catalog.questions[id],'Unknown lecture question: '+id);inLecture.set(id,l.id);}const numbers=l.ids.map(id=>catalog.questions[id].number);assert.deepEqual(numbers,[...numbers].sort((a,b)=>a-b),'Lecture keeps catalog order: '+l.id);}
 assert.equal(inLecture.size,catalog.total);
 // 고대 기출형 108문항의 소속 강. 정답 사실과 대상을 알아내는 핵심 단서가 교재 어느 강에서 나오는지로 정했고, 둘이 다르면 뒤 강이다.
@@ -39,7 +39,7 @@ for(const [id,q]of Object.entries(catalog.questions)){
 const ids0708=Object.keys(catalog.questions).filter(id=>LECTURE_0708.test(id));assert.equal(ids0708.length,73);
 assert.equal(ids0708.filter(id=>inLecture.get(id)==='07').length,29,'07강 사실형 문항 수');assert.equal(ids0708.filter(id=>inLecture.get(id)==='08').length,44,'08강 사실형 문항 수');
 assert(ids0708.every(id=>catalog.questions[id].number>225),'New questions continue after the earlier catalog numbers');
-assert(catalog.sets.filter(s=>s.title.startsWith('07·08강 고대 경제·사회·문화')).length===7);
+assert(catalog.sets.filter(s=>s.title.startsWith('07, 08강 고대 경제, 사회, 문화')).length===7);
 assert.deepEqual(lectures.map(l=>l.ids.length),[220,127,40,57,54,66,125,187,68,50,63,88,78,83,115,108,94,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,30,134,418],'강별 문항 수(기출형·유형 보강 포함)');
 // 강 안에서는 사실형 문항 뒤에 기출형이 모인다(번호가 그렇게 이어져 있다). 13·14강은 처음부터 섞여 있어 제외한다.
 for(const l of lectures.filter(l=>!['13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','28-40','250','252-256'].includes(l.id))){const exam=l.ids.map(id=>/style-hist-20260915-|typefill-hist-20260916-/.test(id)),first=exam.indexOf(true);if(first>=0)assert(exam.slice(first).every(Boolean),'기출형은 강의 끝에 모인다: '+l.id);}
@@ -126,8 +126,8 @@ assert.equal(catalog.sets.filter(s=>s.title.startsWith('10강 고려(초기 정�
 assert.equal(catalog.sets.filter(s=>s.title.startsWith('11강 고려(중기 정치~무신 정변)')).length,13);
 assert.equal(catalog.sets.filter(s=>s.title.startsWith('12강 고려(외교)')).length,18);
 assert.deepEqual(Array.from(catalog.sets.filter(s=>s.title.startsWith('고려 기출형 연습')),s=>s.number),[87,88,89,90,91,92]);
-assert.deepEqual(Array.from(catalog.sets.filter(s=>s.title.startsWith('선사~삼국·가야 기출형 연습')),s=>s.number),[93,94,95,96,97,98,99]);
-assert.deepEqual(Array.from(catalog.sets.filter(s=>s.title.startsWith('통일 신라·발해·후삼국 기출형 연습')),s=>s.number),[100,101,102,103,104,105,106]);
+assert.deepEqual(Array.from(catalog.sets.filter(s=>s.title.startsWith('선사~삼국과 가야 기출형 연습')),s=>s.number),[93,94,95,96,97,98,99]);
+assert.deepEqual(Array.from(catalog.sets.filter(s=>s.title.startsWith('통일 신라, 발해, 후삼국 기출형 연습')),s=>s.number),[100,101,102,103,104,105,106]);
 // Earlier saved selections retain the same membership after the expansion.
 for(let set=1;set<=5;set++)assert.deepEqual(Array.from(catalog.sets[set-1].ids),Array.from({length:8},(_,i)=>'study-hist-20260910-'+String((set-1)*8+i+1).padStart(2,'0')));
 // 16강(183쪽)은 교재 한 면의 사실 78개를 덮는 88문제(사실형 37 · 자료 제시 기출형 43 · 사진 고르기 8)다. 조선이 처음 들어온 강이다.
@@ -865,11 +865,11 @@ assert(tl2831('갑 1866.1 → 을 1866.9 → 병 1871')&&!tl2831('갑 1871 → �
  assert.deepEqual(idsSp,Array.from({length:552},(_,i)=>'special-hist-20260924-'+String(i+1).padStart(3,'0')));
  assert.deepEqual(idsSp.map(id=>catalog.questions[id].number),Array.from({length:552},(_,i)=>1624+i),'주제 특강 번호는 1624~2175');
  // 2026-09-27 사용자 "세시풍속과 근현대 인물 분리하자": 강 두 개 — 250 세시 풍속(001~134) · 252-256 근·현대 인물(135~552). 옛 lecture-250-256은 250으로.
- const [lss,lsp]=lectures.slice(-2);assert.equal(lss.id,'250');assert.equal(lss.title,'특강 세시 풍속');assert.equal(lsp.id,'252-256');assert.equal(lsp.title,'특강 근·현대 인물');
+ const [lss,lsp]=lectures.slice(-2);assert.equal(lss.id,'250');assert.equal(lss.title,'특강 세시 풍속');assert.equal(lsp.id,'252-256');assert.equal(lsp.title,'특강 근현대 인물');
  assert.deepEqual(Array.from(lss.ids),idsSp.slice(0,134),'세시 풍속 강은 세시 풍속 문제만');assert.deepEqual(Array.from(lsp.ids),idsSp.slice(134),'근·현대 인물 강은 인물 문제만');
  assert.ok(lss.ids.every(id=>catalog.questions[id].section==='세시 풍속'));assert.ok(lsp.ids.every(id=>catalog.questions[id].section!=='세시 풍속'));
  {const sp=catalog.sets.filter(s=>/^특강 /.test(s.title));assert.ok(sp.every(s=>s.ids.every(id=>lss.ids.includes(id))||s.ids.every(id=>lsp.ids.includes(id))),'특강 묶음이 두 강에 걸치지 않음');
-  assert.equal(sp.filter(s=>s.title.startsWith('특강 세시 풍속 ')).length,17);assert.equal(sp.filter(s=>s.title.startsWith('특강 근·현대 인물 ')).length,53);}
+  assert.equal(sp.filter(s=>s.title.startsWith('특강 세시 풍속 ')).length,17);assert.equal(sp.filter(s=>s.title.startsWith('특강 근현대 인물 ')).length,53);}
  assert.deepEqual([...new Set(idsSp.map(id=>catalog.questions[id].section))].sort(),[...SECTIONS_SP].sort(),'주제 특강 단원');
  const T=Object.fromEntries(topics.list.map(t=>[t.id,t.sections]));
  assert.deepEqual(Array.from(T.integrated),['세시 풍속']);// 2026-09-30 28강 개항기(흥선 대원군)의 단원 다섯은 개항·개화기 주제 맨 앞(특강 인물 단원 앞, 시대 순).
@@ -877,7 +877,7 @@ assert(tl2831('갑 1866.1 → 을 1866.9 → 병 1871')&&!tl2831('갑 1871 → �
  // 2026-09-30 30강의 갑오개혁 · 을미개혁 · 독립 협회 · 대한 제국 단원은 갑오개혁·대한제국 주제 맨 앞(특강 인물 단원 앞).
  assert.deepEqual(Array.from(T['korean-empire']),['갑오개혁','을미개혁','독립 협회','대한 제국과 광무개혁','일제의 국권 침탈 과정','애국 계몽 운동','항일 의병 운동','항일 의거 활동','열강의 이권 침탈','일본의 토지 약탈과 금융 지배','경제적 구국 운동','개항기 언론의 발달','근대 문물과 기술의 도입','근대 교육의 발달','문예와 국학, 종교의 변화','의병 인물','애국 계몽 운동 인물','국권 피탈 전 의거 인물','근대 사건 순서 — 갑오개혁·대한제국']);assert.deepEqual(Array.from(T.contemporary),['광복과 통일 정부 수립 노력','대한민국 정부 수립','제헌 국회의 활동','6·25 전쟁','이승만 정부와 4·19 혁명','5·16 군사 정변과 박정희 정부','5·18 민주화 운동과 6월 민주 항쟁','민주주의의 발전','경제 성장과 사회 변화','1980년대 이후의 경제','통일을 위한 노력','광복 이후 인물','근대 사건 순서 — 현대']);
  assert.equal(T.colonial.length,23);
- const sets=catalog.sets.filter(s=>/^특강 (세시 풍속|근·현대 인물) /.test(s.title));assert.equal(sets.length,70);assert(sets.every(s=>s.ids.length<=8));
+ const sets=catalog.sets.filter(s=>/^특강 (세시 풍속|근현대 인물) /.test(s.title));assert.equal(sets.length,70);assert(sets.every(s=>s.ids.length<=8));
  assert.equal(idsSp.filter(id=>catalog.questions[id].section==='세시 풍속').length,134,'세시 풍속 문항 수');
  for(const id of idsSp){const c=cards.get(id),o=ctx.QUIZ_OPTIONS[id],e=c.explanation;
   assert.equal(o.correctIndex,0);assert.equal(c.answer,o.choices[0]);assert.equal(o.choices.length,4);assert.equal(new Set(o.choices).size,4);

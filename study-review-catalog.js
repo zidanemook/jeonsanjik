@@ -5,7 +5,7 @@ globalThis.STUDY_REVIEW_CATALOG={
   "sets": [
     {
       "number": 1,
-      "title": "선사 시대 · 기본",
+      "title": "선사 시대 기본",
       "ids": [
         "study-hist-20260910-01",
         "study-hist-20260910-02",
@@ -19,7 +19,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 2,
-      "title": "고조선·여러 나라 · 기본",
+      "title": "고조선과 여러 나라 기본",
       "ids": [
         "study-hist-20260910-09",
         "study-hist-20260910-10",
@@ -33,7 +33,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 3,
-      "title": "고구려·가야 · 기본",
+      "title": "고구려와 가야 기본",
       "ids": [
         "study-hist-20260910-17",
         "study-hist-20260910-18",
@@ -47,7 +47,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 4,
-      "title": "백제·신라 · 기본",
+      "title": "백제와 신라 기본",
       "ids": [
         "study-hist-20260910-25",
         "study-hist-20260910-26",
@@ -75,7 +75,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 6,
-      "title": "선사 · 세부 복습 1",
+      "title": "선사 세부 복습 1",
       "ids": [
         "summary-hist-20260910-001",
         "summary-hist-20260910-002",
@@ -89,7 +89,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 7,
-      "title": "선사 · 세부 복습 2",
+      "title": "선사 세부 복습 2",
       "ids": [
         "summary-hist-20260910-009",
         "summary-hist-20260910-010",
@@ -103,7 +103,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 8,
-      "title": "선사 · 세부 복습 3",
+      "title": "선사 세부 복습 3",
       "ids": [
         "summary-hist-20260910-017",
         "summary-hist-20260910-018",
@@ -117,7 +117,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 9,
-      "title": "고조선·여러 나라 · 세부 복습 1",
+      "title": "고조선과 여러 나라 세부 복습 1",
       "ids": [
         "summary-hist-20260910-025",
         "summary-hist-20260910-026",
@@ -131,7 +131,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 10,
-      "title": "고조선·여러 나라 · 세부 복습 2",
+      "title": "고조선과 여러 나라 세부 복습 2",
       "ids": [
         "summary-hist-20260910-033",
         "summary-hist-20260910-034",
@@ -145,7 +145,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 11,
-      "title": "고조선·여러 나라 · 세부 복습 3",
+      "title": "고조선과 여러 나라 세부 복습 3",
       "ids": [
         "summary-hist-20260910-041",
         "summary-hist-20260910-042",
@@ -159,7 +159,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 12,
-      "title": "고구려·가야 · 세부 복습 1",
+      "title": "고구려와 가야 세부 복습 1",
       "ids": [
         "summary-hist-20260910-049",
         "summary-hist-20260910-050",
@@ -173,7 +173,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 13,
-      "title": "고구려·가야 · 세부 복습 2",
+      "title": "고구려와 가야 세부 복습 2",
       "ids": [
         "summary-hist-20260910-057",
         "summary-hist-20260910-058",
@@ -187,7 +187,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 14,
-      "title": "고구려·가야 · 세부 복습 3",
+      "title": "고구려와 가야 세부 복습 3",
       "ids": [
         "summary-hist-20260910-065",
         "summary-hist-20260910-066",
@@ -201,7 +201,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 15,
-      "title": "백제·신라·통일 · 세부 복습 1",
+      "title": "백제, 신라, 통일 세부 복습 1",
       "ids": [
         "summary-hist-20260910-073",
         "summary-hist-20260910-074",
@@ -215,7 +215,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 16,
-      "title": "백제·신라·통일 · 세부 복습 2",
+      "title": "백제, 신라, 통일 세부 복습 2",
       "ids": [
         "summary-hist-20260910-081",
         "summary-hist-20260910-082",
@@ -229,7 +229,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 17,
-      "title": "백제·신라·통일 · 세부 복습 3",
+      "title": "백제, 신라, 통일 세부 복습 3",
       "ids": [
         "summary-hist-20260910-089",
         "summary-hist-20260910-090",
@@ -243,7 +243,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 18,
-      "title": "백제·신라·통일 · 세부 복습 4",
+      "title": "백제, 신라, 통일 세부 복습 4",
       "ids": [
         "summary-hist-20260910-097",
         "summary-hist-20260910-098",
@@ -257,7 +257,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 19,
-      "title": "백제·신라·통일 · 세부 복습 5",
+      "title": "백제, 신라, 통일 세부 복습 5",
       "ids": [
         "summary-hist-20260910-105",
         "summary-hist-20260910-106",
@@ -269,7 +269,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 20,
-      "title": "통일 신라 · 세부 복습 1",
+      "title": "통일 신라 세부 복습 1",
       "ids": [
         "summary-hist-20260910-111",
         "summary-hist-20260910-112",
@@ -283,7 +283,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 21,
-      "title": "통일 신라 · 세부 복습 2",
+      "title": "통일 신라 세부 복습 2",
       "ids": [
         "summary-hist-20260910-119",
         "summary-hist-20260910-120",
@@ -297,7 +297,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 22,
-      "title": "통일 신라 · 세부 복습 3",
+      "title": "통일 신라 세부 복습 3",
       "ids": [
         "summary-hist-20260910-127",
         "summary-hist-20260910-128",
@@ -311,7 +311,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 23,
-      "title": "통일 신라 · 세부 복습 4",
+      "title": "통일 신라 세부 복습 4",
       "ids": [
         "summary-hist-20260910-135",
         "summary-hist-20260910-136",
@@ -323,7 +323,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 24,
-      "title": "발해 · 세부 복습 1",
+      "title": "발해 세부 복습 1",
       "ids": [
         "summary-hist-20260910-141",
         "summary-hist-20260910-142",
@@ -337,7 +337,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 25,
-      "title": "발해 · 세부 복습 2",
+      "title": "발해 세부 복습 2",
       "ids": [
         "summary-hist-20260910-149",
         "summary-hist-20260910-150",
@@ -351,7 +351,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 26,
-      "title": "발해 · 세부 복습 3",
+      "title": "발해 세부 복습 3",
       "ids": [
         "summary-hist-20260910-157",
         "summary-hist-20260910-158",
@@ -364,7 +364,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 27,
-      "title": "후삼국 · 세부 복습 1",
+      "title": "후삼국 세부 복습 1",
       "ids": [
         "summary-hist-20260910-164",
         "summary-hist-20260910-165",
@@ -378,7 +378,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 28,
-      "title": "후삼국 · 세부 복습 2",
+      "title": "후삼국 세부 복습 2",
       "ids": [
         "summary-hist-20260910-172",
         "summary-hist-20260910-173",
@@ -387,7 +387,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 29,
-      "title": "원본 대조 보완 1 · 통일 신라·후삼국",
+      "title": "원본 대조 보완 1 통일 신라와 후삼국",
       "ids": [
         "summary-hist-20260911-001",
         "summary-hist-20260911-002",
@@ -399,7 +399,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 30,
-      "title": "원본 대조 보완 2 · 백제·신라·여러 나라·선사·발해",
+      "title": "원본 대조 보완 2 백제, 신라, 여러 나라, 선사, 발해",
       "ids": [
         "summary-hist-20260911-007",
         "summary-hist-20260911-008",
@@ -410,7 +410,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 31,
-      "title": "07·08강 고대 경제·사회·문화 1",
+      "title": "07, 08강 고대 경제, 사회, 문화 1",
       "ids": [
         "lecture-hist-20260911-001",
         "lecture-hist-20260911-002",
@@ -424,7 +424,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 32,
-      "title": "07·08강 고대 경제·사회·문화 2",
+      "title": "07, 08강 고대 경제, 사회, 문화 2",
       "ids": [
         "lecture-hist-20260911-009",
         "lecture-hist-20260911-010",
@@ -438,7 +438,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 33,
-      "title": "07·08강 고대 경제·사회·문화 3",
+      "title": "07, 08강 고대 경제, 사회, 문화 3",
       "ids": [
         "lecture-hist-20260911-017",
         "lecture-hist-20260911-018",
@@ -452,7 +452,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 34,
-      "title": "07·08강 고대 경제·사회·문화 4",
+      "title": "07, 08강 고대 경제, 사회, 문화 4",
       "ids": [
         "lecture-hist-20260911-025",
         "lecture-hist-20260911-026",
@@ -466,7 +466,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 35,
-      "title": "07·08강 고대 경제·사회·문화 5",
+      "title": "07, 08강 고대 경제, 사회, 문화 5",
       "ids": [
         "lecture-hist-20260911-033",
         "lecture-hist-20260911-034",
@@ -480,7 +480,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 36,
-      "title": "07·08강 고대 경제·사회·문화 6",
+      "title": "07, 08강 고대 경제, 사회, 문화 6",
       "ids": [
         "lecture-hist-20260911-041",
         "lecture-hist-20260911-042",
@@ -494,7 +494,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 37,
-      "title": "07·08강 고대 경제·사회·문화 7",
+      "title": "07, 08강 고대 경제, 사회, 문화 7",
       "ids": [
         "lecture-hist-20260911-049",
         "lecture-hist-20260911-050",
@@ -508,7 +508,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 38,
-      "title": "통일 신라 · 중대·하대 왕과 사건",
+      "title": "통일 신라 중대와 하대의 왕과 사건",
       "ids": [
         "summary-hist-20260912-01",
         "summary-hist-20260912-02",
@@ -522,7 +522,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 39,
-      "title": "고대 문화유산 판별 1 · 탑과 불상",
+      "title": "고대 문화유산 판별 1 탑과 불상",
       "ids": [
         "heritage-hist-20260912-01",
         "heritage-hist-20260912-02",
@@ -535,7 +535,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 40,
-      "title": "고대 문화유산 판별 2 · 공예와 고분",
+      "title": "고대 문화유산 판별 2 공예와 고분",
       "ids": [
         "heritage-hist-20260912-08",
         "heritage-hist-20260912-09",
@@ -556,7 +556,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 42,
-      "title": "고대 문화유산 사진 판별 · 탑",
+      "title": "고대 문화유산 사진 판별 탑",
       "ids": [
         "photo-hist-20260912-01",
         "photo-hist-20260912-02",
@@ -569,7 +569,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 43,
-      "title": "79회 기출 복습 · 헷갈리는 것 콕 집기",
+      "title": "79회 기출 복습 헷갈리는 것 콕 집기",
       "ids": [
         "core-hist-79-3",
         "core-hist-79-4",
@@ -1253,7 +1253,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 93,
-      "title": "선사~삼국·가야 기출형 연습 1",
+      "title": "선사~삼국과 가야 기출형 연습 1",
       "ids": [
         "ancientstyle-hist-20260915-001",
         "ancientstyle-hist-20260915-002",
@@ -1267,7 +1267,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 94,
-      "title": "선사~삼국·가야 기출형 연습 2",
+      "title": "선사~삼국과 가야 기출형 연습 2",
       "ids": [
         "ancientstyle-hist-20260915-009",
         "ancientstyle-hist-20260915-010",
@@ -1281,7 +1281,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 95,
-      "title": "선사~삼국·가야 기출형 연습 3",
+      "title": "선사~삼국과 가야 기출형 연습 3",
       "ids": [
         "ancientstyle-hist-20260915-017",
         "ancientstyle-hist-20260915-018",
@@ -1295,7 +1295,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 96,
-      "title": "선사~삼국·가야 기출형 연습 4",
+      "title": "선사~삼국과 가야 기출형 연습 4",
       "ids": [
         "ancientstyle-hist-20260915-025",
         "ancientstyle-hist-20260915-026",
@@ -1309,7 +1309,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 97,
-      "title": "선사~삼국·가야 기출형 연습 5",
+      "title": "선사~삼국과 가야 기출형 연습 5",
       "ids": [
         "ancientstyle-hist-20260915-033",
         "ancientstyle-hist-20260915-034",
@@ -1323,7 +1323,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 98,
-      "title": "선사~삼국·가야 기출형 연습 6",
+      "title": "선사~삼국과 가야 기출형 연습 6",
       "ids": [
         "ancientstyle-hist-20260915-041",
         "ancientstyle-hist-20260915-042",
@@ -1337,7 +1337,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 99,
-      "title": "선사~삼국·가야 기출형 연습 7",
+      "title": "선사~삼국과 가야 기출형 연습 7",
       "ids": [
         "ancientstyle-hist-20260915-049",
         "ancientstyle-hist-20260915-050",
@@ -1350,7 +1350,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 100,
-      "title": "통일 신라·발해·후삼국 기출형 연습 1",
+      "title": "통일 신라, 발해, 후삼국 기출형 연습 1",
       "ids": [
         "nanbukstyle-hist-20260915-001",
         "nanbukstyle-hist-20260915-002",
@@ -1364,7 +1364,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 101,
-      "title": "통일 신라·발해·후삼국 기출형 연습 2",
+      "title": "통일 신라, 발해, 후삼국 기출형 연습 2",
       "ids": [
         "nanbukstyle-hist-20260915-009",
         "nanbukstyle-hist-20260915-010",
@@ -1378,7 +1378,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 102,
-      "title": "통일 신라·발해·후삼국 기출형 연습 3",
+      "title": "통일 신라, 발해, 후삼국 기출형 연습 3",
       "ids": [
         "nanbukstyle-hist-20260915-017",
         "nanbukstyle-hist-20260915-018",
@@ -1392,7 +1392,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 103,
-      "title": "통일 신라·발해·후삼국 기출형 연습 4",
+      "title": "통일 신라, 발해, 후삼국 기출형 연습 4",
       "ids": [
         "nanbukstyle-hist-20260915-025",
         "nanbukstyle-hist-20260915-026",
@@ -1406,7 +1406,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 104,
-      "title": "통일 신라·발해·후삼국 기출형 연습 5",
+      "title": "통일 신라, 발해, 후삼국 기출형 연습 5",
       "ids": [
         "nanbukstyle-hist-20260915-033",
         "nanbukstyle-hist-20260915-034",
@@ -1420,7 +1420,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 105,
-      "title": "통일 신라·발해·후삼국 기출형 연습 6",
+      "title": "통일 신라, 발해, 후삼국 기출형 연습 6",
       "ids": [
         "nanbukstyle-hist-20260915-041",
         "nanbukstyle-hist-20260915-042",
@@ -1434,7 +1434,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 106,
-      "title": "통일 신라·발해·후삼국 기출형 연습 7",
+      "title": "통일 신라, 발해, 후삼국 기출형 연습 7",
       "ids": [
         "nanbukstyle-hist-20260915-049",
         "nanbukstyle-hist-20260915-050",
@@ -3142,7 +3142,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 231,
-      "title": "특강 근·현대 인물 1",
+      "title": "특강 근현대 인물 1",
       "ids": [
         "special-hist-20260924-135",
         "special-hist-20260924-136",
@@ -3156,7 +3156,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 232,
-      "title": "특강 근·현대 인물 2",
+      "title": "특강 근현대 인물 2",
       "ids": [
         "special-hist-20260924-143",
         "special-hist-20260924-144",
@@ -3170,7 +3170,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 233,
-      "title": "특강 근·현대 인물 3",
+      "title": "특강 근현대 인물 3",
       "ids": [
         "special-hist-20260924-151",
         "special-hist-20260924-152",
@@ -3184,7 +3184,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 234,
-      "title": "특강 근·현대 인물 4",
+      "title": "특강 근현대 인물 4",
       "ids": [
         "special-hist-20260924-159",
         "special-hist-20260924-160",
@@ -3198,7 +3198,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 235,
-      "title": "특강 근·현대 인물 5",
+      "title": "특강 근현대 인물 5",
       "ids": [
         "special-hist-20260924-167",
         "special-hist-20260924-168",
@@ -3212,7 +3212,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 236,
-      "title": "특강 근·현대 인물 6",
+      "title": "특강 근현대 인물 6",
       "ids": [
         "special-hist-20260924-175",
         "special-hist-20260924-176",
@@ -3226,7 +3226,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 237,
-      "title": "특강 근·현대 인물 7",
+      "title": "특강 근현대 인물 7",
       "ids": [
         "special-hist-20260924-183",
         "special-hist-20260924-184",
@@ -3240,7 +3240,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 238,
-      "title": "특강 근·현대 인물 8",
+      "title": "특강 근현대 인물 8",
       "ids": [
         "special-hist-20260924-191",
         "special-hist-20260924-192",
@@ -3254,7 +3254,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 239,
-      "title": "특강 근·현대 인물 9",
+      "title": "특강 근현대 인물 9",
       "ids": [
         "special-hist-20260924-199",
         "special-hist-20260924-200",
@@ -3268,7 +3268,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 240,
-      "title": "특강 근·현대 인물 10",
+      "title": "특강 근현대 인물 10",
       "ids": [
         "special-hist-20260924-207",
         "special-hist-20260924-208",
@@ -3282,7 +3282,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 241,
-      "title": "특강 근·현대 인물 11",
+      "title": "특강 근현대 인물 11",
       "ids": [
         "special-hist-20260924-215",
         "special-hist-20260924-216",
@@ -3296,7 +3296,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 242,
-      "title": "특강 근·현대 인물 12",
+      "title": "특강 근현대 인물 12",
       "ids": [
         "special-hist-20260924-223",
         "special-hist-20260924-224",
@@ -3310,7 +3310,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 243,
-      "title": "특강 근·현대 인물 13",
+      "title": "특강 근현대 인물 13",
       "ids": [
         "special-hist-20260924-231",
         "special-hist-20260924-232",
@@ -3324,7 +3324,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 244,
-      "title": "특강 근·현대 인물 14",
+      "title": "특강 근현대 인물 14",
       "ids": [
         "special-hist-20260924-239",
         "special-hist-20260924-240",
@@ -3338,7 +3338,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 245,
-      "title": "특강 근·현대 인물 15",
+      "title": "특강 근현대 인물 15",
       "ids": [
         "special-hist-20260924-247",
         "special-hist-20260924-248",
@@ -3352,7 +3352,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 246,
-      "title": "특강 근·현대 인물 16",
+      "title": "특강 근현대 인물 16",
       "ids": [
         "special-hist-20260924-255",
         "special-hist-20260924-256",
@@ -3366,7 +3366,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 247,
-      "title": "특강 근·현대 인물 17",
+      "title": "특강 근현대 인물 17",
       "ids": [
         "special-hist-20260924-263",
         "special-hist-20260924-264",
@@ -3380,7 +3380,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 248,
-      "title": "특강 근·현대 인물 18",
+      "title": "특강 근현대 인물 18",
       "ids": [
         "special-hist-20260924-271",
         "special-hist-20260924-272",
@@ -3394,7 +3394,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 249,
-      "title": "특강 근·현대 인물 19",
+      "title": "특강 근현대 인물 19",
       "ids": [
         "special-hist-20260924-279",
         "special-hist-20260924-280",
@@ -3408,7 +3408,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 250,
-      "title": "특강 근·현대 인물 20",
+      "title": "특강 근현대 인물 20",
       "ids": [
         "special-hist-20260924-287",
         "special-hist-20260924-288",
@@ -3422,7 +3422,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 251,
-      "title": "특강 근·현대 인물 21",
+      "title": "특강 근현대 인물 21",
       "ids": [
         "special-hist-20260924-295",
         "special-hist-20260924-296",
@@ -3436,7 +3436,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 252,
-      "title": "특강 근·현대 인물 22",
+      "title": "특강 근현대 인물 22",
       "ids": [
         "special-hist-20260924-303",
         "special-hist-20260924-304",
@@ -3450,7 +3450,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 253,
-      "title": "특강 근·현대 인물 23",
+      "title": "특강 근현대 인물 23",
       "ids": [
         "special-hist-20260924-311",
         "special-hist-20260924-312",
@@ -3464,7 +3464,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 254,
-      "title": "특강 근·현대 인물 24",
+      "title": "특강 근현대 인물 24",
       "ids": [
         "special-hist-20260924-319",
         "special-hist-20260924-320",
@@ -3478,7 +3478,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 255,
-      "title": "특강 근·현대 인물 25",
+      "title": "특강 근현대 인물 25",
       "ids": [
         "special-hist-20260924-327",
         "special-hist-20260924-328",
@@ -3492,7 +3492,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 256,
-      "title": "특강 근·현대 인물 26",
+      "title": "특강 근현대 인물 26",
       "ids": [
         "special-hist-20260924-335",
         "special-hist-20260924-336",
@@ -3506,7 +3506,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 257,
-      "title": "특강 근·현대 인물 27",
+      "title": "특강 근현대 인물 27",
       "ids": [
         "special-hist-20260924-343",
         "special-hist-20260924-344",
@@ -3520,7 +3520,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 258,
-      "title": "특강 근·현대 인물 28",
+      "title": "특강 근현대 인물 28",
       "ids": [
         "special-hist-20260924-351",
         "special-hist-20260924-352",
@@ -3534,7 +3534,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 259,
-      "title": "특강 근·현대 인물 29",
+      "title": "특강 근현대 인물 29",
       "ids": [
         "special-hist-20260924-359",
         "special-hist-20260924-360",
@@ -3548,7 +3548,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 260,
-      "title": "특강 근·현대 인물 30",
+      "title": "특강 근현대 인물 30",
       "ids": [
         "special-hist-20260924-367",
         "special-hist-20260924-368",
@@ -3562,7 +3562,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 261,
-      "title": "특강 근·현대 인물 31",
+      "title": "특강 근현대 인물 31",
       "ids": [
         "special-hist-20260924-375",
         "special-hist-20260924-376",
@@ -3576,7 +3576,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 262,
-      "title": "특강 근·현대 인물 32",
+      "title": "특강 근현대 인물 32",
       "ids": [
         "special-hist-20260924-383",
         "special-hist-20260924-384",
@@ -3590,7 +3590,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 263,
-      "title": "특강 근·현대 인물 33",
+      "title": "특강 근현대 인물 33",
       "ids": [
         "special-hist-20260924-391",
         "special-hist-20260924-392",
@@ -3604,7 +3604,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 264,
-      "title": "특강 근·현대 인물 34",
+      "title": "특강 근현대 인물 34",
       "ids": [
         "special-hist-20260924-399",
         "special-hist-20260924-400",
@@ -3618,7 +3618,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 265,
-      "title": "특강 근·현대 인물 35",
+      "title": "특강 근현대 인물 35",
       "ids": [
         "special-hist-20260924-407",
         "special-hist-20260924-408",
@@ -3632,7 +3632,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 266,
-      "title": "특강 근·현대 인물 36",
+      "title": "특강 근현대 인물 36",
       "ids": [
         "special-hist-20260924-415",
         "special-hist-20260924-416",
@@ -3646,7 +3646,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 267,
-      "title": "특강 근·현대 인물 37",
+      "title": "특강 근현대 인물 37",
       "ids": [
         "special-hist-20260924-423",
         "special-hist-20260924-424",
@@ -3660,7 +3660,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 268,
-      "title": "특강 근·현대 인물 38",
+      "title": "특강 근현대 인물 38",
       "ids": [
         "special-hist-20260924-431",
         "special-hist-20260924-432",
@@ -3674,7 +3674,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 269,
-      "title": "특강 근·현대 인물 39",
+      "title": "특강 근현대 인물 39",
       "ids": [
         "special-hist-20260924-439",
         "special-hist-20260924-440",
@@ -3688,7 +3688,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 270,
-      "title": "특강 근·현대 인물 40",
+      "title": "특강 근현대 인물 40",
       "ids": [
         "special-hist-20260924-447",
         "special-hist-20260924-448",
@@ -3702,7 +3702,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 271,
-      "title": "특강 근·현대 인물 41",
+      "title": "특강 근현대 인물 41",
       "ids": [
         "special-hist-20260924-455",
         "special-hist-20260924-456",
@@ -3716,7 +3716,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 272,
-      "title": "특강 근·현대 인물 42",
+      "title": "특강 근현대 인물 42",
       "ids": [
         "special-hist-20260924-463",
         "special-hist-20260924-464",
@@ -3730,7 +3730,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 273,
-      "title": "특강 근·현대 인물 43",
+      "title": "특강 근현대 인물 43",
       "ids": [
         "special-hist-20260924-471",
         "special-hist-20260924-472",
@@ -3744,7 +3744,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 274,
-      "title": "특강 근·현대 인물 44",
+      "title": "특강 근현대 인물 44",
       "ids": [
         "special-hist-20260924-479",
         "special-hist-20260924-480",
@@ -3758,7 +3758,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 275,
-      "title": "특강 근·현대 인물 45",
+      "title": "특강 근현대 인물 45",
       "ids": [
         "special-hist-20260924-487",
         "special-hist-20260924-488",
@@ -3772,7 +3772,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 276,
-      "title": "특강 근·현대 인물 46",
+      "title": "특강 근현대 인물 46",
       "ids": [
         "special-hist-20260924-495",
         "special-hist-20260924-496",
@@ -3786,7 +3786,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 277,
-      "title": "특강 근·현대 인물 47",
+      "title": "특강 근현대 인물 47",
       "ids": [
         "special-hist-20260924-503",
         "special-hist-20260924-504",
@@ -3800,7 +3800,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 278,
-      "title": "특강 근·현대 인물 48",
+      "title": "특강 근현대 인물 48",
       "ids": [
         "special-hist-20260924-511",
         "special-hist-20260924-512",
@@ -3814,7 +3814,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 279,
-      "title": "특강 근·현대 인물 49",
+      "title": "특강 근현대 인물 49",
       "ids": [
         "special-hist-20260924-519",
         "special-hist-20260924-520",
@@ -3828,7 +3828,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 280,
-      "title": "특강 근·현대 인물 50",
+      "title": "특강 근현대 인물 50",
       "ids": [
         "special-hist-20260924-527",
         "special-hist-20260924-528",
@@ -3842,7 +3842,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 281,
-      "title": "특강 근·현대 인물 51",
+      "title": "특강 근현대 인물 51",
       "ids": [
         "special-hist-20260924-535",
         "special-hist-20260924-536",
@@ -3856,7 +3856,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 282,
-      "title": "특강 근·현대 인물 52",
+      "title": "특강 근현대 인물 52",
       "ids": [
         "special-hist-20260924-543",
         "special-hist-20260924-544",
@@ -3870,7 +3870,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "number": 283,
-      "title": "특강 근·현대 인물 53",
+      "title": "특강 근현대 인물 53",
       "ids": [
         "special-hist-20260924-551",
         "special-hist-20260924-552"
@@ -4964,7 +4964,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "id": "06",
-      "title": "06강 통일 신라·발해·후삼국",
+      "title": "06강 통일 신라, 발해, 후삼국",
       "ids": [
         "summary-hist-20260910-111",
         "summary-hist-20260910-112",
@@ -7957,7 +7957,7 @@ globalThis.STUDY_REVIEW_CATALOG={
     },
     {
       "id": "252-256",
-      "title": "특강 근·현대 인물",
+      "title": "특강 근현대 인물",
       "ids": [
         "special-hist-20260924-135",
         "special-hist-20260924-136",

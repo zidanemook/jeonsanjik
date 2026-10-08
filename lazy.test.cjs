@@ -134,7 +134,7 @@ async function play(inst,scope,n,base){
  return out;
 }
 // ---------------------------------------------------------------- 3) 같은 상태로 두 방식을 나란히
-// 저장 상태 만들기: 앱으로 여러 날에 걸쳐 여러 범위를 푼다(틀림 · 맞음 · 해설 열람 · 더 풀기 · 대기열 모드 · 파트 점검 · 하루 목표 · 목표 점수 · 의견).
+// 저장 상태 만들기: 앱으로 여러 날에 걸쳐 여러 범위를 푼다(틀림 · 맞음 · 해설 열람, 더 풀기 · 대기열 모드 · 파트 점검 · 하루 목표 · 목표 점수 · 의견).
 // 받는 방식으로 만든다(전체 방식은 답 하나에 0.5초가 든다 — 카드마다 글을 든 채 상태를 통째로 복사해서). 저장소에는 어느 방식이든 글 없이 일정 · 기록만 남고,
 // 아래에서 같은 저장 상태를 두 방식이 똑같이 읽고 똑같이 이어 가는지 본다.
 const SCOPES=[{subject:'한국사',round:'lecture-11'},{subject:'영어',topic:'Day 3'},{subject:'영어',topic:'formula:ditransitive-no'},{subject:'국어',topic:'논리 2장'},{subject:'국어',topic:'어휘 2장'},
@@ -182,7 +182,7 @@ const screens=inst=>{const out={};const grab=(k,sels)=>{out[k]=sels.map(s=>inst.
 tick('목록 화면');
 // 풀던 자리(채점 화면) 복원: 과목 화면의 '이어서'와 같은 길.
 {for(const inst of [F,L]){inst.run("openScope(lastScope('영어'),true)");await inst.settle();}
- assert.ok(/채점 결과 · 해설/.test(F.card())&&/기초 개념/.test(F.card()),'채점 화면이 복원된다: '+F.card().slice(0,80));same(L.card(),F.card(),'복원된 채점 화면');
+ assert.ok(/채점 결과와 해설/.test(F.card())&&/기초 개념/.test(F.card()),'채점 화면이 복원된다: '+F.card().slice(0,80));same(L.card(),F.card(),'복원된 채점 화면');
  D(L.net.log.map(u=>u.replace(/^chunks\/|\.json.*$/g,'')).sort(),L.run('StudyContent.need(data.quizFeedback.cardId)').slice().sort(),'채점 화면은 그 문제에 필요한 조각만 받아 그린다');assert.ok(L.net.log.length>=1&&L.net.log.length<=2);
  for(const inst of [F,L])await next(inst);same(L.card(),F.card(),'다음 문제');}
 // 여러 범위를 차례로 풀기: 걸음마다 화면 글이 같다. 받는 방식은 필요한 조각만 받는다.
@@ -203,7 +203,7 @@ assert.ok(answered>=36,'범위마다 실제로 풀었다(틀린 문제 위주 �
  const F2=boot({lazy:false,saved:[...F.local]}),L2=boot({lazy:true,saved:[...L.local]});same(L2.lean(),F2.lean(),'다시 연 상태');
  stepNo=3000;const a=await play(F2,{subject:''},30,T0+20*600000),b=await play(L2,{subject:''},30,T0+20*600000);
  assert.equal(b.length,a.length);for(let k=0;k<a.length;k++){same(b[k],a[k],'섞인 대기열 걸음 '+k);steps++;}
- const subjects=new Set(a.filter(x=>x.startsWith('Q ')).map(x=>/:: ([^ ]+) · /.exec(x)?.[1]));assert.ok(subjects.size>=3,'대기열에 세 과목 이상이 섞였다: '+[...subjects]);
+ const subjects=new Set(a.filter(x=>x.startsWith('Q ')).map(x=>/:: ([^ ]+) /.exec(x)?.[1]));assert.ok(subjects.size>=3,'대기열에 세 과목 이상이 섞였다: '+[...subjects]);
  const got=new Set(L2.net.log.filter(u=>u.startsWith('chunks/')).map(u=>u.replace(/^chunks\/|\.json.*$/g,'')));assert.ok(got.size>=5,'섞인 대기열에서 새 조각을 받아 가며 풀었다: '+[...got]);
  same(L2.lean(),F2.lean(),'섞인 대기열을 푼 뒤의 상태');globalThis.__mixed={subjects:[...subjects],chunks:got.size,steps:a.length};}
 {const a=screens(F),b=screens(L);for(const k of Object.keys(a))same(b[k],a[k],'푼 뒤 화면이 다르다: '+k);}
@@ -232,7 +232,7 @@ tick('풀이 대조');
   const want={'보기':options,'상자':basics.boxes,'대입':basics.apply,'한능검 해설':explanations}[name];same(A.run('JSON.stringify('+code+')'),J(Object.fromEntries(Object.entries(want).sort())),'붙인 '+name+' = 원본');}
  same(A.run("JSON.stringify(StudyContent.index.core.ids.map(id=>StudyContent.core(id)))"),J(pack),'붙인 묶음 카드 = 원본');
  same(A.run('JSON.stringify(MEMORIZE.sets.map(s=>MEMORIZE.get(s.id)))'),J(memo.sets),'붙인 외울 것 = 원본');
- // 붙인 뒤의 카드 내용(과목 · 질문 · 정답 · 해설 · 출처)과 공통 줄 판정이 전체 방식과 같다.
+ // 붙인 뒤의 카드 내용(과목 · 질문, 정답 · 해설 · 출처)과 공통 줄 판정이 전체 방식과 같다.
  const content="JSON.stringify([...cardContent()])";same(A.run(content),F.run(content),'카드 내용(모든 문제)');
  const hx="JSON.stringify(Hanneung.rows.map(r=>[r.id,Hanneung.hasExplanation(r.id),Hanneung.explanation(r.id),QUIZ_OPTIONS[r.id]?.explanation]))";same(A.run(hx),F.run(hx),'한능검 해설 · 보기에 채운 해설');
  const sh="JSON.stringify(PARTS.units.flatMap(u=>u.parts.flatMap(p=>partBasics(p).flatMap(r=>{const b=BASICS.box(r);return [...b.terms,...b.rules.items,b.table,...(b.tables||[])].filter(Boolean).map(x=>(basicsShared(x,r,p.id)?1:0)+(basicsShared(x,r,null)?2:0)).join('');}))))";same(A.run(sh),F.run(sh),'공통 줄 판정(모든 파트 · 상자 · 줄)');

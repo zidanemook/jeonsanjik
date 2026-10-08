@@ -9,7 +9,7 @@
  // v137 리밸런스(사용자: "점수가 너무 큰 거 아냐 — 적당한 값", "인플레이션이 있으면 안 되는디", "일부러 틀리거나 하지는 않겠지?"):
  // 작은 고정값. 일부러 틀려도 이득이 없게 — 틀림 1 + 다시 맞힘 3 = 처음 맞힘 4, 단계 보너스는 문제마다 처음 도달할 때 한 번만.
  const XP={wrong:1,unsure:1,correct:2,first:2,recover:1,stage:[4,6,10],explanation:1};
- const STAGE_LABELS=['7일 뒤 다시 맞힘','14일 뒤 다시 맞힘','30일 뒤 다시 맞힘 · 외움'];
+ const STAGE_LABELS=['7일 뒤 다시 맞힘','14일 뒤 다시 맞힘','30일 뒤 다시 맞힘(외움)'];
  const day=(ms=Date.now())=>new Date(ms+9*3600000).toISOString().slice(0,10);
  const prevDay=d=>new Date(Date.parse(d+'T00:00:00Z')-86400000).toISOString().slice(0,10);
  // prev: 이 문제의 앞선 결과들(오래된 것부터). step: 이번 정답으로 오른 단계(1~3) 또는 없음.
@@ -134,22 +134,22 @@
  // 뱃지를 눌렀을 때의 짧은 설명(쉬운 말만). {title, lines, weakLabel, weak:[{title,pct,scope}], note}
  function explainBadge(b){
   const exam=b.kind==='exam',label=(b.overall?'전체 ':'')+(exam?'기출':'자체제작')+' 뱃지',unit=exam?'점':'%';
-  const title=label+' · '+(b.ready?b.tier.name:'아직'),lines=[];let note='',weak=[];
+  const title=label+': '+(b.ready?b.tier.name:'아직'),lines=[];let note='',weak=[];
   const nextLine=()=>b.next?'다음 등급('+b.next.name+' '+b.next.pct+unit+')까지 '+num(b.next.gap)+unit+' 남았어요':'가장 높은 등급('+b.tier.name+')이에요';
   if(exam&&!b.overall){
    const src=b.source?b.source+' 기출':'기출';
    if(b.ready){lines.push(src+'을 처음 풀었을 때 기준 예상 점수: '+b.score+'점',nextLine());note='처음 푼 '+src+' '+b.n+'문제 기준이에요. 다시 풀어서 맞힌 건 점수에 넣지 않아요.'+(b.source==='한능검 심화'?' 3급은 60점 이상이에요.':'');}
    else{lines.push(src+'을 처음 풀었을 때 기준 예상 점수로 등급을 매겨요.',b.n?'지금까지 처음 푼 '+src+' '+b.n+'문제 — '+b.need+'문제 더 풀면 등급이 나와요.':'아직 푼 '+src+'이 없어요 — '+b.need+'문제를 풀면 등급이 나와요.');}
   }else if(exam){
-   if(b.ready){lines.push('과목마다 기출 예상 점수의 평균: '+num(b.score)+'점',b.subjects.map(x=>x.subject+' '+x.value+'점').join(' · '),nextLine());}
+   if(b.ready){lines.push('과목마다 기출 예상 점수의 평균: '+num(b.score)+'점',b.subjects.map(x=>x.subject+' '+x.value+'점').join(', '),nextLine());}
    else lines.push('기출을 20문제 이상 처음 푼 과목이 생기면 등급이 나와요.');
-   if(b.waiting.length)note='아직 등급이 없는 과목: '+b.waiting.map(x=>x.subject+'('+x.need+'문제 더)').join(' · ');
+   if(b.waiting.length)note='아직 등급이 없는 과목: '+b.waiting.map(x=>x.subject+'('+x.need+'문제 더)').join(', ');
   }else if(!b.overall){
    if(b.ready){lines.push('파트별로 외운 비율의 평균: '+num(b.pct)+'%',nextLine());weak=b.weakest.map(g=>({title:g.title,pct:g.pct,scope:g.scope}));
-    note='외운 문제 = 맞힌 뒤 7일 · 14일 · 30일 뒤에 다시 맞힌 문제예요. 파트마다 문제 수와 상관없이 같은 무게로 평균을 내서, 약한 파트가 있으면 등급이 내려가요.';}
+    note='외운 문제 = 맞힌 뒤 7일, 14일, 30일 뒤에 다시 맞힌 문제예요. 파트마다 문제 수와 상관없이 같은 무게로 평균을 내서, 약한 파트가 있으면 등급이 내려가요.';}
    else lines.push('이 과목은 아직 자체제작 문제가 없어요.');
   }else{
-   if(b.ready)lines.push('과목마다 자체제작 뱃지 비율의 평균: '+num(b.pct)+'%',b.subjects.map(x=>x.subject+' '+num(x.value)+'%').join(' · '),nextLine());
+   if(b.ready)lines.push('과목마다 자체제작 뱃지 비율의 평균: '+num(b.pct)+'%',b.subjects.map(x=>x.subject+' '+num(x.value)+'%').join(', '),nextLine());
    else lines.push('자체제작 문제가 있는 과목이 없어요.');
   }
   return {title,lines,weakLabel:weak.length?'가장 약한 파트':'',weak,note};

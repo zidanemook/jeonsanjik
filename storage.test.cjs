@@ -176,14 +176,15 @@ const time=async(label,fn)=>{const t=Date.now(),v=await fn();return [v,Date.now(
   old.run("go('progress')");const oldScreen=screen(old);
   const [a,ms]=await time('migrate',()=>boot({local,backend}));assert.equal(a.mode(),'idb');
   same(whole(a),expected,'옮긴 상태 = 옛 판이 읽은 상태(문제 일정 · 풀이와 사본 · 열람 · 설정 · 풀던 자리)');
-  a.run("go('progress')");assert.equal(screen(a),oldScreen,'홈 · 진행상황의 수가 같다');
+  a.run("go('progress')");// 옛 판(v247)은 '풀이 N회 · 해설 M회', 새 판(v254~)은 '풀이 N회, 해설 M회' — 사이 글자만 맞춰 수를 견준다.
+  assert.ok(oldScreen.includes('회 · 해설 '),'옛 판 화면 글의 꼴');assert.equal(screen(a),oldScreen.split('회 · 해설 ').join('회, 해설 '),'홈 · 진행상황의 수가 같다');
   assert.ok(local.getItem('chagog-v1')===baseRaw,'옛 글은 그대로 둔다');assert.ok(backend.get('backup','chagog-v1').raw===baseRaw,'backup 저장소에도 그대로 한 부');
   const meta=backend.get('meta','chagog-v1');assert.equal(meta.verified,true);assert.equal(meta.legacy.len,baseRaw.length);
   assert.equal(backend.keysOf('detail','chagog-v1').length,820);assert.ok(a.state().history.every(h=>h.detail===undefined&&h.ex));
   // 기록 파일 = 옛 형식 그대로 전부.
   const parts=await a.run('buildExport()'),file=JSON.parse(parts.join(''));assert.equal(file.exportComplete,true);a.run('validateBackup')(file);
   const {exportedAt,exportComplete,...fileState}=file;same({...fileState,cards:leanCards(fileState.cards)},expected,'기록 파일에 문제 일정 · 풀이 사본 · 열람 · 설정이 모두 있다');
-  await a.run('downloadExport()');assert.equal(a.blobs.length,1);assert.equal(JSON.parse(a.blobs[0].parts.join('')).history.length,820);assert.match(a.text('#message'),/기록 파일을 내려받았어요 · 풀이 820건/);
+  await a.run('downloadExport()');assert.equal(a.blobs.length,1);assert.equal(JSON.parse(a.blobs[0].parts.join('')).history.length,820);assert.match(a.text('#message'),/기록 파일을 내려받았어요\(풀이 820건\)/);
   // 이어서 풀면 조각 몇 개만 쓴다.
   const rw0=backend.control.rwCount,segBefore=backend.dump().seg;await a.solve(1,{subject:'국어',topic:'논리 1장',round:''});
   const segAfter=backend.dump().seg,changed=Object.keys(segAfter).filter(k=>JSON.stringify(segAfter[k])!==JSON.stringify(segBefore[k]));

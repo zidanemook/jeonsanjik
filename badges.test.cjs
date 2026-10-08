@@ -87,7 +87,7 @@ let box=tap('#subjectList','컴퓨터일반','exam');
  assert.equal(text(box.children[0].children[0]),'컴퓨터일반 '+x.title);assert.deepEqual(lines(box),x.lines);
  assert.match(x.lines[0],/^기출을 처음 풀었을 때 기준 예상 점수: \d+점$/);assert.match(x.lines[1],/^다음 등급\(.+ \d+점\)까지 \d+점 남았어요$/);}
 box=tap('#subjectList','정보보호론','exam');
-assert.equal(text(box.children[0].children[0]),'정보보호론 기출 뱃지 · 아직');assert.deepEqual(lines(box),['기출을 처음 풀었을 때 기준 예상 점수로 등급을 매겨요.','지금까지 처음 푼 기출 3문제 — 17문제 더 풀면 등급이 나와요.']);
+assert.equal(text(box.children[0].children[0]),'정보보호론 기출 뱃지: 아직');assert.deepEqual(lines(box),['기출을 처음 풀었을 때 기준 예상 점수로 등급을 매겨요.','지금까지 처음 푼 기출 3문제 — 17문제 더 풀면 등급이 나와요.']);
 box=tap('#subjectList','한국사','self');
 {const x=J("StudyXp.explainBadge(subjectBadges()['한국사'].self)");assert.deepEqual(lines(box),x.lines);assert.equal(x.lines[0],'파트별로 외운 비율의 평균: '+hist.pct+'%');
  assert.equal(x.lines[1],'다음 등급(브론즈 25%)까지 '+(Math.round((25-hist.pct)*10)/10)+'% 남았어요');
@@ -95,19 +95,19 @@ box=tap('#subjectList','한국사','self');
  assert.ok(!/카드|변형|스코프|streak|stage|규칙|쌍둥이/.test(text(box)),'설명에 앱 속 용어가 없다: '+text(box));
  // 약한 파트를 누르면 그 파트 범위가 열리고 설명은 닫힌다
  weak[0].onclick();assert.equal(R('scopeOf().round'),'part-'+seed.p3);assert.equal(R('view'),'quiz');assert.equal(node('#badgeInfo').hidden,true);
- assert.equal(R("scopeLabel(scopeOf())"),'한국사 · '+seed.p3title.replace(' ',' · '));}
+ assert.equal(R("scopeLabel(scopeOf())"),'한국사 '+seed.p3title.replace(' ',': '));}
 // 영어 대체 묶음(수일치)이 가장 약할 때도 링크가 그 연습 주제를 연다 / '그 밖의 문제'는 링크 없이
-{const g=R("selfGroups('영어')");const topic=g.find(x=>x.id==='topic:수일치');R("openScope("+JSON.stringify(topic.scope)+")");assert.equal(R("scopeLabel(scopeOf())"),'영어 · 수일치');
+{const g=R("selfGroups('영어')");const topic=g.find(x=>x.id==='topic:수일치');R("openScope("+JSON.stringify(topic.scope)+")");assert.equal(R("scopeLabel(scopeOf())"),'영어 수일치');
  R("go('home')");box=tap('#subjectList','영어','self');const weak=box.all.filter(n=>(n.className||'').startsWith('badge-info-part'));assert.ok(weak.length>=1);}
 // 과목 화면: 레벨 줄 + 뱃지 둘, 눌러서 설명
 R("go('subject','한국사')");assert.equal(node('#badgeInfo').hidden,true,'화면을 옮기면 설명은 닫힌다');
 assert.equal(node('#subjectBadge').children[0].className,'level-badge lv-plain big');
-assert.match(text(node('#subjectLevel')),new RegExp('^Lv [0-9]+ · 다음 레벨까지 [0-9]+ XP · 이 과목 누적 [0-9]+ XP기출 '+badges['한국사'].exam.tier.name+'자체제작 .+뱃지를 누르면 무엇으로 정해지는지 보여 줘요[.]$'));
-box=tap('#subjectLevel',null,'self');assert.equal(text(box.children[0].children[0]),'한국사 자체제작 뱃지 · '+hist.tier.name);
+assert.match(text(node('#subjectLevel')),new RegExp('^Lv [0-9]+, 다음 레벨까지 [0-9]+ XP, 이 과목 누적 [0-9]+ XP기출 '+badges['한국사'].exam.tier.name+'자체제작 .+뱃지를 누르면 무엇으로 정해지는지 보여 줘요[.]$'));
+box=tap('#subjectLevel',null,'self');assert.equal(text(box.children[0].children[0]),'한국사 자체제작 뱃지: '+hist.tier.name);
 // 홈 카드: 전체 뱃지 = 과목 뱃지의 평균
 R("go('home')");box=tap('#xpAcc',null,'exam');
-{const x=J("StudyXp.explainBadge(StudyXp.overallBadges(subjectBadges()).exam)");assert.equal(text(box.children[0].children[0]),x.title);assert.match(x.title,/^전체 기출 뱃지 · /);
- assert.deepEqual(lines(box),x.lines);assert.equal(x.lines[1],'한국사 '+badges['한국사'].exam.score+'점 · 컴퓨터일반 '+badges['컴퓨터일반'].exam.score+'점');assert.match(text(box),/아직 등급이 없는 과목: .*정보보호론\(17문제 더\)/);}
+{const x=J("StudyXp.explainBadge(StudyXp.overallBadges(subjectBadges()).exam)");assert.equal(text(box.children[0].children[0]),x.title);assert.match(x.title,/^전체 기출 뱃지: /);
+ assert.deepEqual(lines(box),x.lines);assert.equal(x.lines[1],'한국사 '+badges['한국사'].exam.score+'점, 컴퓨터일반 '+badges['컴퓨터일반'].exam.score+'점');assert.match(text(box),/아직 등급이 없는 과목: .*정보보호론\(17문제 더\)/);}
 R('closeBadgeInfo()');
 
 // ── 4) 해설 화면: 정보보호론 기출 20문제째를 풀면 기출 뱃지가 생겼다고 알린다(19문제까지는 없음)
@@ -115,7 +115,7 @@ R('closeBadgeInfo()');
  for(let i=0;i<more.length;i++){const id='late-'+i;R(`(()=>{const s=structuredClone(data),d=ReviewSchedule.day();s.history.push({id:${JSON.stringify('late-'+i)},cardId:${JSON.stringify(more[i])},date:d,at:d+'T10:0${i}:00+09:00',result:'correct',mode:'quiz'});commit(s);})()`);
   last=text(R('xpAwardNode('+JSON.stringify(id)+')'));
   const n=3+i+1;if(n<20)assert.ok(!/🏅/.test(last),n+'문제째: 알림 없음');else assert.match(last,/🏅 정보보호론 기출 .+ 뱃지! 예상 점수 \d+점/,n+'문제째: '+last);
-  assert.match(last,/정보보호론 Lv \d+ · 다음까지 \d+ XP기출 /);}}
+  assert.match(last,/정보보호론 Lv \d+, 다음까지 \d+ XP기출 /);}}
 
 console.log('PASS badges: 자체제작 파트 묶음이 과목의 자체제작 문제를 빠짐없이 한 번씩('+Object.entries(cover).map(([s,c])=>s+' '+c.groups).join(' · ')+'; 영어 수일치·그 밖의 문법 연습·그 밖의 문제, 한국사 그 밖의 문제), '+
  '기출 뱃지 = 예상 점수(20문제 미만 아직, 맞힌 수/푼 수), 자체제작 뱃지 = 파트 평균, 누르면 설명 · 약한 파트 → 그 파트 범위, 홈 전체 뱃지, 해설 화면 알림');
