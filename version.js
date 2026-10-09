@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v262-rule-groups-tables';
+globalThis.APP_BUILD='chagog-v263-korean-box-structure';
