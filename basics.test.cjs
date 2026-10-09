@@ -35,7 +35,7 @@ assert.deepEqual([1,2,3].map(n=>[...rrules].filter(r=>r.startsWith('reading-read
 const PS={};new Function('globalThis','module',fs.readFileSync(__dirname+'/parts.js','utf8'))(PS,{});
 const enParts=PS.STUDY_PARTS.units.filter(u=>/^en-/.test(u.id)).flatMap(u=>u.parts),english=[...new Set(enParts.flatMap(p=>p.ids))];
 assert.equal(enParts.length,93,'영어 파트 93개(Day 1~7 40, Day 8~10 17, Day 11 5, Day 12 5, Day 13 5, Day 14 5, Day 15 5, 공식 훈련 11)');assert.equal(english.length,2163,'영어 파트 문제 2163');
-const lineIdsOf=b=>new Set([...b.terms.map(t=>t.id),...(b.table?[b.table.id,b.table.key?.id]:[]),...b.rules.items.map(r=>r.id),b.rules.key?.id,...b.examples.map(x=>x.id)].filter(Boolean));
+const lineIdsOf=b=>new Set([...b.terms.map(t=>t.id),...(b.table?[b.table.id,b.table.key?.id]:[]),...(b.tables||[]).flatMap(t=>[t.id,...(t.rowIds||[]),t.key?.id]),...b.rules.items.map(r=>r.id),b.rules.key?.id,...b.examples.map(x=>x.id)].filter(Boolean));
 const erules=new Set();let enUse=0;
 for(const p of enParts){const inPart=new Set(p.ids.map(id=>bank[id].ruleId));
  for(const id of p.ids){const q=bank[id];assert.ok(/^grammar-/.test(q.ruleId||''),'영어 규칙 id: '+id);assert.equal(q.variants.length,1,'문제 하나: '+id);erules.add(q.ruleId);
@@ -245,7 +245,7 @@ const cls=n=>String(n.className||'').split(' ');
 let tableSections=0;
 for(const id of [...logic,...reading,...grammar]){
  const heads=run(`(()=>{const q=PRACTICE_BANK[${JSON.stringify(id)}];const d=basicsDetails('기초 개념',BASICS.box(q.ruleId),BASICS.forQuestion(${JSON.stringify(id)}));const out=[];(function w(n){for(const c of n.children){if(c.className==='b-h')out.push(c._text);w(c);}})(d);return out;})()`);
- const box=B.box(bank[id].ruleId),want=['먼저 알아 둘 말',...(box.table?[box.table.title]:[]),'규칙 — '+box.rules.title,'비교 예문','이 문제에 대입'];
+ const box=B.box(bank[id].ruleId),want=['먼저 알아 둘 말',...(box.table?[box.table.title]:[]),...(box.tables||[]).map(t=>t.title),'규칙'+(box.rules.title?' — '+box.rules.title:''),'비교 예문','이 문제에 대입'];
  if(box.table)tableSections++;
  eqJ(heads,want.map((t,i)=>(i+1)+'. '+t),'절 순서: '+id);
 }
@@ -274,7 +274,7 @@ const enRes=run(`(()=>{const out=[],walk=(n,f)=>{for(const c of n.children){f(c)
    mt:mt.length,mtOpen:mt[0]?mt[0].open:false,mtSummary:mt[0]?.children[0]._text||'',wantMt:split?ownT.length-keepT.length:0});}
  return out;})()`);
 let splitBoxes=0,termSplit=0;const splitSeen=new Set();
-for(const r of enRes){const box=B.box(r.rule),want=['먼저 알아 둘 말',...(box.table?[box.table.title]:[]),'규칙'+(box.rules.title?' — '+box.rules.title:''),'비교 예문','이 문제에 대입'].map((t,i)=>(i+1)+'. '+t);
+for(const r of enRes){const box=B.box(r.rule),want=['먼저 알아 둘 말',...(box.table?[box.table.title]:[]),...(box.tables||[]).map(t=>t.title),'규칙'+(box.rules.title?' — '+box.rules.title:''),'비교 예문','이 문제에 대입'].map((t,i)=>(i+1)+'. '+t);
  eqJ(r.heads,want,'영어 절 순서: '+r.id);eqJ(r.fheads,want,'해설 화면에서도 번호가 이어진다: '+r.id);
  assert.equal(r.foldRules,r.allRules,'규칙이 빠지거나 겹치지 않는다: '+r.id);assert.equal(r.foldEx,r.allEx,'비교 예문이 빠지거나 겹치지 않는다: '+r.id);
  eqJ(r.topRules,r.wantTop,'제자리에 두는 규칙 = 대입이 쓰는 공식의 규칙: '+r.id);
@@ -333,12 +333,32 @@ const memoHeads=box=>[...(box.memorize?.length?['외울 것']:[]),...(box.mnemon
 // 5-1-6) 한국사 표만(v162): 표에 b-hist, 첫 칸이 6자까지면 b-nowrap(한 줄), 둘째 칸부터 20자 넘으면 b-long(왼쪽 맞춤). 다른 과목 표에는 붙이지 않는다.
 {const r=run(`(()=>{const len=t=>String(t).split('\\n')[0].replace(/\\{[spmqrc]\\|([^{}|]*)\\}/g,'$1').replace(/\\*\\*/g,'').length;let bad=[],nowrap=0,long=0,other=0;
  for(const [k,b] of Object.entries(BASICS.boxes)){const d=basicsDetails('기초 개념',b,null);const tables=[];(function w(n){for(const c of n.children){if(c.tag==='table')tables.push(c);w(c);}})(d);
-  if(!/^(hist|sec|com)-/.test(k)){other+=tables.filter(t=>t.classes.has('b-hist')).length;continue;}
+  if(!/^(hist|sec|com)-/.test(k)){other+=tables.filter(t=>t.classes.has('b-hist')).length;if(tables.length!==(b.table?1:0)+(b.tables||[]).length)bad.push(k+' 표 수');continue;}
   const src=b.tables;if(tables.length!==src.length){bad.push(k+' 표 수');continue;}
   tables.forEach((t,ti)=>{if(!t.classes.has('b-hist'))bad.push(k+' b-hist');t.children.slice(1).forEach((tr,ri)=>tr.children.forEach((td,ci)=>{const L=len(src[ti].rows[ri][ci]),nw=td.classes.has('b-nowrap'),lg=td.classes.has('b-long');nowrap+=nw;long+=lg;
    if(nw!==(ci===0&&L<=6)||lg!==(ci>0&&L>20))bad.push(k+' '+src[ti].rowIds[ri]+' '+ci);}));});}
  return {bad:bad.slice(0,5),nowrap,long,other};})()`);
  eqJ(r.bad,[],'한국사, 전공 과목 표 칸 표시');assert.equal(r.other,0,'다른 과목 표에는 b-hist 없음');assert.ok(r.nowrap>30&&r.long>30,'짧은 첫 칸, 긴 칸이 있다: '+JSON.stringify(r));}
+// 5-1-6b) 규칙 묶음(v262, 사용자 "개념설명의 형식이 애매하면 안된다 … 명확하게 분리, 관계에 따라 형식을 명확하게"):
+//   규칙 줄의 g(묶음 제목) — 한 상자에서 모든 줄에 있거나 하나도 없다, 같은 묶음의 줄은 이어져 있다, 제목은 22자까지.
+//   화면: 묶음이 바뀌는 자리마다 작은 제목(h5.b-rgroup) 하나, 접힌 줄을 뺀 목록에서도 그렇다. 국어, 영어 상자의 표 여럿(tables)은 첫 표와 같은 꼴(b-hist 없음).
+{let grouped=0,groups=0;
+ for(const [k,b] of Object.entries(B.boxes)){const gs=b.rules.items.map(r=>r.g||'');if(!gs.some(Boolean))continue;grouped++;
+  assert.ok(gs.every(Boolean),'묶음 제목은 모든 규칙 줄에: '+k);const runs=gs.filter((g,i)=>g!==gs[i-1]);assert.equal(new Set(runs).size,runs.length,'같은 묶음의 줄은 이어져 있다: '+k);groups+=runs.length;
+  for(const g of runs){assert.ok([...g].length<=22,'묶음 제목 22자까지: '+k+' '+g);assert.ok(!/[\n↔]/.test(g)&&!/카드|문항|변형/.test(g),'묶음 제목 글: '+k+' '+g);}
+  for(const t of b.tables||[])if(b.split!=='lines')assert.ok(t.id&&t.title&&t.head.length<=3,'국어, 영어 표 여럿: '+k);}
+ const r=run(`(()=>{const walk=(n,f)=>{for(const c of n.children||[]){f(c);walk(c,f);}};const bad=[];let boxes=0;
+  for(const [k,b] of Object.entries(BASICS.boxes)){if(!b.rules.items.some(r=>r.g))continue;boxes++;const d=basicsDetails('기초 개념',b,null);const seq=[];walk(d,c=>{if(c.className==='b-rgroup')seq.push('G:'+c._text);else if(c.className==='b-rule')seq.push('R');});
+   const want=[];let g;for(const x of b.rules.items){if(x.g!==g)want.push('G:'+x.g);g=x.g;want.push('R');}if(JSON.stringify(seq)!==JSON.stringify(want))bad.push(k);}
+  const src=Object.values(BASICS.boxes).find(b=>b.split==='lines'&&b.rules.items.length>=5&&!b.rules.items.some(r=>r.g));const fake=JSON.parse(JSON.stringify(src));fake.rules.items=fake.rules.items.slice(0,5).map((x,i)=>({...x,g:['가 묶음','가 묶음','나 묶음','다 묶음','다 묶음'][i]}));
+  const seqOf=d=>{const s=[];walk(d,c=>{if(c.className==='b-rgroup')s.push(c._text);else if(c.className==='b-rule')s.push('+');});return s.join(' ');};
+  const all=seqOf(basicsDetails('기초 개념',fake,null));const ids=fake.rules.items.map(x=>x.id);
+  const fold=basicsDetails('기초 개념',fake,{box:'x',use:[ids[1],ids[4]],blocks:['대입']},'fold');const top=[],rest=[];
+  (function w(n,inMore){for(const c of n.children||[]){const m=inMore||(c.tag==='details'&&String(c.className).includes('b-more'));if(c.className==='b-rgroup')(m?rest:top).push(c._text);else if(c.className==='b-rule')(m?rest:top).push('+');w(c,m);}})(fold,false);
+  return {bad,boxes,all,top:top.join(' '),rest:rest.join(' ')};})()`);
+ eqJ(r.bad,[],'묶음 제목은 묶음이 바뀌는 자리마다 하나');assert.equal(r.boxes,grouped,'묶음이 있는 상자 수');
+ assert.equal(r.all,'가 묶음 + + 나 묶음 + 다 묶음 + +','모두 보기: 묶음 제목 셋');assert.equal(r.top,'가 묶음 + 다 묶음 +','해설 화면 제자리: 쓰는 줄의 묶음 제목만');assert.equal(r.rest,'가 묶음 + 나 묶음 + 다 묶음 +','나머지 모음에도 묶음 제목');
+ console.log('PASS basics(규칙 묶음): 묶음이 있는 상자 '+grouped+'개, 묶음 '+groups+'개 — 묶음이 바뀌는 자리마다 작은 제목 하나(모두 보기, 해설 화면 제자리와 나머지 모음)');}
 // 5-1-7) 한국사 상자 끝의 외울 것, 암기법(v177, 사용자 "기초개념에 외울것을 정리하고 창의적암기법도 같이 표시").
 //   (가) 데이터: 한국사 상자마다 외울 것 1~12줄("**대상** → …"), 대상은 외울 것 목록(memorize.js)의 카드 앞면, 짝 이름, 왕, 순서 목록 이름,
 //        연도, 카드/문항/변형, 두문자/비결 없음. 암기법은 HISTORY_MNEMONICS에 있는 블록 id + 부르는 낱말. 다른 과목 상자에는 둘 다 없다.

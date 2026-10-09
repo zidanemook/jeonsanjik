@@ -1160,6 +1160,9 @@ function basicsTermSplit(terms,rule,split,apply){
 }
 function basicsTerm(t){const h=elem('div',undefined,'b-term');h.append(elem('span',t.word+(t.hanja?'('+t.hanja+')':''),'b-chip'));if(t.origin)h.append(elem('small',t.origin,'b-origin'));const out=[h,basicsLines(t.mean,'b-mean')];
  if(t.rows){const r=elem('div',undefined,'b-rows');for(const row of t.rows)r.append(basicsLines(row,undefined,'div'));out.push(r);}if(t.ex&&t.ex!=='—')out.push(basicsLines('예) '+t.ex,'b-ex'));return out;}
+// 규칙 묶음(v262): 규칙 줄의 g(묶음 제목)가 바뀌는 자리마다 작은 제목을 한 번 둔다 — 한 제목 아래에는 한 종류의 줄만(요소 / 헷갈리는 짝 가르기 / 판정 순서를 한 목록에 섞지 않는다).
+// 보이는 줄만 센다: 접힌 줄, 다른 상자로 간 공통 줄을 뺀 목록에서 같은 g가 이어지면 제목은 하나다.
+function basicsRuleList(rs){const out=[];let g;for(const r of rs){if(r.g&&r.g!==g)out.push(elem('h5',r.g,'b-rgroup'));g=r.g;out.push(basicsRule(r));}return out;}
 function basicsRule(r){const d=elem('div',undefined,'b-rule');d.append(elem('b',r.name));String(r.text).split('\n').forEach((line,i)=>{if(i)d.append(elem('br'));d.append(...basicsInline(line));});return d;}
 function basicsExample(x){const p=elem('p',undefined,'b-ex'+(x.ok?'':' bad'));p.append(elem('span',x.ok?'✓':'✗',x.ok?'b-ok':'b-no'),document.createTextNode(' '),...basicsInline(x.text),elem('br'));const s=elem('small');s.append(...basicsInline(x.why));p.append(s);return p;}
 // 한국사 상자(split:'lines', 파트마다 하나, 표가 여럿): 해설 화면에서는 이 문제의 대입이 쓰는 줄(용어, 표의 줄, 규칙, 비교 예문)만
@@ -1173,13 +1176,13 @@ function basicsLineSections(box,apply){
  const sub=(t,rows)=>basicsHistTable({...t,rows});
  if(inT.length){head('먼저 알아 둘 말');for(const t of inT)out.push(...basicsTerm(t));}
  for(const {t,keep} of tables){const keyIn=!!t.key&&(use.has(t.id)||use.has(t.key.id));if(keep.length||keyIn){head(t.title);if(keep.length)out.push(sub(t,keep));if(keyIn)out.push(basicsLines(t.key.text,'b-key'));}}
- if(inR.length){head('규칙'+(box.rules.title?' — '+box.rules.title:''));for(const r of inR)out.push(basicsRule(r));}
+ if(inR.length){head('규칙'+(box.rules.title?' — '+box.rules.title:''));out.push(...basicsRuleList(inR));}
  if(inX.length){head('비교 예문');for(const x of inX)out.push(basicsExample(x));}
  const restRows=tables.reduce((s,x)=>s+x.rest.length,0),parts=[restT.length&&'말 '+restT.length,restRows&&'표 '+restRows+'줄',restR.length&&'규칙 '+restR.length,restX.length&&'예문 '+restX.length].filter(Boolean);
  if(parts.length){const d=elem('details',undefined,'b-more b-rest');d.append(elem('summary','이 정리의 나머지 더 보기 — '+parts.join(', ')));
   if(restT.length){d.append(elem('h4','먼저 알아 둘 말','b-subh'));for(const t of restT)d.append(...basicsTerm(t));}
   for(const {t,rest} of tables)if(rest.length){d.append(elem('h4',t.title,'b-subh'),sub(t,rest));if(t.key&&!(use.has(t.id)||use.has(t.key.id)))d.append(basicsLines(t.key.text,'b-key'));}
-  if(restR.length){d.append(elem('h4','규칙'+(box.rules.title?' — '+box.rules.title:''),'b-subh'));for(const r of restR)d.append(basicsRule(r));}
+  if(restR.length){d.append(elem('h4','규칙'+(box.rules.title?' — '+box.rules.title:''),'b-subh'));d.append(...basicsRuleList(restR));}
   if(restX.length){d.append(elem('h4','비교 예문','b-subh'));for(const x of restX)d.append(basicsExample(x));}
   out.push(d);}
  head('이 문제에 대입');for(const b of apply.blocks)out.push(basicsBlock(b));
@@ -1224,14 +1227,15 @@ function basicsSections(box,apply,mode,seen,partId){
  for(const t of termSplit?termSplit.keep:terms)termOut.append(...basicsTerm(t));
  if(termSplit&&termSplit.rest.length){const d=elem('details',undefined,'b-more-terms');d.append(elem('summary','이 정리의 다른 용어 '+termSplit.rest.length+'개 더 보기'));for(const t of termSplit.rest)d.append(...basicsTerm(t));termOut.append(d);}
  if(table){head(table.title);out.push(basicsTable(table));if(table.key)out.push(basicsLines(table.key.text,'b-key'));}
- for(const t of box.tables||[])if(!moved(t)){head(t.title);out.push(basicsHistTable(t));if(t.key)out.push(basicsLines(t.key.text,'b-key'));}
+ // 표 여럿(tables): 한국사, 전공 과목 상자(split 'lines')는 b-hist 꼴. 국어, 영어 상자(v262 — 나눈 표, 견줌 표)는 첫 표(table)와 같은 꼴로 그린다.
+ for(const t of box.tables||[])if(!moved(t)){head(t.title);out.push(box.split==='lines'?basicsHistTable(t):basicsTable(t));if(t.key)out.push(basicsLines(t.key.text,'b-key'));}
  head('규칙'+(box.rules.title?' — '+box.rules.title:''));
- for(const r of split?split.rules:rules)out.push(basicsRule(r));
+ out.push(...basicsRuleList(split?split.rules:rules));
  if(box.rules.key)out.push(basicsLines(box.rules.key.text,'b-key'));
  head('비교 예문');
  for(const x of split?split.examples:box.examples)out.push(exEl(x));
  if(split){const d=elem('details',undefined,'b-more');d.append(elem('summary','이 정리의 다른 공식 '+split.other.length+'개 더 보기'));
-  for(const g of split.hidden){for(const r of g.rules)d.append(basicsRule(r));for(const x of g.examples)d.append(exEl(x));}
+  for(const g of split.hidden){d.append(...basicsRuleList(g.rules));for(const x of g.examples)d.append(exEl(x));}
   out.push(d);}
  const nShared=sharedTerms.length+sharedRules.length+(sharedTable?1:0);
  if(nShared&&mode==='skip')out.push(elem('p','함께 보는 정리('+[sharedTable&&sharedTable.title.split(' — ')[0]+' 표',...sharedTerms.map(t=>(t.word.match(/\(([^)]+)\)$/)||[,t.word])[1]),...sharedRules.map(r=>r.name)].filter(Boolean).join(', ')+')는 위 상자에 있어요.','b-shared-note'));
@@ -1240,7 +1244,7 @@ function basicsSections(box,apply,mode,seen,partId){
   d.append(elem('summary','함께 보는 정리 — '+first+(nShared>1?' 외 '+(nShared-1)+'개':'')));
   for(const t of sharedTerms)d.append(...basicsTerm(t));
   if(sharedTable){d.append(elem('h4',sharedTable.title,'b-subh'),basicsTable(sharedTable));if(sharedTable.key)d.append(basicsLines(sharedTable.key.text,'b-key'));}
-  for(const r of sharedRules)d.append(basicsRule(r));
+  d.append(...basicsRuleList(sharedRules));
   const ids=new Set([...sharedTerms,...sharedRules,sharedTable].filter(Boolean).map(x=>x.id)),keyIds=sharedTable?.key?[sharedTable.key.id]:[];
   d.open=!!apply?.use?.some(u=>ids.has(u)||keyIds.includes(u));
   out.push(d);

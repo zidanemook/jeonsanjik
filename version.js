@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v261-fact-fixes-user-words';
+globalThis.APP_BUILD='chagog-v262-rule-groups-tables';

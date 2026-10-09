@@ -415,6 +415,8 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-table td:first-child { background:#1a1f28; color:#d1d7e0; font-weight:600; }
 .b-table tr:nth-child(even) td + td { background:#16191f; }
 .b-table.b-hist th, .b-table.b-hist td { text-align:left; vertical-align:top; word-break:keep-all; overflow-wrap:break-word; }
+/* v262: 표가 상자보다 넓어지던 일(393px에서 16파트) — 긴 낱말 때문에 칸들의 가장 좁은 너비 합이 화면을 넘었다. 마지막 칸(가장 긴 글이 드는 칸)만 낱말 안에서도 줄을 바꿀 수 있게 해 그 칸이 줄어들게 한다. 모든 칸에 주면 짧은 가운데 칸이 한 글자 너비로 눌린다. */
+.b-table.b-hist th:last-child, .b-table.b-hist td:last-child { overflow-wrap:anywhere; }
 .b-table.b-hist td:first-child { min-width:3.2em; }
 .b-diagram { display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; margin:8px 0; }
 .b-diagram > .b-bx { flex:1 1 150px; min-width:0; }
@@ -431,6 +433,9 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-shared { margin:16px 0 6px; padding:6px 10px; border:1px dashed #6b5a2e; border-radius:10px; }
 .b-shared > summary { color:#e8d9a8; cursor:pointer; min-height:32px; }
 .b-subh { margin:16px 0 6px; font-size:14px; color:#e8d9a8; }
+/* 규칙 묶음 제목(v262): 규칙 절 안에서 줄들을 종류별로 가르는 작은 제목 — 절 제목(.b-h)보다 작고 규칙 줄 이름(노랑)과 다른 빛 */
+.b-rgroup { margin:14px 0 4px; padding-left:8px; border-left:3px solid #6f8fb8; font-size:14px; font-weight:700; color:#bcd0ea; word-break:keep-all; overflow-wrap:anywhere; }
+.b-h + .b-rgroup { margin-top:6px; }
 .b-shared-note { margin:12px 0 4px; color:#9aa3b0; font-size:14px; }
 .b-memo-line { margin:4px 0; padding:4px 10px; border-left:3px solid #ffd479; background:#ffd47910; border-radius:0 8px 8px 0; }
 .b-memo-line b { color:#ffd479; }
