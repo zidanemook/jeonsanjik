@@ -1,6 +1,6 @@
 // 뱃지 둘(v146): 과목마다 레벨(숫자 하나) + 기출 뱃지(예상 점수) + 자체제작 뱃지(파트별 외운 비율의 평균).
 // 앱을 가짜 DOM 위에서 돌려 확인한다: 1) 자체제작 파트 묶음(파트 + 파트 없는 문제의 대체 묶음)이 과목의 자체제작 문제를 빠짐없이 한 번씩 덮는다
-// 2) 저장된 기록으로 과목 줄·과목 화면·홈 카드의 뱃지 색 3) 뱃지를 누르면 설명(다음 등급까지 · 가장 약한 파트), 약한 파트를 누르면 그 파트 범위
+// 2) 저장된 기록으로 과목 줄, 과목 화면, 홈 카드의 뱃지 색 3) 뱃지를 누르면 설명(다음 등급까지, 가장 약한 파트), 약한 파트를 누르면 그 파트 범위
 // 4) 풀이 뒤 해설 화면: 기출 뱃지가 처음 생기면 알림.
 'use strict';
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
@@ -46,7 +46,7 @@ for(const s of ['정보보호론'])assert.equal(cover[s].groups,0,s+'는 자체�
 // 컴퓨터일반 자체 제작(research/computer-20261007): 뱃지 묶음 = 자체 제작 단원의 파트 전부(그 밖의 묶음 없음 — 모든 문제가 parts.js 파트에 있다).
 {const n=/*COMQ-PARTS*/369/*END-COMQ-PARTS*/;assert.equal(cover['컴퓨터일반'].groups,n,'컴퓨터일반 자체제작 묶음 = 자체 제작 파트');assert.equal(cover['컴퓨터일반'].parts,n,'컴퓨터일반 자체제작 묶음은 모두 parts.js 파트');assert.deepEqual(cover['컴퓨터일반'].fallback,[],'컴퓨터일반: 파트 밖 묶음 없음');}
 
-// ── 2) 저장된 기록(실제 동기화 경로로 합침): 19강 첫 파트는 전부 외움 · 지대 파트 둘은 틀림 · 컴퓨터일반 기출 12문제(9개 정답) · 정보보호론 기출 3문제
+// ── 2) 저장된 기록(실제 동기화 경로로 합침): 19강 첫 파트는 전부 외움, 지대 파트 둘은 틀림, 컴퓨터일반 기출 12문제(9개 정답), 정보보호론 기출 3문제
 const seed=R(`(()=>{const today=ReviewSchedule.day(),ago=n=>ReviewSchedule.plus(today,-n),rows=[];let k=0;
  const add=(id,d,result)=>rows.push({id:'seed-'+String(k++).padStart(4,'0'),cardId:id,date:ago(d),at:ago(d)+'T09:'+String(k%60).padStart(2,'0')+':00+09:00',result,mode:'quiz'});
  const p19=STUDY_PARTS.units.find(u=>u.id==='hist-19').parts;
@@ -57,7 +57,7 @@ const seed=R(`(()=>{const today=ReviewSchedule.day(),ago=n=>ReviewSchedule.plus(
  exam('정보보호론').slice(0,3).forEach(id=>add(id,3,'correct'));
  data.cards.filter(c=>/^hanneung-/.test(c.id)).slice(0,21).forEach((c,i)=>add(c.id,3,i<16?'correct':'wrong'));
  exam('한국사').slice(0,4).forEach(id=>add(id,3,'correct'));
- // v179: 19강은 '이 강 문제 더 풀기'를 켠 상태(외운 파트 · 틀린 파트가 핵심 20 밖 문제에 걸려 있다 — 접힘 자체는 core20.test).
+ // v179: 19강은 '이 강 문제 더 풀기'를 켠 상태(외운 파트, 틀린 파트가 핵심 20 밖 문제에 걸려 있다 — 접힘 자체는 core20.test).
  const next=ProgressSync.merge(data,rows);next.openLectures=['19'];commit(next);go('home');return {rows:rows.length,p0:p19[0].id,p3:p19[3].id,p3title:'19강 '+p19[3].title,sec:exam('정보보호론').slice(3,20)};})()`);
 const badges=J('subjectBadges()');
 assert.equal(badges['컴퓨터일반'].exam.ready,true);assert.equal(badges['컴퓨터일반'].exam.score,R('ExamScore.estimate(18,24).score'));
@@ -117,5 +117,5 @@ R('closeBadgeInfo()');
   const n=3+i+1;if(n<20)assert.ok(!/🏅/.test(last),n+'문제째: 알림 없음');else assert.match(last,/🏅 정보보호론 기출 .+ 뱃지! 예상 점수 \d+점/,n+'문제째: '+last);
   assert.match(last,/정보보호론 Lv \d+, 다음까지 \d+ XP기출 /);}}
 
-console.log('PASS badges: 자체제작 파트 묶음이 과목의 자체제작 문제를 빠짐없이 한 번씩('+Object.entries(cover).map(([s,c])=>s+' '+c.groups).join(' · ')+'; 영어 수일치·그 밖의 문법 연습·그 밖의 문제, 한국사 그 밖의 문제), '+
- '기출 뱃지 = 예상 점수(20문제 미만 아직, 맞힌 수/푼 수), 자체제작 뱃지 = 파트 평균, 누르면 설명 · 약한 파트 → 그 파트 범위, 홈 전체 뱃지, 해설 화면 알림');
+console.log('PASS badges: 자체제작 파트 묶음이 과목의 자체제작 문제를 빠짐없이 한 번씩('+Object.entries(cover).map(([s,c])=>s+' '+c.groups).join(', ')+'; 영어 수일치, 그 밖의 문법 연습, 그 밖의 문제, 한국사 그 밖의 문제), '+
+ '기출 뱃지 = 예상 점수(20문제 미만 아직, 맞힌 수/푼 수), 자체제작 뱃지 = 파트 평균, 누르면 설명, 약한 파트 → 그 파트 범위, 홈 전체 뱃지, 해설 화면 알림');

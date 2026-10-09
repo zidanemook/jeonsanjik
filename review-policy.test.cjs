@@ -16,7 +16,7 @@ const provided='en-session-20260909-provided',ofRule=(x,id)=>x.lesson?.ruleId===
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,provided)||x.exercise.type!=='text')),/written questions required: en-session-20260909-provided/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-agreement-pair')||x.exercise.type!=='choice')),/MCQ required: grammar-agreement-pair/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-agreement-both'))),/Missing coverage/);
-// The pre-existing bar stays: 수일치·그 밖의 문법 rules still need two distinct written questions (as-well has exactly two).
+// The pre-existing bar stays: 수일치, 그 밖의 문법 rules still need two distinct written questions (as-well has exactly two).
 assert.throws(()=>audit.coverage(list.filter(x=>x.card.id!=='en-session-20260909-as-well-v1')),/At least 2 written questions required: en-session-20260909-as-well/);
 // Day 1 rules need at least one written and one four-option question (no-passive has one written: en-day1-48).
 assert.equal(list.filter(x=>ofRule(x,'grammar-verb-no-passive')&&x.exercise.type==='text').length,1);
@@ -69,11 +69,11 @@ assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day5-rule-emp
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day5-005'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-day5-001').lesson.point}}:x)),/One grammar point, one concept/);
 {const d=list.filter(x=>x.card.id.startsWith('en-day6-'));assert.equal(d.length,220);assert.equal(new Set(d.map(x=>x.conceptId)).size,27);assert.equal(new Set(d.map(x=>x.lesson.ruleId)).size,10);
  assert.ok(d.every(x=>x.lesson.topic==='Day 6'&&x.lesson.ruleId.startsWith('grammar-day6-rule-')&&x.conceptId.startsWith('grammar-day6-')&&!x.conceptId.startsWith('grammar-day6-rule-')));
- // 한 포인트의 4지선다(en-day6-001)·직접 쓰기(en-day6-138)는 같은 개념이고 다른 포인트(en-day6-006)는 다르다.
+ // 한 포인트의 4지선다(en-day6-001), 직접 쓰기(en-day6-138)는 같은 개념이고 다른 포인트(en-day6-006)는 다르다.
  assert.equal(policy.concept('en-day6-001'),policy.concept('en-day6-138'));assert.notEqual(policy.concept('en-day6-001'),policy.concept('en-day6-006'));}
 {const d=list.filter(x=>x.card.id.startsWith('en-day7-'));assert.equal(d.length,240);assert.equal(new Set(d.map(x=>x.conceptId)).size,30);assert.equal(new Set(d.map(x=>x.lesson.ruleId)).size,7);
  assert.ok(d.every(x=>x.lesson.topic==='Day 7'&&x.lesson.ruleId.startsWith('grammar-day7-rule-')&&x.conceptId.startsWith('grammar-day7-')&&!x.conceptId.startsWith('grammar-day7-rule-')));
- // 한 포인트의 4지선다(en-day7-001)·직접 쓰기(en-day7-151)는 같은 개념이고 다른 포인트(en-day7-006)는 다르다.
+ // 한 포인트의 4지선다(en-day7-001), 직접 쓰기(en-day7-151)는 같은 개념이고 다른 포인트(en-day7-006)는 다르다.
  assert.equal(policy.concept('en-day7-001'),policy.concept('en-day7-151'));assert.notEqual(policy.concept('en-day7-001'),policy.concept('en-day7-006'));}
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day6-rule-clause')||x.exercise.type!=='text')),/At least 1 written questions required: grammar-day6-rule-clause/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-day7-rule-tense-mood')||x.exercise.type!=='choice')),/MCQ required: grammar-day7-rule-tense-mood/);
@@ -86,12 +86,12 @@ assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day7-006'?{...x,les
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-formula-inversion')||x.exercise.type!=='text')),/At least 1 written questions required: grammar-formula-inversion/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-formula-voice'))),/Missing coverage/);
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-formula-006'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-formula-001').lesson.point}}:x)),/One grammar point, one concept/);
-// 국어 사고의 힘 논리: 개념(point) 하나가 개념 묶음 하나(1·2장 56개 + 3장 27개 + 4장 14개 + 5장 14개 + 6장 43개 = 154개)다. 영어의 직접쓰기 하한은 걸리지 않고, 장별 문제 수 하한·필수 개념·4지선다만을 요구한다.
+// 국어 사고의 힘 논리: 개념(point) 하나가 개념 묶음 하나(1, 2장 56개 + 3장 27개 + 4장 14개 + 5장 14개 + 6장 43개 = 154개)다. 영어의 직접쓰기 하한은 걸리지 않고, 장별 문제 수 하한, 필수 개념, 4지선다만을 요구한다.
 {const ko=list.filter(x=>x.card.id.startsWith('ko-logic'));assert.equal(ko.length,995);assert.ok(ko.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-logic-')));assert.equal(new Set(ko.map(x=>x.conceptId)).size,154);
  assert.equal(policy.concept('ko-logic6-017'),'korean-logic-spot-denying-antecedent');assert.equal(policy.concept('ko-logic6-017'),policy.concept('ko-logic6-018'),'전건 부정 판별 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic6-018'),policy.concept('ko-logic6-027'),'전건 부정과 후건 긍정은 다른 개념');
  {const kr=list.filter(x=>x.card.id.startsWith('ko-read1-'));assert.equal(kr.length,444);assert.ok(kr.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-reading-')));assert.equal(new Set(kr.map(x=>x.conceptId)).size,61);
-  assert.equal(policy.concept('ko-read1-015'),'korean-reading-but-type');assert.equal(policy.concept('ko-read1-015'),policy.concept('ko-read1-022'),'A but B 유형 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-read1-022'),policy.concept('ko-read1-023'),'A but B 유형과 물론·그러나 유형은 다른 개념');
-  assert.equal(policy.concept('ko-read1-266'),'korean-reading-option-intent');assert.notEqual(policy.concept('ko-read1-266'),policy.concept('ko-read1-273'),'의도의 오류와 원인·결과 뒤바꾸기는 다른 개념');
+  assert.equal(policy.concept('ko-read1-015'),'korean-reading-but-type');assert.equal(policy.concept('ko-read1-015'),policy.concept('ko-read1-022'),'A but B 유형 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-read1-022'),policy.concept('ko-read1-023'),'A but B 유형과 물론, 그러나 유형은 다른 개념');
+  assert.equal(policy.concept('ko-read1-266'),'korean-reading-option-intent');assert.notEqual(policy.concept('ko-read1-266'),policy.concept('ko-read1-273'),'의도의 오류와 원인, 결과 뒤바꾸기는 다른 개념');
   {const r23=list.filter(x=>/^ko-read[23]/.test(x.card.id));assert.equal(r23.length,476);assert.ok(r23.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-reading')));assert.equal(new Set(r23.map(x=>x.conceptId)).size,77);
    assert.equal(policy.concept('ko-read2-006'),policy.concept('ko-read2-007'),'독해 2장 같은 개념');assert.notEqual(policy.concept('ko-read2-007'),policy.concept('ko-read2-008'),'독해 2장 다른 개념');
    assert.equal(policy.concept('ko-read3-005'),policy.concept('ko-read3-006'),'독해 3장 같은 개념');assert.notEqual(policy.concept('ko-read3-006'),policy.concept('ko-read3-007'),'독해 3장 다른 개념');
@@ -102,7 +102,7 @@ assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-formula-006'?{...x,
  assert.equal(policy.concept('ko-logic5-074'),'korean-logic-method-agreement');assert.equal(policy.concept('ko-logic5-074'),policy.concept('ko-logic5-083'),'일치법 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic5-083'),policy.concept('ko-logic5-084'),'일치법과 차이법은 다른 개념');
  assert.equal(policy.concept('ko-logic2-087'),policy.concept('ko-logic2-091'),'대우 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic2-087'),policy.concept('ko-logic2-082'),'대우와 드모르간은 다른 개념');
  assert.equal(policy.concept('ko-logic2-069'),'korean-logic-affirming-consequent');assert.equal(policy.concept('ko-logic2-035'),'korean-logic-conditional-truth');
- assert.equal(policy.concept('ko-logic2-138'),'korean-logic-if-vs-only-if');assert.equal(policy.concept('ko-logic2-138'),policy.concept('ko-logic2-145'),'경우·경우에만 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic2-016'),policy.concept('ko-logic2-113'),'2장 보강 충분조건의 뜻은 기존 필요조건과 충분조건과 다른 개념');
+ assert.equal(policy.concept('ko-logic2-138'),'korean-logic-if-vs-only-if');assert.equal(policy.concept('ko-logic2-138'),policy.concept('ko-logic2-145'),'경우, 경우에만 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic2-016'),policy.concept('ko-logic2-113'),'2장 보강 충분조건의 뜻은 기존 필요조건과 충분조건과 다른 개념');
  assert.equal(policy.concept('ko-logic3-106'),'korean-logic-undistributed-middle');assert.equal(policy.concept('ko-logic3-106'),policy.concept('ko-logic3-112'),'매개념 부주연 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic3-106'),policy.concept('ko-logic3-113'),'매개념 부주연과 대개념 부당 주연은 다른 개념');assert.equal(policy.concept('ko-logic3-079'),'korean-logic-conversion');}
 assert.throws(()=>audit.coverage(list.filter(x=>!x.card.id.startsWith('ko-logic1-')||Number(x.card.id.slice(-2))<=24)),/Korean textbook floor: 논리 1장 has 24, needs 25/);
 assert.throws(()=>audit.coverage(list.filter(x=>x.lesson?.point!=='대우')),/Missing Korean coverage: 논리 2장 \/ 대우/);

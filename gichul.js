@@ -1,16 +1,16 @@
 'use strict';
-// 공무원 9급 기출문제를 카드·객관식 보기로 설치한다. 한능검(hanneung.js)과 같은 자리를 쓰지만
+// 공무원 9급 기출문제를 카드, 객관식 보기로 설치한다. 한능검(hanneung.js)과 같은 자리를 쓰지만
 // 원문이 이미지가 아니라 텍스트라는 점이 다르다. 보기는 원문의 ①②③④를 그대로 달고 있으므로
 // 순서를 섞지 않는다(fixedOrder). 정답은 공식 정답표의 값이고 앱이 다시 판단하지 않는다.
 //
 // 회차 파일은 필요할 때만 받는다.
-//  - 시작할 때는 작은 색인(gichul-index.js: 회차·과목·연도·공식 정답·제외 번호)만 싣는다.
-//  - 색인만으로 모든 문항의 카드(id·과목·제목·공식 정답·출처)를 만든다. 그래서 과목 문항 수, 복습 일정,
+//  - 시작할 때는 작은 색인(gichul-index.js: 회차, 과목, 연도, 공식 정답, 제외 번호)만 싣는다.
+//  - 색인만으로 모든 문항의 카드(id, 과목, 제목, 공식 정답, 출처)를 만든다. 그래서 과목 문항 수, 복습 일정,
 //    회차 첫 시도 점수, 드릴 범위, 동기화 기록은 회차 파일을 받지 않아도 모든 문항을 본다.
 //  - 문제 본문과 보기(QUIZ_OPTIONS)는 그 회차의 문항을 처음 낼 때 gichul/<회차 id>.json 하나를 받아 채운다.
-//    받은 파일은 색인과 문항 번호·공식 정답이 모두 같아야 붙인다. 서비스 워커는 이 파일을 미리 캐시하지 않고
+//    받은 파일은 색인과 문항 번호, 공식 정답이 모두 같아야 붙인다. 서비스 워커는 이 파일을 미리 캐시하지 않고
 //    처음 받을 때 기기에 남긴다(다른 자산과 같은 네트워크 우선 캐시).
-//  - Node(검사·감사)에서는 모든 회차 파일을 디스크에서 바로 읽는다(gichul-files.cjs).
+//  - Node(검사, 감사)에서는 모든 회차 파일을 디스크에서 바로 읽는다(gichul-files.cjs).
 (function(root){
  const node=typeof module!=='undefined'&&module.exports;
  if(node)require('./gichul-index.js');
@@ -36,11 +36,11 @@
  function get(cardId){const row=byId.get(cardId);return row?{paper:row.paper,question:questionOf(row.paper,row.n)}:undefined;}
  function title(row){return row?row.paper.title+' '+row.question.n+'번':'';}
  function source(paper,q){
-  return '출처: '+paper.body+', 「'+paper.datasetTitle+'」, 공공데이터포털 '+paper.dataset+' (이용허락범위 제한 없음) · '
-   +paper.exam+' '+paper.book+' '+paper.subject+' '+q.n+'번 원문 전사 · 공식 정답 '+symbols[q.a-1]+'.';
+  return '출처: '+paper.body+', 「'+paper.datasetTitle+'」, 공공데이터포털 '+paper.dataset+' (이용허락범위 제한 없음), '
+   +paper.exam+' '+paper.book+' '+paper.subject+' '+q.n+'번 원문 전사, 공식 정답 '+symbols[q.a-1]+'.';
  }
  function explanation(paper,q){
-  const head='공식 정답: '+symbols[q.a-1]+' · '+paper.title+' '+q.n+'번 ('+paper.body+' 공식 정답표).';
+  const head='공식 정답: '+symbols[q.a-1]+', '+paper.title+' '+q.n+'번 ('+paper.body+' 공식 정답표).';
   return q.e?head+'\n\n'+q.e:head+'\n\n이 문제는 공식 문제와 정답표를 수록했으며, 상세 해설은 아직 제공하지 않습니다.';
  }
  // 받은 회차 파일이 색인과 어긋나면 붙이지 않는다. 틀린 정답을 가르치느니 문제를 내지 않는다.

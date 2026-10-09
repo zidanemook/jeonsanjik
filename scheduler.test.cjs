@@ -27,7 +27,7 @@ const dropped=schedule(schedule(schedule(card,'wrong','2026-09-08'),'wrong','202
 assert.equal(dropped.streak,MASTER_STREAK-1,'two misses: exactly one stage down');assert.equal(dropped.interval,30,'relearned at the 14-day-passed stage → wait 30 days for mastery');
 const relearning=schedule(schedule({ease:2.5,interval:7,streak:1,due:'2026-09-08'},'wrong','2026-09-08'),'correct','2026-09-09');
 assert.equal(relearning.interval,7,'no stage yet: relearned → seven days');assert.equal(relearning.streak,1);
-// v139 기회 한 번 · 한 단계 내림: 단계가 있는 문제(streak ≥ 2)는 첫 오답에 기회, 기회에서 맞히면 단계 유지, 또 틀리면 한 단계만.
+// v139 기회 한 번, 한 단계 내림: 단계가 있는 문제(streak ≥ 2)는 첫 오답에 기회, 기회에서 맞히면 단계 유지, 또 틀리면 한 단계만.
 {const {step}=require('./scheduler.js');let st;const go=(r,d)=>{const o=step(st,r,d);if(o.event!=='early')st=o.state;return o.event;};
  st=undefined;const ev=[go('correct','2026-01-01'),go('correct','2026-01-08'),go('correct','2026-01-22'),go('correct','2026-02-21')];
  assert.deepEqual(ev,['learned','advance','advance','advance']);assert.equal(st.streak,4,'mastered');

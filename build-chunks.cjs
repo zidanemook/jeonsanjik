@@ -1,10 +1,10 @@
 'use strict';
-// 원본 파일에서 색인(content-index.js) · 조각(chunks/*.json) · 조각 목록(chunk-manifest.json)을 만든다. 설계: research/lazy-load-20261008/DESIGN.md
+// 원본 파일에서 색인(content-index.js), 조각(chunks/*.json), 조각 목록(chunk-manifest.json)을 만든다. 설계: research/lazy-load-20261008/DESIGN.md
 //   node build-chunks.cjs          만든다(달라진 파일만 쓴다, 없어진 조각은 지운다)
-//   node build-chunks.cjs --check  만들지 않고 커밋된 파일과 한 바이트씩 견준다. 다르면 실패(낡은 색인 · 조각으로 배포되지 않게 — lazy.test.cjs가 부른다)
-// 원본(저작 · 통합 스크립트 · 원장 · 감사 · 검사가 읽고 쓰는 파일)은 그대로다:
-//   core-review-pack.js · quiz-options.js · practice-bank.js · basics.js · study-review-catalog.js · memorize.js · hanneung-explanations.js (+ 나누는 기준 parts.js)
-// 문제를 더하거나 고친 뒤에는 이 스크립트를 한 번 돌리고 chunks/ · content-index.js · chunk-manifest.json을 같이 커밋한다.
+//   node build-chunks.cjs --check  만들지 않고 커밋된 파일과 한 바이트씩 견준다. 다르면 실패(낡은 색인, 조각으로 배포되지 않게 — lazy.test.cjs가 부른다)
+// 원본(저작, 통합 스크립트, 원장, 감사, 검사가 읽고 쓰는 파일)은 그대로다:
+//   core-review-pack.js, quiz-options.js, practice-bank.js, basics.js, study-review-catalog.js, memorize.js, hanneung-explanations.js (+ 나누는 기준 parts.js)
+// 문제를 더하거나 고친 뒤에는 이 스크립트를 한 번 돌리고 chunks/, content-index.js, chunk-manifest.json을 같이 커밋한다.
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const store=require('./content-store.js');
 const SOURCES=['core-review-pack.js','quiz-options.js','hanneung-explanations.js','practice-bank.js','study-review-catalog.js','parts.js','memorize.js','basics.js'];
@@ -30,7 +30,7 @@ function derive(ctx){
  const paperChunk=id=>{if(id.startsWith('gichul-')){const paper=id.slice(7,id.lastIndexOf('-'));return 'g-'+paper.slice(paper.lastIndexOf('-')+1);}const h=/^hanneung-(\d+)-\d+$/.exec(id);return h?'h-'+Number(h[1]):null;};
  const homeOf=id=>selfChunk.get(id)||paperChunk(id)||fail('어느 조각에도 넣을 수 없는 id: '+id);
  const chunks=new Map(),chunk=name=>{if(!/^[a-z]-[a-z0-9-]+$/.test(name))fail('조각 이름: '+name);if(!chunks.has(name))chunks.set(name,{schema:1,id:name});return chunks.get(name);};
- // ---- 자체 제작 문제: 묶음 카드 · 보기 · 연습 문제 · 대입 ----
+ // ---- 자체 제작 문제: 묶음 카드, 보기, 연습 문제, 대입 ----
  for(const c of core){const k=chunk(selfChunk.get(c.id));(k.core??=[]).push(c);}
  for(const [id,o]of Object.entries(options)){if(!selfChunk.has(id))fail('보기만 있고 문제가 없는 id: '+id);(chunk(selfChunk.get(id)).options??={})[id]=o;}
  {const perChunk=new Map();for(const [id,lesson]of Object.entries(bank)){const name=selfChunk.get(id);if(!perChunk.has(name))perChunk.set(name,{});perChunk.get(name)[id]=lesson;
@@ -54,14 +54,14 @@ function derive(ctx){
  }
  // ---- 외울 것: 과목마다 하나 ----
  const memoRows=[];for(const set of memo.sets){const name='m-'+code(set.subject);(chunk(name).memorize??=[]).push(set);memoRows.push({id:set.id,subject:set.subject,title:set.title,size:memo.size(set),name});}
- // ---- 조각 글 · 지문 ----
+ // ---- 조각 글, 지문 ----
  const files=new Map();for(const name of [...chunks.keys()].sort()){const text=JSON.stringify(chunks.get(name));files.set(name,{text,hash:store.hashBytes(bytes(text))});}
  // ---- 색인 ----
  const names=[...files.keys()],at=new Map(names.map((n,i)=>[n,i])),table=()=>{const list=[],seen=new Map();return {list,of(v){if(!seen.has(v)){seen.set(v,list.length);list.push(v);}return seen.get(v);}};};
  const subjects=table(),topics=table(),formulaIds=table(),rules=table(),sections=table();
  const coreIdx={ids:[],s:[],c:[],o:[]};for(const c of core){coreIdx.ids.push(c.id);coreIdx.s.push(subjects.of(c.subject));coreIdx.c.push(at.get(selfChunk.get(c.id)));coreIdx.o.push(options[c.id]?1:0);}
  const bankIdx={ids:[],s:[],c:[],o:[],t:[],f:[],r:[],n:[]};
- for(const [id,l]of Object.entries(bank)){if(typeof l.topic!=='string'||typeof l.ruleId!=='string')fail('연습 문제에 topic · ruleId가 없다: '+id);
+ for(const [id,l]of Object.entries(bank)){if(typeof l.topic!=='string'||typeof l.ruleId!=='string')fail('연습 문제에 topic, ruleId가 없다: '+id);
   bankIdx.ids.push(id);bankIdx.s.push(subjects.of(l.subject||'영어'));bankIdx.c.push(at.get(selfChunk.get(id)));bankIdx.o.push(options[id]?1:0);bankIdx.t.push(topics.of(l.topic));bankIdx.f.push(l.formula===undefined?-1:formulaIds.of(l.formula));bankIdx.r.push(rules.of(l.ruleId));bankIdx.n.push(l.variants.length);}
  const applyBox={};for(const [id,a]of Object.entries(basics.apply))if(typeof a?.box==='string')(applyBox[a.box]??=[]).push(id);
  const q={};for(const [id,x]of Object.entries(catalog.questions))q[id]=[x.number,sections.of(x.section)];
@@ -73,10 +73,10 @@ function derive(ctx){
   english:{areas:formulas.areas},memo:memoRows.map(m=>({id:m.id,subject:m.subject,title:m.title,size:m.size,c:at.get(m.name)})),hx};
  const body=o=>'{\n'+Object.entries(o).map(([k,v])=>JSON.stringify(k)+':'+JSON.stringify(v)).join(',\n')+'\n}';
  index.build=store.hashBytes(bytes(body(index)));
- const indexText='// 자동 생성 파일 — 손으로 고치지 않는다. 원본(practice-bank.js · basics.js · core-review-pack.js · quiz-options.js · study-review-catalog.js · memorize.js · hanneung-explanations.js · parts.js)을 고친 뒤 node build-chunks.cjs 로 다시 만든다.\n'
-  +'// 색인: 시작 · 목록 화면이 쓰는 딱지만 있다(문제 글 · 해설 없음). 글은 chunks/<이름>.json?h=<지문>으로 그 문제를 처음 낼 때 받는다(content-store.js).\n'
+ const indexText='// 자동 생성 파일 — 손으로 고치지 않는다. 원본(practice-bank.js, basics.js, core-review-pack.js, quiz-options.js, study-review-catalog.js, memorize.js, hanneung-explanations.js, parts.js)을 고친 뒤 node build-chunks.cjs 로 다시 만든다.\n'
+  +'// 색인: 시작, 목록 화면이 쓰는 딱지만 있다(문제 글, 해설 없음). 글은 chunks/<이름>.json?h=<지문>으로 그 문제를 처음 낼 때 받는다(content-store.js).\n'
   +'globalThis.CONTENT_INDEX='+body(index)+';\n'
-  +'// 받는 방식의 빈 그릇: hanneung.js · gichul.js가 색인으로 만든 카드 · 보기를 여기에 설치하고, 자체 제작 문제는 조각을 받을 때 채운다.\n'
+  +'// 받는 방식의 빈 그릇: hanneung.js, gichul.js가 색인으로 만든 카드, 보기를 여기에 설치하고, 자체 제작 문제는 조각을 받을 때 채운다.\n'
   +'globalThis.CORE_REVIEW_PACK=[];globalThis.QUIZ_OPTIONS={};\n';
  const manifestText=JSON.stringify({schema:1,build:index.build,files:index.chunks})+'\n';
  return {index,indexText,manifestText,files,chunks};
@@ -96,10 +96,10 @@ function write(built,dir=__dirname){
  return {changed,removed};
 }
 function summary(built){const kinds={};let total=0;for(const [name,f]of built.files){const k=name[0],n=Buffer.byteLength(f.text);kinds[k]??={files:0,bytes:0};kinds[k].files++;kinds[k].bytes+=n;total+=n;}
- return '조각 '+built.files.size+'개 '+(total/1048576).toFixed(2)+'MB('+Object.entries(kinds).map(([k,v])=>k+' '+v.files+'개 '+(v.bytes/1048576).toFixed(2)+'MB').join(' · ')+') · 색인 '+(Buffer.byteLength(built.indexText)/1024).toFixed(0)+'KB · 판 '+built.index.build;}
+ return '조각 '+built.files.size+'개 '+(total/1048576).toFixed(2)+'MB('+Object.entries(kinds).map(([k,v])=>k+' '+v.files+'개 '+(v.bytes/1048576).toFixed(2)+'MB').join(', ')+'), 색인 '+(Buffer.byteLength(built.indexText)/1024).toFixed(0)+'KB, 판 '+built.index.build;}
 module.exports={SOURCES,SUBJECT_CODE,loadSources,derive,outputs,diff,write,summary};
 if(require.main===module){
  const built=derive(loadSources());
- if(process.argv.includes('--check')){const bad=diff(built);if(bad.length){console.error('조각 · 색인이 원본과 다르다(낡았다). node build-chunks.cjs 를 돌리고 chunks/ · content-index.js · chunk-manifest.json을 커밋할 것:\n '+bad.slice(0,20).join('\n ')+(bad.length>20?'\n … 외 '+(bad.length-20):''));process.exitCode=1;}else console.log('PASS build-chunks --check: '+summary(built));}
- else{const r=write(built);console.log('build-chunks: 쓴 파일 '+r.changed+' · 지운 파일 '+r.removed+' · '+summary(built));}
+ if(process.argv.includes('--check')){const bad=diff(built);if(bad.length){console.error('조각, 색인이 원본과 다르다(낡았다). node build-chunks.cjs 를 돌리고 chunks/, content-index.js, chunk-manifest.json을 커밋할 것:\n '+bad.slice(0,20).join('\n ')+(bad.length>20?'\n … 외 '+(bad.length-20):''));process.exitCode=1;}else console.log('PASS build-chunks --check: '+summary(built));}
+ else{const r=write(built);console.log('build-chunks: 쓴 파일 '+r.changed+', 지운 파일 '+r.removed+', '+summary(built));}
 }

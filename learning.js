@@ -12,7 +12,7 @@ function assess(card,history,result,now=new Date()){
  if(attempt.recall==='partial'&&result==='correct')throw Error('Partial recall is not complete');
  const today=ReviewSchedule.day(now),retry=card.retryAt&&ReviewSchedule.day(new Date(card.retryAt))===today;
  const next={...card};delete next.pendingAttempt;delete next.retryAt;
- // 일정은 ReviewSchedule.step 하나로(기회·한 단계 내림·다시 익힘 포함). 틀리면 5분 뒤 다시 풀 수 있다.
+ // 일정은 ReviewSchedule.step 하나로(기회, 한 단계 내림, 다시 익힘 포함). 틀리면 5분 뒤 다시 풀 수 있다.
  Object.assign(next,ReviewSchedule.schedule(card,result,today));
  if(result!=='correct')next.retryAt=new Date(now.getTime()+RETRY_MS).toISOString();
  return {card:next,entry:{cardId:card.id,date:today,at:now.toISOString(),result,recall:attempt.recall,delayedFirst:attempt.delayedFirst&&attempt.date===today,kind:retry?'relearning':'review',interval:next.interval,ease:next.ease}};

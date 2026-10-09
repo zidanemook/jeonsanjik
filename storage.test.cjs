@@ -1,9 +1,9 @@
-// v248 저장 방식(IndexedDB 조각 + localStorage 작은 표시) 검사. 가짜 IndexedDB(트랜잭션 · 실패 주입) 위에서 app.js를 브라우저와 같은 방식(색인 + 조각)으로 돌린다.
-//  1 조각으로 나누기 · 다시 붙이기        2 빈 기기              3 옛 상태 옮기기(44일 — 옛 판이 읽는 것과 같음, 옛 글 · 사본 보존, 기록 파일)
-//  4 큰 상태 옮기기(풀이 3,000 / 10,000 / 60,000)   5 두 번 돌려도 같음    6 옮기다 끊김(쓰기 실패 · 확인 전 끊김 · 탭 닫힘)
-//  7 옮긴 뒤 옛 판 탭이 더 씀(합집합)     8 저장 실패(IndexedDB · 둘 다 · 옛 방식)   9 다른 탭   10 브라우저가 지움 · 열리지 않음
+// v248 저장 방식(IndexedDB 조각 + localStorage 작은 표시) 검사. 가짜 IndexedDB(트랜잭션, 실패 주입) 위에서 app.js를 브라우저와 같은 방식(색인 + 조각)으로 돌린다.
+//  1 조각으로 나누기, 다시 붙이기        2 빈 기기              3 옛 상태 옮기기(44일 — 옛 판이 읽는 것과 같음, 옛 글, 사본 보존, 기록 파일)
+//  4 큰 상태 옮기기(풀이 3,000 / 10,000 / 60,000)   5 두 번 돌려도 같음    6 옮기다 끊김(쓰기 실패, 확인 전 끊김, 탭 닫힘)
+//  7 옮긴 뒤 옛 판 탭이 더 씀(합집합)     8 저장 실패(IndexedDB, 둘 다, 옛 방식)   9 다른 탭   10 브라우저가 지움, 열리지 않음
 //  11 옛 글 치우기(14일)                  12 계정 바꾸기         13 옛 판 기기와 가짜 Firestore로 왕복
-// 사용자의 실제 기록은 쓰지 않는다. 옛 판 = fixtures/v247(f00a20e의 app.js · sync.js · sync-core.js).
+// 사용자의 실제 기록은 쓰지 않는다. 옛 판 = fixtures/v247(f00a20e의 app.js, sync.js, sync-core.js).
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const Heavy=require('./fixtures/heavy-state.cjs');
@@ -17,9 +17,9 @@ function firstDiff(a,b,at='$'){if(a===b)return null;if(typeof a!=='object'||type
  for(const k of new Set([...Object.keys(a),...Object.keys(b)])){const d=firstDiff(a[k],b[k],at+'.'+k);if(d)return d;}return null;}
 const sameText=(x,y,m)=>{if(x!==y)assert.fail((m||'다르다')+' — '+firstDiff(JSON.parse(x),JSON.parse(y)));};
 const same=(a,b,m)=>sameText(canon(a),canon(b),m);
-const QUOTA=5242880; // Edge · Chrome의 localStorage 한도(글자 수, 키 + 값)
+const QUOTA=5242880; // Edge, Chrome의 localStorage 한도(글자 수, 키 + 값)
 
-// ── 가짜 IndexedDB: 저장소 · 범위 읽기 · 트랜잭션(차례로 하나씩, 끝나야 반영, 취소하면 흔적 없음) · 실패 주입 ──
+// ── 가짜 IndexedDB: 저장소, 범위 읽기, 트랜잭션(차례로 하나씩, 끝나야 반영, 취소하면 흔적 없음), 실패 주입 ──
 function createBackend(){
  const stores=new Map(),queue=[];let created=false,running=false,conns=0;
  const control={failWrites:false,failTx:new Set(),failOpen:false,hangOpen:false,txCount:0,rwCount:0,afterCommit:null,failPut:null};
@@ -35,7 +35,7 @@ function createBackend(){
  function step(tx){setImmediate(()=>{
   if(tx._state==='done'){next();return;}
   const job=tx._reqs.shift();
-  if(!job){ // 남은 요청이 없다 → 끝낸다(실패 주입은 여기서: 한도 · 지정한 트랜잭션).
+  if(!job){ // 남은 요청이 없다 → 끝낸다(실패 주입은 여기서: 한도, 지정한 트랜잭션).
    if(tx._dead){tx._state='done';next();return;}
    if(tx.mode==='readwrite'&&(control.failWrites||control.failTx.has(tx._rw)))finish(tx,'abort',quotaError());
    else{finish(tx,'complete');if(tx.mode==='readwrite'&&control.afterCommit)control.afterCommit(tx);}
@@ -72,7 +72,7 @@ function createBackend(){
  return {connect,control,kill,dump,get,keysOf,wipe,stores,size,busy:()=>queue.length>0};
 }
 
-// ── 앱 한 대(가짜 DOM + 가짜 시계). build: 'new' = 지금 파일 · 'old' = fixtures/v247 ──
+// ── 앱 한 대(가짜 DOM + 가짜 시계). build: 'new' = 지금 파일, 'old' = fixtures/v247 ──
 const OLD=new Set(['app.js','sync.js','sync-core.js']);
 const scriptList=build=>[...read('index.html').matchAll(/<script src="([^"?]+)\?v=\d+"><\/script>/g)].map(m=>m[1]).filter(f=>f!=='firebase-config.js'&&!(build==='old'&&f==='storage.js'));
 const sources=new Map();const source=(f,build)=>{const k=build+'/'+f;if(!sources.has(k))sources.set(k,new vm.Script(build==='old'&&OLD.has(f)?read('fixtures/v247/'+f):read(f),{filename:(build==='old'&&OLD.has(f)?'v247/':'')+f}));return sources.get(k);};
@@ -121,7 +121,7 @@ async function boot({build='new',local,backend=null,now=Date.parse('2026-10-08T0
  if(build==='new')await run('started');
  await settle();return app;
 }
-// 견줄 모양: 문제 일정(글 없는 칸) · 풀이(사본 붙임) · 열람 · 나머지 칸. 사본은 app.details로 붙인다.
+// 견줄 모양: 문제 일정(글 없는 칸), 풀이(사본 붙임), 열람, 나머지 칸. 사본은 app.details로 붙인다.
 const SCHEDULE=['id','created','due','ease','interval','streak','chance','relearn','retryAt'];
 const pick=(o,keys)=>{const out={};for(const k of keys)if(o[k]!==undefined)out[k]=o[k];return out;};
 const leanCards=cards=>cards.map(c=>pick(c,SCHEDULE));
@@ -159,13 +159,13 @@ const time=async(label,fn)=>{const t=Date.now(),v=await fn();return [v,Date.now(
   assert.equal(local.getItem('chagog-v1'),null,'상태는 localStorage에 쓰지 않는다');assert.ok(local.size()<200,'localStorage에는 작은 표시만: '+local.size());
   assert.equal(backend.get('meta','chagog-v1').verified,true);
   const ids=await a.solve(3,{subject:'영어',topic:'Day 1',round:''},3);
-  const row=a.state().history.at(-1);assert.equal(row.detail,undefined,'메모리의 풀이 줄에는 사본이 없다');assert.ok(row.ex&&row.cid,'ex · cid 두 칸만');
+  const row=a.state().history.at(-1);assert.equal(row.detail,undefined,'메모리의 풀이 줄에는 사본이 없다');assert.ok(row.ex&&row.cid,'ex, cid 두 칸만');
   const d=backend.get('detail',['chagog-v1',ids[2]]).d;assert.equal(d.exerciseId,row.ex);assert.equal(d.conceptId,row.cid);assert.ok(d.question.length>0&&d.explanation.length>0);
   assert.equal(a.text('#saveAlert')!==undefined&&a.nodes.get('#saveAlert').hidden,true);
   const wholeA=whole(a);a.close();
   const b=await boot({local,backend});same(whole(b),{...wholeA,scheduleVersion:3},'다시 열면 그대로다(일정 규칙 판 표시만 더해진다)');assert.equal(b.state().history.length,3);
   assert.ok(local.getItem('chagog-idb:chagog-v1'),'IndexedDB에 있다는 표시');
-  report.push('빈 기기: 문제 '+total+' · localStorage '+local.size()+'자 · IndexedDB '+backend.size()+'자');
+  report.push('빈 기기: 문제 '+total+', localStorage '+local.size()+'자, IndexedDB '+backend.size()+'자');
  }
  // ── 3. 44일 상태 옮기기 ──
  let after44;
@@ -175,21 +175,21 @@ const time=async(label,fn)=>{const t=Date.now(),v=await fn();return [v,Date.now(
   const screen=app=>['#due','#total','#done','#retention','#studyToday','#studyTotal','#studyCreditCount'].map(s=>app.text(s)).join(' | ')+' | '+app.run("JSON.stringify(Gichul.subjects.concat(['영어','국어','한국사']).map(s=>[s,questionCount(data.cards.filter(c=>isPlayable(c)&&c.subject===s)),reviewQueue(data.cards.filter(c=>c.subject===s),false,s).ready.length]))");
   old.run("go('progress')");const oldScreen=screen(old);
   const [a,ms]=await time('migrate',()=>boot({local,backend}));assert.equal(a.mode(),'idb');
-  same(whole(a),expected,'옮긴 상태 = 옛 판이 읽은 상태(문제 일정 · 풀이와 사본 · 열람 · 설정 · 풀던 자리)');
-  a.run("go('progress')");// 옛 판(v247)은 '풀이 N회 · 해설 M회', 새 판(v254~)은 '풀이 N회, 해설 M회' — 사이 글자만 맞춰 수를 견준다.
-  assert.ok(oldScreen.includes('회 · 해설 '),'옛 판 화면 글의 꼴');assert.equal(screen(a),oldScreen.split('회 · 해설 ').join('회, 해설 '),'홈 · 진행상황의 수가 같다');
+  same(whole(a),expected,'옮긴 상태 = 옛 판이 읽은 상태(문제 일정, 풀이와 사본, 열람, 설정, 풀던 자리)');
+  a.run("go('progress')");// 옛 판(v247, fixtures 그대로)은 '풀이 N회'와 '해설 M회' 사이에 U+00B7을 찍었고, 새 판(v254~)은 쉼표다 — 사이 글자만 맞춰 수를 견준다. 그 글자는 이 파일에 글자 그대로 적지 않고 코드 값으로 만든다.
+  const OLD_SEP='회 '+String.fromCharCode(0xB7)+' 해설 ';assert.ok(oldScreen.includes(OLD_SEP),'옛 판 화면 글의 꼴');assert.equal(screen(a),oldScreen.split(OLD_SEP).join('회, 해설 '),'홈, 진행상황의 수가 같다');
   assert.ok(local.getItem('chagog-v1')===baseRaw,'옛 글은 그대로 둔다');assert.ok(backend.get('backup','chagog-v1').raw===baseRaw,'backup 저장소에도 그대로 한 부');
   const meta=backend.get('meta','chagog-v1');assert.equal(meta.verified,true);assert.equal(meta.legacy.len,baseRaw.length);
   assert.equal(backend.keysOf('detail','chagog-v1').length,820);assert.ok(a.state().history.every(h=>h.detail===undefined&&h.ex));
   // 기록 파일 = 옛 형식 그대로 전부.
   const parts=await a.run('buildExport()'),file=JSON.parse(parts.join(''));assert.equal(file.exportComplete,true);a.run('validateBackup')(file);
-  const {exportedAt,exportComplete,...fileState}=file;same({...fileState,cards:leanCards(fileState.cards)},expected,'기록 파일에 문제 일정 · 풀이 사본 · 열람 · 설정이 모두 있다');
+  const {exportedAt,exportComplete,...fileState}=file;same({...fileState,cards:leanCards(fileState.cards)},expected,'기록 파일에 문제 일정, 풀이 사본, 열람, 설정이 모두 있다');
   await a.run('downloadExport()');assert.equal(a.blobs.length,1);assert.equal(JSON.parse(a.blobs[0].parts.join('')).history.length,820);assert.match(a.text('#message'),/기록 파일을 내려받았어요\(풀이 820건\)/);
   // 이어서 풀면 조각 몇 개만 쓴다.
   const rw0=backend.control.rwCount,segBefore=backend.dump().seg;await a.solve(1,{subject:'국어',topic:'논리 1장',round:''});
   const segAfter=backend.dump().seg,changed=Object.keys(segAfter).filter(k=>JSON.stringify(segAfter[k])!==JSON.stringify(segBefore[k]));
   assert.ok(changed.length<=5&&changed.reduce((n,k)=>n+segAfter[k].s.length,0)<120000,'답 하나에 쓰는 조각: '+changed.join(' '));
-  report.push('44일 상태(264만 자) 옮기기 '+ms+'ms · 답 하나에 쓴 조각 '+changed.length+'개 '+changed.reduce((n,k)=>n+segAfter[k].s.length,0)+'자(트랜잭션 '+(backend.control.rwCount-rw0)+'번)');
+  report.push('44일 상태(264만 자) 옮기기 '+ms+'ms, 답 하나에 쓴 조각 '+changed.length+'개 '+changed.reduce((n,k)=>n+segAfter[k].s.length,0)+'자(트랜잭션 '+(backend.control.rwCount-rw0)+'번)');
   after44={local,backend,expected,app:a};
  }
  // ── 5. 두 번 돌려도 같음 ──
@@ -217,7 +217,7 @@ const time=async(label,fn)=>{const t=Date.now(),v=await fn();return [v,Date.now(
   const t0=Date.now();const ids=await a.solve(2,{subject:'영어',topic:'Day 2',round:''});const per=(Date.now()-t0)/2;assert.equal(a.state().history.length,N+2);
   a.close();const [b,ms2]=await time('reopen',()=>boot({local,backend}));assert.equal(b.state().history.length,N+2);assert.ok(backend.get('detail',['chagog-v1',ids[1]]));
   assert.equal(b.run('pendingDetails.size'),0);b.close();
-  report.push('풀이 '+N+'건(옛 글 '+(raw.length/1e6).toFixed(2)+'M자): 옮기기 '+ms+'ms · 다시 열기 '+ms2+'ms · 답 하나 '+Math.round(per)+'ms(가짜 DOM) · 조각 '+(segChars/1e6).toFixed(2)+'M자 · 사본 '+(detailChars/1e6).toFixed(2)+'M자');
+  report.push('풀이 '+N+'건(옛 글 '+(raw.length/1e6).toFixed(2)+'M자): 옮기기 '+ms+'ms, 다시 열기 '+ms2+'ms, 답 하나 '+Math.round(per)+'ms(가짜 DOM), 조각 '+(segChars/1e6).toFixed(2)+'M자, 사본 '+(detailChars/1e6).toFixed(2)+'M자');
  }
  // ── 6. 옮기다 끊김 ──
  {// (가) 쓰는 트랜잭션이 실패(공간 부족) → 옛 방식으로 그대로 돈다. 그날 푼 것은 옛 글에 남고, 다음에 열 때 함께 옮겨진다.
@@ -303,11 +303,11 @@ const time=async(label,fn)=>{const t=Date.now(),v=await fn();return [v,Date.now(
   const [ib]=await b.solve(1,{subject:'국어',topic:'논리 1장',round:''});await b.settle(30);
   const idsB=b.state().history.map(h=>h.id);assert.ok(idsB.includes(ia)&&idsB.includes(ib),'늦게 쓴 탭이 먼저 쓴 탭의 풀이를 지우지 않고 합친다');assert.equal(b.nodes.get('#saveAlert').hidden,true);
   a.close();b.close();const c=await boot({local,backend});same(c.state().history.map(h=>h.id).sort(),[ia,ib].sort());
-  // 쓰는 중에 저장소가 통째로 사라짐(브라우저가 지움) → 메모리의 상태를 처음부터 다시 쓴다(사본은 이미 메모리에 없으므로 풀이 줄 · 일정만).
+  // 쓰는 중에 저장소가 통째로 사라짐(브라우저가 지움) → 메모리의 상태를 처음부터 다시 쓴다(사본은 이미 메모리에 없으므로 풀이 줄, 일정만).
   assert.ok(backend.get('detail',['chagog-v1',ia])&&backend.get('detail',['chagog-v1',ib]));
   backend.wipe();const [ic]=await c.solve(1,{subject:'영어',topic:'Day 2',round:''});await c.settle(30);assert.equal(c.nodes.get('#saveAlert').hidden,true);assert.equal(backend.get('meta','chagog-v1').verified,true);assert.ok(backend.get('detail',['chagog-v1',ic]));c.close();const d9=await boot({local,backend});assert.equal(d9.state().history.length,3);d9.close();
  }
- // ── 10. 브라우저가 지움 · 열리지 않음 ──
+ // ── 10. 브라우저가 지움, 열리지 않음 ──
  {const local=makeLocal(),backend=createBackend();local.setItem('chagog-v1',baseRaw);const a=await boot({local,backend});await a.solve(1,{subject:'영어',topic:'Day 1',round:''});a.close();
   backend.wipe();const b=await boot({local,backend});assert.equal(b.mode(),'idb');assert.equal(b.state().history.length,820,'남아 있던 옛 글로 되살린다');assert.match(b.text('#message'),/브라우저가 지워서, 남아 있던 예전 기록으로 되살렸어요/);b.close();
   backend.wipe();local.removeItem('chagog-v1');const c=await boot({local,backend});assert.equal(c.state().history.length,0);assert.match(c.text('#message'),/저장해 둔 기록을 브라우저가 지웠어요/);c.close();
@@ -351,7 +351,10 @@ const time=async(label,fn)=>{const t=Date.now(),v=await fn();return [v,Date.now(
   const local3=makeLocal();local3.setItem('chagog-v1',baseRaw);const d=await boot({local:local3});assert.equal(d.mode(),'local');
   await d.run('StudyProgress.switchUser')('uid-3');await d.settle();assert.equal(d.run('KEY'),'chagog-user-uid-3');assert.equal(d.state().history.length,820,'손님 기록 820건이 계정으로 합쳐졌다');
   assert.equal(JSON.parse(local3.getItem('chagog-v1')).history.length,820,'손님 글은 그대로');assert.equal(JSON.parse(local3.getItem('chagog-user-uid-3')).history.length,820);
-  assert.ok(d.state().cards.every(c=>c.subject),'합친 문제에 과목이 붙어 있다');
+  // 2026-10-09: 이 기록(v246)에는 그 뒤 앱에서 뺀 공문서 2장 문제 여덟 개의 일정이 들어 있다. 뺀 문제는 내용 창고에 없어 과목이 붙지 않고 일정만 그대로 남는다 — 그 여덟 개 말고는 모두 과목이 붙는다.
+  {const GONE=['009','010','026','027','043','044','045','046'].map(n=>'ko-doc2-'+n),cards=d.state().cards;
+   assert.deepEqual(cards.filter(c=>!c.subject).map(c=>c.id).sort(),GONE,'합친 문제에 과목이 붙어 있다(앱에서 뺀 여덟 문제만 일정만 남는다)');
+   assert.ok(cards.length>15000&&GONE.every(id=>d.run('isPlayable(data.cards.find(c=>c.id==='+JSON.stringify(id)+'))')===false),'뺀 문제는 풀 수 있는 문제가 아니다');}
   await d.run('StudyProgress.switchUser')(null);await d.settle();assert.equal(JSON.parse(local3.getItem('chagog-user-uid-3')).history.length,820,'로그아웃해도 계정의 기기 사본이 지워지지 않는다');
   const local4=makeLocal();local4.setItem('chagog-v1',baseRaw);const old=await boot({build:'old',local:local4});old.run("StudyProgress.switchUser('uid-3')");
   assert.equal(old.state().history.length,0,'대조: 옛 판은 처음 로그인에서 손님 기록을 잃는다');assert.ok(local4.getItem('chagog-v1').length<1000);
@@ -362,7 +365,7 @@ const time=async(label,fn)=>{const t=Date.now(),v=await fn();return [v,Date.now(
   const snap=(uid,type)=>({metadata:{fromCache:false,hasPendingWrites:false},docs:[...coll(uid,type)].map(([id,v])=>({id,data:()=>structuredClone(v)}))});
   const emit=()=>{for(const l of listeners)queueMicrotask(()=>l.type==='state'?l.fn({exists:coll(l.uid,'state').has('session'),data:()=>structuredClone(coll(l.uid,'state').get('session')),metadata:{fromCache:false,hasPendingWrites:false}}):l.fn(snap(l.uid,l.type)));};
   const EVENT_KEYS=['id','cardId','date','at','result','mode','detail'];
-  // 규칙 흉내: 풀이 문서는 정해진 칸만, 한 번 쓰면 같은 내용으로만 다시 쓸 수 있다(바꾸면 거부). 사본은 규칙의 칸 · 길이 그대로(ReviewRecord.validate).
+  // 규칙 흉내: 풀이 문서는 정해진 칸만, 한 번 쓰면 같은 내용으로만 다시 쓸 수 있다(바꾸면 거부). 사본은 규칙의 칸, 길이 그대로(ReviewRecord.validate).
   const Record=require('./review-record.js');
   const put=(uid,type,id,value)=>{const m=coll(uid,type),old=m.get(id);
    if(type==='events'){assert.ok(Object.keys(value).every(k=>EVENT_KEYS.includes(k)),'풀이 문서에 정해진 칸만 올린다: '+Object.keys(value));assert.ok(value.detail,'풀이 문서는 사본과 함께 올라간다: '+id);Record.validate(value.detail);if(old)same(value,old,'올린 풀이 문서는 바꾸지 않는다: '+id);}
@@ -405,8 +408,8 @@ const time=async(label,fn)=>{const t=Date.now(),v=await fn();return [v,Date.now(
   const fail=await boot({local:localNew,backend,sync:true});fail.run("Store.details=()=>Promise.reject(Error('read failed'))");cloud(fail,'u');await fail.settle(60);
   assert.equal(coll('u','events').has(off2[0]),false,'사본을 못 읽는 동안은 올리지 않는다');assert.match(fail.run('__status'),/전송 대기 중/);
   fail.run('__conn.close()');fail.close();const ok=cloud(await boot({local:localNew,backend,sync:true}),'u');await ok.settle(60);assert.ok(coll('u','events').get(off2[0]).detail.question);
-  report.push('옛 판 ↔ 새 판(가짜 Firestore): 서버 문서 '+coll('u','events').size+'건 모두 사본 포함 · 고쳐 쓴 문서 0 · 두 기기 일정 같음');
+  report.push('옛 판 ↔ 새 판(가짜 Firestore): 서버 문서 '+coll('u','events').size+'건 모두 사본 포함, 고쳐 쓴 문서 0, 두 기기 일정 같음');
  }
- for(const line of report)console.log(' · '+line);
- console.log('PASS storage: 조각 나누기 · 빈 기기 · 44일 상태 옮기기(옛 판과 같음 · 옛 글 보존 · 기록 파일) · 풀이 3,000 / 10,000 / 60,000 · 두 번 돌려도 같음 · 옮기다 끊김 4종 · 옛 판 탭이 더 씀 · 저장 실패 5종 · 다른 탭 · 브라우저가 지움 · 열리지 않음 · 옛 글 치우기 · 계정 바꾸기 · 옛 판 기기와 왕복');
+ for(const line of report)console.log(', '+line);
+ console.log('PASS storage: 조각 나누기, 빈 기기, 44일 상태 옮기기(옛 판과 같음, 옛 글 보존, 기록 파일), 풀이 3,000 / 10,000 / 60,000, 두 번 돌려도 같음, 옮기다 끊김 4종, 옛 판 탭이 더 씀, 저장 실패 5종, 다른 탭, 브라우저가 지움, 열리지 않음, 옛 글 치우기, 계정 바꾸기, 옛 판 기기와 왕복');
 })().catch(e=>{console.error(e);process.exit(1);});

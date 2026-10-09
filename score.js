@@ -3,7 +3,7 @@
 // 자체제작 문제는 같은 규칙을 여러 번 풀고 해설도 보므로 정답률이 부풀어 점수에 넣지 않고 참고로만 보여 준다.
 // 2026-09-29 사용자: "최소 20문제부터 계산 … 25문제 풀었으면 맞힌거/25" — 점수 = 처음 풀어 맞힌 수 / 처음 푼 수 그대로(보정 없음), 20문제부터.
 // 범위(80%)는 참고로만 함께 낸다(정규 근사).
-// 기본 목표는 국가직 전산9급 95(가산 포함) · 가산 5(사용자 지정, 2026-09-21). 2027년부터 순위는 국어·영어·컴퓨터일반·정보보호론 4과목 평균(한국사는 한능검 대체) + 가산점으로 본다.
+// 기본 목표는 국가직 전산9급 95(가산 포함), 가산 5(사용자 지정, 2026-09-21). 2027년부터 순위는 국어, 영어, 컴퓨터일반, 정보보호론 4과목 평균(한국사는 한능검 대체) + 가산점으로 본다.
 (function(root){
  const RANKED=['국어','영어','컴퓨터일반','정보보호론'],MIN=20,Z80=1.2816;
  const DEFAULT_TARGET={name:'국가직 전산9급',cutoff:95,bonus:5};
@@ -28,7 +28,7 @@
   for(const [id,a] of first){const s=subjectOf(id);if(!s)continue;const x=get(s);if(official(id)){x.n++;if(a.ok)x.k++;}else if(hanneung(id)){x.hN++;if(a.ok)x.hK++;}else{x.selfN++;if(a.ok)x.selfK++;}}
   const subjects=[...new Set([...RANKED,...per.keys()])].map(s=>{const x=per.get(s)||{subject:s,n:0,k:0,selfN:0,selfK:0,hN:0,hK:0};
    return {subject:s,ranked:RANKED.includes(s),n:x.n,correct:x.k,ready:x.n>=MIN,need:Math.max(0,MIN-x.n),...(x.n>=MIN?estimate(x.k,x.n):{}),self:x.selfN?{n:x.selfN,rate:Math.round(x.selfK/x.selfN*100)}:null,
-    // 한능검 심화 기출 첫 풀이(v146 · 2027년부터 9급 한국사는 한능검 3급 대체라 한국사 기출 뱃지는 이것으로 매긴다). 순위 점수에는 넣지 않는다.
+    // 한능검 심화 기출 첫 풀이(v146, 2027년부터 9급 한국사는 한능검 3급 대체라 한국사 기출 뱃지는 이것으로 매긴다). 순위 점수에는 넣지 않는다.
     hanneung:{subject:s,source:'한능검 심화',n:x.hN,correct:x.hK,ready:x.hN>=MIN,need:Math.max(0,MIN-x.hN),...(x.hN>=MIN?estimate(x.hK,x.hN):{})}};});
   const goal=target(t),ranked=subjects.filter(s=>s.ranked),ready=ranked.filter(s=>s.ready);
   let total=null;

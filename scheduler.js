@@ -3,12 +3,12 @@
 (function (root) {
   const day = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
   function plus(date, n) { const [y,m,d] = date.split('-').map(Number); return day(new Date(y,m-1,d+n)); }
-  // 단계 규칙(복습 일정 · 동기화 재계산 · 경험치 · 뱃지가 모두 이 step 하나를 쓴다).
+  // 단계 규칙(복습 일정, 동기화 재계산, 경험치, 뱃지가 모두 이 step 하나를 쓴다).
   // v131 사용자: "맞춘 경우 7일이 지나기 전까지 안 나옴. 또 맞추면 14일, 또 맞추면 30일 이후에는 랜덤하게."
   // v139 사용자: 틀리면 0이 아니라 "한 단계 낮추는 거 좋네", "단계 낮추기 전에 해당 문제 1번 더 맞출 기회".
   // streak = 제때 맞힌 횟수. 1 → 7일 대기, 2 → 14일, 3 → 30일, 4 이상 = 외운 문제(30일마다). 단계 = streak-1 (0~3).
-  //  · 맞힘: due 전이면 그대로. 제때면 streak+1. 기회 중이면 단계 그대로 그 단계 대기를 다시. 다시 익히는 중이면 그 단계에서 이어 감.
-  //  · 틀림(설명 보고 맞힘 포함): 단계가 있으면(streak ≥ 2) 먼저 기회 한 번 — 단계 유지, 5분 뒤·다음 날 다시.
+  // , 맞힘: due 전이면 그대로. 제때면 streak+1. 기회 중이면 단계 그대로 그 단계 대기를 다시. 다시 익히는 중이면 그 단계에서 이어 감.
+  // , 틀림(설명 보고 맞힘 포함): 단계가 있으면(streak ≥ 2) 먼저 기회 한 번 — 단계 유지, 5분 뒤, 다음 날 다시.
   //    기회에서도 틀리면 한 단계 내림(외움 → 14일 통과, 14일 → 7일, 7일 → 처음). 다시 익히는 중에 또 틀려도 더 내리지 않는다.
   const STAGE_DAYS = [7, 14, 30], MASTER_STREAK = 4;
   const stageDays = streak => STAGE_DAYS[Math.min(Math.max(streak,1), STAGE_DAYS.length) - 1];

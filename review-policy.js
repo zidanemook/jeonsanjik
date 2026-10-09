@@ -668,7 +668,7 @@
  });
  // END LECTURE 12 GROUPS
  // BEGIN GORYEO EXAM-STYLE GROUPS
- // 고려 기출형 연습: 왕·인물·세력·기구·시기를 가린 문제는 그 대상의 기존 개념에 묶고, 여러 시기를 잇는 사이 시기 문제는 시기별 순서 개념(history-goryeo-period-order-*)에 묶는다.
+ // 고려 기출형 연습: 왕, 인물, 세력, 기구, 시기를 가린 문제는 그 대상의 기존 개념에 묶고, 여러 시기를 잇는 사이 시기 문제는 시기별 순서 개념(history-goryeo-period-order-*)에 묶는다.
  Object.assign(groups,{
   "goryeostyle-hist-20260915-001": "history-goryeo-taejo",
   "goryeostyle-hist-20260915-002": "history-goryeo-taejo",
@@ -721,8 +721,8 @@
  });
  // END GORYEO EXAM-STYLE GROUPS
  // BEGIN ANCIENT EXAM-STYLE GROUPS
- // 선사~삼국·가야 / 통일 신라·발해·후삼국 기출형 연습: 왕을 가린 문제는 그 왕의 기존 개념에, 나라·시대·인물·문화유산을 가린 문제는 정답 사실의 기존 개념에 묶는다.
- // 사이 시기 문제는 두 사건을 잇는 기존 순서 개념(고구려 흐름·수와 당 침입·나·제 동맹·통일 신라 토지 제도·후삼국 마지막 순서 등)이 있으면 거기에, 없으면 시기별 순서 개념(history-*-period-order)에 묶는다.
+ // 선사~삼국, 가야 / 통일 신라, 발해, 후삼국 기출형 연습: 왕을 가린 문제는 그 왕의 기존 개념에, 나라, 시대, 인물, 문화유산을 가린 문제는 정답 사실의 기존 개념에 묶는다.
+ // 사이 시기 문제는 두 사건을 잇는 기존 순서 개념(고구려 흐름, 수와 당 침입, 나제 동맹, 통일 신라 토지 제도, 후삼국 마지막 순서 등)이 있으면 거기에, 없으면 시기별 순서 개념(history-*-period-order)에 묶는다.
  Object.assign(groups,{
   "ancientstyle-hist-20260915-001": "history-paleolithic-fire",
   "ancientstyle-hist-20260915-002": "history-prehistoric-spindle-whorl",
@@ -835,7 +835,7 @@
  });
  // END ANCIENT EXAM-STYLE GROUPS
  // BEGIN LECTURE 13 GROUPS
- // 13강 고려(경제, 사회): 토지·수취·농업·무역·화폐·상업·신분·향도·구휼·법률과 가족을 개념으로 묶어 같은 생각을 10분 안에 두 번 묻지 않는다.
+ // 13강 고려(경제, 사회): 토지, 수취, 농업, 무역, 화폐, 상업, 신분, 향도, 구휼, 법률과 가족을 개념으로 묶어 같은 생각을 10분 안에 두 번 묻지 않는다.
  Object.assign(groups,{
   "goryeoecon-hist-20260915-001": "history-goryeo-land-system",
   "goryeoecon-hist-20260915-002": "history-goryeo-jeonsigwa-changes",
@@ -900,7 +900,7 @@
  });
  // END LECTURE 13 GROUPS
  // BEGIN LECTURE 14 GROUPS
- // 14강 고려(문화 I): 유학·성리학·교육·과거·역사서·불교·풍수지리를 개념으로 묶어 같은 생각을 10분 안에 두 번 묻지 않는다.
+ // 14강 고려(문화 I): 유학, 성리학, 교육, 과거, 역사서, 불교, 풍수지리를 개념으로 묶어 같은 생각을 10분 안에 두 번 묻지 않는다.
  Object.assign(groups,{
   "goryeoculture-hist-20260915-001": "history-goryeo-confucianism",
   "goryeoculture-hist-20260915-002": "history-goryeo-confucianism",
@@ -948,7 +948,7 @@
  });
  // END LECTURE 14 GROUPS
  // BEGIN TYPEFILL GROUPS
- // 기출 유형 보강(사료·연표 칸·이후/배경/영향·순서 배열·지역사·부정 발문): 같은 사실을 묻는 기존 문항과 개념을 공유해 10분 안에 겹쳐 나오지 않게 한다.
+ // 기출 유형 보강(사료, 연표 칸, 이후/배경/영향, 순서 배열, 지역사, 부정 발문): 같은 사실을 묻는 기존 문항과 개념을 공유해 10분 안에 겹쳐 나오지 않게 한다.
  Object.assign(groups,{
   "typefill-hist-20260916-001": "history-buyeo-customs",
   "typefill-hist-20260916-002": "history-okjeo-politics-economy",
@@ -1040,7 +1040,7 @@
  });
  // END TYPEFILL GROUPS
  // BEGIN LECTURE 15 GROUPS
- // 15강 고려(문화 2): 불상·회화·석탑과 승탑·청자·공예·건축·인쇄술·천문학과 의학·화약 무기를 개념으로 묶어 같은 생각을 10분 안에 두 번 묻지 않는다.
+ // 15강 고려(문화 2): 불상, 회화, 석탑과 승탑, 청자, 공예, 건축, 인쇄술, 천문학과 의학, 화약 무기를 개념으로 묶어 같은 생각을 10분 안에 두 번 묻지 않는다.
  Object.assign(groups,{
   "goryeoculture2-hist-20260916-001": "history-goryeo-buddha-statues",
   "goryeoculture2-hist-20260916-002": "history-goryeo-buddha-statues",
@@ -1110,7 +1110,7 @@
  // BEGIN ENGLISH ONE-QUESTION GROUPS
  // 영어 규칙 카드를 문제 하나씩으로 나눈 뒤(v57)에도 "하나를 틀리면 같은 규칙의 다른 문제가 형제 간격 뒤에 이어서 나온다"가 그대로 동작하도록 묶는다.
  // <규칙 id>-vN은 원래 규칙 id와 같은 개념(원래 규칙이 다른 규칙과 묶여 있었다면 그 묶음)이다. 문제집 Day 1~15는 문법 포인트(point) 하나가 개념 하나다(Day 8~15는 포인트마다 4~5문제 — 핵심 20 + 더 풀기). 문법 공식 훈련(en-formula-*)은 공식(규칙) 하나가 개념 하나다(grammar-formula-*).
- // content-audit.cjs가 practice-bank.js의 ruleId·point와 이 목록이 어긋나지 않는지 검사한다.
+ // content-audit.cjs가 practice-bank.js의 ruleId, point와 이 목록이 어긋나지 않는지 검사한다.
  Object.assign(groups,{
   "en-session-20260909-wish-v1": "en-session-20260909-wish",
   "en-session-20260909-wish-v2": "en-session-20260909-wish",
@@ -3393,7 +3393,7 @@
  });
  // END ENGLISH ONE-QUESTION GROUPS
  // BEGIN KOREAN LOGIC GROUPS
- // 국어 사고의 힘 논리(1장~6장): 개념(point) 하나가 개념 묶음 하나다. 대우·드모르간·조건문의 진릿값·후건 긍정의 오류처럼
+ // 국어 사고의 힘 논리(1장~6장): 개념(point) 하나가 개념 묶음 하나다. 대우, 드모르간, 조건문의 진릿값, 후건 긍정의 오류처럼
  // 같은 개념의 문제를 하나 틀리면 나머지가 이어서 나온다. content-audit.cjs가 practice-bank.js의 point와 이 목록이 어긋나지 않는지 검사한다.
  Object.assign(groups,{
   "ko-logic1-01": "korean-logic-inference",
@@ -4394,7 +4394,7 @@
  });
  // END KOREAN LOGIC GROUPS
  // BEGIN KOREAN READING GROUPS
- // 국어 사고의 힘 논리 제2편 독해 1장(독해의 원리): 개념(point) 하나가 개념 묶음 하나다. ‘A but B’ 유형·구조화 개념·선택지 구성 방식처럼
+ // 국어 사고의 힘 논리 제2편 독해 1장(독해의 원리): 개념(point) 하나가 개념 묶음 하나다. ‘A but B’ 유형, 구조화 개념, 선택지 구성 방식처럼
  // 같은 개념의 쌍둥이 문제를 하나 틀리면 나머지가 이어서 나온다. content-audit.cjs가 practice-bank.js의 point와 이 목록이 어긋나지 않는지 검사한다.
  Object.assign(groups,{
   "ko-read1-001": "korean-reading-coord-subord",
@@ -4844,7 +4844,7 @@
  });
  // END KOREAN READING GROUPS
  // BEGIN KOREAN READING 2-3 GROUPS
- // 국어 사고의 힘 논리 제2편 독해 2장(독해와 논증)·3장(실전 독해 훈련): 개념(point) 하나가 개념 묶음 하나다. 3장 개념은 교재 문제 하나가
+ // 국어 사고의 힘 논리 제2편 독해 2장(독해와 논증), 3장(실전 독해 훈련): 개념(point) 하나가 개념 묶음 하나다. 3장 개념은 교재 문제 하나가
  // 요구하는 기술이다. 교재 문장은 싣지 않았고(--book=none) 기술마다 자체 제작 문제만 둔다.
  // 교재 문제 가운데 기출과 같은 23개는 기출 카드(gichul-*)로만 두고 새로 만들지 않았다(기출 첫 풀이 점수가 흐려지지 않게).
  Object.assign(groups,{
@@ -5769,8 +5769,6 @@
   "ko-doc2-006": "korean-doc2-004",
   "ko-doc2-007": "korean-doc2-005",
   "ko-doc2-008": "korean-doc2-005",
-  "ko-doc2-009": "korean-doc2-006",
-  "ko-doc2-010": "korean-doc2-006",
   "ko-doc2-011": "korean-doc2-007",
   "ko-doc2-012": "korean-doc2-007",
   "ko-doc2-013": "korean-doc2-008",
@@ -5786,8 +5784,6 @@
   "ko-doc2-023": "korean-doc2-001",
   "ko-doc2-024": "korean-doc2-001",
   "ko-doc2-025": "korean-doc2-002",
-  "ko-doc2-026": "korean-doc2-002",
-  "ko-doc2-027": "korean-doc2-002",
   "ko-doc2-028": "korean-doc2-002",
   "ko-doc2-029": "korean-doc2-002",
   "ko-doc2-030": "korean-doc2-003",
@@ -5803,10 +5799,6 @@
   "ko-doc2-040": "korean-doc2-005",
   "ko-doc2-041": "korean-doc2-005",
   "ko-doc2-042": "korean-doc2-005",
-  "ko-doc2-043": "korean-doc2-006",
-  "ko-doc2-044": "korean-doc2-006",
-  "ko-doc2-045": "korean-doc2-006",
-  "ko-doc2-046": "korean-doc2-006",
   "ko-doc2-047": "korean-doc2-007",
   "ko-doc2-048": "korean-doc2-007",
   "ko-doc2-049": "korean-doc2-007",
@@ -10562,12 +10554,14 @@
   const keep=order.filter(c=>!twin(c));
   return {cards:keep.length?keep:order,skipped:keep.length?order.length-keep.length:0};
  }
+ // 문제 id는 Practice.canonical을 거쳐 견준다(기호만 바뀐 문제의 옛 기록과 새 기록이 같은 문제로 세어지게).
+ const canon=id=>{const P=root.Practice||(typeof require==='function'?require('./practice.js'):null);return P&&P.canonical?P.canonical(id):id;};
  function classify(history){
   const rows=[...history].sort(order),seen=new Set(),legacyCards=new Set(),latest=new Map(),kinds=new Map();
   for(const row of rows){const d=row.detail,group=d?.conceptId||concept(row.cardId),prior=latest.get(group);let kind='unknown';
    if(d){const recent=prior&&at(row)-at(prior)<GAP_MS;
-    if(d.assisted||recent)kind='practice';else if(seen.has(d.exerciseId))kind='repeat';else if(legacyCards.has(row.cardId))kind='unknown';else kind='first';
-    seen.add(d.exerciseId);
+    if(d.assisted||recent)kind='practice';else if(seen.has(canon(d.exerciseId)))kind='repeat';else if(legacyCards.has(row.cardId))kind='unknown';else kind='first';
+    seen.add(canon(d.exerciseId));
    }else legacyCards.add(row.cardId);
    kinds.set(row.id,kind);latest.set(group,row);
   }

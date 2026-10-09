@@ -72,14 +72,14 @@ for(const paper of gichul.papers){
   assert.equal(card.answer,options.choices[q.a-1]);
   assert.equal(card.subject,paper.subject);
   assert(card.question.trim()&&card.explanation.includes('공식 정답: '),'해설은 공식 정답을 먼저 밝힌다: '+id);
-  assert(card.source.includes('data.go.kr')&&card.source.includes('인사혁신처')&&card.source.includes(q.n+'번'),'출처 줄에 발행 기관·데이터셋·문항 번호가 있어야 한다: '+id);
+  assert(card.source.includes('data.go.kr')&&card.source.includes('인사혁신처')&&card.source.includes(q.n+'번'),'출처 줄에 발행 기관, 데이터셋, 문항 번호가 있어야 한다: '+id);
   // 보기 순서는 몇 번을 다시 풀어도 원문 그대로다.
   for(const count of [0,1,3]){const e=practice.select(card,Array.from({length:count},()=>({cardId:id})),{},gOptions);assert.equal(e.correctIndex,q.a-1);assert.deepEqual(e.choices,options.choices);}
  }
  gSkipped+=skipped.length;
 }
 assert.equal(gTotal,gCards.length);
-// 공식 정답표에서 단일 정답이 아닌 칸(복수 정답·정답 없음·빈 칸)은 0으로 두고, 그 문항은 반드시 제외 목록에 있다.
+// 공식 정답표에서 단일 정답이 아닌 칸(복수 정답, 정답 없음, 빈 칸)은 0으로 두고, 그 문항은 반드시 제외 목록에 있다.
 for(const paper of gichul.papers){
  const key=gichulKeys.keys[paper.id];
  assert.equal(paper.answers,key.answers,'시작 색인의 공식 정답이 정답표와 같다: '+paper.id);
@@ -99,5 +99,5 @@ for(const paper of gichul.papers){
 assert.equal(new Set(gCards.map(c=>c.id)).size,gCards.length,'카드 id 중복');
 assert(gCards.every(c=>c.id.startsWith('gichul-')),'공식 기출은 gichul- 접두사로만 식별한다');
 // 접두사는 content-audit.cjs의 보기 길이 편향 면제 기준이기도 하다. 둘이 어긋나면 면제가 조용히 풀린다.
-assert(fs.readFileSync(__dirname+'/content-audit.cjs','utf8').includes('VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/'),'길이 편향 면제가 hanneung-·gichul- 접두사에 걸려 있어야 한다');
+assert(fs.readFileSync(__dirname+'/content-audit.cjs','utf8').includes('VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/'),'길이 편향 면제가 hanneung-, gichul- 접두사에 걸려 있어야 한다');
 console.log('PASS hanneung: official keys, 1,150 immutable images, 1,149 fixed-order quizzes, annulment, weighted first scores and sync snapshots; 인사혁신처 9급 기출 '+gichul.papers.length+'회차 '+gTotal+'문항이 공식 정답표와 일치하고 '+gSkipped+'문항은 사유와 함께 제외됐다');

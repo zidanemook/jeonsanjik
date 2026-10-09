@@ -53,7 +53,7 @@ function run({persistence,cachedDocs,changedSinceToken}){
   ['reload today (no persistence)',cold.reads()],
   ['first load with persistence (cache empty, token absent)',first.reads()],
   ['reload with persistence (3 events added elsewhere)',warm.reads()]];
- for(const [label,n]of out)console.log(String(n).padStart(5)+' billed document reads · '+label);
+ for(const [label,n]of out)console.log(String(n).padStart(5)+' billed document reads, '+label);
  const saved=cold.reads()-warm.reads();
  console.log('events in the simulated log: '+log.size+'; history rebuilt identically in all three runs: '+
   [cold,first,warm].every(r=>r.history()===log.size));

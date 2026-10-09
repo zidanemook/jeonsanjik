@@ -7,7 +7,7 @@ const snapshot=(uid,type)=>({metadata:{fromCache:false,hasPendingWrites:false},d
 const emit=()=>{for(const l of listeners)queueMicrotask(()=>l.fn(snapshot(l.uid,l.type)));};
 const denied=()=>Object.assign(Error('denied'),{code:'permission-denied'});
 const empty=()=>({version:2,cards:[{id:'c',subject:'국어',question:'q',answer:'a',created:'2026-09-01',due:'2026-09-09',ease:2.5,interval:0,streak:0}],history:[],notes:[]});
-const note=(id,text,at,extra={})=>({id,cardId:'c',exerciseId:'c-abc',stage:'question',subject:'국어',question:'국어 · 기출\n문제',text,at,...extra});
+const note=(id,text,at,extra={})=>({id,cardId:'c',exerciseId:'c-abc',stage:'question',subject:'국어',question:'국어, 기출\n문제',text,at,...extra});
 function client({withNotes=true}={}){
  let current=empty(),profile=null,authCallback;const profiles=new Map(),events=new Map();
  const store={get:()=>structuredClone(current),merge(rows){current=core.merge(current,rows);profiles.set(profile,current);},switchUser(uid){profiles.set(profile,current);profile=uid;current=profiles.get(uid)||empty();}};

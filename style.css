@@ -11,7 +11,7 @@
 .paper-image small { display:block; margin-top:6px; }
 .paper-card { padding:16px; }
 .paper-card .question { font-size:19px; }
-/* 공무원 9급 기출은 제시문·코드가 문제 안에 통째로 들어 있다. 원문을 줄이지 않는 대신 글자 크기를 낮춰 한 화면에 담는다. */
+/* 공무원 9급 기출은 제시문, 코드가 문제 안에 통째로 들어 있다. 원문을 줄이지 않는 대신 글자 크기를 낮춰 한 화면에 담는다. */
 .gichul-card .question { font-size:17px; font-weight:600; line-height:1.7; }
 .gichul-card .quiz-choices button { font-size:16px; }
 .paper-choices { grid-template-columns:repeat(5,minmax(0,1fr)); position:sticky; bottom:8px; padding:8px; background:#111318ee; border-radius:14px; }
@@ -90,7 +90,7 @@ footer { margin: 40px 0 10px; font-size: 13px; }
 }
 
 .sync-line { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:20px 0; font-size:.9rem; }
-/* 로그인·동기화·승인 관리는 과목 선택 화면에서만 보인다. 문제를 푸는 동안에는 방해가 되지 않는다. */
+/* 로그인, 동기화, 승인 관리는 과목 선택 화면에서만 보인다. 문제를 푸는 동안에는 방해가 되지 않는다. */
 body:not([data-view="home"]) .sync-line { display:none; }
 .admin-panel { margin:16px 0; padding:14px; border:1px solid #2c333f; border-radius:12px; }
 .admin-panel h2 { font-size:1rem; margin:0 0 8px; }
@@ -123,7 +123,7 @@ body:not([data-view="home"]) .sync-line { display:none; }
 .range-heading { margin:26px 0 0; font-size:17px; color:#d4e5ff; }
 .quiz-bar { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px; }
 .quiz-bar .back { margin:0; flex:0 0 auto; }
-/* 이름표가 남는 자리를 먹어서 뒤따르는 조작부(대기열 모드·전부 풀기)가 늘 오른쪽에 붙는다. */
+/* 이름표가 남는 자리를 먹어서 뒤따르는 조작부(대기열 모드, 전부 풀기)가 늘 오른쪽에 붙는다. */
 #scopeLabel { color:#d1d7e0; font-size:15px; overflow-wrap:anywhere; margin-right:auto; }
 .queue-mode { margin:0; flex:0 0 auto; }
 .queue-mode select { display:block; width:auto; margin:0; min-height:40px; padding:8px 10px; font-size:14px; }
@@ -174,7 +174,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .menu-list > .paper-year { margin-top:0; }
 .paper-year > summary.range-heading { font-size:16px; color:#c9d9f2; min-height:44px; padding:10px 2px; }
 .paper-year > .menu-list { margin:8px 0 6px; }
-/* 문제 의견: 문제·해설 화면 아래의 버튼을 누르면 입력칸이 열린다. */
+/* 문제 의견: 문제, 해설 화면 아래의 버튼을 누르면 입력칸이 열린다. */
 .note-box { margin-top:20px; }
 .note-toggle { min-height:44px; padding:10px 14px; font-size:15px; border-style:dashed; }
 .note-count { display:block; margin-top:6px; color:#b4dcc2; }
@@ -250,7 +250,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .memorize-cell.photo{display:flex;flex-direction:column;gap:6px;align-items:stretch;text-align:left}
 .memorize-cell.photo img{width:100%;aspect-ratio:3/4;object-fit:contain;background:var(--card-bg,#00000010);border-radius:8px}
 .memorize-cell.photo strong{font-size:.95rem;line-height:1.35}
-/* 경험치·레벨(v120) */
+/* 경험치, 레벨(v120) */
 .xp-card { margin:0 0 18px; padding:14px 16px; border:1px solid #6f8fb8; border-radius:14px; background:#1c2635; }
 .xp-top { display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap; }
 .xp-top strong { font-size:24px; color:#ffd98a; font-variant-numeric:tabular-nums; }
@@ -341,14 +341,14 @@ body[data-view="quiz"] main { padding-top:14px; }
 .mastered-toggle { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:#d1d7e0; }
 .mastered-toggle small { color:#9fb3c8; }
 .subject-goal { margin:0 0 14px; }
-/* v145 파트별 상태 · 파트별 점검 */
+/* v145 파트별 상태, 파트별 점검 */
 .menu-item.part-item.is-weak { border-color:#e0a24a; }
 .menu-item.part-item.is-weak strong { color:#ffd08a; }
 .part-result { margin:12px 0 18px; padding-left:20px; line-height:1.7; }
 .part-result li.is-weak { color:#ffd08a; }
 .part-result li.is-pass { color:#bfe8c4; }
 #partsView .menu-item span, .part-result li { overflow-wrap:anywhere; }
-/* v146 뱃지 둘(기출 · 자체제작) + 누르면 뜨는 설명. 레벨 육각형은 색 없이(노력), 실력은 칩 두 개가 보여 준다. */
+/* v146 뱃지 둘(기출, 자체제작) + 누르면 뜨는 설명. 레벨 육각형은 색 없이(노력), 실력은 칩 두 개가 보여 준다. */
 .level-badge.lv-plain { background:linear-gradient(160deg,#cfe2fb,#5b7ba6); }
 .subject-row { display:grid; gap:6px; min-width:0; }
 .badge-chips { display:flex; flex-wrap:wrap; gap:6px 8px; align-items:center; min-width:0; }
@@ -373,7 +373,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .badge-info-part.is-plain { display:inline-block; border:1px solid #535d6b; border-radius:12px; color:#d1d7e0; }
 .badge-info-note { margin:10px 0 0; color:#aab3c0; font-size:14px; line-height:1.5; word-break:keep-all; overflow-wrap:break-word; }
 .xp-card .xp-text { word-break:keep-all; overflow-wrap:break-word; }
-/* 기초 개념(basics.js) — 해설 화면의 '기초 개념' 상자와 파트별 '기초 개념 보기' 화면. 용어 칩 노랑, 역할(S·P·M 등) 색 칩, 맞는 예문 초록 막대·틀린 예문 빨강 막대. */
+/* 기초 개념(basics.js) — 해설 화면의 '기초 개념' 상자와 파트별 '기초 개념 보기' 화면. 용어 칩 노랑, 역할(S, P, M 등) 색 칩, 맞는 예문 초록 막대, 틀린 예문 빨강 막대. */
 .lesson.basics { border-color:#6b5a2e; background:#1a1812; line-height:1.6; }
 .lesson.basics { overflow-x:auto; }
 .lesson.basics > summary { color:#ffd479; }
@@ -407,7 +407,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-table.b-hist td.b-nowrap { white-space:nowrap; }
 .b-table.b-hist td.b-long { text-align:left; }
 .b-table td small { display:block; color:#9aa3b0; font-size:12px; }
-/* 2026-09-28 사용자: "표가 좌우 구분이 없어서 읽다가 헷갈린다" — 칸마다 세로줄, 머리줄·첫 칸 음영, 한국사 표는 왼쪽 정렬 */
+/* 2026-09-28 사용자: "표가 좌우 구분이 없어서 읽다가 헷갈린다" — 칸마다 세로줄, 머리줄, 첫 칸 음영, 한국사 표는 왼쪽 정렬 */
 .b-table { border:1px solid #3d4552; }
 .b-table th + th, .b-table td + td { border-left:1px solid #3d4552; }
 .b-table th { background:#232a36; color:#f0d9a8; padding:7px 6px; }
@@ -446,7 +446,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .part-legend { list-style:none; margin:4px 0 14px; padding:0; line-height:1.6; font-size:.92em; }
 .part-legend li { padding-left:1em; text-indent:-1em; overflow-wrap:anywhere; }
 .part-legend li::before { content:'- '; }
-/* v248: 저장이 실패한 동안 화면 위에 떠 있는 띠(막지 않는다) · 진행상황 화면의 기록 파일 줄 */
+/* v248: 저장이 실패한 동안 화면 위에 떠 있는 띠(막지 않는다), 진행상황 화면의 기록 파일 줄 */
 .save-alert { position: sticky; top: 8px; z-index: 5; margin: 0 0 12px; padding: 12px 14px; border: 1px solid #c98a2b; border-radius: 12px; background: #3a2b12; color: #ffe9c2; }
 .save-alert[hidden] { display: none; }
 .save-alert p { margin: 0 0 10px; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }

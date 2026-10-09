@@ -14,7 +14,7 @@ assert.deepEqual(X.level(0),{level:1,into:0,need:20});
 assert.deepEqual(X.level(20),{level:2,into:0,need:63});
 assert.deepEqual(X.level(82),{level:2,into:62,need:63});
 assert.equal(X.level(83).level,3);
-// 요약: 날짜·연속일·목표. 퀴즈 풀이가 아닌 기록은 세지 않는다.
+// 요약: 날짜, 연속일, 목표. 퀴즈 풀이가 아닌 기록은 세지 않는다.
 const h=[row('a1','c1','2026-09-19','wrong'),row('a2','c1','2026-09-20','correct'),row('a3','c2','2026-09-20','correct'),row('a4','c3','2026-09-21','correct'),row('a5','c3','2026-09-21','correct'),row('a6','c9','2026-09-21','correct','legacy')];
 const s=X.summary(h,[],'2026-09-21');
 assert.equal(s.total,1+3+4+4+2);assert.equal(s.todayXp,6);assert.equal(s.todaySolves,2);assert.equal(s.streak,3);assert.equal(s.goal,null);assert.equal(s.goalDone,false);
@@ -36,12 +36,12 @@ const many=Array.from({length:5},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'))
  let cum=0;for(let l=1;l<20;l++)cum+=X.subjectNeed(l);assert.equal(X.subjectLevel(cum).level,20);assert.equal(X.subjectLevel(cum-1).level,19);assert.ok(Math.abs(cum/300-26)<1.5,'about 26 days: '+cum);
  for(const [p,id] of [[0,'iron'],[24.9,'iron'],[25,'bronze'],[50,'silver'],[60,'gold'],[65,'platinum'],[70,'emerald'],[75,'ruby'],[80,'diamond'],[85,'master'],[88,'grandmaster'],[90,'challenger'],[95,'legend'],[100,'legend']])assert.equal(X.tier(p).id,id,'tier at '+p+'%');
  assert.equal(X.level(1e9).level>100,true,'no level cap');}
-// 외운 규칙(7·14·30일) 단계 — 복습 일정과 같은 ReviewSchedule.step. v146 뱃지 둘(기출 · 자체제작)도 여기서.
+// 외운 규칙(7, 14, 30일) 단계 — 복습 일정과 같은 ReviewSchedule.step. v146 뱃지 둘(기출, 자체제작)도 여기서.
 {const d=n=>new Date(Date.parse('2026-08-01T00:00:00Z')+n*86400000).toISOString().slice(0,10);let k=0;const R=(card,day,result)=>({id:'L'+String(k++).padStart(5,'0'),cardId:card,date:d(day),at:d(day)+'T01:00:00.000Z',result,mode:'quiz'});
  const rs=[R('a',0,'correct'),R('a',3,'correct'),R('b',0,'wrong'),R('b',7,'correct'),R('c',0,'correct'),R('c',10,'wrong'),R('e',0,'correct'),R('e',8,'unsure')];
  // 7일 → 14일 → 30일 세 번 맞혀야 외움. 짧은 간격 정답은 단계 그대로, 틀리면 0단계.
  const full=[R('m',0,'correct'),R('m',7,'correct'),R('m',21,'correct'),R('m',51,'correct')];
- assert.deepEqual(X.mastered(X.ledger(full),id=>id).stages,[0,0,0,1],'7·14·30 days → mastered');
+ assert.deepEqual(X.mastered(X.ledger(full),id=>id).stages,[0,0,0,1],'7, 14, 30 days → mastered');
  assert.deepEqual(X.mastered(X.ledger(full.slice(0,3)),id=>id).stages,[0,0,1,0]);
  assert.deepEqual(X.mastered(X.ledger([R('m',0,'correct'),R('m',3,'correct'),R('m',7,'correct'),R('m',15,'correct')]),id=>id).stages,[0,1,0,0],'gaps count from the last stage-up; day 15 is only 8 days after day 7');
  assert.deepEqual(X.mastered(X.ledger([...full,R('m',52,'wrong')]),id=>id).stages,[0,0,0,1],'v139: first miss after mastery uses the chance');
@@ -56,7 +56,7 @@ const many=Array.from({length:5},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'))
  const twin=id=>id==='t2'?'t':id;assert.deepEqual(X.mastered(X.ledger([...full.map(r=>({...r,cardId:'t'})),R('t2',60,'correct')]),twin).done,1,'twins share the rule stage');
  assert.deepEqual(X.mastered(X.ledger([...full.map(r=>({...r,cardId:'t'})),R('t2',60,'wrong')]),twin).done,1,'a first wrong twin uses the rule chance');
  assert.deepEqual(X.mastered(X.ledger([...full.map(r=>({...r,cardId:'t'})),R('t2',60,'wrong'),R('t',61,'wrong')]),twin).done,0,'a second miss on the rule drops it one stage');
- // v146: 과목 레벨은 경험치만(뱃지는 examBadge · selfBadge로 따로).
+ // v146: 과목 레벨은 경험치만(뱃지는 examBadge, selfBadge로 따로).
  assert.deepEqual(Object.keys(X.bySubject(full,[],()=>'영어')['영어']).sort(),['into','level','need','xp']);
  // v146 자체제작 뱃지 = 파트마다 외운 비율의 평균(파트마다 같은 무게, 문제 수 무관).
  {const M=card=>[R(card,0,'correct'),R(card,7,'correct'),R(card,21,'correct'),R(card,51,'correct')];
@@ -69,16 +69,16 @@ const many=Array.from({length:5},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'))
   assert.equal(b.pct,31.2,'(100+25+0+0)/4 = 31.25 → 31.2 (버림)');assert.equal(b.tier.id,'bronze');
   assert.deepEqual(b.next,{id:'silver',name:'실버',pct:50,gap:18.8});
   assert.deepEqual(b.weakest.map(g=>g.id),['p3','p4'],'가장 약한 파트: 0% 중 풀어 본 파트 먼저, 그다음 교재 순서');
-  // 같은 0%면 지금 틀려 있는 비율이 높은 파트가 먼저(맞힌 문제만 있는 파트 · 안 푼 파트보다)
+  // 같은 0%면 지금 틀려 있는 비율이 높은 파트가 먼저(맞힌 문제만 있는 파트, 안 푼 파트보다)
   const st3=X.conceptStates(X.ledger([...h,R('d1',5,'wrong'),R('e1',5,'wrong'),R('e2',5,'correct')]),id=>id);
   assert.deepEqual(X.selfBadge(st3,[...groups,P('p5',['e1','e2','e3'])]).weakest.map(g=>g.id),['p4','p5'],'p4: 1/2 틀려 있음 > p5: 1/3 > p3: 0');
-  // 약한 파트 하나가 끌어내린다: 100 · 100 · 0 → 66.6 플래티넘, 약한 파트를 채우면 100 레전드
+  // 약한 파트 하나가 끌어내린다: 100, 100, 0 → 66.6 플래티넘, 약한 파트를 채우면 100 레전드
   assert.equal(X.selfBadge(st,[P('x',['a1']),P('y',['a2']),P('z',['d1'])]).pct,66.6);
   assert.equal(X.selfBadge(st,[P('x',['a1']),P('y',['a2']),P('z',['d1'])]).tier.id,'platinum');
   const top=X.selfBadge(st,[P('x',['a1','a2']),P('y',['b1'])]);assert.equal(top.tier.id,'legend');assert.equal(top.next,null);assert.deepEqual(top.weakest,[],'모두 외운 파트는 약한 파트로 안 보인다');
   // 큰 파트가 덮지 않는다: 1문제 파트(외움) + 9문제 파트(0) = 50% 실버 (모아 세면 1/10 = 10% 아이언)
   assert.equal(X.selfBadge(st,[P('s',['a1']),P('l',['q1','q2','q3','q4','q5','q6','q7','q8','q9'])]).tier.id,'silver');
-  // 쌍둥이(같은 규칙)는 파트 안에서 한 번만 센다 · 기출 문제는 자체제작 파트에 넣어도 세지 않는다
+  // 쌍둥이(같은 규칙)는 파트 안에서 한 번만 센다, 기출 문제는 자체제작 파트에 넣어도 세지 않는다
   const twin=id=>id.replace(/-t\d$/,'');
   const st2=X.conceptStates(X.ledger(M('r-t1')),twin);
   assert.deepEqual(X.selfBadge(st2,[P('t',['r-t1','r-t2','s-t1'])],twin).groups[0],{id:'t',title:'파트 t',scope:{subject:'한국사',topic:'',round:'part-t'},all:2,done:1,tried:1,missed:0,pct:50,order:0});
@@ -122,7 +122,7 @@ const many=Array.from({length:5},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'))
  assert.equal(X.mastered(X.ledger([R('x',0,'correct')]),id=>id).checked,0,'first attempts alone confirm nothing');}
 {const hs=[row('g1','en1','2026-09-21','correct'),row('g2','en2','2026-09-21','wrong'),row('g3','k1','2026-09-21','correct'),row('g4','en1','2026-09-20','correct'),row('g5','zz','2026-09-21','correct','legacy')];
  assert.deepEqual(X.solvesBySubject(hs,id=>id.startsWith('en')?'영어':id.startsWith('k')?'국어':null,'2026-09-21'),{'영어':2,'국어':1},'today only, quiz rows only, per subject');}
-// v137 단계 보너스: 7일 +4 · 14일 +6 · 30일(외움) +10, 문제마다 처음 도달할 때 한 번만. 외운 뒤·다시 오른 단계는 기본 점수만.
+// v137 단계 보너스: 7일 +4, 14일 +6, 30일(외움) +10, 문제마다 처음 도달할 때 한 번만. 외운 뒤, 다시 오른 단계는 기본 점수만.
 {const d=n=>new Date(Date.parse('2026-08-01T00:00:00Z')+n*86400000).toISOString().slice(0,10);let k=0;const R=(card,day,result)=>({id:'S'+String(k++).padStart(5,'0'),cardId:card,date:d(day),at:d(day)+'T01:00:00.000Z',result,mode:'quiz'});
  const xs=h=>X.ledger(h).map(r=>r.xp);
  assert.deepEqual(xs([R('m',0,'correct'),R('m',3,'correct'),R('m',7,'correct'),R('m',21,'correct'),R('m',51,'correct'),R('m',81,'correct'),R('m',90,'correct')]),[4,2,6,8,12,2,2],'first, early, 7d, 14d, 30d mastered, then base only');

@@ -1,6 +1,6 @@
 const fs=require('node:fs'),vm=require('node:vm'),crypto=require('node:crypto'),assert=require('node:assert/strict');
 const practice=require('./practice.js'),bank=require('./practice-bank.js'),policy=require('./review-policy.js'),record=require('./review-record.js');
-// 카드 하나 = 문제 하나. 복습 일정·진행 수·드릴이 모두 카드 단위로 도는데, 카드 하나가 여러 문장을 돌려 내면
+// 카드 하나 = 문제 하나. 복습 일정, 진행 수, 드릴이 모두 카드 단위로 도는데, 카드 하나가 여러 문장을 돌려 내면
 // "전체 N문제"와 "지금 풀 차례 M문제"가 서로 다른 단위가 되고 대부분의 문장에 닿지 못한다(v56까지 영어 규칙 카드). 다시 들어오지 못하게 막는다.
 const ONE_QUESTION='Every card must yield exactly one question (no multi-question bundles): ';
 function catalog(){const ctx={GICHUL_READ:require('./gichul-files.cjs').read};vm.createContext(ctx);for(const f of ['core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx);const cards=[...ctx.CORE_REVIEW_PACK];for(const id of Object.keys(bank))if(!cards.some(c=>c.id===id)){const e=practice.select({id,question:'',explanation:''},[],bank,ctx.QUIZ_OPTIONS);cards.push({id,subject:bank[id].subject||'영어',question:e?.question||'',explanation:e?.explanation||''});}
@@ -10,7 +10,7 @@ function catalog(){const ctx={GICHUL_READ:require('./gichul-files.cjs').read};vm
  return items;
 }
 function digest(item){return crypto.createHash('sha256').update(JSON.stringify([item.exercise,item.lesson||null,item.conceptId])).digest('hex');}
-// 사진 보기 문항의 게이트. 사진은 공공누리 제1유형만 쓰고(제4유형은 상업적 이용·변경 금지),
+// 사진 보기 문항의 게이트. 사진은 공공누리 제1유형만 쓰고(제4유형은 상업적 이용, 변경 금지),
 // 출처표시 문자열이 보기마다 붙어 있어야 화면에 띄울 수 있다. 근거는 docs/IMAGE-LICENSE-LEDGER.md.
 // 대체 텍스트에 국가유산 이름을 넣으면 화면 낭독기 사용자에게 정답이 그대로 새므로 금지한다.
 function photos(e){
@@ -26,8 +26,8 @@ function photos(e){
   assert(!seen.has(meta.src),'Two options share one photo: '+meta.src);seen.add(meta.src);
   assert(typeof meta.alt==='string'&&meta.alt.trim().length>=10,'Photo option needs alt text: '+choice);
   assert(!meta.alt.includes(choice),'Alt text must describe the photo, not name the option: '+choice);
-  // 쓸 수 있는 사진은 두 갈래다. 공공 기관(국가유산청·국립중앙박물관)은 공공누리 제1유형(출처표시만 하면 상업 이용·변경 허용),
-  // 위키미디어 공용은 CC0·CC BY·CC BY-SA(출처표시 조건). 비상업(NC)·변경금지(ND)는 어느 쪽이든 쓰지 않는다.
+  // 쓸 수 있는 사진은 두 갈래다. 공공 기관(국가유산청, 국립중앙박물관)은 공공누리 제1유형(출처표시만 하면 상업 이용, 변경 허용),
+  // 위키미디어 공용은 CC0, CC BY, CC BY-SA(출처표시 조건). 비상업(NC), 변경금지(ND)는 어느 쪽이든 쓰지 않는다.
   // 국립중앙박물관은 2026-09-19에 천산대렵도(소장품 본관2094)를 받으며 늘렸다. 유형은 기관이 아니라 사진 한 장 단위로 확인한다.
   const credit=meta.credit||'';
   const nuri=/공공누리 제1유형/.test(credit)&&/(국가유산청|국립중앙박물관)/.test(credit);
@@ -76,9 +76,9 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
   assert(rows.some(x=>x.exercise.type==='choice'),'MCQ required: '+ruleId);
   assert.equal(new Set(typed.map(x=>practice.normalize(x.exercise.question))).size,typed.length,'Distinct written questions required: '+ruleId);
  }
- // 국어 교재 범위(사고의 힘 논리 제1편 1장~6장, 제2편 독해 1장~3장, 국어 문법 1장~3장 · 공문서 수정 1장~3장 · 어휘 1장~2장). 영어의 직접쓰기 하한은 걸지 않는다(위 반복문은 영어만 본다).
+ // 국어 교재 범위(사고의 힘 논리 제1편 1장~6장, 제2편 독해 1장~3장, 국어 문법 1장~3장, 공문서 수정 1장~3장, 어휘 1장~2장). 영어의 직접쓰기 하한은 걸지 않는다(위 반복문은 영어만 본다).
  // 대신 장마다 문제 수 하한(koreanTextbook.floor)과 필수 개념(requiredPoints)을 요구하고, 사용자 요청에 따라 모두 4지선다여야 한다.
- // 컴퓨터일반 자체 제작(computerTextbook, 2026-10-07~): 국어 교재 범위와 같은 틀 — 단원(topic '컴일 <파트>')마다 문제 수 하한 · 필수 요점, 모두 4지선다, 기출이 아닌 컴퓨터일반 문제는 모두 이 목록의 단원에 속한다.
+ // 컴퓨터일반 자체 제작(computerTextbook, 2026-10-07~): 국어 교재 범위와 같은 틀 — 단원(topic '컴일 <파트>')마다 문제 수 하한, 필수 요점, 모두 4지선다, 기출이 아닌 컴퓨터일반 문제는 모두 이 목록의 단원에 속한다.
  {const spec=policy.computerTextbook||{},byUnit=new Map();
   for(const [id,rows]of byCard){const lesson=rows[0].lesson;if(rows[0].card.subject!=='컴퓨터일반'||!lesson)continue;
    assert(lesson.rule&&lesson.ruleId&&lesson.point&&lesson.topic,'Computer textbook lesson required: '+id);assert(spec[lesson.topic],'Unknown computer textbook range: '+lesson.topic+' / '+id);
@@ -108,15 +108,15 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // 사진 보기 문항도 제외한다. 보기 글자가 화면에 나오지 않아 '가장 긴 보기 고르기' 전략 자체가 성립하지 않고,
 // 분모에 넣으면 래칫 비율만 희석되어 검사가 헐거워진다. 대신 photos()가 네 보기 전부 사진임을 따로 강제한다.
 // LONGEST_LIMIT: 2026-09-16 복습용 한국사 86문항의 오답을 늘려 실측 2.8%(53/1927)로 조임(이전 7.3%).
-// LONGEST_LIMIT: 국어 사고의 힘 논리 2장 보강 67·3장 181문제(모두 4지선다, 정답이 가장 긴 보기 12개) 추가 뒤 실측 10.7%(138/1291)를 상한으로 다시 조인 래칫(이전 12.1%, 13.5%, 15.8%, 21.2%, 27.8%). 문제를 더하다 이 값을 넘기면 실패한다.
-// 2026-09-15: 한국사 자체 제작 165문제의 정답 노출(성씨·글자·종류·중심 보기)을 고친 뒤 실측 10.3%(133/1291, 0.10302)를 소수 셋째 자리에서 올린 0.104로 다시 조였다.
+// LONGEST_LIMIT: 국어 사고의 힘 논리 2장 보강 67, 3장 181문제(모두 4지선다, 정답이 가장 긴 보기 12개) 추가 뒤 실측 10.7%(138/1291)를 상한으로 다시 조인 래칫(이전 12.1%, 13.5%, 15.8%, 21.2%, 27.8%). 문제를 더하다 이 값을 넘기면 실패한다.
+// 2026-09-15: 한국사 자체 제작 165문제의 정답 노출(성씨, 글자, 종류, 중심 보기)을 고친 뒤 실측 10.3%(133/1291, 0.10302)를 소수 셋째 자리에서 올린 0.104로 다시 조였다.
 // 2026-09-15: 고려 10~12강 기반 기출형 48문제를 더하면서 정답이 유일하게 가장 긴 15문제의 오답 하나씩을 정확한 내용으로 늘려, 실측 133/1339(0.09933)를 소수 셋째 자리에서 올린 0.100로 다시 조였다.
-// 2026-09-15: 선사~삼국·가야 55문제·통일 신라·발해·후삼국 53문제 기출형 연습을 더했다(새 108문제 중 정답이 유일하게 가장 긴 보기는 0개). 실측 133/1447(0.09191)을 소수 셋째 자리에서 올린 0.092로 다시 조였다.
+// 2026-09-15: 선사~삼국, 가야 55문제, 통일 신라, 발해, 후삼국 53문제 기출형 연습을 더했다(새 108문제 중 정답이 유일하게 가장 긴 보기는 0개). 실측 133/1447(0.09191)을 소수 셋째 자리에서 올린 0.092로 다시 조였다.
 // MARGIN: 실측 최대 초과폭 7자에 여유 5자를 더한 값. 후보 문항은 모두 통과하지만 24자씩 튀던 예전 문항은 걸린다.
 // 2026-09-15(v79): 13강 고려(경제, 사회) 60문제(정답이 유일하게 가장 긴 보기 0개)를 더한 뒤 실측 133/1507(0.08825)을 소수 셋째 자리에서 올린 0.089로 다시 조였다.
 // 2026-09-15(v80): 14강 고려(문화 I) 기출형 43문제(정답이 유일하게 가장 긴 보기 0개)를 더한 뒤 실측 133/1550(0.08581)을 소수 셋째 자리에서 올린 0.086으로 다시 조였다.
 // 2026-09-15(v81): 문제집 Day 4 152문제(4지선다 102)를 더한 뒤 실측 134/1652(0.08111)를 소수 셋째 자리에서 올린 0.082로 다시 조였다.
-// 2026-09-15(v82): 국어 사고의 힘 논리 4장 술어 논리 147·5장 귀납 논증 128문제(정답이 유일하게 가장 긴 보기 15개 가운데 10개는 오답을 정확한 내용으로 늘려 맞추고, 보기가 식에서 만들어지는 4문제와 이름 보기 1문제 5개만 남김)를 더한 뒤 실측 139/1927(0.07213)을 소수 셋째 자리에서 올린 0.073으로 다시 조였다.
+// 2026-09-15(v82): 국어 사고의 힘 논리 4장 술어 논리 147, 5장 귀납 논증 128문제(정답이 유일하게 가장 긴 보기 15개 가운데 10개는 오답을 정확한 내용으로 늘려 맞추고, 보기가 식에서 만들어지는 4문제와 이름 보기 1문제 5개만 남김)를 더한 뒤 실측 139/1927(0.07213)을 소수 셋째 자리에서 올린 0.073으로 다시 조였다.
 // 2026-09-16(v97): 15강 고려(문화 2) 63문제(글자 보기 43문제 중 정답이 유일하게 가장 긴 보기 0개, 사진 보기 20문제는 분모 제외)를 더한 뒤 실측 51/2050(0.02488)을 소수 셋째 자리에서 올린 0.025로 다시 조였다.
 // 2026-09-17(v98): 문법 공식 훈련 364문제(4지선다 238, 정답이 유일하게 가장 긴 보기 0개)를 더한 뒤 실측 51/2289(0.02228)를 소수 셋째 자리에서 올린 0.023로 다시 조였다.
 // 2026-09-19(v100): 16강 조선 전기(정치) 80문제(정답이 유일하게 가장 긴 보기 0개 — 걸린 23문제는 오답을 정확한 내용으로 늘렸다)를 더한 뒤 실측 51/2369(0.02153)을 소수 셋째 자리에서 올린 0.022로 다시 조였다.
@@ -126,11 +126,13 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
 // LONGEST_LIMIT: 2026-09-23 19강 조선 전기(경제, 사회) 115문제(정답이 유일하게 가장 긴 보기 0개 — 걸린 16문제는 오답을 정확한 내용으로 늘리거나 정답을 줄였다)를 더한 뒤 실측 58/3548(0.01635)을 소수 셋째 자리에서 올린 0.017로 다시 조였다.
 // LONGEST_LIMIT: 2026-09-23 20강 조선 전기(문화 I) 99문제(정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 정확한 내용으로 늘리거나 정답을 줄였다)를 더한 뒤 실측 58/3647(0.01590)을 소수 셋째 자리에서 올린 0.016으로 다시 조였다.
 // LONGEST_LIMIT: 2026-09-24 21강 조선 전기(문화 II) 94문제(정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 정확한 내용으로 늘리거나 정답을 줄였다)를 더한 뒤 실측 58/3750(0.01547). 소수 셋째 자리에서 올리면 0.016 그대로라 더 조일 자리가 없다.
-// LONGEST_LIMIT: 2026-09-24(v151) 문제집 Day 6·7 460문제(4지선다 287, 정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 자연스럽게 늘렸다)를 더한 뒤 실측 58/4037(0.01437)를 소수 셋째 자리에서 올린 0.015로 다시 조였다.
-// LONGEST_LIMIT: 2026-09-24(v153) 국어 독해 2장 122·3장 354문제(모두 4지선다, 정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 정확한 내용으로 늘렸다)를 더한 뒤 실측 58/4513(0.01285)을 소수 셋째 자리에서 올린 0.013으로 다시 조였다.
-// LONGEST_LIMIT: 2026-09-24 주제 특강(세시 풍속·근·현대 인물) 552문제(모두 4지선다, 정답이 유일하게 가장 긴 보기 0개 — 생성기가 오답을 고를 때 정답보다 긴 보기를 하나 이상 두었다)를 더한 뒤 실측 58/5065(0.01145)를 소수 셋째 자리에서 올린 0.012로 다시 조였다.
-// LONGEST_LIMIT: 2026-10-05(v218) 문제집 Day 8 · 9 · 10 60문제(4지선다 43, 정답이 유일하게 가장 긴 보기 0개)를 더한 뒤 실측 59/5518(0.01069)를 소수 셋째 자리에서 올린 0.011로 다시 조였다.
-const LONGEST_LIMIT=0.011,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
+// LONGEST_LIMIT: 2026-09-24(v151) 문제집 Day 6, 7 460문제(4지선다 287, 정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 자연스럽게 늘렸다)를 더한 뒤 실측 58/4037(0.01437)를 소수 셋째 자리에서 올린 0.015로 다시 조였다.
+// LONGEST_LIMIT: 2026-09-24(v153) 국어 독해 2장 122, 3장 354문제(모두 4지선다, 정답이 유일하게 가장 긴 보기 0개 — 걸린 문제는 오답을 정확한 내용으로 늘렸다)를 더한 뒤 실측 58/4513(0.01285)을 소수 셋째 자리에서 올린 0.013으로 다시 조였다.
+// LONGEST_LIMIT: 2026-09-24 주제 특강(세시 풍속, 근, 현대 인물) 552문제(모두 4지선다, 정답이 유일하게 가장 긴 보기 0개 — 생성기가 오답을 고를 때 정답보다 긴 보기를 하나 이상 두었다)를 더한 뒤 실측 58/5065(0.01145)를 소수 셋째 자리에서 올린 0.012로 다시 조였다.
+// LONGEST_LIMIT: 2026-10-05(v218) 문제집 Day 8, 9, 10 60문제(4지선다 43, 정답이 유일하게 가장 긴 보기 0개)를 더한 뒤 실측 59/5518(0.01069)를 소수 셋째 자리에서 올린 0.011로 다시 조였다.
+// LONGEST_LIMIT: 2026-10-09 가운뎃점을 다른 기호로 바꾼 기계 치환 뒤 실측 67/5841(0.01147). 나라 한 글자 짝이 짧아지고(미소, 한일) 띄어 쓴 점이 쉼표가 되며 오답이 한 글자 줄어 정답이 한 글자 차로 가장 길어진 문제가 열 개 생겼다
+// (research/ambiguity-audit-20261008/length-bias-new2.txt — 오답을 정확한 내용으로 늘려 다시 0.011로 조일 것). 붙여 쓴 점 때문에 걸린 52문제는 보기 넷의 그 쉼표를 붙여 써서 옛 길이 관계를 지켰다(length-bias-new-20261009.txt).
+const LONGEST_LIMIT=0.012,MARGIN=12,VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/;
 // LENGTH_BALANCED: 2026-10-07 독립 검토 — 한쪽 래칫('정답이 유일하게 가장 긴 보기'를 1%까지 조임) 때문에 가장 긴 보기가 정답인 적이 거의 없어, 가장 긴 보기를 지우는 소거 단서가 됐다
 // (영어 Day 11~15 초안: 정답이 가장 긴 보기 5/305, 가장 짧은 보기는 Day 12에서 24/58). 그래서 아래 목록의 id 앞머리로 시작하는 문제는 한쪽 래칫에서 빼고,
 // 앞머리마다 두 쪽 띠로 잰다: 정답이 유일하게 가장 긴 보기인 비율과 유일하게 가장 짧은 보기인 비율이 모두 BALANCE_BAND(15~35%, 우연이면 25% 안팎) 안.
@@ -152,7 +154,7 @@ function lengthBand(rows,label){
   assert(ratio>=BALANCE_BAND[0]&&ratio<=BALANCE_BAND[1],'Length balance ('+label+'): correct option is uniquely '+name+' in '+n+'/'+rows.length+' ('+(ratio*100).toFixed(1)+'%), outside the '+(BALANCE_BAND[0]*100)+'~'+(BALANCE_BAND[1]*100)+'% band. Reword options so neither the longest nor the shortest option gives the answer away.');}
  return {total:rows.length,longest,shortest};
 }
-// 대조군: 띠의 두 쪽 · 두 방향이 모두 잡히고, 띠 안은 통과해야 한다(검사가 헛돌지 않는지).
+// 대조군: 띠의 두 쪽, 두 방향이 모두 잡히고, 띠 안은 통과해야 한다(검사가 헛돌지 않는지).
 function lengthBandControls(){
  const make=(nLong,nShort,n=40)=>Array.from({length:n},(_,i)=>({lengths:i<nLong?[30,20,20,20]:i<nLong+nShort?[10,20,20,20]:[20,25,15,20],correctIndex:0}));
  lengthBand(make(10,10),'control: in band');
@@ -190,13 +192,13 @@ function sequenceBias(items){
  return checked;
 }
 // 시대 딱지 노출(HISTORY-QUESTION-RULES.md 2-3의 7). 2026-09-22 사용자 지적: 자료가 '조선의 지방군'인데 오답이 "평상시 농사를 짓는 고려 5도의 예비군"이라
-// '고려'라는 낱말만 보고 지울 수 있었다. 자체 제작 한국사 4지선다에서 오답에 정답 보기에 없는 나라·시대 이름이 있으면 멈춘다.
-// 딱지가 아닌 경우(보기 네 개가 모두 나라·시대를 단 병렬 구조, 사건의 행위자·대상, 대상 자신, 지명·성씨·책 이름)는
+// '고려'라는 낱말만 보고 지울 수 있었다. 자체 제작 한국사 4지선다에서 오답에 정답 보기에 없는 나라, 시대 이름이 있으면 멈춘다.
+// 딱지가 아닌 경우(보기 네 개가 모두 나라, 시대를 단 병렬 구조, 사건의 행위자, 대상, 대상 자신, 지명, 성씨, 책 이름)는
 // 문항을 읽고 판정한 뒤 era-label-allowlist.json에 이유와 함께 적는다. 허용 목록은 걸린 낱말까지 고정한다(같은 문항에 새 나라 이름이 끼면 다시 멈춘다).
 const ERA_WORDS=['통일 신라','대한 제국','후고구려','금관가야','후백제','고조선','고구려','대가야','남북국','구석기','신석기','청동기','백제','신라','가야','발해','태봉','고려','조선','부여','옥저','동예','삼한','마한','진한','변한','철기','일제'];
 const ERA_RE=new RegExp(ERA_WORDS.map(w=>w.replace(' ','\\s?')).join('|'),'g');
 function eraWords(text){const out=new Set();for(const m of text.matchAll(ERA_RE)){const prev=text[m.index-1]||'',next=text[m.index+m[0].length]||'';
- if(/[가-힣]/.test(prev))continue; // 반발해·위만조선·남부여처럼 낱말 안에 든 글자
+ if(/[가-힣]/.test(prev))continue; // 반발해, 위만조선, 남부여처럼 낱말 안에 든 글자
  if(m[0]==='고려'&&/[하해한할되됨]/.test(next))continue; // 고려하다(생각하다)
  out.add(m[0].replace(/\s/g,'').replace('통일신라','통일 신라').replace('대한제국','대한 제국'));}return out;}
 function eraLabelHits(exercise){const answer=eraWords(exercise.choices[exercise.correctIndex]),hit=new Set();
@@ -204,17 +206,17 @@ function eraLabelHits(exercise){const answer=eraWords(exercise.choices[exercise.
 function eraLabels(items,allow=JSON.parse(fs.readFileSync(__dirname+'/era-label-allowlist.json','utf8'))){
  assert.equal(allow.schema,1);
  // 대조군: 사용자가 신고한 원래 보기(2026-09-22 고치기 전)는 반드시 걸려야 한다. 걸리지 않으면 검사기 자체가 망가진 것이다.
- assert.deepEqual(eraLabelHits({choices:['병마절도사와 수군절도사의 지휘를 받았다.','궁궐과 수도를 지키는 중앙군으로 편성되었다.','향리·잡학인·노비 등으로 이루어진 예비군이었다.','평상시 농사를 짓는 고려 5도의 예비군이었다.'],correctIndex:0}),['고려'],'Era-label detector control failed');
+ assert.deepEqual(eraLabelHits({choices:['병마절도사와 수군절도사의 지휘를 받았다.','궁궐과 수도를 지키는 중앙군으로 편성되었다.','향리, 잡학인, 노비 등으로 이루어진 예비군이었다.','평상시 농사를 짓는 고려 5도의 예비군이었다.'],correctIndex:0}),['고려'],'Era-label detector control failed');
  assert.deepEqual(eraLabelHits({choices:['신문왕 때 세워졌다','발해에서 주자감이라 불렸다','고구려 소수림왕 때 세웠다','고려하여 새로 만들었다'],correctIndex:0}),['고구려','발해'],'Era-label detector control failed');
  let checked=0;const seen=new Set();
  for(const item of items){const e=item.exercise;if(item.card.subject!=='한국사'||e.type!=='choice'||VERBATIM_OFFICIAL.test(item.card.id)||e.choiceImages)continue;checked++;
   const hits=eraLabelHits(e);if(!hits.length)continue;const ok=allow.items[item.card.id];
-  assert(ok,'Era label giveaway: a distractor names '+hits.join('·')+' but the correct option does not; rewrite it (same-era fact, no label) or review and allowlist it with a reason in era-label-allowlist.json: '+item.card.id);
-  assert(hits.every(w=>ok.words.includes(w)),'Era label giveaway: new era word '+hits.filter(w=>!ok.words.includes(w)).join('·')+' in a reviewed question: '+item.card.id);
+  assert(ok,'Era label giveaway: a distractor names '+hits.join(', ')+' but the correct option does not; rewrite it (same-era fact, no label) or review and allowlist it with a reason in era-label-allowlist.json: '+item.card.id);
+  assert(hits.every(w=>ok.words.includes(w)),'Era label giveaway: new era word '+hits.filter(w=>!ok.words.includes(w)).join(', ')+' in a reviewed question: '+item.card.id);
   assert(typeof ok.reason==='string'&&ok.reason.length>=4,'Allowlisted era label needs a reason: '+item.card.id);seen.add(item.card.id);}
  for(const id of Object.keys(allow.items))assert(seen.has(id),'Stale era-label allowlist entry (no longer hits, remove it): '+id);
  return {checked,allowed:seen.size};
 }
 function verify(items,ledger){single(items);structural(items);concepts(items);coverage(items);lengthBias(items);sequenceBias(items);eraLabels(items);assert.equal(ledger.schema,1);assert.equal(Object.keys(ledger.items).length,items.length,'Unreviewed addition/deletion');for(const item of items)assert.equal(ledger.items[item.exercise.exerciseId],digest(item),'Content changed: review meaning, alternatives and context before updating ledger: '+item.exercise.exerciseId);}
 module.exports={catalog,digest,single,concepts,structural,coverage,lengthBias,lengthBand,lengthBandControls,LENGTH_BALANCED,BALANCE_BAND,sequenceBias,eraLabelHits,eraLabels,verify};
-if(require.main===module){const items=catalog();verify(items,JSON.parse(fs.readFileSync(__dirname+'/content-review.json','utf8')));const bias=lengthBias(items),era=eraLabels(items),bandControls=lengthBandControls();console.log('PASS content audit: '+items.length+' reviewed exercises, every card exactly one question; structure, answer acceptance, context regression and review fingerprints; length bias '+bias.longest+'/'+bias.total+' ('+(bias.ratio*100).toFixed(1)+'%, limit '+(LONGEST_LIMIT*100).toFixed(1)+'%, chance 25%) self-made choice answers uniquely longest, mean +'+bias.delta.toFixed(1)+' chars vs distractor average, per-question margin <='+MARGIN+'; two-sided length band '+(BALANCE_BAND[0]*100)+'~'+(BALANCE_BAND[1]*100)+'% for '+Object.entries(bias.balanced).map(([p,b])=>p+' longest '+b.longest+' · shortest '+b.shortest+' of '+b.total).join(', ')+' ('+bandControls+' band controls caught); '+bias.photo+' photo-option exercises gated by image/licence checks instead of option length; era-label giveaway check over '+era.checked+' self-made history choice questions ('+era.allowed+' reviewed exceptions)');}
+if(require.main===module){const items=catalog();verify(items,JSON.parse(fs.readFileSync(__dirname+'/content-review.json','utf8')));const bias=lengthBias(items),era=eraLabels(items),bandControls=lengthBandControls();console.log('PASS content audit: '+items.length+' reviewed exercises, every card exactly one question; structure, answer acceptance, context regression and review fingerprints; length bias '+bias.longest+'/'+bias.total+' ('+(bias.ratio*100).toFixed(1)+'%, limit '+(LONGEST_LIMIT*100).toFixed(1)+'%, chance 25%) self-made choice answers uniquely longest, mean +'+bias.delta.toFixed(1)+' chars vs distractor average, per-question margin <='+MARGIN+'; two-sided length band '+(BALANCE_BAND[0]*100)+'~'+(BALANCE_BAND[1]*100)+'% for '+Object.entries(bias.balanced).map(([p,b])=>p+' longest '+b.longest+', shortest '+b.shortest+' of '+b.total).join(', ')+' ('+bandControls+' band controls caught); '+bias.photo+' photo-option exercises gated by image/licence checks instead of option length; era-label giveaway check over '+era.checked+' self-made history choice questions ('+era.allowed+' reviewed exceptions)');}

@@ -1,18 +1,18 @@
 'use strict';
-// 내용 창고(v247): 자체 제작 문제의 글 · 해설 · 기초 개념 상자를 시작할 때 다 읽지 않고, 그 문제를 처음 낼 때 조각(chunks/*.json)으로 받는다.
-// 설계 · 실측: research/lazy-load-20261008/DESIGN.md. 기출 회차(gichul.js)와 같은 길이다 — 작은 색인으로 수 · 범위 · 일정을 다 만들고 본문은 필요할 때.
+// 내용 창고(v247): 자체 제작 문제의 글, 해설, 기초 개념 상자를 시작할 때 다 읽지 않고, 그 문제를 처음 낼 때 조각(chunks/*.json)으로 받는다.
+// 설계, 실측: research/lazy-load-20261008/DESIGN.md. 기출 회차(gichul.js)와 같은 길이다 — 작은 색인으로 수, 범위, 일정을 다 만들고 본문은 필요할 때.
 //
 // 두 방식이 같은 API(StudyContent)를 낸다.
-//  - 전체 방식: 원본 파일(practice-bank.js · basics.js · core-review-pack.js · quiz-options.js · study-review-catalog.js · memorize.js · hanneung-explanations.js)을
-//    먼저 읽은 경우(검사 · 감사). 모든 글이 이미 있다. 딱지(과목 · topic · formula · ruleId · 문제 수 · 상자)는 원본에서 바로 읽는다.
+//  - 전체 방식: 원본 파일(practice-bank.js, basics.js, core-review-pack.js, quiz-options.js, study-review-catalog.js, memorize.js, hanneung-explanations.js)을
+//    먼저 읽은 경우(검사, 감사). 모든 글이 이미 있다. 딱지(과목, topic, formula, ruleId, 문제 수, 상자)는 원본에서 바로 읽는다.
 //  - 받는 방식: 브라우저. content-index.js(build-chunks.cjs가 원본에서 만든 색인)만 읽은 경우. 딱지는 색인에서, 글은 조각을 받은 뒤
-//    PRACTICE_BANK · QUIZ_OPTIONS · CORE_REVIEW_PACK · STUDY_BASICS · MEMORIZE · HANNEUNG_EXPLANATIONS · HISTORY_MNEMONICS에 채운다.
+//    PRACTICE_BANK, QUIZ_OPTIONS, CORE_REVIEW_PACK, STUDY_BASICS, MEMORIZE, HANNEUNG_EXPLANATIONS, HISTORY_MNEMONICS에 채운다.
 // 조각 주소는 내용 지문이다(chunks/<이름>.json?h=<지문>). 받은 바이트의 지문이 색인의 지문과 다르면 붙이지 않는다 — 새 색인에 옛 조각(또는 그 반대)이 붙을 수 없다.
-// Node(build-chunks.cjs · 검사)는 이 파일을 require해서 지문 · 공통 줄 계산 같은 순수 함수만 쓴다.
+// Node(build-chunks.cjs, 검사)는 이 파일을 require해서 지문, 공통 줄 계산 같은 순수 함수만 쓴다.
 (function(root){
  const node=typeof module!=='undefined'&&module.exports;
  // ---- 빌드와 앱이 함께 쓰는 순수 함수 ----
- // 지문: 바이트에 대한 32비트 해시 둘(FNV-1a · 31진 다항)을 이어 붙인 16자. 낡은 조각을 알아보는 용도다(위조 방지가 아니다). sw.js에 같은 함수가 있다(lazy.test가 대조).
+ // 지문: 바이트에 대한 32비트 해시 둘(FNV-1a, 31진 다항)을 이어 붙인 16자. 낡은 조각을 알아보는 용도다(위조 방지가 아니다). sw.js에 같은 함수가 있다(lazy.test가 대조).
  function hashBytes(u8){let a=2166136261,b=7;for(let i=0;i<u8.length;i++){const x=u8[i];a=Math.imul(a^x,16777619)>>>0;b=(Math.imul(b,31)+x)>>>0;}return a.toString(16).padStart(8,'0')+b.toString(16).padStart(8,'0');}
  // 같은 요점의 문제들이 똑같이 들고 있는 칸. 조각 안에서는 한 번만 적고 번호로 가리킨다(pack → unpack하면 원래 값).
  const SHARED_KEYS=['title','rule','hook','examples'];
@@ -20,7 +20,7 @@
   for(const [id,lesson]of Object.entries(bank)){const row={...lesson};for(const k of SHARED_KEYS){if(row[k]===undefined)continue;const key=k+'\u0000'+JSON.stringify(row[k]);if(!at.has(key)){at.set(key,shared.length);shared.push(row[k]);}row[k]=at.get(key);}out[id]=row;}
   return {shared,bank:out};}
  function unpackLessons(shared,bank){for(const lesson of Object.values(bank))for(const k of SHARED_KEYS)if(typeof lesson[k]==='number')lesson[k]=shared[lesson[k]];return bank;}
- // 상자의 줄(용어 · 규칙 · 표)과 그 자리 이름. 공통 줄 계산이 이 순서와 자리 이름을 쓴다.
+ // 상자의 줄(용어, 규칙, 표)과 그 자리 이름. 공통 줄 계산이 이 순서와 자리 이름을 쓴다.
  function boxItems(b){const out=[];(b.terms||[]).forEach((x,i)=>out.push(['t'+i,x]));(b.rules?.items||[]).forEach((x,i)=>out.push(['r'+i,x]));if(b.table)out.push(['T',b.table]);(b.tables||[]).forEach((x,i)=>out.push(['S'+i,x]));return out.filter(e=>e[1]);}
  // 여러 상자에 똑같이 실린 줄: 같은 파트에 함께 나오는 상자끼리만 센다(v246까지 app.js basicsSharedSets와 같은 규칙).
  // 결과: 상자 id → {파트 id: [그 파트에서 공통인 이 상자의 자리 이름]}. 빌드가 미리 계산해 상자 조각에 싣고, 전체 방식은 그 자리에서 계산한다.
@@ -35,7 +35,7 @@
   }
   return out;
  }
- // 한 문제의 카드 내용(과목 · 질문 · 정답 · 해설 · 출처). v246까지 app.js cardContent()가 모든 문제에 대해 만들던 값이다.
+ // 한 문제의 카드 내용(과목, 질문, 정답, 해설, 출처). v246까지 app.js cardContent()가 모든 문제에 대해 만들던 값이다.
  const coreBase=c=>({subject:c.subject,question:c.question,answer:c.answer,explanation:c.explanation||'',source:c.source||'',verified:true});
  // 출처 줄은 app.js의 bankSource가 만든다(통합 스크립트가 그 줄을 고친다 — 한 곳에만 둔다). 이 함수는 app.js가 읽힌 뒤에만 불린다.
  function bankBase(id,lesson,bank,options){const e=root.Practice.select({id,question:'',explanation:''},[],bank,options);return {subject:lesson.subject||'영어',question:e.question,answer:e.type==='text'?e.answers[0]:e.choices[e.correctIndex],explanation:e.explanation||'',source:root.bankSource(id,lesson),verified:true};}
@@ -89,13 +89,13 @@
   core.ids.forEach((id,i)=>meta.set(id,{subject:index.subjects[core.s[i]],chunk:chunkOf(core.c[i]),options:!!core.o[i],core:true,lesson:null}));
   bank.ids.forEach((id,i)=>{const m=meta.get(id)||{subject:index.subjects[bank.s[i]],chunk:chunkOf(bank.c[i]),options:false,core:false,lesson:null};
    if(bank.o[i])m.options=true;
-   // 받기 전에 범위 · 수 · 접기 · 뱃지가 읽는 칸만 든 딱지. 글(title · rule · variants의 내용)은 조각이 붙어야 생긴다.
+   // 받기 전에 범위, 수, 접기, 뱃지가 읽는 칸만 든 딱지. 글(title, rule, variants의 내용)은 조각이 붙어야 생긴다.
    m.lesson={subject:index.subjects[bank.s[i]],topic:index.topics[bank.t[i]],ruleId:index.rules[bank.r[i]],variants:{length:bank.n[i]}};if(bank.f[i]>=0)m.lesson.formula=index.formulas[bank.f[i]];
    meta.set(id,m);});}
  const boxChunk=new Map(Object.entries(index.boxes).map(([rule,c])=>[rule,chunkOf(c)]));
  const applyBoxOf=new Map();for(const [box,ids]of Object.entries(index.applyBox))for(const id of ids)applyBoxOf.set(id,box);
  const memoMeta=new Map(index.memo.map(m=>[m.id,{id:m.id,subject:m.subject,title:m.title,size:m.size,chunk:chunkOf(m.c)}]));
- // 전역 그릇: 색인 파일이 CORE_REVIEW_PACK=[] · QUIZ_OPTIONS={}를 먼저 만들어 두었고(hanneung.js · gichul.js가 거기에 설치), 나머지는 여기서 만든다.
+ // 전역 그릇: 색인 파일이 CORE_REVIEW_PACK=[] / QUIZ_OPTIONS={}를 먼저 만들어 두었고(hanneung.js, gichul.js가 거기에 설치), 나머지는 여기서 만든다.
  const pack=root.CORE_REVIEW_PACK,options=root.QUIZ_OPTIONS,bank=root.PRACTICE_BANK={};
  const boxes={},apply={},ruleOf=new Map(),sharedOf=new Map(),mnemonics=new Map(),memoSets=new Map();
  root.STUDY_BASICS={boxes,apply,box:rule=>boxes[rule]||null,forQuestion:id=>apply[id]||null};
@@ -105,9 +105,9 @@
  root.STUDY_REVIEW_CATALOG={schema:index.catalog.schema,total:index.catalog.total,sets:index.catalog.sets,lectures:index.catalog.lectures,
   questions:Object.fromEntries(Object.entries(index.catalog.q).map(([id,[number,section]])=>[id,{number,section:index.catalog.sections[section]}]))};
  {const titles=new Map(index.english.areas.flatMap(a=>a.rules.map(r=>[r.id,r.title])));root.ENGLISH_FORMULAS={areas:index.english.areas,title:id=>titles.get(id)||''};}
- // 외울 것: 목록 화면은 색인의 이름 · 칸 수만 쓰고, 목록 하나는 조각을 받은 뒤 get으로 준다.
+ // 외울 것: 목록 화면은 색인의 이름, 칸 수만 쓰고, 목록 하나는 조각을 받은 뒤 get으로 준다.
  root.MEMORIZE={sets:[...memoMeta.values()],size:memoSize,get:id=>memoSets.get(id)||null};
- // 시작할 때 hanneung.js · gichul.js가 설치한 카드(색인만으로 만든 것). 순서: 묶음 카드 → 한능검 → 9급 기출 → 연습 문제(원본 순서 그대로).
+ // 시작할 때 hanneung.js, gichul.js가 설치한 카드(색인만으로 만든 것). 순서: 묶음 카드 → 한능검 → 9급 기출 → 연습 문제(원본 순서 그대로).
  const coreMap=new Map(pack.map(c=>[c.id,c])),installed=pack.slice();
  const core=id=>coreMap.get(id);
  let content=null;

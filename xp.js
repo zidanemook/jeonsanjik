@@ -1,11 +1,11 @@
 'use strict';
-// 경험치·레벨·연속 학습일(v120). 사용자 결정(2026-09-21): 문제를 풀면 맞든 틀리든 언제나 보상이 있고, 강도만 다르다 —
+// 경험치, 레벨, 연속 학습일(v120). 사용자 결정(2026-09-21): 문제를 풀면 맞든 틀리든 언제나 보상이 있고, 강도만 다르다 —
 // 처음 맞힌 문제와 틀렸던 문제를 맞힌 경우가 가장 크다. 하루 목표는 기본값이 없고 사용자가 직접 정했을 때만 쓴다.
-// 풀이 기록(history)과 해설 기록에서 매번 다시 계산하므로 따로 저장·동기화할 것이 없다(기기마다 같은 레벨).
+// 풀이 기록(history)과 해설 기록에서 매번 다시 계산하므로 따로 저장, 동기화할 것이 없다(기기마다 같은 레벨).
 (function(root){
  const RS=typeof module!=='undefined'&&module.exports?require('./scheduler.js'):root.ReviewSchedule;
  // v136 사용자: "틀렸다 다음에 맞추는 거를 점수를 더 주고, 7일 지나면 좀 더 주고, 14일 지나서 맞추면 좀 더 주고".
- // 단계는 복습 일정·외운 규칙과 같다: 맞힌 날부터 7일 → 그 뒤 14일 → 그 뒤 30일(외움), 틀리면 처음부터. 외운 문제를 다시 맞히면 기본 점수만(사용자: "노력한 만큼 — 외운 상태인 거를 맞추는 거는 기본 경험치만").
+ // 단계는 복습 일정, 외운 규칙과 같다: 맞힌 날부터 7일 → 그 뒤 14일 → 그 뒤 30일(외움), 틀리면 처음부터. 외운 문제를 다시 맞히면 기본 점수만(사용자: "노력한 만큼 — 외운 상태인 거를 맞추는 거는 기본 경험치만").
  // v137 리밸런스(사용자: "점수가 너무 큰 거 아냐 — 적당한 값", "인플레이션이 있으면 안 되는디", "일부러 틀리거나 하지는 않겠지?"):
  // 작은 고정값. 일부러 틀려도 이득이 없게 — 틀림 1 + 다시 맞힘 3 = 처음 맞힘 4, 단계 보너스는 문제마다 처음 도달할 때 한 번만.
  const XP={wrong:1,unsure:1,correct:2,first:2,recover:1,stage:[4,6,10],explanation:1};
@@ -38,7 +38,7 @@
   const byCard=new Map(),out=[];
   const lastDate=new Map(),state=new Map(),best=new Map(); // best: 문제마다 도달했던 가장 높은 단계(보너스는 처음 도달할 때만)
   for(const r of rows(history)){const prev=byCard.get(r.cardId)||[],before=lastDate.get(r.cardId);
-   // 문제마다 복습 일정과 같은 단계 규칙(ReviewSchedule.step): 기회 · 한 단계 내림 · 다시 익힘.
+   // 문제마다 복습 일정과 같은 단계 규칙(ReviewSchedule.step): 기회, 한 단계 내림, 다시 익힘.
    const mv=RS.step(state.get(r.cardId),r.result,r.date);let step=null;
    if(mv.event!=='early')state.set(r.cardId,mv.state);
    if(mv.event==='advance'){const stg=RS.stageOf(mv.state.streak),top=best.get(r.cardId)||0;if(stg>top){step=stg;best.set(r.cardId,stg);}}
@@ -70,10 +70,10 @@
  }
  // 과목 레벨(v124): 그 과목 문제에서 받은 경험치(해설 경험치는 그 풀이의 과목으로)만 센다.
  // v125 밸런스(사용자: "한 과목만 다이아까지 2달 걸리는 정도"): 한 과목 하루 약 100문제 × 평균 약 15 XP ≈ 1,500 XP 기준으로
- // 실버(5) 약 1일 · 골드(10) 약 6일 · 플래티넘(20) 약 26일 · 다이아(30) 약 60일(누적 90,190 XP).
+ // 실버(5) 약 1일, 골드(10) 약 6일, 플래티넘(20) 약 26일, 다이아(30) 약 60일(누적 90,190 XP).
  const subjectNeed=need;
  function subjectLevel(total){let l=1,rest=total;while(rest>=subjectNeed(l)){rest-=subjectNeed(l);l++;}return {level:l,into:rest,need:subjectNeed(l)};}
- // 등급표(뱃지 색). v138에는 과목마다 뱃지 하나(자체제작·기출 외운 비율 반반)였고, v146부터 과목마다 뱃지 둘(아래 examBadge · selfBadge).
+ // 등급표(뱃지 색). v138에는 과목마다 뱃지 하나(자체제작, 기출 외운 비율 반반)였고, v146부터 과목마다 뱃지 둘(아래 examBadge, selfBadge).
  // 레벨(노력)은 과목마다 숫자 하나로 그대로 — 육각형 안의 숫자. 등급 문턱은 두 뱃지가 같이 쓴다(기출은 예상 점수, 자체제작은 %).
  // 외운 규칙은 7일 → 14일 → 30일에 세 번 맞힌 규칙(아래 mastered) — 사용자가 이 엄격함을 그대로 두기로 했다(2026-09-22).
  const TIERS=[[95,'legend','레전드'],[90,'challenger','챌린저'],[88,'grandmaster','그랜드마스터'],[85,'master','마스터'],[80,'diamond','다이아'],[75,'ruby','루비'],[70,'emerald','에메랄드'],[65,'platinum','플래티넘'],[60,'gold','골드'],[50,'silver','실버'],[25,'bronze','브론즈'],[0,'iron','아이언']];
@@ -82,8 +82,8 @@
  const pack=t=>({id:t[1],name:t[2],pct:t[0]});
  function tier(pct=0){return pack(TIERS.find(t=>pct>=t[0]));}
  const isExam=id=>/^(gichul|hanneung)-/.test(id);
- // 외운 규칙(v131, 사용자: "장기기억 기준은 7일·14일·1달 3번에 걸쳐 맞춘 문제", "틀리게 되면 장기기억이었던 문제라도 다시 틀린 문제").
- // 규칙(쌍둥이 묶음)마다 복습 일정과 같은 단계 규칙(ReviewSchedule.step)을 돌린다 — streak ≥ MASTER_STREAK(7·14·30일 통과)면 외움.
+ // 외운 규칙(v131, 사용자: "장기기억 기준은 7일, 14일, 1달 3번에 걸쳐 맞춘 문제", "틀리게 되면 장기기억이었던 문제라도 다시 틀린 문제").
+ // 규칙(쌍둥이 묶음)마다 복습 일정과 같은 단계 규칙(ReviewSchedule.step)을 돌린다 — streak ≥ MASTER_STREAK(7, 14, 30일 통과)면 외움.
  function conceptStates(list,conceptOf){const state=new Map();
   for(const r of list){const k=conceptOf(r.cardId),out=RS.step(state.get(k),r.result,r.date);if(out.event!=='early')state.set(k,out.state);}
   return state;}
@@ -95,8 +95,8 @@
  // 다음 등급과 남은 차이(뱃지 설명). 가장 높은 등급이면 null.
  function nextTier(value){const i=TIERS.findIndex(t=>value>=t[0]),n=TIERS[i-1];return n?{id:n[1],name:n[2],pct:n[0],gap:round1(n[0]-value)}:null;}
  // ── 뱃지(v146, 사용자 결정 2026-09-23): 과목마다 레벨(노력, 숫자 하나)과 뱃지 둘.
- //  · 기출 뱃지 = 예상 점수(score.js: 공무원 9급 기출을 처음 풀었을 때의 정답률)를 0~100%로 보고 같은 12등급에 댄다. 20문제 미만이면 등급 없음('아직').
- //  · 자체제작 뱃지 = 파트마다 외운 비율(외운 규칙 / 파트의 규칙 수)의 평균. 파트는 문제 수와 상관없이 같은 무게 — 큰 파트가 덮지 않고 약한 파트가 끌어내린다.
+ // , 기출 뱃지 = 예상 점수(score.js: 공무원 9급 기출을 처음 풀었을 때의 정답률)를 0~100%로 보고 같은 12등급에 댄다. 20문제 미만이면 등급 없음('아직').
+ // , 자체제작 뱃지 = 파트마다 외운 비율(외운 규칙 / 파트의 규칙 수)의 평균. 파트는 문제 수와 상관없이 같은 무게 — 큰 파트가 덮지 않고 약한 파트가 끌어내린다.
  //    파트가 없는 자체제작 문제는 앱이 범위(연습 주제)마다 한 파트로, 그것도 없으면 과목마다 '그 밖의 문제' 한 파트로 묶어 넘긴다(app.js selfGroups).
  //    TODO(모의고사): 자체제작 문제로 만든 모의고사(docs/MOCK-EXAM-PLAN-2026-09-20.md, 아직 없음)가 생기면 그 결과도 여기서 센다 — 아직은 아무것도 하지 않는다.
  // examBadge(row): row = ExamScore.summary(...).subjects의 한 과목({n, ready, need, score}).
@@ -106,7 +106,7 @@
   if(!row||!row.ready||!Number.isFinite(row.score))return {kind:'exam',source,ready:false,n,need:Math.max(0,(row?.need??20)),score:null,tier:null,next:null};
   return {kind:'exam',source,ready:true,n,correct:row.correct,score:row.score,tier:tier(row.score),next:nextTier(row.score)};
  }
- // states: conceptStates(자체제작 풀이 행) · groups: [{id,title,ids,scope}] — 과목의 파트(+대체 묶음).
+ // states: conceptStates(자체제작 풀이 행) / groups: [{id,title,ids,scope}] — 과목의 파트(+대체 묶음).
  // 약한 파트: 외운 비율이 낮은 순. 같으면 지금 틀려 있는(마지막에 틀리고 아직 다시 못 맞힌) 비율이 높은 파트 먼저,
  // 그다음 풀어 본 파트(안 푼 파트가 0%인 건 당연하니), 그다음 교재 순서.
  function selfBadge(states,groups,conceptOf=id=>id,weakCount=2){
@@ -154,7 +154,7 @@
   }
   return {title,lines,weakLabel:weak.length?'가장 약한 파트':'',weak,note};
  }
- // 과목 레벨(노력). 뱃지(실력)는 따로 — examBadge · selfBadge.
+ // 과목 레벨(노력). 뱃지(실력)는 따로 — examBadge, selfBadge.
  function bySubject(history,views,subjectOf){
   const list=ledger(history),total=new Map(),cardOf=new Map(list.map(r=>[r.id,r.cardId]));
   const add=(cardId,xp)=>{const s=cardId&&subjectOf(cardId);if(!s)return null;total.set(s,(total.get(s)||0)+xp);return s;};

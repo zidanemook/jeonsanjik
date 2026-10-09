@@ -1,22 +1,22 @@
 // 자체 제작 내용을 필요할 때 받기(v247) 검사. 설계: research/lazy-load-20261008/DESIGN.md
-//  0) 만든 파일(content-index.js · chunks/ · chunk-manifest.json)이 원본과 맞는가(낡았으면 실패 — 통합 뒤 node build-chunks.cjs를 잊은 경우).
-//  1) 색인의 모든 칸이 원본(practice-bank · basics · core-review-pack · quiz-options · study-review-catalog · memorize · hanneung-explanations)과 같은가.
-//  2) 조각을 모두 붙이면 원본과 글자 하나까지 같은가, 문제마다 필요한 조각(need)에 그 문제의 글 · 대입 · 상자 · 공통 줄 · 암기법이 다 있는가.
+//  0) 만든 파일(content-index.js, chunks/, chunk-manifest.json)이 원본과 맞는가(낡았으면 실패 — 통합 뒤 node build-chunks.cjs를 잊은 경우).
+//  1) 색인의 모든 칸이 원본(practice-bank, basics, core-review-pack, quiz-options, study-review-catalog, memorize, hanneung-explanations)과 같은가.
+//  2) 조각을 모두 붙이면 원본과 글자 하나까지 같은가, 문제마다 필요한 조각(need)에 그 문제의 글, 대입, 상자, 공통 줄, 암기법이 다 있는가.
 //  3) 같은 저장 상태(여러 날 푼 기록)로 전체 방식(원본을 다 읽음 = 다른 검사들이 도는 방식)과 받는 방식(브라우저가 도는 방식)을 가짜 DOM에서 나란히 돌려
-//     홈 · 과목 · 범위 · 파트 · 진도 화면과 저장 상태가 같고, 여러 범위와 과목이 섞인 대기열을 풀어 가는 화면 · 기록 · 일정이 걸음마다 같은가.
-//  4) 받지 못함(다시 불러오기) · 판이 바뀜(새 버전으로 다시 열기) · 기초 개념 보기 · 외울 것 · 다른 기기의 위치 · 채점 화면 복원.
-//  5) 서비스 워커: 설치 때 모든 조각을 미리 받고(지문 확인 · 같은 지문은 옛 캐시에서 복사), 오프라인에서 셸과 모든 조각을 내고, v246 캐시에서 올라오고, 조각 하나가 없으면 그 조각만 실패한다.
-//  6) 배포 목록(index.html · sw.js · pages.yml).
+//     홈, 과목, 범위, 파트, 진도 화면과 저장 상태가 같고, 여러 범위와 과목이 섞인 대기열을 풀어 가는 화면, 기록, 일정이 걸음마다 같은가.
+//  4) 받지 못함(다시 불러오기), 판이 바뀜(새 버전으로 다시 열기), 기초 개념 보기, 외울 것, 다른 기기의 위치, 채점 화면 복원.
+//  5) 서비스 워커: 설치 때 모든 조각을 미리 받고(지문 확인, 같은 지문은 옛 캐시에서 복사), 오프라인에서 셸과 모든 조각을 내고, v246 캐시에서 올라오고, 조각 하나가 없으면 그 조각만 실패한다.
+//  6) 배포 목록(index.html, sw.js, pages.yml).
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const build=require('./build-chunks.cjs'),store=require('./content-store.js');
 const read=f=>fs.readFileSync(path.join(__dirname,f),'utf8'),J=x=>JSON.stringify(x);
-// 값 비교는 JSON 글로 한다(vm 문맥에서 온 배열 · 객체는 원형이 달라 deepEqual이 통하지 않는다).
+// 값 비교는 JSON 글로 한다(vm 문맥에서 온 배열, 객체는 원형이 달라 deepEqual이 통하지 않는다).
 const D=(a,b,msg)=>same(JSON.stringify(a),JSON.stringify(b),msg||'값이 다르다');
 const same=(a,b,msg)=>{if(a===b)return;let i=0;while(i<a.length&&i<b.length&&a[i]===b[i])i++;assert.fail(msg+' — 처음 다른 곳 '+i+': 「'+a.slice(Math.max(0,i-60),i+80)+'」 ≠ 「'+b.slice(Math.max(0,i-60),i+80)+'」');};
 (async()=>{
 // ---------------------------------------------------------------- 0) 만든 파일이 낡지 않았다
 const src=build.loadSources(),built=build.derive(src);
-{const bad=build.diff(built);D(bad,[],'조각 · 색인이 원본과 다르다(낡았다). node build-chunks.cjs 를 돌리고 chunks/ · content-index.js · chunk-manifest.json을 커밋할 것: '+bad.slice(0,8).join(' / '));}
+{const bad=build.diff(built);D(bad,[],'조각, 색인이 원본과 다르다(낡았다). node build-chunks.cjs 를 돌리고 chunks/, content-index.js, chunk-manifest.json을 커밋할 것: '+bad.slice(0,8).join(' / '));}
 const pack=src.CORE_REVIEW_PACK,options=src.QUIZ_OPTIONS,bank=src.PRACTICE_BANK,basics=src.STUDY_BASICS,parts=src.STUDY_PARTS,catalog=src.STUDY_REVIEW_CATALOG,memo=src.MEMORIZE,explanations=src.HANNEUNG_EXPLANATIONS,mnemonics=src.HISTORY_MNEMONICS;
 // ---------------------------------------------------------------- 1) 색인 = 원본
 const index=(()=>{const c={};vm.createContext(c);vm.runInContext(read('content-index.js'),c,{filename:'content-index.js'});assert.equal(J(c.CORE_REVIEW_PACK),'[]');assert.equal(J(c.QUIZ_OPTIONS),'{}');return JSON.parse(J(c.CONTENT_INDEX));})();
@@ -30,12 +30,12 @@ const names=index.names;
  D(Object.keys(index.boxes).sort(),Object.keys(basics.boxes).sort(),'상자 목록');
  const flat=Object.entries(index.applyBox).flatMap(([box,list])=>list.map(id=>id+'>'+box)).sort(),want=Object.entries(basics.apply).filter(e=>typeof e[1].box==='string').map(([id,a])=>id+'>'+a.box).sort();
  D(flat,want,'대입이 가리키는 상자');
- same(J(index.catalog.sets),J(catalog.sets),'요약 묶음');same(J(index.catalog.lectures),J(catalog.lectures),'강 범위 · 핵심 20');assert.equal(index.catalog.total,catalog.total);assert.equal(index.catalog.schema,catalog.schema);
+ same(J(index.catalog.sets),J(catalog.sets),'요약 묶음');same(J(index.catalog.lectures),J(catalog.lectures),'강 범위, 핵심 20');assert.equal(index.catalog.total,catalog.total);assert.equal(index.catalog.schema,catalog.schema);
  D(Object.keys(index.catalog.q),Object.keys(catalog.questions));for(const [id,q]of Object.entries(catalog.questions))D([index.catalog.q[id][0],index.catalog.sections[index.catalog.q[id][1]]],[q.number,q.section],id);
  same(J(index.english.areas),J(src.ENGLISH_FORMULAS.areas),'문법 공식 영역');
  D(index.memo.map(m=>[m.id,m.subject,m.title,m.size]),memo.sets.map(s=>[s.id,s.subject,s.title,memo.size(s)]),'외울 것 목록');
  D(Object.entries(index.hx).flatMap(([r,l])=>l.map(n=>'hanneung-'+r+'-'+String(n).padStart(2,'0'))).sort(),Object.keys(explanations).sort(),'해설 있는 한능검 문제');
- assert.ok(!/"(question|explanation|rule|hook|examples|choices|coverage)":/.test(read('content-index.js')),'색인에 문제 글 · 해설 칸이 없다');
+ assert.ok(!/"(question|explanation|rule|hook|examples|choices|coverage)":/.test(read('content-index.js')),'색인에 문제 글, 해설 칸이 없다');
  assert.ok(Buffer.byteLength(read('content-index.js'))<1200000,'색인이 1.2MB를 넘었다 — 글이 섞여 들었는지 볼 것');}
 // ---------------------------------------------------------------- 2) 조각 = 원본
 const chunks=new Map(names.map(n=>[n,JSON.parse(read('chunks/'+n+'.json'))]));
@@ -54,7 +54,7 @@ const chunks=new Map(names.map(n=>[n,JSON.parse(read('chunks/'+n+'.json'))]));
  once('외울 것',Object.fromEntries(memo.sets.map(s=>[s.id,s])),c=>(c.memorize||[]).map(s=>[s.id,s]),id=>names[index.memo.find(m=>m.id===id).c]);
  // 조각 안의 묶음 카드 순서 = 원본 순서(새 기기의 카드 순서가 여기서 나오지는 않지만 붙는 순서를 고정해 둔다).
  for(const [n,c]of chunks)if(c.core)D(c.core.map(x=>x.id),pack.filter(x=>coreAt.get(x.id)===n).map(x=>x.id),n);
- // 공통 줄: v246까지의 계산(app.js basicsSharedSets)을 여기 그대로 두고, 상자 조각에 실린 자리 이름과 모든 (파트 · 상자 · 줄)에서 맞대 본다.
+ // 공통 줄: v246까지의 계산(app.js basicsSharedSets)을 여기 그대로 두고, 상자 조각에 실린 자리 이름과 모든 (파트, 상자, 줄)에서 맞대 본다.
  const ruleFor=id=>bank[id]?.ruleId||basics.apply[id]?.box||null,keysOf=b=>[...new Set([...(b.terms||[]),...(b.rules?.items||[]),b.table,...(b.tables||[])].filter(Boolean).map(x=>JSON.stringify(x)))];
  const byPart=new Map(),byRule=new Map();
  for(const u of parts.units)for(const p of u.parts){const rules=[...new Set(p.ids.map(ruleFor).filter(r=>r&&basics.boxes[r]))];if(rules.length<2)continue;
@@ -66,7 +66,7 @@ const chunks=new Map(names.map(n=>[n,JSON.parse(read('chunks/'+n+'.json'))]));
  for(const [rule,box]of Object.entries(basics.boxes))for(const [slot,x]of store.boxItems(box)){const k=JSON.stringify(x),got=slotsOf.get(rule)||{};
   for(const p of partsOfRule.get(rule)||[]){const want=!!byPart.get(p.id)?.has(k);assert.equal(!!got[p.id]?.includes(slot),want,'공통 줄(파트 안): '+p.id+' '+rule+' '+slot);checked++;if(want)sharedCount++;}
   assert.equal(Object.values(got).some(s=>s.includes(slot)),!!byRule.get(rule)?.has(k),'공통 줄(어느 파트든): '+rule+' '+slot);}
- assert.ok(checked>3000&&sharedCount>100,'공통 줄 대조가 비어 있지 않다: '+checked+' · '+sharedCount);
+ assert.ok(checked>3000&&sharedCount>100,'공통 줄 대조가 비어 있지 않다: '+checked+', '+sharedCount);
  for(const [n,c]of chunks)for(const [rule,box]of Object.entries(c.boxes||{}))for(const x of box.mnemonics||[]){const b=mnemonics.get(x.id);if(b)same(J(c.mnemonics?.[x.id]),J(b),'암기법 블록은 그 상자와 같은 조각에: '+n+' '+x.id);}
  globalThis.__shared={checked,sharedCount};}
 // ---------------------------------------------------------------- 가짜 DOM에서 앱 돌리기(app.test.cjs와 같은 틀)
@@ -124,18 +124,18 @@ const answer=(inst,wrong)=>{
  inst.run('answerPractice('+J(id)+','+J(input)+')');assert.ok(inst.run('!!data.quizFeedback'),'답이 채점되지 않았다: '+id+' — '+inst.nodes.get('#message')._text);
  return inst.card();
 };
-// 한 범위를 열어 n문제를 푼다(셋에 하나는 틀린다). 걸음마다의 화면 글을 모아 돌려준다. 시계 · 기록 id는 걸음 번호로 정한다(두 방식이 같은 값을 쓰게).
+// 한 범위를 열어 n문제를 푼다(셋에 하나는 틀린다). 걸음마다의 화면 글을 모아 돌려준다. 시계, 기록 id는 걸음 번호로 정한다(두 방식이 같은 값을 쓰게).
 let stepNo=0;
 async function play(inst,scope,n,base){
  const out=[];inst.clock.now=base;inst.uuid.n=1000000+stepNo*100;await open(inst,scope);
- for(let i=0;i<n;i++){out.push('Q '+inst.nodes.get('#scopeLabel')._text+' · '+inst.nodes.get('#roundScore')._text+' · '+inst.nodes.get('#orderStatus')._text+' · '+inst.nodes.get('#retryStatus')._text+' :: '+inst.card()+' @@ 위치 '+inst.run('JSON.stringify(data.session||null)'));
+ for(let i=0;i<n;i++){out.push('Q '+inst.nodes.get('#scopeLabel')._text+', '+inst.nodes.get('#roundScore')._text+', '+inst.nodes.get('#orderStatus')._text+', '+inst.nodes.get('#retryStatus')._text+' :: '+inst.card()+' @@ 위치 '+inst.run('JSON.stringify(data.session||null)'));
   inst.clock.now=base+(i+1)*40000;inst.uuid.n=1000000+stepNo*100+i*3+1;
   const fb=answer(inst,i%3===1);if(fb===null)break;out.push('A '+fb);await next(inst);}
  return out;
 }
 // ---------------------------------------------------------------- 3) 같은 상태로 두 방식을 나란히
-// 저장 상태 만들기: 앱으로 여러 날에 걸쳐 여러 범위를 푼다(틀림 · 맞음 · 해설 열람, 더 풀기 · 대기열 모드 · 파트 점검 · 하루 목표 · 목표 점수 · 의견).
-// 받는 방식으로 만든다(전체 방식은 답 하나에 0.5초가 든다 — 카드마다 글을 든 채 상태를 통째로 복사해서). 저장소에는 어느 방식이든 글 없이 일정 · 기록만 남고,
+// 저장 상태 만들기: 앱으로 여러 날에 걸쳐 여러 범위를 푼다(틀림, 맞음, 해설 열람, 더 풀기, 대기열 모드, 파트 점검, 하루 목표, 목표 점수, 의견).
+// 받는 방식으로 만든다(전체 방식은 답 하나에 0.5초가 든다 — 카드마다 글을 든 채 상태를 통째로 복사해서). 저장소에는 어느 방식이든 글 없이 일정, 기록만 남고,
 // 아래에서 같은 저장 상태를 두 방식이 똑같이 읽고 똑같이 이어 가는지 본다.
 const SCOPES=[{subject:'한국사',round:'lecture-11'},{subject:'영어',topic:'Day 3'},{subject:'영어',topic:'formula:ditransitive-no'},{subject:'국어',topic:'논리 2장'},{subject:'국어',topic:'어휘 2장'},
  {subject:'컴퓨터일반',topic:'컴일 cg04'},{subject:'한국사',round:'79'},{subject:'컴퓨터일반',round:'paper-local9-2025-computer'},{subject:'정보보호론',round:''},{subject:'한국사',round:'lecture-252-256'},{subject:'영어',topic:'수일치'},{subject:'한국사',round:''}];
@@ -154,17 +154,17 @@ const G=boot({lazy:true,now:T0-45*DAY});
  }
  G.clock.now=T0-3600000;stepNo=900;await play(G,{subject:'영어',topic:'Day 9'},3,T0-3600000);assert.ok(answer(G,true),'마지막 답');} // 마지막은 채점 화면을 남긴 채(풀던 자리 복원 검사)
 SAVED=[...G.local];if(stateFile)fs.writeFileSync(stateFile,JSON.stringify(SAVED));}
-{const s=JSON.parse(new Map(SAVED).get('chagog-v1'));assert.ok(s.history.length>120&&s.explanationViews?.length>=20&&s.notes?.length===1&&s.openLectures?.length===2&&s.queueModes&&s.partChecks&&s.dailyGoals&&s.targetExam&&s.quizFeedback,'만든 상태에 기록 · 설정이 고루 들어 있다: '+s.history.length);
+{const s=JSON.parse(new Map(SAVED).get('chagog-v1'));assert.ok(s.history.length>120&&s.explanationViews?.length>=20&&s.notes?.length===1&&s.openLectures?.length===2&&s.queueModes&&s.partChecks&&s.dailyGoals&&s.targetExam&&s.quizFeedback,'만든 상태에 기록, 설정이 고루 들어 있다: '+s.history.length);
  assert.ok(s.cards.every(c=>!c.id.startsWith('en-day')||c.question===undefined),'저장소에는 문제 글을 남기지 않는다');}
 tick('상태 준비');
 const F=boot({lazy:false,saved:SAVED}),L=boot({lazy:true,saved:SAVED});tick('두 방식 시작');
 D(L.net.log,[],'받는 방식: 시작할 때 조각을 하나도 받지 않는다');
 assert.equal(L.run('Object.keys(PRACTICE_BANK).length'),0,'받는 방식: 시작할 때 연습 문제 글이 없다');
 assert.equal(L.run('StudyContent.lazy'),true);assert.equal(F.run('StudyContent.lazy'),false);
-same(L.lean(),F.lean(),'불러온 직후의 상태(카드 순서 · 일정 · 기록)');
+same(L.lean(),F.lean(),'불러온 직후의 상태(카드 순서, 일정, 기록)');
 same(J([...L.local]),J([...F.local]),'불러온 직후의 저장소');
 assert.equal(L.run('data.cards.length'),F.run('data.cards.length'));
-same(L.run('JSON.stringify([...cardContent()].map(([id,c])=>[id,c.subject]))'),F.run('JSON.stringify([...cardContent()].map(([id,c])=>[id,c.subject]))'),'카드 내용 순서 · 과목');
+same(L.run('JSON.stringify([...cardContent()].map(([id,c])=>[id,c.subject]))'),F.run('JSON.stringify([...cardContent()].map(([id,c])=>[id,c.subject]))'),'카드 내용 순서, 과목');
 const SUBJECTS=F.run('JSON.stringify(subjectsList())');same(L.run('JSON.stringify(subjectsList())'),SUBJECTS,'과목 목록');
 // 목록 화면: 조각 없이 그려지고 두 방식이 글자까지 같다.
 const screens=inst=>{const out={};const grab=(k,sels)=>{out[k]=sels.map(s=>inst.text(s)).join(' ## ');};
@@ -177,7 +177,7 @@ const screens=inst=>{const out={};const grab=(k,sels)=>{out[k]=sels.map(s=>inst.
  for(const kind of ['exam','self'])for(const s of [null,...JSON.parse(SUBJECTS)]){inst.run('openBadgeInfo('+J(s)+','+J(kind)+')');grab('뱃지 '+kind+' '+s,['#badgeInfo']);inst.run('closeBadgeInfo()');}
  inst.run("go('home')");return out;};
 {const a=screens(F),b=screens(L);for(const k of Object.keys(a)){assert.ok(a[k].length>10,'화면이 비어 있지 않다: '+k);same(b[k],a[k],'화면이 다르다: '+k);}
- D(L.net.log,[],'목록 화면(홈 · 과목 · 범위 · 파트 · 외울 것 목록 · 진도 · 뱃지)은 조각 없이 그려진다');
+ D(L.net.log,[],'목록 화면(홈, 과목, 범위, 파트, 외울 것 목록, 진도, 뱃지)은 조각 없이 그려진다');
  assert.ok(/약한 파트|복습 판정 \d/.test(a['한국사 파트']+a['영어 파트']+a['국어 파트']),'파트 화면에 복습 판정이 실제로 잡힌다');}
 tick('목록 화면');
 // 풀던 자리(채점 화면) 복원: 과목 화면의 '이어서'와 같은 길.
@@ -196,9 +196,9 @@ for(const [i,sc]of TODAY.entries()){stepNo=2000+i;const before=L.net.log.length,
  if(sc.topic==='Day 3')D(got,['u-en-day3'],'영어 Day 3은 그 단원 조각만');
  if(sc.topic==='컴일 cg04')D(got.sort(),['b-com-u2','u-comq-cg04'],'컴퓨터일반 한 단원은 그 단원 조각 + 기출과 함께 쓰는 상자 조각');
  if(sc.round==='79')assert.ok(got.includes('h-79')&&got.every(n=>n==='h-79'||n.startsWith('b-hist-')),'한능검 79회는 그 회 조각과 한국사 상자 조각만: '+got);
- same(L.lean(),F.lean(),'풀고 난 상태(기록 · 일정 · 설정): '+J(sc));}
-assert.ok(answered>=36,'범위마다 실제로 풀었다(틀린 문제 위주 모드의 빈 범위 · 다 푼 공식 범위는 안내 화면만 견준다): '+answered);
-// 과목이 섞인 대기열(범위 = 전체 과목): 여러 과목 · 단원의 문제가 한 대기열에 오고, 받는 방식이 문제마다 조각을 받아 가며 같은 순서로 낸다.
+ same(L.lean(),F.lean(),'풀고 난 상태(기록, 일정, 설정): '+J(sc));}
+assert.ok(answered>=36,'범위마다 실제로 풀었다(틀린 문제 위주 모드의 빈 범위, 다 푼 공식 범위는 안내 화면만 견준다): '+answered);
+// 과목이 섞인 대기열(범위 = 전체 과목): 여러 과목, 단원의 문제가 한 대기열에 오고, 받는 방식이 문제마다 조각을 받아 가며 같은 순서로 낸다.
 {// 새로 연 앱(받은 조각 없음)에서 이어 풀기: 지금까지의 저장 상태로 두 방식을 다시 연다.
  const F2=boot({lazy:false,saved:[...F.local]}),L2=boot({lazy:true,saved:[...L.local]});same(L2.lean(),F2.lean(),'다시 연 상태');
  stepNo=3000;const a=await play(F2,{subject:''},30,T0+20*600000),b=await play(L2,{subject:''},30,T0+20*600000);
@@ -207,12 +207,12 @@ assert.ok(answered>=36,'범위마다 실제로 풀었다(틀린 문제 위주 �
  const got=new Set(L2.net.log.filter(u=>u.startsWith('chunks/')).map(u=>u.replace(/^chunks\/|\.json.*$/g,'')));assert.ok(got.size>=5,'섞인 대기열에서 새 조각을 받아 가며 풀었다: '+[...got]);
  same(L2.lean(),F2.lean(),'섞인 대기열을 푼 뒤의 상태');globalThis.__mixed={subjects:[...subjects],chunks:got.size,steps:a.length};}
 {const a=screens(F),b=screens(L);for(const k of Object.keys(a))same(b[k],a[k],'푼 뒤 화면이 다르다: '+k);}
-// 기초 개념 보기 · 외울 것 목록 하나: 받은 뒤 두 방식이 같다.
+// 기초 개념 보기, 외울 것 목록 하나: 받은 뒤 두 방식이 같다.
 {const partsToSee=['h11-1','enf-1','ko2-1','cg04','s01'].filter(p=>F.run('!!PARTS.part('+J(p)+')'));assert.ok(partsToSee.length>=3,'볼 파트: '+partsToSee);
  for(const p of partsToSee){for(const inst of [F,L]){inst.run('go("parts",PARTS.unitOf('+J(p)+').subject);openBasics('+J(p)+')');await inst.settle();}assert.ok(F.text('#basicsBody').length>200,p);same(L.text('#basicsBody'),F.text('#basicsBody'),'기초 개념 보기: '+p);}
  for(const m of memo.sets.filter((s,i)=>i%6===0)){for(const inst of [F,L]){inst.run('memorizeShown=new Set();go("memorize",'+J(m.id)+')');await inst.settle();}assert.ok(F.text('#memorizeBody').length>100,m.id);same(L.text('#memorizeBody'),F.text('#memorizeBody'),'외울 것: '+m.id);same(L.text('#memorizeTitle'),F.text('#memorizeTitle'),'외울 것 제목');}}
 tick('풀이 대조');
-// ---------------------------------------------------------------- 2-2) 모든 조각을 붙이면 전역이 전체 방식과 같다 · 문제마다 need가 충분하다
+// ---------------------------------------------------------------- 2-2) 모든 조각을 붙이면 전역이 전체 방식과 같다, 문제마다 need가 충분하다
 {const A=boot({lazy:true,saved:SAVED});
  // need: 조각을 붙이기 전에, 색인만으로 모든 문제의 필요한 조각을 묻는다.
  const ids=[...pack.map(c=>c.id),...Object.keys(bank)],paperIds=A.run("JSON.stringify([...Gichul.papers.flatMap(p=>p.numbers.map(n=>Gichul.cardId(p,n))),...Hanneung.rows.map(r=>r.id)])");
@@ -232,16 +232,16 @@ tick('풀이 대조');
   const want={'보기':options,'상자':basics.boxes,'대입':basics.apply,'한능검 해설':explanations}[name];same(A.run('JSON.stringify('+code+')'),J(Object.fromEntries(Object.entries(want).sort())),'붙인 '+name+' = 원본');}
  same(A.run("JSON.stringify(StudyContent.index.core.ids.map(id=>StudyContent.core(id)))"),J(pack),'붙인 묶음 카드 = 원본');
  same(A.run('JSON.stringify(MEMORIZE.sets.map(s=>MEMORIZE.get(s.id)))'),J(memo.sets),'붙인 외울 것 = 원본');
- // 붙인 뒤의 카드 내용(과목 · 질문, 정답 · 해설 · 출처)과 공통 줄 판정이 전체 방식과 같다.
+ // 붙인 뒤의 카드 내용(과목, 질문, 정답, 해설, 출처)과 공통 줄 판정이 전체 방식과 같다.
  const content="JSON.stringify([...cardContent()])";same(A.run(content),F.run(content),'카드 내용(모든 문제)');
- const hx="JSON.stringify(Hanneung.rows.map(r=>[r.id,Hanneung.hasExplanation(r.id),Hanneung.explanation(r.id),QUIZ_OPTIONS[r.id]?.explanation]))";same(A.run(hx),F.run(hx),'한능검 해설 · 보기에 채운 해설');
- const sh="JSON.stringify(PARTS.units.flatMap(u=>u.parts.flatMap(p=>partBasics(p).flatMap(r=>{const b=BASICS.box(r);return [...b.terms,...b.rules.items,b.table,...(b.tables||[])].filter(Boolean).map(x=>(basicsShared(x,r,p.id)?1:0)+(basicsShared(x,r,null)?2:0)).join('');}))))";same(A.run(sh),F.run(sh),'공통 줄 판정(모든 파트 · 상자 · 줄)');
+ const hx="JSON.stringify(Hanneung.rows.map(r=>[r.id,Hanneung.hasExplanation(r.id),Hanneung.explanation(r.id),QUIZ_OPTIONS[r.id]?.explanation]))";same(A.run(hx),F.run(hx),'한능검 해설, 보기에 채운 해설');
+ const sh="JSON.stringify(PARTS.units.flatMap(u=>u.parts.flatMap(p=>partBasics(p).flatMap(r=>{const b=BASICS.box(r);return [...b.terms,...b.rules.items,b.table,...(b.tables||[])].filter(Boolean).map(x=>(basicsShared(x,r,p.id)?1:0)+(basicsShared(x,r,null)?2:0)).join('');}))))";same(A.run(sh),F.run(sh),'공통 줄 판정(모든 파트, 상자, 줄)');
  const mn="JSON.stringify(Object.values(BASICS.boxes).flatMap(b=>(b.mnemonics||[]).map(x=>[x.id,HISTORY_MNEMONICS.get(x.id)])))";same(A.run(mn),F.run(mn),'암기법 블록');
  globalThis.__need=Object.keys(need).length;}
 tick('전체 붙이기');
-// ---------------------------------------------------------------- 4) 받지 못함 · 판이 바뀜 · 다른 기기의 위치
+// ---------------------------------------------------------------- 4) 받지 못함, 판이 바뀜, 다른 기기의 위치
 {const B=boot({lazy:true,saved:SAVED});B.run("(()=>{const s=structuredClone(data);delete s.queueModes;commit(s);})()"); // 저장 상태의 국어는 '틀린 문제 위주'라 안 푼 범위가 비어 보인다 — 여기서는 기본 순서로
- // (가) 연결 없음: 안내 + 다시 불러오기. 빈 화면 · 멈춘 화면이 아니다.
+ // (가) 연결 없음: 안내 + 다시 불러오기. 빈 화면, 멈춘 화면이 아니다.
  B.net.offline=true;await open(B,{subject:'영어',topic:'Day 5'});
  assert.match(B.card(),/문제를 불러오지 못했어요/);assert.match(B.card(),/다시 불러오기/);assert.match(B.card(),/다른 범위 고르기/);assert.ok(!/새 버전/.test(B.card()));assert.equal(B.run('!!data.activePractice'),false);
  B.run("go('home')");assert.ok(B.text('#subjectList').length>50,'홈은 그대로 그려진다');B.run("go('range','영어')");assert.ok(B.text('#rangeList').includes('Day 5'),'범위 목록도 그대로');
@@ -261,13 +261,13 @@ tick('전체 붙이기');
  B.net.tamper.clear();B.click('#card','다시 불러오기');await B.settle();assert.ok(B.run('!!data.activePractice'));
  // 조각이 없어짐(404)도 판이 바뀐 것.
  B.net.missing.add('u-ko-ko4');await open(B,{subject:'국어',topic:'논리 4장'});assert.match(B.card(),/새 버전으로 바뀌었어요/);B.net.missing.clear();
- // (다) 기초 개념 보기 · 외울 것: 같은 안내, 뒤로 가기는 그대로.
+ // (다) 기초 개념 보기, 외울 것: 같은 안내, 뒤로 가기는 그대로.
  B.net.offline=true;B.run('go("parts","한국사");openBasics("h13-1")');await B.settle();assert.match(B.text('#basicsBody'),/문제를 불러오지 못했어요/);assert.match(B.text('#basicsBody'),/다시 불러오기/);
  B.net.offline=false;B.click('#basicsBody','다시 불러오기');await B.settle();assert.match(B.text('#basicsBody'),/이 파트 문제 풀기/);
  B.net.offline=true;B.run('go("memorize","history-people")');await B.settle();assert.match(B.text('#memorizeBody'),/문제를 불러오지 못했어요/);assert.equal(B.text('#memorizeTitle').length>3,true);
  B.net.offline=false;B.click('#memorizeBody','다시 불러오기');await B.settle();assert.match(B.text('#memorizeBody'),/확인/);
- assert.ok(!/카드|문항/.test([B.card(),B.text('#basicsBody'),B.text('#memorizeBody')].join(' ')),'안내 글에 카드 · 문항이라는 말이 없다');}
-{// (라) 다른 기기의 위치: 그 문제의 조각을 받은 뒤 같은 문제 · 같은 보기 순서로 연다. 받지 못하면 범위만 옮기고 안내를 보인다.
+ assert.ok(!/카드|문항/.test([B.card(),B.text('#basicsBody'),B.text('#memorizeBody')].join(' ')),'안내 글에 카드, 문항이라는 말이 없다');}
+{// (라) 다른 기기의 위치: 그 문제의 조각을 받은 뒤 같은 문제, 같은 보기 순서로 연다. 받지 못하면 범위만 옮기고 안내를 보인다.
  const R=boot({lazy:false,saved:SAVED}),C=boot({lazy:true,saved:SAVED}),Z=boot({lazy:true,saved:SAVED});
  R.clock.now=T0+DAY/2;await open(R,{subject:'영어',topic:'Day 7'});const row=JSON.parse(R.run('JSON.stringify(data.session)'));assert.ok(row.cardId&&row.choices,'전체 방식 기기의 위치: '+J(row).slice(0,120));
  C.run('StudyProgress.mergeSession('+J(row)+')');assert.equal(C.run('data.practiceScope?.topic')==='Day 7',false,'조각을 받기 전에는 위치를 옮기지 않는다');await C.settle();
@@ -275,7 +275,7 @@ tick('전체 붙이기');
  C.run("go('quiz')");await C.settle();R.run("go('quiz')");same(C.card(),R.card(),'다른 기기에서 넘어온 문제 화면');
  Z.net.offline=true;Z.run('StudyProgress.mergeSession('+J(row)+')');await Z.settle();assert.equal(Z.run('data.practiceScope.topic'),'Day 7','받지 못해도 범위는 옮긴다');assert.equal(Z.run('!!data.activePractice'),false);
  Z.run("go('quiz')");await Z.settle();assert.match(Z.card(),/문제를 불러오지 못했어요/);Z.net.offline=false;Z.click('#card','다시 불러오기');await Z.settle();assert.ok(Z.run('!!data.activePractice'));}
-{// (마) 기록이 없는 새 기기: 카드 순서 · 일정 · 첫 화면이 전체 방식과 같다.
+{// (마) 기록이 없는 새 기기: 카드 순서, 일정, 첫 화면이 전체 방식과 같다.
  const a=boot({lazy:false}),b=boot({lazy:true});same(b.lean(),a.lean(),'새 기기의 상태');same(b.text('#subjectList'),a.text('#subjectList'),'새 기기의 첫 화면');D(b.net.log,[]);
  assert.equal(b.run("data.cards.filter(c=>c.question!==undefined&&!/^(gichul|hanneung)-/.test(c.id)).length"),0,'받기 전 자체 제작 카드에는 글이 없다');
  await open(b,{subject:'영어',topic:'Day 1'});assert.ok(b.run("data.cards.filter(c=>c.id.startsWith('en-day1-')).every(c=>typeof c.question==='string'&&c.question&&typeof c.explanation==='string'&&c.source)"),'조각이 붙으면 그 단원 카드에 글이 붙는다');
@@ -349,7 +349,7 @@ const chunkUrls=names.map(n=>'chunks/'+n+'.json?h='+index.chunks[n]);
 {// (사) v246에서 올라오기: v246 워커가 잡고 있는 기기가 온라인으로 새 판을 연다.
  const d=device();const old=rel=>/\?v=214$|^manifest\.json$|^icon\.svg$/.test(rel)?Buffer.from('v246 '+rel):null;
  d.net.serve=old;const w246=d.worker(SW246);await w246.install();await w246.activate();assert.ok(d.stores.has('chagog-v246-computer-selfmade'));
- // 배포: 서버가 새 판을 낸다. 페이지의 요청은 아직 v246 워커(네트워크 먼저)를 거친다 — 새 html · 색인 · 조각이 네트워크에서 온다.
+ // 배포: 서버가 새 판을 낸다. 페이지의 요청은 아직 v246 워커(네트워크 먼저)를 거친다 — 새 html, 색인, 조각이 네트워크에서 온다.
  d.net.serve=fileOf;
  for(const a of ['index.html?v=215','content-index.js?v=215','app.js?v=215']){const r=await w246.get(a);assert.ok(r.ok,'v246 워커를 거쳐 새 셸: '+a);}
  const early=chunkUrls.slice(0,5);for(const u of early){const r=await w246.get(u);assert.ok(r.ok);assert.equal(store.hashBytes(new Uint8Array(await r.arrayBuffer())),/h=([0-9a-f]+)/.exec(u)[1],'v246 워커를 거친 조각도 지문이 맞다');}
@@ -368,14 +368,14 @@ tick('서비스 워커');
 {const yml=read('.github/workflows/pages.yml'),v=/app\.js\?v=(\d+)/.exec(html)[1],scripts=[...html.matchAll(/<script src="([^"?]+)\?v=(\d+)"><\/script>/g)];
  assert.ok(scripts.every(m=>m[2]===v),'index.html의 ?v=는 하나');
  for(const big of ['practice-bank.js','basics.js','core-review-pack.js','quiz-options.js','study-review-catalog.js','memorize.js','hanneung-explanations.js']){assert.ok(!html.includes(big),'index.html이 원본을 싣지 않는다: '+big);assert.ok(!swText.includes(big),'sw.js가 원본을 미리 받지 않는다: '+big);assert.ok(!new RegExp('cp [^\\n]*\\b'+big.replace('.','\\.')).test(yml),'배포 묶음에 원본을 넣지 않는다: '+big);}
- const order=scripts.map(m=>m[1]);assert.ok(order.indexOf('content-index.js')<order.indexOf('hanneung.js')&&order.indexOf('content-index.js')<order.indexOf('gichul.js'),'색인은 hanneung.js · gichul.js 앞(그릇을 먼저 만든다)');
+ const order=scripts.map(m=>m[1]);assert.ok(order.indexOf('content-index.js')<order.indexOf('hanneung.js')&&order.indexOf('content-index.js')<order.indexOf('gichul.js'),'색인은 hanneung.js, gichul.js 앞(그릇을 먼저 만든다)');
  assert.equal(order[order.indexOf('app.js')-1],'content-store.js','content-store.js는 app.js 바로 앞');
  const assets=assetsOf(swText);for(const f of [...order,'index.html','style.css'])assert.ok(assets.includes(f+'?v='+v),'sw.js 미리 받기에 '+f);
  assert.ok(swText.includes("./chunk-manifest.json?v="+v),'sw.js가 같은 판의 조각 목록을 받는다');
  for(const f of new Set(assets.map(a=>a.replace(/\?.*$/,''))))if(f!=='firebase-config.js')assert.ok(new RegExp('cp [^\\n]*\\b'+f.replace('.','\\.')+'\\b').test(yml),'pages.yml이 올린다: '+f);
  assert.ok(/cp [^\n]*\bchunk-manifest\.json\b/.test(yml)&&yml.includes('cp -r chunks _site/'),'pages.yml이 조각과 조각 목록을 올린다');assert.ok(/node lazy\.test\.cjs/.test(yml)&&/run: node build-chunks\.cjs --check && /.test(yml),'pages.yml이 맨 먼저 조각이 낡지 않았는지 보고(1초) 이 검사를 돌린다');
  assert.ok(/^chunks\/\*\.json -text$/m.test(read('.gitattributes')),'조각은 줄 끝 변환을 타지 않는다');}
-console.log('PASS lazy: 조각 '+names.length+'개 · 색인 '+Math.round(Buffer.byteLength(read('content-index.js'))/1024)+'KB가 원본과 맞고(낡지 않음), 조각을 다 붙이면 원본과 같고, 문제 '+globalThis.__need+'개마다 필요한 조각에 글 · 대입 · 상자가 있고, 공통 줄 '+globalThis.__shared.checked+'곳이 옛 계산과 같다; '
- +'같은 저장 상태로 전체 방식과 받는 방식의 목록 화면 · 저장 상태가 같고 풀이 '+steps+'걸음(과목이 섞인 대기열 '+globalThis.__mixed.steps+'걸음 · '+globalThis.__mixed.subjects.join('·')+' · 새 조각 '+globalThis.__mixed.chunks+'개)의 화면이 같다; '
- +'받지 못함 → 다시 불러오기, 지문 다름 · 404 → 새 버전으로 다시 열기, 기초 개념 보기 · 외울 것 · 다른 기기의 위치 · 채점 화면 복원; 서비스 워커: 셸 '+globalThis.__sw.assets+' + 조각 '+globalThis.__sw.chunks+' 미리 받기 · 오프라인 · 지문 확인 · 이어 받기 · v246에서 올라오기; 배포 목록');
+console.log('PASS lazy: 조각 '+names.length+'개, 색인 '+Math.round(Buffer.byteLength(read('content-index.js'))/1024)+'KB가 원본과 맞고(낡지 않음), 조각을 다 붙이면 원본과 같고, 문제 '+globalThis.__need+'개마다 필요한 조각에 글, 대입, 상자가 있고, 공통 줄 '+globalThis.__shared.checked+'곳이 옛 계산과 같다; '
+ +'같은 저장 상태로 전체 방식과 받는 방식의 목록 화면, 저장 상태가 같고 풀이 '+steps+'걸음(과목이 섞인 대기열 '+globalThis.__mixed.steps+'걸음, '+globalThis.__mixed.subjects.join(', ')+', 새 조각 '+globalThis.__mixed.chunks+'개)의 화면이 같다; '
+ +'받지 못함 → 다시 불러오기 / 지문 다름, 404 → 새 버전으로 다시 열기 / 기초 개념 보기, 외울 것, 다른 기기의 위치, 채점 화면 복원; 서비스 워커: 셸 '+globalThis.__sw.assets+' + 조각 '+globalThis.__sw.chunks+' 미리 받기, 오프라인, 지문 확인, 이어 받기, v246에서 올라오기; 배포 목록');
 })().catch(e=>{console.error(e);process.exitCode=1;});

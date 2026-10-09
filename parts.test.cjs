@@ -1,7 +1,7 @@
 // 파트(parts.js)와 파트별 점검 모드(part-check.js + app.js)를 확인한다.
-// 1) 파트 규칙(5문제 → 틀리면 3문제씩 더 → 통과·다시 볼 파트)  2) 파트 범위: 모든 문제가 정확히 한 파트에
-// 3) 앱을 가짜 DOM 위에서 돌려 19강 파트별 점검(모두 맞힘 = 5×파트 수 · 하나 틀리면 +3 · 바닥나면 다시 볼 파트 · 새로고침 뒤 이어짐)
-// 4) 파트별 상태 화면의 수(문제·외움·복습 판정·안 푼 문제 · 한국사 기출 첫 풀이)가 기록과 같다. 4-3) 복습 판정(v184): 하루 이상 지나 다시 푼 풀이만.
+// 1) 파트 규칙(5문제 → 틀리면 3문제씩 더 → 통과, 다시 볼 파트)  2) 파트 범위: 모든 문제가 정확히 한 파트에
+// 3) 앱을 가짜 DOM 위에서 돌려 19강 파트별 점검(모두 맞힘 = 5×파트 수, 하나 틀리면 +3, 바닥나면 다시 볼 파트, 새로고침 뒤 이어짐)
+// 4) 파트별 상태 화면의 수(문제, 외움, 복습 판정, 안 푼 문제 / 한국사 기출 첫 풀이)가 기록과 같다. 4-3) 복습 판정(v184): 하루 이상 지나 다시 푼 풀이만.
 'use strict';
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const PartCheck=require('./part-check.js');
@@ -36,7 +36,7 @@ const PartCheck=require('./part-check.js');
 }
 
 // ── 1-2) 복습 판정(v184, 2026-09-29 사용자: "자체문제 풀때 해설을 보면 뒤에 문제 풀때 맞히기 쉬워지니까")
-// 판정에 넣는 풀이 = 바로 앞 노출(풀이 · 해설 펼침)이 이전 날인 퀴즈 풀이. 문제마다 가장 최근 판정 풀이. 'unsure'는 틀림.
+// 판정에 넣는 풀이 = 바로 앞 노출(풀이, 해설 펼침)이 이전 날인 퀴즈 풀이. 문제마다 가장 최근 판정 풀이. 'unsure'는 틀림.
 {
  const T=(d,hm)=>Date.parse('2026-09-'+d+'T'+hm+':00Z'),row=(id,card,d,hm,result,mode='quiz')=>({id,cardId:card,date:'2026-09-'+d,at:new Date(T(d,hm)).toISOString(),result,mode});
  const dayOf=ms=>new Date(ms).toISOString().slice(0,10);
@@ -52,7 +52,7 @@ const PartCheck=require('./part-check.js');
  ];
  const views=[{id:'a1',openedAt:T('20','09:01')},{id:'e1',openedAt:T('21','08:00')},{id:'zz',openedAt:T('21','08:00')}];
  const got=PartCheck.delayed(history,views,dayOf);
- assert.deepEqual(Object.fromEntries([...got].sort()),{B:'correct',C:'correct',D:'correct',F:'unsure',G:'wrong'},'복습 판정: 같은 날 해설 뒤 풀이 · 처음 풀이는 빠지고, 다음 날 풀이는 들어간다');
+ assert.deepEqual(Object.fromEntries([...got].sort()),{B:'correct',C:'correct',D:'correct',F:'unsure',G:'wrong'},'복습 판정: 같은 날 해설 뒤 풀이, 처음 풀이는 빠지고, 다음 날 풀이는 들어간다');
  // 기록 순서가 섞여 있어도 같다(동기화로 다른 기기 기록이 뒤에 붙는 경우)
  assert.deepEqual(Object.fromEntries([...PartCheck.delayed([...history].reverse(),views,dayOf)].sort()),Object.fromEntries([...got].sort()));
  // 해설을 안 봤으면 E의 21일 풀이는 판정에 들어간다
@@ -60,13 +60,13 @@ const PartCheck=require('./part-check.js');
  const j=PartCheck.judge(['A','B','C','D','E','F','G','H'],got);
  assert.deepEqual([j.n,j.reviewed,j.right,j.wrong],[8,5,3,2]);
  assert.equal(j.weak,false,'8문제 파트에서 판정 5문제는 min(20, 8) = 8에 못 미친다');
- // 약함 문턱: min(20, 파트 문제 수) 이상 판정 · 30% 이상 틀림
+ // 약함 문턱: min(20, 파트 문제 수) 이상 판정, 30% 이상 틀림
  const res=(ok,bad)=>new Map([...Array.from({length:ok},(_,i)=>['o'+i,'correct']),...Array.from({length:bad},(_,i)=>['x'+i,i%2?'unsure':'wrong'])]);
  const ids=n=>[...Array.from({length:n},(_,i)=>'o'+i),...Array.from({length:n},(_,i)=>'x'+i)];
  const judgeN=(n,ok,bad)=>PartCheck.judge(ids(n).slice(0,0).concat([...res(ok,bad).keys()],Array.from({length:Math.max(0,n-ok-bad)},(_,i)=>'u'+i)),res(ok,bad));
- assert.equal(judgeN(8,5,3).weak,true,'8문제 파트: 8문제 모두 판정 · 3/8 = 37.5% 틀림 → 약함');
+ assert.equal(judgeN(8,5,3).weak,true,'8문제 파트: 8문제 모두 판정, 3/8 = 37.5% 틀림 → 약함');
  assert.equal(judgeN(8,5,2).weak,false,'8문제 파트: 7문제만 판정이면 아직(파트 전부 필요)');
- assert.equal(judgeN(30,14,6).weak,true,'30문제 파트: 판정 20문제 · 6/20 = 30% → 약함');
+ assert.equal(judgeN(30,14,6).weak,true,'30문제 파트: 판정 20문제, 6/20 = 30% → 약함');
  assert.equal(judgeN(30,0,19).weak,false,'30문제 파트: 판정 19문제면 모두 틀려도 아직');
  assert.equal(judgeN(30,15,5).weak,false,'30문제 파트: 5/20 = 25% → 약함 아님');
  assert.equal(PartCheck.WEAK_MIN,20);assert.equal(PartCheck.WEAK_RATE,0.3);
@@ -86,7 +86,7 @@ const PartCheck=require('./part-check.js');
 require('./study-review-catalog.js');require('./practice-bank.js');require('./quiz-options.js');const PARTS=require('./parts.js');
 const CAT=globalThis.STUDY_REVIEW_CATALOG,BANK=globalThis.PRACTICE_BANK,QO=globalThis.QUIZ_OPTIONS;
 const counts={};
-// 정보보호론 · 컴퓨터일반(2026-09-25~): 자체 제작 문제가 없어 9급 기출(gichul-<회차>-NN)을 주제로 나눈 파트. 과목의 앱 기출 전부가 정확히 한 파트에.
+// 정보보호론, 컴퓨터일반(2026-09-25~): 자체 제작 문제가 없어 9급 기출(gichul-<회차>-NN)을 주제로 나눈 파트. 과목의 앱 기출 전부가 정확히 한 파트에.
 require('./gichul-index.js');
 const GICHUL_SUBJECTS=['정보보호론','컴퓨터일반'];
 const gichulIdsOf=subject=>{const idx=globalThis.GICHUL_INDEX,code=Object.entries(idx.subjects).find(([,v])=>v===subject)[0],ids=[];
@@ -96,7 +96,7 @@ const itCounts={};
  const seen=new Map(),partIds=new Set();
  for(const s of GICHUL_SUBJECTS){const us=PARTS.unitsFor(s).filter(u=>!u.scope.topic);if(!us.length)continue;const all=gichulIdsOf(s),inParts=us.flatMap(u=>u.parts.flatMap(p=>p.ids));
   assert.deepEqual([...inParts].sort(),[...all].sort(),s+': 앱 기출 전부가 정확히 한 파트에');assert.equal(new Set(inParts).size,inParts.length,s+' 기출이 두 파트에');
-  for(const u of us){assert.deepEqual(u.scope,{topic:'',round:''},u.id+' 단원 범위는 비움(파트 · 과목 전체로만 연다)');
+  for(const u of us){assert.deepEqual(u.scope,{topic:'',round:''},u.id+' 단원 범위는 비움(파트, 과목 전체로만 연다)');
    for(const p of u.parts){assert.match(p.id,/^[a-z0-9-]+$/);assert.ok(!partIds.has(p.id),'파트 id 중복 '+p.id);partIds.add(p.id);assert.ok(p.ids.length,'빈 파트 '+p.id);assert.ok(!/기타/.test(p.title),'기타 파트 없음: '+p.title);
     for(const id of p.ids){assert.ok(!seen.has(id));seen.set(id,p.id);assert.equal(PARTS.partOf(id),p.id);assert.match(id,/^gichul-/);}}}
   itCounts[s]=us.reduce((n,u)=>n+u.parts.length,0)+'파트 '+inParts.length+'문제';}
@@ -110,7 +110,7 @@ const itCounts={};
    assert.match(p.id,/^[a-z0-9-]+$/);assert.ok(!partIds.has(p.id),'파트 id 중복 '+p.id);partIds.add(p.id);
    assert.ok(('part-'+p.id).length<=80,'범위 이름이 동기화 한도(80자) 안');assert.ok(p.ids.length,'빈 파트 '+p.id);
    assert.ok(!/기타/.test(p.title),'기타 파트 없음: '+p.title);
-   for(const id of p.ids){assert.ok(!seen.has(id),id+' 가 두 파트에 있다: '+seen.get(id)+' · '+p.id);seen.set(id,p.id);assert.equal(PARTS.partOf(id),p.id);
+   for(const id of p.ids){assert.ok(!seen.has(id),id+' 가 두 파트에 있다: '+seen.get(id)+', '+p.id);seen.set(id,p.id);assert.equal(PARTS.partOf(id),p.id);
     assert.ok(QO[id]||BANK[id]?.variants.length===1,id+'는 문제 하나');}
   }
   assert.deepEqual([...inParts].sort(),[...expected].sort(),u.id+': 범위의 모든 문제가 정확히 한 파트에');
@@ -118,14 +118,14 @@ const itCounts={};
  }
  for(const l of CAT.lectures)assert.ok(PARTS.units.some(u=>u.scope.round==='lecture-'+l.id),'한국사 '+l.title+'에 파트가 있다');
  for(const t of ['Day 1','Day 2','Day 3','Day 4','Day 5','Day 6','Day 7','Day 8','Day 9','Day 10','Day 11','Day 12','Day 13','Day 14','Day 15','문법 공식 훈련','논리 1장','논리 2장','논리 3장','논리 4장','논리 5장','논리 6장','독해 1장','독해 2장','독해 3장','문법 1장','문법 2장','문법 3장','공문서 1장','공문서 2장','공문서 3장','어휘 1장','어휘 2장'])assert.ok(PARTS.units.some(u=>u.scope.topic===t),t+'에 파트가 있다');
- // 2026-10-05 국어 문법(핵심 20): 규칙 정리 하나가 파트 하나(장마다 5파트), 독해 3장 다음에 장 순서대로. 2026-10-07 더 풀기를 더해 89 · 91문제(파트는 그대로).
+ // 2026-10-05 국어 문법(핵심 20): 규칙 정리 하나가 파트 하나(장마다 5파트), 독해 3장 다음에 장 순서대로. 2026-10-07 더 풀기를 더해 89, 91문제(파트는 그대로).
  {const g1=PARTS.units.find(u=>u.id==='ko-kg1'),g2=PARTS.units.find(u=>u.id==='ko-kg2');
   assert.deepEqual(g1.parts.map(p=>p.title),['음운과 음절','국어 음운의 체계','음운 변동의 갈래와 개수','교체','탈락, 축약, 첨가']);
   assert.deepEqual(g2.parts.map(p=>p.title),['형태소, 단어, 어절','품사 분류와 체언, 수식언','용언','조사와 품사의 통용','단어의 형성']);
   for(const [u,k] of [[g1,89],[g2,91]]){assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),k,u.id+' 문제 수');assert.ok(u.parts.every(p=>p.ids.length>=8),u.id+' 파트마다 8문제 이상');}
   const ids=PARTS.units.map(u=>u.id);assert.equal(ids.indexOf('ko-kg1'),ids.indexOf('ko-kr3')+1,'독해 3장 다음에 문법 1장');assert.equal(ids.indexOf('ko-kg2'),ids.indexOf('ko-kg1')+1,'문법 1장 다음에 2장');
-  // 2026-10-07 국어 묶음: 문법 2장 다음에 문법 3장 · 공문서 수정 1~3장 · 어휘 1~2장, 규칙 정리 하나가 파트 하나.
-  {let prev='ko-kg2';for(const s of [{"unit":"ko-kg3","n":149,"parts":["문장 성분","서술어의 자릿수","홑문장과 겹문장","사동 표현과 피동 표현","높임 표현"]},{"unit":"ko-kd1","n":103,"parts":["문장 성분의 호응","성분의 생략과 대등한 연결","꾸미는 말, 명사화, 번역 투","조사와 어미, 피동과 사동","원칙에 따라 공문서 고치기"]},{"unit":"ko-kd2","n":87,"parts":["마침표, 물음표, 느낌표","쉼표, 가운뎃점, 쌍점, 빗금","따옴표와 괄호","낫표, 화살괄호와 그 밖의 부호"]},{"unit":"ko-kd3","n":184,"parts":["두음 법칙의 표기","사이시옷의 표기","준말의 표기","꼴이 비슷한 어미와 조사","띄어쓰기","외래어 표기와 다듬은 말","중의적 표현과 잉여적 표현"]},{"unit":"ko-kv1","n":112,"parts":["발음이 비슷한 한자어 ①","발음이 비슷한 한자어 ②","발음이 비슷한 한자어 ③","문맥에 맞는 낱말 ①","문맥에 맞는 낱말 ②","문맥에 맞는 낱말 ③"]},{"unit":"ko-kv2","n":205,"parts":["한자 어휘 ① 각광 ~ 난마","한자 어휘 ② 난항 ~ 미봉책","한자 어휘 ③ 미상불 ~ 사족","한자 어휘 ④ 서광 ~ 유기","한자 어휘 ⑤ 유명세 ~ 천착","한자 어휘 ⑥ 초미 ~ 흉금","지문 속 낱말 바꿔 쓰기"]}]){const u=PARTS.units.find(x=>x.id===s.unit);assert.ok(u,s.unit);assert.deepEqual(u.parts.map(p=>p.title),s.parts,s.unit+' 파트');
+  // 2026-10-07 국어 묶음: 문법 2장 다음에 문법 3장, 공문서 수정 1~3장, 어휘 1~2장, 규칙 정리 하나가 파트 하나.
+  {let prev='ko-kg2';for(const s of [{"unit":"ko-kg3","n":149,"parts":["문장 성분","서술어의 자릿수","홑문장과 겹문장","사동 표현과 피동 표현","높임 표현"]},{"unit":"ko-kd1","n":103,"parts":["문장 성분의 호응","성분의 생략과 대등한 연결","꾸미는 말, 명사화, 번역 투","조사와 어미, 피동과 사동","원칙에 따라 공문서 고치기"]},{"unit":"ko-kd2","n":79,"parts":["마침표, 물음표, 느낌표","쉼표, 쌍점, 빗금","따옴표와 괄호","낫표, 화살괄호와 그 밖의 부호"]},{"unit":"ko-kd3","n":184,"parts":["두음 법칙의 표기","사이시옷의 표기","준말의 표기","꼴이 비슷한 어미와 조사","띄어쓰기","외래어 표기와 다듬은 말","중의적 표현과 잉여적 표현"]},{"unit":"ko-kv1","n":112,"parts":["발음이 비슷한 한자어 ①","발음이 비슷한 한자어 ②","발음이 비슷한 한자어 ③","문맥에 맞는 낱말 ①","문맥에 맞는 낱말 ②","문맥에 맞는 낱말 ③"]},{"unit":"ko-kv2","n":205,"parts":["한자 어휘 ① 각광 ~ 난마","한자 어휘 ② 난항 ~ 미봉책","한자 어휘 ③ 미상불 ~ 사족","한자 어휘 ④ 서광 ~ 유기","한자 어휘 ⑤ 유명세 ~ 천착","한자 어휘 ⑥ 초미 ~ 흉금","지문 속 낱말 바꿔 쓰기"]}]){const u=PARTS.units.find(x=>x.id===s.unit);assert.ok(u,s.unit);assert.deepEqual(u.parts.map(p=>p.title),s.parts,s.unit+' 파트');
     assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),s.n,s.unit+' 문제 수');assert.ok(u.parts.every(p=>p.ids.length>=8),s.unit+' 파트마다 8문제 이상');assert.equal(ids.indexOf(s.unit),ids.indexOf(prev)+1,prev+' 다음에 '+s.unit);prev=s.unit;}}}
  const h19=PARTS.units.find(u=>u.id==='hist-19');assert.equal(h19.parts.length,8);assert.equal(h19.parts.reduce((n,p)=>n+p.ids.length,0),115);
  // 2026-09-23 20강 조선 전기(문화 I): facts.cjs 묶음 15개 → 8파트, 99문제. 파트마다 8문제 이상이고 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
@@ -137,63 +137,63 @@ const itCounts={};
  const h21=PARTS.units.find(u=>u.id==='hist-21');assert.equal(h21.title,'21강 조선 전기(문화 II)');
  assert.deepEqual(h21.parts.map(p=>p.title),['인쇄술과 제지술, 병서와 무기','천문학과 과학 기구','역법, 의학, 농서','훈민정음','궁궐, 종묘, 장경판전, 원각사지','서원 건축과 대표 서원','분청사기, 백자와 그림','문학과 글씨']);
  assert.equal(h21.parts.reduce((n,p)=>n+p.ids.length,0),94);assert.ok(h21.parts.every(p=>p.ids.length>=8),'21강 파트마다 8문제 이상');
- // 2026-09-27 22강 조선 후기(정치): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 6개를 2파트로(파트 점검 5 + 3 = 8문제가 되게 파트마다 8문제 이상). 21강 다음 · 특강 앞.
+ // 2026-09-27 22강 조선 후기(정치): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 6개를 2파트로(파트 점검 5 + 3 = 8문제가 되게 파트마다 8문제 이상). 21강 다음, 특강 앞.
  const h22=PARTS.units.find(u=>u.id==='hist-22');assert.equal(h22.title,'22강 조선 후기(정치)');assert.equal(h22.scope.round,'lecture-22');
  assert.deepEqual(h22.parts.map(p=>p.id),['h22-1','h22-2']);assert.deepEqual(h22.parts.map(p=>p.title),['붕당 정치와 예송, 환국','탕평 정치와 세도 정치']);
  assert.deepEqual(h22.parts.map(p=>p.ids.length),[8,12]);assert.ok(h22.parts.every(p=>p.ids.length>=8),'22강 파트마다 8문제 이상');
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-22'),hi.indexOf('hist-21')+1);assert.equal(hi.indexOf('hist-23'),hi.indexOf('hist-22')+1);}
- // 2026-09-28 23강 조선 후기(조직, 외교): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 7개를 2파트로(파트마다 8문제 이상). 22강 다음 · 특강 앞.
+ // 2026-09-28 23강 조선 후기(조직, 외교): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 7개를 2파트로(파트마다 8문제 이상). 22강 다음, 특강 앞.
  const h23=PARTS.units.find(u=>u.id==='hist-23');assert.equal(h23.title,'23강 조선 후기(조직, 외교)');assert.equal(h23.scope.round,'lecture-23');
  assert.deepEqual(h23.parts.map(p=>p.id),['h23-1','h23-2']);assert.deepEqual(h23.parts.map(p=>p.title),['비변사와 군사 제도','청, 일본과의 관계, 간도와 독도']);
  assert.deepEqual(h23.parts.map(p=>p.ids.length),[8,12]);assert.ok(h23.parts.every(p=>p.ids.length>=8),'23강 파트마다 8문제 이상');
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-24'),hi.indexOf('hist-23')+1);}
- // 2026-09-28 24강 조선 후기(경제): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 6개를 2파트로(파트마다 8문제 이상). 23강 다음 · 특강 앞.
+ // 2026-09-28 24강 조선 후기(경제): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 6개를 2파트로(파트마다 8문제 이상). 23강 다음, 특강 앞.
  const h24=PARTS.units.find(u=>u.id==='hist-24');assert.equal(h24.title,'24강 조선 후기(경제)');assert.equal(h24.scope.round,'lecture-24');
  assert.deepEqual(h24.parts.map(p=>p.id),['h24-1','h24-2']);assert.deepEqual(h24.parts.map(p=>p.title),['수취 체제와 농촌 경제','상업, 화폐, 수공업과 광업']);
  assert.deepEqual(h24.parts.map(p=>p.ids.length),[8,12]);assert.ok(h24.parts.every(p=>p.ids.length>=8),'24강 파트마다 8문제 이상');
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-25'),hi.indexOf('hist-24')+1);}
- // 2026-09-28 25강 조선 후기(사회): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 8개를 2파트로(파트마다 8문제 이상). 24강 다음 · 특강 앞.
+ // 2026-09-28 25강 조선 후기(사회): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 8개를 2파트로(파트마다 8문제 이상). 24강 다음, 특강 앞.
  const h25=PARTS.units.find(u=>u.id==='hist-25');assert.equal(h25.title,'25강 조선 후기(사회)');assert.equal(h25.scope.round,'lecture-25');
  assert.deepEqual(h25.parts.map(p=>p.id),['h25-1','h25-2']);assert.deepEqual(h25.parts.map(p=>p.title),['신분제의 동요와 향촌 질서','천주교, 동학과 농민 봉기']);
  assert.deepEqual(h25.parts.map(p=>p.ids.length),[8,12]);assert.ok(h25.parts.every(p=>p.ids.length>=8),'25강 파트마다 8문제 이상');
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-26'),hi.indexOf('hist-25')+1);}
- // 2026-09-30 26강 조선 후기(문화 1): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 8개를 2파트로(파트마다 8문제 이상). 25강 다음 · 특강 앞.
+ // 2026-09-30 26강 조선 후기(문화 1): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 8개를 2파트로(파트마다 8문제 이상). 25강 다음, 특강 앞.
  const h26=PARTS.units.find(u=>u.id==='hist-26');assert.equal(h26.title,'26강 조선 후기(문화 1)');assert.equal(h26.scope.round,'lecture-26');
  assert.deepEqual(h26.parts.map(p=>p.id),['h26-1','h26-2']);assert.deepEqual(h26.parts.map(p=>p.title),['성리학, 양명학과 농업 중심 개혁론','상공업 중심 개혁론과 국학']);
  assert.deepEqual(h26.parts.map(p=>p.ids.length),[8,12]);assert.ok(h26.parts.every(p=>p.ids.length>=8),'26강 파트마다 8문제 이상');
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-27'),hi.indexOf('hist-26')+1);}
- // 2026-09-30 27강 조선 후기(문화 2): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 7개를 2파트로(파트마다 8문제 이상). 26강 다음 · 특강 앞.
+ // 2026-09-30 27강 조선 후기(문화 2): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 7개를 2파트로(파트마다 8문제 이상). 26강 다음, 특강 앞.
  const h27=PARTS.units.find(u=>u.id==='hist-27');assert.equal(h27.title,'27강 조선 후기(문화 2)');assert.equal(h27.scope.round,'lecture-27');
  assert.deepEqual(h27.parts.map(p=>p.id),['h27-1','h27-2']);assert.deepEqual(h27.parts.map(p=>p.title),['서양 문물과 과학 기술, 공예와 건축','서민 문화와 예술']);
  assert.deepEqual(h27.parts.map(p=>p.ids.length),[8,12]);assert.ok(h27.parts.every(p=>p.ids.length>=8),'27강 파트마다 8문제 이상');
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-28'),hi.indexOf('hist-27')+1);}
- // 2026-09-30 28강 개항기(흥선 대원군): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 5개를 2파트로(파트마다 8문제 이상). 27강 다음 · 특강 앞.
+ // 2026-09-30 28강 개항기(흥선 대원군): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 5개를 2파트로(파트마다 8문제 이상). 27강 다음, 특강 앞.
  const h28=PARTS.units.find(u=>u.id==='hist-28');assert.equal(h28.title,'28강 개항기(흥선 대원군)');assert.equal(h28.scope.round,'lecture-28');
  assert.deepEqual(h28.parts.map(p=>p.id),['h28-1','h28-2']);assert.deepEqual(h28.parts.map(p=>p.title),['흥선 대원군의 개혁 정치','통상 수교 거부 정책과 양요']);
  assert.deepEqual(h28.parts.map(p=>p.ids.length),[11,9]);assert.ok(h28.parts.every(p=>p.ids.length>=8),'28강 파트마다 8문제 이상');
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-29'),hi.indexOf('hist-28')+1);}
- // 2026-09-30 29강 개항기(개항 ~ 갑신정변): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 5개를 2파트로(파트마다 8문제 이상). 28강 다음 · 특강 앞.
+ // 2026-09-30 29강 개항기(개항 ~ 갑신정변): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 5개를 2파트로(파트마다 8문제 이상). 28강 다음, 특강 앞.
  const h29=PARTS.units.find(u=>u.id==='hist-29');assert.equal(h29.title,'29강 개항기(개항 ~ 갑신정변)');assert.equal(h29.scope.round,'lecture-29');
  assert.deepEqual(h29.parts.map(p=>p.id),['h29-1','h29-2']);assert.deepEqual(h29.parts.map(p=>p.title),['강화도 조약과 개화 정책','위정척사 운동, 임오군란, 갑신정변']);
  assert.deepEqual(h29.parts.map(p=>p.ids.length),[8,12]);assert.ok(h29.parts.every(p=>p.ids.length>=8),'29강 파트마다 8문제 이상');
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-30'),hi.indexOf('hist-29')+1);}
- // 2026-09-30 30강 개항기(동학 농민 운동 ~ 대한 제국): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 6개를 2파트로(파트마다 8문제 이상). 29강 다음 · 특강 앞.
+ // 2026-09-30 30강 개항기(동학 농민 운동 ~ 대한 제국): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 6개를 2파트로(파트마다 8문제 이상). 29강 다음, 특강 앞.
  const h30=PARTS.units.find(u=>u.id==='hist-30');assert.equal(h30.title,'30강 개항기(동학 농민 운동 ~ 대한 제국)');assert.equal(h30.scope.round,'lecture-30');
  assert.deepEqual(h30.parts.map(p=>p.id),['h30-1','h30-2']);assert.deepEqual(h30.parts.map(p=>p.title),['동학 농민 운동과 갑오개혁','을미개혁, 독립 협회, 대한 제국']);
  assert.deepEqual(h30.parts.map(p=>p.ids.length),[9,11]);assert.ok(h30.parts.every(p=>p.ids.length>=8),'30강 파트마다 8문제 이상');
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-31'),hi.indexOf('hist-30')+1);}
- // 2026-09-30 31강 국권 피탈과 저항: 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 30강 다음 · 특강 앞.
+ // 2026-09-30 31강 국권 피탈과 저항: 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 30강 다음, 특강 앞.
  const h31=PARTS.units.find(u=>u.id==='hist-31');assert.equal(h31.title,'31강 국권 피탈과 저항');assert.equal(h31.scope.round,'lecture-31');
  assert.deepEqual(h31.parts.map(p=>p.id),['h31-1','h31-2']);assert.deepEqual(h31.parts.map(p=>p.title),['일제의 국권 침탈 과정','애국 계몽 운동, 의병, 의거']);
  assert.deepEqual(h31.parts.map(p=>p.ids.length),[9,11]);assert.ok(h31.parts.every(p=>p.ids.length>=8),'31강 파트마다 8문제 이상');
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-32'),hi.indexOf('hist-31')+1);}
- // 2026-10-05 38강 현대(광복 ~ 6·25 전쟁): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(31강 다음 · 특강 앞).
+ // 2026-10-05 38강 현대(광복 ~ 6.25 전쟁): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(31강 다음, 특강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-32'),hi.indexOf('hist-31')+1);assert.equal(hi.indexOf('hist-39'),hi.indexOf('hist-38')+1);}
- // 2026-10-05 39강 현대(민주주의의 발전): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(38강 다음 · 특강 앞).
+ // 2026-10-05 39강 현대(민주주의의 발전): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(38강 다음, 특강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-39'),hi.indexOf('hist-38')+1);assert.equal(hi.indexOf('hist-40'),hi.indexOf('hist-39')+1);}
- // 2026-10-05 40강 현대(경제 발전과 통일 정책): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 3개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(39강 다음 · 특강 앞).
+ // 2026-10-05 40강 현대(경제 발전과 통일 정책): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 3개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(39강 다음, 특강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-40'),hi.indexOf('hist-39')+1);assert.equal(hi.indexOf('hist-28-40'),hi.indexOf('hist-40')+1);}
- // 2026-10-05 28~40강 근대 순서 훈련: 30문제(28~40강 사건 순서) → 3파트(① 흥선 대원군 ~ 국권 피탈 · ② 일제 강점기 · ③ 광복 이후, 파트마다 8문제 이상). 40강 다음 · 특강 앞.
+ // 2026-10-05 28~40강 근대 순서 훈련: 30문제(28~40강 사건 순서) → 3파트(① 흥선 대원군 ~ 국권 피탈 / ② 일제 강점기 / ③ 광복 이후, 파트마다 8문제 이상). 40강 다음, 특강 앞.
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-28-40'),hi.indexOf('hist-40')+1);assert.equal(hi.indexOf('hist-250'),hi.indexOf('hist-28-40')+1);}
  const h2840=PARTS.units.find(u=>u.id==='hist-28-40');assert.equal(h2840.title,'28~40강 근대 순서 훈련');assert.equal(h2840.scope.round,'lecture-28-40');
  assert.deepEqual(h2840.parts.map(p=>p.id),['h2840-1','h2840-2','h2840-3']);assert.deepEqual(h2840.parts.map(p=>p.title),['근대 사건 순서 ① 흥선 대원군 ~ 국권 피탈','근대 사건 순서 ② 일제 강점기','근대 사건 순서 ③ 광복 이후']);
@@ -204,17 +204,17 @@ const itCounts={};
  const h39=PARTS.units.find(u=>u.id==='hist-39');assert.equal(h39.title,'39강 현대(민주주의의 발전)');assert.equal(h39.scope.round,'lecture-39');
  assert.deepEqual(h39.parts.map(p=>p.id),['h39-1','h39-2']);assert.deepEqual(h39.parts.map(p=>p.title),['이승만, 장면, 박정희 정부','신군부와 민주화 이후']);
  assert.deepEqual(h39.parts.map(p=>p.ids.length),[12,8]);assert.ok(h39.parts.every(p=>p.ids.length>=8),'39강 파트마다 8문제 이상');
- // 2026-10-05 32강 개항기(경제): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(31강 다음 · 38강 앞).
+ // 2026-10-05 32강 개항기(경제): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(31강 다음, 38강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-32'),hi.indexOf('hist-31')+1);assert.equal(hi.indexOf('hist-33'),hi.indexOf('hist-32')+1);}
- // 2026-10-05 33강 개항기(문화): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(32강 다음 · 38강 앞).
+ // 2026-10-05 33강 개항기(문화): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(32강 다음, 38강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-33'),hi.indexOf('hist-32')+1);assert.equal(hi.indexOf('hist-34'),hi.indexOf('hist-33')+1);}
- // 2026-10-05 34강 일제 강점기(식민 통치): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 3개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(33강 다음 · 38강 앞).
+ // 2026-10-05 34강 일제 강점기(식민 통치): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 3개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(33강 다음, 38강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-34'),hi.indexOf('hist-33')+1);assert.equal(hi.indexOf('hist-35'),hi.indexOf('hist-34')+1);}
- // 2026-10-05 35강 일제 강점기(1910년대 저항): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 3개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(34강 다음 · 38강 앞).
+ // 2026-10-05 35강 일제 강점기(1910년대 저항): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 3개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(34강 다음, 38강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-35'),hi.indexOf('hist-34')+1);assert.equal(hi.indexOf('hist-36'),hi.indexOf('hist-35')+1);}
- // 2026-10-05 36강 일제 강점기(1920년대 저항): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(35강 다음 · 38강 앞).
+ // 2026-10-05 36강 일제 강점기(1920년대 저항): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(35강 다음, 38강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-36'),hi.indexOf('hist-35')+1);assert.equal(hi.indexOf('hist-37'),hi.indexOf('hist-36')+1);}
- // 2026-10-05 37강 일제 강점기(1930년대 이후 저항): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(36강 다음 · 38강 앞).
+ // 2026-10-05 37강 일제 강점기(1930년대 이후 저항): 기출 빈도 상위 20문제(사용자 요청) → facts.cjs 묶음 4개를 2파트로(파트마다 8문제 이상). 교재 번호 순서 자리(36강 다음, 38강 앞).
  {const hi=PARTS.units.map(u=>u.id);assert.equal(hi.indexOf('hist-37'),hi.indexOf('hist-36')+1);assert.equal(hi.indexOf('hist-38'),hi.indexOf('hist-37')+1);}
  const h37=PARTS.units.find(u=>u.id==='hist-37');assert.equal(h37.title,'37강 일제 강점기(1930년대 이후 저항)');assert.equal(h37.scope.round,'lecture-37');
  assert.deepEqual(h37.parts.map(p=>p.id),['h37-1','h37-2']);assert.deepEqual(h37.parts.map(p=>p.title),['의열 투쟁과 무장 독립 전쟁','민족 문화 수호와 건국 준비']);
@@ -223,7 +223,7 @@ const itCounts={};
  assert.deepEqual(h36.parts.map(p=>p.id),['h36-1','h36-2']);assert.deepEqual(h36.parts.map(p=>p.title),['실력 양성 운동, 사회 운동과 신간회','의열 투쟁, 민족 문화와 무장 독립 전쟁']);
  assert.deepEqual(h36.parts.map(p=>p.ids.length),[11,9]);assert.ok(h36.parts.every(p=>p.ids.length>=8),'36강 파트마다 8문제 이상');
  const h35=PARTS.units.find(u=>u.id==='hist-35');assert.equal(h35.title,'35강 일제 강점기(1910년대 저항)');assert.equal(h35.scope.round,'lecture-35');
- assert.deepEqual(h35.parts.map(p=>p.id),['h35-1','h35-2']);assert.deepEqual(h35.parts.map(p=>p.title),['국외 독립운동 기지와 비밀 결사','3·1 운동과 대한민국 임시 정부']);
+ assert.deepEqual(h35.parts.map(p=>p.id),['h35-1','h35-2']);assert.deepEqual(h35.parts.map(p=>p.title),['국외 독립운동 기지와 비밀 결사','3.1 운동과 대한민국 임시 정부']);
  assert.deepEqual(h35.parts.map(p=>p.ids.length),[9,11]);assert.ok(h35.parts.every(p=>p.ids.length>=8),'35강 파트마다 8문제 이상');
  const h34=PARTS.units.find(u=>u.id==='hist-34');assert.equal(h34.title,'34강 일제 강점기(식민 통치)');assert.equal(h34.scope.round,'lecture-34');
  assert.deepEqual(h34.parts.map(p=>p.id),['h34-1','h34-2']);assert.deepEqual(h34.parts.map(p=>p.title),['무단 통치와 문화 통치','민족 말살 통치와 전시 수탈']);
@@ -234,25 +234,25 @@ const itCounts={};
  const h32=PARTS.units.find(u=>u.id==='hist-32');assert.equal(h32.title,'32강 개항기(경제)');assert.equal(h32.scope.round,'lecture-32');
  assert.deepEqual(h32.parts.map(p=>p.id),['h32-1','h32-2']);assert.deepEqual(h32.parts.map(p=>p.title),['열강의 경제 침탈','경제적 구국 운동']);
  assert.deepEqual(h32.parts.map(p=>p.ids.length),[12,8]);assert.ok(h32.parts.every(p=>p.ids.length>=8),'32강 파트마다 8문제 이상');
- const h38=PARTS.units.find(u=>u.id==='hist-38');assert.equal(h38.title,'38강 현대(광복 ~ 6·25 전쟁)');assert.equal(h38.scope.round,'lecture-38');
- assert.deepEqual(h38.parts.map(p=>p.id),['h38-1','h38-2']);assert.deepEqual(h38.parts.map(p=>p.title),['광복과 대한민국 정부 수립','제헌 국회의 활동과 6·25 전쟁']);
+ const h38=PARTS.units.find(u=>u.id==='hist-38');assert.equal(h38.title,'38강 현대(광복 ~ 6.25 전쟁)');assert.equal(h38.scope.round,'lecture-38');
+ assert.deepEqual(h38.parts.map(p=>p.id),['h38-1','h38-2']);assert.deepEqual(h38.parts.map(p=>p.title),['광복과 대한민국 정부 수립','제헌 국회의 활동과 6.25 전쟁']);
  assert.deepEqual(h38.parts.map(p=>p.ids.length),[10,10]);assert.ok(h38.parts.every(p=>p.ids.length>=8),'38강 파트마다 8문제 이상');
- // 2026-09-24 주제 특강(250쪽 세시 풍속 · 252~256쪽 근·현대 인물): facts.cjs 묶음 13개 = 13파트, 552문제. 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
- // 2026-09-27 두 강으로 나눔(hist-250 세시 풍속 2파트 · hist-252-256 근·현대 인물 11파트) — 파트 id는 옛 h250256-1~13 그대로.
+ // 2026-09-24 주제 특강(250쪽 세시 풍속 / 252~256쪽 근, 현대 인물): facts.cjs 묶음 13개 = 13파트, 552문제. 문제는 정답이 묻는 사실(첫 사실)의 묶음을 따른다.
+ // 2026-09-27 두 강으로 나눔(hist-250 세시 풍속 2파트 / hist-252-256 근, 현대 인물 11파트) — 파트 id는 옛 h250256-1~13 그대로.
  const hss=PARTS.units.find(u=>u.id==='hist-250'),hpp=PARTS.units.find(u=>u.id==='hist-252-256');assert.ok(!PARTS.units.some(u=>u.id==='hist-250-256'));
  assert.equal(hss.title,'특강 세시 풍속');assert.equal(hpp.title,'특강 근현대 인물');assert.equal(hss.scope.round,'lecture-250');assert.equal(hpp.scope.round,'lecture-252-256');
  assert.equal(hss.parts.reduce((n,p)=>n+p.ids.length,0),134);assert.equal(hpp.parts.reduce((n,p)=>n+p.ids.length,0),418);
  const hsp={parts:[...hss.parts,...hpp.parts]};assert.deepEqual(hsp.parts.map(p=>p.id),Array.from({length:13},(_,i)=>'h250256-'+(i+1)));
  assert.deepEqual(hsp.parts.map(p=>p.title),['세시 풍속 ① 설날~유두','세시 풍속 ② 칠석~섣달그믐','개화파와 개항기 인물','동학, 위정척사, 의병','독립 협회, 애국 계몽, 헤이그 특사','한국을 도운 외국인','국외 독립운동 기지','의거와 의열 투쟁','독립군과 한국 광복군','여성 독립운동가','임시 정부와 광복 전후','국학, 역사학, 민족 종교','문학, 예술, 문화 운동']);
  assert.equal(hsp.parts.reduce((n,p)=>n+p.ids.length,0),552);assert.ok(hsp.parts.every(p=>p.ids.length>=8),'주제 특강 파트마다 8문제 이상');
- // 2026-09-24 영어 Day 6·7(v151): 규칙 정리 10개·7개 → 8파트·7파트, 자체 제작만(교재 문장 문제 없음). 파트마다 8문제 이상.
+ // 2026-09-24 영어 Day 6, 7(v151): 규칙 정리 10개 / 7개 → 8파트, 7파트, 자체 제작만(교재 문장 문제 없음). 파트마다 8문제 이상.
  const d6=PARTS.units.find(u=>u.id==='en-day6'),d7=PARTS.units.find(u=>u.id==='en-day7');
  assert.deepEqual(d6.parts.map(p=>p.title),['문장 구조와 동사','보어, 목적격보어와 태','조동사','명사, 대명사와 도치','준동사','분사구문','비교','접속사와 관계사']);
  assert.deepEqual(d7.parts.map(p=>p.title),['동사 뒤의 형태','시제와 가정법','수 일치와 명사','꾸미는 말','간접의문문과 관계사절','강조와 병렬','비교, 부정, 차이']);
  assert.equal(d6.parts.reduce((n,p)=>n+p.ids.length,0),220);assert.equal(d7.parts.reduce((n,p)=>n+p.ids.length,0),240);
- assert.ok([...d6.parts,...d7.parts].every(p=>p.ids.length>=8),'Day 6·7 파트마다 8문제 이상');
- assert.ok([...d6.parts,...d7.parts].every(p=>p.ids.every(id=>/^en-day[67]-\d{3}$/.test(id))),'Day 6·7 파트는 자체 제작 문제만');
- {const u=PARTS.units.map(u=>u.id),i=u.indexOf('en-day5');assert.deepEqual(u.slice(i,i+12),['en-day5','en-day6','en-day7','en-day8','en-day9','en-day10','en-day11','en-day12','en-day13','en-day14','en-day15','en-formula'],'Day 5 → Day 6 → Day 7 → Day 8 · 9 · 10 → 공식 훈련 순서');}
+ assert.ok([...d6.parts,...d7.parts].every(p=>p.ids.length>=8),'Day 6, 7 파트마다 8문제 이상');
+ assert.ok([...d6.parts,...d7.parts].every(p=>p.ids.every(id=>/^en-day[67]-\d{3}$/.test(id))),'Day 6, 7 파트는 자체 제작 문제만');
+ {const u=PARTS.units.map(u=>u.id),i=u.indexOf('en-day5');assert.deepEqual(u.slice(i,i+12),['en-day5','en-day6','en-day7','en-day8','en-day9','en-day10','en-day11','en-day12','en-day13','en-day14','en-day15','en-formula'],'Day 5 → Day 6 → Day 7 → Day 8, 9, 10 → 공식 훈련 순서');}
  // 2026-10-07 영어 Day 15(WEEK 03 실전문제 연습): 규칙 정리 하나가 파트 하나(5파트), 93문제(핵심 20 + 더 풀기 73), 자체 제작만.
  {const u=PARTS.units.find(x=>x.id==='en-day15');assert.deepEqual(u.parts.map(p=>p.title),["태와 동사 꼴","시제와 조동사","어순과 절","수 일치와 병렬","부정과 관용 표현"],'en-day15 파트');assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),93,'en-day15 문제 수');
   assert.ok(u.parts.every(p=>p.ids.length>=2&&p.ids.every(id2=>/^en-day15-\d{3}$/.test(id2))),'en-day15 파트는 자체 제작 문제만');}
@@ -268,7 +268,7 @@ const itCounts={};
  // 2026-10-07 영어 Day 11(WEEK 03 실전문제 연습): 규칙 정리 하나가 파트 하나(5파트), 83문제(핵심 20 + 더 풀기 63), 자체 제작만.
  {const u=PARTS.units.find(x=>x.id==='en-day11');assert.deepEqual(u.parts.map(p=>p.title),["동사 자리와 대동사","조동사와 가정법","동명사와 to부정사","접속사와 관계부사","형용사, 대명사, 보어"],'en-day11 파트');assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),83,'en-day11 문제 수');
   assert.ok(u.parts.every(p=>p.ids.length>=2&&p.ids.every(id2=>/^en-day11-\d{3}$/.test(id2))),'en-day11 파트는 자체 제작 문제만');}
- // 2026-10-05 영어 Day 8 · 9 · 10(v204, 핵심 20): 규칙 정리 하나가 파트 하나(5 · 6 · 6파트), 자체 제작만. 2026-10-07 더 풀기를 더해 단원마다 89 · 88 · 86문제(파트는 그대로).
+ // 2026-10-05 영어 Day 8, 9, 10(v204, 핵심 20): 규칙 정리 하나가 파트 하나(5, 6, 6파트), 자체 제작만. 2026-10-07 더 풀기를 더해 단원마다 89, 88, 86문제(파트는 그대로).
  {const want={'en-day8':['동사 뒤의 꼴','시제','어순','비교','꾸미는 말과 수 일치'],'en-day9':['동사와 태','가정과 당위','절','분사','수 일치와 명사','비교'],'en-day10':['목적격보어와 수동','준동사','시제와 도치','관계사와 대명사','비교와 부정','수량과 used to']};
   for(const [id,titles] of Object.entries(want)){const u=PARTS.units.find(x=>x.id===id);assert.deepEqual(u.parts.map(p=>p.title),titles,id+' 파트');assert.equal(u.parts.reduce((n,p)=>n+p.ids.length,0),{'en-day8':89,'en-day9':88,'en-day10':86}[id],id+' 문제 수');
    assert.ok(u.parts.every(p=>p.ids.length>=2&&p.ids.every(id2=>(id2.startsWith(id+'-')&&id2.length===id.length+4))),id+' 파트는 자체 제작 문제만');}}
@@ -325,8 +325,8 @@ const onQuestion=()=>R("!!document.querySelector('#card').all.find(n=>n.classNam
 const cardText=()=>app.text('#card');
 const lecture19=PARTS.units.find(u=>u.id==='hist-19');
 
-// 3-1) 19강 · 파트별 점검 · 모두 맞힘 → 파트마다 5문제, 8파트 = 40문제
-// v179: 19강은 '이 강 문제 더 풀기'를 켠 상태로(핵심 20만이면 파트가 1~4문제라 5문제 · 3문제 규칙을 검사할 수 없다 — 접힘 자체는 core20.test).
+// 3-1) 19강, 파트별 점검, 모두 맞힘 → 파트마다 5문제, 8파트 = 40문제
+// v179: 19강은 '이 강 문제 더 풀기'를 켠 상태로(핵심 20만이면 파트가 1~4문제라 5문제, 3문제 규칙을 검사할 수 없다 — 접힘 자체는 core20.test).
 R("setLectureOpen('19',true)");
 R("openScope({subject:'한국사',round:'lecture-19'})");
 const countBefore=R("countLine(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)))");
@@ -349,7 +349,7 @@ let card=cardText();
 assert.match(card,/19강 파트 점검 끝/);assert.match(card,/8파트 중 통과 8\. 모두 통과했어요/);assert.match(card,/이번 점검에서 푼 문제 40개, 맞힌 문제 40개/);
 assert.match(card,/나머지 문제는 기본 순서로 이어 풀기/,'끝 화면에서 막히지 않는다');
 
-// 3-2) 새 판 · 첫 파트에서 하나 틀림 → 같은 파트에서 3문제 더 → 모두 맞혀 통과(8문제) → 다음 파트
+// 3-2) 새 판, 첫 파트에서 하나 틀림 → 같은 파트에서 3문제 더 → 모두 맞혀 통과(8문제) → 다음 파트
 tick();R("startPartRound(scopeOf(),null)");
 const first=lecture19.parts[0].id,round2=[];
 round2.push(answer(false),answer(true),answer(false),answer(false));
@@ -371,7 +371,7 @@ assert.equal(R('storageOK'),true,'모드를 바꾼 뒤 새로고침해도 저장
 assert.equal(R('queueMode()'),'parts');
 assert.match(app.text('#orderStatus'),/^파트 2\/8: 직전법~녹봉 — 3\/5$/,'새로고침 뒤 이어서: '+app.text('#orderStatus'));
 
-// 3-4) 파트 하나 범위 · 모두 틀림 → 5 + 3 = 8문제에서 바닥 → 다시 볼 파트 · 끝 화면에 버튼
+// 3-4) 파트 하나 범위, 모두 틀림 → 5 + 3 = 8문제에서 바닥 → 다시 볼 파트, 끝 화면에 버튼
 const weakPart=lecture19.parts.find(p=>p.title==='지대, 수취 제도의 문란');assert.equal(weakPart.ids.length,8);
 R("openScope({subject:'한국사',round:'part-"+weakPart.id+"'})");tick();R("startPartRound(scopeOf(),null)");
 assert.match(R("scopeLabel(scopeOf())"),/^한국사 19강: 지대, 수취 제도의 문란$/);
@@ -388,7 +388,7 @@ assert.equal(again,5);assert.match(cardText(),/1파트 중 통과 1\. 모두 통
 // 기본 순서로 이어 풀기 → 기본 모드
 R("setQueueMode('default')");assert.equal(R('queueMode()'),'default');
 
-// 3-5) 파트가 없는 범위(영어 수일치): 모드는 기본처럼 돌고 알린다 · 파트 모드 선택지는 흐려진다
+// 3-5) 파트가 없는 범위(영어 수일치): 모드는 기본처럼 돌고 알린다, 파트 모드 선택지는 흐려진다
 R("openScope({subject:'영어',topic:'수일치'})");R("setQueueMode('parts')");
 assert.equal(app.text('#orderStatus'),'이 범위는 파트가 없어 기본 순서로 풀어요');assert.ok(onQuestion(),'파트가 없어도 문제는 나온다');
 assert.equal(R('partsOption.disabled'),true);
@@ -424,7 +424,7 @@ assert.equal(fold.children[0].textContent,'19강 조선 전기(경제, 사회): 
 const second=lecture19.parts[1];body.all.find(n=>n.dataset?.part===second.id).onclick();
 assert.equal(R('scopeOf().round'),'part-'+second.id);assert.ok(R("data.cards.filter(inCurrent).every(c=>STUDY_PARTS.partOf(c.id)==="+JSON.stringify(second.id)+")"));
 assert.equal(R("data.cards.filter(inCurrent).length"),second.ids.length,'파트 범위의 문제 수 = 상태 화면의 수');
-// 4-2) 정보보호론 · 컴퓨터일반(기출만, 파트가 생긴 과목): 파트별 상태에 단원 · 파트, 수 = 파트 기출 수(회차 파일을 받기 전에도), 누르면 그 파트 기출만 푸는 범위.
+// 4-2) 정보보호론, 컴퓨터일반(기출만, 파트가 생긴 과목): 파트별 상태에 단원 / 파트, 수 = 파트 기출 수(회차 파일을 받기 전에도), 누르면 그 파트 기출만 푸는 범위.
 for(const s of GICHUL_SUBJECTS){const us=PARTS.unitsFor(s).filter(u=>!u.scope.topic);if(!us.length)continue;
  R("go('parts',"+JSON.stringify(s)+")");const b=app.nodes.get('#partsBody');
  assert.deepEqual(b.children[0].children.map(li=>li.textContent).slice(0,1).concat(b.children[0].children.length),[s==='컴퓨터일반'?'파트 = 같은 주제를 묻는 9급 기출과 자체 제작 문제 묶음 (누르면 그 파트만 풀어요)':'파트 = 같은 주제를 묻는 9급 기출 묶음 (누르면 그 파트만 풀어요)',4],s+' 범례(기출 줄은 한국사만)');
@@ -440,7 +440,7 @@ R("go('subject','한국사')");assert.equal(app.nodes.get('#openParts').hidden,f
 if(!PARTS.unitsFor('컴퓨터일반').length){R("go('subject','컴퓨터일반')");assert.equal(app.nodes.get('#openParts').hidden,true);}
 
 
-assert.deepEqual([R('WEAK_MIN'),R('WEAK_RATE')],[PartCheck.WEAK_MIN,PartCheck.WEAK_RATE],'안내 문구의 20 · 30% = 판정 규칙');
+assert.deepEqual([R('WEAK_MIN'),R('WEAK_RATE')],[PartCheck.WEAK_MIN,PartCheck.WEAK_RATE],'안내 문구의 20, 30% = 판정 규칙');
 // ── 4-3) 복습 판정(v184)을 앱 위에서: 이 강 문제 더 풀기를 끈 새 앱(v179 접힘 — 핵심 20 밖 문제는 판정에도 안 센다)
 {
  const a=boot(),Q=code=>a.run(code);
@@ -472,7 +472,7 @@ assert.deepEqual([R('WEAK_MIN'),R('WEAK_RATE')],[PartCheck.WEAK_MIN,PartCheck.WE
  const line=pid=>b.all.find(n=>n.dataset?.part===pid).children[1].textContent;
  assert.match(line(hp),/, 기출 첫 풀이 1\/3$/,line(hp));
  assert.match(line(p19.id),new RegExp('^'+vis.length+'문제, 외움 0, 복습 판정 0/1, 안 푼 문제 '+(vis.length-2)),line(p19.id));
- // 기출 5문제 이상 · 70% 미만 → '· 기출 약함'
+ // 기출 5문제 이상, 70% 미만 → ', 기출 약함'
  hist.push(row('k5',hIds[3],19,8,4,'correct'),row('k6',hIds[4],19,8,5,'correct'));
  Q("(()=>{const s=structuredClone(data);s.history="+JSON.stringify(hist)+";commit(s);render();})()");
  assert.deepEqual(g(),{total:hTotal,n:5,k:3,weak:true});
@@ -503,5 +503,5 @@ assert.deepEqual([R('WEAK_MIN'),R('WEAK_RATE')],[PartCheck.WEAK_MIN,PartCheck.WE
   assert.ok(u.parts.every(p=>p.ids.every(id=>id.startsWith(s.pre)&&BANK[id].topic===s.topic)),s.unit+' 파트는 그 단원의 자체 제작 문제만');
   assert.equal(PARTS.unitOf(s.part)?.id,s.parent,s.unit+': 같은 주제의 기출 파트 '+s.part+'가 '+s.parent+'에 있다(범위 목록이 이 단원 아래에 묶는다)');assert.equal(u.short,PARTS.part(s.part).title,s.unit+' 이름 = 기출 파트 제목');
   assert.equal(ids.indexOf(s.unit),ids.indexOf(prev)+1,prev+' 다음에 '+s.unit);prev=s.unit;}}
-console.log('PASS parts: '+PARTS.units.length+'단위 · '+Object.entries(itCounts).map(([k,v])=>k+' '+v+' · ').join('')+PARTS.units.reduce((n,u)=>n+u.parts.length,0)+'파트, 모든 문제가 정확히 한 파트(기타 0) — '+Object.entries(counts).map(([k,v])=>k+' '+v).join(' · ')+
- '; 파트별 점검: 19강 모두 맞힘 = 5×8 = 40문제, 하나 틀리면 같은 파트 3문제 더(8문제로 통과), 8문제 파트를 모두 틀리면 5+3에서 다시 볼 파트, 다시 볼 파트만 다시 점검, 새로고침 뒤 이어짐, 파트 없는 범위는 기본 순서, 기록·일정은 평소대로; 파트별 상태 수 = 기록; 복습 판정: 하루 이상 지나 다시 푼 풀이만(같은 날 그 문제·쌍둥이를 풀었거나 해설을 봤으면 연습) · 문제마다 가장 최근 판정 · 약함 min(20, n) · 접힌 문제 제외 · 한국사 파트 기출 첫 풀이 M/N(unsure = 틀림) · 기출 약함 5문제 이상 70% 미만');
+console.log('PASS parts: '+PARTS.units.length+'단위, '+Object.entries(itCounts).map(([k,v])=>k+' '+v+', ').join('')+PARTS.units.reduce((n,u)=>n+u.parts.length,0)+'파트, 모든 문제가 정확히 한 파트(기타 0) — '+Object.entries(counts).map(([k,v])=>k+' '+v).join(', ')+
+ '; 파트별 점검: 19강 모두 맞힘 = 5×8 = 40문제, 하나 틀리면 같은 파트 3문제 더(8문제로 통과), 8문제 파트를 모두 틀리면 5+3에서 다시 볼 파트, 다시 볼 파트만 다시 점검, 새로고침 뒤 이어짐, 파트 없는 범위는 기본 순서, 기록, 일정은 평소대로; 파트별 상태 수 = 기록; 복습 판정: 하루 이상 지나 다시 푼 풀이만(같은 날 그 문제, 쌍둥이를 풀었거나 해설을 봤으면 연습), 문제마다 가장 최근 판정, 약함 min(20, n), 접힌 문제 제외, 한국사 파트 기출 첫 풀이 M/N(unsure = 틀림), 기출 약함 5문제 이상 70% 미만');

@@ -5,11 +5,11 @@ let KEY='chagog-v1';try{KEY=profileKey(localStorage.getItem('chagog-active-user'
 const {schedule,migrate}=ReviewSchedule;
 const day=(d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 function plus(date,n){const [y,m,d]=date.split('-').map(Number);return day(new Date(y,m-1,d+n));}
-// 문제 원문·정답·해설은 앱 파일(core-review-pack·practice-bank·기출)에 있다. 폰 저장소에는 진도(일정)만 남기고,
+// 문제 원문, 정답, 해설은 앱 파일(core-review-pack, practice-bank, 기출)에 있다. 폰 저장소에는 진도(일정)만 남기고,
 // 읽을 때 앱 파일에서 원문을 붙인다. 앱 파일에 없는 카드(아직 내려받지 않은 기출 회차 등)는 저장된 원문을 그대로 둔다.
-// v247: 자체 제작 문제의 글은 시작할 때 다 읽지 않는다. 내용 창고(content-store.js StudyContent)가 색인으로 과목 · 범위 딱지 · 문제 수를 주고,
-// 글 · 해설 · 기초 개념 상자는 그 문제를 처음 낼 때 조각(chunks/*.json)으로 받아 붙인다(받기 전 카드에는 과목만 있다).
-// 화면 코드의 규칙: 딱지(topic · formula · ruleId · 문제 수 · 보기 있음 · 상자 있음)는 Content에서 읽고, 글을 쓰는 화면은 먼저 Content.ready를 본다.
+// v247: 자체 제작 문제의 글은 시작할 때 다 읽지 않는다. 내용 창고(content-store.js StudyContent)가 색인으로 과목, 범위 딱지, 문제 수를 주고,
+// 글, 해설, 기초 개념 상자는 그 문제를 처음 낼 때 조각(chunks/*.json)으로 받아 붙인다(받기 전 카드에는 과목만 있다).
+// 화면 코드의 규칙: 딱지(topic, formula, ruleId, 문제 수, 보기 있음, 상자 있음)는 Content에서 읽고, 글을 쓰는 화면은 먼저 Content.ready를 본다.
 const CARD_CONTENT=['subject','question','answer','explanation','source','verified'];
 const Content=globalThis.StudyContent;
 // 묶음 카드에 없는 연습 문제의 출처 줄(내용 창고가 카드 내용을 만들 때 부른다).
@@ -17,23 +17,23 @@ function bankSource(id,lesson){const rule=Content.core(lesson.ruleId);return les
 function cardContent(){return Content.contentMap();}
 // 앱 파일이 기준이다. 저장된 옛 사본이 있어도 앱 파일 문장으로 덮어쓴다(문장 수정이 바로 반영된다).
 // v131 복습 일정 규칙(7일 → 14일 → 30일 → 외운 문제)으로 한 번 다시 계산한다. 일정은 풀이 기록에서 나오므로 기록은 그대로다.
-const SCHEDULE_VERSION=3; // v139: 기회 한 번 · 한 단계 내림 규칙으로 다시 계산
+const SCHEDULE_VERSION=3; // v139: 기회 한 번, 한 단계 내림 규칙으로 다시 계산
 function reschedule(state,write=true){if(state.scheduleVersion===SCHEDULE_VERSION||typeof ProgressSync==='undefined')return state;let next;try{next=ProgressSync.merge(state,[]);}catch{return state;}next.scheduleVersion=SCHEDULE_VERSION;if(write)try{writeState(KEY,next);}catch{}return next;}
 function hydrateCards(state){const m=cardContent();state.cards=state.cards.map(c=>{const base=m.get(c.id);return base?{...c,...base}:c;});return state;}
 function leanState(state){const m=cardContent();return {...state,version:3,cards:state.cards.map(c=>{if(!m.has(c.id))return c;const out={...c};for(const k of CARD_CONTENT)delete out[k];return out;})};}
 function writeState(key,state){localStorage.setItem(key,JSON.stringify(leanState(state)));}
 let data={version:3,cards:[],history:[]}, storageOK=true;
-// v248 저장: 큰 것(문제 일정 · 풀이 · 해설 열람 · 풀이 사본)은 IndexedDB에 조각으로 둔다(storage.js StudyStorage). localStorage 한 줄(한도 5,242,880자)은 풀이 3,000건쯤에서 막혔다.
-//  · idb가 있으면 IndexedDB 방식, null이면 옛 방식(localStorage 한 줄 — IndexedDB를 못 쓰는 브라우저와 검사 환경, 그리고 옮기기가 실패한 날).
-//  · IndexedDB 방식에서 메모리의 풀이 줄은 사본(detail) 대신 두 칸만 든다: ex = exerciseId, cid = conceptId. 사본은 IndexedDB에만 있고 올릴 때 · 기록 파일을 만들 때 읽는다.
-//  · 저장이 실패해도 답은 버리지 않는다: 메모리의 상태를 바꾸고 화면을 넘긴 뒤, 띠로 알리고 계속 다시 쓴다(못 쓴 풀이는 localStorage의 chagog-spill:<프로필>에 넘겨 두었다가 다음에 합친다).
+// v248 저장: 큰 것(문제 일정, 풀이, 해설 열람, 풀이 사본)은 IndexedDB에 조각으로 둔다(storage.js StudyStorage). localStorage 한 줄(한도 5,242,880자)은 풀이 3,000건쯤에서 막혔다.
+// , idb가 있으면 IndexedDB 방식, null이면 옛 방식(localStorage 한 줄 — IndexedDB를 못 쓰는 브라우저와 검사 환경, 그리고 옮기기가 실패한 날).
+// , IndexedDB 방식에서 메모리의 풀이 줄은 사본(detail) 대신 두 칸만 든다: ex = exerciseId, cid = conceptId. 사본은 IndexedDB에만 있고 올릴 때, 기록 파일을 만들 때 읽는다.
+// , 저장이 실패해도 답은 버리지 않는다: 메모리의 상태를 바꾸고 화면을 넘긴 뒤, 띠로 알리고 계속 다시 쓴다(못 쓴 풀이는 localStorage의 chagog-spill:<프로필>에 넘겨 두었다가 다음에 합친다).
 const Store=globalThis.StudyStorage||null;
 let idb=null,lastWrite=null,saveFailing=false,saveRetry=null,rebasing=false,lastConfirmedAt=Date.now(),spillKey='';
 const pendingDetails=new Map(); // 풀이 id → 사본. IndexedDB에 쓰였다고 확인되면 비운다.
 const SPILL='chagog-spill:',MARK='chagog-idb:',LEGACY_KEEP_MS=14*86400000;
 function slimRows(rows,into=pendingDetails){let out=rows;for(let i=0;i<rows.length;i++){const h=rows[i];if(h.detail===undefined)continue;if(out===rows)out=rows.slice();const {detail,...row}=h;if(row.ex===undefined){into.set(h.id,detail);row.ex=detail.exerciseId;row.cid=detail.conceptId;}out[i]=row;}return out;}
 function fullRows(rows,details){return rows.map(h=>{if(h.ex===undefined&&h.cid===undefined)return h;const {ex,cid,...row}=h,d=h.detail||details.get(h.id);return d?{...row,detail:d}:row;});}
-// 다른 상태를 합친다(덮어쓰지 않는다): 풀이는 id로 합집합이고 일정은 합친 기록에서 다시 계산, 해설 열람 · 의견도 합집합, 기준에 없는 문제 줄만 뒤에 붙임, 설정은 기준 것. 두 번 해도 같다.
+// 다른 상태를 합친다(덮어쓰지 않는다): 풀이는 id로 합집합이고 일정은 합친 기록에서 다시 계산, 해설 열람, 의견도 합집합, 기준에 없는 문제 줄만 뒤에 붙임, 설정은 기준 것. 두 번 해도 같다.
 function foldIn(base,other){
  const ids=new Set(base.cards.map(c=>c.id));let next={...base,cards:[...base.cards,...other.cards.filter(c=>!ids.has(c.id))]};
  next=ProgressSync.merge(next,other.history);
@@ -95,7 +95,7 @@ async function openProfile(key,boot){
  return {state,handle,dirty,note};
 }
 function saveAlert(){const box=$('#saveAlert');if(box)box.hidden=!saveFailing;}
-// 아직 IndexedDB에 못 쓴 풀이(사본째) · 그 무렵의 해설 열람 · 의견을 localStorage에 넘겨 둔다. 다음에 열 때 foldIn으로 합친다.
+// 아직 IndexedDB에 못 쓴 풀이(사본째), 그 무렵의 해설 열람, 의견을 localStorage에 넘겨 둔다. 다음에 열 때 foldIn으로 합친다.
 function writeSpill(key){
  try{const since=lastConfirmedAt-60000,rows=fullRows(data.history.filter(h=>pendingDetails.has(h.id)),pendingDetails);
   localStorage.setItem(SPILL+key,JSON.stringify({version:3,cards:[],history:rows,explanationViews:(data.explanationViews||[]).filter(v=>v.openedAt>=since||pendingDetails.has(v.id)),notes:cleanNotes(data.notes).filter(n=>n.at>=since)}));spillKey=key;}catch{}
@@ -132,7 +132,7 @@ function persist(){
  lastWrite=job.then(()=>{for(const [id,d]of details)if(pendingDetails.get(id)===d)pendingDetails.delete(id);if(opt.legacy&&p.legacyNext===opt.legacy)delete p.legacyNext;if(idb===p)saveWorked(key);},
   e=>{if(idb!==p)return;if(e&&e.conflict)return rebase();saveFailed(key);});
 }
-// 기록 파일(옛 형식 version 3 그대로 — 문제 일정 · 풀이와 그 사본 · 해설 열람 · 의견 · 설정 전부). 글 조각의 배열로 낸다(풀이가 많으면 한 줄 글로는 너무 크다).
+// 기록 파일(옛 형식 version 3 그대로 — 문제 일정, 풀이와 그 사본, 해설 열람, 의견, 설정 전부). 글 조각의 배열로 낸다(풀이가 많으면 한 줄 글로는 너무 크다).
 async function buildExport(){
  const lean=leanState(data),details=new Map(pendingDetails);let complete=true;
  if(idb){try{await Store.eachDetail(KEY,(id,d)=>{if(!details.has(id))details.set(id,d);});}catch{complete=false;}}
@@ -159,16 +159,16 @@ function validateBackup(v){if(v?.explanationViews!==undefined){if(!Array.isArray
 function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.subject.trim(),question:c.question.trim(),answer:c.answer.trim(),explanation:c.explanation||'',source:c.source||'',verified:c.verified===true,created:day(),due:day(),ease:2.5,interval:0,streak:0};}
 // 공무원 기출은 회차 파일을 받기 전에도 풀 수 있는 카드다(색인에 있으면 된다). 보기는 그 회차의 문항을 처음 낼 때 받는다.
 function playableRaw(c){return !!c&&(Content.hasOptions(c.id)||!!Content.lesson(c.id)||Gichul.known(c.id));}
-// BEGIN CORE 20 — 한국사 강마다 핵심 20문제(v179, 2026-09-28 사용자 "20문제가 딱 좋은거 같어" · "강 마다 20문제로").
+// BEGIN CORE 20 — 한국사 강마다 핵심 20문제(v179, 2026-09-28 사용자 "20문제가 딱 좋은거 같어", "강 마다 20문제로").
 // '강'은 교재 강: 앱 범위 02~05강은 교재 강 넷이라 핵심 80(강마다 20). 화면 문구의 수는 core 길이를 그대로 쓴다(coreSize).
 // 강 범위(STUDY_REVIEW_CATALOG.lectures)의 core = 한능검 심화 57~79회 빈도로 고른 20문제(research/core20-20260928). core가 없는 강은 전부 핵심.
-// 나머지 문제는 지우지 않고 접어 둔다: 강마다 '이 강 문제 더 풀기'를 켜면(data.openLectures, 이 기기 설정 — 대기열 모드처럼) 다시 모든 범위·대기열·수·뱃지에 들어온다.
-// 접힌 문제는 어디에서도 풀 수 있는 문제로 치지 않는다(isPlayable) — 수·복습 대기열·파트·뱃지가 모두 보이는 문제로만 계산된다. 풀이 기록과 일정은 그대로 남는다.
+// 나머지 문제는 지우지 않고 접어 둔다: 강마다 '이 강 문제 더 풀기'를 켜면(data.openLectures, 이 기기 설정 — 대기열 모드처럼) 다시 모든 범위, 대기열, 수, 뱃지에 들어온다.
+// 접힌 문제는 어디에서도 풀 수 있는 문제로 치지 않는다(isPlayable) — 수, 복습 대기열, 파트, 뱃지가 모두 보이는 문제로만 계산된다. 풀이 기록과 일정은 그대로 남는다.
 // 표는 처음 쓸 때 만든다(파일 위쪽 저장소 읽기보다 먼저 불려도 초기화 전 참조가 없게).
-// v199(2026-09-30 사용자 "영어도 하루 20문제, 국어도 하루 20문제정도로" → "단원마다 핵심 20"): 영어 Day 1~7 · 문법 공식 훈련, 국어 논리 1~6장 · 독해 1~3장도
+// v199(2026-09-30 사용자 "영어도 하루 20문제, 국어도 하루 20문제정도로" → "단원마다 핵심 20"): 영어 Day 1~7, 문법 공식 훈련, 국어 논리 1~6장, 독해 1~3장도
 // 단원(parts.js 단원 id)마다 core-units.js(STUDY_CORE_UNITS)의 핵심 20만 보이고 나머지는 접는다(9급 기출 빈도로 고름, research/core20-en-ko-20260930).
-// 켜는 열쇠(data.openLectures) = 강 id(한국사) · 단원 id('en-day1' · 'ko-ko2' …) · 'formula:<공식 id>'(영어 문법 공식 하나 — 공식 범위는 여러 단원의 문제를 담아
-// 그 공식만 펼 수 있게). 접힌 문제는 자기 열쇠(강 · 단원, 영어는 + 공식) 가운데 하나라도 켜져 있으면 보인다. 한국사는 열쇠가 강 하나뿐이라 v179와 같다.
+// 켜는 열쇠(data.openLectures) = 강 id(한국사), 단원 id('en-day1', 'ko-ko2' …), 'formula:<공식 id>'(영어 문법 공식 하나 — 공식 범위는 여러 단원의 문제를 담아
+// 그 공식만 펼 수 있게). 접힌 문제는 자기 열쇠(강, 단원, 영어는 + 공식) 가운데 하나라도 켜져 있으면 보인다. 한국사는 열쇠가 강 하나뿐이라 v179와 같다.
 let coreMaps=null,openCache=null;
 function lectureCores(){if(!coreMaps){const byId=new Map(),core=new Map(),foldable=new Set();for(const l of globalThis.STUDY_REVIEW_CATALOG?.lectures||[]){if(!Array.isArray(l.core))continue;core.set(l.id,new Set(l.core));for(const id of l.ids)byId.set(id,l.id);}
  const units=new Map((globalThis.STUDY_PARTS?.units||[]).map(u=>[u.id,u]));
@@ -176,13 +176,13 @@ function lectureCores(){if(!coreMaps){const byId=new Map(),core=new Map(),foldab
  for(const [id,l] of byId)if(!core.get(l).has(id)){foldable.add(l);const f=Content.lesson(id)?.formula;if(f)foldable.add('formula:'+f);}
  coreMaps={byId,core,foldable};}return coreMaps;}
 function openLectureSet(){const o=data.openLectures;if(!openCache||openCache.src!==o)openCache={src:o,set:new Set(Array.isArray(o)?o.filter(x=>typeof x==='string'):[])};return openCache.set;}
-// 핵심 밖 문제면 그 문제를 펴는 열쇠들(첫째 = 강 · 단원 id), 핵심이거나 접는 단원 밖이면 null.
+// 핵심 밖 문제면 그 문제를 펴는 열쇠들(첫째 = 강, 단원 id), 핵심이거나 접는 단원 밖이면 null.
 function foldKeys(id){const m=lectureCores(),l=m.byId.get(id);if(!l||m.core.get(l).has(id))return null;const f=Content.lesson(id)?.formula;return f?[l,'formula:'+f]:[l];}
-// 접힌 문제면 그 강 · 단원 id, 아니면 null.
+// 접힌 문제면 그 강, 단원 id, 아니면 null.
 function foldedLecture(id){const k=foldKeys(id);if(!k)return null;const o=openLectureSet();return k.some(x=>o.has(x))?null:k[0];}
 function coreSize(lecture){return lectureCores().core.get(lecture)?.size||0;}
 function hasFold(lecture){return lectureCores().foldable.has(lecture);}
-// 열쇠의 종류: 'lecture'(한국사 강) · 'unit'(영어 · 국어 단원) · 'formula'(영어 문법 공식 하나). 화면 문구가 갈린다.
+// 열쇠의 종류: 'lecture'(한국사 강), 'unit'(영어, 국어 단원), 'formula'(영어 문법 공식 하나). 화면 문구가 갈린다.
 function foldKind(key){return key.startsWith('formula:')?'formula':STUDY_LECTURES.some(l=>l.id===key)?'lecture':'unit';}
 function foldTitle(key){const k=foldKind(key);return k==='lecture'?lectureTitle(key):k==='formula'?'문법 공식: '+ENGLISH_FORMULAS.title(key.slice(8)):PARTS.units.find(u=>u.id===key)?.title||'';}
 function foldLabel(key){return {lecture:'이 강 문제 더 풀기',unit:'이 단원 문제 더 풀기',formula:'이 공식 문제 더 풀기'}[foldKind(key)];}
@@ -200,7 +200,7 @@ function topicScope(value){return topicRange(value)?.id||null;}
 // 'lecture-<id>' follows the textbook lectures (02~05강, 06강, 07강, 08강 …) over the self-made summary questions.
 const STUDY_LECTURES=STUDY_REVIEW_CATALOG.lectures||[];
 const LECTURE_BY_ID=new Map(STUDY_LECTURES.flatMap(l=>l.ids.map(id=>[id,l.id])));
-// 2026-09-16 없앤 범위: 07·08강 덩어리는 07강으로, 따로 떠 있던 기출형 연습은 그 문제들이 처음 들어간 강으로 이어 연다(저장된 범위가 빈 화면이 되지 않게).
+// 2026-09-16 없앤 범위: 07, 08강 덩어리는 07강으로, 따로 떠 있던 기출형 연습은 그 문제들이 처음 들어간 강으로 이어 연다(저장된 범위가 빈 화면이 되지 않게).
 const RETIRED_LECTURES={'07-08':'07','02-03-04-05':'02-05','05-06':'06','10-12':'10','250-256':'250'};
 function lectureScope(value){const match=/^lecture-([0-9][0-9-]*)$/.exec(value||'');if(!match)return null;const id=RETIRED_LECTURES[match[1]]||match[1];return STUDY_LECTURES.some(l=>l.id===id)?id:null;}
 function lectureTitle(id){return STUDY_LECTURES.find(l=>l.id===id)?.title||'';}
@@ -211,7 +211,7 @@ function hasRanges(subject){return subject==='한국사'||PAPER_SUBJECTS.has(sub
 // 'part-<파트 id>' is one part(같은 내용을 묻는 문제 묶음) of a lecture/Day/chapter — parts.js. 과목을 가리지 않는다(round 칸).
 const PARTS=globalThis.STUDY_PARTS||{units:[],unitsFor:()=>[],part:()=>null,unitOf:()=>null,partOf:()=>null,spreadKey:()=>null};
 function partScope(value){const match=/^part-([a-z0-9-]+)$/.exec(value||'');return match&&PARTS.part(match[1])?match[1]:null;}
-// 회차 범위(한능검 n회 · 공무원 기출 한 과목 한 회차)에서는 앱이 문제를 고르지 않는다. 원문 순서대로만 낸다.
+// 회차 범위(한능검 n회, 공무원 기출 한 과목 한 회차)에서는 앱이 문제를 고르지 않는다. 원문 순서대로만 낸다.
 function sequentialScope(scope){return !!paperScope(scope.round)||(scope.subject==='한국사'&&!!scope.round&&Hanneung.rounds.includes(Number(scope.round)));}
 function scopeOf(){const s=data.practiceScope||{};return {subject:s.subject||'',topic:s.topic||'',round:s.round||''};}
 function roundMatch(c,round){
@@ -227,11 +227,11 @@ function roundMatch(c,round){
 // 교재 진도(topic) 범위를 가진 과목: 영어는 문제집 Day, 국어는 『사고의 힘 논리』의 장.
 const TOPIC_SUBJECTS=new Set(['영어','국어','컴퓨터일반']);
 // 컴퓨터일반 자체 제작(2026-10-07~): parts.js에서 scope.topic이 있는 컴퓨터일반 단원('comq-<파트>' — 교재의 장 하나, topic '컴일 <파트>')이 범위 하나다. 9급 기출 단원(com-u1~)은 scope가 비어 있다.
-// 단원 id는 그 장과 같은 주제의 9급 기출 파트 id에 'comq-'를 붙인 것이라, 범위 목록은 기출 단원(com-u1~) 아래에 그 파트 순서로 묶는다. 핵심 20 · '이 단원 문제 더 풀기'는 영어 Day · 국어 장과 같은 길(core-units.js).
+// 단원 id는 그 장과 같은 주제의 9급 기출 파트 id에 'comq-'를 붙인 것이라, 범위 목록은 기출 단원(com-u1~) 아래에 그 파트 순서로 묶는다. 핵심 20, '이 단원 문제 더 풀기'는 영어 Day, 국어 장과 같은 길(core-units.js).
 const COMPUTER_SELF=PARTS.units.filter(u=>u.subject==='컴퓨터일반'&&!!u.scope?.topic);
 // 국어 문법(v219~): 『사고의 힘 논리』와 다른 책(선재국어 제3편 개념 중심 문법 독해)이라 범위 묶음을 따로 둔다.
 const KOREAN_GRAMMAR_TOPICS={'문법 1장':'국어 문법 1장 음운론','문법 2장':'국어 문법 2장 형태론','문법 3장':'국어 문법 3장 통사론'};
-// 같은 책의 제4편 공문서 수정하기 · 제5편 문맥의 힘 어휘(2026-10-07): 범위 묶음을 하나씩 더 둔다.
+// 같은 책의 제4편 공문서 수정하기, 제5편 문맥의 힘 어휘(2026-10-07): 범위 묶음을 하나씩 더 둔다.
 const KOREAN_DOC_TOPICS={'공문서 1장':'국어 공문서 수정 1장 올바른 문장 쓰기','공문서 2장':'국어 공문서 수정 2장 문장 부호 바로 쓰기','공문서 3장':'국어 공문서 수정 3장 〈한글 맞춤법〉 바로 쓰기'};
 const KOREAN_VOCAB_TOPICS={'어휘 1장':'국어 어휘 1장 구별해서 써야 하는 주요 어휘','어휘 2장':'국어 어휘 2장 독해에 필요한 주요 한자 어휘'};
 const KOREAN_TOPICS={'논리 1장':'1장 논증의 개념과 유형','논리 2장':'2장 명제 논리','논리 3장':'3장 정언 논리','논리 4장':'4장 술어 논리','논리 5장':'5장 귀납 논증','논리 6장':'6장 논리의 오류','독해 1장':'독해 1장 독해의 원리','독해 2장':'독해 2장 독해와 논증','독해 3장':'독해 3장 실전 독해 훈련'};
@@ -273,7 +273,7 @@ function appendPaper(parent,paper){
  error.append(btn('이미지 다시 불러오기',()=>{img.src=paper.image+'?retry='+Date.now();}));wrap.append(error);parent.append(wrap);
 }
 // 사진 보기 문항: 보기 자체가 사진이라 이름을 붙이면 답이 그대로 드러난다. 채점 전에는 번호만, 채점 뒤에는 이름을 붙인다.
-// 공공누리 제1유형·CC BY·CC BY-SA는 출처표시가 의무인데 출처 문구에 국가유산 이름이 들어 있다(라이선스는 사진마다 출처 문구에 적혀 있다). 보기마다 붙이면 정답이 노출되므로
+// 공공누리 제1유형, CC BY, CC BY-SA는 출처표시가 의무인데 출처 문구에 국가유산 이름이 들어 있다(라이선스는 사진마다 출처 문구에 적혀 있다). 보기마다 붙이면 정답이 노출되므로
 // 네 장의 출처를 보기 순서와 무관한 고정 순서(가나다순)로 문제 아래에 한 번만 모아 띄운다. 사진이 보이는 화면에는 언제나 함께 나온다.
 function photoCredits(quiz){
  const box=elem('div',undefined,'photo-credits');
@@ -303,12 +303,12 @@ function appendPhotoChoices(parent,quiz,pick,selected){
  }
  parent.append(photoCredits(quiz));
 }
-// 특정 강의·범위에서만 보이는 "외운 문제도 풀기" 옵션. 그 범위의 외운 문제 수를 함께 보여 준다.
+// 특정 강의, 범위에서만 보이는 "외운 문제도 풀기" 옵션. 그 범위의 외운 문제 수를 함께 보여 준다.
 function renderMasteredToggle(scope){const ranged=rangedScope(scope)&&!sequentialScope(scope),n=ranged?data.cards.filter(c=>inScope(c,scope)&&isMastered(c)).length:0;
  $('#masteredLabel').hidden=!ranged||!n;$('#includeMastered').checked=data.includeMastered===true;$('#masteredCount').textContent=n?'('+n+'문제)':'';}
 // '이 강 문제 더 풀기'(v179): 핵심 20 밖의 문제가 있는 한국사 강 범위와 그 강의 파트 범위에서만 보인다.
 // 수 = 켜면 지금 범위에 더해지는 문제 수(켜 둔 동안에도 같은 수). 켜고 끄는 것은 강 단위(data.openLectures).
-// v199 영어 · 국어: 단원 범위(Day · 장)와 그 단원의 파트 범위는 단원 열쇠, 문법 공식 범위는 그 공식 열쇠('이 단원 문제 더 풀기' · '이 공식 문제 더 풀기').
+// v199 영어, 국어: 단원 범위(Day, 장)와 그 단원의 파트 범위는 단원 열쇠, 문법 공식 범위는 그 공식 열쇠('이 단원 문제 더 풀기', '이 공식 문제 더 풀기').
 function moreScope(scope){const s=scope.subject||'';if(s!=='한국사'){if(!TOPIC_SUBJECTS.has(s))return null;const t=scope.topic||'',part=partScope(scope.round||''),unit=part?PARTS.unitOf(part):t?PARTS.units.find(u=>u.subject===s&&u.scope?.topic===t):null,key=t.startsWith('formula:')&&!part?t:unit?.id;return key&&hasFold(key)?key:null;}
  const r=scope.round||'',part=partScope(r),lecture=lectureScope(r)||(part?lectureScope(PARTS.unitOf(part)?.scope?.round):null);return lecture&&hasFold(lecture)?lecture:null;}
 // 수 = 그 열쇠를 켜면 이 범위에 더해지는 문제 수(다른 열쇠로 이미 보이는 문제는 빼고, 켜 둔 동안에도 같은 수).
@@ -340,7 +340,7 @@ function setQueueMode(value){
  if(commit(next)){sessionDirty=true;render();window.scrollTo(0,0);}
 }
 // BEGIN PAPER ORDER — 기출 회차에서는 앱이 문제를 고르지 않는다. 1번부터 마지막 번호까지 원문 순서대로만
-// 내고, 마지막 문항을 풀면 멈춘다. 복습 일정·재시도 대기(retryAt)·형제 간격(ReviewPolicy.separate)
+// 내고, 마지막 문항을 풀면 멈춘다. 복습 일정, 재시도 대기(retryAt), 형제 간격(ReviewPolicy.separate)
 // 어느 것도 회차 안에서는 적용하지 않는다. 어제 맞힌 문제도 제자리에 다시 나온다.
 // 답안 기록과 복습 일정 갱신은 평소와 똑같다 — 바뀌는 것은 "다음에 무엇을 낼지"뿐이다.
 // 저장하지 않는 세션 한정 위치라 회차를 다시 열면 언제나 1번부터 시작한다.
@@ -350,7 +350,7 @@ function paperAdvance(){if(paperCursor)paperCursor={...paperCursor,index:paperCu
 function paperRestart(){if(paperCursor)paperCursor={...paperCursor,index:0};}
 // END PAPER ORDER
 // A wrong answer today also brings back the other questions on the same concept (still after the sibling gap).
-// BEGIN QUEUE MODES — 무엇을 먼저 낼지만 고른다. 채점·기록·복습 일정은 어느 모드에서도 평소와 똑같다.
+// BEGIN QUEUE MODES — 무엇을 먼저 낼지만 고른다. 채점, 기록, 복습 일정은 어느 모드에서도 평소와 똑같다.
 // 늘 고른 범위 안에서만 돈다(호출부가 이미 inScope로 거른 카드를 넘긴다). 낼 게 없으면 없다고 말한다.
 // 목록은 함수 선언으로 둔다: 저장 데이터를 읽는 validateBackup(파일 위쪽, 이 줄보다 먼저 실행)도 부른다.
 // v144까지는 여기 const 배열만 있어서, 모드를 한 번이라도 바꾼 뒤 새로고침하면 초기화 전 참조(TDZ)로 저장소 읽기가 실패하고 저장이 멈췄다.
@@ -363,14 +363,14 @@ function queueMode(subject=scopeOf().subject){const m=data.queueModes;if(m&&type
 function withQueueMode(state,subject,value){const modes={...(state.queueModes&&typeof state.queueModes==='object'?state.queueModes:{})};delete state.queueMode;if(value==='default')delete modes[subject];else modes[subject]=value;state.queueModes=modes;return state;}
 let queueModeFilled=false,partsOption=null;
 let historyStatsCache=null;
-// 문제별 오답 횟수 · 푼 횟수와 시도 여부를 기존 history에서만 읽는다. 새 저장 필드가 없어 기기 간 동기화에도 그대로 남는다.
+// 문제별 오답 횟수, 푼 횟수와 시도 여부를 기존 history에서만 읽는다. 새 저장 필드가 없어 기기 간 동기화에도 그대로 남는다.
 function historyStats(){
  if(historyStatsCache?.rows===data.history)return historyStatsCache.value;
  const wrong=new Map(),seen=new Set(),solves=new Map();
  for(const h of data.history){seen.add(h.cardId);solves.set(h.cardId,(solves.get(h.cardId)||0)+1);if(h.result==='wrong')wrong.set(h.cardId,(wrong.get(h.cardId)||0)+1);}
  const value={wrong,seen,solves};historyStatsCache={rows:data.history,value};return value;
 }
-// 많이 푼 문제는 뒤로(v195, 2026-09-30 사용자 "이미 풀었던거는 푼횟수가 많을수록 덜나오게"): 풀던 문제 · 5분 재시도는 그대로 앞에 두고,
+// 많이 푼 문제는 뒤로(v195, 2026-09-30 사용자 "이미 풀었던거는 푼횟수가 많을수록 덜나오게"): 풀던 문제, 5분 재시도는 그대로 앞에 두고,
 // 나머지 복습일이 된 문제는 푼 횟수가 적은 것부터(같으면 원래 순서 — 복습일 순). 빠지는 문제는 없고 순서만 바뀐다.
 function fewerSolvesFirst(list){
  const {solves}=historyStats(),head=c=>c.pendingAttempt?0:c.retryAt?1:2,rank=new Map(list.map((c,i)=>[c.id,i]));
@@ -392,7 +392,7 @@ function wrongQueue(cards){
  pool.sort((a,b)=>Number(!!b.pendingAttempt)-Number(!!a.pendingAttempt)||(wrong.get(b.id)||0)-(wrong.get(a.id)||0)||rank.get(a.id)-rank.get(b.id));
  return settle(pool);
 }
-// 외운 문제(v131): 제때 네 번 맞힌 문제(7·14·30일 통과). 특정 강의·범위를 풀 때는 옵션을 켜지 않으면 안 나오고,
+// 외운 문제(v131): 제때 네 번 맞힌 문제(7, 14, 30일 통과). 특정 강의, 범위를 풀 때는 옵션을 켜지 않으면 안 나오고,
 // 과목 전체로 풀 때는 복습일이 지난 것 중 하루 7분의 1 정도만 무작위로 섞인다(날짜로 고정된 무작위라 하루 안에서는 같다). 모의고사에서는 나온다(계획서).
 const isMastered=c=>(c.streak||0)>=ReviewSchedule.MASTER_STREAK;
 const rangedScope=sc=>!!(sc&&(sc.topic||sc.round));
@@ -402,7 +402,7 @@ function withoutMastered(cards,ranged){return cards.filter(c=>!isMastered(c)||c.
 const cardsSubject=cards=>cards.length&&cards.every(c=>c.subject===cards[0].subject)?cards[0].subject:scopeOf().subject;
 function reviewQueue(cards,ranged=false,subject=cardsSubject(cards)){
  cards=withoutMastered(cards,ranged);
- // 파트별 점검은 풀이 화면에서만 따로 고른다(partRound). 수 세기·목록 화면에서는 기본 대기열과 같다.
+ // 파트별 점검은 풀이 화면에서만 따로 고른다(partRound). 수 세기, 목록 화면에서는 기본 대기열과 같다.
  const mode=queueMode(subject)==='parts'?'default':queueMode(subject);
  if(mode==='wrong')return wrongQueue(cards);
  const due=fewerSolvesFirst(ReviewLearning.queue(cards)),ids=new Set(due.map(c=>c.id)),today=day(),missed=new Map(),last=new Map();
@@ -420,10 +420,10 @@ function reviewQueue(cards,ranged=false,subject=cardsSubject(cards)){
  return now.length&&after.length?{...out,ready:[...now,...after]}:out;
 }
 // END QUEUE MODES
-// BEGIN PART CHECK — 파트별 점검(대기열 모드 'parts', 규칙은 part-check.js). 고른 범위(강·Day·장·파트 하나·과목 전체)의 파트를
-// 교재 순서대로 하나씩: 5문제 → 틀리면 3문제씩 더 → 통과하거나 파트 문제가 바닥나면 다음 파트. 채점·기록·복습 일정은 다른 모드와 똑같다.
+// BEGIN PART CHECK — 파트별 점검(대기열 모드 'parts', 규칙은 part-check.js). 고른 범위(강, Day, 장, 파트 하나, 과목 전체)의 파트를
+// 교재 순서대로 하나씩: 5문제 → 틀리면 3문제씩 더 → 통과하거나 파트 문제가 바닥나면 다음 파트. 채점, 기록, 복습 일정은 다른 모드와 똑같다.
 // 판의 표시는 범위마다 시작 시각 하나(data.partChecks, 이 기기에만)이고, 진행은 그 뒤의 풀이 기록에서 다시 계산한다(새로고침해도 이어진다).
-// 막다른 화면 없음: 파트에 낼 문제가 남아 있으면 언제나 한 문제를 낸다(재시도 대기·같은 개념 간격을 기다리지 않는다).
+// 막다른 화면 없음: 파트에 낼 문제가 남아 있으면 언제나 한 문제를 낸다(재시도 대기, 같은 개념 간격을 기다리지 않는다).
 function scopeUnits(scope){
  const s=scope.subject||'';if(!s)return null;const units=PARTS.unitsFor(s);if(!units.length)return null;
  const topic=TOPIC_SUBJECTS.has(s)?scope.topic||'':'',round=hasRanges(s)?scope.round||'':'';
@@ -469,7 +469,7 @@ function partRound(scope,inside){
 }
 function partName(r,p){return (r.multi?p.unit.short+' ':'')+p.title;}
 function partRoundTitle(scope,r){const part=partScope(scope.round);return part?r.units[0].short+' '+PARTS.part(part).title:r.multi?scope.subject+' 전체':r.units[0].short;}
-// 문제 화면·해설 화면 위의 한 줄: 파트 3/7 · 직전법~녹봉 · 4/5
+// 문제 화면, 해설 화면 위의 한 줄: 파트 3/7 / 직전법~녹봉 / 4/5
 function partProgressLine(r,feedbackId){
  const n=r.parts.length,at=p=>r.parts.indexOf(p)+1;
  if(feedbackId){const p=r.parts.find(x=>x.pool.includes(feedbackId));if(p){const head='파트 '+at(p)+'/'+n+': '+partName(r,p)+' — ',next=r.done?'. 다음: 점검 결과':r.parts[r.current]!==p?'. 다음 파트: '+partName(r,r.parts[r.current]):'';
@@ -500,12 +500,12 @@ function renderPartSummary(root,scope,r){
  root.append(btn('파트별 상태 보기',()=>go('parts',scope.subject)));
  if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
 }
-// 파트별 상태: 외움 = 7·14·30일 단계를 모두 넘긴 문제(뱃지·경험치와 같은 ReviewSchedule 단계).
+// 파트별 상태: 외움 = 7, 14, 30일 단계를 모두 넘긴 문제(뱃지, 경험치와 같은 ReviewSchedule 단계).
 // 복습 판정(v184, 2026-09-29 사용자: "파트별 판정이 애매하긴하다. 자체문제 풀때 해설을 보면 뒤에 문제 풀때 맞히기 쉬워지니까"):
-// 하루 이상 지나 다시 푼 풀이만 센다 — 같은 날 앞서 그 문제나 같은 개념의 쌍둥이를 풀었거나 해설을 봤으면 연습이라 뺀다(규칙은 part-check.js delayed · judge).
+// 하루 이상 지나 다시 푼 풀이만 센다 — 같은 날 앞서 그 문제나 같은 개념의 쌍둥이를 풀었거나 해설을 봤으면 연습이라 뺀다(규칙은 part-check.js delayed, judge).
 // 문제마다 가장 최근의 판정 풀이 하나(지금 기억). 약한 파트 = 판정 문제가 20개(파트 문제가 20개보다 적으면 전부) 이상이고 그중 30% 이상이 틀림(설명 보고 맞힘 포함).
-// v183의 "푼 적 있음 · 틀린 적 있음" 기준은 같은 날 해설을 보고 푼 풀이까지 섞여 판정이 흐렸다.
-// 판정 자체는 PartCheck.judge(같은 20 · 30%). 여기 값은 안내 문구용 — parts.test가 둘이 같은지 본다(review-policy.test는 이 줄을 PartCheck 없이 읽는다).
+// v183의 "푼 적 있음, 틀린 적 있음" 기준은 같은 날 해설을 보고 푼 풀이까지 섞여 판정이 흐렸다.
+// 판정 자체는 PartCheck.judge(같은 20, 30%). 여기 값은 안내 문구용 — parts.test가 둘이 같은지 본다(review-policy.test는 이 줄을 PartCheck 없이 읽는다).
 const WEAK_MIN=20,WEAK_RATE=0.3;
 // 자체 제작 문제 없이 9급 기출만 파트로 나눈 과목(2026-09-25~): 파트별 상태 첫 줄만 다르다.
 const GICHUL_PART_SUBJECTS=new Set(['정보보호론','컴퓨터일반']);
@@ -526,7 +526,7 @@ function partLegend(s){
  if(s==='한국사')lines.push('기출 첫 풀이 = 이 파트 기출을 처음 풀어 맞힌 수. '+GICHUL_WEAK_MIN+'문제 이상 '+Math.round(GICHUL_WEAK_RATE*100)+'% 미만이면 기출 약함');
  const ul=elem('ul',undefined,'status part-legend');for(const t of lines)ul.append(elem('li',t));return ul;
 }
-// 한국사 파트의 기출(v184): 기초 개념 대입(basics.js apply)이 그 파트 상자(hist-<파트>)를 가리키는 한능검 심화 · 9급 한국사 기출.
+// 한국사 파트의 기출(v184): 기초 개념 대입(basics.js apply)이 그 파트 상자(hist-<파트>)를 가리키는 한능검 심화, 9급 한국사 기출.
 // 첫 풀이만(score.js firstAttempts — 설명 보고 맞힘은 틀림). ⚠ 약함과는 따로 보여 주고, 5문제 이상 풀어 70% 미만이면 '기출 약함'.
 const GICHUL_WEAK_MIN=5,GICHUL_WEAK_RATE=0.7;
 let partGichulIndex=null,firstCache=null;
@@ -555,7 +555,7 @@ function renderParts(){
  }
 }
 // END PART CHECK
-// 경험치·레벨(xp.js). 풀면 언제나 오르고, 처음 맞힘·틀렸던 문제 맞힘이 크게 오른다. 하루 목표는 과목마다 사용자가 정했을 때만(전체 목표는 v135에서 없앰).
+// 경험치, 레벨(xp.js). 풀면 언제나 오르고, 처음 맞힘, 틀렸던 문제 맞힘이 크게 오른다. 하루 목표는 과목마다 사용자가 정했을 때만(전체 목표는 v135에서 없앰).
 function renderXp(){
  let s;try{s=StudyXp.summary(data.history,data.explanationViews||[],StudyXp.day());}catch{$('#xpCard').hidden=true;return;}
  const o=StudyXp.overallBadges(subjectBadges());
@@ -583,14 +583,14 @@ function renderSubjectGoal(s){
  $('#subjectGoalEdit').querySelector('summary').textContent=goal?'이 과목 하루 목표 바꾸기 ('+goal+'문제)':'이 과목 하루 목표 정하기';
  if(document.activeElement?.id!=='subjectGoalInput')$('#subjectGoalInput').value=goal||'';
 }
-// 과목 레벨(v124): 육각형 안의 숫자 = 레벨(노력). 색은 없다 — 실력은 v146부터 뱃지 둘(기출 · 자체제작)이 따로 보여 준다.
+// 과목 레벨(v124): 육각형 안의 숫자 = 레벨(노력). 색은 없다 — 실력은 v146부터 뱃지 둘(기출, 자체제작)이 따로 보여 준다.
 function subjectLevels(history=data.history){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));try{return StudyXp.bySubject(history,data.explanationViews||[],id=>bySubject.get(id)||null);}catch{return {};}}
 function levelBadge(level=1,big){const b=elem('span',undefined,'level-badge lv-plain'+(big?' big':''));b.setAttribute('aria-label','레벨 '+level);b.title='Lv '+level;b.append(elem('small','Lv'),elem('b',String(level)));return b;}
 // 뱃지(v146, 사용자 결정 2026-09-23) — 과목마다 둘:
-//  · 기출 뱃지: 예상 점수(score.js, 공무원 9급 기출 첫 풀이)를 등급표(xp.js TIERS)에 %로 댄다. 20문제 미만이면 '아직'.
-//  · 자체제작 뱃지: 파트마다 외운 비율의 평균(파트마다 같은 무게). 외움 = 복습 일정과 같은 단계 규칙(ReviewSchedule.step)으로 7·14·30일 통과.
-// selfGroups: 과목의 자체제작 문제를 파트로 나눈다. 파트(parts.js)가 없는 문제는 연습 주제(영어 수일치 · 그 밖의 문법 연습)마다 한 파트,
-// 주제도 없으면 과목마다 '그 밖의 문제' 한 파트(누를 범위가 없어 설명에서 링크 없이 보인다). 컴퓨터일반·정보보호론은 자체제작 문제가 없어 '아직'.
+// , 기출 뱃지: 예상 점수(score.js, 공무원 9급 기출 첫 풀이)를 등급표(xp.js TIERS)에 %로 댄다. 20문제 미만이면 '아직'.
+// , 자체제작 뱃지: 파트마다 외운 비율의 평균(파트마다 같은 무게). 외움 = 복습 일정과 같은 단계 규칙(ReviewSchedule.step)으로 7, 14, 30일 통과.
+// selfGroups: 과목의 자체제작 문제를 파트로 나눈다. 파트(parts.js)가 없는 문제는 연습 주제(영어 수일치, 그 밖의 문법 연습)마다 한 파트,
+// 주제도 없으면 과목마다 '그 밖의 문제' 한 파트(누를 범위가 없어 설명에서 링크 없이 보인다). 컴퓨터일반, 정보보호론은 자체제작 문제가 없어 '아직'.
 let selfGroupsCache=null;
 function selfGroups(subject){
  if(selfGroupsCache?.cards!==data.cards)selfGroupsCache={cards:data.cards,map:new Map()};
@@ -641,7 +641,7 @@ function renderBadgeInfo(){
  if(x.note)box.append(elem('p',x.note,'badge-info-note'));
  box.hidden=false;
 }
-// 방금 푼 풀이의 경험치와 과목 레벨·뱃지 변화. 뱃지는 등급이 오를 때(기출 뱃지가 처음 생길 때 포함)만 알린다 — 내려가는 건 설명에서 본다.
+// 방금 푼 풀이의 경험치와 과목 레벨, 뱃지 변화. 뱃지는 등급이 오를 때(기출 뱃지가 처음 생길 때 포함)만 알린다 — 내려가는 건 설명에서 본다.
 const tierRank=t=>t?StudyXp.TIERS.length-StudyXp.TIERS.findIndex(x=>x[1]===t.id):0;
 function xpAwardNode(reviewId){
  let a;try{a=StudyXp.lastAward(data.history,data.explanationViews||[],reviewId);}catch{return null;}if(!a)return null;
@@ -658,7 +658,7 @@ function xpAwardNode(reviewId){
    if(bNow.self.ready&&bBefore.self.ready&&tierRank(bNow.self.tier)>tierRank(bBefore.self.tier))box.append(elem('p','🏅 '+subject+' 자체제작 '+bNow.self.tier.name+' 뱃지! 파트별 외운 비율 평균 '+bNow.self.pct+'%','xp-levelup'));}}
  return box;
 }
-// 예상점수(score.js): 기출 첫 풀이만, 4과목 평균 + 가산점을 사용자가 정한 목표와 비교한다(기본 국가직 전산9급 95 · 가산 5).
+// 예상점수(score.js): 기출 첫 풀이만, 4과목 평균 + 가산점을 사용자가 정한 목표와 비교한다(기본 국가직 전산9급 95, 가산 5).
 function examScore(){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));return ExamScore.summary(data.history,id=>bySubject.get(id)||null,data.targetExam);}
 const fmt1=x=>Number.isInteger(x)?String(x):x.toFixed(1);
 function renderScoreLine(){
@@ -716,7 +716,7 @@ function attachExplanationCredit(details,reviewId,location){
 }
 function feedbackReviewId(feedback){
  if(feedback.reviewId)return feedback.reviewId;
- return data.history.filter(h=>h.cardId===feedback.cardId&&h.mode==='quiz'&&(!feedback.exercise?.exerciseId||!(h.detail?.exerciseId||h.ex)||(h.detail?.exerciseId||h.ex)===feedback.exercise.exerciseId)).sort((a,b)=>(a.at||a.date).localeCompare(b.at||b.date)||a.id.localeCompare(b.id)).at(-1)?.id;
+ return data.history.filter(h=>h.cardId===feedback.cardId&&h.mode==='quiz'&&(!feedback.exercise?.exerciseId||!(h.detail?.exerciseId||h.ex)||Practice.canonical(h.detail?.exerciseId||h.ex)===feedback.exercise.exerciseId)).sort((a,b)=>(a.at||a.date).localeCompare(b.at||b.date)||a.id.localeCompare(b.id)).at(-1)?.id;
 }
 function restoreExplanationPanels(keys){for(const node of document.querySelectorAll('[data-explanation-key]'))if(keys.has(node.dataset.explanationKey))node.open=true;}
 function appendCorrection(parent,snapshot){const update=ContentCorrections.find(snapshot);if(!update)return;const note=elem('div',undefined,'content-correction');note.append(elem('strong','문제와 해설 수정 안내'),elem('p','아래 기록은 수정 전 문제의 당시 채점 결과입니다.'),elem('p',update.note),elem('p','현재 문제: '+update.question),elem('p','현재 정답: '+update.answer),elem('p',update.explanation));parent.append(note);}
@@ -767,12 +767,12 @@ function choiceExplanations(quiz,split,picked){
 }
 function markedList(quiz){const box=elem('div',undefined,'marked-choices');box.append(elem('strong','보기별 틀린 곳'));quiz.choices.forEach((c,i)=>{const p=elem('p',(i+1)+'. ','example');p.append(markedChoice(c,quiz.marks[i],okLabel(quiz),!!quiz.fixes?.[i]?.length));box.append(p,...fixLines(quiz,i));});return box;}
 // 기출형 자료 제시 문제는 발문 뒤 빈 줄 다음에 [자료 이름]으로 시작하는 자료를 둔다. 발문은 크게, 자료는 상자에 보통 글씨로 보여 준다.
-// 자료 상자가 코드('[코드]')이거나 표처럼 칸을 맞춘 글(세로줄 ' | ' · 들여쓴 줄)이면 고정폭 글꼴로 보인다(.question-clue.mono) — 들여쓰기와 칸이 어긋나지 않게.
+// 자료 상자가 코드('[코드]')이거나 표처럼 칸을 맞춘 글(세로줄 ' | ', 들여쓴 줄)이면 고정폭 글꼴로 보인다(.question-clue.mono) — 들여쓰기와 칸이 어긋나지 않게.
 function clueMono(clue){return clue.startsWith('[코드]')||clue.split('\n').some(l=>l.includes(' | ')||/^ {2,}\S/.test(l));}
 // 고정폭 자료는 모든 줄에 같이 붙은 앞 공백을 떼고 보인다(폰 화면에서 줄이 덜 꺾인다). 줄끼리의 들여쓰기 차이는 그대로다.
 function clueDedent(clue){const [head,...body]=clue.split('\n'),n=Math.min(...body.filter(l=>l.trim()).map(l=>l.match(/^ */)[0].length));return n>0&&Number.isFinite(n)?[head,...body.map(l=>l.slice(Math.min(n,l.match(/^ */)[0].length)))].join('\n'):clue;}
 function questionNodes(text){const at=text.indexOf('\n\n[');if(at<0)return [elem('div',text,'question')];const clue=text.slice(at+2),mono=clueMono(clue);return [elem('div',text.slice(0,at),'question'),elem('div',mono?clueDedent(clue):clue,'question-clue'+(mono?' mono':''))];}
-// 영어 해설 끝의 ‘외우는 공식’ 문단(규칙마다 같은 외우기 블록)은 상자로 따로 보여 준다. 줄 머리(외우는 공식·입으로 외우기)와 이름표(꿀팁·함정)만 굵게 한다.
+// 영어 해설 끝의 ‘외우는 공식’ 문단(규칙마다 같은 외우기 블록)은 상자로 따로 보여 준다. 줄 머리(외우는 공식, 입으로 외우기)와 이름표(꿀팁, 함정)만 굵게 한다.
 // 2026-09-19: 한국사 해설의 ‘외우는 비결’ 문단은 전수 뗐다(사용자 요청 — 문제에서는 요약만 본다). 이 상자는 이제 영어 공식 전용이다.
 function explanationParts(text){
  const paras=String(text).split(/\n\s*\n/),at=paras.findIndex(p=>p.startsWith('외우는 공식\n'));
@@ -783,9 +783,9 @@ function explanationParts(text){
   if(label)p.append(elem('strong',label[1]+': '),document.createTextNode(line.slice(label[0].length)));else p.append(...keyText(line));box.append(p);});
  out.push(box);if(after)out.push(explanationText(after));return out;
 }
-// **말** 은 외울 핵심 — 색칠해 보여 준다(외우는 공식 상자·규칙 정리).
+// **말** 은 외울 핵심 — 색칠해 보여 준다(외우는 공식 상자, 규칙 정리).
 function keyText(line){return line.split(/\*\*(.+?)\*\*/).map((part,i)=>i%2?elem('mark',part,'key-word'):document.createTextNode(part));}
-// 규칙 정리: 줄마다 한 문단. [소제목] 줄은 굵게, ✓/✗로 시작하는 줄은 맞는·틀린 예문으로 색을 달리한다.
+// 규칙 정리: 줄마다 한 문단. [소제목] 줄은 굵게, ✓/✗로 시작하는 줄은 맞는, 틀린 예문으로 색을 달리한다.
 function ruleLines(text,cls){return String(text).split('\n').filter(Boolean).map(line=>{const p=elem('p',undefined,cls+(/^✓/.test(line)?' rule-ok':/^✗/.test(line)?' rule-bad':/^【[^】]*】$/.test(line)?' rule-head':''));p.append(...keyText(line));return p;});}
 function explanationText(text){
  const p=elem('p',undefined,'explanation-text');let start=0;
@@ -802,11 +802,11 @@ function appendNewPaperExplanation(parent,id,previous,reviewId,location){
 let sessionDirty=false;
 function sessionSnapshot(){const s=data.practiceScope||{},a=data.activePractice,e=a?.exercise;return {subject:s.subject||'',topic:s.topic||'',round:s.round||'',cardId:e?a.cardId:null,exerciseId:e?.exerciseId||null,variantIndex:e?(e.variantIndex??0):null,type:e?e.type:null,choices:e?.type==='choice'?[...e.choices]:null};}
 function stampSession(){if(!storageOK)return;let session;try{session=ProgressSync.session({at:Math.max(Date.now(),(data.session?.at||0)+1),...sessionSnapshot()});}catch{return;}data.session=session;persist();window.dispatchEvent(new Event('study-progress-saved'));}
-// 화면 아래 출처 줄: 지금 보는 과목의 문제가 어디서 왔는지만 적는다(국어를 풀 때 국사편찬위원회가 뜨지 않게). 컴퓨터일반·정보보호론은 자체 제작 문제가 없다.
+// 화면 아래 출처 줄: 지금 보는 과목의 문제가 어디서 왔는지만 적는다(국어를 풀 때 국사편찬위원회가 뜨지 않게). 컴퓨터일반, 정보보호론은 자체 제작 문제가 없다.
 function footerText(subject){const exam='인사혁신처 공개 9급 기출',hist='국사편찬위원회 공개 한능검 심화 기출',own='자체 제작 복습 문제';if(subject==='한국사')return [own,exam,hist].join(', ');if(subject==='국어'||subject==='영어'||(subject==='컴퓨터일반'&&COMPUTER_SELF.length))return [own,exam].join(', ');if(subject==='컴퓨터일반'||subject==='정보보호론')return exam;return [own,exam,hist].join(', ');}
 function footerSubject(){if(view==='home')return '';if(view!=='quiz')return viewSubject;try{const sc=scopeOf();if(sc.subject)return sc.subject;const id=data.session&&data.session.cardId,c=id&&data.cards.find(x=>x.id===id);return c?c.subject:'';}catch{return viewSubject;}}
 // 풀이 화면이 조각을 받는 중이면(contentWait) 위치를 아직 찍지 않는다 — 받은 뒤 문제를 그릴 때 그 문제까지 담아 찍는다(받지 못하면 범위만 찍는다).
-// 받기 전에 찍어 버리면 범위를 연 직후의 위치에 문제가 빠져, 다른 기기가 같은 문제 · 같은 보기 순서로 이어 받지 못한다.
+// 받기 전에 찍어 버리면 범위를 연 직후의 위치에 문제가 빠져, 다른 기기가 같은 문제, 같은 보기 순서로 이어 받지 못한다.
 let contentWait=false;
 function render(){contentWait=false;renderView();{const f=$('#siteFooter');if(f)f.textContent=footerText(footerSubject());}if(sessionDirty&&!contentWait){sessionDirty=false;stampSession();}}
 // Screens: home (subjects) → subject (resume / choose range) → range → quiz (question, then explanation). Progress is separate.
@@ -848,14 +848,14 @@ function renderHome(){
   const row=elem('div',undefined,'subject-row');row.dataset.subject=s;row.append(item,badgeChips(badges[s]||emptyBadges(),s));list.append(row);}
  if(!list.children.length)list.append(elem('p',data.cards.length?'풀 수 있는 문제가 아직 없어요.':'문제를 불러오는 중입니다.'));
 }
-// 외울 것: 목록 화면(viewSubject 비어 있음) → 한 목록 화면(viewSubject = 목록 id). 가림·확인은 이 화면에서만 쓰고 저장하지 않는다.
+// 외울 것: 목록 화면(viewSubject 비어 있음) → 한 목록 화면(viewSubject = 목록 id). 가림, 확인은 이 화면에서만 쓰고 저장하지 않는다.
 const MEMO_SCOPE='과목:';
 let memorizeShown=new Set();
 function renderMemorize(){
  // viewSubject는 '과목:<과목 이름>'이면 그 과목의 목록 화면, 아니면 목록 하나의 id다.
  const body=$('#memorizeBody'),subject=viewSubject.startsWith(MEMO_SCOPE)?viewSubject.slice(MEMO_SCOPE.length):'',set=subject?null:MEMORIZE.get(viewSubject);body.replaceChildren();
  $('#memorizeTitle').textContent=set?set.title:subject?subject+' 외울 것':'외울 것';
- // 목록 하나는 그 과목의 외울 것 조각을 받은 뒤에 그린다(목록 화면은 색인의 이름 · 칸 수만 쓴다).
+ // 목록 하나는 그 과목의 외울 것 조각을 받은 뒤에 그린다(목록 화면은 색인의 이름, 칸 수만 쓴다).
  if(!subject&&!set&&Content.memoKnown(viewSubject)){$('#memorizeTitle').textContent=MEMORIZE.sets.find(x=>x.id===viewSubject)?.title||'외울 것';renderContentLoad(body,'',Content.needMemo(viewSubject),null);return;}
  if(!set){
   body.append(elem('p','가려 둔 칸을 먼저 떠올린 뒤 눌러서 확인해요. 공부한 범위까지만 들어 있어요.','status'));
@@ -870,7 +870,7 @@ function renderMemorize(){
   if(photo){const im=elem('img');im.src=photo;im.alt=prompt;im.loading='lazy';b.append(im);}
   b.append(elem('strong',open&&answer?answer:(photo?'':prompt)));
   if(!open)b.append(elem('span','눌러서 확인','memorize-hidden'));
-  // 영어 공식 카드 뒷면은 **핵심** 색칠 · ✗ 줄 빨강 · 예) 줄을 해설의 외우는 공식 상자와 같게 보여 준다.
+  // 영어 공식 카드 뒷면은 **핵심** 색칠, ✗ 줄 빨강, 예) 줄을 해설의 외우는 공식 상자와 같게 보여 준다.
   else if(detail&&detail.includes('**')){const box=elem('span',undefined,'memorize-formula');for(const line of detail.split('\n')){const l=elem('span',undefined,/^✗/.test(line)?'formula-bad':/^예\)/.test(line)?'formula-example':'formula-line');l.append(...keyText(line));box.append(l);}b.append(box);}
   else b.append(elem('span',detail||(answer?'':'—')));return b;};
  const content=[];
@@ -990,7 +990,7 @@ function renderQuiz(){
  // 파트별 점검: 대기열 대신 지금 파트에서 한 문제(partRound). 파트가 없는 범위면 기본 대기열.
  const partMode=!sequential&&queueMode()==='parts',pr=partMode?partRound(scope,inside):null;
  const queue=pr?{ready:pr.card?[pr.card]:[],waiting:[],nextAt:null}:reviewQueue(chosen,rangedScope(scope),scope.subject),due=queue.ready;
- // 전부 풀기 모드에서는 복습 대기열(due·재시도·형제 간격)을 거치지 않고 드릴 순서만 따른다.
+ // 전부 풀기 모드에서는 복습 대기열(due, 재시도, 형제 간격)을 거치지 않고 드릴 순서만 따른다.
  // 기출 회차: 대기열을 거치지 않고 원문 순서 그대로 낸다. 드릴을 켜면 드릴이 우선한다(회차에서는 드릴 버튼을 감춘다).
  const feedback=data.quizFeedback&&chosen.find(c=>c.id===data.quizFeedback.cardId);
  const card=feedback||(sequential?chosen[at]:due.find(c=>c.id===data.activePractice?.cardId)||due[0]);
@@ -1034,13 +1034,13 @@ function renderQuiz(){
   if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
   return;
  }
- // 자체 제작 문제의 글 · 해설 · 기초 개념 상자는 그 문제를 처음 낼 때 조각으로 받는다(풀이 화면 · 채점 화면 모두). 받는 동안·받지 못했을 때는 안내만 그린다.
+ // 자체 제작 문제의 글, 해설, 기초 개념 상자는 그 문제를 처음 낼 때 조각으로 받는다(풀이 화면, 채점 화면 모두). 받는 동안, 받지 못했을 때는 안내만 그린다.
  {const names=Content.need(card.id);if(!Content.ready(names)){
   // 기출이면 회차 파일도 같이 받기 시작한다(조각을 다 받은 뒤에 시작하면 한 번 더 기다린다).
   if(!feedback&&Gichul.known(card.id)&&Gichul.state(Gichul.paperOf(card.id))==='idle')Gichul.load(Gichul.paperOf(card.id)).then(render,render);
   // 위치 기록은 조각을 받은 뒤 문제까지 담아 찍는다. 다만 회차 파일을 아직 받지 않은 기출은 예전처럼 지금 찍는다(받기 전의 기출 회차는 위치에 문제를 담지 않았다).
   renderContentLoad(root,card.subject,names,scope.subject?()=>go('range',scope.subject):null,!(Gichul.known(card.id)&&!Gichul.ready(card.id)));return;}}
- // 기출 회차 파일은 그 회차의 문항을 처음 낼 때 받는다. 받는 동안·받지 못했을 때는 문제 대신 안내만 그린다.
+ // 기출 회차 파일은 그 회차의 문항을 처음 낼 때 받는다. 받는 동안, 받지 못했을 때는 문제 대신 안내만 그린다.
  if(!feedback&&Gichul.known(card.id)&&!Gichul.ready(card.id)){renderPaperLoad(root,card,scope);return;}
  let active=data.activePractice;
  if(!feedback&&active?.cardId===card.id){const canonical=Content.core(card.id)||card,current=Practice.refresh(canonical,active.exercise,PRACTICE_BANK,QUIZ_OPTIONS);if(JSON.stringify(current)!==JSON.stringify(active.exercise)){const changed=current.question!==active.exercise.question||current.type!==active.exercise.type;active={...active,exercise:current,draft:changed?'':active.draft};data.activePractice=active;saveDraft();if(changed)notify('풀던 문제의 표현이 수정됐어요. 새 문제를 확인해 주세요.');}}
@@ -1065,12 +1065,12 @@ function renderQuiz(){
   appendNoteBox(root,card,quiz,'question',label.textContent);
  }
  restoreExplanationPanels(opened);
- // 다음에 낼 문제들의 조각을 미리 받아 둔다(과목 · 단원이 섞인 대기열에서 문제 사이에 '불러오는 중'이 보이지 않게). 실패는 남기지 않는다.
+ // 다음에 낼 문제들의 조각을 미리 받아 둔다(과목, 단원이 섞인 대기열에서 문제 사이에 '불러오는 중'이 보이지 않게). 실패는 남기지 않는다.
  Content.prefetch((sequential?chosen.slice(at+1,at+3):due.filter(c=>c.id!==card.id).slice(0,3)).map(c=>c.id));
  if(hadFocus&&$('#practiceInput')&&!feedback){$('#practiceInput').focus();$('#practiceInput').setSelectionRange(caret,caret);}
  if(noteFocus&&$('#noteInput')){$('#noteInput').focus();$('#noteInput').setSelectionRange(noteCaret,noteCaret);}
 }
-// 조각을 받는 동안 · 받지 못했을 때의 안내(풀이 화면 · 기초 개념 보기 · 외울 것 목록이 함께 쓴다). 막다른 화면이 없게 언제나 누를 것이 있다.
+// 조각을 받는 동안, 받지 못했을 때의 안내(풀이 화면, 기초 개념 보기, 외울 것 목록이 함께 쓴다). 막다른 화면이 없게 언제나 누를 것이 있다.
 function renderContentLoad(root,head,names,elsewhere,hold=false){
  const st=Content.status(names),again=()=>{Content.load(names).then(render,render);render();};
  if(head)root.append(elem('small',head));
@@ -1100,11 +1100,11 @@ function renderPaperLoad(root,card,scope){
  root.append(elem('p','기출 문제를 불러오는 중입니다: '+paper.title,'status'));
  if(state==='idle')Gichul.load(paperId).then(render,render);
 }
-// 기초 개념(basics.js): 규칙마다 한 번 쓴 상자(1. 먼저 알아 둘 말 · 2. 표 · 3. 규칙 · 4. 비교 예문)에 문제마다 5. 이 문제에 대입을 붙인다.
+// 기초 개념(basics.js): 규칙마다 한 번 쓴 상자(1. 먼저 알아 둘 말, 2. 표, 3. 규칙, 4. 비교 예문)에 문제마다 5. 이 문제에 대입을 붙인다.
 // 해설 화면에서는 '규칙과 비교 예문 더 보기'를 대신하고, 틀렸을 때만 펼쳐 둔다. 파트별 상태의 '기초 개념 보기'는 대입 없이 파트의 상자를 모두 모아 보여 준다.
-// 자료는 글자로만 받는다: {s|글} 색 칩 · {c|코드} 고정폭 글자 그대로(안의 ** 는 굵게가 아니다) · **글** 굵게 · ○/✕ 색. 표가 없는 규칙은 번호를 당겨 적는다.
+// 자료는 글자로만 받는다: {s|글} 색 칩, {c|코드} 고정폭 글자 그대로(안의 ** 는 굵게가 아니다), **글** 굵게, ○/✕ 색. 표가 없는 규칙은 번호를 당겨 적는다.
 const BASICS=globalThis.STUDY_BASICS||{boxes:{},apply:{},box:()=>null,forQuestion:()=>null};
-// 문제 → 상자: 국어 · 영어는 문제의 규칙(ruleId)마다 상자, 한국사는 파트마다 상자라서 그 문제의 대입(apply)에 상자 id(box)를 적어 둔다.
+// 문제 → 상자: 국어, 영어는 문제의 규칙(ruleId)마다 상자, 한국사는 파트마다 상자라서 그 문제의 대입(apply)에 상자 id(box)를 적어 둔다.
 const basicsRuleFor=id=>Content.lesson(id)?.ruleId||Content.applyBox(id)||null;
 const basicsClosed=new Set();
 function basicsInline(text){
@@ -1124,14 +1124,14 @@ function basicsDiagram(nodes){const wrap=elem('div',undefined,'b-diagram');
  const draw=n=>{const d=elem('div',undefined,'b-bx b-bx-'+n.c+(n.side?' b-bx-side':''));if(n.label)d.append(elem('span',n.label,'b-bx-label b-'+(n.c==='gap'?'m':n.c)));if(n.text)d.append(basicsLines(n.text,'b-bx-text','div'));for(const k of n.kids||[])d.append(draw(k));return d;};
  for(const n of nodes)wrap.append(draw(n));return wrap;}
 function basicsBlock(b){return typeof b==='string'?basicsLines(b,'b-this'):b.table?basicsTable(b.table):basicsDiagram(b.boxes);}
-// 여러 상자에 똑같이 실린 말 · 표 · 규칙(전개 방식 넷의 공통 표 등)은 한 상자를 길게 만들므로, 문제 화면에서는 '함께 보는 정리'로 접고
+// 여러 상자에 똑같이 실린 말, 표, 규칙(전개 방식 넷의 공통 표 등)은 한 상자를 길게 만들므로, 문제 화면에서는 '함께 보는 정리'로 접고
 // (그 문제의 대입이 공통 줄을 쓰면 펼침), 파트 모아 보기에서는 처음 한 번만 보여 준다.
 // 공통으로 세는 것은 같은 파트(parts.js — 파트 문제들의 ruleId)에 함께 나오는 상자끼리만이다. 영어 공식 훈련 상자와 Day 상자는
 // 같은 공식 줄을 나눠 쓰지만 서로 다른 파트라서, 전체로 세면 파트 밖 상자 때문에 줄이 접혀 버린다.
 // 어느 줄이 공통인지는 내용 창고가 안다(v247): 빌드가 상자마다 "어느 파트에서 어느 줄이 공통인가"를 미리 계산해 상자 조각에 싣는다(StudyContent.sharedSlots — 전체 방식은 같은 함수로 그 자리에서 계산).
 // partId를 주면 그 파트 안에서, 없으면 그 상자가 나오는 어느 파트에서든 공통인지.
 function basicsShared(x,rule,partId){const box=rule&&BASICS.box(rule);return !!box&&Content.isShared(box,x,partId);}
-// 공식이 많은 상자(규칙 id 앞머리 — 'dn-1'이면 dn — 로 묶은 공식이 넷 이상): 해설 화면에서는 이 문제의 대입이 쓰는 공식의 규칙 · 비교 예문만
+// 공식이 많은 상자(규칙 id 앞머리 — 'dn-1'이면 dn — 로 묶은 공식이 넷 이상): 해설 화면에서는 이 문제의 대입이 쓰는 공식의 규칙, 비교 예문만
 // 제자리에 두고, 나머지 공식은 닫힌 '이 정리의 다른 공식 N개 더 보기' 하나에 모은다. 'm-'으로 시작하는 줄은 줄마다 따로 센다.
 const basicsGroup=id=>{const i=String(id).lastIndexOf('-');return id.startsWith('m-')||i<0?id:id.slice(0,i);};
 function basicsFormulaSplit(box,rule,rules,apply){
@@ -1154,7 +1154,7 @@ function basicsTerm(t){const h=elem('div',undefined,'b-term');h.append(elem('spa
  if(t.rows){const r=elem('div',undefined,'b-rows');for(const row of t.rows)r.append(basicsLines(row,undefined,'div'));out.push(r);}if(t.ex&&t.ex!=='—')out.push(basicsLines('예) '+t.ex,'b-ex'));return out;}
 function basicsRule(r){const d=elem('div',undefined,'b-rule');d.append(elem('b',r.name));String(r.text).split('\n').forEach((line,i)=>{if(i)d.append(elem('br'));d.append(...basicsInline(line));});return d;}
 function basicsExample(x){const p=elem('p',undefined,'b-ex'+(x.ok?'':' bad'));p.append(elem('span',x.ok?'✓':'✗',x.ok?'b-ok':'b-no'),document.createTextNode(' '),...basicsInline(x.text),elem('br'));const s=elem('small');s.append(...basicsInline(x.why));p.append(s);return p;}
-// 한국사 상자(split:'lines', 파트마다 하나 · 표가 여럿): 해설 화면에서는 이 문제의 대입이 쓰는 줄(용어 · 표의 줄 · 규칙 · 비교 예문)만
+// 한국사 상자(split:'lines', 파트마다 하나, 표가 여럿): 해설 화면에서는 이 문제의 대입이 쓰는 줄(용어, 표의 줄, 규칙, 비교 예문)만
 // 제자리에 두고, 나머지는 닫힌 '이 정리의 나머지 더 보기' 하나에 같은 순서로 모은다. 대입이 표 id를 쓰면 그 표 전체, 줄 id를 쓰면 그 줄만.
 // 제자리에 둘 줄이 없는 절은 제목도 두지 않고 번호를 당긴다. 파트 모아 보기에서는 모두 펼친다(basicsSections의 다른 모드).
 function basicsLineSections(box,apply){
@@ -1179,10 +1179,10 @@ function basicsLineSections(box,apply){
  return out;
 }
 // 한국사 상자 끝(v177, 사용자 "기초개념에 외울것을 정리하고 창의적암기법도 같이 표시"): 외울 것 = 외울 것 목록(memorize.js)에서 그 파트에 맞는 짝만 고른 줄,
-// 암기법 = 사용자가 만든 외우는 낱말(quiz-options.js HISTORY_MNEMONICS 블록 — 상자에는 id와 부르는 낱말만). 풀이 줄 · 상상 장면 · '소리만 빌린 말' 주의만 보인다.
+// 암기법 = 사용자가 만든 외우는 낱말(quiz-options.js HISTORY_MNEMONICS 블록 — 상자에는 id와 부르는 낱말만). 풀이 줄, 상상 장면, '소리만 빌린 말' 주의만 보인다.
 // 블록이 넷 이상인 상자는 해설 화면에서 이 문제의 대입에 나오는 블록만 제자리에 두고 나머지는 닫힌 '이 파트의 다른 암기법 N개 더 보기'에.
 function basicsMnemonic(id){const b=globalThis.HISTORY_MNEMONICS?.get(id);if(!b)return null;const d=elem('div',undefined,'b-mn');d.dataset.mn=id;
- const words=b.items.map(i=>i[0]);if(words.join(' · ')!==b.hook&&words[0]!==b.hook)d.append(elem('p',b.hook,'b-mn-hook'));
+ const words=b.items.map(i=>i[0]);if(words.join(', ')!==b.hook&&words[0]!==b.hook)d.append(elem('p',b.hook,'b-mn-hook'));
  for(const [w,t] of b.items){const p=elem('p',undefined,'b-mn-item');p.append(elem('b',w),document.createTextNode(' — '+t));d.append(p);}
  if(b.scene)d.append(elem('p','상상 장면: '+b.scene,'b-mn-scene'));
  if(b.trap&&/소리만|잘못 만든|외우면 틀린/.test(b.trap))d.append(elem('p','주의: '+b.trap,'b-mn-trap'));
@@ -1202,7 +1202,7 @@ function basicsMemoSections(box,apply,head,out){
  for(const x of keep)out.push(basicsMnemonic(x.id));
  if(rest.length){const d=elem('details',undefined,'b-more b-mn-rest');d.append(elem('summary',keep.length?'이 파트의 다른 암기법 '+rest.length+'개 더 보기':'이 파트의 암기법 '+rest.length+'개 보기'));for(const x of rest)d.append(basicsMnemonic(x.id));out.push(d);}
 }
-// mode: 'fold' = 공통 줄을 끝에 접어 둠 · 'skip' = seen에 든(앞 상자에서 보인) 줄을 빼고 한 줄 안내 · 그 밖 = 모두 제자리에
+// mode: 'fold' = 공통 줄을 끝에 접어 둠, 'skip' = seen에 든(앞 상자에서 보인) 줄을 빼고 한 줄 안내 / 그 밖 = 모두 제자리에
 function basicsSections(box,apply,mode,seen,partId){
  if(mode==='fold'&&box.split==='lines'&&apply)return basicsLineSections(box,apply);
  const out=[];let n=0;const head=t=>out.push(elem('h4',(++n)+'. '+t,'b-h')),rule=Content.ruleOfBox(box);
@@ -1343,17 +1343,17 @@ function answerPractice(id,input){
  next.quizFeedback={cardId:id,reviewId,selectedIndex:quiz.type==='choice'?input:-1,userAnswer:quiz.type==='text'?String(input):'',result,exercise:quiz};
  delete next.activePractice;notify('');if(commit(next)){if(sequential)paperAdvance();sessionDirty=true;render();window.scrollTo(0,0);}
 }
-// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제 · 문제집 Day 1~15 · 문법 공식 훈련, 국어: 사고의 힘 논리 1~6장·독해 1~3장·국어 문법·공문서 수정·어휘)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
+// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제, 문제집 Day 1~15, 문법 공식 훈련 / 국어: 사고의 힘 논리 1~6장, 독해 1~3장, 국어 문법, 공문서 수정, 어휘)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
 // 과목은 연습 문제에 적힌 subject를 따르고, 적혀 있지 않으면 영어다(기존 영어 문제는 subject를 따로 적지 않았다).
 // 새로 만든 문제는 '팩 이름'이 바뀔 때만 기기에 들어왔다. 배포할 때 이름을 손으로 안 올리면 영영 안 들어온다 —
-// 2026-09-17 뒤에 만든 158문항(16강 80 · 문화유산 사진 70 · 궁궐 사진 8)이 그래서 이미 쓰던 기기에서 안 보였다.
+// 2026-09-17 뒤에 만든 158문항(16강 80, 문화유산 사진 70, 궁궐 사진 8)이 그래서 이미 쓰던 기기에서 안 보였다.
 // 이제 이름을 보지 않고 대조한다. 기기에 없는 문제는 언제나 넣고, 넣을 것이 없으면 저장도 하지 않는다.
 // v247: 글을 아직 받지 않은 문제는 과목만 가진 일정 카드로 넣는다(일정 칸은 같다. 글은 조각이 붙을 때 채운다).
 function installCorePack(){const ids=new Set(data.cards.map(c=>c.id));const cards=[...cardContent()].filter(([id])=>!ids.has(id)).map(([id,c])=>c.question===undefined?{id,subject:c.subject,verified:true,created:day(),due:day(),ease:2.5,interval:0,streak:0}:({...newCard(c),id}));if(!cards.length)return;commit({...data,cards:[...data.cards,...cards]});}
 // v248: 여기부터 첫 그리기까지는 저장 상태를 읽은 뒤에 돈다(startApp). IndexedDB 읽기는 storage.js가 맨 앞에서 시작해 두었다.
 function startApp(){
 installCorePack();
-// 더는 없는 문제(v57에서 문제 하나씩으로 나눈 영어 규칙 카드 등)를 가리키던 풀이 화면·채점 화면만 비운다.
+// 더는 없는 문제(v57에서 문제 하나씩으로 나눈 영어 규칙 카드 등)를 가리키던 풀이 화면, 채점 화면만 비운다.
 // 그대로 두면 채점 화면이 남아 다음 답을 받지 못한다. 채점 기록(history)과 카드 일정은 한 건도 지우지 않는다.
 {const gone=id=>!!id&&!isPlayable(data.cards.find(c=>c.id===id));if(gone(data.quizFeedback?.cardId)||gone(data.activePractice?.cardId)){const next=structuredClone(data);if(gone(next.quizFeedback?.cardId))delete next.quizFeedback;if(gone(next.activePractice?.cardId))delete next.activePractice;commit(next);}}
 if(!data.quizUiVersion){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;next.quizUiVersion=1;commit(next);}
@@ -1414,13 +1414,13 @@ globalThis.StudyProgress={
  // A newer position from another device reopens the same scope, question and choice order.
  mergeSession(row){
   const remote=ProgressSync.session(row);if(remote.at<=(data.session?.at||0))return;
-  // 그 문제의 조각을 아직 받지 않았으면 받은 뒤 같은 문제 · 같은 보기 순서로 연다. 받지 못하면 범위만 옮긴다(받지 않은 기출 회차와 같다).
+  // 그 문제의 조각을 아직 받지 않았으면 받은 뒤 같은 문제, 같은 보기 순서로 연다. 받지 못하면 범위만 옮긴다(받지 않은 기출 회차와 같다).
   if(remote.cardId){const names=Content.need(remote.cardId);if(!Content.ready(names)&&sessionWait!==remote.at){sessionWait=remote.at;const again=()=>{try{globalThis.StudyProgress.mergeSession(row);}catch{}};Content.load(names).then(again,again);return;}}
   paperCursor=null;
   const next=structuredClone(data),scope={subject:remote.subject,topic:remote.topic,round:remote.round};next.session=remote;next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:scope};delete next.quizFeedback;
   const card=remote.cardId&&next.cards.find(c=>c.id===remote.cardId);let exercise=null;
   if(card&&isPlayable(card)&&Content.ready(Content.need(card.id))&&(!Gichul.known(card.id)||Gichul.ready(card.id)))exercise=Practice.refresh(Content.core(card.id)||card,{exerciseId:remote.exerciseId,variantIndex:remote.variantIndex,type:remote.type,choices:remote.choices},PRACTICE_BANK,QUIZ_OPTIONS);
-  if(exercise&&exercise.exerciseId===remote.exerciseId){const own=data.activePractice?.cardId===card.id&&data.activePractice.exercise?.exerciseId===exercise.exerciseId?data.activePractice:null;next.activePractice={...(own||{cardId:card.id,draft:'',assisted:false}),exercise};}else delete next.activePractice;
+  if(exercise&&exercise.exerciseId===Practice.canonical(remote.exerciseId)){const own=data.activePractice?.cardId===card.id&&data.activePractice.exercise?.exerciseId===exercise.exerciseId?data.activePractice:null;next.activePractice={...(own||{cardId:card.id,draft:'',assisted:false}),exercise};}else delete next.activePractice;
   if(!commit(next))throw Error('Local save failed');render();
  },
  notes:()=>structuredClone(data.notes||[]),
@@ -1453,7 +1453,7 @@ async function switchProfile(uid){
  const o=await openProfile(target,null);
  if(!o){idb=null;pendingDetails.clear();saveFailing=false;saveAlert();switchLocal(uid);return;}
  let next=o.state;const owner=localStorage.getItem('chagog-owner');
- // 합친 손님 문제 줄에는 글 없는 일정 칸만 있다 → 과목 · 글을 다시 붙인다(안 붙이면 그 문제들이 범위에서 빠진다).
+ // 합친 손님 문제 줄에는 글 없는 일정 칸만 있다 → 과목, 글을 다시 붙인다(안 붙이면 그 문제들이 범위에서 빠진다).
  if(uid&&!owner){const guest=await readProfile('chagog-v1');if(guest)next=hydrateCards(foldIn(next,guest));}
  delete next.quizFeedback;delete next.activePractice;for(const c of next.cards)delete c.pendingAttempt;
  if(uid){if(!owner)localStorage.setItem('chagog-owner',uid);localStorage.setItem('chagog-active-user',uid);}else localStorage.removeItem('chagog-active-user');

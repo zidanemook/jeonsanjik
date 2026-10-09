@@ -9,7 +9,7 @@ for(const t of topics.list)assert.match(t.id,/^[a-z-]+$/);
 // Earlier short sets stay inside the matching era topic.
 assert.equal(byCard.get(catalog.sets[0].ids[0]),'prehistory');
 assert.equal(byCard.get(catalog.sets[4].ids[0]),'compare');
-// v30: Three-Kingdoms-wide comparisons from 07·08강 form their own topic right after 백제·신라·삼국 통일; official papers never map there.
+// v30: Three-Kingdoms-wide comparisons from 07.08강 form their own topic right after 백제, 신라, 삼국 통일; official papers never map there.
 assert.equal(topics.list.findIndex(t=>t.id==='three-kingdoms'),topics.list.findIndex(t=>t.id==='baekje-silla')+1);
 assert.equal(topics.title('three-kingdoms'),'삼국 공통과 비교');
 assert.equal(byCard.get('lecture-hist-20260911-001'),'three-kingdoms');
