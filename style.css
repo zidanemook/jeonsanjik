@@ -415,8 +415,8 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-table td:first-child { background:#1a1f28; color:#d1d7e0; font-weight:600; }
 .b-table tr:nth-child(even) td + td { background:#16191f; }
 .b-table.b-hist th, .b-table.b-hist td { text-align:left; vertical-align:top; word-break:keep-all; overflow-wrap:break-word; }
-/* v262: 표가 상자보다 넓어지던 일(393px에서 16파트) — 긴 낱말 때문에 칸들의 가장 좁은 너비 합이 화면을 넘었다. 마지막 칸(가장 긴 글이 드는 칸)만 낱말 안에서도 줄을 바꿀 수 있게 해 그 칸이 줄어들게 한다. 모든 칸에 주면 짧은 가운데 칸이 한 글자 너비로 눌린다. */
-.b-table.b-hist th:last-child, .b-table.b-hist td:last-child { overflow-wrap:anywhere; }
+/* v262, v264: 표가 상자보다 넓어지던 일(393px에서 16파트) — 긴 낱말 때문에 칸들의 가장 좁은 너비 합이 화면을 넘었다. 첫 칸은 낱말을 지키고(가장 긴 낱말만큼은 차지), 둘째 칸부터는 낱말 안에서도 줄을 바꿀 수 있게 해 줄어들게 하되 4.5em 아래로는 눌리지 않게 바닥을 둔다(바닥이 없으면 짧은 칸이 한 글자 너비로 눌린다). */
+.b-table.b-hist th + th, .b-table.b-hist td + td { overflow-wrap:anywhere; min-width:4.5em; }
 .b-table.b-hist td:first-child { min-width:3.2em; }
 .b-diagram { display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; margin:8px 0; }
 .b-diagram > .b-bx { flex:1 1 150px; min-width:0; }
