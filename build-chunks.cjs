@@ -82,15 +82,18 @@ function derive(ctx){
  return {index,indexText,manifestText,files,chunks};
 }
 // 디스크에 있어야 할 파일(상대 경로 → 글).
-function outputs(built){const out=new Map([['content-index.js',built.indexText],['chunk-manifest.json',built.manifestText]]);for(const [name,f]of built.files)out.set('chunks/'+name+'.json',f.text);return out;}
+// version.js(v259): 지금 판의 이름 한 줄. sw.js의 CACHE 이름을 그대로 옮긴다 — 판을 올리는 스크립트는 sw.js만 고치고 이 스크립트를 돌린다.
+// 화면 아래의 버전과 새 버전 알아채기(update.js)가 이 값을 쓴다. sw.js와 어긋나면 --check가 실패한다.
+function versionText(dir){const m=/const CACHE='(chagog-v\d+-[a-z0-9-]+)';/.exec(fs.readFileSync(path.join(dir,'sw.js'),'utf8'));if(!m)throw Error('sw.js CACHE name');return "globalThis.APP_BUILD='"+m[1]+"';\n";}
+function outputs(built,dir=__dirname){const out=new Map([['content-index.js',built.indexText],['chunk-manifest.json',built.manifestText],['version.js',versionText(dir)]]);for(const [name,f]of built.files)out.set('chunks/'+name+'.json',f.text);return out;}
 function diff(built,dir=__dirname){
- const want=outputs(built),bad=[];
+ const want=outputs(built,dir),bad=[];
  for(const [rel,text]of want){const p=path.join(dir,rel);if(!fs.existsSync(p))bad.push('없음: '+rel);else if(!fs.readFileSync(p).equals(bytes(text)))bad.push('다름: '+rel);}
  const cdir=path.join(dir,'chunks');if(fs.existsSync(cdir))for(const f of fs.readdirSync(cdir))if(!want.has('chunks/'+f))bad.push('남은 파일: chunks/'+f);
  return bad;
 }
 function write(built,dir=__dirname){
- const want=outputs(built);let changed=0,removed=0;fs.mkdirSync(path.join(dir,'chunks'),{recursive:true});
+ const want=outputs(built,dir);let changed=0,removed=0;fs.mkdirSync(path.join(dir,'chunks'),{recursive:true});
  for(const [rel,text]of want){const p=path.join(dir,rel),b=bytes(text);if(fs.existsSync(p)&&fs.readFileSync(p).equals(b))continue;fs.writeFileSync(p,b);changed++;}
  for(const f of fs.readdirSync(path.join(dir,'chunks')))if(!want.has('chunks/'+f)){fs.unlinkSync(path.join(dir,'chunks',f));removed++;}
  return {changed,removed};
@@ -100,6 +103,6 @@ function summary(built){const kinds={};let total=0;for(const [name,f]of built.fi
 module.exports={SOURCES,SUBJECT_CODE,loadSources,derive,outputs,diff,write,summary};
 if(require.main===module){
  const built=derive(loadSources());
- if(process.argv.includes('--check')){const bad=diff(built);if(bad.length){console.error('조각, 색인이 원본과 다르다(낡았다). node build-chunks.cjs 를 돌리고 chunks/, content-index.js, chunk-manifest.json을 커밋할 것:\n '+bad.slice(0,20).join('\n ')+(bad.length>20?'\n … 외 '+(bad.length-20):''));process.exitCode=1;}else console.log('PASS build-chunks --check: '+summary(built));}
+ if(process.argv.includes('--check')){const bad=diff(built);if(bad.length){console.error('조각, 색인이 원본과 다르다(낡았다). node build-chunks.cjs 를 돌리고 chunks/, content-index.js, chunk-manifest.json, version.js를 커밋할 것:\n '+bad.slice(0,20).join('\n ')+(bad.length>20?'\n … 외 '+(bad.length-20):''));process.exitCode=1;}else console.log('PASS build-chunks --check: '+summary(built));}
  else{const r=write(built);console.log('build-chunks: 쓴 파일 '+r.changed+', 지운 파일 '+r.removed+', '+summary(built));}
 }

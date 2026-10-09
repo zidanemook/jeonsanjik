@@ -15,11 +15,12 @@ const currentTails=new Set([...current.keys()].map(tail));
 // 표를 거꾸로: 지금 문제 가운데 옛 id가 따로 있는 것. 옛 끝 마디는 표의 열쇠에서만 알 수 있으므로 canonical로 거꾸로 표를 만든다.
 const source=require('node:fs').readFileSync(__dirname+'/practice.js','utf8');
 const table=JSON.parse(/\/\*EXERCISE-ALIAS\*\/(\{[^}]*\})/.exec(source)[1]);
-const byNewTail=new Map();for(const [o,n] of Object.entries(table)){assert.ok(!currentTails.has(o),'옛 끝 마디가 지금 문제의 끝 마디와 겹친다: '+o);assert.ok(currentTails.has(n),'가리키는 문제가 없다: '+n);assert.ok(!byNewTail.has(n),'두 옛 id가 한 문제로: '+n);byNewTail.set(n,o);}
+const byNewTail=new Map();for(const [o,n] of Object.entries(table)){assert.ok(!currentTails.has(o),'옛 끝 마디가 지금 문제의 끝 마디와 겹친다: '+o);assert.ok(currentTails.has(n),'가리키는 문제가 없다: '+n);if(!byNewTail.has(n))byNewTail.set(n,o);} // 한 문제에 옛 id가 둘일 수 있다(판을 두 번 거치며 글이 두 번 바뀐 문제)
 const oldIdOf=id=>byNewTail.has(tail(id))?head(id)+'-'+byNewTail.get(tail(id)):null;
 const changed=[...current.keys()].filter(oldIdOf);
-assert.ok(changed.length>=Practice.aliasCount,'표의 줄마다 지금 문제가 있다(글이 같은 문제 둘은 끝 마디도 같다)');
+assert.ok(changed.length>=2000&&changed.length<=Practice.aliasCount+50,'표의 줄마다 지금 문제가 있다(글이 같은 문제 둘은 끝 마디도 같다)');
 for(const id of changed.slice(0,200))assert.equal(Practice.canonical(oldIdOf(id)),id,'옛 id → 새 id');
+for(const [o,n] of Object.entries(table))assert.equal(Practice.canonical('x-'+o),'x-'+n);
 assert.equal(Practice.canonical('ko-logic1-01-zzzzzzzz'),'ko-logic1-01-zzzzzzzz','표에 없는 id는 그대로');assert.equal(Practice.canonical(undefined),undefined);
 // ── 2 44일 상태: 옛 id 그대로 읽은 갈래 = 글자 그대로 견준 갈래
 const base=JSON.parse(Heavy.baseRaw()),history=base.history;

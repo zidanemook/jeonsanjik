@@ -808,7 +808,15 @@ function footerSubject(){if(view==='home')return '';if(view!=='quiz')return view
 // 풀이 화면이 조각을 받는 중이면(contentWait) 위치를 아직 찍지 않는다 — 받은 뒤 문제를 그릴 때 그 문제까지 담아 찍는다(받지 못하면 범위만 찍는다).
 // 받기 전에 찍어 버리면 범위를 연 직후의 위치에 문제가 빠져, 다른 기기가 같은 문제, 같은 보기 순서로 이어 받지 못한다.
 let contentWait=false;
-function render(){contentWait=false;renderView();{const f=$('#siteFooter');if(f)f.textContent=footerText(footerSubject());}if(sessionDirty&&!contentWait){sessionDirty=false;stampSession();}}
+// 새 버전(v259, update.js): 새 판이 준비돼 있으면 안전한 자리에서 스스로 다시 연다. 그리기 직전이 그 자리다 — 다음 문제를 누른 직후(채점 화면은 지워졌고 다음 문제는 아직 안 그렸다),
+// 다른 화면으로 옮긴 직후, 범위를 다 푼 끝 화면. 문제가 떠 있거나 채점 화면(해설을 읽는 중), 기초 개념 보기, 외울 것을 읽는 중이면 띠만 띄워 두고 기다린다. 화면이 가려져 있으면 언제든 다시 연다(풀던 문제, 쓰던 답은 저장돼 있다).
+let updater=null;
+const RESUME='chagog-update-resume';
+function updateSafe(){const a=document.activeElement;if(a&&(a.tagName==='INPUT'||a.tagName==='TEXTAREA')&&a.value&&a.id!=='practiceInput'&&a.id!=='noteInput')return false;if(document.hidden)return true;if(view==='basics'||view==='memorize')return false;return view!=='quiz'||(!data.activePractice&&!data.quizFeedback);}
+// 다시 열어도 보던 화면으로 돌아오게 자리를 적어 둔다(풀던 범위, 문제, 보기 순서는 저장 상태에 있다). 기기에 쓰는 중이면 끝난 뒤에 연다.
+function keepView(){try{sessionStorage.setItem(RESUME,JSON.stringify({view,subject:viewSubject,part:view==='basics'?basicsPart:'',at:Date.now()}));}catch{}}
+function updateReload(){keepView();try{saveNoteDraftNow();}catch{}const open=()=>location.reload();if(lastWrite)lastWrite.then(open,open);else open();}
+function render(){if(updater&&updater.safePoint())return;contentWait=false;renderView();{const f=$('#siteFooter');if(f)f.textContent=footerText(footerSubject());}if(sessionDirty&&!contentWait){sessionDirty=false;stampSession();}}
 // Screens: home (subjects) → subject (resume / choose range) → range → quiz (question, then explanation). Progress is separate.
 const VIEWS=['home','subject','range','quiz','progress','memorize','parts','basics'];
 let view='home',viewSubject='';
@@ -1076,7 +1084,7 @@ function renderContentLoad(root,head,names,elsewhere,hold=false){
  if(head)root.append(elem('small',head));
  if(st.state==='error'){
   root.append(elem('h2',st.stale?'새 버전으로 바뀌었어요':'문제를 불러오지 못했어요'),elem('p',st.stale?'이 화면을 열어 둔 사이에 문제 파일이 새 버전으로 바뀌었어요. 다시 열면 풀던 곳부터 이어져요. 푼 기록은 그대로 남아 있어요.':'문제 파일을 받지 못했어요. 인터넷 연결을 확인하고 다시 불러오세요. 한 번 받은 범위는 이 기기에 남아 연결 없이도 풀 수 있어요.'));
-  if(st.stale)root.append(btn('새 버전으로 다시 열기',()=>location.reload(),'primary'));
+  if(st.stale)root.append(btn('새 버전으로 다시 열기',()=>{keepView();location.reload();},'primary'));
   root.append(btn('다시 불러오기',again,st.stale?'':'primary'));
   if(elsewhere)root.append(btn('다른 범위 고르기',elsewhere));
   return;
@@ -1377,9 +1385,23 @@ document.addEventListener('click',e=>{if(badgeInfoOpen&&!e.target?.closest?.('#b
 $('#targetSave').onclick=()=>{const t={name:$('#targetName').value.trim(),cutoff:Number($('#targetCutoff').value),bonus:Number($('#targetBonus').value||0)};
  if(JSON.stringify(ExamScore.target(t))!==JSON.stringify(t)){notify('목표 이름(40자 이내), 목표 점수(1~110), 가산점(0~10)을 확인해 주세요.');return;}saveTarget(t);};
 $('#targetReset').onclick=()=>saveTarget(null);
+// 새 버전으로 스스로 다시 연 직후면 보던 화면으로 돌아간다.
+{let r=null;try{r=JSON.parse(sessionStorage.getItem(RESUME)||'null');sessionStorage.removeItem(RESUME);}catch{}
+ if(r&&VIEWS.includes(r.view)&&r.view!=='home'&&Date.now()-r.at<120000){view=r.view;viewSubject=typeof r.subject==='string'?r.subject:'';if(view==='basics'){if(typeof r.part==='string'&&PARTS.part(r.part))basicsPart=r.part;else view='parts';}
+  try{history.pushState({view,subject:viewSubject,depth:1,...(view==='basics'?{part:basicsPart}:{})},'');}catch{}if(view==='quiz')sessionDirty=true;}}
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)render();});render();
 setInterval(()=>{if(view==='quiz'&&!document.hidden&&!$('#card .question')&&reviewQueue(data.cards.filter(inCurrent),rangedScope(scopeOf()),scopeOf().subject).ready.length)render();},15000);
-if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+// 서비스 워커 등록 + 새 버전 알아채기. v258까지는 시작할 때 한 번만 sw.js를 다시 봤다 — 탭을 열어 둔 채로는 새 판을 영영 몰랐고,
+// 다른 탭이 새 워커를 켜도(skipWaiting + clients.claim) 이 탭은 메모리의 옛 스크립트로 계속 돌았다. 이제 시작, 앞으로 나옴, 포커스, 연결됨, 몇 분마다 확인한다.
+{const AU=globalThis.AppUpdate,build=globalThis.APP_BUILD||'',v=$('#appVersion');if(v)v.textContent=AU?AU.label(build):'';
+ const sw=typeof navigator!=='undefined'&&'serviceWorker'in navigator?navigator.serviceWorker:null;
+ const begin=()=>{if(!AU||!build||typeof location==='undefined'||!/^https?:$/.test(location.protocol||''))return;
+  let store=null;try{store=sessionStorage;}catch{}
+  const bar=$('#updateBanner'),again=$('#updateReload');
+  updater=AU.create({running:build,fetch:(u,o)=>fetch(u,o),sw,store,online:()=>navigator.onLine!==false,safe:updateSafe,reload:updateReload,banner:on=>{if(bar)bar.hidden=!on;}});
+  if(again)again.onclick=()=>{updater.reloadNow();};
+  updater.start();};
+ if(sw)sw.register('./sw.js',{updateViaCache:'none'}).catch(()=>{}).then(begin);else begin();}
 for(const id of ['#exportState','#saveAlertExport']){const b=$(id);if(b)b.onclick=()=>{void downloadExport();};}
 {const b=$('#saveAlertRetry');if(b)b.onclick=()=>{if(storageOK)persist();};}
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&saveFailing&&storageOK)persist();});

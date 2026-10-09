@@ -1,3 +1,4 @@
 chunks/*.json -text
 content-index.js -text
 chunk-manifest.json -text
+version.js -text
