@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v267-history-label-fix';
+globalThis.APP_BUILD='chagog-v268-assistant-hooks-35';
