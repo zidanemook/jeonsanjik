@@ -356,7 +356,7 @@ let memoLines=0,memoBoxes=0,mnBoxes=0;const mnUsed=new Set();
   if(!/^hist-/.test(r)){assert.ok(!b.memorize&&!b.mnemonics,'외울 것, 암기법은 한국사 상자에만: '+r);continue;}
   assert.ok(Array.isArray(b.memorize)&&b.memorize.length>=1&&b.memorize.length<=12,'한국사 상자마다 외울 것 1~12줄: '+r);memoBoxes++;
   assert.equal(new Set(b.memorize).size,b.memorize.length,'외울 것 줄이 겹치지 않는다: '+r);
-  for(const l of b.memorize){memoLines++;const m=/^\*\*([^*]+)\*\* → \S/.exec(l);assert.ok(m,'외울 것 줄 꼴: '+r+' — '+l);assert.ok(fronts.has(m[1]),'외울 것 대상이 외울 것 목록에 있다: '+r+' — '+m[1]);
+  for(const l of b.memorize){memoLines++;const m=/^\*\*([^*]+)\*\*\n\S/.exec(l);assert.ok(m,'외울 것 줄 꼴: '+r+' — '+l);assert.ok(fronts.has(m[1]),'외울 것 대상이 외울 것 목록에 있다: '+r+' — '+m[1]);
    const p2=/\n헷갈리는 짝: \*\*([^*]+)\*\* → /.exec(l);if(p2)assert.ok(fronts.has(p2[1]),'헷갈리는 짝 오른쪽도 외울 것 목록에: '+r+' — '+p2[1]);
    assert.ok(!l.includes('↔'),'외울 것에 ↔ 없음(사용자가 \'서로 반대\'로 읽음): '+r+' — '+l);
    const t=l.replace(/\*\*/g,'');assert.ok(!YEARS.test(t),'외울 것에 연도 없음: '+r+' — '+t);assert.ok(!/카드|문항|변형|두문자|비결/.test(t),'외울 것 금지어: '+r+' — '+t);

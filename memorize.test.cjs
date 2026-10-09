@@ -98,7 +98,16 @@ for(const [id,withLetter] of [['goguryeo-kings',['고국천왕','고국원왕']]
 // 뒤집기 묶음의 앞머리(첫 ", " 앞)에 적힌 "왕(나라)"는 그 나라 왕 목록에 있어야 하고, 그 왕의 사실에 앞면 이름이 들어 있어야 한다.
 const KING_TOKEN=/((?:[가-힣]+(?: 여왕| 마립간| 대왕)?)(?:, [가-힣]+(?: 여왕| 마립간| 대왕)?)*)\((고구려|백제|신라|발해|고려|조선)\)/g;
 // 2026-10-08 가운뎃점 금지: 뒷면의 마디는 줄 바꿈으로 나누고(첫 줄 = 앞머리), 왕 둘은 쉼표로 잇는다.
-const anchorsOf=back=>[...back.split('\n')[0].matchAll(KING_TOKEN)].flatMap(m=>m[1].split(', ').map(king=>({king,country:m[2]})));
+// 2026-10-09: 뒷면은 묶음마다 한 줄(이어지는 줄은 '→ '로 시작), 앞머리의 왕(나라)은 첫 줄 맨 앞에 쉼표나 ' / '로 이어져 있다. 맨 앞에서부터 이어지는 것만 읽는다.
+const KING_HEAD=new RegExp('^'+KING_TOKEN.source+'(?:, | / )?');
+const anchorsOf=back=>{let rest=back.split('\n')[0];const out=[];for(;;){const m=KING_HEAD.exec(rest);if(!m)break;for(const king of m[1].split(', '))out.push({king,country:m[2]});rest=rest.slice(m[0].length);}return out;};
+// 화살표는 줄 머리에만: 한 줄 가운데 ' → '가 있으면 서로 다른 묶음의 끝과 처음이 이어져 보인다(사용자 화면 '관세 철폐 움직임 → 조만식'). 괄호 안은 빼고 본다.
+{const SKIP=new Set(['english-grammar-formulas','history-mnemonics','history-heritage-photos']);let backs=0,multi=0;
+ const mid=line=>{let t=line;for(let g=0;g<50;g++){const u=t.replace(/\([^()]*\)|\[[^\[\]]*\]|‘[^‘’]*’|“[^“”]*”|『[^『』]*』|「[^「」]*」/g,'');if(u===t)break;t=u;}return / → /.test(t.replace(/^→ /,''));};
+ for(const set of M.sets){if(SKIP.has(set.id))continue;const texts=[...(set.groups||[]).flatMap(g=>g.cards.map(c=>c[1])),...(set.pairs||[]).flatMap(p=>[p[1],p[3]])];
+  for(const b of texts){backs++;const lines=b.split('\n');if(lines.some(l=>l.startsWith('→ ')))multi++;assert(!lines[0].startsWith('→ '),'첫 줄은 화살표로 시작하지 않는다: '+b.slice(0,40));for(const l of lines)assert(!mid(l),'화살표는 줄 머리에만(묶음마다 한 줄): '+set.id+' — '+l);}}
+ assert(backs>1500&&multi>200,'뒷면 '+backs+' / 묶음이 여럿인 뒷면 '+multi);
+ assert(mid('관세 철폐 움직임 → 조만식')&&!mid('→ 조만식, 평양')&&!mid('경학사(→ 부민단 → 한족회)'),'대조군: 줄 가운데 화살표를 잡는다');}
 const factsOf=(country,king)=>{const items=M.get(KING_SETS[country]).lines.flatMap(l=>l.items).filter(i=>i.name===king);assert(items.length,'anchor king is in the '+country+' king list: '+king);return items.map(i=>i.facts.join(' | '));};
 const anchoredCards={};
 for(const id of ['history-people','history-books']){
@@ -128,7 +137,7 @@ assert.deepEqual(M.get('history-books').groups.map(g=>g.title),['삼국','통일
 // 2026-10-05 39강 현대(민주주의의 발전): 인물 5(조봉암 ~ 김영삼), '현대 제도, 사건'에 18(발췌 개헌 ~ 역사 바로 세우기), 짝 4.
 // 2026-10-05 40강 현대(경제 발전과 통일 정책): 인물 1(전태일), '현대 제도, 사건'에 15(삼백 산업 ~ 10.4 남북 공동 선언), 짝 4.
 assert.equal(M.size(M.get('history-people')),350);assert.equal(M.size(M.get('history-books')),155);
-{const g=M.get('history-people').groups.at(-1);assert.equal(g.cards.length,127);for(const [f,b] of g.cards){assert(/^(개항기|대한 제국 시기|한국을 도운 외국인|일제 강점기|일제 강점기, 광복 전후|광복 전후|현대)\n/.test(b),'근, 현대 인물 뒷면은 시기부터: '+f);assert(!/[{}]/.test(b),'왕 표시 남음: '+f);}}
+{const g=M.get('history-people').groups.at(-1);assert.equal(g.cards.length,127);for(const [f,b] of g.cards){assert(/^(개항기|대한 제국 시기|한국을 도운 외국인|일제 강점기|일제 강점기, 광복 전후|광복 전후|현대)(?:, | \/ |\n|$)/.test(b),'근, 현대 인물 뒷면은 시기부터: '+f);assert(!/[{}]/.test(b),'왕 표시 남음: '+f);}}
 // 왕에 걸린 앞머리: 인물 101, 책 22. 나머지(인물 31, 책 17)는 왕이 하나로 정해지지 않아 시기만 적었다(고조선, 가야, 일본 전파, 승려, 학자 등).
 // 15강(2026-09-16)으로 책 6(초조대장경 현종, 『상정고금예문』 인종, 팔만대장경 고종, 『직지심체요절』 우왕 + 교장, 『향약구급방』은 시기만)과 인물 1(혜허, 시기만)을 더했다.
 // 2026-09-18 왕 고리 넓히기: 최충 → 문종, 이규보 「동명왕편」 → 명종, 각훈 『해동고승전』 → 고종, 이제현 『사략』 → 공민왕(이제현은 충선왕과 함께 둘).
@@ -145,9 +154,9 @@ assert.deepEqual(anchoredCards,{'history-people':176,'history-books':85});
 // 대조군: 없는 왕, 사실에 없는 인물은 잡혀야 한다.
 assert.throws(()=>factsOf('고려','없는왕'));
 assert(!factsOf('신라','진흥왕').some(f=>f.includes('이사부')),'control: 이사부 is 지증왕, not in 진흥왕 facts');
-assert.deepEqual(anchorsOf('보장왕(고구려), 문무왕(신라) 멸망 뒤\nx'),[{king:'보장왕',country:'고구려'},{king:'문무왕',country:'신라'}]);
-assert.deepEqual(anchorsOf('명종, 희종(고려)\nx'),[{king:'명종',country:'고려'},{king:'희종',country:'고려'}]);
-assert.deepEqual(anchorsOf('고려 무신 집권기\n인종(고려) 뒤쪽은 보지 않음'),[]);
+assert.deepEqual(anchorsOf('보장왕(고구려), 문무왕(신라) 멸망 뒤, x'),[{king:'보장왕',country:'고구려'},{king:'문무왕',country:'신라'}]);
+assert.deepEqual(anchorsOf('명종, 희종(고려) / x'),[{king:'명종',country:'고려'},{king:'희종',country:'고려'}]);
+assert.deepEqual(anchorsOf('고려 무신 집권기, 인종(고려) 뒤쪽은 보지 않음'),[]);
 // 인물, 책의 핵심 고리 몇 개를 못 박는다(시험이 인물, 책을 단서로 왕을 묻는 짝).
 const back=(id,front)=>M.get(id).groups.flatMap(g=>g.cards).find(c=>c[0]===front)[1];
 for(const [front,king] of [['거칠부','진흥왕(신라)'],['이사부','지증왕(신라)'],['을파소','고국천왕(고구려)'],['장문휴','무왕(발해)'],['김헌창','헌덕왕(신라)'],['쌍기','광종(고려)'],['서희','성종(고려)'],['최우','고종(고려)'],['안향','충렬왕(고려)'],['최무선','우왕(고려)']])assert(back('history-people',front).startsWith(king),front+' → '+king);
