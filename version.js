@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v265-english-box-structure';
+globalThis.APP_BUILD='chagog-v266-history-box-structure';
