@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v278-split-lectures-02-05';
+globalThis.APP_BUILD='chagog-v279-exam-kings-tables';
