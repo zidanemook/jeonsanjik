@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v269-assistant-hooks-35-rows';
+globalThis.APP_BUILD='chagog-v270-history-39-amend-how';
