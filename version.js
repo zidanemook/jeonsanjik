@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v276-paper-resume-recent-only';
+globalThis.APP_BUILD='chagog-v277-ancient-chain-and-people-tables';
