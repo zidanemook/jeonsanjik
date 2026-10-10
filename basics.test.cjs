@@ -53,12 +53,14 @@ for(const id of grammar){const q=bank[id];assert.ok(/^(kgrammar-g[123]|kdoc-d[12
 assert.equal(grules.size,44,'국어 문법 1, 2장 규칙 10 + 2026-10-07 묶음 34');
 // 한국사(v161~, 강별로 늘어난다): parts.js의 한국사 파트마다 상자 하나(id 'hist-<파트>', split 'lines', 표는 tables 여럿, 줄마다 rowIds).
 //   HIST_UNITS에 든 단원의 파트는 모두 상자가 있고, 그 파트 문제마다 대입(box = 그 파트 상자 / use = 그 상자의 줄, blocks)이 있다.
-const HIST_UNITS=['hist-02-05','hist-06','hist-07','hist-08','hist-09','hist-10','hist-11','hist-12','hist-13','hist-14','hist-15','hist-16','hist-17','hist-18','hist-19','hist-20','hist-21','hist-22','hist-23','hist-24','hist-25','hist-26','hist-27','hist-28','hist-29','hist-30','hist-31','hist-32','hist-33','hist-34','hist-35','hist-36','hist-37','hist-38','hist-39','hist-40','hist-28-40','hist-250','hist-252-256'];
+const HIST_UNITS=['hist-02','hist-03','hist-04','hist-05','hist-06','hist-07','hist-08','hist-09','hist-10','hist-11','hist-12','hist-13','hist-14','hist-15','hist-16','hist-17','hist-18','hist-19','hist-20','hist-21','hist-22','hist-23','hist-24','hist-25','hist-26','hist-27','hist-28','hist-29','hist-30','hist-31','hist-32','hist-33','hist-34','hist-35','hist-36','hist-37','hist-38','hist-39','hist-40','hist-28-40','hist-250','hist-252-256'];
 const hUnits=PS.STUDY_PARTS.units.filter(u=>u.subject==='한국사'),hDone=hUnits.filter(u=>HIST_UNITS.includes(u.id)).flatMap(u=>u.parts);
 assert.deepEqual(hUnits.filter(u=>HIST_UNITS.includes(u.id)).map(u=>u.id),HIST_UNITS,'상자를 붙인 한국사 단원');
 const hLines=b=>new Set([...b.terms.map(t=>t.id),...(b.tables||[]).flatMap(t=>[t.id,...t.rowIds,t.key?.id]),...b.rules.items.map(r=>r.id),...b.examples.map(x=>x.id)].filter(Boolean));
 const history=[],hrules=new Set();let hUse=0;
-for(const p of hDone){const r='hist-'+p.id,box=B.box(r);assert.ok(box,'한국사 파트 상자: '+r);hrules.add(r);
+// 2026-10-10 02~05강을 가르며 뗀 새 파트 둘(h0205-9, h0205-10)은 box 칸으로 옛 파트의 상자를 가리킨다(상자는 그대로 156).
+assert.deepEqual(hDone.filter(p=>p.box).map(p=>[p.id,p.box]),[['h0205-9','hist-h0205-8'],['h0205-10','hist-h0205-7']],'상자를 함께 쓰는 파트');
+for(const p of hDone){const r=p.box||'hist-'+p.id,box=B.box(r);assert.ok(box,'한국사 파트 상자: '+r);hrules.add(r);
  assert.equal(box.split,'lines','한국사 상자는 줄 단위로 접는다: '+r);assert.ok(!box.table&&box.tables.length,'한국사 상자는 tables: '+r);
  for(const t of box.tables)assert.equal(t.rowIds.length,t.rows.length,'표 줄마다 id: '+r+' '+t.id);
  const lines=hLines(box);
@@ -479,12 +481,12 @@ run("go('parts','영어')");
 run("go('parts','한국사')");
 {const hs=nodes.get('#partsBody').all.filter(n=>cls(n).includes('part-basics'));
  eqJ(hs.map(n=>n.dataset.basics).sort(),hDone.map(p=>p.id).sort(),'한국사 기초 개념 보기 버튼 = 상자를 붙인 파트');
- for(const p of hDone){eqJ(run('partBasics(PARTS.part('+JSON.stringify(p.id)+'))'),['hist-'+p.id],'한국사 파트 상자: '+p.id);
+ for(const p of hDone){eqJ(run('partBasics(PARTS.part('+JSON.stringify(p.id)+'))'),[p.box||'hist-'+p.id],'한국사 파트 상자: '+p.id);
   hs.find(n=>n.dataset.basics===p.id).onclick();assert.equal(run('view'),'basics');
   const body=nodes.get('#basicsBody'),boxes=body.children.filter(n=>n.tag==='details');
-  eqJ(boxes.map(d=>d.dataset.rule),['hist-'+p.id],'파트의 상자: '+p.id);assert.ok(boxes[0].open,'펼쳐져 있다: '+p.id);
+  eqJ(boxes.map(d=>d.dataset.rule),[p.box||'hist-'+p.id],'파트의 상자: '+p.id);assert.ok(boxes[0].open,'펼쳐져 있다: '+p.id);
   assert.ok(!body.all.some(n=>n.className==='b-h'&&/이 문제에 대입/.test(n._text))&&!body.all.some(n=>String(n.className).includes('b-rest')),'파트 화면은 대입, 나머지 모음 없이 모두: '+p.id);
-  const box=B.box('hist-'+p.id);assert.equal(body.all.filter(n=>n.tag==='table').length,box.tables.length,'표 전부: '+p.id);
+  const box=B.box(p.box||'hist-'+p.id);assert.equal(body.all.filter(n=>n.tag==='table').length,box.tables.length,'표 전부: '+p.id);
   assert.ok(body.children.some(n=>cls(n).includes('basics-solve')),'문제 풀기로 이어진다: '+p.id);assert.ok(!/카드|문항|변형/.test(body.textContent));
   run("history.replaceState({depth:0},'');goBack()");assert.equal(run('view'),'parts');}}
 // 5-2-4) 정보보호론, 컴퓨터일반: 상자를 붙인 파트마다 '기초 개념 보기', 누르면 상자 하나를 모두 펼쳐(대입, 나머지 모음 없이) → 이 파트 문제 풀기.

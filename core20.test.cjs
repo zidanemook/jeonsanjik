@@ -40,12 +40,12 @@ const BANNED=/카드|문항|변형|스코프/;
 const store=new Map();
 const {R,J,node}=boot(store);
 const lectures=J('STUDY_REVIEW_CATALOG.lectures');
-assert.deepEqual(lectures.map(l=>l.id),['02-05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','28-40','250','252-256']);
+assert.deepEqual(lectures.map(l=>l.id),['02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','28-40','250','252-256']);
 const answerOf=id=>R(`(()=>{const q=QUIZ_OPTIONS[${JSON.stringify(id)}];return q&&q.choices?q.choices[q.correctIndex]:CORE_REVIEW_PACK.find(c=>c.id===${JSON.stringify(id)}).answer;})()`);
 let folded=0;
-// 교재 강마다 20: 앱 범위 '02~05강'만 교재 강 넷(02 선사 / 03 고조선, 여러 나라 / 04 고구려, 가야 / 05 백제, 신라, 통일)을 묶은 범위라 80(부모 검토 2026-09-28).
+// 교재 강마다 20. 02~05강은 한 범위에 80이었다가 2026-10-10(v278) 교재 강 넷(02 선사 / 03 고조선, 여러 나라 / 04 고구려, 가야 / 05 백제, 신라, 통일)으로 갈라 강마다 20(고른 80문제는 그대로).
 // 2026-10-05 근대 순서 훈련(28~40강) 범위는 교재 강이 아니라 사건 순서 30문제 묶음 — core = 30 전부(접는 문제 없음).
-const WANT=id=>id==='02-05'?80:id==='28-40'?30:20;
+const WANT=id=>id==='28-40'?30:20;
 for(const l of lectures){
  assert.ok(Array.isArray(l.core),l.title+': core가 있다');
  const want=WANT(l.id);
@@ -60,12 +60,19 @@ for(const l of lectures){
 }
 // 2026-09-28 24강부터 강마다 20문제로 만든다 → core = 그 강의 20문제 전부(접는 문제 없음, 22, 23강과 같음).
 for(const id of ['22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','28-40']){const l=lectures.find(x=>x.id===id);assert.deepEqual(l.core,l.ids,l.title+': 이미 20문제 → 전부 핵심');}
-assert.equal(lectures.reduce((n,l)=>n+l.core.length,0),850,'37범위 × 20 + 02~05강 80 + 근대 순서 훈련 30');
-// 02~05강 80은 교재 강 넷에 고루: 선사(파트 둘) / 고조선, 여러 나라(둘) / 고구려 / 백제 파트마다 5 이상(한 교재 강 20이 그 파트들에 있다)
-{const l=lectures.find(x=>x.id==='02-05'),unit=J("STUDY_PARTS.units.find(u=>u.id==='hist-02-05')");
- for(const p of unit.parts)assert.ok(p.ids.filter(id=>l.core.includes(id)).length>=5,'02~05강 '+p.title+': 핵심 5 이상');
- const n=pid=>unit.parts.filter(p=>pid.includes(p.id)).reduce((s,p)=>s+p.ids.filter(id=>l.core.includes(id)).length,0);
- assert.equal(n(['h0205-1','h0205-2']),20,'02강 선사 시대 = 20');assert.equal(n(['h0205-3','h0205-4']),20,'03강 고조선, 여러 나라 = 20');}
+assert.equal(lectures.reduce((n,l)=>n+l.core.length,0),850,'41범위 × 20 + 근대 순서 훈련 30');
+// 02~05강(2026-10-10 교재 강 넷으로 가름): 강 넷의 문제 수, 제목, 단원과 파트. 고른 80은 그대로라 상자(옛 파트 여덟)마다 핵심 5 이상도 그대로다.
+//   두 강에 걸쳤던 두 파트는 04강 쪽 문제만 새 파트로 뗐다(h0205-9 고구려의 멸망과 부흥 ← h0205-8, h0205-10 가야 ← h0205-7). 새 파트는 box 칸으로 옛 상자를 가리킨다.
+{const four=['02','03','04','05'].map(id=>lectures.find(x=>x.id===id)),units=four.map(l=>J(`STUDY_PARTS.units.find(u=>u.id==='hist-${l.id}')`));
+ assert.deepEqual(four.map(l=>l.title),['02강 선사 시대','03강 고조선과 여러 나라','04강 고구려, 가야','05강 백제, 신라와 삼국 통일']);
+ assert.deepEqual(four.map(l=>l.ids.length),[47,47,47,79],'네 강 문제 수(합 220)');
+ assert.deepEqual(units.map(u=>u.parts.map(p=>p.id)),[['h0205-1','h0205-2'],['h0205-3','h0205-4'],['h0205-5','h0205-9','h0205-10'],['h0205-6','h0205-7','h0205-8']]);
+ units.forEach((u,i)=>{assert.deepEqual(u.scope,{topic:'',round:'lecture-'+four[i].id});assert.equal(u.title,four[i].title);assert.equal(u.short,four[i].id+'강');
+  assert.deepEqual([...u.parts.flatMap(p=>p.ids)].sort(),[...four[i].ids].sort(),u.title+': 단원의 파트 = 그 강의 문제(문제마다 파트 하나)');});
+ assert.deepEqual(units.flatMap(u=>u.parts).filter(p=>p.box).map(p=>[p.id,p.title,p.box,p.ids.length]),[['h0205-9','고구려의 멸망과 부흥','hist-h0205-8',5],['h0205-10','가야','hist-h0205-7',10]]);
+ const core=new Set(four.flatMap(l=>l.core)),byBox=new Map();for(const p of units.flatMap(u=>u.parts)){const b=p.box||'hist-'+p.id;byBox.set(b,(byBox.get(b)||0)+p.ids.filter(id=>core.has(id)).length);}
+ assert.equal(byBox.size,8);for(const [b,n] of byBox)assert.ok(n>=5,b+': 핵심 5 이상');
+ assert.ok(!R("STUDY_PARTS.units.some(u=>u.id==='hist-02-05')||STUDY_REVIEW_CATALOG.lectures.some(l=>l.id==='02-05')"),'옛 범위는 목록에 없다');}
 // 대조군: core가 없는 강(앞으로 넣을 24강 등)은 접는 문제가 없다
 assert.equal(R("foldedLecture('no-such-id')"),null);
 
@@ -116,9 +123,31 @@ assert.equal(R(inCur+'.length'),core07,'07강 첫 파트 = 그 파트의 핵심'
 assert.equal(text(node('#moreCount')),'('+(part07.ids.length-core07)+'문제)','파트 화면의 수 = 그 파트에 더해지는 문제');
 open('lecture-12');toggle(false);
 assert.equal(R('data.openLectures'),undefined,'끄면 설정을 지운다');assert.equal(R(inCur+'.length'),20);assert.match(text(node('#message')),/핵심 20문제만 풀어요/);
-// 02~05강: 알림의 수도 그 범위의 핵심 수(80)
-open('lecture-02-05');assert.equal(text(node('#moreCount')),'(140문제)');toggle(true);assert.equal(R(inCur+'.length'),220);toggle(false);
-assert.match(text(node('#message')),/02~05강 선사 시대~삼국 통일 — 핵심 80문제만 풀어요/);assert.equal(R(inCur+'.length'),80);
+// 02~05강을 가른 뒤(v278): 기기에 남아 있는 옛 값 옮기기.
+// (가) 저장된 범위 'lecture-02-05'(지금 범위, 과목별 마지막 범위)는 02강으로 이어 열린다 — 빈 화면, 오류 없음. 더 예전의 'lecture-02-03-04-05'도 같다.
+for(const old of ['lecture-02-05','lecture-02-03-04-05']){open(old);assert.equal(R('lectureScope(data.practiceScope.round)'),'02',old);assert.equal(R("scopeLabel(scopeOf())"),'한국사 02강 선사 시대');
+ assert.equal(R(inCur+'.length'),20,old+': 02강 핵심 20');assert.equal(text(node('#moreCount')),'(27문제)');assert.equal(R("scopeLabel(lastScope('한국사'))"),'한국사 02강 선사 시대','과목의 마지막 범위도 02강으로 읽힌다');
+ assert.deepEqual(J('scopeUnits(scopeOf()).map(u=>u.id)'),['hist-02'],'파트 점검, 파트별 상태도 02강 단원');assert.equal(R("currentPartUnit('한국사')"),'hist-02');}
+toggle(true);assert.deepEqual(J('data.openLectures'),['02'],'옛 범위에서 켜도 새 열쇠로 적힌다');assert.equal(R(inCur+'.length'),47);toggle(false);
+assert.match(text(node('#message')),/^02강 선사 시대 — 핵심 20문제만 풀어요/);assert.equal(R(inCur+'.length'),20);assert.equal(R('data.openLectures'),undefined);
+// (나) 옛 열쇠 '02-05'로 더 풀기를 켜 둔 기기: 네 강 모두 켠 것으로 본다. 저장된 값은 읽을 때 풀어 쓰고, 한 강을 끄면 나머지 셋이 새 열쇠로 남는다.
+{const before=allHist();R("(()=>{const s=structuredClone(data);s.openLectures=['12','02-05'];commit(s);})()");
+ assert.deepEqual(J('[...openLectureSet()]'),['12','02','03','04','05']);assert.equal(allHist(),before+167+140,'과목 전체에 12강 나머지와 02~05강 나머지 140이 들어온다');
+ for(const [id,n] of [['02',47],['03',47],['04',47],['05',79]]){open('lecture-'+id);assert.equal(R(inCur+'.length'),n,id+'강 전부');assert.equal(node('#moreLecture').checked,true,id+'강 더 풀기가 켜져 있다');assert.equal(text(node('#moreCount')),'('+(n-20)+'문제)');}
+ open('part-h0205-10');assert.equal(R(inCur+'.length'),10,'가야 파트 전부');assert.equal(node('#moreLecture').checked,true);
+ R("go('range','한국사')");{const rows=node('#rangeList').all.filter(n=>n.tag==='button').map(text);
+  assert.deepEqual(rows.slice(0,5).map(t=>t.slice(0,3)),['02강','03강','04강','05강','06강'],'교재 강별 맨 앞 = 네 강이 순서대로');for(const t of rows.slice(0,4))assert.match(t,/이 강 문제 더 풀기 켬$/);assert.ok(!rows.some(t=>/02~05강/.test(t)),'옛 줄은 없다');}
+ open('lecture-03');toggle(false);assert.deepEqual(J('data.openLectures'),['12','02','04','05'],'03강만 꺼지고 나머지는 새 열쇠로');assert.equal(R(inCur+'.length'),20);
+ open('lecture-04');assert.equal(R(inCur+'.length'),47);open('lecture-12');toggle(false);for(const id of ['02','04','05'])R(`setLectureOpen('${id}',false)`);assert.equal(R('data.openLectures'),undefined);assert.equal(allHist(),before);
+ // 옛 열쇠만 든 백업도 받는다(값 검사는 글자열인지뿐)
+ R("validateBackup({...structuredClone(data),openLectures:['02-05']})");}
+// (다) 옛 범위로 남은 파트 점검 표시(data.partChecks의 열쇠 '한국사||lecture-02-05', only에 다른 강의 파트)가 있어도 02강 파트로 이어진다.
+{R("(()=>{const s=structuredClone(data);s.practiceScope={subject:'한국사',topic:'',round:'lecture-02-05'};s.lastScopes={...(s.lastScopes||{}),'한국사':s.practiceScope};s.partChecks={'한국사||lecture-02-05':{at:Date.now()-60000,only:['h0205-7','h0205-8']}};commit(s);})()");
+ const r=J("(()=>{const sc=scopeOf(),r=partRound(sc,data.cards.filter(c=>isPlayable(c)&&inScope(c,sc)));return {parts:r.parts.map(p=>p.id),card:r.card&&r.card.id,title:partRoundTitle(sc,r)};})()");
+ assert.deepEqual(r.parts,['h0205-1','h0205-2']);assert.ok(lectures.find(l=>l.id==='02').core.includes(r.card));assert.equal(r.title,'02강');
+ R("(()=>{const s=structuredClone(data);delete s.partChecks;commit(s);})()");}
+// (라) 다음 강 단추: 02 → 03 → 04 → 05 → 06 (끝 화면은 아래 6)에서 07강으로 본다. 여기서는 순서만)
+assert.deepEqual(J("['02','03','04','05'].map(id=>STUDY_LECTURES[STUDY_LECTURES.findIndex(l=>l.id===id)+1].id)"),['03','04','05','06']);
 
 // ── 4) 뱃지(자체제작 = 파트별 외운 비율 평균)는 보이는 문제로: 07강 첫 파트의 핵심을 모두 외우면 접힌 동안 그 파트 100%
 const seedMaster=ids=>R(`(()=>{const today=ReviewSchedule.day(),ago=n=>ReviewSchedule.plus(today,-n),rows=[];let k=0;
@@ -164,7 +193,7 @@ open('lecture-07');
  for(const bad of ['"07"','[7]','[""]','{}'])assert.throws(()=>again.R(`validateBackup({...structuredClone(data),openLectures:${bad}})`),/이 강 문제 더 풀기/,bad);
  again.R("validateBackup({...structuredClone(data),openLectures:['07','12']})");}
 
-console.log('PASS core20: 38개 강 범위 × 핵심 20(02~05강은 교재 강 넷 × 20 = 80, 22~40강은 전부, 파트마다 하나 이상, 같은 정답 없음, 820문제), 기본은 강, 파트, 과목 전체, 수, 뱃지: 대기열 모두 핵심 20만(접힌 '+folded+'문제), '+
+console.log('PASS core20: 41개 강 범위 × 핵심 20(02~05강은 교재 강 넷으로 갈라 강마다 20, 저장된 옛 범위와 옛 더 풀기 열쇠 옮김, 22~40강은 전부, 파트마다 하나 이상, 같은 정답 없음, 820문제), 기본은 강, 파트, 과목 전체, 수, 뱃지: 대기열 모두 핵심 20만(접힌 '+folded+'문제), '+
  '이 강 문제 더 풀기 켜기/끄기(강 단위, 파트 화면은 그 파트 수), 접힌 문제는 복습일이 와도 대기열 밖, 핵심을 다 풀면 끝 화면에 더 풀기 버튼, 새로고침 뒤 설정 유지, 잘못된 설정 거부');
 
 // ── 8) v199 영어, 국어 단원마다 핵심 20(2026-09-30 사용자 "단원마다 핵심 20").

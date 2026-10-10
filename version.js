@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v277-ancient-chain-and-people-tables';
+globalThis.APP_BUILD='chagog-v278-split-lectures-02-05';

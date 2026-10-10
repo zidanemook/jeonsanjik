@@ -266,7 +266,7 @@ for(const [SUBJ,round] of [['국어','paper-national9-2026-korean'],['영어','p
   seen[wrong?'wrong':'right']++;next();}
  assert.ok(seen.wrong&&seen.right,SUBJ+' '+round+': 대입이 있는 기출을 틀리고 맞혀 봤다');}
 // 회차가 아닌 범위는 예전 그대로 복습 대기열을 따른다.
-run("openScope({subject:'한국사',round:'lecture-02-05'})");
+run("openScope({subject:'한국사',round:'lecture-02'})");
 // 국어 범위 화면: 『사고의 힘 논리』 묶음이 맨 위에 1장 → 2장 → 3장 → 4장 → 5장 → 6장 → 제2편 독해 1장 순서로 나오고, 모두 아직 풀지 않은 4지선다 문제다.
 // 2장을 열면 국어 문제만 나오고, 틀린 뒤 해설 화면에 정리, 출처, 같은 개념 안내가 나오며 문항/카드라는 말은 없다.
 {
@@ -356,10 +356,10 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
   }
  }
  // v161: 한국사 02~05강도 해설 화면에 기초 개념 상자(파트마다 한 상자) — 틀리면 펼침, 맞히면 접힘. 대입이 쓰는 줄만 제자리, 나머지는 닫힌 모음 하나.
- run("openScope({subject:'한국사',round:'lecture-02-05'})");
+ run("openScope({subject:'한국사',round:'lecture-02'})");
  for(const wrong of [true,false]){
   const id=run('data.activePractice.cardId'),quiz=run('data.activePractice.exercise');
-  assert.ok(run('BASICS.forQuestion('+JSON.stringify(id)+')?.box===\'hist-\'+PARTS.partOf('+JSON.stringify(id)+')'),'02~05강 문제의 상자 = 그 파트 상자: '+id);
+  assert.ok(run('(p=>BASICS.forQuestion('+JSON.stringify(id)+')?.box===(p.box||\'hist-\'+p.id))(PARTS.part(PARTS.partOf('+JSON.stringify(id)+')))'),'02~05강 문제의 상자 = 그 파트 상자: '+id);
   run('answerPractice('+JSON.stringify(id)+','+(wrong?(quiz.correctIndex+1)%quiz.choices.length:quiz.correctIndex)+')');
   assert.equal(run('data.quizFeedback.result'),wrong?'wrong':'correct','한국사 답 채점');
   const shownH=screen(),bH=basicsBox();assert.ok(bH,'한국사 해설 화면에 기초 개념 상자: '+id);assert.equal(bH.children[0]._text,'기초 개념');

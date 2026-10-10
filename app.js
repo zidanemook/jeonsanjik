@@ -160,7 +160,7 @@ function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.
 // 공무원 기출은 회차 파일을 받기 전에도 풀 수 있는 카드다(색인에 있으면 된다). 보기는 그 회차의 문항을 처음 낼 때 받는다.
 function playableRaw(c){return !!c&&(Content.hasOptions(c.id)||!!Content.lesson(c.id)||Gichul.known(c.id));}
 // BEGIN CORE 20 — 한국사 강마다 핵심 20문제(v179, 2026-09-28 사용자 "20문제가 딱 좋은거 같어", "강 마다 20문제로").
-// '강'은 교재 강: 앱 범위 02~05강은 교재 강 넷이라 핵심 80(강마다 20). 화면 문구의 수는 core 길이를 그대로 쓴다(coreSize).
+// '강'은 교재 강: 02~05강도 2026-10-10(v278)부터 교재 강 넷(02, 03, 04, 05)으로 갈라 강마다 20이다(그 전에는 한 범위에 핵심 80). 화면 문구의 수는 core 길이를 그대로 쓴다(coreSize).
 // 강 범위(STUDY_REVIEW_CATALOG.lectures)의 core = 한능검 심화 57~79회 빈도로 고른 20문제(research/core20-20260928). core가 없는 강은 전부 핵심.
 // 나머지 문제는 지우지 않고 접어 둔다: 강마다 '이 강 문제 더 풀기'를 켜면(data.openLectures, 이 기기 설정 — 대기열 모드처럼) 다시 모든 범위, 대기열, 수, 뱃지에 들어온다.
 // 접힌 문제는 어디에서도 풀 수 있는 문제로 치지 않는다(isPlayable) — 수, 복습 대기열, 파트, 뱃지가 모두 보이는 문제로만 계산된다. 풀이 기록과 일정은 그대로 남는다.
@@ -170,12 +170,15 @@ function playableRaw(c){return !!c&&(Content.hasOptions(c.id)||!!Content.lesson(
 // 켜는 열쇠(data.openLectures) = 강 id(한국사), 단원 id('en-day1', 'ko-ko2' …), 'formula:<공식 id>'(영어 문법 공식 하나 — 공식 범위는 여러 단원의 문제를 담아
 // 그 공식만 펼 수 있게). 접힌 문제는 자기 열쇠(강, 단원, 영어는 + 공식) 가운데 하나라도 켜져 있으면 보인다. 한국사는 열쇠가 강 하나뿐이라 v179와 같다.
 let coreMaps=null,openCache=null;
+// 2026-10-10(v278) 갈라진 강: 옛 열쇠 '02-05'를 켜 둔 기기는 네 강 모두 켠 것으로 읽는다. 저장된 값은 그대로 두고 읽을 때 풀어 쓰며, 다음에 켜고 끌 때 새 열쇠로 적힌다.
+const SPLIT_LECTURES=new Map([['02-05',['02','03','04','05']]]);
+function openLectureKeys(o){const out=[];for(const x of Array.isArray(o)?o:[])if(typeof x==='string')for(const k of SPLIT_LECTURES.get(x)||[x])if(!out.includes(k))out.push(k);return out;}
 function lectureCores(){if(!coreMaps){const byId=new Map(),core=new Map(),foldable=new Set();for(const l of globalThis.STUDY_REVIEW_CATALOG?.lectures||[]){if(!Array.isArray(l.core))continue;core.set(l.id,new Set(l.core));for(const id of l.ids)byId.set(id,l.id);}
  const units=new Map((globalThis.STUDY_PARTS?.units||[]).map(u=>[u.id,u]));
  for(const u of globalThis.STUDY_CORE_UNITS||[]){const pu=units.get(u.id);if(!pu||!Array.isArray(u.core))continue;core.set(u.id,new Set(u.core));for(const p of pu.parts)for(const id of p.ids)byId.set(id,u.id);}
  for(const [id,l] of byId)if(!core.get(l).has(id)){foldable.add(l);const f=Content.lesson(id)?.formula;if(f)foldable.add('formula:'+f);}
  coreMaps={byId,core,foldable};}return coreMaps;}
-function openLectureSet(){const o=data.openLectures;if(!openCache||openCache.src!==o)openCache={src:o,set:new Set(Array.isArray(o)?o.filter(x=>typeof x==='string'):[])};return openCache.set;}
+function openLectureSet(){const o=data.openLectures;if(!openCache||openCache.src!==o)openCache={src:o,set:new Set(openLectureKeys(o))};return openCache.set;}
 // 핵심 밖 문제면 그 문제를 펴는 열쇠들(첫째 = 강, 단원 id), 핵심이거나 접는 단원 밖이면 null.
 function foldKeys(id){const m=lectureCores(),l=m.byId.get(id);if(!l||m.core.get(l).has(id))return null;const f=Content.lesson(id)?.formula;return f?[l,'formula:'+f]:[l];}
 // 접힌 문제면 그 강, 단원 id, 아니면 null.
@@ -197,11 +200,12 @@ function studyTopic(id){return TOPIC_BY_ID.get(id)||'';}
 // 'topic-<id>' is the self-made side of one era; 'papers-<id>' is the official 기출 of the same era.
 function topicRange(value){const match=/^(topic|papers)-([a-z-]+)$/.exec(value||'');return match&&StudyTopics.list.some(t=>t.id===match[2])?{id:match[2],papers:match[1]==='papers'}:null;}
 function topicScope(value){return topicRange(value)?.id||null;}
-// 'lecture-<id>' follows the textbook lectures (02~05강, 06강, 07강, 08강 …) over the self-made summary questions.
+// 'lecture-<id>' follows the textbook lectures (02강, 03강, 04강, 05강, 06강 …) over the self-made summary questions.
 const STUDY_LECTURES=STUDY_REVIEW_CATALOG.lectures||[];
 const LECTURE_BY_ID=new Map(STUDY_LECTURES.flatMap(l=>l.ids.map(id=>[id,l.id])));
 // 2026-09-16 없앤 범위: 07, 08강 덩어리는 07강으로, 따로 떠 있던 기출형 연습은 그 문제들이 처음 들어간 강으로 이어 연다(저장된 범위가 빈 화면이 되지 않게).
-const RETIRED_LECTURES={'07-08':'07','02-03-04-05':'02-05','05-06':'06','10-12':'10','250-256':'250'};
+// 2026-10-10(v278) 02~05강 범위를 교재 강 넷으로 갈랐다: 저장된 'lecture-02-05'(지금 범위, 과목별 마지막 범위, 다른 기기에서 온 범위)는 첫 강인 02강으로 이어 연다. 푼 기록은 문제 id에 달려 있어 그대로다.
+const RETIRED_LECTURES={'07-08':'07','02-03-04-05':'02','02-05':'02','05-06':'06','10-12':'10','250-256':'250'};
 function lectureScope(value){const match=/^lecture-([0-9][0-9-]*)$/.exec(value||'');if(!match)return null;const id=RETIRED_LECTURES[match[1]]||match[1];return STUDY_LECTURES.some(l=>l.id===id)?id:null;}
 function lectureTitle(id){return STUDY_LECTURES.find(l=>l.id===id)?.title||'';}
 // 'paper-<paperId>' is one official 기출 회차 (예: 2026 지방직 9급 컴퓨터일반). 회차는 과목을 가리지 않는다.
@@ -317,7 +321,7 @@ function renderMoreToggle(scope){const lecture=moreScope(scope),n=lecture?moreCo
 // 범위 목록 한 줄에 붙이는 말(v179 강 줄과 같은 모양): '더 풀기 N문제' / '이 단원 문제 더 풀기 켬'.
 function moreNote(sc){const k=moreScope(sc),n=k?moreCount(sc,k):0;return n?(openLectureSet().has(k)?foldLabel(k)+' 켬':'더 풀기 '+n+'문제'):'';}
 function setLectureOpen(lecture,open){
- const next=structuredClone(data),list=(Array.isArray(next.openLectures)?next.openLectures:[]).filter(x=>x!==lecture);if(open)list.push(lecture);
+ const next=structuredClone(data),list=openLectureKeys(next.openLectures).filter(x=>x!==lecture);if(open)list.push(lecture);
  if(list.length)next.openLectures=list;else delete next.openLectures;delete next.quizFeedback;delete next.activePractice;
  const kind=foldKind(lecture),title=foldTitle(lecture);
  if(commit(next)){sessionDirty=true;notify(kind==='lecture'?(open?title+' — 이 강의 나머지 문제도 함께 풀어요.':title+' — 핵심 '+coreSize(lecture)+'문제만 풀어요. 푼 기록은 그대로 남아요.'):kind==='unit'?(open?title+' — 이 단원의 나머지 문제도 함께 풀어요.':title+' — 핵심 '+coreSize(lecture)+'문제만 풀어요. 푼 기록은 그대로 남아요.'):(open?title+' — 이 공식의 나머지 문제도 함께 풀어요.':title+' — 단원마다 고른 핵심 문제만 풀어요. 푼 기록은 그대로 남아요.'));render();}
