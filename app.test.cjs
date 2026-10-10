@@ -193,7 +193,23 @@ assert.equal(roundStats.answered,5,'회차 점수는 첫 시도 기준으로 그
 assert.equal(roundStats.total,50);
 assert.ok(roundStats.points>0&&roundStats.points<100,'맞힌 문항만큼의 공식 배점: '+roundStats.points);
 run("openScope({subject:'한국사',round:'79'})");
-assert.equal(run('data.activePractice.cardId'),'hanneung-79-01','한능검 회차를 다시 열어도 1번부터');
+assert.equal(run('data.activePractice.cardId'),'hanneung-79-06','풀던 회차를 다시 열면 마지막으로 푼 다음 번호부터(v274)');
+assert.equal(nodes.get('#orderStatus')._text,'6/50 (원문 순서 그대로)');
+// 다른 기기에서 처음 여는 것과 같다: 세션 위치가 없어도 푼 기록만으로 같은 자리를 찾는다.
+run('paperCursor=null');run('render()');assert.equal(run('data.activePractice.cardId'),'hanneung-79-06','세션 위치 없이도 기록에서 자리를 찾는다');
+// 번호 고르기, 건너뛰기, 이전: 답을 기록하지 않고 자리만 옮긴다.
+{const nav=()=>nodes.get('#card').all.find(n=>n.className==='paper-nav'),rowsBefore=run('data.history.length');
+ assert.ok(nav(),'회차 문제 화면에는 번호 이동 줄이 있다');
+ const [prevB,pick,skipB]=nav().children;assert.equal(pick.children.length,50);assert.equal(pick.children[21]._text,'22번');assert.equal(pick.value,'5');
+ skipB.onclick();assert.equal(run('data.activePractice.cardId'),'hanneung-79-07','건너뛰기는 다음 번호로');
+ nav().children[0].onclick();assert.equal(run('data.activePractice.cardId'),'hanneung-79-06','이전은 앞 번호로');
+ {const p=nav().children[1];p.value='21';p.onchange();}assert.equal(run('data.activePractice.cardId'),'hanneung-79-22','번호를 고르면 그 번호로');
+ assert.equal(nodes.get('#orderStatus')._text,'22/50 (원문 순서 그대로)');
+ assert.equal(run('data.history.length'),rowsBefore,'자리만 옮기면 기록은 늘지 않는다');
+ const img=doc.querySelector('#card .paper-image img');img.complete=true;img.naturalWidth=1;answerCurrent(true);
+ assert.equal(run('data.activePractice.cardId'),'hanneung-79-23','옮긴 자리에서 풀면 그다음 번호로 이어진다');
+ {const p=nav().children[1];p.value='0';p.onchange();}assert.equal(run('data.activePractice.cardId'),'hanneung-79-01','1번으로도 돌아갈 수 있다');
+ assert.equal(nav().children[0].disabled,true,'1번에서는 이전을 누를 수 없다');}
 // 회차 파일을 받지 못하면(오프라인, 서버 오류) 문제 대신 다시 불러오기 버튼을 보여 주고, 누르면 다시 받는다.
 const englishPaper=run("Gichul.forSubject('영어')[0].id");
 failNextFetch=true;
@@ -469,5 +485,5 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  const order=fewerSolvesFirst([a,b,c]).map(x=>x.id),withRetry=fewerSolvesFirst([a,b,retry]).map(x=>x.id);data.history=keep;
  return {order,withRetry,want:[c.id,b.id,a.id],wantR:[e.id,b.id,a.id]};})()`);
  assert.deepEqual(r.order,r.want,'푼 횟수 적은 문제 먼저(0 → 2 → 3번)');assert.deepEqual(r.withRetry,r.wantR,'5분 재시도는 푼 횟수와 상관없이 앞');}
-console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본, 틀린 문제 위주, 안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
+console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본, 틀린 문제 위주, 안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});

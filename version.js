@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v273-basics-closed-by-default';
+globalThis.APP_BUILD='chagog-v274-paper-resume-and-jump';

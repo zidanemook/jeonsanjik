@@ -343,10 +343,20 @@ function setQueueMode(value){
 // 내고, 마지막 문항을 풀면 멈춘다. 복습 일정, 재시도 대기(retryAt), 형제 간격(ReviewPolicy.separate)
 // 어느 것도 회차 안에서는 적용하지 않는다. 어제 맞힌 문제도 제자리에 다시 나온다.
 // 답안 기록과 복습 일정 갱신은 평소와 똑같다 — 바뀌는 것은 "다음에 무엇을 낼지"뿐이다.
-// 저장하지 않는 세션 한정 위치라 회차를 다시 열면 언제나 1번부터 시작한다.
+// v274: 위치는 푼 기록에서 찾는다. 이 회차에서 마지막으로 푼 문제의 다음 번호부터 이어진다(기록은 기기끼리 맞춰지므로 다른 기기에서 열어도 같다).
+// 마지막 번호까지 푼 회차를 다시 열면 1번부터다. 번호를 골라 옮기면(paperJump) 새 답이 기록될 때까지 그 자리를 지킨다.
 let paperCursor=null;
-function paperIndex(scope){if(!paperCursor||!sameScope(paperCursor.scope,scope))paperCursor={scope:{subject:scope.subject||'',topic:scope.topic||'',round:scope.round||''},index:0};return paperCursor.index;}
-function paperAdvance(){if(paperCursor)paperCursor={...paperCursor,index:paperCursor.index+1};}
+function paperLast(list){const at=new Map(list.map((c,i)=>[c.id,i]));for(let i=data.history.length-1;i>=0;i--){const k=at.get(data.history[i].cardId);if(k!==undefined)return {row:data.history[i].id,index:k};}return null;}
+function paperIndex(scope,list){const last=paperLast(list),seen=last?last.row:'';if(!paperCursor||!sameScope(paperCursor.scope,scope)||paperCursor.seen!==seen)paperCursor={scope:{subject:scope.subject||'',topic:scope.topic||'',round:scope.round||''},index:last&&last.index<list.length-1?last.index+1:0,seen};return paperCursor.index;}
+function paperAdvance(){if(paperCursor)paperCursor={...paperCursor,index:paperCursor.index+1,seen:data.history.at(-1)?.id||''};}
+function paperJump(index){if(!paperCursor)return;paperCursor={...paperCursor,index};sessionDirty=true;render();window.scrollTo(0,0);}
+function paperNumber(card,i){const m=/-(\d+)$/.exec(card.id);return (m?Number(m[1]):i+1)+'번';}
+function paperNav(chosen,at){
+ const box=elem('div',undefined,'paper-nav'),prev=btn('← 이전',()=>paperJump(at-1)),skip=btn('건너뛰기 →',()=>paperJump(at+1)),pick=elem('select');
+ prev.disabled=at<=0;skip.disabled=at>=chosen.length-1;pick.setAttribute('aria-label','문제 번호로 이동');
+ chosen.forEach((c,i)=>{const o=elem('option',paperNumber(c,i));o.value=String(i);pick.append(o);});pick.value=String(at);pick.onchange=()=>paperJump(Number(pick.value));
+ box.append(prev,pick,skip);return box;
+}
 function paperRestart(){if(paperCursor)paperCursor={...paperCursor,index:0};}
 // END PAPER ORDER
 // A wrong answer today also brings back the other questions on the same concept (still after the sibling gap).
@@ -927,7 +937,7 @@ function renderRange(){
  // 회차 범위는 대기열과 무관하게 1번부터 끝까지 나오므로 '지금 풀 차례' 수를 붙이지 않는다. 대신 순서를 알린다.
  const option=(g,title,sc,extra)=>{const inside=cards.filter(c=>inScope(c,sc)),p=firstPass(new Set(inside.map(c=>c.id)));if(!inside.length&&!extra)return;
   const total=questionCount(inside),first='첫 시도 '+p.answered+'/'+total+(p.answered?', 정답 '+p.correct:'');
-  const detail=sequentialScope(sc)?'전체 '+total+'문제, '+first+', 1번부터 순서대로':'풀어야 할 문제 '+questionCount(reviewQueue(inside,rangedScope(sc)).ready)+'/'+total+', '+first;
+  const detail=sequentialScope(sc)?'전체 '+total+'문제, '+first+', 순서대로 풀고 풀던 곳부터 이어짐':'풀어야 할 문제 '+questionCount(reviewQueue(inside,rangedScope(sc)).ready)+'/'+total+', '+first;
   g.append(menuItem(title,detail+(extra?', '+extra:''),()=>openScope(sc)));};
  // 공무원 기출은 과목마다 회차가 40개 가까이 된다. 한 줄로 늘어놓으면 휴대폰에서 원하는 회차를 찾기 어려워
  // 연도별로 접는다(range-fold 안에 range-fold). 최신 연도가 맨 위이고, 지금 풀던 회차가 든 연도(없으면 최신 연도)만 펼쳐 둔다.
@@ -994,7 +1004,7 @@ function renderQuiz(){
  const scope=scopeOf(),playable=data.cards.filter(isPlayable),ordered=orderedScope(scope.round);
  $('#scopeLabel').textContent=scopeLabel(scope);renderScopeStatus(scope);
  const inside=playable.filter(c=>inScope(c,scope)),chosen=ordered?catalogOrder(inside):inside;
- const sequential=sequentialScope(scope)&&chosen.length>0,at=sequential?paperIndex(scope):-1;
+ const sequential=sequentialScope(scope)&&chosen.length>0,at=sequential?paperIndex(scope,chosen):-1;
  // 파트별 점검: 대기열 대신 지금 파트에서 한 문제(partRound). 파트가 없는 범위면 기본 대기열.
  const partMode=!sequential&&queueMode()==='parts',pr=partMode?partRound(scope,inside):null;
  const queue=pr?{ready:pr.card?[pr.card]:[],waiting:[],nextAt:null}:reviewQueue(chosen,rangedScope(scope),scope.subject),due=queue.ready;
@@ -1070,6 +1080,7 @@ function renderQuiz(){
    input.oninput=()=>{if(data.activePractice?.cardId===card.id){data.activePractice.draft=input.value;saveDraft();}};
    const submit=elem('button','채점하기','primary');submit.type='submit';form.append(hint,input,submit);form.onsubmit=e=>{e.preventDefault();answerPractice(card.id,input.value);};root.append(form);
   }
+  if(sequential)root.append(paperNav(chosen,at));
   appendNoteBox(root,card,quiz,'question',label.textContent);
  }
  restoreExplanationPanels(opened);
@@ -1332,7 +1343,7 @@ function answerPractice(id,input){
  const sequential=sequentialScope(scopeOf());
  // 회차에서는 대기열이 아니라 "지금 차례인 문항인가"만 본다.
  const pr=!sequential&&queueMode()==='parts'?partRound(scopeOf(),data.cards.filter(inCurrent)):null;
- if(sequential){if(catalogOrder(data.cards.filter(inCurrent))[paperIndex(scopeOf())]?.id!==id){stale();return;}}
+ if(sequential){const list=catalogOrder(data.cards.filter(inCurrent));if(list[paperIndex(scopeOf(),list)]?.id!==id){stale();return;}}
  // 파트별 점검: 지금 파트에서 낸 그 문제의 답만 받는다.
  else if(pr){if(pr.card?.id!==id){stale();return;}}
  // 같은 개념 간격으로 기다리던 문제는 화면이 앞당겨 보여 줄 수 있다. 그사이 다른 문제의 간격이 먼저 끝나도 보여 준 문제의 답은 받는다.
