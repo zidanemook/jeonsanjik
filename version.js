@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v272-history-39-causal-chain';
+globalThis.APP_BUILD='chagog-v273-basics-closed-by-default';

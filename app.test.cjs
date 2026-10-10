@@ -210,7 +210,7 @@ assert.equal(run("Gichul.state("+JSON.stringify(englishPaper)+")"),'ready');
 assert.equal(run('data.activePractice.cardId'),'gichul-'+englishPaper+'-'+String(run("Gichul.paper("+JSON.stringify(englishPaper)+").numbers[0]")).padStart(2,'0'),'다시 받은 뒤 1번 문항부터 나온다');
 assert.equal(fetched.filter(u=>u.includes(englishPaper)).length,2,'실패한 회차만 한 번 더 받았다');
 // v165: 정보보호론(자체 제작 없이 기출만)도 파트 범위로 열면 그 파트 기출만 나오고, 해설 화면에 그 파트의 기초 개념 상자 —
-//   틀리면 펼침, 맞히면 접힘, 대입이 쓰는 줄만 제자리(나머지는 닫힌 모음 하나), 문항/카드/변형이라는 말 없음.
+//   (v273부터 맞든 틀리든 처음에 닫힘) 대입이 쓰는 줄만 제자리(나머지는 닫힌 모음 하나), 문항/카드/변형이라는 말 없음.
 // v167: 컴퓨터일반도 같은 방식(상자 id 'com-<파트>').
 for(const [SUBJ,PRE] of [['정보보호론','sec'],['컴퓨터일반','com']]){const units=run("STUDY_PARTS.unitsFor('"+SUBJ+"').length");
  if(units){const pid=run("STUDY_PARTS.unitsFor('"+SUBJ+"')[0].parts[0].id");
@@ -223,14 +223,14 @@ for(const [SUBJ,PRE] of [['정보보호론','sec'],['컴퓨터일반','com']]){c
    run('answerPractice('+JSON.stringify(id)+','+(wrong?(quiz.correctIndex+1)%quiz.choices.length:quiz.correctIndex)+')');
    assert.equal(run('data.quizFeedback.result'),wrong?'wrong':'correct',SUBJ+' 답 채점');
    const b=nodes.get('#card').all.find(n=>n.tag==='details'&&String(n.className||'').split(' ').includes('basics'));
-   assert.ok(b,SUBJ+' 해설 화면에 기초 개념 상자: '+id);assert.equal(b.children[0]._text,'기초 개념');assert.equal(b.open,wrong,SUBJ+' '+(wrong?'틀리면 펼침':'맞히면 접힘'));
+   assert.ok(b,SUBJ+' 해설 화면에 기초 개념 상자: '+id);assert.equal(b.children[0]._text,'기초 개념');assert.equal(b.open,false,SUBJ+' 처음에는 닫혀 있다(v273, 틀려도)');
    const hs=b.all.filter(n=>n.className==='b-h').map(n=>n._text);hs.forEach((h,k)=>assert.ok(h.startsWith((k+1)+'. '),'번호가 이어진다: '+hs.join(' / ')));
    assert.ok(applyLast(hs),'마지막 절은 이 문제에 대입');
    const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false);
    assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드|천공 ?카드|그래픽 ?카드|인터페이스 ?카드|확장 ?카드|메모리 ?카드|LAN ?카드|사운드 ?카드|비디오 ?카드/g,'')),SUBJ+' 해설 화면에 문항/카드/변형 없음');
    next();}}}
 // v170: 국어, 영어, 9급 한국사 기출과 한능검도 기출 대응 원고가 짝지은 문제는 해설 화면에 그 문제가 쓰는 상자 —
-//   틀리면 펼침, 맞히면 접힘, 번호가 이어지고 마지막 절은 '이 문제에 대입'(한국사 상자는 대입이 쓰는 줄만 제자리 + 닫힌 나머지 모음 하나), 문항/카드/변형 없음.
+//   (v273부터 맞든 틀리든 처음에 닫힘) 번호가 이어지고 마지막 절은 '이 문제에 대입'(한국사 상자는 대입이 쓰는 줄만 제자리 + 닫힌 나머지 모음 하나), 문항/카드/변형 없음.
 for(const [SUBJ,round] of [['국어','paper-national9-2026-korean'],['영어','paper-local9-2021-english'],['한국사','paper-local9-2026-history'],['한국사','79']]){
  run("openScope({subject:'"+SUBJ+"',round:'"+round+"'})");await flush();await flush();
  const seen={wrong:0,right:0};
@@ -242,7 +242,7 @@ for(const [SUBJ,round] of [['국어','paper-national9-2026-korean'],['영어','p
   run('answerPractice('+JSON.stringify(id)+','+(wrong?(quiz.correctIndex+1)%quiz.choices.length:quiz.correctIndex)+')');
   assert.equal(run('data.quizFeedback.result'),wrong?'wrong':'correct',SUBJ+' 기출 채점: '+id);
   const b=nodes.get('#card').all.find(n=>n.tag==='details'&&String(n.className||'').split(' ').includes('basics'));
-  assert.ok(b,SUBJ+' 기출 해설 화면에 기초 개념 상자: '+id);assert.equal(b.children[0]._text,'기초 개념');assert.equal(b.open,wrong,SUBJ+' 기출 '+(wrong?'틀리면 펼침':'맞히면 접힘')+': '+id);
+  assert.ok(b,SUBJ+' 기출 해설 화면에 기초 개념 상자: '+id);assert.equal(b.children[0]._text,'기초 개념');assert.equal(b.open,false,SUBJ+' 기출 처음에는 닫혀 있다(v273, 틀려도): '+id);
   const hs=b.all.filter(n=>n.className==='b-h').map(n=>n._text);hs.forEach((h,k)=>assert.ok(h.startsWith((k+1)+'. '),'번호가 이어진다: '+hs.join(' / ')));
   assert.ok(applyLast(hs),'마지막 절은 이 문제에 대입: '+id);
   if(/^hist-/.test(a.box)){const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.ok(rest.length<=1&&rest.every(r=>r.open===false),'한국사 상자: 나머지는 닫힌 모음 하나: '+id);}
@@ -293,7 +293,7 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  // v155: 논리 문제는 정리 한 줄(hook), ‘규칙과 비교 예문 더 보기’ 대신 ‘기초 개념’ 상자가 나오고, 틀리면 펼쳐져 있다.
  const basicsBox=()=>nodes.get('#card').all.find(n=>n.tag==='details'&&String(n.className||'').split(' ').includes('basics'));
  const b2=basicsBox();assert.ok(b2,'2장 해설 화면에 기초 개념 상자');assert.equal(b2.children[0]._text,'기초 개념','상자 제목');
- assert.equal(b2.open,true,'틀린 답이면 기초 개념 상자가 펼쳐져 있다');
+ assert.equal(b2.open,false,'틀린 답이어도 기초 개념 상자는 처음에 닫혀 있다(v273)');
  const heads2=b2.all.filter(n=>n.className==='b-h').map(n=>n._text);
  assert.equal(heads2[0],'1. 먼저 알아 둘 말','첫 절: '+heads2.join(' / '));assert.ok(heads2.some(h=>/규칙 — /.test(h))&&heads2.some(h=>/비교 예문$/.test(h)),'규칙, 비교 예문 절');
  assert.ok(applyLast(heads2),'마지막 절은 이 문제에 대입: '+heads2.join(' / '));
@@ -331,7 +331,7 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
    const shownR=screen(),lessonR=run('PRACTICE_BANK['+JSON.stringify(id)+']');
    assert.ok(/^reading-read[1-3]-/.test(lessonR.ruleId||''),topic+' 독해 규칙 id: '+lessonR.ruleId);
    const bR=basicsBox();assert.ok(bR,topic+' 해설 화면에 기초 개념 상자');assert.equal(bR.children[0]._text,'기초 개념');
-   assert.equal(bR.open,wrong,topic+(wrong?' 틀리면 펼침':' 맞히면 접힘'));
+   assert.equal(bR.open,false,topic+' 처음에는 닫혀 있다(v273, 틀려도)');
    const hR=bR.all.filter(n=>n.className==='b-h').map(n=>n._text);
    assert.equal(hR[0],'1. 먼저 알아 둘 말',topic+' 첫 절');assert.ok(applyLast(hR),topic+' 마지막 절: '+hR.join(' / '));
    assert.ok(!shownR.includes('규칙과 비교 예문 더 보기')&&!(lessonR.hook&&shownR.includes(lessonR.hook)),topic+' 옛 정리 한 줄, 예문 상자 대신 기초 개념 상자');
@@ -347,7 +347,7 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
   run('answerPractice('+JSON.stringify(id)+','+(wrong?(quiz.correctIndex+1)%quiz.choices.length:quiz.correctIndex)+')');
   assert.equal(run('data.quizFeedback.result'),wrong?'wrong':'correct','한국사 답 채점');
   const shownH=screen(),bH=basicsBox();assert.ok(bH,'한국사 해설 화면에 기초 개념 상자: '+id);assert.equal(bH.children[0]._text,'기초 개념');
-  assert.equal(bH.open,wrong,'한국사 '+(wrong?'틀리면 펼침':'맞히면 접힘'));
+  assert.equal(bH.open,false,'한국사 처음에는 닫혀 있다(v273, 틀려도)');
   const hH=bH.all.filter(n=>n.className==='b-h').map(n=>n._text);hH.forEach((h,i)=>assert.ok(h.startsWith((i+1)+'. '),'번호가 이어진다: '+hH.join(' / ')));
   assert.ok(applyLast(hH),'마지막 절은 이 문제에 대입: '+hH.join(' / '));
   const rest=bH.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false,'나머지 모음은 닫혀 있다');
@@ -469,5 +469,5 @@ run("openScope({subject:'한국사',round:'lecture-02-05'})");
  const order=fewerSolvesFirst([a,b,c]).map(x=>x.id),withRetry=fewerSolvesFirst([a,b,retry]).map(x=>x.id);data.history=keep;
  return {order,withRetry,want:[c.id,b.id,a.id],wantR:[e.id,b.id,a.id]};})()`);
  assert.deepEqual(r.order,r.want,'푼 횟수 적은 문제 먼저(0 → 2 → 3번)');assert.deepEqual(r.withRetry,r.wantR,'5분 재시도는 푼 횟수와 상관없이 앞');}
-console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자 펼침(틀림), 접힘(맞힘); 독해 1, 3장 틀림 펼침 / 2장 맞힘 접힘), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본, 틀린 문제 위주, 안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
+console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본, 틀린 문제 위주, 안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});

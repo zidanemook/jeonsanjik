@@ -1114,7 +1114,7 @@ function renderPaperLoad(root,card,scope){
 const BASICS=globalThis.STUDY_BASICS||{boxes:{},apply:{},box:()=>null,forQuestion:()=>null};
 // 문제 → 상자: 국어, 영어는 문제의 규칙(ruleId)마다 상자, 한국사는 파트마다 상자라서 그 문제의 대입(apply)에 상자 id(box)를 적어 둔다.
 const basicsRuleFor=id=>Content.lesson(id)?.ruleId||Content.applyBox(id)||null;
-const basicsClosed=new Set();
+const basicsOpened=new Set();
 function basicsInline(text){
  const out=[],re=/\{([spmqrc])\|([^{}|]*)\}|\*\*(.+?)\*\*|([○✕])/g;let last=0,m;
  while((m=re.exec(text))){if(m.index>last)out.push(document.createTextNode(text.slice(last,m.index)));
@@ -1282,7 +1282,7 @@ function renderFeedback(root,card,quiz,lesson,label){
  const main=elem('details',undefined,'lesson explanation-main');main.append(elem('summary','해설 보기'));const byChoice=Practice.explainByChoice(quiz);if(byChoice)main.append(choiceExplanations(quiz,byChoice,f.selectedIndex));else{if(quiz.marks)main.append(markedList(quiz));main.append(...explanationParts(quiz.explanation||card.explanation||''));}attachExplanationCredit(main,reviewId,'feedback');root.append(main);
  appendNewPaperExplanation(root,card.id,quiz.explanation||card.explanation,reviewId,'feedback-supplement');
  const basicsRule=lesson?lesson.ruleId:basicsRuleFor(card.id),basicsBox=basicsRule&&BASICS.box(basicsRule);
- if(basicsBox){const key=card.id+'|'+(reviewId||''),details=basicsDetails('기초 개념',basicsBox,BASICS.forQuestion(card.id),'fold',null,PARTS.partOf(card.id));details.open=f.result!=='correct'&&!basicsClosed.has(key);details.addEventListener('toggle',()=>{if(details.open)basicsClosed.delete(key);else basicsClosed.add(key);});attachExplanationCredit(details,reviewId,'basics');root.append(details);}
+ if(basicsBox){const key=card.id+'|'+(reviewId||''),details=basicsDetails('기초 개념',basicsBox,BASICS.forQuestion(card.id),'fold',null,PARTS.partOf(card.id));details.open=basicsOpened.has(key);details.addEventListener('toggle',()=>{if(details.open)basicsOpened.add(key);else basicsOpened.delete(key);});attachExplanationCredit(details,reviewId,'basics');root.append(details);}
  else if(lesson){root.append(elem('p',lesson.hook,'hook'));const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),...ruleLines(lesson.rule,'rule-line'));for(const example of lesson.examples)details.append(...ruleLines(example,'example'));attachExplanationCredit(details,reviewId,'lesson');root.append(details);}
  const recap=elem('details',undefined,'lesson recap');recap.append(elem('summary','문제 다시 보기'),label,...questionNodes(quiz.question));appendPaper(recap,Hanneung.get(card.id));
  if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(recap,quiz,null,f.selectedIndex);
