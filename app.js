@@ -344,9 +344,9 @@ function setQueueMode(value){
 // 어느 것도 회차 안에서는 적용하지 않는다. 어제 맞힌 문제도 제자리에 다시 나온다.
 // 답안 기록과 복습 일정 갱신은 평소와 똑같다 — 바뀌는 것은 "다음에 무엇을 낼지"뿐이다.
 // v274: 위치는 푼 기록에서 찾는다. 이 회차에서 마지막으로 푼 문제의 다음 번호부터 이어진다(기록은 기기끼리 맞춰지므로 다른 기기에서 열어도 같다).
-// 마지막 번호까지 푼 회차를 다시 열면 1번부터다. 번호를 골라 옮기면(paperJump) 새 답이 기록될 때까지 그 자리를 지킨다.
+// 마지막 번호까지 푼 회차를 다시 열면 1번부터다. 이어 풀기는 어제나 오늘 푼 기록만 본다(v276: 한 달 전에 1번만 풀어 둔 회차가 2번부터 열려 1번을 건너뛰었다). 번호를 골라 옮기면(paperJump) 새 답이 기록될 때까지 그 자리를 지킨다.
 let paperCursor=null;
-function paperLast(list){const at=new Map(list.map((c,i)=>[c.id,i]));for(let i=data.history.length-1;i>=0;i--){const k=at.get(data.history[i].cardId);if(k!==undefined)return {row:data.history[i].id,index:k};}return null;}
+function paperLast(list){const at=new Map(list.map((c,i)=>[c.id,i]));for(let i=data.history.length-1;i>=0;i--){const k=at.get(data.history[i].cardId);if(k!==undefined)return data.history[i].date>=plus(day(),-1)?{row:data.history[i].id,index:k}:null;}return null;}
 function paperIndex(scope,list){const last=paperLast(list),seen=last?last.row:'';if(!paperCursor||!sameScope(paperCursor.scope,scope)||paperCursor.seen!==seen)paperCursor={scope:{subject:scope.subject||'',topic:scope.topic||'',round:scope.round||''},index:last&&last.index<list.length-1?last.index+1:0,seen};return paperCursor.index;}
 function paperAdvance(){if(paperCursor)paperCursor={...paperCursor,index:paperCursor.index+1,seen:data.history.at(-1)?.id||''};}
 function paperJump(index){if(!paperCursor)return;paperCursor={...paperCursor,index};sessionDirty=true;render();window.scrollTo(0,0);}

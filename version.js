@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v275-causal-chain-six-lectures';
+globalThis.APP_BUILD='chagog-v276-paper-resume-recent-only';
