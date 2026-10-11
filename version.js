@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v283-order-questions-show-king-table';
+globalThis.APP_BUILD='chagog-v284-hanja-meaning-598';
