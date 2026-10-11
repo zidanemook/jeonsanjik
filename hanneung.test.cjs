@@ -13,8 +13,13 @@ assert.equal(full.filter(id=>explanations[id]).length,150,'77~79회는 해설이
 const studied=new Set(['prehistory','gojoseon','goguryeo-gaya','baekje-silla','unified-silla','balhae','later-three','goryeo']);
 const topics=require('./hanneung-topics.js');
 const extra=Object.keys(explanations).filter(id=>!full.includes(id));
-assert.equal(extra.length,346,'공부 범위 해설 346개(사진 보기 3문항은 확인하지 못해 비워 둠)');
-for(const id of extra)assert(studied.has(topics[id]),'공부 범위 밖에 해설을 붙이지 않는다: '+id);
+// 2026-10-11: 75회, 76회는 사용자가 회차 전체를 풀었으므로 19번부터 50번까지(조선 이후)에도 해설을 붙인다. 먼저 틀린 23문제.
+const late=id=>/^hanneung-7[56]-[0-9][0-9]$/.test(id)&&Number(id.slice(-2))>=19;
+const extraStudied=extra.filter(id=>!late(id)),extraLate=extra.filter(late);
+assert.equal(extraStudied.length,346,'공부 범위 해설 346개(사진 보기 3문항은 확인하지 못해 비워 둠)');
+for(const id of extraStudied)assert(studied.has(topics[id]),'공부 범위 밖에 해설을 붙이지 않는다: '+id);
+assert.equal(extraLate.length,23,'75회, 76회 19번부터 50번까지의 해설 23개');
+for(const id of extraLate)assert.equal(explanations[id].reviewedOn,'2026-10-11',id);
 for(const [id,e]of Object.entries(explanations)){
  assert.equal(e.choices.length,5,id);assert(e.clue&&e.reason&&e.hook&&e.reviewedOn);
  e.choices.forEach((c,i)=>assert(c.startsWith(['①','②','③','④','⑤'][i]),'보기 번호 순서: '+id));
