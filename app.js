@@ -728,6 +728,14 @@ function attachExplanationCredit(details,reviewId,location){
  // Listen to the user's summary activation, not a programmatic open-state restoration.
  details.querySelector('summary').addEventListener('click',()=>{if(!details.open)creditExplanation(reviewId);});
 }
+// 그 문제의 지난 풀이 기록 한 줄. 틀린 적이 있으면 그렇다고 먼저 적는다. skipId는 지금 채점한 풀이(채점 화면에서는 뺀다).
+function pastRecordLine(cardId,skipId){
+ const rows=data.history.filter(h=>h.cardId===cardId&&h.mode==='quiz'&&h.id!==skipId).sort((a,b)=>(a.at||a.date).localeCompare(b.at||b.date)||a.id.localeCompare(b.id));if(!rows.length)return null;
+ const wrong=rows.filter(h=>h.result==='wrong').length,mark=h=>h.result==='correct'?'맞음':h.result==='wrong'?'틀림':'헷갈림',when=h=>{const p=String(h.date||'').split('-');return p.length===3?Number(p[1])+'월 '+Number(p[2])+'일':'';};
+ const p=elem('p',undefined,'past-record'+(wrong?' past-wrong':''));
+ p.append(elem('strong',wrong?'틀린 적 있는 문제':'전에 푼 문제'),document.createTextNode('지난 풀이 '+rows.length+'번'+(wrong?' 가운데 '+wrong+'번 틀림':'')+': '+rows.slice(-5).map(h=>(when(h)+' '+mark(h)).trim()).join(', ')+(rows.length>5?' (최근 5번)':'')));
+ return p;
+}
 function feedbackReviewId(feedback){
  if(feedback.reviewId)return feedback.reviewId;
  return data.history.filter(h=>h.cardId===feedback.cardId&&h.mode==='quiz'&&(!feedback.exercise?.exerciseId||!(h.detail?.exerciseId||h.ex)||Practice.canonical(h.detail?.exerciseId||h.ex)===feedback.exercise.exerciseId)).sort((a,b)=>(a.at||a.date).localeCompare(b.at||b.date)||a.id.localeCompare(b.id)).at(-1)?.id;
@@ -1071,9 +1079,9 @@ function renderQuiz(){
  const lesson=PRACTICE_BANK[card.id],summary=STUDY_REVIEW_CATALOG.questions[card.id];
  const paperRow=Gichul.get(card.id);
  const label=elem('small',card.subject+' '+(lesson?.title||(paperRow?Gichul.title(paperRow):quiz.image?Hanneung.title(Hanneung.get(card.id))+(studyTopic(card.id)?', '+StudyTopics.title(studyTopic(card.id)):''):summary?StudyTopics.title(studyTopic(card.id))+' 복습 '+summary.number+'번, 자체 제작':'개념 복습'))+' ('+(quiz.type==='text'?'직접 쓰기':quiz.choiceImages?'사진 객관식':'객관식')+')');
- if(feedback)renderFeedback(root,card,quiz,lesson,label);
+ if(feedback){renderFeedback(root,card,quiz,lesson,label);const past=pastRecordLine(card.id,feedbackReviewId(data.quizFeedback));if(past&&label.isConnected)label.after(past);}
  else{
-  root.append(label,...questionNodes(quiz.question));
+  root.append(label);{const past=pastRecordLine(card.id);if(past)root.append(past);}root.append(...questionNodes(quiz.question));
   appendPaper(root,Hanneung.get(card.id));
   if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(root,quiz,i=>answerPractice(card.id,i));
   else if(quiz.type==='choice'){
