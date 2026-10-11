@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v279-exam-kings-tables';
+globalThis.APP_BUILD='chagog-v280-kings-one-table';
