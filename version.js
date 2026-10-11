@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v284-hanja-meaning-598';
+globalThis.APP_BUILD='chagog-v285-gamsa-nogeoldae';
