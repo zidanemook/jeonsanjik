@@ -485,5 +485,12 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  const order=fewerSolvesFirst([a,b,c]).map(x=>x.id),withRetry=fewerSolvesFirst([a,b,retry]).map(x=>x.id);data.history=keep;
  return {order,withRetry,want:[c.id,b.id,a.id],wantR:[e.id,b.id,a.id]};})()`);
  assert.deepEqual(r.order,r.want,'푼 횟수 적은 문제 먼저(0 → 2 → 3번)');assert.deepEqual(r.withRetry,r.wantR,'5분 재시도는 푼 횟수와 상관없이 앞');}
+// v281: 문화유산 이름이 첫 칸인 줄 아래에 사진 줄이 붙는다. 요약 정리 표와 이름이 없는 줄에는 붙지 않는다. 대응표의 파일은 모두 있다.
+{const t=run("basicsHistTable({title:'탑',head:['탑','단서'],rows:[['익산 미륵사지 석탑','돌'],['없는 탑','돌'],['공주 무령왕릉','벽돌']]})");
+ assert.equal(t.children.length,6,'머리 1 + 줄 3 + 사진 줄 2');const p=t.children[2];assert.equal(p.className,'b-photo','둘째 줄 아래가 사진 줄');
+ const img=p.all.find(n=>n.tag==='img');assert.equal(img.src,'assets/heritage/iksan-mireuksaji-seoktap-6256170.webp');assert.equal(img.alt,'익산 미륵사지 석탑 사진');assert.equal(p.children[0].colSpan,2);
+ const two=t.children[5];assert.ok(two.classes.has('b-photo-many'),'사진이 둘이면 나란히');assert.equal(two.all.filter(n=>n.tag==='img').length,2);assert.equal(two.all.find(n=>n.tag==='figcaption')._text,'무령왕릉 지석');
+ assert.equal(run("basicsHistTable({title:'요약 정리 — 탑',head:['탑','단서'],rows:[['익산 미륵사지 석탑','돌']]})").children.length,2,'요약 정리 표에는 사진 없음');
+ const files=Object.values(run('HERITAGE_PHOTOS')).flat().map(x=>x[0]);assert.ok(files.length>=70);for(const f of files)assert.ok(fs.existsSync(__dirname+'/assets/heritage/'+f+'.webp'),'사진 파일: '+f);}
 console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본, 틀린 문제 위주, 안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});

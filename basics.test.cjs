@@ -313,7 +313,7 @@ let hSplit=0,hTopLines=0,hAllLines=0;
 const memoHeads=box=>[...(box.memorize?.length?['외울 것']:[]),...(box.mnemonics?.length?['암기법']:[])];
 {const res=run(`(()=>{const out=[],walk=(n,f)=>{for(const c of n.children){f(c);walk(c,f);}};
  const count=(d,top)=>{const xs=[];if(top)xs.push(...d.children);else walk(d,c=>xs.push(c));
-  return {terms:xs.filter(c=>c.className==='b-term').length,rules:xs.filter(c=>c.className==='b-rule').length,ex:xs.filter(c=>c.tag==='p'&&String(c.className).startsWith('b-ex')&&c.children[0]?.tag==='span').length,rows:xs.filter(c=>c.tag==='table').reduce((s,t)=>s+t.children.length-1,0)};};
+  return {terms:xs.filter(c=>c.className==='b-term').length,rules:xs.filter(c=>c.className==='b-rule').length,ex:xs.filter(c=>c.tag==='p'&&String(c.className).startsWith('b-ex')&&c.children[0]?.tag==='span').length,rows:xs.filter(c=>c.tag==='table').reduce((s,t)=>s+t.children.filter(c=>c.className!=='b-photo').length-1,0)};};
  const heads=d=>{const h=[];walk(d,c=>{if(c.className==='b-h')h.push(c._text);});return h;};
  for(const id of ${JSON.stringify([...history,...itQuestions,...comq])}){const a=BASICS.forQuestion(id),box=BASICS.box(a.box),all=basicsDetails('기초 개념',box,a),fold=basicsDetails('기초 개념',box,a,'fold',null,PARTS.partOf(id));
   const more=fold.children.filter(c=>String(c.className).split(' ').includes('b-rest'));
@@ -337,7 +337,7 @@ const memoHeads=box=>[...(box.memorize?.length?['외울 것']:[]),...(box.mnemon
  for(const [k,b] of Object.entries(BASICS.boxes)){const d=basicsDetails('기초 개념',b,null);const tables=[];(function w(n){for(const c of n.children){if(c.tag==='table')tables.push(c);w(c);}})(d);
   if(!/^(hist|sec|com)-/.test(k)){other+=tables.filter(t=>t.classes.has('b-hist')).length;if(tables.length!==(b.table?1:0)+(b.tables||[]).length)bad.push(k+' 표 수');continue;}
   const src=b.tables;if(tables.length!==src.length){bad.push(k+' 표 수');continue;}
-  tables.forEach((t,ti)=>{if(!t.classes.has('b-hist'))bad.push(k+' b-hist');t.children.slice(1).forEach((tr,ri)=>tr.children.forEach((td,ci)=>{const L=len(src[ti].rows[ri][ci]),nw=td.classes.has('b-nowrap'),lg=td.classes.has('b-long');nowrap+=nw;long+=lg;
+  tables.forEach((t,ti)=>{if(!t.classes.has('b-hist'))bad.push(k+' b-hist');t.children.slice(1).filter(tr=>tr.className!=='b-photo').forEach((tr,ri)=>tr.children.forEach((td,ci)=>{const L=len(src[ti].rows[ri][ci]),nw=td.classes.has('b-nowrap'),lg=td.classes.has('b-long');nowrap+=nw;long+=lg;
    if(nw!==(ci===0&&L<=6)||lg!==(ci>0&&L>20))bad.push(k+' '+src[ti].rowIds[ri]+' '+ci);}));});}
  return {bad:bad.slice(0,5),nowrap,long,other};})()`);
  eqJ(r.bad,[],'한국사, 전공 과목 표 칸 표시');assert.equal(r.other,0,'다른 과목 표에는 b-hist 없음');assert.ok(r.nowrap>30&&r.long>30,'짧은 첫 칸, 긴 칸이 있다: '+JSON.stringify(r));}

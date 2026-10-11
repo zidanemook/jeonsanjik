@@ -409,6 +409,11 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-table.b-hist td:first-child { word-break:keep-all; }
 .b-table.b-hist td.b-nowrap { white-space:nowrap; }
 .b-table.b-hist td.b-long { text-align:left; }
+.b-table.b-hist tr.b-photo td { text-align:center; padding:4px 4px 12px; }
+.b-photo figure { display:inline-block; margin:0 2px; max-width:100%; vertical-align:top; }
+.b-photo-many figure { max-width:47%; }
+.b-photo img { display:block; max-width:100%; max-height:240px; width:auto; height:auto; margin:0 auto; border-radius:6px; background:#fff; }
+.b-photo figcaption { margin-top:4px; font-size:13px; color:#aeb8c6; word-break:keep-all; }
 .b-table td small { display:block; color:#9aa3b0; font-size:12px; }
 /* 2026-09-28 사용자: "표가 좌우 구분이 없어서 읽다가 헷갈린다" — 칸마다 세로줄, 머리줄, 첫 칸 음영, 한국사 표는 왼쪽 정렬 */
 .b-table { border:1px solid #3d4552; }

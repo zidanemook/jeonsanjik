@@ -1141,8 +1141,81 @@ function basicsTable(t){const table=elem('table',undefined,'b-table'),head=elem(
  for(const row of t.rows){const tr=elem('tr');for(const cell of row){const td=elem('td'),[main,...sub]=String(cell).split('\n');td.append(...basicsInline(main));if(sub.length){const s=elem('small');s.append(...basicsInline(sub.join(' ')));td.append(s);}tr.append(td);}table.append(tr);}return table;}
 // 한국사 표(상자의 tables): 첫 칸이 짧으면(6자까지) 한 줄로 두고, 긴 칸(20자 넘음)은 문장처럼 왼쪽 맞춤. 다른 과목 표(basicsTable)는 그대로.
 const basicsPlainLen=t=>String(t).split('\n')[0].replace(/\{[spmqrc]\|([^{}|]*)\}/g,'$1').replace(/\*\*/g,'').length;
+// v281: 문화유산 사진. 표 첫 칸의 글이 아래 열쇠와 같으면 그 줄 바로 아래에 사진 줄을 붙인다. 값은 [assets/heritage의 파일 이름, 사진 설명(첫 칸 글과 사진이 다를 때만)].
+// '요약 정리' 표에는 붙이지 않는다(같은 상자의 본 표와 겹친다). 사진 출처와 라이선스는 assets/heritage/CREDITS.md.
+const HERITAGE_PHOTOS={
+ "금동 연가 7년명 여래 입상":[["geumdong-yeonga7-yeorae-1611565"]],
+ "무용총, 각저총, 강서대묘, 안악 3호분":[["gangseodaemyo-sasindo-hyeonmu-commons","강서대묘 사신도(현무)"]],
+ "광개토 태왕릉비":[["gwanggaeto-daewangneungbi-commons"]],
+ "서산 용현리 마애 여래 삼존상":[["seosan-yonghyeonni-maae-1612263"]],
+ "익산 미륵사지 석탑":[["iksan-mireuksaji-seoktap-6256170"]],
+ "미륵사지 석탑(익산)":[["iksan-mireuksaji-seoktap-6256170"]],
+ "부여 정림사지 5층 석탑":[["buyeo-jeongnimsaji-otap-6347703"]],
+ "정림사지 5층 석탑(부여)":[["buyeo-jeongnimsaji-otap-6347703"]],
+ "금동 대향로":[["baekje-geumdong-daehyangno-1612303"]],
+ "금동 대향로(부여 능산리 절터)":[["baekje-geumdong-daehyangno-1612303"]],
+ "산수무늬 벽돌":[["buyeo-oeri-sangyeongmunjeon-1613261"]],
+ "칠지도":[["chiljido-replica-commons","칠지도(복제품)"]],
+ "공주 무령왕릉":[["muryeongwangneung-jiseok-1612296","무령왕릉 지석"],["muryeongwang-geumje-gwansik-1612272","무령왕릉 금제 관식"]],
+ "무령왕릉(공주)":[["muryeongwangneung-jiseok-1612296","무령왕릉 지석"],["muryeongwang-geumje-gwansik-1612272","무령왕릉 금제 관식"]],
+ "금관, 금귀고리, 금제 관식":[["cheonmachong-geumgwan-1612860","천마총 금관"],["gyeongju-bubuchong-gwigeori-1611503","경주 부부총 금귀걸이"]],
+ "익산 왕궁리 유적":[["iksan-wanggungni-otap-1612379","왕궁리 5층 석탑"]],
+ "경주 배동 석조 여래 삼존 입상":[["gyeongju-baedong-samjon-1620135"]],
+ "경주 분황사 모전 석탑":[["gyeongju-bunhwangsa-mojeon-6408132"]],
+ "경주 황룡사 9층 목탑":[["gyeongju-hwangnyongsaji-moktapji-1627506","지금은 목탑 터만 남아 있다"]],
+ "황룡사":[["gyeongju-hwangnyongsaji-moktapji-1627506","황룡사 터의 목탑 자리"]],
+ "첨성대":[["gyeongju-cheomseongdae-1612759"]],
+ "경주 천마총":[["gyeongju-cheonmachong-cheonmado-1611658","천마총 말다래의 천마도"]],
+ "단양 적성비":[["danyang-sinra-jeokseongbi-1612181"]],
+ "북한산비, 황초령비, 마운령비":[["bukhansan-jinheungwang-sunsubi-1611462","북한산 순수비"]],
+ "석굴암 본존불":[["gyeongju-seokguram-bonjon-1612717"]],
+ "경주 감은사지 3층 석탑":[["gyeongju-gameunsaji-samchungtap-1612830"]],
+ "감은사":[["gyeongju-gameunsaji-samchungtap-1612830","감은사 터의 동서 3층 석탑"]],
+ "경주 불국사 3층 석탑":[["gyeongju-bulguksa-seokgatap-6409180"]],
+ "경주 불국사 다보탑":[["gyeongju-bulguksa-dabotap-1612673"]],
+ "화순 쌍봉사 철감선사탑":[["hwasun-ssangbongsa-cheolgam-1612532"]],
+ "상원사 동종":[["sangwonsa-dongjong-commons"]],
+ "성덕대왕 신종":[["seongdeok-daewang-sinjong-1612744"]],
+ "무구정광대다라니경":[["mugujeonggwang-daedaranigyeong-replica-commons","무구정광대다라니경(복제품)"]],
+ "김유신 묘":[["gyeongju-gimyusinmyo-6282534"]],
+ "금동 미륵보살 반가 사유상":[["geumdong-mireuk-banga-78-6497138","국보 78호"],["geumdong-mireuk-banga-83-6497374","국보 83호"]],
+ "논산 관촉사 석조 미륵보살 입상":[["nonsan-gwanchoksa-mireuk-10001554"]],
+ "평창 월정사 8각 9층 석탑":[["pyeongchang-woljeongsa-palgak-1612071"]],
+ "개성 경천사지 10층 석탑":[["gaeseong-gyeongcheonsaji-siptap-commons"]],
+ "하남 하사창동 철조 석가여래 좌상":[["hanam-hasachangdong-cheoljo-1613255"]],
+ "충주 정토사지 홍법국사탑":[["chungju-jeongtosaji-hongbeop-1611542"]],
+ "여주 고달사지 승탑":[["yeoju-godalsaji-seungtap-1612037"]],
+ "순청자":[["cheongja-chamoe-byeong-1611512","청자 참외모양 병"],["cheongja-tugak-chilbo-1611513","청자 투각 칠보무늬 향로"]],
+ "상감 청자":[["cheongja-sanggam-unhak-maebyeong-commons","청자 상감운학문 매병"],["cheongja-sanggam-moran-pyojubak-1611562","청자 상감모란문 표주박모양 주전자"]],
+ "나전 칠기":[["najeon-gyeongham-6693478","나전경함"]],
+ "은입사":[["cheongdong-eunipsa-jeongbyeong-1611509","청동 은입사 포류수금문 정병"]],
+ "아미타래영도, 수월관음도":[["suwolgwaneumdo-met-commons","수월관음도"]],
+ "천산대렵도":[["cheonsan-daeryeopdo-nmk-bon2094"]],
+ "사리원 성불사 응진전":[["sariwon-seongbulsa-eungjinjeon-commons"]],
+ "안동 봉정사 극락전":[["andong-bongjeongsa-geungnakjeon-6293388"]],
+ "영주 부석사 무량수전":[["yeongju-buseoksa-muryangsujeon-6295221"]],
+ "예산 수덕사 대웅전":[["yesan-sudeoksa-daeungjeon-6356817"]],
+ "영주 부석사 소조 여래 좌상":[["yeongju-buseoksa-sojo-yeorae-commons"]],
+ "안동 이천동 마애 여래 입상":[["andong-icheondong-maae-1620217"]],
+ "파주 용미리 마애 이불 입상":[["paju-yongmiri-maae-1615672"]],
+ "초조대장경":[["chojobon-daebojeokgyeong-6528062"]],
+ "팔만대장경(재조대장경)":[["hapcheon-haeinsa-daejanggyeongpan-1612969","팔만대장경판"],["hapcheon-haeinsa-janggyeongpanjeon-commons","해인사 장경판전"]],
+ "『직지심체요절』":[["jikji-simche-yojeol-commons"]],
+ "경복궁":[["seoul-gyeongbokgung-6400271"]],
+ "종묘":[["seoul-jongmyo-6405753"]],
+ "창덕궁":[["seoul-changdeokgung-6400927"]],
+ "몽유도원도":[["angyeon-mongyudowondo-commons"]],
+ "분청사기":[["buncheong-bakji-jarabyeong-1611863","분청사기 자라병"]],
+ "백자":[["baekja-cheonghwa-maejojuk-1611621","백자 청화매조죽문 유개항아리"],["baekja-dalhangari-1614840","백자 달항아리"]]
+};
+function basicsPhotoRow(t,row){const name=String(row[0]).split('\n')[0].replace(/\*\*/g,''),list=/^요약 정리/.test(t.title||'')?null:HERITAGE_PHOTOS[name];if(!list)return null;
+ const tr=elem('tr',undefined,'b-photo'),td=elem('td');td.colSpan=row.length;if(list.length>1)tr.classList.add('b-photo-many');
+ for(const [file,cap] of list){const fig=elem('figure'),img=elem('img');img.src='assets/heritage/'+file+'.webp';img.alt=(cap||name)+' 사진';img.loading='lazy';img.decoding='async';fig.append(img);if(cap)fig.append(elem('figcaption',cap));td.append(fig);}
+ tr.append(td);return tr;}
 function basicsHistTable(t){const table=basicsTable(t);table.classList.add('b-hist');
- [...table.children].slice(1).forEach((tr,r)=>[...tr.children].forEach((td,i)=>{const len=basicsPlainLen(t.rows[r][i]);if(i===0&&len<=6)td.classList.add('b-nowrap');else if(i>0&&len>20)td.classList.add('b-long');}));return table;}
+ [...table.children].slice(1).forEach((tr,r)=>[...tr.children].forEach((td,i)=>{const len=basicsPlainLen(t.rows[r][i]);if(i===0&&len<=6)td.classList.add('b-nowrap');else if(i>0&&len>20)td.classList.add('b-long');}));
+ {const trs=[...table.children],out=[trs[0]];trs.slice(1).forEach((tr,r)=>{out.push(tr);const p=basicsPhotoRow(t,t.rows[r]);if(p)out.push(p);});if(out.length>trs.length)table.replaceChildren(...out);}
+ return table;}
 function basicsDiagram(nodes){const wrap=elem('div',undefined,'b-diagram');
  const draw=n=>{const d=elem('div',undefined,'b-bx b-bx-'+n.c+(n.side?' b-bx-side':''));if(n.label)d.append(elem('span',n.label,'b-bx-label b-'+(n.c==='gap'?'m':n.c)));if(n.text)d.append(basicsLines(n.text,'b-bx-text','div'));for(const k of n.kids||[])d.append(draw(k));return d;};
  for(const n of nodes)wrap.append(draw(n));return wrap;}

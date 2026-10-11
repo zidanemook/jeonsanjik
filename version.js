@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v280-kings-one-table';
+globalThis.APP_BUILD='chagog-v281-heritage-photos-in-boxes';
