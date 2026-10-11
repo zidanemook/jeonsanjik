@@ -1142,6 +1142,7 @@ function basicsTable(t){const table=elem('table',undefined,'b-table'),head=elem(
 // 한국사 표(상자의 tables): 첫 칸이 짧으면(6자까지) 한 줄로 두고, 긴 칸(20자 넘음)은 문장처럼 왼쪽 맞춤. 다른 과목 표(basicsTable)는 그대로.
 const basicsPlainLen=t=>String(t).split('\n')[0].replace(/\{[spmqrc]\|([^{}|]*)\}/g,'$1').replace(/\*\*/g,'').length;
 // v281: 문화유산 사진. 표 첫 칸의 글이 아래 열쇠와 같으면 그 줄 바로 아래에 사진 줄을 붙인다. 값은 [assets/heritage의 파일 이름, 사진 설명(첫 칸 글과 사진이 다를 때만)].
+// v282: 사진은 위 줄의 것이다. 그 줄과 사진이 있는 표(b-photos)는 항목마다 떨어진 덩어리로 그린다: 줄마다 위에 빈 틈, 설명 줄(b-has-photo)과 사진 줄은 틈 없이 같은 바탕, 사진마다 '▲ 이름'.
 // '요약 정리' 표에는 붙이지 않는다(같은 상자의 본 표와 겹친다). 사진 출처와 라이선스는 assets/heritage/CREDITS.md.
 const HERITAGE_PHOTOS={
  "금동 연가 7년명 여래 입상":[["geumdong-yeonga7-yeorae-1611565"]],
@@ -1210,11 +1211,11 @@ const HERITAGE_PHOTOS={
 };
 function basicsPhotoRow(t,row){const name=String(row[0]).split('\n')[0].replace(/\*\*/g,''),list=/^요약 정리/.test(t.title||'')?null:HERITAGE_PHOTOS[name];if(!list)return null;
  const tr=elem('tr',undefined,'b-photo'),td=elem('td');td.colSpan=row.length;if(list.length>1)tr.classList.add('b-photo-many');
- for(const [file,cap] of list){const fig=elem('figure'),img=elem('img');img.src='assets/heritage/'+file+'.webp';img.alt=(cap||name)+' 사진';img.loading='lazy';img.decoding='async';fig.append(img);if(cap)fig.append(elem('figcaption',cap));td.append(fig);}
+ for(const [file,cap] of list){const fig=elem('figure'),img=elem('img');img.src='assets/heritage/'+file+'.webp';img.alt=(cap||name)+' 사진';img.loading='lazy';img.decoding='async';fig.append(img,elem('figcaption','▲ '+(cap||name)));td.append(fig);}
  tr.append(td);return tr;}
 function basicsHistTable(t){const table=basicsTable(t);table.classList.add('b-hist');
  [...table.children].slice(1).forEach((tr,r)=>[...tr.children].forEach((td,i)=>{const len=basicsPlainLen(t.rows[r][i]);if(i===0&&len<=6)td.classList.add('b-nowrap');else if(i>0&&len>20)td.classList.add('b-long');}));
- {const trs=[...table.children],out=[trs[0]];trs.slice(1).forEach((tr,r)=>{out.push(tr);const p=basicsPhotoRow(t,t.rows[r]);if(p)out.push(p);});if(out.length>trs.length)table.replaceChildren(...out);}
+ {const trs=[...table.children],out=[trs[0]];trs.slice(1).forEach((tr,r)=>{out.push(tr);const p=basicsPhotoRow(t,t.rows[r]);if(p){tr.classList.add('b-has-photo');out.push(p);}});if(out.length>trs.length){table.classList.add('b-photos');table.replaceChildren(...out);}}
  return table;}
 function basicsDiagram(nodes){const wrap=elem('div',undefined,'b-diagram');
  const draw=n=>{const d=elem('div',undefined,'b-bx b-bx-'+n.c+(n.side?' b-bx-side':''));if(n.label)d.append(elem('span',n.label,'b-bx-label b-'+(n.c==='gap'?'m':n.c)));if(n.text)d.append(basicsLines(n.text,'b-bx-text','div'));for(const k of n.kids||[])d.append(draw(k));return d;};
