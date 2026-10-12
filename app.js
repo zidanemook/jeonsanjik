@@ -1435,7 +1435,7 @@ function answerPractice(id,input){
  const sequential=sequentialScope(scopeOf());
  // 회차에서는 대기열이 아니라 "지금 차례인 문항인가"만 본다.
  const pr=!sequential&&queueMode()==='parts'?partRound(scopeOf(),data.cards.filter(inCurrent)):null;
- if(sequential){const list=catalogOrder(data.cards.filter(inCurrent));if(list[paperIndex(scopeOf(),list)]?.id!==id){stale();return;}}
+ if(sequential){const all=catalogOrder(data.cards.filter(inCurrent)),wrongIds=paperWrongOnly?everWrongIds():null,list=wrongIds?all.filter(c=>wrongIds.has(c.id)):all;if(list[paperIndex(scopeOf(),list)]?.id!==id){stale();return;}}
  // 파트별 점검: 지금 파트에서 낸 그 문제의 답만 받는다.
  else if(pr){if(pr.card?.id!==id){stale();return;}}
  // 같은 개념 간격으로 기다리던 문제는 화면이 앞당겨 보여 줄 수 있다. 그사이 다른 문제의 간격이 먼저 끝나도 보여 준 문제의 답은 받는다.
