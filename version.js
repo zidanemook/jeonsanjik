@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v295-memorize-sync';
+globalThis.APP_BUILD='chagog-v296-memorize-urgent-years';
