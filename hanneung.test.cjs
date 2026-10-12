@@ -19,7 +19,11 @@ const late=id=>/^hanneung-7[56]-[0-9][0-9]$/.test(id)&&Number(id.slice(-2))>=19;
 const late74=id=>/^hanneung-74-[0-9][0-9]$/.test(id)&&Number(id.slice(-2))>=19;
 // 2026-10-12: 73회도 사용자가 회차 전체를 풀었다. 19번 뒤에서 틀린 5문제(26, 44, 47, 49, 50번)에 해설을 붙인다.
 const late73=id=>/^hanneung-73-[0-9][0-9]$/.test(id)&&Number(id.slice(-2))>=19;
-const extraStudied=extra.filter(id=>!late(id)&&!late74(id)&&!late73(id)),extraLate=extra.filter(late),extraLate74=extra.filter(late74),extraLate73=extra.filter(late73);
+// 2026-10-12: 72회도 사용자가 회차 전체를 풀었다. 19번 뒤에서 틀린 5문제(39, 46, 47, 49, 50번)에 해설을 붙인다.
+const late72=id=>/^hanneung-72-[0-9][0-9]$/.test(id)&&Number(id.slice(-2))>=19;
+const extraStudied=extra.filter(id=>!late(id)&&!late74(id)&&!late73(id)&&!late72(id)),extraLate=extra.filter(late),extraLate74=extra.filter(late74),extraLate73=extra.filter(late73),extraLate72=extra.filter(late72);
+assert.deepEqual(extraLate72.map(id=>Number(id.slice(-2))),[39,46,47,49,50],'72회 19번 뒤의 해설 5개');
+for(const id of extraLate72)assert.equal(explanations[id].reviewedOn,'2026-10-12',id);
 assert.deepEqual(extraLate73.map(id=>Number(id.slice(-2))),[26,44,47,49,50],'73회 19번 뒤의 해설 5개');
 for(const id of extraLate73)assert.equal(explanations[id].reviewedOn,'2026-10-12',id);
 assert.deepEqual(extraLate74.map(id=>Number(id.slice(-2))),[20,21,22,23,27,28,29,33,34,35,37,40,45],'74회 19번 뒤의 해설 13개');
