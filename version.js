@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v291-goryeo-yejong-sukjong';
+globalThis.APP_BUILD='chagog-v293-memorize-urgent-options';
