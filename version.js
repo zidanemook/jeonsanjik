@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v293-memorize-urgent-options';
+globalThis.APP_BUILD='chagog-v294-memorize-keep-shown';

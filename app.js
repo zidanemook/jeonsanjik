@@ -883,8 +883,11 @@ function renderHome(){
 }
 // 외울 것: 목록 화면(viewSubject 비어 있음) → 한 목록 화면(viewSubject = 목록 id). 가림, 확인은 이 화면에서만 쓰고 저장하지 않는다.
 const MEMO_SCOPE='과목:';
+// 외울 것에서 눌러 연 칸은 풀이 기록과 함께 저장한다(data.memorizeShown, 칸 이름의 목록). 새로 고쳐도, 목록을 다시 열어도 남고 '초기화'로만 가려진다.
 let memorizeShown=new Set();
+function memorizeSave(){data.memorizeShown=[...memorizeShown];saveDraft();}
 function renderMemorize(){
+ memorizeShown=new Set(Array.isArray(data.memorizeShown)?data.memorizeShown:[]);
  // viewSubject는 '과목:<과목 이름>'이면 그 과목의 목록 화면, 아니면 목록 하나의 id다.
  const body=$('#memorizeBody'),subject=viewSubject.startsWith(MEMO_SCOPE)?viewSubject.slice(MEMO_SCOPE.length):'',set=subject?null:MEMORIZE.get(viewSubject);body.replaceChildren();
  $('#memorizeTitle').textContent=set?set.title:subject?subject+' 외울 것':'외울 것';
@@ -893,11 +896,13 @@ function renderMemorize(){
  if(!set){
   body.append(elem('p','가려 둔 칸을 먼저 떠올린 뒤 눌러서 확인해요. 공부한 범위까지만 들어 있어요.','status'));
   const list=elem('div',undefined,'menu-list'),sets=subject?MEMORIZE.sets.filter(x=>x.subject===subject):MEMORIZE.sets;
-  for(const x of sets)list.append(menuItem(x.title,(subject?'':x.subject+', ')+MEMORIZE.size(x)+'칸'+(data.memorizeLast===x.id?', 마지막으로 본 목록':''),()=>{memorizeShown=new Set();if(data.memorizeLast!==x.id){data.memorizeLast=x.id;saveDraft();}go('memorize',x.id);}));
-  body.append(list);return;
+  for(const x of sets)list.append(menuItem(x.title,(subject?'':x.subject+', ')+MEMORIZE.size(x)+'칸'+((n=>n?', '+n+'칸 확인':'')([...memorizeShown].filter(k=>k.startsWith(x.id+':')).length))+(data.memorizeLast===x.id?', 마지막으로 본 목록':''),()=>{if(data.memorizeLast!==x.id){data.memorizeLast=x.id;saveDraft();}go('memorize',x.id);}));
+  body.append(list);
+  if(memorizeShown.size){const reset=btn('외울 것 전체 초기화 ('+memorizeShown.size+'칸 확인함)',()=>{memorizeShown=new Set();memorizeSave();render();notify('모든 목록의 확인 표시를 지웠어요.');});reset.type='button';body.append(reset);}
+  return;
  }
  const total=MEMORIZE.size(set),keys=[];
- const cell=(key,prompt,answer,detail,photo)=>{keys.push(key);const open=memorizeShown.has(key),b=btn('',()=>{if(memorizeShown.has(key))memorizeShown.delete(key);else memorizeShown.add(key);render();},'memorize-cell'+(open?' shown':'')+(photo?' photo':''));
+ const cell=(key,prompt,answer,detail,photo)=>{keys.push(key);const open=memorizeShown.has(key),b=btn('',()=>{if(memorizeShown.has(key))memorizeShown.delete(key);else memorizeShown.add(key);memorizeSave();render();},'memorize-cell'+(open?' shown':'')+(photo?' photo':''));
   b.type='button';b.setAttribute('aria-pressed',String(open));
   // 사진 칸: 앞면이 사진이고 누르면 이름이 나온다. 사진은 열려도 남겨 둔다 — 사진과 이름을 함께 봐야 외워진다.
   if(photo){const im=elem('img');im.src=photo;im.alt=prompt;im.loading='lazy';b.append(im);}
@@ -924,7 +929,7 @@ function renderMemorize(){
   group.append(grid);content.push(group);
  });
  const bar=elem('div',undefined,'memorize-bar'),shown=keys.filter(k=>memorizeShown.has(k)).length;
- const all=btn('모두 보기',()=>{for(const k of keys)memorizeShown.add(k);render();}),none=btn('모두 가리기',()=>{memorizeShown=new Set();render();});all.type='button';none.type='button';
+ const all=btn('모두 보기',()=>{for(const k of keys)memorizeShown.add(k);memorizeSave();render();}),none=btn('이 목록 초기화',()=>{for(const k of keys)memorizeShown.delete(k);memorizeSave();render();});all.type='button';none.type='button';
  bar.append(elem('span',shown+' / '+total+' 확인','memorize-count'),all,none);
  body.append(elem('p',set.hint,'status'),bar,...content);
 }
