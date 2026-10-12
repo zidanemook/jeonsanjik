@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v294-memorize-keep-shown';
+globalThis.APP_BUILD='chagog-v295-memorize-sync';

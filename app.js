@@ -885,7 +885,7 @@ function renderHome(){
 const MEMO_SCOPE='과목:';
 // 외울 것에서 눌러 연 칸은 풀이 기록과 함께 저장한다(data.memorizeShown, 칸 이름의 목록). 새로 고쳐도, 목록을 다시 열어도 남고 '초기화'로만 가려진다.
 let memorizeShown=new Set();
-function memorizeSave(){data.memorizeShown=[...memorizeShown];saveDraft();}
+function memorizeSave(){data.memorizeShown=[...memorizeShown];data.memorizeAt=Math.max(Date.now(),(data.memorizeAt||0)+1);saveDraft();window.dispatchEvent(new Event('study-progress-saved'));}
 function renderMemorize(){
  memorizeShown=new Set(Array.isArray(data.memorizeShown)?data.memorizeShown:[]);
  // viewSubject는 '과목:<과목 이름>'이면 그 과목의 목록 화면, 아니면 목록 하나의 id다.
@@ -1546,6 +1546,9 @@ globalThis.StudyProgress={
   return events.map(e=>found.has(e.id)?ProgressSync.event({...e,detail:found.get(e.id)}):e);
  },
  session:()=>data.session?structuredClone(data.session):null,
+ // 외울 것에서 연 칸: 이 기기에서 한 번이라도 바꾼 적이 있을 때만 보낸다. 받은 것이 더 새것이면 통째로 바꾼다(초기화도 같이 넘어온다).
+ memo:()=>data.memorizeAt?{at:data.memorizeAt,shown:Array.isArray(data.memorizeShown)?[...data.memorizeShown]:[]}:null,
+ mergeMemo(row){if(!(row.at>(data.memorizeAt||0)))return;data.memorizeShown=[...row.shown];data.memorizeAt=row.at;saveDraft();const v=$('#memorizeView');if(v&&!v.hidden)render();},
  // A newer position from another device reopens the same scope, question and choice order.
  mergeSession(row){
   const remote=ProgressSync.session(row);if(remote.at<=(data.session?.at||0))return;

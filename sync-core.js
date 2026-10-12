@@ -51,5 +51,11 @@
   const map=new Map();for(const input of [...local,...remote]){const row=note(input);if(!map.has(row.id))map.set(row.id,row);}
   return [...map.values()].sort((a,b)=>a.at-b.at||a.id.localeCompare(b.id));
  }
- const api={event,union,merge,session,note,unionNotes};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ProgressSync=api;
+ // 외울 것에서 연 칸: 가장 나중에 저장한 쪽이 이긴다(at). 칸 이름은 '<목록 id>:<묶음>:<칸>' 꼴.
+ function memo(row){
+  if(!row||!Number.isSafeInteger(row.at)||row.at<=0||!Array.isArray(row.shown)||row.shown.length>4000)throw Error('Invalid memorize state');
+  const key=/^[A-Za-z0-9_:-]{1,120}$/;if(row.shown.some(k=>typeof k!=='string'||!key.test(k)))throw Error('Invalid memorize key');
+  return {at:row.at,shown:[...new Set(row.shown)]};
+ }
+ const api={event,union,merge,session,note,unionNotes,memo};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ProgressSync=api;
 })(globalThis);

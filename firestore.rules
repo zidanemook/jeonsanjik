@@ -155,6 +155,16 @@ service cloud.firestore {
           && (d.type == null || d.type in ['choice','text'])
           && (d.choices == null || (d.choices is list && d.choices.size() > 0 && d.choices.size() <= 10));
       }
+      // Which memorize cells the owner has opened: one whole document, the newer save wins.
+      function validMemo(d) {
+        return d.keys().hasAll(['at','shown']) && d.keys().hasOnly(['at','shown'])
+          && d.at is int && d.at > 0 && d.at <= request.time.toMillis() + 300000
+          && d.shown is list && d.shown.size() <= 4000;
+      }
+      allow read: if owner(uid) && id == 'memorize';
+      allow create: if owner(uid) && id == 'memorize' && validMemo(request.resource.data);
+      allow update: if owner(uid) && id == 'memorize' && validMemo(request.resource.data)
+        && request.resource.data.at > resource.data.at;
       allow read: if owner(uid) && id == 'session';
       allow create: if owner(uid) && id == 'session' && validSession(request.resource.data);
       // Only a newer position may replace the stored one.

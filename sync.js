@@ -50,6 +50,26 @@
   // trailing write, so a burst of taps costs one billed write instead of one per tap.
   const SESSION_COOLDOWN_MS=4000,later=typeof root.setTimeout==='function'?root.setTimeout.bind(root):null,cancel=typeof root.clearTimeout==='function'?root.clearTimeout.bind(root):()=>{};
   let sessionCooldown=null,sessionPending=false,sentPosition='';
+  // 외울 것에서 연 칸: 문서 하나(state/memorize)에 통째로, at이 큰 쪽이 이긴다. 서버 규칙이 아직 없으면 조용히 이 기기에만 둔다.
+  const withMemo=typeof store.memo==='function'&&typeof store.mergeMemo==='function'&&typeof ProgressSync.memo==='function';
+  let knownMemo=0,memoReady=false,memoSending=false,memoTimer=null,unsubscribeMemo=null;
+  function memoRef(user){return db.collection('users').doc(user).collection('state').doc('memorize');}
+  function memoDue(){
+   if(!withMemo||!memoReady||!uid||closed)return null;
+   let row;try{const local=store.memo();if(!local)return null;row=ProgressSync.memo(local);}catch{return null;}
+   return row.at>knownMemo?row:null;
+  }
+  async function sendMemo(){
+   if(memoSending)return;const row=memoDue();if(!row)return;const token=generation,user=uid;memoSending=true;
+   try{await memoRef(user).set(row);if(token===generation)knownMemo=Math.max(knownMemo,row.at);}
+   catch{}
+   finally{memoSending=false;}
+  }
+  function pushMemo(){
+   if(!memoDue()||memoTimer)return;
+   if(!later){void sendMemo();return;}
+   memoTimer=later(()=>{memoTimer=null;void sendMemo();},3000);
+  }
   // `at` advances on every stamp, so an unchanged position is recognised by its body alone.
   function positionOf(row){const {at,...rest}=row;return JSON.stringify(rest);}
   function sessionDue(){
@@ -142,6 +162,7 @@
     async submit(){await (state.filed?gate.reask(user.uid):gate.submit(user));if(token===generation)say(FILED);}});
   }
   async function account(user){
+   unsubscribeMemo?.();unsubscribeMemo=null;memoReady=false;knownMemo=0;cancel(memoTimer);memoTimer=null;
    const token=++generation;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribeNotes?.();unsubscribe=null;unsubscribeViews=null;unsubscribeSession=null;unsubscribeNotes=null;knownNotes=new Set();refusedNotes=new Set();notesReady=false;notesLive=false;notesWait=0;cancel(sessionCooldown);sessionCooldown=null;sessionPending=false;sentPosition='';knownSession=0;sessionReady=false;ready=false;reviewsReady=false;viewsReady=!withViews;known=new Set();knownViews=new Map();uid=null;
    access?.reset();
    if(!user){try{await store.switchUser(null);if(token===generation)say('이 기기에 저장 중. 로그인하면 자동 동기화돼요.');}catch{if(token===generation)say('이 기기의 저장 공간을 확인해 주세요.');}return;}
@@ -179,16 +200,24 @@
       knownSession=Math.max(knownSession,row?.at||0);sessionReady=true;void pushSession();
      }catch{sessionReady=false;}
     },()=>{sessionReady=false;});
+    if(withMemo)unsubscribeMemo=memoRef(uid).onSnapshot({includeMetadataChanges:true},doc=>{
+     if(token!==generation)return;
+     try{
+      const row=doc.exists?ProgressSync.memo(doc.data()):null;if(row){merging=true;try{store.mergeMemo(row);}finally{merging=false;}}
+      if(doc.metadata.fromCache||doc.metadata.hasPendingWrites)return;
+      knownMemo=Math.max(knownMemo,row?.at||0);memoReady=true;pushMemo();
+     }catch{memoReady=false;}
+    },()=>{memoReady=false;});
     subscribeNotes(token);
    }catch(e){if(token===generation)say('연결 대기 중. 기록은 이 기기에 저장돼요.');}
   }
   const stopAuth=auth.onAuthStateChanged(user=>{void account(user);});
-  const saved=()=>{if(!merging){void flush();void pushSession();void flushNotes();}},retry=()=>{if(!ready)void account(auth.currentUser);else{void flush();void pushSession();void flushNotes();if(withNotes&&!notesLive&&++notesWait>=10)subscribeNotes(generation);}};
+  const saved=()=>{if(!merging){void flush();void pushSession();void flushNotes();pushMemo();}},retry=()=>{if(!ready)void account(auth.currentUser);else{void flush();void pushSession();void flushNotes();pushMemo();if(withNotes&&!notesLive&&++notesWait>=10)subscribeNotes(generation);}};
   const hidden=()=>{if(!root.document||root.document.visibilityState!=='visible')flushSession();};
   root.addEventListener('study-progress-saved',saved);root.addEventListener('online',retry);
   root.addEventListener('visibilitychange',hidden);root.addEventListener('pagehide',flushSession);
   const timer=setInterval(()=>{if(root.navigator.onLine)retry();},60000);
-  return {flush,retry,close(){closed=true;generation++;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribeNotes?.();stopAuth();clearInterval(timer);cancel(sessionCooldown);sessionCooldown=null;root.removeEventListener('study-progress-saved',saved);root.removeEventListener('online',retry);root.removeEventListener('visibilitychange',hidden);root.removeEventListener('pagehide',flushSession);}};
+  return {flush,retry,close(){closed=true;generation++;unsubscribeMemo?.();cancel(memoTimer);memoTimer=null;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribeNotes?.();stopAuth();clearInterval(timer);cancel(sessionCooldown);sessionCooldown=null;root.removeEventListener('study-progress-saved',saved);root.removeEventListener('online',retry);root.removeEventListener('visibilitychange',hidden);root.removeEventListener('pagehide',flushSession);}};
  }
  root.ProgressCloud={connect};
  // Screen wiring for the approval flow. Everything starts hidden: an approved account that is
