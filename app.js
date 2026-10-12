@@ -350,6 +350,9 @@ function setQueueMode(value){
 // v274: 위치는 푼 기록에서 찾는다. 이 회차에서 마지막으로 푼 문제의 다음 번호부터 이어진다(기록은 기기끼리 맞춰지므로 다른 기기에서 열어도 같다).
 // 마지막 번호까지 푼 회차를 다시 열면 1번부터다. 이어 풀기는 어제나 오늘 푼 기록만 본다(v276: 한 달 전에 1번만 풀어 둔 회차가 2번부터 열려 1번을 건너뛰었다). 번호를 골라 옮기면(paperJump) 새 답이 기록될 때까지 그 자리를 지킨다.
 let paperCursor=null;
+// 회차를 원문 순서로 풀 때 '틀렸던 문제만' 고르기(이 화면에서만, 저장하지 않는다). 한 번이라도 틀린 적이 있는 문제만 원문 순서로 낸다.
+let paperWrongOnly=false;
+function everWrongIds(){const ids=new Set();for(const h of data.history)if(h.mode==='quiz'&&h.result==='wrong')ids.add(h.cardId);return ids;}
 function paperLast(list){const at=new Map(list.map((c,i)=>[c.id,i]));for(let i=data.history.length-1;i>=0;i--){const k=at.get(data.history[i].cardId);if(k!==undefined)return data.history[i].date>=plus(day(),-1)?{row:data.history[i].id,index:k}:null;}return null;}
 function paperIndex(scope,list){const last=paperLast(list),seen=last?last.row:'';if(!paperCursor||!sameScope(paperCursor.scope,scope)||paperCursor.seen!==seen)paperCursor={scope:{subject:scope.subject||'',topic:scope.topic||'',round:scope.round||''},index:last&&last.index<list.length-1?last.index+1:0,seen};return paperCursor.index;}
 function paperAdvance(){if(paperCursor)paperCursor={...paperCursor,index:paperCursor.index+1,seen:data.history.at(-1)?.id||''};}
@@ -1015,7 +1018,10 @@ function renderQuiz(){
  const noteFocus=document.activeElement?.id==='noteInput',noteCaret=noteFocus?document.activeElement.selectionStart:null;
  const scope=scopeOf(),playable=data.cards.filter(isPlayable),ordered=orderedScope(scope.round);
  $('#scopeLabel').textContent=scopeLabel(scope);renderScopeStatus(scope);
- const inside=playable.filter(c=>inScope(c,scope)),chosen=ordered?catalogOrder(inside):inside;
+ const inside=playable.filter(c=>inScope(c,scope)),paperAll=ordered?catalogOrder(inside):inside;
+ const wrongIds=sequentialScope(scope)?everWrongIds():null,wrongN=wrongIds?paperAll.filter(c=>wrongIds.has(c.id)).length:0;if(!wrongN)paperWrongOnly=false;
+ const chosen=paperWrongOnly?paperAll.filter(c=>wrongIds.has(c.id)):paperAll;
+ $('#paperWrongLabel').hidden=!wrongN;$('#paperWrong').checked=paperWrongOnly;$('#paperWrongCount').textContent=wrongN?'('+wrongN+'문제)':'';
  const sequential=sequentialScope(scope)&&chosen.length>0,at=sequential?paperIndex(scope,chosen):-1;
  // 파트별 점검: 대기열 대신 지금 파트에서 한 문제(partRound). 파트가 없는 범위면 기본 대기열.
  const partMode=!sequential&&queueMode()==='parts',pr=partMode?partRound(scope,inside):null;
@@ -1035,11 +1041,11 @@ function renderQuiz(){
  modeSel.onchange=()=>setQueueMode(modeSel.value);
  const place=card?chosen.findIndex(c=>c.id===card.id)+1:chosen.length;
  const partLine=pr?partProgressLine(pr,feedback?.id):partMode&&chosen.length?'이 범위는 파트가 없어 기본 순서로 풀어요':'';
- $('#orderStatus').textContent=sequential?place+'/'+chosen.length+' (원문 순서 그대로)':partLine;$('#orderStatus').hidden=!sequential&&!partLine;
+ $('#orderStatus').textContent=sequential?place+'/'+chosen.length+(paperWrongOnly?' (틀렸던 문제만, 원문 순서)':' (원문 순서 그대로)'):partLine;$('#orderStatus').hidden=!sequential&&!partLine;
  const root=$('#card');root.replaceChildren();root.classList.toggle('paper-card',!!Hanneung.get(card?.id)&&!feedback);root.classList.toggle('gichul-card',!!Gichul.get(card?.id));root.classList.toggle('feedback-card',!!feedback);
  if(!card){
   if(sequentialScope(scope)&&chosen.length){
-   root.append(elem('h2','이 회차를 끝까지 풀었어요'),elem('p',scopeLabel(scope)+' '+chosen.length+'문제를 1번부터 순서대로 모두 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.'));
+   root.append(elem('h2',paperWrongOnly?'틀렸던 문제를 끝까지 풀었어요':'이 회차를 끝까지 풀었어요'),elem('p',paperWrongOnly?scopeLabel(scope)+'에서 틀렸던 '+chosen.length+'문제를 원문 순서대로 모두 다시 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.':scopeLabel(scope)+' '+chosen.length+'문제를 1번부터 순서대로 모두 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.'));
    root.append(btn('처음부터 다시 풀기',()=>{paperRestart();render();window.scrollTo(0,0);},'primary'));
    if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
    return;
@@ -1477,6 +1483,7 @@ $('#quizBack').onclick=goBack;
 $('#studyTimeMore').onclick=()=>{creditHistoryLimit+=30;renderStudyCredit();};
 $('#subjectGoalSave').onclick=()=>{const v=Number($('#subjectGoalInput').value);if(!Number.isInteger(v)||v<1||v>500){notify('하루 목표는 1~500 사이의 숫자로 적어 주세요.');return;}setSubjectGoal(viewSubject,v);};
 $('#subjectGoalClear').onclick=()=>setSubjectGoal(viewSubject,null);
+$('#paperWrong').onchange=e=>{paperWrongOnly=e.target.checked;paperCursor=null;render();paperRestart();render();window.scrollTo(0,0);};
 $('#includeMastered').onchange=e=>{const next=structuredClone(data);if(e.target.checked)next.includeMastered=true;else delete next.includeMastered;delete next.quizFeedback;delete next.activePractice;if(commit(next)){notify(e.target.checked?'이 범위의 외운 문제도 복습일이 되면 나와요.':'외운 문제는 이 범위에서 빼요.');render();}};
 $('#moreLecture').onchange=e=>{const lecture=moreScope(scopeOf());if(lecture)setLectureOpen(lecture,e.target.checked);else render();};
 $('#homeScore').onclick=()=>go('progress');

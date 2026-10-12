@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v288-past-record-line';
+globalThis.APP_BUILD='chagog-v289-paper-wrong-only';
