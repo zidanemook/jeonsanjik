@@ -181,3 +181,30 @@ EXIF 회전 적용 → 긴 변 1200px 이하로 축소(Lanczos) → webp 재인�
 대체 텍스트(alt)는 변환한 webp를 직접 열어 보고 **생김새만** 적었다. 이름을 알려 주는 말은 넣지 않았다
 (`content-audit.cjs`가 강제한다). 경복궁과 창덕궁은 둘 다 두 층 지붕의 정전이라 생김새가 닮았으므로,
 **기단의 돌난간 유무**(경복궁은 두 겹 난간을 두른 높은 기단, 창덕궁은 난간 없는 낮은 기단)를 alt와 판별 줄에 함께 적었다.
+
+---
+
+## 2026-10-13 사용 기록 — 조선 후기 5장을 외울 것과 상자에 연결(새로 받은 사진 없음)
+
+조선 후기 문화유산 다섯 가지(법주사 팔상전, 금산사 미륵전, 화엄사 각황전, 인왕제색도, 김홍도의 씨름)는
+사진이 이미 이 폴더에 있었다(2026-09-15와 09-16 묶음, `docs/IMAGE-LICENSE-LEDGER.md` §4와 §6, 사진 보기 문제에 쓰는 중).
+**새로 내려받거나 다시 가공한 사진은 없다.** 외울 것 '사진으로 문화유산 맞히기'의 새 묶음 `조선 후기`와
+27강 상자의 사진 표(`app.js`의 `HERITAGE_PHOTOS`)에 같은 파일을 연결했다.
+
+쓰기 전에 **2026-10-13에 사진 한 장마다 라이선스 화면을 다시 열어** 읽었다
+(원자료 `research/raw/heritage-late-joseon-20261013/<대상>/`).
+
+- 국가유산포털 3장: 상세창의 공공누리 배지가 `/images/2025/open/mark01.svg` 하나뿐이고 링크가 `kogl.or.kr/info/licenseType1.do`임을 확인했다.
+- 위키미디어 공용 2장: API로 그 파일의 위키텍스트와 라이선스 값을 읽었다. NC, ND는 없다.
+
+| 파일 | 유물 | 확인한 화면 | 원본 파일 | 저작자 | 라이선스(화면 표기 그대로) | 쓰는 곳 |
+|---|---|---|---|---|---|---|
+| `boeun-beopjusa-palsangjeon-commons.webp` | 보은 법주사 팔상전 | https://commons.wikimedia.org/wiki/File:Palsangjeon_at_Beopjusa_%EB%B2%95%EC%A3%BC%EC%82%AC_%ED%8C%94%EC%83%81%EC%A0%84_%E6%B3%95%E4%BD%8F%E5%AF%BA_%E6%8D%8C%E7%9B%B8%E6%AE%BF_(5341676993).jpg | https://upload.wikimedia.org/wikipedia/commons/e/ea/Palsangjeon_at_Beopjusa_%EB%B2%95%EC%A3%BC%EC%82%AC_%ED%8C%94%EC%83%81%EC%A0%84_%E6%B3%95%E4%BD%8F%E5%AF%BA_%E6%8D%8C%E7%9B%B8%E6%AE%BF_%285341676993%29.jpg | InSapphoWeTrust from Los Angeles, California, USA (Flickr에서 옮김, flickrreview 통과) | CC BY-SA 2.0 (`{{cc-by-sa-2.0}}`) | 외울 것, 27강 상자 |
+| `gimje-geumsansa-mireukjeon-6341034.webp` | 김제 금산사 미륵전 | https://www.heritage.go.kr/heri/cul/imgHeritage.do?ccimId=6341034&ccbaKdcd=11&ccbaAsno=0000620000000&ccbaCtcd=35 | https://www.heritage.go.kr/unisearch/images/national_treasure/2021051015231606.jpg | 국가유산청 (김제 금산사 미륵전_정면, 촬영년도 2015년) | 공공누리 제1유형 | 외울 것 |
+| `gurye-hwaeomsa-gakhwangjeon-6320087.webp` | 구례 화엄사 각황전 | https://www.heritage.go.kr/heri/cul/imgHeritage.do?ccimId=6320087&ccbaKdcd=11&ccbaAsno=0000670000000&ccbaCtcd=36 | https://www.heritage.go.kr/unisearch/images/national_treasure/2021042708104802.JPG | 국가유산청 (구례 화엄사 각황전_대웅전에서 본 전경, 촬영년도 2015년) | 공공누리 제1유형 | 외울 것, 27강 상자 |
+| `jeongseon-inwangjesaekdo-1611690.webp` | 인왕제색도 | https://www.heritage.go.kr/heri/cul/imgHeritage.do?ccimId=1611690&ccbaKdcd=11&ccbaAsno=0002160000000&ccbaCtcd=11 | https://www.heritage.go.kr/unisearch/images/national_treasure/1611690.jpg | 국가유산청 (정선필 인왕제색도) | 공공누리 제1유형 | 외울 것, 27강 상자 |
+| `danwon-ssireum-commons.webp` | 김홍도의 씨름(단원풍속도첩) | https://commons.wikimedia.org/wiki/File:Danwon_Ssireum.jpg | https://upload.wikimedia.org/wikipedia/commons/e/ef/Danwon_Ssireum.jpg | Kim Hong-do (그림), 출처 gongu.copyright.or.kr, 올린이 S0ch1 | Public domain (`{{PD-art-100}}`, 평면 공유 저작물의 충실한 복제) | 외울 것, 27강 상자 |
+
+출처표시 문자열은 `quiz-options.js`의 `HERITAGE_PHOTOS`에 이미 담긴 것과 같다(사진 보기 문제 화면에 표시).
+같은 이름의 포털 사진 `boeun-beopjusa-palsangjeon-1612162.webp`는 내부 천장 사진이라 여전히 쓰지 않는다.
+금산사 미륵전은 27강 상자의 표에 이름이 첫 칸인 줄이 없어 상자에는 붙이지 않았다.

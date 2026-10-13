@@ -1226,7 +1226,11 @@ const HERITAGE_PHOTOS={
  "창덕궁":[["seoul-changdeokgung-6400927"]],
  "몽유도원도":[["angyeon-mongyudowondo-commons"]],
  "분청사기":[["buncheong-bakji-jarabyeong-1611863","분청사기 자라병"]],
- "백자":[["baekja-cheonghwa-maejojuk-1611621","백자 청화매조죽문 유개항아리"],["baekja-dalhangari-1614840","백자 달항아리"]]
+ "백자":[["baekja-cheonghwa-maejojuk-1611621","백자 청화매조죽문 유개항아리"],["baekja-dalhangari-1614840","백자 달항아리"]],
+ "5층 탑 모양 나무 건물":[["boeun-beopjusa-palsangjeon-commons","보은 법주사 팔상전"]],
+ "겉보기 2층의 큰 불전":[["gurye-hwaeomsa-gakhwangjeon-6320087","구례 화엄사 각황전"]],
+ "정선(겸재)":[["jeongseon-inwangjesaekdo-1611690","정선의 인왕제색도"]],
+ "김홍도(단원)":[["danwon-ssireum-commons","김홍도의 씨름"]]
 };
 function basicsPhotoRow(t,row){const name=String(row[0]).split('\n')[0].replace(/\*\*/g,''),list=/^요약 정리/.test(t.title||'')?null:HERITAGE_PHOTOS[name];if(!list)return null;
  const tr=elem('tr',undefined,'b-photo'),td=elem('td');td.colSpan=row.length;if(list.length>1)tr.classList.add('b-photo-many');
