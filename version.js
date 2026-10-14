@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v313-urgent-markets';
+globalThis.APP_BUILD='chagog-v314-urgent-gwanghae-deoksu';
