@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v311-urgent-round69';
+globalThis.APP_BUILD='chagog-v312-urgent-revival';
