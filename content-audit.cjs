@@ -152,7 +152,7 @@ const LENGTH_BALANCED=[
  'ko-gram3-','ko-doc1-','ko-doc2-','ko-doc3-','ko-voc1-','ko-voc2-', // 2026-10-07 국어 독립 검토: 가장 긴 보기가 정답인 적이 없어(문법 3장 115/149) 소거 단서가 됐다 — 단원마다 두 쪽 띠로 잰다
  'comq-cg01-','comq-cg02-','comq-cg03-','comq-cg04-','comq-cg05-','comq-cg06-','comq-cg07-','comq-cg17-','comq-cg18-','comq-cg19-','comq-cg20-', // 2026-10-07 컴퓨터일반 자체 제작 — 단원마다 두 쪽 띠(research/computer-20261007)
  'comq-cg08-','comq-cg09-','comq-cg10-','comq-cg11-','comq-cg12-','comq-cg13-','comq-cg14-','comq-cg15-','comq-cg16-','comq-cg21-','comq-cg22-','comq-cg23-','comq-cg24-','comq-cg25-','comq-cg26-', // 2026-10-08 컴퓨터일반 자체 제작 — 단원마다 두 쪽 띠(research/computer-20261007)
- 'secq-is01-','secq-is02-','secq-is03-','secq-is04-','secq-is05-','secq-is06-','secq-is07-','secq-is08-','secq-is09-','secq-is10-','secq-is11-','secq-is12-','secq-is13-','secq-is14-','secq-is15-','secq-is16-','secq-is17-','secq-is18-','secq-is19-','secq-is20-', // 2026-10-14 정보보호론 자체 제작: 단원마다 두 쪽 띠(research/security-20261011)
+ 'secq-is01-','secq-is02-','secq-is03-','secq-is04-','secq-is05-','secq-is06-','secq-is07-','secq-is08-','secq-is09-','secq-is10-','secq-is11-','secq-is12-','secq-is13-','secq-is14-','secq-is15-','secq-is16-','secq-is17-','secq-is18-','secq-is19-','secq-is20-','secq-is21-', // 2026-10-14 정보보호론 자체 제작: 단원마다 두 쪽 띠(research/security-20261011, is21은 2026-10-15 법령 묶음)
 ];
 const BALANCE_BAND=[0.15,0.35];
 const balancedPrefix=id=>LENGTH_BALANCED.find(p=>id.startsWith(p));

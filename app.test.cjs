@@ -331,6 +331,13 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  assert.ok(shown3.includes('국어 '+lesson3.title+' (객관식)'),'3장 문제 머리말');const b3=basicsBox();assert.ok(b3,'3장 해설 화면에 기초 개념 상자');assert.equal(b3.open,false,'맞힌 답이면 기초 개념 상자는 접혀 있다');assert.ok(!shown3.includes(lesson3.hook),'3장도 옛 정리 한 줄 대신 기초 개념 상자');
  assert.ok(shown3.includes('사고의 힘 논리 제1편 개념 기반 자체 제작 문제'),'3장 출처 줄');assert.ok(!/문항|카드/.test(shown3),'3장 해설 화면에 문항/카드라는 말이 없다');
  next();
+ // 정보보호론 법령 문제(research/security-20261011, 2026-10-15): 해설 화면의 출처 줄은 조문 인용(「법령명」 제N조 (시행 날짜), 국가법령정보센터 현행 법령)이다.
+ run("openScope({subject:'정보보호론',topic:'정보 is21'})");
+ {const id=run('data.activePractice.cardId'),q=run('data.activePractice.exercise');assert.ok(id.startsWith("secq-is21-"),'법령 단원 범위의 첫 문제: '+id);
+  run('answerPractice('+JSON.stringify(id)+','+q.correctIndex+')');assert.equal(run('data.quizFeedback.result'),'correct');
+  const src=run('PRACTICE_BANK['+JSON.stringify(id)+'].srcLine'),s=screen();assert.match(src,/\(「[^」]+」 (제\d+조(의\d+)?|별표 \d+) \(시행 \d{4}-\d{2}-\d{2}\), 국가법령정보센터 현행 법령\) 기반 자체 제작 문제/,'법령 문제의 출처 줄은 조문 인용: '+id);
+  assert.ok(s.includes(src),'해설 화면에 조문 인용 출처 줄이 그대로: '+id);assert.ok(!/문항|카드/.test(s),'정보보호론 해설 화면에 문항/카드라는 말이 없다');}
+ next();
  // 4장 술어 논리 147문제 / 5장 귀납 논증 128문제: 범위 이름, 문제 수가 맞고, 범위 안의 첫 문제가 그 장의 4지선다다.
  for(const [topic,title,n,prefix] of [['논리 4장','4장 술어 논리',147,'ko-logic4-'],['논리 5장','5장 귀납 논증',128,'ko-logic5-'],['논리 6장','6장 논리의 오류',329,'ko-logic6-'],['독해 1장','독해 1장 독해의 원리',444,'ko-read1-'],['독해 2장','독해 2장 독해와 논증',122,'ko-read2-'],['독해 3장','독해 3장 실전 독해 훈련',354,'ko-read3']]){
   run('openScope({subject:\'국어\',topic:'+JSON.stringify(topic)+'})');

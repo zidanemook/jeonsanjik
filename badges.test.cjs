@@ -43,7 +43,7 @@ assert.equal(cover['한국사'].parts,R("STUDY_PARTS.unitsFor('한국사').reduc
 assert.deepEqual(cover['영어'].fallback.map(f=>[f[0],f[1],f[3]&&f[3].topic]).sort(),[['rest','그 밖의 문제',null],['topic:수일치','수일치','수일치'],['topic:영문법','그 밖의 문법 연습','영문법']],'영어: 파트 없는 연습 주제마다 한 파트 + 주제 없는 문제 한 묶음');
 assert.deepEqual(cover['한국사'].fallback.map(f=>[f[0],f[1],f[3]]),[['rest','그 밖의 문제',null]],'한국사: 강에 없는 문화유산 사진 문제는 한 묶음(누를 범위 없음)');
 // 정보보호론 자체 제작(research/security-20261011): 뱃지 묶음 = 자체 제작 단원의 파트 전부(그 밖의 묶음 없음). 이제 자체제작 문제가 없는 과목은 없다.
-{const n=/*SECQ-PARTS*/170/*END-SECQ-PARTS*/;assert.equal(cover['정보보호론'].groups,n,'정보보호론 자체제작 묶음 = 자체 제작 파트');assert.equal(cover['정보보호론'].parts,n,'정보보호론 자체제작 묶음은 모두 parts.js 파트');assert.deepEqual(cover['정보보호론'].fallback,[],'정보보호론: 파트 밖 묶음 없음');}
+{const n=/*SECQ-PARTS*/196/*END-SECQ-PARTS*/;assert.equal(cover['정보보호론'].groups,n,'정보보호론 자체제작 묶음 = 자체 제작 파트');assert.equal(cover['정보보호론'].parts,n,'정보보호론 자체제작 묶음은 모두 parts.js 파트');assert.deepEqual(cover['정보보호론'].fallback,[],'정보보호론: 파트 밖 묶음 없음');}
 // 컴퓨터일반 자체 제작(research/computer-20261007): 뱃지 묶음 = 자체 제작 단원의 파트 전부(그 밖의 묶음 없음 — 모든 문제가 parts.js 파트에 있다).
 {const n=/*COMQ-PARTS*/369/*END-COMQ-PARTS*/;assert.equal(cover['컴퓨터일반'].groups,n,'컴퓨터일반 자체제작 묶음 = 자체 제작 파트');assert.equal(cover['컴퓨터일반'].parts,n,'컴퓨터일반 자체제작 묶음은 모두 parts.js 파트');assert.deepEqual(cover['컴퓨터일반'].fallback,[],'컴퓨터일반: 파트 밖 묶음 없음');}
 
