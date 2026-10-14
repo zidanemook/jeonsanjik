@@ -885,6 +885,9 @@ function renderHome(){
 const MEMO_SCOPE='과목:';
 // 외울 것에서 눌러 연 칸은 풀이 기록과 함께 저장한다(data.memorizeShown, 칸 이름의 목록). 새로 고쳐도, 목록을 다시 열어도 남고 '초기화'로만 가려진다.
 let memorizeShown=new Set();
+// 사진 목록에서 한 줄에 놓을 사진 수(1~4). 기기마다 따로 기억한다(화면 폭이 기기마다 달라서 동기화하지 않는다).
+function photoCols(){try{const n=Number(localStorage.getItem('chagog-photo-cols'));if(n>=1&&n<=4)return n;}catch{}return 2;}
+function setPhotoCols(n){try{localStorage.setItem('chagog-photo-cols',String(n));}catch{}}
 function memorizeSave(){data.memorizeShown=[...memorizeShown];data.memorizeAt=Math.max(Date.now(),(data.memorizeAt||0)+1);saveDraft();window.dispatchEvent(new Event('study-progress-saved'));}
 function renderMemorize(){
  memorizeShown=new Set(Array.isArray(data.memorizeShown)?data.memorizeShown:[]);
@@ -923,7 +926,7 @@ function renderMemorize(){
   row.append(cell(set.id+':'+pi+':0',left,'',leftDetail),cell(set.id+':'+pi+':1',right,'',rightDetail));content.push(row);
  });
  else set.groups.forEach((g,gi)=>{
-  const group=elem('div',undefined,'memorize-line'),grid=elem('div',undefined,'memorize-grid');
+  const group=elem('div',undefined,'memorize-line'),grid=elem('div',undefined,'memorize-grid'+(g.cards.some(c=>c[2])?' photo-cols-'+photoCols():''));
   group.append(elem('p',g.title,'memorize-group-title'));
   g.cards.forEach(([front,back,photo],ci)=>grid.append(cell(set.id+':'+gi+':'+ci,front,photo?back.split('\n')[0]:'',photo?back.split('\n').slice(1).join(' '):back,photo)));
   group.append(grid);content.push(group);
@@ -931,7 +934,10 @@ function renderMemorize(){
  const bar=elem('div',undefined,'memorize-bar'),shown=keys.filter(k=>memorizeShown.has(k)).length;
  const all=btn('모두 보기',()=>{for(const k of keys)memorizeShown.add(k);memorizeSave();render();}),none=btn('이 목록 초기화',()=>{for(const k of keys)memorizeShown.delete(k);memorizeSave();render();});all.type='button';none.type='button';
  bar.append(elem('span',shown+' / '+total+' 확인','memorize-count'),all,none);
- body.append(elem('p',set.hint,'status'),bar,...content);
+ if(set.groups&&set.groups.some(g=>g.cards.some(c=>c[2]))){const size=elem('div',undefined,'memorize-bar photo-size'),now=photoCols();size.setAttribute('role','radiogroup');size.setAttribute('aria-label','사진 크기');size.append(elem('span','사진','memorize-count'));
+  [['크게',1],['보통',2],['작게',3],['더 작게',4]].forEach(([label,n])=>{const l=elem('label',undefined,'photo-size-option'),r=elem('input');r.type='radio';r.name='photoCols';r.value=String(n);r.checked=n===now;r.onchange=()=>{setPhotoCols(n);render();};l.append(r,document.createTextNode(label));size.append(l);});
+  body.append(elem('p',set.hint,'status'),bar,size,...content);}
+ else body.append(elem('p',set.hint,'status'),bar,...content);
 }
 function renderSubject(){
  const s=viewSubject,cards=data.cards.filter(c=>isPlayable(c)&&c.subject===s),ids=new Set(cards.map(c=>c.id)),today=day();

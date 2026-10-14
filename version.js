@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v308-heritage-photo-groups';
+globalThis.APP_BUILD='chagog-v309-photo-size-radio';
