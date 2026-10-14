@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v307-urgent-decades';
+globalThis.APP_BUILD='chagog-v308-heritage-photo-groups';

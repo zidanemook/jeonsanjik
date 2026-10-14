@@ -1,5 +1,5 @@
-const CACHE='chagog-v307-urgent-decades';
-const ASSETS=['./version.js?v=275','./update.js?v=275','./storage.js?v=275','./content-index.js?v=275','./content-store.js?v=275','./hanneung-topics.js?v=275','./topics.js?v=275','./hanneung-data.js?v=275','./hanneung.js?v=275','./gichul-index.js?v=275','./gichul.js?v=275','./study-credit.js?v=275','./xp.js?v=275','./score.js?v=275','./content-corrections.js?v=275','./review-record.js?v=275','./review-policy.js?v=275','./practice.js?v=275','./index.html?v=275','./parts.js?v=275','./part-check.js?v=275','./core-units.js?v=275','./app.js?v=275','./scheduler.js?v=275','./learning.js?v=275','./style.css?v=275','./sync-core.js?v=275','./sync.js?v=275','./firebase-config.js?v=275','./manifest.json','./icon.svg'];
+const CACHE='chagog-v308-heritage-photo-groups';
+const ASSETS=['./version.js?v=276','./update.js?v=276','./storage.js?v=276','./content-index.js?v=276','./content-store.js?v=276','./hanneung-topics.js?v=276','./topics.js?v=276','./hanneung-data.js?v=276','./hanneung.js?v=276','./gichul-index.js?v=276','./gichul.js?v=276','./study-credit.js?v=276','./xp.js?v=276','./score.js?v=276','./content-corrections.js?v=276','./review-record.js?v=276','./review-policy.js?v=276','./practice.js?v=276','./index.html?v=276','./parts.js?v=276','./part-check.js?v=276','./core-units.js?v=276','./app.js?v=276','./scheduler.js?v=276','./learning.js?v=276','./style.css?v=276','./sync-core.js?v=276','./sync.js?v=276','./firebase-config.js?v=276','./manifest.json','./icon.svg'];
 // v247: 자체 제작 문제의 글, 해설, 기초 개념 상자는 조각(chunks/<이름>.json?h=<지문>)으로 나뉘어 있고, 앱은 그 문제를 처음 낼 때 받는다(content-store.js).
 // 오프라인에서도 전부 풀 수 있게 설치할 때 모든 조각을 미리 받는다. 설치가 끝나야 이 워커가 켜지므로 켜진 캐시는 언제나 셸 + 색인 + 모든 조각이 같은 판이다.
 // 조각 주소는 내용 지문이다: 지문이 같은 조각은 옛 캐시에서 복사하고(네트워크 0), 받은 바이트의 지문이 주소와 다르면 캐시에 넣지 않는다.
@@ -15,9 +15,9 @@ async function storeChunk(c,name,hash){
  await c.put(href,chunkBody(buf));
 }
 self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await Promise.all(ASSETS.map(async url=>{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw Error('Asset fetch failed');await c.put(url,r);}));
- const list=await fetch('./chunk-manifest.json?v=275',{cache:'no-store'});if(!list.ok)throw Error('Chunk list fetch failed');const manifest=await list.json();
+ const list=await fetch('./chunk-manifest.json?v=276',{cache:'no-store'});if(!list.ok)throw Error('Chunk list fetch failed');const manifest=await list.json();
  // 배포가 퍼지는 중이면 색인과 조각 목록이 서로 다른 판일 수 있다. 그때는 설치하지 않는다(옛 워커가 그대로 남고, 다음에 열 때 다시 시도한다).
- const index=await (await c.match('./content-index.js?v=275')).text();if(!index.includes('"build":"'+manifest.build+'"'))throw Error('Index and chunk list are from different builds');
+ const index=await (await c.match('./content-index.js?v=276')).text();if(!index.includes('"build":"'+manifest.build+'"'))throw Error('Index and chunk list are from different builds');
  const jobs=Object.entries(manifest.files);let next=0;
  await Promise.all(Array.from({length:6},async()=>{while(next<jobs.length){const [name,hash]=jobs[next++];await storeChunk(c,name,hash);}}));
  await self.skipWaiting();})()));
@@ -36,4 +36,4 @@ async function chunkResponse(href,hash){
 self.addEventListener('message',e=>{if(e.data&&e.data.type==='build'&&e.ports&&e.ports[0])e.ports[0].postMessage({build:CACHE});});
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;
  {const url=new URL(e.request.url),hash=url.searchParams.get('h');if(hash&&CHUNK.test(url.pathname)){e.respondWith(chunkResponse(url.href,hash));return;}}
- e.respondWith((async()=>{const c=await caches.open(CACHE);try{const r=await fetch(e.request,{cache:'no-store'});if(r.ok)await c.put(e.request,r.clone());return r;}catch{const cached=await c.match(e.request);if(cached)return cached;if(e.request.mode==='navigate')return (await c.match('./index.html?v=275'))||Response.error();return Response.error();}})());});
+ e.respondWith((async()=>{const c=await caches.open(CACHE);try{const r=await fetch(e.request,{cache:'no-store'});if(r.ok)await c.put(e.request,r.clone());return r;}catch{const cached=await c.match(e.request);if(cached)return cached;if(e.request.mode==='navigate')return (await c.match('./index.html?v=276'))||Response.error();return Response.error();}})());});
