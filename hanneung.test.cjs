@@ -29,7 +29,11 @@ const late70=id=>/^hanneung-70-[0-9][0-9]$/.test(id)&&Number(id.slice(-2))>=17;
 const late69=id=>/^hanneung-69-[0-9][0-9]$/.test(id)&&Number(id.slice(-2))>=19;
 // 2026-10-14: 68회도 사용자가 회차 전체를 풀었다. 해설이 없던 문제 가운데 틀린 6문제(14, 32, 33, 38, 42, 49번)에 해설을 붙인다. 68회의 나머지는 뒤에 붙이므로 범위가 아니라 번호 목록으로 둔다(늘릴 때 이 목록에 번호를 더한다).
 const late68Nums=[14,32,33,38,42,49],late68=id=>/^hanneung-68-[0-9][0-9]$/.test(id)&&late68Nums.includes(Number(id.slice(-2)));
-const extraStudied=extra.filter(id=>!late(id)&&!late74(id)&&!late73(id)&&!late72(id)&&!late71(id)&&!late70(id)&&!late69(id)&&!late68(id)),extraLate=extra.filter(late),extraLate74=extra.filter(late74),extraLate73=extra.filter(late73),extraLate72=extra.filter(late72),extraLate71=extra.filter(late71),extraLate70=extra.filter(late70),extraLate69=extra.filter(late69),extraLate68=extra.filter(late68);
+// 2026-10-14: 67회도 사용자가 회차 전체를 풀었다. 해설이 없던 문제 가운데 틀린 10문제(22, 25, 28, 30, 33, 34, 36, 39, 43, 49번)에 해설을 붙인다. 67회의 나머지는 뒤에 붙이므로 범위가 아니라 번호 목록으로 둔다(늘릴 때 이 목록에 번호를 더한다).
+const late67Nums=[22,25,28,30,33,34,36,39,43,49],late67=id=>/^hanneung-67-[0-9][0-9]$/.test(id)&&late67Nums.includes(Number(id.slice(-2)));
+const extraStudied=extra.filter(id=>!late(id)&&!late74(id)&&!late73(id)&&!late72(id)&&!late71(id)&&!late70(id)&&!late69(id)&&!late68(id)&&!late67(id)),extraLate=extra.filter(late),extraLate74=extra.filter(late74),extraLate73=extra.filter(late73),extraLate72=extra.filter(late72),extraLate71=extra.filter(late71),extraLate70=extra.filter(late70),extraLate69=extra.filter(late69),extraLate68=extra.filter(late68),extraLate67=extra.filter(late67);
+assert.deepEqual(extraLate67.map(id=>Number(id.slice(-2))),[22,25,28,30,33,34,36,39,43,49],'67회 틀린 문제의 해설 10개');
+for(const id of extraLate67)assert.equal(explanations[id].reviewedOn,'2026-10-14',id);
 assert.deepEqual(extraLate68.map(id=>Number(id.slice(-2))),[14,32,33,38,42,49],'68회 틀린 문제의 해설 6개');
 for(const id of extraLate68)assert.equal(explanations[id].reviewedOn,'2026-10-14',id);
 assert.deepEqual(extraLate69.map(id=>Number(id.slice(-2))),[22,24,25,26,27,32,34,35,36,45,47],'69회 18번 뒤의 해설 11개');
