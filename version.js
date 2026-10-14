@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v327-sec-boxes-u3';
+globalThis.APP_BUILD='chagog-v328-sec-boxes-u4';
