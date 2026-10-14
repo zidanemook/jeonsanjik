@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v329-sec-gichul-law-notes';
+globalThis.APP_BUILD='chagog-v330-sec-boxes-review';
