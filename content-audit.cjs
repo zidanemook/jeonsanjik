@@ -87,6 +87,15 @@ function coverage(items,policy=JSON.parse(fs.readFileSync(__dirname+'/content-co
   for(const [topic,s]of Object.entries(spec)){const rows=byUnit.get(topic)||[],points=new Set(rows.map(x=>x.lesson.point));
    assert(Number.isInteger(s.floor)&&s.floor>=1&&s.requiredPoints.length>0,'Computer textbook spec required: '+topic);assert(rows.length>=s.floor,'Computer textbook floor: '+topic+' has '+rows.length+', needs '+s.floor);
    for(const point of s.requiredPoints)assert(points.has(point),'Missing computer coverage: '+topic+' / '+point);}}
+ // 정보보호론 자체 제작(securityTextbook, 2026-10-14~): 컴퓨터일반과 같은 틀. 단원(topic '정보 <파트>')마다 문제 수 하한, 필수 요점, 모두 4지선다, 기출이 아닌 정보보호론 문제는 모두 이 목록의 단원에 속한다.
+ {const spec=policy.securityTextbook||{},byUnit=new Map();
+  for(const [id,rows]of byCard){const lesson=rows[0].lesson;if(rows[0].card.subject!=='정보보호론'||!lesson)continue;
+   assert(lesson.rule&&lesson.ruleId&&lesson.point&&lesson.topic,'Security textbook lesson required: '+id);assert(spec[lesson.topic],'Unknown security textbook range: '+lesson.topic+' / '+id);
+   for(const x of rows)assert.equal(x.exercise.type,'choice','Security textbook questions are four-option only: '+id);
+   if(!byUnit.has(lesson.topic))byUnit.set(lesson.topic,[]);byUnit.get(lesson.topic).push(...rows);}
+  for(const [topic,s]of Object.entries(spec)){const rows=byUnit.get(topic)||[],points=new Set(rows.map(x=>x.lesson.point));
+   assert(Number.isInteger(s.floor)&&s.floor>=1&&s.requiredPoints.length>0,'Security textbook spec required: '+topic);assert(rows.length>=s.floor,'Security textbook floor: '+topic+' has '+rows.length+', needs '+s.floor);
+   for(const point of s.requiredPoints)assert(points.has(point),'Missing security coverage: '+topic+' / '+point);}}
  const byTopic=new Map();
  for(const [id,rows]of byCard){const lesson=rows[0].lesson;if(rows[0].card.subject!=='국어'||!lesson)continue;
   assert(lesson.rule&&lesson.ruleId&&lesson.point&&lesson.topic,'Korean textbook lesson required: '+id);
@@ -143,6 +152,7 @@ const LENGTH_BALANCED=[
  'ko-gram3-','ko-doc1-','ko-doc2-','ko-doc3-','ko-voc1-','ko-voc2-', // 2026-10-07 국어 독립 검토: 가장 긴 보기가 정답인 적이 없어(문법 3장 115/149) 소거 단서가 됐다 — 단원마다 두 쪽 띠로 잰다
  'comq-cg01-','comq-cg02-','comq-cg03-','comq-cg04-','comq-cg05-','comq-cg06-','comq-cg07-','comq-cg17-','comq-cg18-','comq-cg19-','comq-cg20-', // 2026-10-07 컴퓨터일반 자체 제작 — 단원마다 두 쪽 띠(research/computer-20261007)
  'comq-cg08-','comq-cg09-','comq-cg10-','comq-cg11-','comq-cg12-','comq-cg13-','comq-cg14-','comq-cg15-','comq-cg16-','comq-cg21-','comq-cg22-','comq-cg23-','comq-cg24-','comq-cg25-','comq-cg26-', // 2026-10-08 컴퓨터일반 자체 제작 — 단원마다 두 쪽 띠(research/computer-20261007)
+ 'secq-is01-','secq-is02-','secq-is03-','secq-is04-','secq-is05-','secq-is06-','secq-is07-','secq-is08-','secq-is09-','secq-is10-','secq-is11-','secq-is12-','secq-is13-','secq-is14-','secq-is15-','secq-is16-','secq-is17-','secq-is18-','secq-is19-','secq-is20-', // 2026-10-14 정보보호론 자체 제작: 단원마다 두 쪽 띠(research/security-20261011)
 ];
 const BALANCE_BAND=[0.15,0.35];
 const balancedPrefix=id=>LENGTH_BALANCED.find(p=>id.startsWith(p));
