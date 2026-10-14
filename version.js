@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v309-photo-size-radio';
+globalThis.APP_BUILD='chagog-v310-hanneung-69-wrong';

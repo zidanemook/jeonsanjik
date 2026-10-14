@@ -25,7 +25,11 @@ const late72=id=>/^hanneung-72-[0-9][0-9]$/.test(id)&&Number(id.slice(-2))>=19;
 const late71=id=>/^hanneung-71-[0-9][0-9]$/.test(id)&&Number(id.slice(-2))>=18;
 // 2026-10-13: 70회도 사용자가 회차 전체를 풀었다. 16번 뒤에서 틀린 10문제(17, 19, 23, 26, 31, 33, 34, 39, 41, 42번)에 해설을 붙인다.
 const late70=id=>/^hanneung-70-[0-9][0-9]$/.test(id)&&Number(id.slice(-2))>=17;
-const extraStudied=extra.filter(id=>!late(id)&&!late74(id)&&!late73(id)&&!late72(id)&&!late71(id)&&!late70(id)),extraLate=extra.filter(late),extraLate74=extra.filter(late74),extraLate73=extra.filter(late73),extraLate72=extra.filter(late72),extraLate71=extra.filter(late71),extraLate70=extra.filter(late70);
+// 2026-10-14: 69회도 사용자가 회차 전체를 풀었다. 18번 뒤에서 틀린 11문제(22, 24, 25, 26, 27, 32, 34, 35, 36, 45, 47번)에 해설을 붙인다(6번은 맞혀서 해설 없음, 1~18번 가운데 6번만 비어 있다).
+const late69=id=>/^hanneung-69-[0-9][0-9]$/.test(id)&&Number(id.slice(-2))>=19;
+const extraStudied=extra.filter(id=>!late(id)&&!late74(id)&&!late73(id)&&!late72(id)&&!late71(id)&&!late70(id)&&!late69(id)),extraLate=extra.filter(late),extraLate74=extra.filter(late74),extraLate73=extra.filter(late73),extraLate72=extra.filter(late72),extraLate71=extra.filter(late71),extraLate70=extra.filter(late70),extraLate69=extra.filter(late69);
+assert.deepEqual(extraLate69.map(id=>Number(id.slice(-2))),[22,24,25,26,27,32,34,35,36,45,47],'69회 18번 뒤의 해설 11개');
+for(const id of extraLate69)assert.equal(explanations[id].reviewedOn,'2026-10-14',id);
 assert.deepEqual(extraLate70.map(id=>Number(id.slice(-2))),[17,19,23,26,31,33,34,39,41,42],'70회 16번 뒤의 해설 10개');
 for(const id of extraLate70)assert.equal(explanations[id].reviewedOn,'2026-10-13',id);
 assert.deepEqual(extraLate71.map(id=>Number(id.slice(-2))),[18,22,24,26,29,34,38,41,47,50],'71회 17번 뒤의 해설 10개');
