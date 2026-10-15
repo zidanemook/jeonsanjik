@@ -919,6 +919,25 @@ function renderMemorize(){
   // 영어 공식 카드 뒷면은 **핵심** 색칠, ✗ 줄 빨강, 예) 줄을 해설의 외우는 공식 상자와 같게 보여 준다.
   else if(detail&&detail.includes('**')){const box=elem('span',undefined,'memorize-formula');for(const line of detail.split('\n')){const l=elem('span',undefined,/^✗/.test(line)?'formula-bad':/^예\)/.test(line)?'formula-example':'formula-line');l.append(...keyText(line));box.append(l);}b.append(box);}
   else b.append(elem('span',detail||(answer?'':'—')));return b;};
+ // 급한 것 먼저(2026-10-15, 사용자 "근현대 연도 암기 표 양식 좋구만"): 연표처럼 그린다. 뒷면 첫 줄이 연도인 칸은 왼쪽에 연도 칸(닫히면 '연도?'),
+ // 나머지 칸은 '→ ' 줄을 차례로, ' / '로 묶은 글을 한 줄씩 나눈다. 괄호 속 해는 숫자 딱지, '고리: ' 줄은 고리 딱지(숫자 고리는 'w(풀이 = 숫자)').
+ const yearNodes=s=>String(s).split(/((?:1[89]\d\d|20\d\d)(?:년대)?(?:[~.][ \d.~]*\d)?\.?)/).filter(Boolean).map(p=>/^(1[89]\d\d|20\d\d)/.test(p)?elem('span',p,'urgent-y'):document.createTextNode(p));
+ const urgentCell=(key,front,back)=>{keys.push(key);const open=memorizeShown.has(key),first=back.split('\n')[0].split(' / '),timeline=/^(1[89]\d\d|20\d\d)/.test(first[0])&&first[0].length<=16;
+  // 연도 칸 = 뒷면 첫 줄의 첫 묶음('1907', '1930년대 후반~1945', '1915, 무단 통치기'). 그 줄의 나머지는 내용으로 내려 보낸다.
+  const lines=timeline?[first[0],first.slice(1).join(' / '),...back.split('\n').slice(1)].filter((x,i)=>i===0||x):back.split('\n');
+  const b=btn('',()=>{if(memorizeShown.has(key))memorizeShown.delete(key);else memorizeShown.add(key);memorizeSave();render();},'memorize-cell urgent-row'+(open?' shown':'')+(timeline?' timeline':''));
+  b.type='button';b.setAttribute('aria-pressed',String(open));
+  if(timeline)b.append(elem('span',open?lines[0]:'연도?','urgent-year'+(open?'':' hidden-year')));
+  const main=elem('span',undefined,'urgent-main');main.append(elem('strong',front));b.append(main);
+  if(!open){main.append(elem('span','눌러서 확인','memorize-hidden'));return b;}
+  // 첫 '＋ ' 줄부터 끝까지는 이 칸 주제와 다른 이야기라 아래 '같이 알아 둘 것' 상자에 따로 모은다('→ ' 차례 줄은 표시 없이 뒤따른다).
+  let aside=null;
+  for(const raw of timeline?lines.slice(1):lines){
+   let line=raw,host=aside||main;
+   if(raw.startsWith('＋ ')){if(!aside){aside=elem('span',undefined,'urgent-aside');aside.append(elem('span','같이 알아 둘 것 (이 칸과 다른 이야기)','urgent-aside-title'));main.append(aside);}line=raw.slice(2);host=aside;}
+   if(line.startsWith('고리: ')){const hs=elem('span',undefined,'urgent-hooks');for(const h of line.slice(4).split(' / ')){const m=h.match(/^(.*)\(([^()]+ = [^()]+)\)$/),c=elem('span',m?m[1]:h,'urgent-hook'+(m?' num':''));if(m)c.append(elem('b',m[2]));hs.append(c);}host.append(hs);continue;}
+   const step=line.startsWith('→ ');for(const part of (step?line.slice(2):line).split(' / ')){const p=elem('span',undefined,step?'urgent-step':'urgent-text');p.append(...yearNodes(part));host.append(p);}}
+  return b;};
  const content=[];
  if(set.lines)set.lines.forEach((line,li)=>{
   const group=elem('div',undefined,'memorize-line'),grid=elem('div',undefined,'memorize-grid');
@@ -933,7 +952,7 @@ function renderMemorize(){
  else set.groups.forEach((g,gi)=>{
   const group=elem('div',undefined,'memorize-line'),grid=elem('div',undefined,'memorize-grid'+(g.cards.some(c=>c[2])?' photo-cols-'+photoCols():''));
   group.append(elem('p',g.title,'memorize-group-title'));
-  g.cards.forEach(([front,back,photo],ci)=>grid.append(cell(set.id+':'+gi+':'+ci,front,photo?back.split('\n')[0]:'',photo?back.split('\n').slice(1).join(' '):back,photo)));
+  g.cards.forEach(([front,back,photo],ci)=>grid.append(set.id==='hanneung-urgent'&&!photo?urgentCell(set.id+':'+gi+':'+ci,front,back):cell(set.id+':'+gi+':'+ci,front,photo?back.split('\n')[0]:'',photo?back.split('\n').slice(1).join(' '):back,photo)));
   group.append(grid);content.push(group);
  });
  const bar=elem('div',undefined,'memorize-bar'),shown=keys.filter(k=>memorizeShown.has(k)).length;

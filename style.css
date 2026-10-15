@@ -495,3 +495,21 @@ body[data-view="quiz"] main { padding-top:14px; }
 .update-banner button { min-height: 36px; padding: 6px 12px; border-radius: 999px; font-size: 14px; }
 .app-version { margin: 0 0 10px; color: #8b93a1; font-size: 12px; }
 .app-version:empty { display: none; }
+/* 급한 것 먼저(2026-10-15): 연표 꼴. 왼쪽 연도 칸, 오른쪽 사건과 줄로 나눈 내용, 고리 딱지 */
+.memorize-cell.urgent-row { display:grid; grid-template-columns:1fr; gap:4px; }
+.memorize-cell.urgent-row.timeline { grid-template-columns:5.6rem minmax(0,1fr); column-gap:12px; align-items:start; }
+.urgent-year { font-family:Consolas,'D2Coding',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:15px !important; font-weight:700; color:#f2f5fa !important; line-height:1.5; }
+.urgent-year.hidden-year { color:#8fc1ff !important; background:#1f3048; border-radius:6px; text-align:center; font-size:13px !important; padding:2px 0; }
+.urgent-main { display:flex; flex-direction:column; gap:3px; min-width:0; }
+.urgent-main strong { font-size:16px; color:#f2f5fa; }
+.urgent-text, .urgent-step { color:#d1d7e0; font-size:14px; line-height:1.55; }
+.urgent-step { padding-left:16px; position:relative; }
+.urgent-step::before { content:'→'; position:absolute; left:0; color:#8fc1ff; }
+.urgent-y { font-family:Consolas,'D2Coding',ui-monospace,monospace; color:#ffd98a !important; font-weight:700; font-size:13px !important; }
+.urgent-hooks { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+.urgent-hook { font-size:13px !important; padding:2px 8px; border-radius:6px; background:#1d3a37; color:#9fe0d6 !important; }
+.urgent-hook.num { background:#3a2a15; color:#f0b46a !important; font-weight:700; }
+.urgent-hook.num b { margin-left:6px; font-family:Consolas,ui-monospace,monospace; font-size:12px; }
+@media (max-width:400px) { .memorize-cell.urgent-row.timeline { grid-template-columns:4.6rem minmax(0,1fr); column-gap:10px; } }
+.urgent-aside { display:flex; flex-direction:column; gap:3px; margin-top:8px; padding:8px 10px; border:1px dashed #5b6b82; border-radius:8px; background:#171f2b; }
+.urgent-aside-title { font-size:12px !important; font-weight:700; color:#8fc1ff !important; letter-spacing:.02em; }
