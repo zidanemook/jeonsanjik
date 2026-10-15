@@ -34,9 +34,10 @@ const late68Nums=[14,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37
 // 2026-10-15: 67회 나머지 21문제(20, 21, 23, 24, 26, 27, 29, 31, 32, 35, 37, 38, 40, 41, 42, 44, 45, 46, 47, 48, 50번)에도 해설을 붙였다. 사용자가 맞힌 문제지만 회차를 다 채우려는 것이고, 이로써 67회 50문제 모두에 해설이 있다(1~19번은 그 전부터 있었다).
 const late67Nums=[20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],late67=id=>/^hanneung-67-[0-9][0-9]$/.test(id)&&late67Nums.includes(Number(id.slice(-2)));
 // 2026-10-15: 66회도 사용자가 회차 전체를 풀었다(73점). 해설이 없던 18번 뒤에서 틀린 7문제(24, 27, 28, 31, 32, 34, 42번)에 해설을 붙인다. 66회의 나머지는 뒤에 붙이므로 범위가 아니라 번호 목록으로 둔다(늘릴 때 이 목록에 번호를 더한다).
-const late66Nums=[24,27,28,31,32,34,42],late66=id=>/^hanneung-66-[0-9][0-9]$/.test(id)&&late66Nums.includes(Number(id.slice(-2)));
+// 2026-10-15(2): 66회 나머지 26문제(18, 19, 20, 21, 22, 23, 25, 26, 29, 30, 33, 35, 36, 37, 38, 39, 40, 41, 43, 44, 45, 46, 47, 48, 49, 50번)에도 해설을 붙였다. 사용자가 맞힌 문제지만 회차를 다 채우려는 것이고, 이로써 66회 50문제 모두에 해설이 있다(1~17번은 그 전부터 있었다).
+const late66Nums=[18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],late66=id=>/^hanneung-66-[0-9][0-9]$/.test(id)&&late66Nums.includes(Number(id.slice(-2)));
 const extraStudied=extra.filter(id=>!late(id)&&!late74(id)&&!late73(id)&&!late72(id)&&!late71(id)&&!late70(id)&&!late69(id)&&!late68(id)&&!late67(id)&&!late66(id)),extraLate=extra.filter(late),extraLate74=extra.filter(late74),extraLate73=extra.filter(late73),extraLate72=extra.filter(late72),extraLate71=extra.filter(late71),extraLate70=extra.filter(late70),extraLate69=extra.filter(late69),extraLate68=extra.filter(late68),extraLate67=extra.filter(late67),extraLate66=extra.filter(late66);
-assert.deepEqual(extraLate66.map(id=>Number(id.slice(-2))),[24,27,28,31,32,34,42],'66회 틀린 문제의 해설 7개');
+assert.deepEqual(extraLate66.map(id=>Number(id.slice(-2))).sort((x,y)=>x-y),[18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],'66회 해설 33개(틀린 7문제와 나머지 26문제)');
 for(const id of extraLate66)assert.equal(explanations[id].reviewedOn,'2026-10-15',id);
 assert.deepEqual(extraLate67.map(id=>Number(id.slice(-2))).sort((x,y)=>x-y),[20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],'67회 해설 31개(틀린 10문제와 나머지 21문제)');
 for(const id of extraLate67)assert.equal(explanations[id].reviewedOn,[22,25,28,30,33,34,36,39,43,49].includes(Number(id.slice(-2)))?'2026-10-14':'2026-10-15',id);
