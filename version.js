@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v338-user-boan';
+globalThis.APP_BUILD='chagog-v339-user-singan';
