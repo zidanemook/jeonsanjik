@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v330-sec-boxes-review';
+globalThis.APP_BUILD='chagog-v331-urgent-gichuk';
