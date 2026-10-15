@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v341-hanneung-66-rest';
+globalThis.APP_BUILD='chagog-v342-urgent-66';
