@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v360-gichul-figures-local';
+globalThis.APP_BUILD='chagog-v361-hanneung-65a';
