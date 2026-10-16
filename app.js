@@ -801,7 +801,24 @@ function markedList(quiz){const box=elem('div',undefined,'marked-choices');box.a
 function clueMono(clue){return clue.startsWith('[코드]')||clue.split('\n').some(l=>l.includes(' | ')||/^ {2,}\S/.test(l));}
 // 고정폭 자료는 모든 줄에 같이 붙은 앞 공백을 떼고 보인다(폰 화면에서 줄이 덜 꺾인다). 줄끼리의 들여쓰기 차이는 그대로다.
 function clueDedent(clue){const [head,...body]=clue.split('\n'),n=Math.min(...body.filter(l=>l.trim()).map(l=>l.match(/^ */)[0].length));return n>0&&Number.isFinite(n)?[head,...body.map(l=>l.slice(Math.min(n,l.match(/^ */)[0].length)))].join('\n'):clue;}
-function questionNodes(text){const at=text.indexOf('\n\n[');if(at<0)return [elem('div',text,'question')];const clue=text.slice(at+2),mono=clueMono(clue);return [elem('div',text.slice(0,at),'question'),elem('div',mono?clueDedent(clue):clue,'question-clue'+(mono?' mono':''))];}
+// v361: 9급 기출 가운데 회로도, 흐름도, 그래프처럼 그림이 꼭 있어야 하는 문제는 문제 글 안 그림 자리에 [그림:<파일 이름>.webp]를 둔다(앞뒤에 빈 줄).
+// 그 자리는 assets/gichul-fig/<파일 이름>의 원문 그림이 된다(흰 바탕 그대로, 누르면 크게). 그림 앞뒤의 글은 전처럼 발문과 자료 상자로 보인다.
+const QUESTION_FIGURE=/\n*\[그림:([a-z0-9-]+\.webp)\]\n*/;
+function questionFigure(name){
+ const box=elem('figure',undefined,'question-figure'),link=elem('a'),img=elem('img'),src='assets/gichul-fig/'+name;
+ link.href=src;link.target='_blank';link.rel='noopener';link.setAttribute('aria-label','문제 그림 크게 보기');
+ img.src=src;img.alt='문제의 원문 그림';img.loading='lazy';link.append(img);box.append(link,elem('small','그림을 누르면 크게 볼 수 있어요.'));
+ const error=elem('p','그림을 불러오지 못했어요. 인터넷 연결을 확인하고 다시 불러오세요.');error.hidden=true;
+ img.onerror=()=>{error.hidden=false;};img.onload=()=>{error.hidden=true;};
+ error.append(btn('그림 다시 불러오기',()=>{img.src=src+'?retry='+Date.now();}));box.append(error);return box;
+}
+function textQuestionNodes(text){const at=text.indexOf('\n\n[');if(at<0)return [elem('div',text,'question')];const clue=text.slice(at+2),mono=clueMono(clue);return [elem('div',text.slice(0,at),'question'),elem('div',mono?clueDedent(clue):clue,'question-clue'+(mono?' mono':''))];}
+function questionNodes(text){
+ const m=QUESTION_FIGURE.exec(text);if(!m)return textQuestionNodes(text);
+ const before=text.slice(0,m.index),after=text.slice(m.index+m[0].length);
+ const rest=!after?[]:after.startsWith('[')&&!after.startsWith('[그림:')?textQuestionNodes('\n\n'+after).slice(1):questionNodes(after);
+ return [...(before?textQuestionNodes(before):[]),questionFigure(m[1]),...rest];
+}
 // 영어 해설 끝의 ‘외우는 공식’ 문단(규칙마다 같은 외우기 블록)은 상자로 따로 보여 준다. 줄 머리(외우는 공식, 입으로 외우기)와 이름표(꿀팁, 함정)만 굵게 한다.
 // 2026-09-19: 한국사 해설의 ‘외우는 비결’ 문단은 전수 뗐다(사용자 요청 — 문제에서는 요약만 본다). 이 상자는 이제 영어 공식 전용이다.
 function explanationParts(text){

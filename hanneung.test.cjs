@@ -100,7 +100,7 @@ const all=h.rows.filter(r=>r.round===63&&r.answer!==null).map((r,i)=>({...first,
 const gichul=require('./gichul.js'),gichulKeys=JSON.parse(fs.readFileSync(__dirname+'/docs/gichul-answer-keys.json','utf8'));
 const gCards=[],gOptions={};gichul.install(gCards,gOptions);
 assert.equal(gichul.papers.length,Object.keys(gichulKeys.keys).length,'정답표에 없는 회차를 싣지 않는다');
-let gTotal=0,gSkipped=0;
+let gTotal=0,gSkipped=0;const gFigures=new Set();
 for(const paper of gichul.papers){
  const key=gichulKeys.keys[paper.id];assert(key,'정답표 없는 회차: '+paper.id);
  assert.equal(key.answers.length,20,'9급 필기는 과목당 20문항이다: '+paper.id);
@@ -115,7 +115,18 @@ for(const paper of gichul.papers){
   assert.equal(q.a,Number(key.answers[q.n-1]),'공식 정답과 다르다: '+id);
   assert.equal(options.correctIndex,q.a-1);
   assert.equal(options.fixedOrder,true,'공식 보기는 순서를 섞지 않는다: '+id);
-  assert.equal(options.image,undefined,'9급 기출은 이미지가 아니라 원문 텍스트다: '+id);
+  assert.equal(options.image,undefined,'9급 기출은 한능검처럼 문제 전체가 이미지가 아니라 원문 텍스트다: '+id);
+  // 그림이 꼭 있어야 하는 문제(회로도, 흐름도, 그래프)만 글 안 그림 자리에 [그림:<파일>.webp]를 둔다. 파일은 assets/gichul-fig/에 실제로 있는 WebP이고 이름에 내용 지문이 붙는다.
+  {const marks=[...q.q.matchAll(/\[그림:([^\]]*)\]/g)].map(m=>m[1]);
+   assert.equal((q.q.match(/\[그림:/g)||[]).length,marks.length,'그림 표시 꼴은 [그림:<파일>.webp]다: '+id);
+   for(const name of marks){assert.match(name,/^[a-z0-9]+-\d{4}[a-z]?-[a-z]+-\d{2}(?:-\d)?-[a-f0-9]{10}\.webp$/,'그림 파일 이름 꼴: '+id+' '+name);
+    assert(name.startsWith(paper.id+'-'+String(q.n).padStart(2,'0')+'-'),'그림 파일은 그 문제의 것이다: '+id+' '+name);
+    assert(q.q.split('\n\n').includes('[그림:'+name+']'),'그림 표시는 앞뒤가 빈 줄인 한 줄이다: '+id);
+    const file=__dirname+'/assets/gichul-fig/'+name;assert(fs.existsSync(file),'그림 표시가 있으면 그 파일이 실제로 있어야 한다: '+id+' '+name);
+    const bytes=fs.readFileSync(file);assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP','그림은 WebP다: '+name);
+    assert(name.includes(crypto.createHash('sha256').update(bytes).digest('hex').slice(0,10)),'그림 이름의 지문이 내용과 같다: '+name);
+    assert(bytes.length<200000,'그림 한 장은 200KB 안: '+name);gFigures.add(name);}
+   for(const c of q.c)assert(!c.includes('[그림:'),'보기는 글이다(보기가 그림이면 그림 안에 보기 번호와 함께 담는다): '+id);}
   assert.equal(options.choices.length,4,'9급 필기는 4지선다다: '+id);
   options.choices.forEach((choice,i)=>assert(choice.startsWith(['①','②','③','④'][i]),'원문 보기 번호를 그대로 단다: '+id));
   assert.equal(card.answer,options.choices[q.a-1]);
@@ -128,6 +139,7 @@ for(const paper of gichul.papers){
  gSkipped+=skipped.length;
 }
 assert.equal(gTotal,gCards.length);
+{const dir=__dirname+'/assets/gichul-fig';const files=fs.existsSync(dir)?fs.readdirSync(dir).sort():[];assert.deepEqual(files,[...gFigures].sort(),'assets/gichul-fig의 그림은 모두 어느 문제에 쓰이고, 쓰인 그림은 모두 있다');}
 // 공식 정답표에서 단일 정답이 아닌 칸(복수 정답, 정답 없음, 빈 칸)은 0으로 두고, 그 문항은 반드시 제외 목록에 있다.
 for(const paper of gichul.papers){
  const key=gichulKeys.keys[paper.id];
@@ -149,4 +161,4 @@ assert.equal(new Set(gCards.map(c=>c.id)).size,gCards.length,'카드 id 중복')
 assert(gCards.every(c=>c.id.startsWith('gichul-')),'공식 기출은 gichul- 접두사로만 식별한다');
 // 접두사는 content-audit.cjs의 보기 길이 편향 면제 기준이기도 하다. 둘이 어긋나면 면제가 조용히 풀린다.
 assert(fs.readFileSync(__dirname+'/content-audit.cjs','utf8').includes('VERBATIM_OFFICIAL=/^(?:hanneung|gichul)-/'),'길이 편향 면제가 hanneung-, gichul- 접두사에 걸려 있어야 한다');
-console.log('PASS hanneung: official keys, 1,150 immutable images, 1,149 fixed-order quizzes, annulment, weighted first scores and sync snapshots; 인사혁신처 9급 기출 '+gichul.papers.length+'회차 '+gTotal+'문항이 공식 정답표와 일치하고 '+gSkipped+'문항은 사유와 함께 제외됐다');
+console.log('PASS hanneung: official keys, 1,150 immutable images, 1,149 fixed-order quizzes, annulment, weighted first scores and sync snapshots; 인사혁신처 9급 기출 '+gichul.papers.length+'회차 '+gTotal+'문항이 공식 정답표와 일치하고 '+gSkipped+'문항은 사유와 함께 제외됐다(원문 그림 '+gFigures.size+'장)');
