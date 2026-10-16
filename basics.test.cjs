@@ -83,7 +83,7 @@ for(const [s,list] of Object.entries(IT_DONE)){const all=PS.STUDY_PARTS.units.fi
 assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...grules,...erules,...hrules,...itRules].sort(),'상자는 논리, 독해, 영어 규칙마다, 한국사, 정보보호론, 컴퓨터일반 파트마다 하나(남는 상자 없음)');
 // 국어, 영어, 한국사 기출(v170~): 과목별 기출 대응 원고(research/basics-*/gichul*)가 짝지은 기출마다 대입 — box = 그 기출이 쓰는 상자(규칙 상자 또는 한국사 파트 상자),
 //   use = 그 상자의 줄, blocks = 화면에 보이는 '이 문제에 대입'. 대응하지 않은 기출(제외)은 대입이 없다. 마지막 '→ 번호'(부정 발문은 'N 틀림')가 공식 정답.
-const GICHUL_BASICS={'국어':327,'영어':118,'한국사':277,'한능검':548};
+const GICHUL_BASICS={'국어':327,'영어':127,'한국사':277,'한능검':548};
 const GOWN=/^(?:gichul-[a-z0-9]+-\d{4}b?-(korean|english|history)-(\d{2})|hanneung-\d+-\d{2})$/;
 const gichulBasics=Object.keys(B.apply).filter(id=>GOWN.test(id));let gUse=0;
 {const GF=require('./gichul-files.cjs'),HC={};vm.createContext(HC);vm.runInContext(fs.readFileSync(__dirname+'/hanneung-data.js','utf8'),HC,{filename:'hanneung-data.js'});
