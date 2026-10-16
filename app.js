@@ -788,7 +788,7 @@ function choiceExplanations(quiz,split,picked){
  const box=elem('div',undefined,'choice-explanations');box.append(...sentenceLine(quiz));
  quiz.choices.forEach((c,i)=>{
   const answer=i===quiz.correctIndex,mine=i===picked&&!answer,item=elem('div',undefined,'choice-explain'+(answer?' is-answer':mine?' is-picked':''));
-  const head=elem('p',(i+1)+'. ','choice-explain-sentence');head.append(quiz.marks?markedChoice(c,quiz.marks[i],okLabel(quiz),!!quiz.fixes?.[i]?.length):document.createTextNode(c));
+  const head=elem('p',(i+1)+'. ','choice-explain-sentence');head.append(...(quiz.marks?[markedChoice(c,quiz.marks[i],okLabel(quiz),!!quiz.fixes?.[i]?.length)]:underlinedNodes(c)));
   if(answer)head.append(elem('span','정답','choice-answer-tag'));if(mine)head.append(elem('span','내 답','choice-picked-tag'));
   item.append(head,...fixLines(quiz,i),elem('p',split.per[i],'choice-explain-text'));box.append(item);
  });
@@ -812,7 +812,12 @@ function questionFigure(name){
  img.onerror=()=>{error.hidden=false;};img.onload=()=>{error.hidden=true;};
  error.append(btn('그림 다시 불러오기',()=>{img.src=src+'?retry='+Date.now();}));box.append(error);return box;
 }
-function textQuestionNodes(text){const at=text.indexOf('\n\n[');if(at<0)return [elem('div',text,'question')];const clue=text.slice(at+2),mono=clueMono(clue);return [elem('div',text.slice(0,at),'question'),elem('div',mono?clueDedent(clue):clue,'question-clue'+(mono?' mono':''))];}
+// 2026-10-16: 9급 기출의 밑줄 친 글자는 글자마다 밑줄 결합 문자(U+0332)를 붙여 싣는다(영어 밑줄 어법, 기본키 밑줄, 밑줄 친 코드 줄). 화면에서는 이어진 덩어리를 밑줄(u.q-ul)로 보이고 결합 문자는 뗀다 — 결합 문자를 그대로 그리면 글꼴이 바뀌고 밑줄이 끊겨 보인다.
+const UNDERLINE_RUN=/(?:[^\u0332\n]\u0332)+/g;
+function underlinedNodes(text){const s=String(text);if(!s.includes('\u0332'))return [document.createTextNode(s)];const out=[];let at=0;for(const m of s.matchAll(UNDERLINE_RUN)){if(m.index>at)out.push(document.createTextNode(s.slice(at,m.index).replace(/\u0332/g,'')));out.push(elem('u',m[0].replace(/\u0332/g,''),'q-ul'));at=m.index+m[0].length;}if(at<s.length)out.push(document.createTextNode(s.slice(at).replace(/\u0332/g,'')));return out;}
+function underlinedElem(tag,text,cls){if(!String(text).includes('\u0332'))return elem(tag,text,cls);const e=elem(tag,undefined,cls);e.append(...underlinedNodes(text));return e;}
+function underlineButton(b,text){if(String(text).includes('\u0332'))b.replaceChildren(...underlinedNodes(text));return b;}
+function textQuestionNodes(text){const at=text.indexOf('\n\n[');if(at<0)return [underlinedElem('div',text,'question')];const clue=text.slice(at+2),mono=clueMono(clue);return [underlinedElem('div',text.slice(0,at),'question'),underlinedElem('div',mono?clueDedent(clue):clue,'question-clue'+(mono?' mono':''))];}
 function questionNodes(text){
  const m=QUESTION_FIGURE.exec(text);if(!m)return textQuestionNodes(text);
  const before=text.slice(0,m.index),after=text.slice(m.index+m[0].length);
@@ -1143,7 +1148,7 @@ function renderQuiz(){
   appendPaper(root,Hanneung.get(card.id));
   if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(root,quiz,i=>answerPractice(card.id,i));
   else if(quiz.type==='choice'){
-   const choices=elem('div',undefined,'quiz-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const button=btn(quiz.fixedOrder?choice:(i+1)+'. '+choice,()=>answerPractice(card.id,i));button.disabled=!!quiz.image;choices.append(button);});root.append(choices);
+   const choices=elem('div',undefined,'quiz-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const label=quiz.fixedOrder?choice:(i+1)+'. '+choice,button=underlineButton(btn(label,()=>answerPractice(card.id,i)),label);button.disabled=!!quiz.image;choices.append(button);});root.append(choices);
   }else{
    const form=elem('form',undefined,'practice-form'),hint=elem('label','지정한 단어나 빈칸의 답만 입력하세요.');hint.htmlFor='practiceInput';
    const input=elem('input');input.id='practiceInput';input.type='text';input.maxLength=2000;input.autocomplete='off';input.autocapitalize='none';input.spellcheck=false;input.setAttribute('lang','en');input.value=active.draft;
@@ -1445,7 +1450,7 @@ function renderFeedback(root,card,quiz,lesson,label){
  else if(lesson){root.append(elem('p',lesson.hook,'hook'));const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),...ruleLines(lesson.rule,'rule-line'));for(const example of lesson.examples)details.append(...ruleLines(example,'example'));attachExplanationCredit(details,reviewId,'lesson');root.append(details);}
  const recap=elem('details',undefined,'lesson recap');recap.append(elem('summary','문제 다시 보기'),label,...questionNodes(quiz.question));appendPaper(recap,Hanneung.get(card.id));
  if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(recap,quiz,null,f.selectedIndex);
- else if(quiz.type==='choice'){const choices=elem('div',undefined,'quiz-choices recap-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const b=elem('button',quiz.fixedOrder?choice:(i+1)+'. '+(quiz.marks?'':choice));if(quiz.marks)b.append(markedChoice(choice,quiz.marks[i],okLabel(quiz)));b.type='button';b.disabled=true;if(i===quiz.correctIndex)b.classList.add('quiz-correct');else if(i===f.selectedIndex)b.classList.add('quiz-wrong');choices.append(b);});recap.append(choices);}
+ else if(quiz.type==='choice'){const choices=elem('div',undefined,'quiz-choices recap-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const label=quiz.fixedOrder?choice:(i+1)+'. '+(quiz.marks?'':choice),b=underlineButton(elem('button',label),label);if(quiz.marks)b.append(markedChoice(choice,quiz.marks[i],okLabel(quiz)));b.type='button';b.disabled=true;if(i===quiz.correctIndex)b.classList.add('quiz-correct');else if(i===f.selectedIndex)b.classList.add('quiz-wrong');choices.append(b);});recap.append(choices);}
  root.append(recap);
  const dueCard=data.cards.find(c=>c.id===card.id),concept=ReviewPolicy.concept(card.id),siblings=data.cards.some(c=>c.id!==card.id&&isPlayable(c)&&ReviewPolicy.concept(c.id)===concept);
  root.append(elem('p','풀이 완료: 환산 시간 +1분','study-credit-award'),elem('small','다음 복습: '+dueCard.due+(f.result==='wrong'?(queueMode()==='wrong'?'. 5분 뒤 다시 풀 수 있어요.':'. 남은 문제를 다 푼 뒤에 다시 나와요.')+(siblings?' 같은 개념의 다른 문제도 10분 뒤 이어서 나와요.':''):''),'next-review'));
