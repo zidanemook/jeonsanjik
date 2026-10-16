@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v351-urgent-saryo';
+globalThis.APP_BUILD='chagog-v352-computer-local-gichul-expl';
