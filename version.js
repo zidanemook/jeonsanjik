@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v356-computer-local-gichul-expl-2';
+globalThis.APP_BUILD='chagog-v357-gichul-figures-sec';
