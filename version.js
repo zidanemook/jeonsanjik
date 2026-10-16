@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v358-gichul-figures-national';
+globalThis.APP_BUILD='chagog-v359-urgent-65-kings';
