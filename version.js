@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v367-sec-box2';
+globalThis.APP_BUILD='chagog-v368-user-word-gabo';
