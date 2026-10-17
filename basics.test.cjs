@@ -53,11 +53,11 @@ for(const id of grammar){const q=bank[id];assert.ok(/^(kgrammar-g[123]|kdoc-d[12
 assert.equal(grules.size,44,'국어 문법 1, 2장 규칙 10 + 2026-10-07 묶음 34');/*KL1*/
 // 2026-10-17 국어 논리 추론(새 기조, research/korean-logic-20261017): ko-nlogic-NNN, 파트 하나 = 상자 하나(knlogic-<파트>), 대입 줄은 그 상자의 줄.
 const nlogic=Object.keys(bank).filter(id=>id.startsWith('ko-nlogic-')),nrules=new Set();
-assert.equal(nlogic.length,35,'국어 논리 추론(새 기조) 35문제');
+assert.equal(nlogic.length,60,'국어 논리 추론(새 기조) 60문제');
 for(const id of nlogic){const q=bank[id];assert.match(q.ruleId||'',/^knlogic-(prop|strength|premise|debate)$/,'논리 추론 규칙 id: '+id);assert.equal(q.variants.length,1,'문제 하나: '+id);nrules.add(q.ruleId);
  assert.ok(B.box(q.ruleId),'규칙 상자가 없다: '+q.ruleId);const a=B.forQuestion(id);assert.ok(a&&Array.isArray(a.blocks)&&a.blocks.length&&a.use.length,'이 문제에 대입이 없다: '+id);
  for(const u of a.use)assert.ok(lineIdsOf(B.box(q.ruleId)).has(u),'대입 줄이 상자에 없다: '+id+' '+u);}
-{const u=PS.STUDY_PARTS.units.find(x=>x.id==='ko-kl1');assert.ok(u,'단원 ko-kl1');assert.equal(nrules.size,u.parts.length,'논리 추론 상자 = 파트');assert.equal(nrules.size,2);
+{const u=PS.STUDY_PARTS.units.find(x=>x.id==='ko-kl1');assert.ok(u,'단원 ko-kl1');assert.equal(nrules.size,u.parts.length,'논리 추론 상자 = 파트');assert.equal(nrules.size,4);
  for(const p of u.parts)assert.equal(new Set(p.ids.map(id=>bank[id].ruleId)).size,1,'파트 하나에 상자 하나: '+p.id);}
 /*KL1-WAS */
 // 한국사(v161~, 강별로 늘어난다): parts.js의 한국사 파트마다 상자 하나(id 'hist-<파트>', split 'lines', 표는 tables 여럿, 줄마다 rowIds).
