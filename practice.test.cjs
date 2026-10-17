@@ -120,7 +120,7 @@ for(const [id,lesson]of Object.entries(bank)){
    const key=l=>l.variants[0].question+'|'+l.variants[0].choices[l.variants[0].correctIndex];assert.equal(new Set(rows.map(key)).size,s.n,t+' 발문과 정답이 같은 문제는 없다');}
   assert.ok(rows.every(l=>l.ruleId.startsWith(s.rule)&&l.srcLine&&/교재 문장과 예문은 옮기지 않음/.test(l.srcLine)&&l.variants.length===1&&l.variants[0].choices.length===4),t+' 규칙 id, 출처 줄, 4지선다');
   const text=rows.map(l=>JSON.stringify(l)).join('');for(const w of s.banned)assert.ok(!text.includes(w),t+' 교재 낱말 '+w);}
- assert.ok(Object.values(bank).every(l=>(l.subject==='국어')===/^(논리 [1-6]장|독해 [1-3]장|문법 [12]장|문법 3장|공문서 [123]장|어휘 [12]장)$/.test(l.topic)),'국어 교재 문제만 subject가 국어이고, 영어 문제에는 subject가 없다');
+ assert.ok(Object.values(bank).every(l=>(l.subject==='국어')===/^(논리 [1-6]장|독해 [1-3]장|문법 [12]장|문법 3장|공문서 [123]장|어휘 [12]장|논리 추론)$/.test(l.topic)),'국어 교재 문제만 subject가 국어이고, 영어 문제에는 subject가 없다');
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 1장').map(l=>l.point)).size,11);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 2장').map(l=>l.point)).size,45);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 3장').map(l=>l.point)).size,27);
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 4장').map(l=>l.point)).size,14);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 5장').map(l=>l.point)).size,14);
  assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 6장').map(l=>l.point)).size,43);assert.equal(new Set(Object.values(bank).filter(l=>l.topic==='논리 6장').map(l=>l.ruleId)).size,8);

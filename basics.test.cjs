@@ -50,7 +50,16 @@ const grules=new Set();
 for(const id of grammar){const q=bank[id];assert.ok(/^(kgrammar-g[123]|kdoc-d[123]|kvocab-v[12])-/.test(q.ruleId||''),'국어 문법, 공문서, 어휘 규칙 id: '+id);assert.equal(q.variants.length,1,'문제 하나: '+id);grules.add(q.ruleId);
  assert.ok(B.box(q.ruleId),'규칙 상자가 없다: '+q.ruleId);const a=B.forQuestion(id);assert.ok(a&&Array.isArray(a.blocks)&&a.blocks.length,'이 문제에 대입이 없다: '+id);
  for(const u of a.use)assert.ok(lineIdsOf(B.box(q.ruleId)).has(u),'대입 줄이 상자에 없다: '+id+' '+u);}
-assert.equal(grules.size,44,'국어 문법 1, 2장 규칙 10 + 2026-10-07 묶음 34');
+assert.equal(grules.size,44,'국어 문법 1, 2장 규칙 10 + 2026-10-07 묶음 34');/*KL1*/
+// 2026-10-17 국어 논리 추론(새 기조, research/korean-logic-20261017): ko-nlogic-NNN, 파트 하나 = 상자 하나(knlogic-<파트>), 대입 줄은 그 상자의 줄.
+const nlogic=Object.keys(bank).filter(id=>id.startsWith('ko-nlogic-')),nrules=new Set();
+assert.equal(nlogic.length,35,'국어 논리 추론(새 기조) 35문제');
+for(const id of nlogic){const q=bank[id];assert.match(q.ruleId||'',/^knlogic-(prop|strength|premise|debate)$/,'논리 추론 규칙 id: '+id);assert.equal(q.variants.length,1,'문제 하나: '+id);nrules.add(q.ruleId);
+ assert.ok(B.box(q.ruleId),'규칙 상자가 없다: '+q.ruleId);const a=B.forQuestion(id);assert.ok(a&&Array.isArray(a.blocks)&&a.blocks.length&&a.use.length,'이 문제에 대입이 없다: '+id);
+ for(const u of a.use)assert.ok(lineIdsOf(B.box(q.ruleId)).has(u),'대입 줄이 상자에 없다: '+id+' '+u);}
+{const u=PS.STUDY_PARTS.units.find(x=>x.id==='ko-kl1');assert.ok(u,'단원 ko-kl1');assert.equal(nrules.size,u.parts.length,'논리 추론 상자 = 파트');assert.equal(nrules.size,2);
+ for(const p of u.parts)assert.equal(new Set(p.ids.map(id=>bank[id].ruleId)).size,1,'파트 하나에 상자 하나: '+p.id);}
+/*KL1-WAS */
 // 한국사(v161~, 강별로 늘어난다): parts.js의 한국사 파트마다 상자 하나(id 'hist-<파트>', split 'lines', 표는 tables 여럿, 줄마다 rowIds).
 //   HIST_UNITS에 든 단원의 파트는 모두 상자가 있고, 그 파트 문제마다 대입(box = 그 파트 상자 / use = 그 상자의 줄, blocks)이 있다.
 const HIST_UNITS=['hist-02','hist-03','hist-04','hist-05','hist-06','hist-07','hist-08','hist-09','hist-10','hist-11','hist-12','hist-13','hist-14','hist-15','hist-16','hist-17','hist-18','hist-19','hist-20','hist-21','hist-22','hist-23','hist-24','hist-25','hist-26','hist-27','hist-28','hist-29','hist-30','hist-31','hist-32','hist-33','hist-34','hist-35','hist-36','hist-37','hist-38','hist-39','hist-40','hist-28-40','hist-250','hist-252-256'];
@@ -80,7 +89,7 @@ for(const [s,list] of Object.entries(IT_DONE)){const all=PS.STUDY_PARTS.units.fi
   for(const id of p.ids){itQuestions.push(id);assert.match(id,/^gichul-/,'전공 과목 파트는 기출만: '+id);
    const a=B.forQuestion(id);assert.ok(a&&a.box===r&&a.use.length&&a.blocks.length,s+' 대입: '+id);
    for(const u of a.use){assert.ok(lines.has(u),'대입 줄이 그 파트 상자에 없다: '+id+' '+u);itUse++;}}}}
-assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...grules,...erules,...hrules,...itRules].sort(),'상자는 논리, 독해, 영어 규칙마다, 한국사, 정보보호론, 컴퓨터일반 파트마다 하나(남는 상자 없음)');
+assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...grules,/*KL1*/...nrules,/*KL1-WAS */...erules,...hrules,...itRules].sort(),'상자는 논리, 독해, 영어 규칙마다, 한국사, 정보보호론, 컴퓨터일반 파트마다 하나(남는 상자 없음)');
 // 국어, 영어, 한국사 기출(v170~): 과목별 기출 대응 원고(research/basics-*/gichul*)가 짝지은 기출마다 대입 — box = 그 기출이 쓰는 상자(규칙 상자 또는 한국사 파트 상자),
 //   use = 그 상자의 줄, blocks = 화면에 보이는 '이 문제에 대입'. 대응하지 않은 기출(제외)은 대입이 없다. 마지막 '→ 번호'(부정 발문은 'N 틀림')가 공식 정답.
 const GICHUL_BASICS={'국어':327,'영어':143,'한국사':277,'한능검':548};
@@ -121,7 +130,7 @@ assert.equal(secq.length,SECQ.reduce((n,s)=>n+s.n,0),'정보보호론 자체 제
   const a=B.forQuestion(id),lines=hLines(B.box(s.box));assert.ok(a&&a.box===s.box&&a.use.length&&Array.isArray(a.blocks)&&a.blocks.length,'정보보호론 자체 제작 대입: '+id);
   for(const u of a.use){assert.ok(lines.has(u),'대입 줄이 그 파트 상자에 없다: '+id+' '+u);secqUse++;}
   for(const b of a.blocks){const p=plain(b);assert.ok(!/두문자|비결/.test(p),'대입에 두문자, 비결: '+id);for(const m of p.matchAll(TOK))assert.ok(!lines.has(m[1]),'대입에 줄 id: '+id+' '+m[1]);}}}
-const covered=new Set([...logic,...reading,...grammar,...english,...history,...itQuestions,...gichulBasics,...comq,...secq]);
+const covered=new Set([...logic,...reading,...grammar,/*KL1*/...nlogic,/*KL1-WAS */...english,...history,...itQuestions,...gichulBasics,...comq,...secq]);
 for(const id of Object.keys(B.apply))assert.ok(covered.has(id),'대입이 있는데 논리, 독해, 영어 파트 문제가 아니다: '+id);
 
 // ── 2) 상자 모양: 용어는 뜻 + 예), 한자가 있으면 원뜻, 규칙, 비교 예문(✓와 ✗ 둘 다)
@@ -466,7 +475,7 @@ assert.equal(readingParts.length,23,'독해 1~3장 파트 23개(1장 9, 2장 3, 
 assert.ok(readingParts.every(p=>p.ids.every(id=>/^ko-read[1-3]-/.test(id))),'독해 파트에는 독해 문제만');
 const grammarParts=P.units.flatMap(u=>u.parts).filter(p=>p.ids.some(id=>/^ko-(gram[123]|doc[123]|voc[12])-/.test(id)));
 assert.equal(grammarParts.length,44,'국어 문법 1, 2장 파트 10 + 2026-10-07 묶음 34');assert.ok(grammarParts.every(p=>p.ids.every(id=>/^ko-(gram[123]|doc[123]|voc[12])-/.test(id))),'문법, 공문서, 어휘 파트에는 그 단원 문제만');
-logicParts.push(...readingParts,...grammarParts);
+logicParts.push(...readingParts,...grammarParts);/*KL1*/logicParts.push(...P.units.flatMap(u=>u.parts).filter(p=>p.ids.some(id=>id.startsWith('ko-nlogic-')))); /* 2026-10-17 국어 논리 추론(새 기조) 파트도 기초 개념 보기 *//*KL1-WAS */
 for(const p of logicParts){const want=[...new Set(p.ids.map(id=>bank[id].ruleId))];eqJ(run('partBasics(PARTS.part('+JSON.stringify(p.id)+'))'),want,'파트 상자 = 파트 문제들의 규칙 전부: '+p.id);}
 run("go('parts','국어')");
 const entries=nodes.get('#partsBody').all.filter(n=>cls(n).includes('part-basics'));

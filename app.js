@@ -243,6 +243,8 @@ const KOREAN_GRAMMAR_TOPICS={'문법 1장':'국어 문법 1장 음운론','문�
 // 같은 책의 제4편 공문서 수정하기, 제5편 문맥의 힘 어휘(2026-10-07): 범위 묶음을 하나씩 더 둔다.
 const KOREAN_DOC_TOPICS={'공문서 1장':'국어 공문서 수정 1장 올바른 문장 쓰기','공문서 2장':'국어 공문서 수정 2장 문장 부호 바로 쓰기','공문서 3장':'국어 공문서 수정 3장 〈한글 맞춤법〉 바로 쓰기'};
 const KOREAN_VOCAB_TOPICS={'어휘 1장':'국어 어휘 1장 구별해서 써야 하는 주요 어휘','어휘 2장':'국어 어휘 2장 독해에 필요한 주요 한자 어휘'};
+// 2025년부터 바뀐 출제 기조의 논리 추론(명제 추론, 강화와 약화, 숨은 전제, 토론 분석) 자체 제작(2026-10-17): 범위 묶음 '국어 새 기조'.
+const KOREAN_NEW_TOPICS={'논리 추론':'국어 논리 추론(새 기조)'};
 const KOREAN_TOPICS={'논리 1장':'1장 논증의 개념과 유형','논리 2장':'2장 명제 논리','논리 3장':'3장 정언 논리','논리 4장':'4장 술어 논리','논리 5장':'5장 귀납 논증','논리 6장':'6장 논리의 오류','독해 1장':'독해 1장 독해의 원리','독해 2장':'독해 2장 독해와 논증','독해 3장':'독해 3장 실전 독해 훈련'};
 // 영어 ‘문법 공식 훈련’의 공식 하나 범위는 topic을 'formula:<공식 id>'로 두고, 그 공식에 속한 문제집 Day 문제와 새 훈련 문제를 함께 담는다.
 function topicMatch(lesson,topic){return !!lesson&&(lesson.topic===topic||(topic.startsWith('formula:')&&lesson.formula===topic.slice(8)));}
@@ -259,7 +261,7 @@ function scopeLabel(scope){
  if(s==='영어')return '영어 '+({'':'전체','수일치':'수일치','영문법':'그 밖의 문법 연습','문법 공식 훈련':'문법 공식 훈련 새 문제'}[scope.topic||'']??scope.topic);
  if(s==='국어'&&KOREAN_TOPICS[scope.topic])return '국어 사고의 힘 논리 '+KOREAN_TOPICS[scope.topic];
  if(s==='국어'&&KOREAN_GRAMMAR_TOPICS[scope.topic])return '국어 '+KOREAN_GRAMMAR_TOPICS[scope.topic];
- if(s==='국어'&&(KOREAN_DOC_TOPICS[scope.topic]||KOREAN_VOCAB_TOPICS[scope.topic]))return '국어 '+(KOREAN_DOC_TOPICS[scope.topic]||KOREAN_VOCAB_TOPICS[scope.topic]).replace(/^국어 /,'');
+ if(s==='국어'&&(KOREAN_DOC_TOPICS[scope.topic]||KOREAN_VOCAB_TOPICS[scope.topic]||KOREAN_NEW_TOPICS[scope.topic]))return '국어 '+(KOREAN_DOC_TOPICS[scope.topic]||KOREAN_VOCAB_TOPICS[scope.topic]||KOREAN_NEW_TOPICS[scope.topic]).replace(/^국어 /,'');
  {const u=scope.topic?gichulSelf(s).find(x=>x.scope.topic===scope.topic):null;if(u)return s+' '+u.title;}
  if(s!=='한국사')return s+' 전체';
  const r=scope.round||'',t=topicRange(r),set=studyScope(r),lecture=lectureScope(r);
@@ -1044,7 +1046,7 @@ function renderRange(){
  // 국어는 교재(사고의 힘 논리) 장별 자체 제작 문제를 먼저 두고, 기출은 영어처럼 풀던 회차가 없으면 접어 둔다.
  else if(s==='국어'){const g=group('사고의 힘 논리');for(const [topic,title]of Object.entries(KOREAN_TOPICS))option(g,title,scope('',topic),moreNote(scope('',topic)));
   {const gg=group('국어 문법');for(const [topic,title]of Object.entries(KOREAN_GRAMMAR_TOPICS))option(gg,title,scope('',topic),moreNote(scope('',topic)));}
-  for(const [name,topics]of [['국어 공문서 수정',KOREAN_DOC_TOPICS],['국어 어휘',KOREAN_VOCAB_TOPICS]]){const gg=group(name);for(const [topic,title]of Object.entries(topics))option(gg,title,scope('',topic),moreNote(scope('',topic)));}
+  for(const [name,topics]of [['국어 공문서 수정',KOREAN_DOC_TOPICS],['국어 어휘',KOREAN_VOCAB_TOPICS],['국어 새 기조',KOREAN_NEW_TOPICS]]){const gg=group(name);for(const [topic,title]of Object.entries(topics))option(gg,title,scope('',topic),moreNote(scope('',topic)));}
   const exams=group('기출: 회차별 ('+paperCount+'회차)',!paperScope(scopeOf().round));paperYears(exams,scopeOf().round);
   option(group('그 밖의 범위',true),'국어 전체',scope(''));}
  // 컴퓨터일반, 정보보호론: 교재 장별 자체 제작 문제(기출 단원 제목 아래에 그 단원의 장들)를 먼저 두고, 기출 회차는 그대로 펼쳐 둔다.
