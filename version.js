@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v376-korean-logic';
+globalThis.APP_BUILD='chagog-v377-sec-box3';
