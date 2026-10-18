@@ -376,7 +376,8 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
   assert.equal(bH.open,false,'한국사 처음에는 닫혀 있다(v273, 틀려도)');
   const hH=bH.all.filter(n=>n.className==='b-h').map(n=>n._text);hH.forEach((h,i)=>assert.ok(h.startsWith((i+1)+'. '),'번호가 이어진다: '+hH.join(' / ')));
   assert.ok(applyLast(hH),'마지막 절은 이 문제에 대입: '+hH.join(' / '));
-  const rest=bH.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false,'나머지 모음은 닫혀 있다');
+  // v384: 한국사도 나머지 모음 대신 그 파트 기초 개념으로 가는 단추 하나.
+  const rest=bH.children.filter(n=>String(n.className||'').split(' ').includes('b-rest')),goH=bH.children.filter(n=>String(n.className||'').split(' ').includes('concept-open'));assert.equal(rest.length,0,'한국사 나머지 모음 없음');assert.equal(goH.length,1,'한국사 파트 기초 개념 단추 하나');
   assert.ok(!/문항|카드|변형/.test(shownH),'한국사 해설 화면에 문항/카드/변형이라는 말이 없다');
   next();
  }

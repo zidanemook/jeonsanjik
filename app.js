@@ -1439,7 +1439,7 @@ function partBasics(p){return [...new Set(p.ids.map(basicsRuleFor).filter(r=>r&&
 // 정보보호론, 컴퓨터일반 단원 상자는 장마다 하나라 파트로 나눈다: concept-map.js(research/concept-parts-20261018)가 상자 줄마다 임자 파트를 정해 둔다
 // (그 파트 문제의 대입이 쓰는 줄은 처음 쓰는 파트, 안 쓰는 줄은 내용으로 배정, 단원 개관은 intro, 맞는 파트가 없으면 단원 끝 '그 밖의 개념').
 // 읽음 표시는 외울 것 확인 표시와 같은 저장 칸(memorizeShown, 기기끼리 맞춤)에 'concept:<파트>' 열쇠로 둔다. 과목은 차례로 켠다(사용자 "순차적으로").
-const CONCEPT_SUBJECTS=new Set(['정보보호론','컴퓨터일반','영어','국어']);
+const CONCEPT_SUBJECTS=new Set(['정보보호론','컴퓨터일반','영어','국어','한국사']);
 const conceptUnitMap=id=>globalThis.CONCEPT_MAP?.units?.[id]||null;
 const CONCEPT_KEY='concept:';
 // 줄 배정이 있는 과목(정보보호론, 컴퓨터일반)은 배정된 자체 제작 단원만, 나머지 과목(영어 v382~)은 파트마다 상자가 거의 하나라 상자째로 읽는다.
@@ -1450,8 +1450,10 @@ function conceptItem(id){if(typeof id!=='string')return null;const u=id.startsWi
 const conceptRead=id=>memorizeShown.has(CONCEPT_KEY+id);
 function conceptMark(id,on){const k=CONCEPT_KEY+id;if(on===memorizeShown.has(k))return;if(on)memorizeShown.add(k);else memorizeShown.delete(k);memorizeSave();}
 // 해설 화면의 상자가 가리킬 파트: 이 문제가 든 파트가 그 상자의 파트면 그 파트, 아니면(기출) 대입이 쓰는 줄을 가장 많이 가진 파트.
-function conceptFor(box,use,partId){const rule=Content.ruleOfBox(box);if(!rule)return null;const own=conceptItem(partId);if(own&&conceptUnitMap(own.unit.id).box===rule)return own;
- const u=PARTS.units.find(x=>CONCEPT_SUBJECTS.has(x.subject)&&conceptUnitMap(x.id)?.box===rule);if(!u)return null;const m=conceptUnitMap(u.id),U=new Set(use);for(const t of box.tables||[])if(U.has(t.id))(t.rowIds||[]).forEach(r=>U.add(r));let best=u.parts[0],n=-1;
+// 상자째 과목(한국사 v384~)은 그 상자를 쓰는 첫 파트.
+function conceptFor(box,use,partId){const rule=Content.ruleOfBox(box);if(!rule)return null;const own=conceptItem(partId);if(own&&(conceptUnitMap(own.unit.id)?conceptUnitMap(own.unit.id).box===rule:partBasics(own.part).includes(rule)))return own;
+ const u=PARTS.units.find(x=>CONCEPT_SUBJECTS.has(x.subject)&&conceptUnitMap(x.id)?.box===rule);
+ if(!u){for(const w of PARTS.units)if(CONCEPT_SUBJECTS.has(w.subject)&&!conceptUnitMap(w.id))for(const p of w.parts)if(partBasics(p).includes(rule))return conceptItem(p.id);return null;}const m=conceptUnitMap(u.id),U=new Set(use);for(const t of box.tables||[])if(U.has(t.id))(t.rowIds||[]).forEach(r=>U.add(r));let best=u.parts[0],n=-1;
  for(const p of u.parts){const k=(m.parts?.[p.id]?.own||[]).filter(id=>U.has(id)).length;if(k>n){n=k;best=p;}}return conceptItem(best.id);}
 function conceptNext(subject){const xs=conceptItems(subject);return xs.find(x=>!conceptRead(x.id))||null;}
 function renderConcepts(){
