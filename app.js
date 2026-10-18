@@ -870,7 +870,15 @@ function updateSafe(){const a=document.activeElement;if(a&&(a.tagName==='INPUT'|
 // 다시 열어도 보던 화면으로 돌아오게 자리를 적어 둔다(풀던 범위, 문제, 보기 순서는 저장 상태에 있다). 기기에 쓰는 중이면 끝난 뒤에 연다.
 function keepView(){try{sessionStorage.setItem(RESUME,JSON.stringify({view,subject:viewSubject,part:view==='basics'?basicsPart:'',at:Date.now()}));}catch{}}
 function updateReload(){keepView();try{saveNoteDraftNow();}catch{}const open=()=>location.reload();if(lastWrite)lastWrite.then(open,open);else open();}
-function render(){if(updater&&updater.safePoint())return;contentWait=false;renderView();{const f=$('#siteFooter');if(f)f.textContent=footerText(footerSubject());}if(sessionDirty&&!contentWait){sessionDirty=false;stampSession();}}
+// 같은 화면을 다시 그릴 때(다른 앱에서 돌아옴, 동기화, 칸 누르기) 펼치고 접은 칸을 그대로 둔다. 칸은 요약 글과 그 글의 몇 번째인지로 찾는다.
+// 화면이 바뀌면(다른 문제, 다른 파트) 기억하지 않는다: 다음 문제의 '해설 보기'가 저절로 열리면 안 된다.
+// 화면 이름에 지금 보이는 문제 글까지 넣는다(답하기 전 문제끼리 건너뛰어도 다른 화면으로 친다).
+function foldSig(){try{return [view,viewSubject,view==='basics'?basicsPart:'',data.quizFeedback?.cardId||'',document.querySelector('#'+view+'View .question')?.textContent||''].join('|');}catch{return '';}}
+function foldEach(fn){try{const n=new Map();for(const d of document.querySelectorAll('#'+view+'View details')){const t=d.querySelector('summary')?.textContent||'',i=n.get(t)||0;n.set(t,i+1);fn(d,t+'\n'+i);}}catch{}}
+function render(){if(updater&&updater.safePoint())return;contentWait=false;
+ const before=foldSig(),keep=new Map(),y=window.scrollY||0;foldEach((d,k)=>keep.set(k,d.open));
+ renderView();
+ if(keep.size&&before&&foldSig()===before){foldEach((d,k)=>{const o=keep.get(k);if(o!==undefined&&d.open!==o)d.open=o;});if(window.scrollY!==y)window.scrollTo(0,y);}{const f=$('#siteFooter');if(f)f.textContent=footerText(footerSubject());}if(sessionDirty&&!contentWait){sessionDirty=false;stampSession();}}
 // Screens: home (subjects) → subject (resume / choose range) → range → quiz (question, then explanation). Progress is separate.
 const VIEWS=['home','subject','range','quiz','progress','memorize','parts','basics'];
 let view='home',viewSubject='';
