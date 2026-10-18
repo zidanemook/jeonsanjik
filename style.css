@@ -469,6 +469,11 @@ body[data-view="quiz"] main { padding-top:14px; }
 .menu-item.part-basics strong { font-size:16px; color:#ffd479; }
 #basicsBody .lesson.basics { margin-top:16px; }
 .basics-solve { margin-top:20px; }
+/* 기초 개념 공부(v380): 읽은 파트는 흐리게, 아래 넘기기 단추는 세로로 쌓아 긴 파트 이름도 잘리지 않게 */
+.menu-item.concept-item.is-read { opacity:.62; }
+.concept-nav { display:flex; flex-direction:column; gap:10px; margin-top:20px; }
+.concept-nav button { width:100%; min-height:44px; text-align:left; white-space:normal; }
+.concept-open { display:block; width:100%; margin:12px 0 6px; min-height:40px; text-align:left; white-space:normal; }
 .b-shared { margin:16px 0 6px; padding:6px 10px; border:1px dashed #6b5a2e; border-radius:10px; }
 .b-shared > summary { color:#e8d9a8; cursor:pointer; min-height:32px; }
 .b-subh { margin:16px 0 6px; font-size:14px; color:#e8d9a8; }

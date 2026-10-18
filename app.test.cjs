@@ -31,7 +31,7 @@ ctx.fetch=url=>{fetched.push(url);if(failNextFetch){failNextFetch=false;return P
 const flush=()=>new Promise(r=>setImmediate(r));
 // v177: 한국사 상자는 '이 문제에 대입' 뒤에 '외울 것', '암기법'이 올 수 있다(그 둘만, 이 순서로). 다른 상자는 대입이 마지막.
 const applyLast=hs=>{const t=hs.map(h=>h.replace(/^\d+\. /,'')),i=t.lastIndexOf('이 문제에 대입');return i>=0&&JSON.stringify(t.slice(i+1))===JSON.stringify(['외울 것','암기법'].slice(0,t.length-i-1));};
-for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','part-check.js','memorize.js','basics.js','core-units.js','content-store.js','app.js'])
+for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','concept-map.js','part-check.js','memorize.js','basics.js','core-units.js','content-store.js','app.js'])
  vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
 const run=code=>vm.runInContext(code,ctx);
 // 시작할 때는 회차 파일을 하나도 받지 않는다. 그래도 카드, 과목 문항 수는 색인으로 모든 기출 문항을 센다.
@@ -242,7 +242,10 @@ for(const [SUBJ,PRE] of [['정보보호론','sec'],['컴퓨터일반','com']]){c
    assert.ok(b,SUBJ+' 해설 화면에 기초 개념 상자: '+id);assert.equal(b.children[0]._text,'기초 개념');assert.equal(b.open,false,SUBJ+' 처음에는 닫혀 있다(v273, 틀려도)');
    const hs=b.all.filter(n=>n.className==='b-h').map(n=>n._text);hs.forEach((h,k)=>assert.ok(h.startsWith((k+1)+'. '),'번호가 이어진다: '+hs.join(' / ')));
    assert.ok(applyLast(hs),'마지막 절은 이 문제에 대입');
-   const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false);
+   const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));
+   // v380: 기초 개념 공부를 켠 과목(정보보호론)은 장 전체 '나머지 모음' 대신 그 파트 기초 개념으로 가는 단추 하나.
+   if(SUBJ==='정보보호론'){assert.equal(rest.length,0,SUBJ+' 나머지 모음 없음');const go=b.children.filter(n=>String(n.className||'').split(' ').includes('concept-open'));assert.equal(go.length,1,SUBJ+' 파트 기초 개념 단추 하나');assert.match(go[0]._text||go[0].children.map(c=>c._text||'').join(''),/^이 파트 기초 개념 모두 보기: /);}
+   else{assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false);}
    assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드|천공 ?카드|그래픽 ?카드|인터페이스 ?카드|확장 ?카드|메모리 ?카드|LAN ?카드|사운드 ?카드|비디오 ?카드/g,'')),SUBJ+' 해설 화면에 문항/카드/변형 없음');
    next();}}}
 // v170: 국어, 영어, 9급 한국사 기출과 한능검도 기출 대응 원고가 짝지은 문제는 해설 화면에 그 문제가 쓰는 상자 —

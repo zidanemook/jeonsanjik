@@ -880,10 +880,10 @@ function render(){if(updater&&updater.safePoint())return;contentWait=false;
  renderView();
  if(keep.size&&before&&foldSig()===before){foldEach((d,k)=>{const o=keep.get(k);if(o!==undefined&&d.open!==o)d.open=o;});if(window.scrollY!==y)window.scrollTo(0,y);}{const f=$('#siteFooter');if(f)f.textContent=footerText(footerSubject());}if(sessionDirty&&!contentWait){sessionDirty=false;stampSession();}}
 // Screens: home (subjects) → subject (resume / choose range) → range → quiz (question, then explanation). Progress is separate.
-const VIEWS=['home','subject','range','quiz','progress','memorize','parts','basics'];
+const VIEWS=['home','subject','range','quiz','progress','memorize','parts','basics','concepts'];
 let view='home',viewSubject='';
 function go(name,subject=viewSubject,replace=false){closeBadgeInfo();view=name;viewSubject=subject;const depth=(history.state?.depth||0)+(replace?0:1);try{history[replace?'replaceState':'pushState']({view:name,subject,depth,...(name==='basics'?{part:basicsPart}:{})},'');}catch{}notify('');render();window.scrollTo(0,0);}
-function goBack(){if(history.state?.depth>0){history.back();return;}const parent=view==='basics'?'parts':view==='quiz'||view==='range'||view==='parts'?'subject':'home';go(parent,view==='quiz'?scopeOf().subject:viewSubject,true);}
+function goBack(){if(history.state?.depth>0){history.back();return;}const parent=view==='basics'?(conceptItem(basicsPart)?'concepts':'parts'):view==='quiz'||view==='range'||view==='parts'||view==='concepts'?'subject':'home';go(parent,view==='quiz'?scopeOf().subject:viewSubject,true);}
 try{history.replaceState({view:'home',subject:'',depth:0},'');}catch{}
 window.addEventListener('popstate',e=>{closeBadgeInfo();view=VIEWS.includes(e.state?.view)?e.state.view:'home';viewSubject=e.state?.subject||'';if(e.state?.part)basicsPart=e.state.part;notify('');render();window.scrollTo(0,0);});
 function subjectsList(){return [...new Set(data.cards.filter(isPlayable).map(c=>c.subject))];}
@@ -908,7 +908,7 @@ function renderView(){
  for(const v of VIEWS)$('#'+v+'View').hidden=v!==view;document.body.dataset.view=view;
  // 과목 선택 화면을 벗어나면 승인 관리는 닫는다: 다시 돌아왔을 때 오래된 목록이 남지 않는다.
  if(view!=='home')$('#adminPanel').hidden=true;
- if(view==='home')renderHome();else if(view==='subject')renderSubject();else if(view==='range')renderRange();else if(view==='progress')renderProgress();else if(view==='memorize')renderMemorize();else if(view==='parts')renderParts();else if(view==='basics')renderBasics();else renderQuiz();
+ if(view==='home')renderHome();else if(view==='subject')renderSubject();else if(view==='range')renderRange();else if(view==='progress')renderProgress();else if(view==='memorize')renderMemorize();else if(view==='parts')renderParts();else if(view==='concepts')renderConcepts();else if(view==='basics')renderBasics();else renderQuiz();
 }
 function renderHome(){
  renderXp();renderScoreLine();const list=$('#subjectList'),playable=data.cards.filter(isPlayable);list.replaceChildren();
@@ -938,7 +938,7 @@ function renderMemorize(){
   const list=elem('div',undefined,'menu-list'),sets=subject?MEMORIZE.sets.filter(x=>x.subject===subject):MEMORIZE.sets;
   for(const x of sets)list.append(menuItem(x.title,(subject?'':x.subject+', ')+MEMORIZE.size(x)+'칸'+((n=>n?', '+n+'칸 확인':'')([...memorizeShown].filter(k=>k.startsWith(x.id+':')).length))+(data.memorizeLast===x.id?', 마지막으로 본 목록':''),()=>{if(data.memorizeLast!==x.id){data.memorizeLast=x.id;saveDraft();}go('memorize',x.id);}));
   body.append(list);
-  if(memorizeShown.size){const reset=btn('외울 것 전체 초기화 ('+memorizeShown.size+'칸 확인함)',()=>{memorizeShown=new Set();memorizeSave();render();notify('모든 목록의 확인 표시를 지웠어요.');});reset.type='button';body.append(reset);}
+  {const cells=[...memorizeShown].filter(k=>!k.startsWith(CONCEPT_KEY)).length;if(cells){const reset=btn('외울 것 전체 초기화 ('+cells+'칸 확인함)',()=>{memorizeShown=new Set([...memorizeShown].filter(k=>k.startsWith(CONCEPT_KEY)));memorizeSave();render();notify('모든 목록의 확인 표시를 지웠어요.');});reset.type='button';body.append(reset);}}
   return;
  }
  const total=MEMORIZE.size(set),keys=[];
@@ -1006,6 +1006,8 @@ function renderSubject(){
  const sets=MEMORIZE.sets.filter(x=>x.subject===s),memo=$('#openMemorize');memo.hidden=!sets.length;
  if(sets.length)$('#memorizeHint').textContent=sets.length+'개 목록, '+sets.reduce((n,x)=>n+MEMORIZE.size(x),0)+'칸: '+sets.slice(0,3).map(x=>x.title).join(', ')+(sets.length>3?' 외':'');
  // 파트별 상태(v145): 파트가 있는 과목만.
+ // 기초 개념 공부(v380): 켠 과목만. 읽음 수와 이어 읽을 파트.
+ {const xs=conceptItems(s),b=$('#openConcepts');b.hidden=!xs.length;if(xs.length){const n=xs.filter(x=>conceptRead(x.id)).length,next=conceptNext(s);$('#conceptsHint').textContent='파트별로 개념만 읽기: 읽음 '+n+'/'+xs.length+(next?', 다음 '+next.title:', 다 읽음');}}
  const units=PARTS.unitsFor(s),partsBtn=$('#openParts');partsBtn.hidden=!units.length;
  if(units.length){const byId=new Map(cards.map(c=>[c.id,c])),weak=units.reduce((n,u)=>n+u.parts.filter(p=>partStats(p,byId).weak).length,0);$('#partsHint').textContent=units.length+'개 단원, '+units.reduce((n,u)=>n+u.parts.length,0)+'파트: 외움, 복습 판정, 안 푼 문제'+(weak?' (약한 파트 '+weak+'개)':'');}
  const last=lastScope(s),open=sameScope(scopeOf(),last)&&(data.activePractice||data.quizFeedback);
@@ -1342,7 +1344,7 @@ function basicsExample(x){const p=elem('p',undefined,'b-ex'+(x.ok?'':' bad'));p.
 // 한국사 상자(split:'lines', 파트마다 하나, 표가 여럿): 해설 화면에서는 이 문제의 대입이 쓰는 줄(용어, 표의 줄, 규칙, 비교 예문)만
 // 제자리에 두고, 나머지는 닫힌 '이 정리의 나머지 더 보기' 하나에 같은 순서로 모은다. 대입이 표 id를 쓰면 그 표 전체, 줄 id를 쓰면 그 줄만.
 // 제자리에 둘 줄이 없는 절은 제목도 두지 않고 번호를 당긴다. 파트 모아 보기에서는 모두 펼친다(basicsSections의 다른 모드).
-function basicsLineSections(box,apply){
+function basicsLineSections(box,apply,partId){
  const out=[];let n=0;const head=t=>out.push(elem('h4',(++n)+'. '+t,'b-h')),use=new Set((apply.use||[]).map(u=>String(u).split(':').pop()));
  const split=xs=>[xs.filter(x=>use.has(x.id)),xs.filter(x=>!use.has(x.id))];
  const [inT,restT]=split(box.terms),[inR,restR]=split(box.rules.items),[inX,restX]=split(box.examples);
@@ -1353,7 +1355,10 @@ function basicsLineSections(box,apply){
  if(inR.length){head('규칙'+(box.rules.title?' — '+box.rules.title:''));out.push(...basicsRuleList(inR));}
  if(inX.length){head('비교 예문');for(const x of inX)out.push(basicsExample(x));}
  const restRows=tables.reduce((s,x)=>s+x.rest.length,0),parts=[restT.length&&'말 '+restT.length,restRows&&'표 '+restRows+'줄',restR.length&&'규칙 '+restR.length,restX.length&&'예문 '+restX.length].filter(Boolean);
- if(parts.length){const d=elem('details',undefined,'b-more b-rest');d.append(elem('summary','이 정리의 나머지 더 보기 — '+parts.join(', ')));
+ const cx=parts.length?conceptFor(box,use,partId):null;
+ // 기초 개념 공부를 켠 과목(v380): 장 전체(약 2만 자)인 '나머지 더 보기' 대신 이 문제가 든 파트의 기초 개념 화면으로 가는 단추 하나.
+ if(cx){const b=btn('이 파트 기초 개념 모두 보기: '+cx.title+' →',()=>{basicsPart=cx.id;go('basics',cx.unit.subject);},'secondary concept-open');b.type='button';out.push(b);}
+ else if(parts.length){const d=elem('details',undefined,'b-more b-rest');d.append(elem('summary','이 정리의 나머지 더 보기 — '+parts.join(', ')));
   if(restT.length){d.append(elem('h4','먼저 알아 둘 말','b-subh'));for(const t of restT)d.append(...basicsTerm(t));}
   for(const {t,rest} of tables)if(rest.length){d.append(elem('h4',t.title,'b-subh'),sub(t,rest));if(t.key&&!(use.has(t.id)||use.has(t.key.id)))d.append(basicsLines(t.key.text,'b-key'));}
   if(restR.length){d.append(elem('h4','규칙'+(box.rules.title?' — '+box.rules.title:''),'b-subh'));d.append(...basicsRuleList(restR));}
@@ -1389,7 +1394,7 @@ function basicsMemoSections(box,apply,head,out){
 }
 // mode: 'fold' = 공통 줄을 끝에 접어 둠, 'skip' = seen에 든(앞 상자에서 보인) 줄을 빼고 한 줄 안내 / 그 밖 = 모두 제자리에
 function basicsSections(box,apply,mode,seen,partId){
- if(mode==='fold'&&box.split==='lines'&&apply)return basicsLineSections(box,apply);
+ if(mode==='fold'&&box.split==='lines'&&apply)return basicsLineSections(box,apply,partId);
  const out=[];let n=0;const head=t=>out.push(elem('h4',(++n)+'. '+t,'b-h')),rule=Content.ruleOfBox(box);
  const moved=x=>mode==='fold'?basicsShared(x,rule,partId):mode==='skip'&&!!seen&&seen.has(JSON.stringify(x)),terms=box.terms.filter(t=>!moved(t)),rules=box.rules.items.filter(r=>!moved(r)),table=box.table&&!moved(box.table)?box.table:null;
  const sharedTerms=box.terms.filter(moved),sharedRules=box.rules.items.filter(moved),sharedTable=box.table&&moved(box.table)?box.table:null;
@@ -1429,11 +1434,73 @@ function basicsSections(box,apply,mode,seen,partId){
 }
 function basicsDetails(summary,box,apply,mode,seen,partId){const d=elem('details',undefined,'lesson basics');d.append(elem('summary',summary),...basicsSections(box,apply,mode,seen,partId));return d;}
 function partBasics(p){return [...new Set(p.ids.map(basicsRuleFor).filter(r=>r&&Content.hasBox(r)))];}
+// 기초 개념 공부(v380, 사용자 2026-10-18 "기본개념만 따로 한번 보는게 시간 아낄거 같아서"): 과목 화면 → 단원별 파트 목록 → 파트 하나씩 읽기.
+// 정보보호론, 컴퓨터일반 단원 상자는 장마다 하나라 파트로 나눈다: concept-map.js(research/concept-parts-20261018)가 상자 줄마다 임자 파트를 정해 둔다
+// (그 파트 문제의 대입이 쓰는 줄은 처음 쓰는 파트, 안 쓰는 줄은 내용으로 배정, 단원 개관은 intro, 맞는 파트가 없으면 단원 끝 '그 밖의 개념').
+// 읽음 표시는 외울 것 확인 표시와 같은 저장 칸(memorizeShown, 기기끼리 맞춤)에 'concept:<파트>' 열쇠로 둔다. 과목은 차례로 켠다(사용자 "순차적으로").
+const CONCEPT_SUBJECTS=new Set(['정보보호론']);
+const conceptUnitMap=id=>globalThis.CONCEPT_MAP?.units?.[id]||null;
+const CONCEPT_KEY='concept:';
+function conceptUnits(subject){return CONCEPT_SUBJECTS.has(subject)?PARTS.unitsFor(subject).filter(u=>conceptUnitMap(u.id)):[];}
+// 읽는 차례: 단원마다 파트들, 그 단원에 남은 줄이 있으면 끝에 '그 밖의 개념'(id 'rest:<단원>').
+function conceptItems(subject){const out=[];for(const u of conceptUnits(subject)){const m=conceptUnitMap(u.id);for(const p of u.parts)out.push({id:p.id,title:p.title,unit:u,part:p});if(m.rest?.length)out.push({id:'rest:'+u.id,title:'그 밖의 개념',unit:u,part:null});}return out;}
+function conceptItem(id){if(typeof id!=='string')return null;const u=id.startsWith('rest:')?PARTS.units.find(x=>x.id===id.slice(5)):PARTS.unitOf(id);if(!u||!CONCEPT_SUBJECTS.has(u.subject)||!conceptUnitMap(u.id))return null;return conceptItems(u.subject).find(x=>x.id===id)||null;}
+const conceptRead=id=>memorizeShown.has(CONCEPT_KEY+id);
+function conceptMark(id,on){const k=CONCEPT_KEY+id;if(on===memorizeShown.has(k))return;if(on)memorizeShown.add(k);else memorizeShown.delete(k);memorizeSave();}
+// 해설 화면의 상자가 가리킬 파트: 이 문제가 든 파트가 그 상자의 파트면 그 파트, 아니면(기출) 대입이 쓰는 줄을 가장 많이 가진 파트.
+function conceptFor(box,use,partId){const rule=Content.ruleOfBox(box);if(!rule)return null;const own=conceptItem(partId);if(own&&conceptUnitMap(own.unit.id).box===rule)return own;
+ const u=PARTS.units.find(x=>CONCEPT_SUBJECTS.has(x.subject)&&conceptUnitMap(x.id)?.box===rule);if(!u)return null;const m=conceptUnitMap(u.id),U=new Set(use);for(const t of box.tables||[])if(U.has(t.id))(t.rowIds||[]).forEach(r=>U.add(r));let best=u.parts[0],n=-1;
+ for(const p of u.parts){const k=(m.parts?.[p.id]?.own||[]).filter(id=>U.has(id)).length;if(k>n){n=k;best=p;}}return conceptItem(best.id);}
+function conceptNext(subject){const xs=conceptItems(subject);return xs.find(x=>!conceptRead(x.id))||null;}
+function renderConcepts(){
+ const s=viewSubject,body=$('#conceptsBody'),xs=conceptItems(s);$('#conceptsTitle').textContent=s+' 기초 개념 공부';body.replaceChildren();
+ if(!xs.length){body.append(elem('p','이 과목은 아직 기초 개념 공부가 없어요.','status'));return;}
+ const read=xs.filter(x=>conceptRead(x.id)).length,next=conceptNext(s);
+ body.append(elem('p','파트마다 그 파트에서 쓰는 말, 표, 규칙만 모았어요. 다 읽고 다음 파트로 넘기면 읽음으로 표시돼요. 읽음 '+read+'/'+xs.length+'.','status'));
+ if(next)body.append(menuItem(read?'이어 읽기':'처음부터 읽기',next.unit.short+': '+next.title,()=>openBasics(next.id),'menu-item primary concept-next'));
+ const openUnit=(next||xs[xs.length-1]).unit.id;
+ for(const u of conceptUnits(s)){const items=xs.filter(x=>x.unit===u),n=items.filter(x=>conceptRead(x.id)).length;
+  const fold=elem('details',undefined,'range-fold concept-unit'),g=elem('div',undefined,'menu-list');fold.open=u.id===openUnit;fold.dataset.unit=u.id;
+  fold.append(elem('summary',u.short+': 읽음 '+n+'/'+items.length,'range-heading'),g);
+  for(const x of items){const done=conceptRead(x.id),item=menuItem((done?'✓ ':'')+x.title,done?'읽음':'',()=>openBasics(x.id),'menu-item concept-item'+(done?' is-read':''));item.dataset.concept=x.id;g.append(item);}
+  body.append(fold);}
+}
+// 상자의 줄 가운데 ids에 든 것만 상자 차례대로 그린다(용어, 표마다 그 줄과 열쇠, 규칙, 비교 예문). 절 번호는 이어서 센다.
+function basicsPick(box,ids,out,head){
+ const has=x=>ids.has(x.id),T=box.terms.filter(has),R=box.rules.items.filter(has),X=box.examples.filter(has);
+ if(T.length){head('먼저 알아 둘 말');for(const t of T)out.push(...basicsTerm(t));}
+ for(const t of box.tables||[]){const rows=t.rows.filter((r,i)=>ids.has(t.rowIds?.[i])),keyIn=!!t.key&&ids.has(t.key.id);
+  if(rows.length||keyIn){head(t.title);if(rows.length)out.push(basicsHistTable({...t,rows}));if(keyIn)out.push(basicsLines(t.key.text,'b-key'));}}
+ if(R.length){head('규칙'+(box.rules.title?' — '+box.rules.title:''));out.push(...basicsRuleList(R));}
+ if(X.length){head('비교 예문');for(const x of X)out.push(basicsExample(x));}
+ return T.length+R.length+X.length+(box.tables||[]).reduce((n,t)=>n+t.rows.filter((r,i)=>ids.has(t.rowIds?.[i])).length+(t.key&&ids.has(t.key.id)?1:0),0);
+}
+function conceptSection(title,box,ids,cls){const d=elem('details',undefined,'lesson basics'+(cls?' '+cls:''));d.append(elem('summary',title));let n=0;const out=[];basicsPick(box,ids,out,t=>out.push(elem('h4',(++n)+'. '+t,'b-h')));d.append(...out);return {d,n:out.length};}
+function renderConceptPart(x,body){
+ const u=x.unit,m=conceptUnitMap(u.id),box=BASICS.box(m.box),xs=conceptItems(u.subject),i=xs.findIndex(y=>y.id===x.id),inUnit=xs.filter(y=>y.unit===u);
+ $('#basicsTitle').textContent='기초 개념: '+x.title;
+ body.append(elem('p',u.short+' — '+(inUnit.findIndex(y=>y.id===x.id)+1)+'/'+inUnit.length+(conceptRead(x.id)?', 읽음':''),'status'));
+ if(x.part&&u.parts[0]===x.part&&m.intro?.length){const s=conceptSection('이 장 들어가기',box,new Set(m.intro),'concept-intro');s.d.open=true;body.append(s.d);}
+ const own=x.part?m.parts?.[x.id]?.own||[]:m.rest||[],also=x.part?m.parts?.[x.id]?.also||[]:[];
+ const main=conceptSection(x.title,box,new Set(own));main.d.open=true;main.d.dataset.rule=m.box;
+ if(!main.n)main.d.append(elem('p','이 파트만의 새 개념은 없어요. 아래 앞 파트에서 본 개념을 다시 확인해요.','status'));
+ body.append(main.d);
+ if(also.length){const s=conceptSection('앞 파트에서 본 개념 '+also.length+'줄 다시 보기',box,new Set(also),'b-more concept-also');body.append(s.d);}
+ const nav=elem('div',undefined,'concept-nav'),prev=xs[i-1],next=xs[i+1];
+ const to=y=>{basicsPart=y.id;go('basics',u.subject,true);};
+ if(prev)nav.append(btn('← 이전: '+prev.title,()=>to(prev),'secondary concept-prev'));
+ nav.append(next?btn('다 읽음, 다음: '+next.title+' →',()=>{conceptMark(x.id,true);to(next);},'primary concept-done'):btn('다 읽음, 목록으로',()=>{conceptMark(x.id,true);go('concepts',u.subject,true);},'primary concept-done'));
+ if(conceptRead(x.id))nav.append(btn('읽음 표시 지우기',()=>{conceptMark(x.id,false);render();},'secondary concept-unread'));
+ body.append(nav);
+ if(x.part)body.append(btn('이 파트 문제 풀기',()=>openScope({subject:u.subject,topic:'',round:'part-'+x.id}),'basics-solve'));
+}
 // 파트 하나의 기초 개념만 모은 화면(시험 직전 외우기용). 뒤로 가면 파트별 상태로 돌아가고, 아래에서 그 파트를 바로 풀 수 있다.
 let basicsPart='';
 function openBasics(partId){basicsPart=partId;go('basics',viewSubject);}
 function renderBasics(){
- const p=PARTS.part(basicsPart),body=$('#basicsBody');body.replaceChildren();
+ const body=$('#basicsBody');body.replaceChildren();
+ {const x=conceptItem(basicsPart);if(x){const m=conceptUnitMap(x.unit.id),names=Content.needBoxes([m.box]);if(!Content.ready(names)){$('#basicsTitle').textContent='기초 개념: '+x.title;renderContentLoad(body,'',names,null);return;}renderConceptPart(x,body);return;}}
+ const p=PARTS.part(basicsPart);
  if(!p){$('#basicsTitle').textContent='기초 개념';body.append(elem('p','파트를 찾지 못했어요. 뒤로 가서 파트를 다시 골라 주세요.','status'));return;}
  const rules=partBasics(p),u=PARTS.unitOf(p.id);$('#basicsTitle').textContent='기초 개념: '+p.title;
  {const names=Content.needBoxes(rules);if(!Content.ready(names)){renderContentLoad(body,'',names,null);return;}}
@@ -1549,6 +1616,7 @@ $('#chooseRange').onclick=()=>go('range');
 $('#openProgress').onclick=()=>go('progress');
 $('#openMemorize').onclick=()=>go('memorize',MEMO_SCOPE+viewSubject);
 $('#openParts').onclick=()=>go('parts');
+$('#openConcepts').onclick=()=>go('concepts');
 for(const b of document.querySelectorAll('[data-back]'))b.onclick=goBack;
 $('#quizBack').onclick=goBack;
 $('#studyTimeMore').onclick=()=>{creditHistoryLimit+=30;renderStudyCredit();};
@@ -1566,7 +1634,7 @@ $('#targetSave').onclick=()=>{const t={name:$('#targetName').value.trim(),cutoff
 $('#targetReset').onclick=()=>saveTarget(null);
 // 새 버전으로 스스로 다시 연 직후면 보던 화면으로 돌아간다.
 {let r=null;try{r=JSON.parse(sessionStorage.getItem(RESUME)||'null');sessionStorage.removeItem(RESUME);}catch{}
- if(r&&VIEWS.includes(r.view)&&r.view!=='home'&&Date.now()-r.at<120000){view=r.view;viewSubject=typeof r.subject==='string'?r.subject:'';if(view==='basics'){if(typeof r.part==='string'&&PARTS.part(r.part))basicsPart=r.part;else view='parts';}
+ if(r&&VIEWS.includes(r.view)&&r.view!=='home'&&Date.now()-r.at<120000){view=r.view;viewSubject=typeof r.subject==='string'?r.subject:'';if(view==='basics'){if(typeof r.part==='string'&&(PARTS.part(r.part)||conceptItem(r.part)))basicsPart=r.part;else view='parts';}
   try{history.pushState({view,subject:viewSubject,depth:1,...(view==='basics'?{part:basicsPart}:{})},'');}catch{}if(view==='quiz')sessionDirty=true;}}
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)render();});render();
 setInterval(()=>{if(view==='quiz'&&!document.hidden&&!$('#card .question')&&reviewQueue(data.cards.filter(inCurrent),rangedScope(scopeOf()),scopeOf().subject).ready.length)render();},15000);

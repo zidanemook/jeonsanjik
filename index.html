@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111318">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="style.css?v=347">
+  <link rel="stylesheet" href="style.css?v=348">
   <title>차곡 — 문제 복습</title>
 </head>
 <body>
@@ -46,6 +46,7 @@
       <div class="menu-list">
         <button id="resumeStudy" type="button" class="menu-item primary"><strong>이어하기</strong><span id="resumeHint"></span></button>
         <button id="chooseRange" type="button" class="menu-item"><strong>연습 범위 선택</strong><span>주제를 고르면 첫 번째 문제부터 풀어요</span></button>
+        <button id="openConcepts" type="button" class="menu-item secondary" hidden><strong>기초 개념 공부</strong><span id="conceptsHint"></span></button>
         <button id="openParts" type="button" class="menu-item secondary" hidden><strong>파트별 상태</strong><span id="partsHint"></span></button>
         <button id="openMemorize" type="button" class="menu-item secondary" hidden><strong>외울 것</strong><span id="memorizeHint"></span></button>
       </div>
@@ -74,6 +75,11 @@
       <button type="button" class="back" data-back>← 뒤로</button>
       <h2 id="partsTitle">파트별 상태</h2>
       <div id="partsBody"></div>
+    </section>
+    <section id="conceptsView" aria-labelledby="conceptsTitle" hidden>
+      <button type="button" class="back" data-back>← 뒤로</button>
+      <h2 id="conceptsTitle">기초 개념 공부</h2>
+      <div id="conceptsBody"></div>
     </section>
     <section id="basicsView" aria-labelledby="basicsTitle" hidden>
       <button type="button" class="back" data-back>← 뒤로</button>
@@ -126,32 +132,33 @@
     <footer id="siteFooter">자체 제작 복습 문제, 인사혁신처 공개 9급 기출, 국사편찬위원회 공개 한능검 심화 기출</footer>
     <p id="appVersion" class="app-version" aria-label="앱 버전"></p>
   </main>
-  <script src="version.js?v=347"></script>
-  <script src="update.js?v=347"></script>
-  <script src="storage.js?v=347"></script>
-  <script src="scheduler.js?v=347"></script>
-  <script src="learning.js?v=347"></script>
-  <script src="content-index.js?v=347"></script>
-  <script src="hanneung-data.js?v=347"></script>
-  <script src="hanneung.js?v=347"></script>
-  <script src="gichul-index.js?v=347"></script>
-  <script src="gichul.js?v=347"></script>
-  <script src="practice.js?v=347"></script>
-  <script src="content-corrections.js?v=347"></script>
-  <script src="review-record.js?v=347"></script>
-  <script src="review-policy.js?v=347"></script>
-  <script src="sync-core.js?v=347"></script>
-  <script src="study-credit.js?v=347"></script>
-  <script src="xp.js?v=347"></script>
-  <script src="score.js?v=347"></script>
-  <script src="hanneung-topics.js?v=347"></script>
-  <script src="topics.js?v=347"></script>
-  <script src="parts.js?v=347"></script>
-  <script src="part-check.js?v=347"></script>
-  <script src="core-units.js?v=347"></script>
-  <script src="content-store.js?v=347"></script>
-  <script src="app.js?v=347"></script>
-  <script src="firebase-config.js?v=347"></script>
-  <script src="sync.js?v=347"></script>
+  <script src="version.js?v=348"></script>
+  <script src="update.js?v=348"></script>
+  <script src="storage.js?v=348"></script>
+  <script src="scheduler.js?v=348"></script>
+  <script src="learning.js?v=348"></script>
+  <script src="content-index.js?v=348"></script>
+  <script src="hanneung-data.js?v=348"></script>
+  <script src="hanneung.js?v=348"></script>
+  <script src="gichul-index.js?v=348"></script>
+  <script src="gichul.js?v=348"></script>
+  <script src="practice.js?v=348"></script>
+  <script src="content-corrections.js?v=348"></script>
+  <script src="review-record.js?v=348"></script>
+  <script src="review-policy.js?v=348"></script>
+  <script src="sync-core.js?v=348"></script>
+  <script src="study-credit.js?v=348"></script>
+  <script src="xp.js?v=348"></script>
+  <script src="score.js?v=348"></script>
+  <script src="hanneung-topics.js?v=348"></script>
+  <script src="topics.js?v=348"></script>
+  <script src="parts.js?v=348"></script>
+  <script src="concept-map.js?v=348"></script>
+  <script src="part-check.js?v=348"></script>
+  <script src="core-units.js?v=348"></script>
+  <script src="content-store.js?v=348"></script>
+  <script src="app.js?v=348"></script>
+  <script src="firebase-config.js?v=348"></script>
+  <script src="sync.js?v=348"></script>
 </body>
 </html>

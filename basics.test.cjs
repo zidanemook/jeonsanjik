@@ -260,7 +260,7 @@ function el(tag='div'){
   get all(){const out=[];(function walk(n){for(const c of n.children){out.push(c);walk(c);}})(node);return out;}};
  return node;
 }
-const FILES=['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','part-check.js','memorize.js','basics.js','core-units.js','content-store.js','app.js'];
+const FILES=['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','concept-map.js','part-check.js','memorize.js','basics.js','core-units.js','content-store.js','app.js'];
 const nodes=new Map(),store=new Map();
 const doc={createElement:tag=>el(tag),createTextNode(t){const n=el('#text');n._text=String(t);return n;},body:el('body'),activeElement:null,
  querySelector(sel){if(!nodes.has(sel))nodes.set(sel,el(sel));return nodes.get(sel);},querySelectorAll(){return [];},addEventListener(){}};
@@ -346,8 +346,8 @@ const memoHeads=box=>[...(box.memorize?.length?['외울 것']:[]),...(box.mnemon
   return {terms:xs.filter(c=>c.className==='b-term').length,rules:xs.filter(c=>c.className==='b-rule').length,ex:xs.filter(c=>c.tag==='p'&&String(c.className).startsWith('b-ex')&&c.children[0]?.tag==='span').length,rows:xs.filter(c=>c.tag==='table').reduce((s,t)=>s+t.children.filter(c=>c.className!=='b-photo').length-1,0)};};
  const heads=d=>{const h=[];walk(d,c=>{if(c.className==='b-h')h.push(c._text);});return h;};
  for(const id of ${JSON.stringify([...history,...itQuestions,...comq,...secq])}){const a=BASICS.forQuestion(id),box=BASICS.box(a.box),all=basicsDetails('기초 개념',box,a),fold=basicsDetails('기초 개념',box,a,'fold',null,PARTS.partOf(id));
-  const more=fold.children.filter(c=>String(c.className).split(' ').includes('b-rest'));
-  out.push({id,heads:heads(all),fheads:heads(fold),all:count(all),top:count(fold,true),inMore:more[0]?count(more[0]):{terms:0,rules:0,ex:0,rows:0},more:more.length,moreOpen:more[0]?more[0].open:false,moreSummary:more[0]?.children[0]._text||''});}
+  const more=fold.children.filter(c=>String(c.className).split(' ').includes('b-rest')),go=fold.children.filter(c=>String(c.className).split(' ').includes('concept-open'));
+  out.push({id,heads:heads(all),fheads:heads(fold),all:count(all),top:count(fold,true),inMore:more[0]?count(more[0]):{terms:0,rules:0,ex:0,rows:0},more:more.length,go:go.length,goText:go[0]?._text||'',moreOpen:more[0]?more[0].open:false,moreSummary:more[0]?.children[0]._text||''});}
  return out;})()`);
  for(const r of res){const a=B.forQuestion(r.id),box=B.box(a.box),use=new Set(a.use),num=xs=>xs.map((t,i)=>(i+1)+'. '+t);
   const rowsOf=t=>use.has(t.id)?t.rows.length:t.rowIds.filter(x=>use.has(x)).length;
@@ -357,9 +357,11 @@ const memoHeads=box=>[...(box.memorize?.length?['외울 것']:[]),...(box.mnemon
   eqJ(r.all,total,'모두 보기는 줄 전부: '+r.id);
   eqJ(r.fheads,num([...(want.terms?['먼저 알아 둘 말']:[]),...box.tables.filter(t=>rowsOf(t)||(t.key&&use.has(t.key.id))).map(t=>t.title),...(want.rules?['규칙'+(box.rules.title?' — '+box.rules.title:'')]:[]),...(want.ex?['비교 예문']:[]),'이 문제에 대입',...memoHeads(box)]),'해설 화면 절 = 제자리에 둔 줄이 있는 절만, 번호 이어 매김: '+r.id);
   eqJ(r.top,want,'제자리 = 대입이 쓰는 줄: '+r.id);
-  for(const k of Object.keys(total))assert.equal(r.top[k]+r.inMore[k],total[k],'줄이 빠지거나 겹치지 않는다('+k+'): '+r.id);
   const rest=Object.keys(total).some(k=>total[k]>want[k]);
-  assert.equal(r.more,rest?1:0,'나머지 모음 하나: '+r.id);if(rest){hSplit++;assert.equal(r.moreOpen,false,'나머지 모음은 닫혀 있다: '+r.id);assert.match(r.moreSummary,/^이 정리의 나머지 더 보기 — /,'모음 제목: '+r.id);}
+  // v380: 기초 개념 공부를 켠 과목(정보보호론 상자 sec-)은 나머지 모음 대신 그 파트 기초 개념 단추 하나(나머지 줄은 파트 화면에서 본다).
+  if(a.box.startsWith('sec-')){assert.equal(r.more,0,'정보보호론 나머지 모음 없음: '+r.id);assert.equal(r.go,rest?1:0,'파트 기초 개념 단추: '+r.id);if(rest)assert.match(r.goText,/^이 파트 기초 개념 모두 보기: /,'단추 글: '+r.id);}
+  else{for(const k of Object.keys(total))assert.equal(r.top[k]+r.inMore[k],total[k],'줄이 빠지거나 겹치지 않는다('+k+'): '+r.id);
+  assert.equal(r.more,rest?1:0,'나머지 모음 하나: '+r.id);}if(rest&&!a.box.startsWith('sec-')){hSplit++;assert.equal(r.moreOpen,false,'나머지 모음은 닫혀 있다: '+r.id);assert.match(r.moreSummary,/^이 정리의 나머지 더 보기 — /,'모음 제목: '+r.id);}
   hTopLines+=want.terms+want.rules+want.ex+want.rows;hAllLines+=total.terms+total.rules+total.ex+total.rows;}
  assert.ok(hSplit>200,'한국사 상자는 해설 화면에서 거의 다 접힌다: '+hSplit);}
 // 5-1-6) 한국사 표만(v162): 표에 b-hist, 첫 칸이 6자까지면 b-nowrap(한 줄), 둘째 칸부터 20자 넘으면 b-long(왼쪽 맞춤). 다른 과목 표에는 붙이지 않는다.

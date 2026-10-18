@@ -70,7 +70,7 @@ const chunks=new Map(names.map(n=>[n,JSON.parse(read('chunks/'+n+'.json'))]));
  for(const [n,c]of chunks)for(const [rule,box]of Object.entries(c.boxes||{}))for(const x of box.mnemonics||[]){const b=mnemonics.get(x.id);if(b)same(J(c.mnemonics?.[x.id]),J(b),'암기법 블록은 그 상자와 같은 조각에: '+n+' '+x.id);}
  globalThis.__shared={checked,sharedCount};}
 // ---------------------------------------------------------------- 가짜 DOM에서 앱 돌리기(app.test.cjs와 같은 틀)
-const FULL=['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','part-check.js','memorize.js','basics.js','core-units.js','content-store.js','app.js'];
+const FULL=['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','concept-map.js','part-check.js','memorize.js','basics.js','core-units.js','content-store.js','app.js'];
 const html=read('index.html'),LAZY=[...html.matchAll(/<script src="([^"?]+)\?v=\d+"><\/script>/g)].map(m=>m[1]).filter(f=>f!=='firebase-config.js'&&f!=='sync.js');
 const text=new Map();const source=f=>{if(!text.has(f))text.set(f,read(f));return text.get(f);};
 const flush=()=>new Promise(r=>setImmediate(r));

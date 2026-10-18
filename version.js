@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v379-keep-folds';
+globalThis.APP_BUILD='chagog-v380-concepts-security';

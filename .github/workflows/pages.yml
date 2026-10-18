@@ -37,7 +37,7 @@ jobs:
           STUDY_FIREBASE_CONFIG: ${{ secrets.STUDY_FIREBASE_CONFIG }}
         run: |
           mkdir _site
-          cp version.js update.js storage.js content-index.js content-store.js chunk-manifest.json xp.js score.js parts.js part-check.js core-units.js hanneung-topics.js topics.js study-credit.js index.html app.js practice.js content-corrections.js review-record.js review-policy.js sync-core.js sync.js scheduler.js learning.js style.css sw.js manifest.json icon.svg _site/
+          cp version.js update.js storage.js content-index.js content-store.js chunk-manifest.json xp.js score.js parts.js concept-map.js part-check.js core-units.js hanneung-topics.js topics.js study-credit.js index.html app.js practice.js content-corrections.js review-record.js review-policy.js sync-core.js sync.js scheduler.js learning.js style.css sw.js manifest.json icon.svg _site/
           cp -r chunks _site/
           cp -r vendor _site/
           cp hanneung-data.js hanneung.js _site/
