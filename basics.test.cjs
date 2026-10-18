@@ -358,10 +358,10 @@ const memoHeads=box=>[...(box.memorize?.length?['외울 것']:[]),...(box.mnemon
   eqJ(r.fheads,num([...(want.terms?['먼저 알아 둘 말']:[]),...box.tables.filter(t=>rowsOf(t)||(t.key&&use.has(t.key.id))).map(t=>t.title),...(want.rules?['규칙'+(box.rules.title?' — '+box.rules.title:'')]:[]),...(want.ex?['비교 예문']:[]),'이 문제에 대입',...memoHeads(box)]),'해설 화면 절 = 제자리에 둔 줄이 있는 절만, 번호 이어 매김: '+r.id);
   eqJ(r.top,want,'제자리 = 대입이 쓰는 줄: '+r.id);
   const rest=Object.keys(total).some(k=>total[k]>want[k]);
-  // v380: 기초 개념 공부를 켠 과목(정보보호론 상자 sec-)은 나머지 모음 대신 그 파트 기초 개념 단추 하나(나머지 줄은 파트 화면에서 본다).
-  if(a.box.startsWith('sec-')){assert.equal(r.more,0,'정보보호론 나머지 모음 없음: '+r.id);assert.equal(r.go,rest?1:0,'파트 기초 개념 단추: '+r.id);if(rest)assert.match(r.goText,/^이 파트 기초 개념 모두 보기: /,'단추 글: '+r.id);}
+  // v380~: 기초 개념 공부를 켠 과목(정보보호론 상자 sec-, v381 컴퓨터일반 상자 com-)은 나머지 모음 대신 그 파트 기초 개념 단추 하나(나머지 줄은 파트 화면에서 본다).
+  if(/^(sec|com)-/.test(a.box)){assert.equal(r.more,0,'전공 나머지 모음 없음: '+r.id);assert.equal(r.go,rest?1:0,'파트 기초 개념 단추: '+r.id);if(rest)assert.match(r.goText,/^이 파트 기초 개념 모두 보기: /,'단추 글: '+r.id);}
   else{for(const k of Object.keys(total))assert.equal(r.top[k]+r.inMore[k],total[k],'줄이 빠지거나 겹치지 않는다('+k+'): '+r.id);
-  assert.equal(r.more,rest?1:0,'나머지 모음 하나: '+r.id);}if(rest&&!a.box.startsWith('sec-')){hSplit++;assert.equal(r.moreOpen,false,'나머지 모음은 닫혀 있다: '+r.id);assert.match(r.moreSummary,/^이 정리의 나머지 더 보기 — /,'모음 제목: '+r.id);}
+  assert.equal(r.more,rest?1:0,'나머지 모음 하나: '+r.id);}if(rest&&!/^(sec|com)-/.test(a.box)){hSplit++;assert.equal(r.moreOpen,false,'나머지 모음은 닫혀 있다: '+r.id);assert.match(r.moreSummary,/^이 정리의 나머지 더 보기 — /,'모음 제목: '+r.id);}
   hTopLines+=want.terms+want.rules+want.ex+want.rows;hAllLines+=total.terms+total.rules+total.ex+total.rows;}
  assert.ok(hSplit>200,'한국사 상자는 해설 화면에서 거의 다 접힌다: '+hSplit);}
 // 5-1-6) 한국사 표만(v162): 표에 b-hist, 첫 칸이 6자까지면 b-nowrap(한 줄), 둘째 칸부터 20자 넘으면 b-long(왼쪽 맞춤). 다른 과목 표에는 붙이지 않는다.

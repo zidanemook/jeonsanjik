@@ -243,8 +243,8 @@ for(const [SUBJ,PRE] of [['정보보호론','sec'],['컴퓨터일반','com']]){c
    const hs=b.all.filter(n=>n.className==='b-h').map(n=>n._text);hs.forEach((h,k)=>assert.ok(h.startsWith((k+1)+'. '),'번호가 이어진다: '+hs.join(' / ')));
    assert.ok(applyLast(hs),'마지막 절은 이 문제에 대입');
    const rest=b.children.filter(n=>String(n.className||'').split(' ').includes('b-rest'));
-   // v380: 기초 개념 공부를 켠 과목(정보보호론)은 장 전체 '나머지 모음' 대신 그 파트 기초 개념으로 가는 단추 하나.
-   if(SUBJ==='정보보호론'){assert.equal(rest.length,0,SUBJ+' 나머지 모음 없음');const go=b.children.filter(n=>String(n.className||'').split(' ').includes('concept-open'));assert.equal(go.length,1,SUBJ+' 파트 기초 개념 단추 하나');assert.match(go[0]._text||go[0].children.map(c=>c._text||'').join(''),/^이 파트 기초 개념 모두 보기: /);}
+   // v380~: 기초 개념 공부를 켠 과목(정보보호론, v381 컴퓨터일반)은 장 전체 '나머지 모음' 대신 그 파트 기초 개념으로 가는 단추 하나.
+   if(SUBJ==='정보보호론'||SUBJ==='컴퓨터일반'){assert.equal(rest.length,0,SUBJ+' 나머지 모음 없음');const go=b.children.filter(n=>String(n.className||'').split(' ').includes('concept-open'));assert.equal(go.length,1,SUBJ+' 파트 기초 개념 단추 하나');assert.match(go[0]._text||go[0].children.map(c=>c._text||'').join(''),/^이 파트 기초 개념 모두 보기: /);}
    else{assert.equal(rest.length,1,'나머지 모음 하나');assert.equal(rest[0].open,false);}
    assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드|천공 ?카드|그래픽 ?카드|인터페이스 ?카드|확장 ?카드|메모리 ?카드|LAN ?카드|사운드 ?카드|비디오 ?카드/g,'')),SUBJ+' 해설 화면에 문항/카드/변형 없음');
    next();}}}

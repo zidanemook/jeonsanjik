@@ -1438,7 +1438,7 @@ function partBasics(p){return [...new Set(p.ids.map(basicsRuleFor).filter(r=>r&&
 // 정보보호론, 컴퓨터일반 단원 상자는 장마다 하나라 파트로 나눈다: concept-map.js(research/concept-parts-20261018)가 상자 줄마다 임자 파트를 정해 둔다
 // (그 파트 문제의 대입이 쓰는 줄은 처음 쓰는 파트, 안 쓰는 줄은 내용으로 배정, 단원 개관은 intro, 맞는 파트가 없으면 단원 끝 '그 밖의 개념').
 // 읽음 표시는 외울 것 확인 표시와 같은 저장 칸(memorizeShown, 기기끼리 맞춤)에 'concept:<파트>' 열쇠로 둔다. 과목은 차례로 켠다(사용자 "순차적으로").
-const CONCEPT_SUBJECTS=new Set(['정보보호론']);
+const CONCEPT_SUBJECTS=new Set(['정보보호론','컴퓨터일반']);
 const conceptUnitMap=id=>globalThis.CONCEPT_MAP?.units?.[id]||null;
 const CONCEPT_KEY='concept:';
 function conceptUnits(subject){return CONCEPT_SUBJECTS.has(subject)?PARTS.unitsFor(subject).filter(u=>conceptUnitMap(u.id)):[];}
