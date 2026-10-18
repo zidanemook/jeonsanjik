@@ -180,9 +180,11 @@ function lectureCores(){if(!coreMaps){const byId=new Map(),core=new Map(),foldab
  coreMaps={byId,core,foldable};}return coreMaps;}
 function openLectureSet(){const o=data.openLectures;if(!openCache||openCache.src!==o)openCache={src:o,set:new Set(openLectureKeys(o))};return openCache.set;}
 // 핵심 밖 문제면 그 문제를 펴는 열쇠들(첫째 = 강, 단원 id), 핵심이거나 접는 단원 밖이면 null.
-function foldKeys(id){const m=lectureCores(),l=m.byId.get(id);if(!l||m.core.get(l).has(id))return null;const f=Content.lesson(id)?.formula;return f?[l,'formula:'+f]:[l];}
+// v386: 접기를 끄면서 '더 풀기' 단추와 수도 함께 사라진다(접힌 문제가 없다).
+function foldKeys(id){return null;}
 // 접힌 문제면 그 강, 단원 id, 아니면 null.
-function foldedLecture(id){const k=foldKeys(id);if(!k)return null;const o=openLectureSet();return k.some(x=>o.has(x))?null:k[0];}
+// v386(사용자 2026-10-18 "기본적으로 문제는 항상 전부 보여지게"): 핵심 20 접기를 끈다. 핵심 표시(core-units, 카탈로그 core)는 남아 있지만 접지 않는다.
+function foldedLecture(id){return null;}
 function coreSize(lecture){return lectureCores().core.get(lecture)?.size||0;}
 function hasFold(lecture){return lectureCores().foldable.has(lecture);}
 // 열쇠의 종류: 'lecture'(한국사 강), 'unit'(영어, 국어 단원), 'formula'(영어 문법 공식 하나). 화면 문구가 갈린다.
@@ -216,7 +218,9 @@ function hasRanges(subject){return subject==='한국사'||PAPER_SUBJECTS.has(sub
 const PARTS=globalThis.STUDY_PARTS||{units:[],unitsFor:()=>[],part:()=>null,unitOf:()=>null,partOf:()=>null,spreadKey:()=>null};
 function partScope(value){const match=/^part-([a-z0-9-]+)$/.exec(value||'');return match&&PARTS.part(match[1])?match[1]:null;}
 // 회차 범위(한능검 n회, 공무원 기출 한 과목 한 회차)에서는 앱이 문제를 고르지 않는다. 원문 순서대로만 낸다.
-function sequentialScope(scope){return !!paperScope(scope.round)||(scope.subject==='한국사'&&!!scope.round&&Hanneung.rounds.includes(Number(scope.round)));}
+// v386: 모든 범위를 번호 순서로 푼다(사용자 "정렬 방식이 너무 복잡… 사용자에게 맡기고 전적만"). 앱이 복습 주기로 문제를 고르지 않는다. 기록과 복습 단계는 평소대로 쌓여 뱃지, 경험치가 그대로 돈다.
+function paperRoundScope(scope){return !!paperScope(scope.round)||(scope.subject==='한국사'&&!!scope.round&&Hanneung.rounds.includes(Number(scope.round)));}
+function sequentialScope(scope){return true;}
 function scopeOf(){const s=data.practiceScope||{};return {subject:s.subject||'',topic:s.topic||'',round:s.round||''};}
 function roundMatch(c,round){
  if(!round)return true;
@@ -361,17 +365,40 @@ let paperCursor=null;
 let paperWrongOnly=false;
 function everWrongIds(){const ids=new Set();for(const h of data.history)if(h.mode==='quiz'&&h.result==='wrong')ids.add(h.cardId);return ids;}
 function paperLast(list){const at=new Map(list.map((c,i)=>[c.id,i]));for(let i=data.history.length-1;i>=0;i--){const k=at.get(data.history[i].cardId);if(k!==undefined)return data.history[i].date>=plus(day(),-1)?{row:data.history[i].id,index:k}:null;}return null;}
-function paperIndex(scope,list){const last=paperLast(list),seen=last?last.row:'';if(!paperCursor||!sameScope(paperCursor.scope,scope)||paperCursor.seen!==seen)paperCursor={scope:{subject:scope.subject||'',topic:scope.topic||'',round:scope.round||''},index:last&&last.index<list.length-1?last.index+1:0,seen};return paperCursor.index;}
+function paperIndex(scope,list){const last=paperLast(list),seen=last?last.row:'';if(!paperCursor||!sameScope(paperCursor.scope,scope)||paperCursor.seen!==seen){
+  // v386: 회차가 아닌 범위는 안 푼 첫 문제부터(다 풀었으면 회차처럼 마지막 푼 다음, 없으면 1번).
+  const fresh=paperRoundScope(scope)?-1:list.findIndex(c=>!historyStats().seen.has(c.id));
+  paperCursor={scope:{subject:scope.subject||'',topic:scope.topic||'',round:scope.round||''},index:fresh>=0?fresh:last&&last.index<list.length-1?last.index+1:0,seen};}
+ return paperCursor.index;}
 function paperAdvance(){if(paperCursor)paperCursor={...paperCursor,index:paperCursor.index+1,seen:data.history.at(-1)?.id||''};}
 function paperJump(index){if(!paperCursor)return;paperCursor={...paperCursor,index};sessionDirty=true;render();window.scrollTo(0,0);}
-function paperNumber(card,i){const m=/-(\d+)$/.exec(card.id);return (m?Number(m[1]):i+1)+'번';}
+function paperNumber(card,i){const m=paperRoundScope(scopeOf())?/-(\d+)$/.exec(card.id):null;return (m?Number(m[1]):i+1)+'번';}
 function paperNav(chosen,at){
  const box=elem('div',undefined,'paper-nav'),prev=btn('← 이전',()=>paperJump(at-1)),skip=btn('건너뛰기 →',()=>paperJump(at+1)),pick=elem('select');
- prev.disabled=at<=0;skip.disabled=at>=chosen.length-1;pick.setAttribute('aria-label','문제 번호로 이동');
+ prev.disabled=at<=0;skip.disabled=at>=chosen.length-1;
+ // 큰 범위(과목 전체 등 수천 문제)는 option을 문제마다 다시 그리지 않고 번호 칸 하나로 받는다.
+ if(chosen.length>300){const num=elem('input');num.type='number';num.min='1';num.max=String(chosen.length);num.value=String(at+1);num.setAttribute('aria-label','문제 번호로 이동 (1~'+chosen.length+')');
+  num.onchange=()=>{const n=Math.round(Number(num.value));if(n>=1&&n<=chosen.length&&n!==at+1)paperJump(n-1);else num.value=String(at+1);};box.append(prev,num,skip);return box;}
+ pick.setAttribute('aria-label','문제 번호로 이동');
  chosen.forEach((c,i)=>{const o=elem('option',paperNumber(c,i));o.value=String(i);pick.append(o);});pick.value=String(at);pick.onchange=()=>paperJump(Number(pick.value));
  box.append(prev,pick,skip);return box;
 }
 function paperRestart(){if(paperCursor)paperCursor={...paperCursor,index:0};}
+// v386 파트 고르기(사용자 "파트선택 기능"): 문제 아래 고르기 하나. 지금 범위에 든 파트들(파트 범위면 그 단원의 파트들) 가운데 하나를 고르면 그 파트만 번호 순서로 푼다.
+// 파트를 고르기 전 범위(partFrom, 이 화면에서만 기억)로 돌아가는 줄을 맨 위에 둔다.
+let partFrom=null;
+function partPicker(scope,chosen){
+ const cur=partScope(scope.round||''),ids=new Set(chosen.map(c=>c.id));
+ const units=cur?[PARTS.unitOf(cur)].filter(Boolean):PARTS.unitsFor(scope.subject||'').filter(u=>u.parts.some(p=>p.ids.some(id=>ids.has(id))));
+ const parts=units.flatMap(u=>u.parts.filter(p=>cur||p.ids.some(id=>ids.has(id))).map(p=>({p,u})));
+ if(!parts.length||(!cur&&parts.length<2))return null;
+ const wrap=elem('label',undefined,'part-picker'),sel=elem('select');wrap.append(elem('span','파트'),sel);sel.setAttribute('aria-label','파트 고르기');
+ const top=elem('option',cur?(partFrom?'← 파트 고르기 전 범위로':'이 단원 파트 '+parts.length+'개'):'범위 전체 ('+parts.length+'파트)');top.value='';sel.append(top);
+ for(const {p,u} of parts){const o=elem('option',(units.length>1?u.short+': ':'')+p.title);o.value=p.id;sel.append(o);}
+ sel.value=cur||'';
+ sel.onchange=()=>{const v=sel.value,from=partFrom;if(!v){if(cur&&from)openScope(from);sel.value=cur||'';return;}if(v===cur)return;const back=cur?from:scopeOf();openScope({subject:scope.subject,topic:'',round:'part-'+v});partFrom=back;if(back)render();};
+ return wrap;
+}
 // END PAPER ORDER
 // A wrong answer today also brings back the other questions on the same concept (still after the sibling gap).
 // BEGIN QUEUE MODES — 무엇을 먼저 낼지만 고른다. 채점, 기록, 복습 일정은 어느 모드에서도 평소와 똑같다.
@@ -890,12 +917,14 @@ function subjectsList(){return [...new Set(data.cards.filter(isPlayable).map(c=>
 function questionCount(cards){return cards.reduce((n,c)=>n+(Content.hasOptions(c.id)||Gichul.known(c.id)?1:0)+(Content.lesson(c.id)?.variants.length||0),0);}
 // 화면의 모든 수는 "문제" 한 단위로 센다. 문제 하나가 곧 복습 일정 하나이므로(content-audit.cjs가 강제) 두 수는 같은 단위다.
 // 풀어야 할 문제 = 처음 푸는 문제(제한 없음) + 복습 주기가 된 문제. 늘 고른 범위 안에서만 센다.
-function countLine(cards){return '풀어야 할 문제 '+questionCount(reviewQueue(cards).ready)+'/'+questionCount(cards);}
+// v386: 앱이 차례를 고르지 않으므로 '풀어야 할 문제'(복습 대기열) 대신 아직 한 번도 안 푼 문제 수.
+function countLine(cards){const {seen}=historyStats();return '안 푼 문제 '+questionCount(cards.filter(c=>!seen.has(c.id)))+'/'+questionCount(cards);}
 // 그날 푼 서로 다른 문제 수. 같은 문제를 여러 번 풀어도 한 문제로 센다(풀이 횟수는 학습량 환산 시간에 따로 나온다).
 function solvedOn(ids,date){return new Set(data.history.filter(h=>h.date===date&&ids.has(h.cardId)).map(h=>h.cardId)).size;}
 function menuItem(title,detail,fn,cls='menu-item'){const b=btn('',fn,cls);b.type='button';b.append(elem('strong',title));if(detail)b.append(elem('span',detail));return b;}
 function lastScope(subject){const s=data.lastScopes?.[subject]||(data.practiceScope?.subject===subject?data.practiceScope:null);return s?{subject,topic:s.topic||'',round:s.round||''}:null;}
 function openScope(scope,resume=false){
+ partFrom=null;
  scope={subject:scope.subject||'',topic:TOPIC_SUBJECTS.has(scope.subject)?scope.topic||'':'',round:hasRanges(scope.subject)?scope.round||'':''};
  if(resume&&sameScope(scopeOf(),scope)){go('quiz');return;}
  const next=structuredClone(data);next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:scope};delete next.quizFeedback;delete next.activePractice;
@@ -1021,7 +1050,7 @@ function renderRange(){
  // 회차 범위는 대기열과 무관하게 1번부터 끝까지 나오므로 '지금 풀 차례' 수를 붙이지 않는다. 대신 순서를 알린다.
  const option=(g,title,sc,extra)=>{const inside=cards.filter(c=>inScope(c,sc)),p=firstPass(new Set(inside.map(c=>c.id)));if(!inside.length&&!extra)return;
   const total=questionCount(inside),first='첫 시도 '+p.answered+'/'+total+(p.answered?', 정답 '+p.correct:'');
-  const detail=sequentialScope(sc)?'전체 '+total+'문제, '+first+', 순서대로 풀고 풀던 곳부터 이어짐':'풀어야 할 문제 '+questionCount(reviewQueue(inside,rangedScope(sc)).ready)+'/'+total+', '+first;
+  const detail=sequentialScope(sc)?'전체 '+total+'문제, '+first+(paperRoundScope(sc)?', 순서대로 풀고 풀던 곳부터 이어짐':', 번호 순서로 안 푼 문제부터'):'풀어야 할 문제 '+questionCount(reviewQueue(inside,rangedScope(sc)).ready)+'/'+total+', '+first;
   g.append(menuItem(title,detail+(extra?', '+extra:''),()=>openScope(sc)));};
  // 공무원 기출은 과목마다 회차가 40개 가까이 된다. 한 줄로 늘어놓으면 휴대폰에서 원하는 회차를 찾기 어려워
  // 연도별로 접는다(range-fold 안에 range-fold). 최신 연도가 맨 위이고, 지금 풀던 회차가 든 연도(없으면 최신 연도)만 펼쳐 둔다.
@@ -1074,7 +1103,7 @@ function renderRange(){
 }
 function renderProgress(){
  const playable=data.cards.filter(isPlayable),today=day(),todayRows=data.history.filter(h=>h.date===today);
- const stat=cards=>{const ids=new Set(cards.map(c=>c.id));return {due:questionCount(reviewQueue(cards).ready),total:questionCount(cards),done:solvedOn(ids,today)};};
+ const {seen}=historyStats(),stat=cards=>{const ids=new Set(cards.map(c=>c.id));return {due:questionCount(cards.filter(c=>!seen.has(c.id))),total:questionCount(cards),done:solvedOn(ids,today)};};
  const all=stat(playable);$('#due').textContent=all.due;$('#total').textContent=all.total;$('#done').textContent=all.done;
  const metric=ReviewLearning.metrics(playable,data.history);$('#retention').textContent=metric.total?Math.round(metric.correct/metric.total*100)+'% ('+metric.correct+'/'+metric.total+')':'아직 기록 없음';
  const body=$('#subjectStats');body.replaceChildren();
@@ -1087,8 +1116,9 @@ function renderQuiz(){
  const noteFocus=document.activeElement?.id==='noteInput',noteCaret=noteFocus?document.activeElement.selectionStart:null;
  const scope=scopeOf(),playable=data.cards.filter(isPlayable),ordered=orderedScope(scope.round);
  $('#scopeLabel').textContent=scopeLabel(scope);renderScopeStatus(scope);
- const inside=playable.filter(c=>inScope(c,scope)),paperAll=ordered?catalogOrder(inside):inside;
- const wrongIds=sequentialScope(scope)?everWrongIds():null,wrongN=wrongIds?paperAll.filter(c=>wrongIds.has(c.id)).length:0;if(!wrongN)paperWrongOnly=false;
+ const inside=playable.filter(c=>inScope(c,scope)),paperAll=catalogOrder(inside);
+ // v386: '틀렸던 문제만' 고르기도 없앤다(옵션은 두지 않고 문제마다 전적만 보인다).
+ const wrongIds=null,wrongN=wrongIds?paperAll.filter(c=>wrongIds.has(c.id)).length:0;if(!wrongN)paperWrongOnly=false;
  const chosen=paperWrongOnly?paperAll.filter(c=>wrongIds.has(c.id)):paperAll;
  $('#paperWrongLabel').hidden=!wrongN;$('#paperWrong').checked=paperWrongOnly;$('#paperWrongCount').textContent=wrongN?'('+wrongN+'문제)':'';
  const sequential=sequentialScope(scope)&&chosen.length>0,at=sequential?paperIndex(scope,chosen):-1;
@@ -1110,11 +1140,19 @@ function renderQuiz(){
  modeSel.onchange=()=>setQueueMode(modeSel.value);
  const place=card?chosen.findIndex(c=>c.id===card.id)+1:chosen.length;
  const partLine=pr?partProgressLine(pr,feedback?.id):partMode&&chosen.length?'이 범위는 파트가 없어 기본 순서로 풀어요':'';
- $('#orderStatus').textContent=sequential?place+'/'+chosen.length+(paperWrongOnly?' (틀렸던 문제만, 원문 순서)':' (원문 순서 그대로)'):partLine;$('#orderStatus').hidden=!sequential&&!partLine;
+ $('#orderStatus').textContent=sequential?place+'/'+chosen.length+(paperWrongOnly?' (틀렸던 문제만, 원문 순서)':paperRoundScope(scope)?' (원문 순서 그대로)':' (번호 순서)'):partLine;$('#orderStatus').hidden=!sequential&&!partLine;
  const root=$('#card');root.replaceChildren();root.classList.toggle('paper-card',!!Hanneung.get(card?.id)&&!feedback);root.classList.toggle('gichul-card',!!Gichul.get(card?.id));root.classList.toggle('feedback-card',!!feedback);
  if(!card){
   if(sequentialScope(scope)&&chosen.length){
-   root.append(elem('h2',paperWrongOnly?'틀렸던 문제를 끝까지 풀었어요':'이 회차를 끝까지 풀었어요'),elem('p',paperWrongOnly?scopeLabel(scope)+'에서 틀렸던 '+chosen.length+'문제를 원문 순서대로 모두 다시 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.':scopeLabel(scope)+' '+chosen.length+'문제를 1번부터 순서대로 모두 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.'));
+   const left=paperRoundScope(scope)||paperWrongOnly?-1:chosen.findIndex(c=>!historyStats().seen.has(c.id));
+   if(left>=0){// 건너뛴 문제가 남았으면 끝까지 왔다고만 알리고 그 문제로 보낸다.
+    const k=chosen.filter(c=>!historyStats().seen.has(c.id)).length;
+    root.append(elem('h2','이 범위의 마지막 번호까지 왔어요'),elem('p',scopeLabel(scope)+' '+chosen.length+'문제 가운데 아직 안 푼 문제가 '+k+'개 남았어요.'));
+    root.append(btn('안 푼 첫 문제로 ('+paperNumber(chosen[left],left)+')',()=>paperJump(left),'primary'),btn('처음부터 다시 풀기',()=>{paperRestart();render();window.scrollTo(0,0);}));
+    if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
+    return;
+   }
+   root.append(elem('h2',paperWrongOnly?'틀렸던 문제를 끝까지 풀었어요':paperRoundScope(scope)?'이 회차를 끝까지 풀었어요':'이 범위를 끝까지 풀었어요'),elem('p',paperWrongOnly?scopeLabel(scope)+'에서 틀렸던 '+chosen.length+'문제를 원문 순서대로 모두 다시 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.':scopeLabel(scope)+' '+chosen.length+'문제를 1번부터 순서대로 모두 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.'));
    root.append(btn('처음부터 다시 풀기',()=>{paperRestart();render();window.scrollTo(0,0);},'primary'));
    if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
    return;
@@ -1156,7 +1194,7 @@ function renderQuiz(){
  const label=elem('small',card.subject+' '+(lesson?.title||(paperRow?Gichul.title(paperRow):quiz.image?Hanneung.title(Hanneung.get(card.id))+(studyTopic(card.id)?', '+StudyTopics.title(studyTopic(card.id)):''):summary?StudyTopics.title(studyTopic(card.id))+' 복습 '+summary.number+'번, 자체 제작':'개념 복습'))+' ('+(quiz.type==='text'?'직접 쓰기':quiz.choiceImages?'사진 객관식':'객관식')+')');
  if(feedback){renderFeedback(root,card,quiz,lesson,label);const past=pastRecordLine(card.id,feedbackReviewId(data.quizFeedback));if(past&&label.isConnected)label.after(past);}
  else{
-  root.append(label);{const past=pastRecordLine(card.id);if(past)root.append(past);}root.append(...questionNodes(quiz.question));
+  root.append(label);{const past=pastRecordLine(card.id);root.append(past||elem('p','처음 푸는 문제','past-record past-new'));}root.append(...questionNodes(quiz.question));
   appendPaper(root,Hanneung.get(card.id));
   if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(root,quiz,i=>answerPractice(card.id,i));
   else if(quiz.type==='choice'){
@@ -1167,7 +1205,7 @@ function renderQuiz(){
    input.oninput=()=>{if(data.activePractice?.cardId===card.id){data.activePractice.draft=input.value;saveDraft();}};
    const submit=elem('button','채점하기','primary');submit.type='submit';form.append(hint,input,submit);form.onsubmit=e=>{e.preventDefault();answerPractice(card.id,input.value);};root.append(form);
   }
-  if(sequential)root.append(paperNav(chosen,at));
+  if(sequential){root.append(paperNav(chosen,at));const pp=partPicker(scope,chosen);if(pp)root.append(pp);}
   appendNoteBox(root,card,quiz,'question',label.textContent);
  }
  restoreExplanationPanels(opened);
@@ -1542,8 +1580,8 @@ function renderFeedback(root,card,quiz,lesson,label){
  if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(recap,quiz,null,f.selectedIndex);
  else if(quiz.type==='choice'){const choices=elem('div',undefined,'quiz-choices recap-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const label=quiz.fixedOrder?choice:(i+1)+'. '+(quiz.marks?'':choice),b=underlineButton(elem('button',label),label);if(quiz.marks)b.append(markedChoice(choice,quiz.marks[i],okLabel(quiz)));b.type='button';b.disabled=true;if(i===quiz.correctIndex)b.classList.add('quiz-correct');else if(i===f.selectedIndex)b.classList.add('quiz-wrong');choices.append(b);});recap.append(choices);}
  root.append(recap);
- const dueCard=data.cards.find(c=>c.id===card.id),concept=ReviewPolicy.concept(card.id),siblings=data.cards.some(c=>c.id!==card.id&&isPlayable(c)&&ReviewPolicy.concept(c.id)===concept);
- root.append(elem('p','풀이 완료: 환산 시간 +1분','study-credit-award'),elem('small','다음 복습: '+dueCard.due+(f.result==='wrong'?(queueMode()==='wrong'?'. 5분 뒤 다시 풀 수 있어요.':'. 남은 문제를 다 푼 뒤에 다시 나와요.')+(siblings?' 같은 개념의 다른 문제도 10분 뒤 이어서 나와요.':''):''),'next-review'));
+ const dueCard=data.cards.find(c=>c.id===card.id);
+ root.append(elem('p','풀이 완료: 환산 시간 +1분','study-credit-award'),elem('small','다음 복습: '+dueCard.due,'next-review'));
  const source=(Content.core(card.id)||card).source;if(quiz.type==='text'||source)root.append(elem('small',quiz.type==='text'?(card.id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조와 동사 유형 정리 기반 자체 제작 연습':card.id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습':card.id.startsWith('en-day3-')?'문제집 Day 3 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-day4-')?'문제집 Day 4 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-day5-')?'문제집 Day 5 문법 포인트 찾기 훈련 기반 자체 제작 연습':/^en-day1[1-5]-/.test(card.id)?'문제집 Day '+card.id.slice(6,card.id.indexOf('-',6))+' 실전문제 연습 기반 자체 제작 연습':/^en-day([6-9]|10)-/.test(card.id)?'문제집 Day '+card.id.slice(6,card.id.indexOf('-',6))+' 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-formula-')?'문법 공식 훈련 자체 제작 연습':'대화 학습과 수일치 정리 기반 자체 제작 연습'):source,'source-line'));
  const next=btn(nextLabel(reviewId),()=>{const state=structuredClone(data);delete state.quizFeedback;delete state.activePractice;if(commit(state)){sessionDirty=true;render();window.scrollTo(0,0);}},'primary next-question');next.id='nextQuestion';next.dataset.review=reviewId||'';root.append(next);
  appendNoteBox(root,card,quiz,'explanation',label.textContent);

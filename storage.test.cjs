@@ -172,8 +172,9 @@ const time=async(label,fn)=>{const t=Date.now(),v=await fn();return [v,Date.now(
  {const local=makeLocal(),backend=createBackend();local.quota=QUOTA;local.setItem('chagog-v1',baseRaw);
   // 옛 판이 같은 글을 읽은 모습(기준).
   const oldLocal=makeLocal();oldLocal.setItem('chagog-v1',baseRaw);const old=await boot({build:'old',local:oldLocal});const expected=whole(old);
-  const screen=app=>['#due','#total','#done','#retention','#studyToday','#studyTotal','#studyCreditCount'].map(s=>app.text(s)).join(' | ')+' | '+app.run("JSON.stringify(Gichul.subjects.concat(['영어','국어','한국사']).map(s=>[s,questionCount(data.cards.filter(c=>isPlayable(c)&&c.subject===s)),reviewQueue(data.cards.filter(c=>c.subject===s),false,s).ready.length]))");
-  old.run("go('progress')");const oldScreen=screen(old);
+  const screen=app=>[/* #due는 v386부터 '안 푼 문제'라 옛 판과 뜻이 다르다 */'#total','#done','#retention','#studyToday','#studyTotal','#studyCreditCount'].map(s=>app.text(s)).join(' | ')+' | '+app.run("JSON.stringify(Gichul.subjects.concat(['영어','국어','한국사']).map(s=>[s,questionCount(data.cards.filter(c=>isPlayable(c)&&c.subject===s)),reviewQueue(data.cards.filter(c=>c.subject===s),false,s).ready.length]))");
+  // v386부터 새 판은 핵심 20 접기를 끈다(모든 문제가 보인다). 옛 판(v247)도 접기만 끄고 견준다 — 수가 바뀐 까닭은 접기뿐이고 옮긴 상태는 같아야 한다.
+  old.run('foldedLecture=()=>null');old.run("go('progress')");const oldScreen=screen(old);
   const [a,ms]=await time('migrate',()=>boot({local,backend}));assert.equal(a.mode(),'idb');
   same(whole(a),expected,'옮긴 상태 = 옛 판이 읽은 상태(문제 일정, 풀이와 사본, 열람, 설정, 풀던 자리)');
   a.run("go('progress')");// 옛 판(v247, fixtures 그대로)은 '풀이 N회'와 '해설 M회' 사이에 U+00B7을 찍었고, 새 판(v254~)은 쉼표다 — 사이 글자만 맞춰 수를 견준다. 그 글자는 이 파일에 글자 그대로 적지 않고 코드 값으로 만든다.

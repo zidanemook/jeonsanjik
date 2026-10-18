@@ -1,6 +1,6 @@
-// 파트(parts.js)와 파트별 점검 모드(part-check.js + app.js)를 확인한다.
+// 파트(parts.js)와 파트 규칙(part-check.js), 앱의 파트 범위를 확인한다.
 // 1) 파트 규칙(5문제 → 틀리면 3문제씩 더 → 통과, 다시 볼 파트)  2) 파트 범위: 모든 문제가 정확히 한 파트에
-// 3) 앱을 가짜 DOM 위에서 돌려 19강 파트별 점검(모두 맞힘 = 5×파트 수, 하나 틀리면 +3, 바닥나면 다시 볼 파트, 새로고침 뒤 이어짐)
+// 3) 앱을 가짜 DOM 위에서 돌려 19강을 번호 순서로(v386: 파트별 점검 모드는 화면에서 사라짐), 파트 고르기, 새로고침 뒤 이어짐
 // 4) 파트별 상태 화면의 수(문제, 외움, 복습 판정, 안 푼 문제 / 한국사 기출 첫 풀이)가 기록과 같다. 4-3) 복습 판정(v184): 하루 이상 지나 다시 푼 풀이만.
 'use strict';
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
@@ -325,77 +325,43 @@ const onQuestion=()=>R("!!document.querySelector('#card').all.find(n=>n.classNam
 const cardText=()=>app.text('#card');
 const lecture19=PARTS.units.find(u=>u.id==='hist-19');
 
-// 3-1) 19강, 파트별 점검, 모두 맞힘 → 파트마다 5문제, 8파트 = 40문제
-// v179: 19강은 '이 강 문제 더 풀기'를 켠 상태로(핵심 20만이면 파트가 1~4문제라 5문제, 3문제 규칙을 검사할 수 없다 — 접힘 자체는 core20.test).
-R("setLectureOpen('19',true)");
+// 3) v386 번호 순서(사용자 2026-10-18 "정렬 방식이 너무 복잡… 사용자에게 맡기고 전적만"): 파트별 점검 모드는 화면에서 고를 수 없다.
+// 19강은 접지 않고 115문제를 번호 순서로 낸다. 파트 고르기(part-picker)로 파트 하나만 번호 순서로 풀고, 새로고침해도 안 푼 첫 문제부터 이어진다.
 R("openScope({subject:'한국사',round:'lecture-19'})");
-const countBefore=R("countLine(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)))");
-R("setQueueMode('parts')");
-assert.equal(R('queueMode()'),'parts');
-assert.equal(R("countLine(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)))"),countBefore,'파트별 점검을 골라도 "풀어야 할 문제" 수는 그대로');
-assert.match(app.text('#orderStatus'),/^파트 1\/8: 과전법, 수신전, 휼양전 — 1\/5$/,'진행 줄: '+app.text('#orderStatus'));
+const all19=R("data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).length");
+assert.equal(all19,lecture19.parts.reduce((n,p)=>n+p.ids.length,0),'19강 범위 = 8파트의 모든 문제(접지 않음)');
+assert.equal(app.text('#orderStatus'),'1/'+all19+' (번호 순서)','진행 줄: '+app.text('#orderStatus'));
+assert.equal(app.nodes.get('#queueModeLabel').hidden,true,'파트별 점검(대기열 모드) 고르기는 숨김');
+assert.equal(R("countLine(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)))"),'안 푼 문제 '+all19+'/'+all19,'처음에는 모두 안 푼 문제');
+const order19=R("catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).map(c=>c.id)");
 const historyBefore=R('data.history.length');
-const served=[];
-while(onQuestion()){served.push(answer(false).id);assert.ok(served.length<=200);}
-assert.equal(served.length,5*lecture19.parts.length,'모두 맞히면 파트마다 5문제: '+served.length);
-lecture19.parts.forEach((p,i)=>assert.ok(served.slice(i*5,i*5+5).every(id=>partOfCard(id)===p.id),'교재 순서대로 한 파트씩: '+p.title));
-assert.equal(new Set(served).size,served.length,'한 판에서 같은 문제를 두 번 내지 않는다');
-assert.equal(R('data.history.length')-historyBefore,40,'답은 평소처럼 풀이 기록에 남는다');
-assert.ok(R("data.history.slice(-40).every(h=>h.mode==='quiz'&&h.result==='correct'&&h.detail)"),'기록 형식은 다른 모드와 같다');
+const served=[];for(let i=0;i<5;i++)served.push(answer(false).id);
+assert.deepEqual(served,order19.slice(0,5),'번호 순서 그대로');
+assert.ok(served.every(id=>partOfCard(id)===lecture19.parts[0].id),'번호 순서의 처음은 교재 첫 파트');
+assert.equal(R('data.history.length')-historyBefore,5,'답은 평소처럼 풀이 기록에 남는다');
+assert.ok(R("data.history.slice(-5).every(h=>h.mode==='quiz'&&h.result==='correct'&&h.detail)"),'기록 형식은 그대로');
 assert.ok(R("data.cards.filter(c=>"+JSON.stringify(served)+".includes(c.id)).every(c=>c.streak===1&&c.due>day())"),'복습 일정도 평소대로(처음 맞힘 → 7일 뒤)');
-// 같은 내용이 바로 이어 나오지 않는다(파트 안에 다른 내용이 있을 때)
-{const key=id=>R('partKeyOf('+JSON.stringify(id)+')');let back=0;for(let i=1;i<served.length;i++)if(partOfCard(served[i])===partOfCard(served[i-1])&&key(served[i])===key(served[i-1]))back++;assert.ok(back<=2,'같은 사실 연속 '+back);}
-let card=cardText();
-assert.match(card,/19강 파트 점검 끝/);assert.match(card,/8파트 중 통과 8\. 모두 통과했어요/);assert.match(card,/이번 점검에서 푼 문제 40개, 맞힌 문제 40개/);
-assert.match(card,/나머지 문제는 기본 순서로 이어 풀기/,'끝 화면에서 막히지 않는다');
-
-// 3-2) 새 판, 첫 파트에서 하나 틀림 → 같은 파트에서 3문제 더 → 모두 맞혀 통과(8문제) → 다음 파트
-tick();R("startPartRound(scopeOf(),null)");
-const first=lecture19.parts[0].id,round2=[];
-round2.push(answer(false),answer(true),answer(false),answer(false));
-const fifth=answer(false);round2.push(fifth);
-assert.match(fifth.line,/틀린 문제가 있어 3문제 더 풀어요/,'5문제째 해설 화면: '+fifth.line);
-assert.match(app.text('#orderStatus'),/^파트 1\/8: 과전법, 수신전, 휼양전 — 1\/3 \(틀린 문제가 있어 3문제 더\)$/,app.text('#orderStatus'));
-round2.push(answer(false),answer(false));
-const eighth=answer(false);round2.push(eighth);
-assert.match(eighth.line,/✓ 통과\. 다음 파트: 직전법~녹봉/,eighth.line);
-assert.ok(round2.every(x=>partOfCard(x.id)===first),'8문제 모두 첫 파트에서');
-assert.equal(partOfCard(R('data.activePractice.cardId')),lecture19.parts[1].id,'통과하면 다음 파트로');
-assert.ok(onQuestion(),'틀린 문제가 5분 재시도 대기여도 다음 문제가 바로 나온다');
-
-// 3-3) 새로고침: 같은 저장소로 앱을 다시 열어도 판이 이어진다
-answer(false);answer(false);
+assert.equal(app.text('#orderStatus'),'6/'+all19+' (번호 순서)');
+// 새로고침: 같은 저장소로 앱을 다시 열어도 안 푼 첫 문제(6번)부터. 옛 저장에 파트별 점검 모드가 남아 있어도 번호 순서다.
+R("(()=>{const s=structuredClone(data);s.queueModes={'한국사':'parts'};commit(s);})()");
 const store=app.store;app=boot(store);
 R("go('quiz','한국사')");
-assert.equal(R('storageOK'),true,'모드를 바꾼 뒤 새로고침해도 저장소를 읽는다(v144까지는 QUEUE_MODES 초기화 전 참조로 저장이 멈췄다)');
-assert.equal(R('queueMode()'),'parts');
-assert.match(app.text('#orderStatus'),/^파트 2\/8: 직전법~녹봉 — 3\/5$/,'새로고침 뒤 이어서: '+app.text('#orderStatus'));
-
-// 3-4) 파트 하나 범위, 모두 틀림 → 5 + 3 = 8문제에서 바닥 → 다시 볼 파트, 끝 화면에 버튼
+assert.equal(R('storageOK'),true,'모드가 남은 저장소도 읽는다(v144까지는 QUEUE_MODES 초기화 전 참조로 저장이 멈췄다)');
+assert.equal(R('data.activePractice.cardId'),order19[5],'새로고침 뒤 안 푼 첫 문제부터');
+assert.equal(app.text('#orderStatus'),'6/'+all19+' (번호 순서)','옛 파트별 점검 모드가 남아 있어도 번호 순서: '+app.text('#orderStatus'));
+assert.ok(!/파트 점검 끝/.test(cardText()));
+// 파트 고르기: 19강 8파트가 보이고, 하나를 고르면 그 파트만 번호 순서로. 모두 틀려도 파트 끝까지 나오고 끝 화면에서 막히지 않는다.
 const weakPart=lecture19.parts.find(p=>p.title==='지대, 수취 제도의 문란');assert.equal(weakPart.ids.length,8);
-R("openScope({subject:'한국사',round:'part-"+weakPart.id+"'})");tick();R("startPartRound(scopeOf(),null)");
-assert.match(R("scopeLabel(scopeOf())"),/^한국사 19강: 지대, 수취 제도의 문란$/);
-const wrongs=[];while(onQuestion()){const a=answer(true);wrongs.push(a);assert.ok(wrongs.length<=8,'파트 문제 수보다 많이 내지 않는다');}
-assert.equal(wrongs.length,8,'모두 틀리면 5 + 3 = 8문제로 파트가 바닥난다');
-assert.match(wrongs.at(-1).line,/다시 볼 파트로 표시\. 다음: 점검 결과/);
-card=cardText();
-assert.match(card,/19강 지대, 수취 제도의 문란 파트 점검 끝/);assert.match(card,/1파트 중 통과 0\. 다시 볼 파트: 지대, 수취 제도의 문란/);assert.match(card,/다시 볼 파트만 다시 점검하기 \(1파트\)/);
-assert.match(card,/다시 보기: 지대, 수취 제도의 문란 — 8문제 중 0개 정답, 복습 판정 아직/,'점검 결과에 복습 판정(같은 날 풀이뿐이라 아직)');assert.match(card,/복습 판정은 하루 이상 지나 다시 푼 문제만 센 파트 전체 기록이고\(같은 날 해설 보고 푼 건 연습이라 안 넣어요\)/);
-// 다시 볼 파트만 다시 점검 → 5문제 모두 맞혀 통과
-tick();R("startPartRound(scopeOf(),["+JSON.stringify(weakPart.id)+"])");
-let again=0;while(onQuestion()){answer(false);again++;assert.ok(again<=8);}
-assert.equal(again,5);assert.match(cardText(),/1파트 중 통과 1\. 모두 통과했어요/);
-// 기본 순서로 이어 풀기 → 기본 모드
-R("setQueueMode('default')");assert.equal(R('queueMode()'),'default');
-
-// 3-5) 파트가 없는 범위(영어 수일치): 모드는 기본처럼 돌고 알린다, 파트 모드 선택지는 흐려진다
-R("openScope({subject:'영어',topic:'수일치'})");R("setQueueMode('parts')");
-assert.equal(app.text('#orderStatus'),'이 범위는 파트가 없어 기본 순서로 풀어요');assert.ok(onQuestion(),'파트가 없어도 문제는 나온다');
-assert.equal(R('partsOption.disabled'),true);
-// 과목 전체(영어): 교재 순서대로 Day 1 첫 파트부터
-R("openScope({subject:'영어'})");
-assert.equal(partOfCard(R('data.activePractice.cardId')),'en1-1');assert.match(app.text('#orderStatus'),/^파트 1\/\d+: Day 1 문장 구조와 동사 유형 — 1\/5$/,app.text('#orderStatus'));
-assert.equal(R('partsOption.disabled'),false);
+{const pick=()=>app.nodes.get('#card').all.find(n=>n.className==='part-picker')?.children[1];
+ assert.ok(pick(),'문제 아래 파트 고르기');assert.equal(pick().children.length,1+lecture19.parts.length,'범위 전체 줄 + 8파트');assert.equal(pick().children[0]._text,'범위 전체 (8파트)');
+ const sel=pick();sel.value=weakPart.id;sel.onchange();
+ assert.equal(R('scopeOf().round'),'part-'+weakPart.id,'고른 파트 범위');assert.match(R("scopeLabel(scopeOf())"),/^한국사 19강: 지대, 수취 제도의 문란$/);
+ assert.equal(pick().children[0]._text,'← 파트 고르기 전 범위로','돌아가는 줄');}
+const partOrder=R("catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).map(c=>c.id)");
+const wrongs=[];while(onQuestion()){const x=answer(true);wrongs.push(x.id);assert.ok(wrongs.length<=8,'파트 문제 수보다 많이 내지 않는다');}
+assert.deepEqual(wrongs,partOrder,'모두 틀려도 8문제가 번호 순서로 한 번씩');
+let card=cardText();
+assert.match(card,/이 범위를 끝까지 풀었어요/);assert.match(card,/8문제를 1번부터 순서대로 모두 풀었어요/);assert.match(card,/처음부터 다시 풀기/,'끝 화면에서 막히지 않는다');
 // 동기화용 위치 기록(session)은 파트 범위도 규격 안
 R("openScope({subject:'한국사',round:'part-"+weakPart.id+"'})");R('stampSession()');assert.equal(R('data.session.round'),'part-'+weakPart.id);R('ProgressSync.session(data.session)');
 
@@ -441,19 +407,19 @@ if(!PARTS.unitsFor('컴퓨터일반').length){R("go('subject','컴퓨터일반')
 
 
 assert.deepEqual([R('WEAK_MIN'),R('WEAK_RATE')],[PartCheck.WEAK_MIN,PartCheck.WEAK_RATE],'안내 문구의 20, 30% = 판정 규칙');
-// ── 4-3) 복습 판정(v184)을 앱 위에서: 이 강 문제 더 풀기를 끈 새 앱(v179 접힘 — 핵심 20 밖 문제는 판정에도 안 센다)
+// ── 4-3) 복습 판정(v184)을 앱 위에서: 새 앱(v386부터 접지 않는다 — 핵심 20 밖 문제도 보이고 판정에 센다)
 {
  const a=boot(),Q=code=>a.run(code);
  const T=(d,h,m=0)=>Q('new Date(2026,8,'+d+','+h+','+m+').getTime()'),row=(id,card,d,h,m,result)=>({id,cardId:card,date:'2026-09-'+String(d).padStart(2,'0'),at:new Date(T(d,h,m)).toISOString(),result,mode:'quiz'});
  const visOf=p=>p.ids.filter(id=>Q('isPlayable(data.cards.find(c=>c.id==='+JSON.stringify(id)+'))'));
- const p19=lecture19.parts.find(p=>visOf(p).length>=2&&visOf(p).length<p.ids.length);
- const vis=visOf(p19),hid=p19.ids.filter(id=>!vis.includes(id));
- assert.ok(vis.length>=2&&hid.length>=1,'19강 이 파트에 핵심 문제와 접힌 문제가 둘 다 있다: '+vis.length+'/'+hid.length);
- const [v1,v2]=vis,h1=hid[0];
+ const p19=lecture19.parts.find(p=>p.ids.length>=4);
+ const vis=visOf(p19);
+ assert.deepEqual(vis,p19.ids,'19강 이 파트의 문제가 모두 보인다(접힌 문제 없음)');
+ const [v1,v2,h1]=vis;
  const hist=[
   row('r1',v1,20,9,0,'correct'),row('r2',v1,21,9,0,'wrong'),                           // v1: 다음 날 틀림 → 판정 틀림
   row('r3',v2,20,9,0,'wrong'),row('r4',v2,20,9,5,'correct'),                           // v2: 같은 날 해설 보고 맞힘 → 연습
-  row('r5',h1,20,9,0,'correct'),row('r6',h1,22,9,0,'wrong'),                           // 접힌 문제: 판정 틀림이지만 보이지 않으니 안 센다
+  row('r5',h1,20,9,0,'correct'),row('r6',h1,22,9,0,'wrong'),                           // 셋째 문제(옛 접힌 문제): 판정 틀림, 이제 보이므로 센다
  ];
  // 한국사 02~05강 '구석기와 신석기' 파트 기출(기초 개념 대입이 이 파트 상자를 가리키는 한능검 심화)
  const hp='h0205-1',hIds=Object.entries(Q('STUDY_BASICS.apply')).filter(([id,x])=>/^hanneung-/.test(id)&&x.box==='hist-'+hp).map(([id])=>id);
@@ -461,17 +427,17 @@ assert.deepEqual([R('WEAK_MIN'),R('WEAK_RATE')],[PartCheck.WEAK_MIN,PartCheck.WE
  const hTotal=Object.entries(Q('STUDY_BASICS.apply')).filter(([id,x])=>/^(hanneung|gichul)-/.test(id)&&x.box==='hist-'+hp).length;assert.ok(hTotal>hIds.length,'9급 한국사 기출도 이 파트에 든다');
  hist.push(row('k1',hIds[0],19,8,0,'correct'),row('k2',hIds[1],19,8,1,'unsure'),row('k3',hIds[2],19,8,2,'wrong'),row('k4',hIds[2],19,8,3,'correct'));
  Q("(()=>{const s=structuredClone(data);s.history="+JSON.stringify(hist)+";s.explanationViews=[{id:'r3',openedAt:"+T(20,9,1)+"}];commit(s);})()");
- const j=Q('reviewJudge('+JSON.stringify(p19.ids.filter(id=>vis.includes(id)))+')');
- assert.deepEqual([j.reviewed,j.right],[1,0],'보이는 문제 중 판정은 v1 하나(틀림)');
+ const j=Q('reviewJudge('+JSON.stringify(p19.ids)+')');
+ assert.deepEqual([j.reviewed,j.right],[2,0],'판정은 v1, 셋째 문제 둘(모두 틀림)');
  const stats=()=>Q("(()=>{const byId=new Map(data.cards.filter(c=>isPlayable(c)&&c.subject==='한국사').map(c=>[c.id,c]));return partStats(STUDY_PARTS.part("+JSON.stringify(p19.id)+"),byId);})()");
- let x=stats();assert.deepEqual([x.n,x.reviewed,x.right,x.weak],[vis.length,1,0,vis.length<=1],'접힌 문제는 수에도 판정에도 안 들어간다');
+ let x=stats();assert.deepEqual([x.n,x.reviewed,x.right,x.weak],[p19.ids.length,2,0,false],'모든 문제가 수와 판정에 들어간다(판정 2개는 파트 크기보다 적어 약함 아님)');
  // 기출 첫 풀이 1/3 (unsure = 틀림, 첫 풀이만)
  const g=()=>JSON.parse(Q("JSON.stringify(partStats(STUDY_PARTS.part('"+hp+"'),new Map(data.cards.filter(c=>isPlayable(c)&&c.subject==='한국사').map(c=>[c.id,c]))).gichul)"));
  assert.deepEqual(g(),{total:hTotal,n:3,k:1,weak:false},'기출 첫 풀이 1/3 — 5문제 미만이라 기출 약함은 아직');
  Q("go('parts','한국사')");let b=a.nodes.get('#partsBody');
  const line=pid=>b.all.find(n=>n.dataset?.part===pid).children[1].textContent;
  assert.match(line(hp),/, 기출 첫 풀이 1\/3$/,line(hp));
- assert.match(line(p19.id),new RegExp('^'+vis.length+'문제, 외움 0, 복습 판정 0/1, 안 푼 문제 '+(vis.length-2)),line(p19.id));
+ assert.match(line(p19.id),new RegExp('^'+vis.length+'문제, 외움 0, 복습 판정 0/2, 안 푼 문제 '+(vis.length-3)),line(p19.id));
  // 기출 5문제 이상, 70% 미만 → ', 기출 약함'
  hist.push(row('k5',hIds[3],19,8,4,'correct'),row('k6',hIds[4],19,8,5,'correct'));
  Q("(()=>{const s=structuredClone(data);s.history="+JSON.stringify(hist)+";commit(s);render();})()");
@@ -480,8 +446,8 @@ assert.deepEqual([R('WEAK_MIN'),R('WEAK_RATE')],[PartCheck.WEAK_MIN,PartCheck.WE
  assert.ok(!/⚠ 약함/.test(b.all.find(n=>n.dataset?.part===hp).children[0].textContent),'기출 약함은 ⚠ 약함과 따로');
  // 파트 범위 화면의 한 줄
  Q("openScope({subject:'한국사',topic:'',round:'part-"+hp+"'})");assert.match(a.text('#roundScore'),/, 복습 판정 아직, 기출 첫 풀이 3\/5, 기출 약함$/,a.text('#roundScore'));
- // 이 강 문제 더 풀기를 켜면 접힌 문제도 보이고 판정에 들어간다
- Q("setLectureOpen('19',true)");x=stats();assert.deepEqual([x.reviewed,x.right],[2,0],'펼치면 접혔던 문제의 판정도 센다');
+ // 이 강 문제 더 풀기 단추는 없다(v386): 단추를 누르지 않아도 판정은 그대로 2개
+ Q("go('quiz','한국사')");assert.equal(a.nodes.get('#moreLabel').hidden,true,'더 풀기 단추 없음');x=stats();assert.deepEqual([x.reviewed,x.right],[2,0]);
  // 다음 날 v2를 맞히면 판정에 들어간다(20일엔 연습이었지만 23일 풀이의 바로 앞 노출은 20일)
  hist.push(row('r7',v2,23,9,0,'correct'));Q("(()=>{const s=structuredClone(data);s.history="+JSON.stringify(hist)+";commit(s);})()");
  x=stats();assert.deepEqual([x.reviewed,x.right],[3,1]);
@@ -512,4 +478,4 @@ assert.deepEqual([R('WEAK_MIN'),R('WEAK_RATE')],[PartCheck.WEAK_MIN,PartCheck.WE
   assert.equal(PARTS.unitOf(s.part)?.id,s.parent,s.unit+': 같은 주제의 기출 파트 '+s.part+'가 '+s.parent+'에 있다(범위 목록이 이 단원 아래에 묶는다)');assert.equal(u.short,PARTS.part(s.part).title,s.unit+' 이름 = 기출 파트 제목');
   assert.equal(ids.indexOf(s.unit),ids.indexOf(prev)+1,prev+' 다음에 '+s.unit);prev=s.unit;}}
 console.log('PASS parts: '+PARTS.units.length+'단위, '+Object.entries(itCounts).map(([k,v])=>k+' '+v+', ').join('')+PARTS.units.reduce((n,u)=>n+u.parts.length,0)+'파트, 모든 문제가 정확히 한 파트(기타 0) — '+Object.entries(counts).map(([k,v])=>k+' '+v).join(', ')+
- '; 파트별 점검: 19강 모두 맞힘 = 5×8 = 40문제, 하나 틀리면 같은 파트 3문제 더(8문제로 통과), 8문제 파트를 모두 틀리면 5+3에서 다시 볼 파트, 다시 볼 파트만 다시 점검, 새로고침 뒤 이어짐, 파트 없는 범위는 기본 순서, 기록, 일정은 평소대로; 파트별 상태 수 = 기록; 복습 판정: 하루 이상 지나 다시 푼 풀이만(같은 날 그 문제, 쌍둥이를 풀었거나 해설을 봤으면 연습), 문제마다 가장 최근 판정, 약함 min(20, n), 접힌 문제 제외, 한국사 파트 기출 첫 풀이 M/N(unsure = 틀림), 기출 약함 5문제 이상 70% 미만');
+ '; 파트별 점검 모드는 숨김(v386): 19강 115문제를 번호 순서로, 새로고침 뒤 안 푼 첫 문제부터, 파트 고르기로 8문제 파트를 번호 순서로 끝까지, 기록, 일정은 평소대로; 파트별 상태 수 = 기록; 복습 판정: 하루 이상 지나 다시 푼 풀이만(같은 날 그 문제, 쌍둥이를 풀었거나 해설을 봤으면 연습), 문제마다 가장 최근 판정, 약함 min(20, n), 접힌 문제 없음, 한국사 파트 기출 첫 풀이 M/N(unsure = 틀림), 기출 약함 5문제 이상 70% 미만');

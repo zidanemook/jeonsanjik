@@ -3,7 +3,7 @@
 //  1) 색인의 모든 칸이 원본(practice-bank, basics, core-review-pack, quiz-options, study-review-catalog, memorize, hanneung-explanations)과 같은가.
 //  2) 조각을 모두 붙이면 원본과 글자 하나까지 같은가, 문제마다 필요한 조각(need)에 그 문제의 글, 대입, 상자, 공통 줄, 암기법이 다 있는가.
 //  3) 같은 저장 상태(여러 날 푼 기록)로 전체 방식(원본을 다 읽음 = 다른 검사들이 도는 방식)과 받는 방식(브라우저가 도는 방식)을 가짜 DOM에서 나란히 돌려
-//     홈, 과목, 범위, 파트, 진도 화면과 저장 상태가 같고, 여러 범위와 과목이 섞인 대기열을 풀어 가는 화면, 기록, 일정이 걸음마다 같은가.
+//     홈, 과목, 범위, 파트, 진도 화면과 저장 상태가 같고, 여러 범위를 번호 순서로 풀어 가고 과목 전체 범위에서 번호를 골라 과목 사이를 건너뛰는 화면, 기록, 일정이 걸음마다 같은가.
 //  4) 받지 못함(다시 불러오기), 판이 바뀜(새 버전으로 다시 열기), 기초 개념 보기, 외울 것, 다른 기기의 위치, 채점 화면 복원.
 //  5) 서비스 워커: 설치 때 모든 조각을 미리 받고(지문 확인, 같은 지문은 옛 캐시에서 복사), 오프라인에서 셸과 모든 조각을 내고, v246 캐시에서 올라오고, 조각 하나가 없으면 그 조각만 실패한다.
 //  6) 배포 목록(index.html, sw.js, pages.yml).
@@ -134,7 +134,8 @@ async function play(inst,scope,n,base){
  return out;
 }
 // ---------------------------------------------------------------- 3) 같은 상태로 두 방식을 나란히
-// 저장 상태 만들기: 앱으로 여러 날에 걸쳐 여러 범위를 푼다(틀림, 맞음, 해설 열람, 더 풀기, 대기열 모드, 파트 점검, 하루 목표, 목표 점수, 의견).
+// 저장 상태 만들기: 앱으로 여러 날에 걸쳐 여러 범위를 푼다(틀림, 맞음, 해설 열람, 하루 목표, 목표 점수, 의견). 더 풀기, 대기열 모드, 파트 점검 설정은 v386부터 화면에서 고를 수 없지만
+// 옛 기기의 저장에 남아 있을 수 있어 내부 함수로 넣어 둔다(두 방식이 같은 옛 설정을 똑같이 읽는지 본다).
 // 받는 방식으로 만든다(전체 방식은 답 하나에 0.5초가 든다 — 카드마다 글을 든 채 상태를 통째로 복사해서). 저장소에는 어느 방식이든 글 없이 일정, 기록만 남고,
 // 아래에서 같은 저장 상태를 두 방식이 똑같이 읽고 똑같이 이어 가는지 본다.
 const SCOPES=[{subject:'한국사',round:'lecture-11'},{subject:'영어',topic:'Day 3'},{subject:'영어',topic:'formula:ditransitive-no'},{subject:'국어',topic:'논리 2장'},{subject:'국어',topic:'어휘 2장'},
@@ -197,15 +198,24 @@ for(const [i,sc]of TODAY.entries()){stepNo=2000+i;const before=L.net.log.length,
  if(sc.topic==='컴일 cg04')D(got.sort(),['b-com-u2','u-comq-cg04'],'컴퓨터일반 한 단원은 그 단원 조각 + 기출과 함께 쓰는 상자 조각');
  if(sc.round==='79')assert.ok(got.includes('h-79')&&got.every(n=>n==='h-79'||n.startsWith('b-hist-')),'한능검 79회는 그 회 조각과 한국사 상자 조각만: '+got);
  same(L.lean(),F.lean(),'풀고 난 상태(기록, 일정, 설정): '+J(sc));}
-assert.ok(answered>=36,'범위마다 실제로 풀었다(틀린 문제 위주 모드의 빈 범위, 다 푼 공식 범위는 안내 화면만 견준다): '+answered);
-// 과목이 섞인 대기열(범위 = 전체 과목): 여러 과목, 단원의 문제가 한 대기열에 오고, 받는 방식이 문제마다 조각을 받아 가며 같은 순서로 낸다.
+assert.ok(answered>=36,'범위마다 실제로 풀었다(다 푼 범위는 끝 화면만 견준다): '+answered);
+// 과목 전체 범위(범위 = 모든 과목): v386부터 번호 순서다. 번호 고르기(paperJump)로 여러 과목, 단원 사이를 건너뛰어 풀어도 받는 방식이 문제마다 조각을 받아 가며 전체 방식과 같은 화면을 낸다.
 {// 새로 연 앱(받은 조각 없음)에서 이어 풀기: 지금까지의 저장 상태로 두 방식을 다시 연다.
  const F2=boot({lazy:false,saved:[...F.local]}),L2=boot({lazy:true,saved:[...L.local]});same(L2.lean(),F2.lean(),'다시 연 상태');
- stepNo=3000;const a=await play(F2,{subject:''},30,T0+20*600000),b=await play(L2,{subject:''},30,T0+20*600000);
- assert.equal(b.length,a.length);for(let k=0;k<a.length;k++){same(b[k],a[k],'섞인 대기열 걸음 '+k);steps++;}
- const subjects=new Set(a.filter(x=>x.startsWith('Q ')).map(x=>/:: ([^ ]+) /.exec(x)?.[1]));assert.ok(subjects.size>=3,'대기열에 세 과목 이상이 섞였다: '+[...subjects]);
- const got=new Set(L2.net.log.filter(u=>u.startsWith('chunks/')).map(u=>u.replace(/^chunks\/|\.json.*$/g,'')));assert.ok(got.size>=5,'섞인 대기열에서 새 조각을 받아 가며 풀었다: '+[...got]);
- same(L2.lean(),F2.lean(),'섞인 대기열을 푼 뒤의 상태');globalThis.__mixed={subjects:[...subjects],chunks:got.size,steps:a.length};}
+ stepNo=3000;
+ const jumpPlay=async inst=>{const out=[],base=T0+20*600000;inst.clock.now=base;inst.uuid.n=1000000+stepNo*100;await open(inst,{subject:''});
+  const total=inst.run('catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).length');
+  for(let i=0;i<12;i++){inst.run('paperJump('+Math.floor(i*total/12)+')');await inst.settle();
+   out.push('Q '+inst.nodes.get('#scopeLabel')._text+', '+inst.nodes.get('#orderStatus')._text+' :: '+inst.card()+' @@ 위치 '+inst.run('JSON.stringify(data.session||null)'));
+   inst.clock.now=base+(i+1)*40000;inst.uuid.n=1000000+stepNo*100+i*3+1;
+   const fb=answer(inst,i%3===1);if(fb===null)break;out.push('A '+fb);await next(inst);}
+  return out;};
+ const a=await jumpPlay(F2),b=await jumpPlay(L2);
+ assert.equal(b.length,a.length);assert.ok(a.length>=20,'건너뛰며 실제로 풀었다: '+a.length);for(let k=0;k<a.length;k++){same(b[k],a[k],'과목 전체 건너뛰기 걸음 '+k);steps++;}
+ assert.ok(a.filter(x=>x.startsWith('Q ')).every(x=>/, \d+\/\d+ \(번호 순서\) :: /.test(x)),'과목 전체도 번호 순서 진행 줄');
+ const subjects=new Set(a.filter(x=>x.startsWith('Q ')).map(x=>/:: ([^ ]+) /.exec(x)?.[1]));assert.ok(subjects.size>=3,'번호를 골라 세 과목 이상을 오갔다: '+[...subjects]);
+ const got=new Set(L2.net.log.filter(u=>u.startsWith('chunks/')).map(u=>u.replace(/^chunks\/|\.json.*$/g,'')));assert.ok(got.size>=5,'건너뛰며 새 조각을 받아 가며 풀었다: '+[...got]);
+ same(L2.lean(),F2.lean(),'과목 전체에서 건너뛰며 푼 뒤의 상태');globalThis.__mixed={subjects:[...subjects],chunks:got.size,steps:a.length};}
 {const a=screens(F),b=screens(L);for(const k of Object.keys(a))same(b[k],a[k],'푼 뒤 화면이 다르다: '+k);}
 // 기초 개념 보기, 외울 것 목록 하나: 받은 뒤 두 방식이 같다.
 {const partsToSee=['h11-1','enf-1','ko2-1','cg04','s01'].filter(p=>F.run('!!PARTS.part('+J(p)+')'));assert.ok(partsToSee.length>=3,'볼 파트: '+partsToSee);
@@ -240,7 +250,7 @@ tick('풀이 대조');
  globalThis.__need=Object.keys(need).length;}
 tick('전체 붙이기');
 // ---------------------------------------------------------------- 4) 받지 못함, 판이 바뀜, 다른 기기의 위치
-{const B=boot({lazy:true,saved:SAVED});B.run("(()=>{const s=structuredClone(data);delete s.queueModes;commit(s);})()"); // 저장 상태의 국어는 '틀린 문제 위주'라 안 푼 범위가 비어 보인다 — 여기서는 기본 순서로
+{const B=boot({lazy:true,saved:SAVED});B.run("(()=>{const s=structuredClone(data);delete s.queueModes;commit(s);})()"); // 옛 대기열 모드 설정을 지운다(v386부터는 있어도 번호 순서라 화면은 같다)
  // (가) 연결 없음: 안내 + 다시 불러오기. 빈 화면, 멈춘 화면이 아니다.
  B.net.offline=true;await open(B,{subject:'영어',topic:'Day 5'});
  assert.match(B.card(),/문제를 불러오지 못했어요/);assert.match(B.card(),/다시 불러오기/);assert.match(B.card(),/다른 범위 고르기/);assert.ok(!/새 버전/.test(B.card()));assert.equal(B.run('!!data.activePractice'),false);
@@ -280,20 +290,19 @@ tick('전체 붙이기');
  assert.equal(b.run("data.cards.filter(c=>c.question!==undefined&&!/^(gichul|hanneung)-/.test(c.id)).length"),0,'받기 전 자체 제작 카드에는 글이 없다');
  await open(b,{subject:'영어',topic:'Day 1'});assert.ok(b.run("data.cards.filter(c=>c.id.startsWith('en-day1-')).every(c=>typeof c.question==='string'&&c.question&&typeof c.explanation==='string'&&c.source)"),'조각이 붙으면 그 단원 카드에 글이 붙는다');
  assert.ok(JSON.parse(b.local.get('chagog-v1')).cards.every(c=>c.question===undefined&&c.explanation===undefined&&c.subject===undefined),'저장소에는 여전히 글을 남기지 않는다(일정만)');}
-{// (바) 쌍둥이만 남아 그대로 낸 문제가 화면에 있는 동안 앞서 틀린 문제의 5분 대기가 끝나도, 화면의 문제에 누른 답은 받는다.
- // v246까지는 그 답이 '풀 차례가 바뀌어 문제를 다시 불러왔어요'로 버려졌다(틀렸던 문제가 다시 나오는 순간 누름이 먹지 않던 일 — Edge 도구가 어휘 2장에서 본 것).
- const W=boot({lazy:true});W.run("setLectureOpen('ko-kv2',true)");await open(W,{subject:'국어',topic:'어휘 2장'});
- const X=W.run('data.activePractice.cardId');assert.ok(answer(W,true));await next(W);
- const twin=id=>W.run("(id=>{const g=ReviewPolicy.concept(id),seen=new Set(data.history.map(h=>h.cardId)),rows=data.history.filter(h=>(h.detail?.conceptId||ReviewPolicy.concept(h.cardId))===g).sort((a,b)=>a.at.localeCompare(b.at));return g!==id&&!seen.has(id)&&rows.at(-1)?.result==='correct'&&new Set(rows.filter(r=>r.result==='correct').map(r=>r.cardId)).size>=3;})("+J(id)+")");
- let n=0;for(;;){W.clock.now+=1000;assert.ok(W.run('!!data.activePractice')&&++n<200,'쌍둥이만 남는 데까지 푼다');if(twin(W.run('data.activePractice.cardId')))break;assert.ok(answer(W,false));await next(W);}
- const A=W.run('data.activePractice.cardId'),retryAt=RealDate.parse(W.run('data.cards.find(c=>c.id==='+J(X)+').retryAt'));assert.ok(W.clock.now<retryAt,'틀린 문제는 아직 대기 중(그래서 쌍둥이만 남았다)');
- W.clock.now=retryAt+1000;assert.ok(W.run("reviewQueue(data.cards.filter(inCurrent),true,'국어').ready.every(c=>c.id!=="+J(A)+")"),'대기가 끝나자 화면의 문제는 대기열에서 빠졌다');
- assert.ok(answer(W,false),'그래도 화면의 문제에 누른 답은 받는다');assert.equal(W.run('data.quizFeedback.cardId'),A);assert.equal(W.nodes.get('#message')._text,'');
- await next(W);assert.equal(W.run('data.activePractice.cardId'),X,'그다음에 틀렸던 문제가 나온다');
- // 대조: 다른 기기에서 방금 맞힌 문제(더는 풀 차례가 아님)는 지금처럼 답을 받지 않고 다시 그린다.
- W.run("(()=>{const now=new Date();data=ProgressSync.merge(data,[{id:'remote-1',cardId:"+J(X)+",date:day(now),at:now.toISOString(),result:'correct',mode:'quiz'}]);})()");
- const before=W.run('data.history.length');W.run('answerPractice('+J(X)+',data.activePractice.exercise.correctIndex)');
- assert.equal(W.run('data.history.length'),before,'풀 차례가 아닌 문제의 답은 기록하지 않는다');assert.match(W.nodes.get('#message')._text,/풀 차례가 바뀌어/);}
+{// (바) v386 번호 순서: 앞서 틀린 문제의 5분 대기가 화면에 있는 동안 끝나도 화면의 문제에 누른 답은 받고, 다음은 다음 번호다(틀린 문제가 끼어들지 않는다).
+ // v246까지는 대기열이 바뀌는 순간 그 답이 '풀 차례가 바뀌어 문제를 다시 불러왔어요'로 버려졌다(Edge 도구가 어휘 2장에서 본 것).
+ const W=boot({lazy:true});await open(W,{subject:'국어',topic:'어휘 2장'});
+ const order=JSON.parse(W.run('JSON.stringify(catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).map(c=>c.id))'));
+ const X=W.run('data.activePractice.cardId');assert.equal(X,order[0],'안 푼 첫 문제(1번)부터');assert.ok(answer(W,true));await next(W);
+ for(let i=1;i<4;i++){assert.equal(W.run('data.activePractice.cardId'),order[i],'번호 순서 '+(i+1)+'번');W.clock.now+=1000;assert.ok(answer(W,false));await next(W);}
+ const A=W.run('data.activePractice.cardId');assert.equal(A,order[4]);
+ const retry=W.run('data.cards.find(c=>c.id==='+J(X)+').retryAt||null');W.clock.now=retry?RealDate.parse(retry)+1000:W.clock.now+600000;
+ assert.ok(answer(W,false),'틀린 문제의 대기가 끝나도 화면의 문제에 누른 답은 받는다');assert.equal(W.run('data.quizFeedback.cardId'),A);assert.equal(W.nodes.get('#message')._text,'');
+ await next(W);assert.equal(W.run('data.activePractice.cardId'),order[5],'그다음은 다음 번호(틀렸던 문제가 끼어들지 않는다)');
+ // 대조: 지금 번호가 아닌 문제(다른 화면에 남은 문제)에 누른 답은 기록하지 않고 다시 그린다.
+ const before=W.run('data.history.length');W.run('answerPractice('+J(X)+',0)');
+ assert.equal(W.run('data.history.length'),before,'지금 번호가 아닌 문제의 답은 기록하지 않는다');assert.match(W.nodes.get('#message')._text,/풀 차례가 바뀌어/);}
 tick('실패 화면');
 // ---------------------------------------------------------------- 5) 서비스 워커
 const swText=read('sw.js');
@@ -376,6 +385,6 @@ tick('서비스 워커');
  assert.ok(/cp [^\n]*\bchunk-manifest\.json\b/.test(yml)&&yml.includes('cp -r chunks _site/'),'pages.yml이 조각과 조각 목록을 올린다');assert.ok(/node lazy\.test\.cjs/.test(yml)&&/run: node build-chunks\.cjs --check && /.test(yml),'pages.yml이 맨 먼저 조각이 낡지 않았는지 보고(1초) 이 검사를 돌린다');
  assert.ok(/^chunks\/\*\.json -text$/m.test(read('.gitattributes')),'조각은 줄 끝 변환을 타지 않는다');}
 console.log('PASS lazy: 조각 '+names.length+'개, 색인 '+Math.round(Buffer.byteLength(read('content-index.js'))/1024)+'KB가 원본과 맞고(낡지 않음), 조각을 다 붙이면 원본과 같고, 문제 '+globalThis.__need+'개마다 필요한 조각에 글, 대입, 상자가 있고, 공통 줄 '+globalThis.__shared.checked+'곳이 옛 계산과 같다; '
- +'같은 저장 상태로 전체 방식과 받는 방식의 목록 화면, 저장 상태가 같고 풀이 '+steps+'걸음(과목이 섞인 대기열 '+globalThis.__mixed.steps+'걸음, '+globalThis.__mixed.subjects.join(', ')+', 새 조각 '+globalThis.__mixed.chunks+'개)의 화면이 같다; '
+ +'같은 저장 상태로 전체 방식과 받는 방식의 목록 화면, 저장 상태가 같고 풀이 '+steps+'걸음(과목 전체 번호 건너뛰기 '+globalThis.__mixed.steps+'걸음, '+globalThis.__mixed.subjects.join(', ')+', 새 조각 '+globalThis.__mixed.chunks+'개)의 화면이 같다; '
  +'받지 못함 → 다시 불러오기 / 지문 다름, 404 → 새 버전으로 다시 열기 / 기초 개념 보기, 외울 것, 다른 기기의 위치, 채점 화면 복원; 서비스 워커: 셸 '+globalThis.__sw.assets+' + 조각 '+globalThis.__sw.chunks+' 미리 받기, 오프라인, 지문 확인, 이어 받기, v246에서 올라오기; 배포 목록');
 })().catch(e=>{console.error(e);process.exitCode=1;});

@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v385-box-additions';
+globalThis.APP_BUILD='chagog-v386-simple-order';

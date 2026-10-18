@@ -1,6 +1,6 @@
 // app.js를 가짜 DOM 위에서 실제로 돌려, 화면, 기록, 복습 일정이 어떻게 맞물리는지 확인한다.
-// 문제 하나가 카드 하나다. 평소 모드는 문법 포인트마다 한 문제씩 낸 뒤 같은 포인트의 나머지를 형제 간격 뒤로 미룬다.
-// 기출 회차는 대기열을 거치지 않고 원문 순서대로 낸다. 화면의 모든 수는 "문제" 한 단위다.
+// 문제 하나가 카드 하나다. v386부터 모든 범위를 번호 순서로 낸다(앱이 차례를 고르지 않는다): 회차가 아니면 안 푼 첫 문제부터, 기출 회차는 원문 순서로 풀던 곳부터.
+// 건너뛰기, 이전, 번호 고르기로 자리만 옮긴다. 화면의 모든 수는 "문제" 한 단위다.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 function el(tag='div'){
  const node={tag,children:[],attrs:{},dataset:{},classes:new Set(),_text:'',hidden:false,disabled:false,open:false,
@@ -37,7 +37,7 @@ const run=code=>vm.runInContext(code,ctx);
 // 시작할 때는 회차 파일을 하나도 받지 않는다. 그래도 카드, 과목 문항 수는 색인으로 모든 기출 문항을 센다.
 assert.deepEqual(fetched,[],'앱을 열 때 기출 회차 파일을 받지 않는다');
 const indexedComputer=run("Gichul.forSubject('컴퓨터일반').reduce((n,p)=>n+p.numbers.length,0)");
-assert.equal(run("questionCount(data.cards.filter(c=>isPlayable(c)&&c.subject==='컴퓨터일반'))"),indexedComputer+/*COMQ-VISIBLE*/512/*END-COMQ-VISIBLE*/,'받지 않은 회차의 문항도 과목 문항 수에 들어간다(+ 보이는 자체 제작 문제)');
+assert.equal(run("questionCount(data.cards.filter(c=>isPlayable(c)&&c.subject==='컴퓨터일반'))"),indexedComputer+/*COMQ-VISIBLE*/4673/*END-COMQ-VISIBLE*/,'받지 않은 회차의 문항도 과목 문항 수에 들어간다(+ 보이는 자체 제작 문제)');
 assert.equal(run("Object.keys(QUIZ_OPTIONS).filter(id=>id.startsWith('gichul-')).length"),0,'받기 전에는 기출 보기가 없다');
 const screen=()=>nodes.get('#card').all.map(n=>n._text).filter(Boolean).join(' | ');
 // 채점 뒤 해설 화면에서 "다음 문제"를 누른 것과 같다.
@@ -50,23 +50,26 @@ const answerCurrent=wrong=>{
  next();
 };
 
-// v199 영어, 국어 단원마다 핵심 20: 이 파일의 영어, 국어 흐름(Day 1 60문제 전부 풀기 등)은 단원 전체를 전제로 쓴 것이라 모든 단원의 '이 단원 문제 더 풀기'를 켠 채로 돈다.
-// 접기 자체(기본 20, 켜기/끄기, 대기열 밖)는 core20.test.cjs가 검사한다.
-run("(()=>{const s=structuredClone(data);s.openLectures=STUDY_CORE_UNITS.map(u=>u.id);commit(s);})()");
-// 1) 평소 모드: 문제집 Day 1 범위를 풀 수 있는 데까지 푼다(전부 맞힌다).
+// v386 핵심 20 접기를 껐다(사용자 2026-10-18 "기본적으로 문제는 항상 전부 보여지게"): 단원을 켜지 않아도 모든 문제가 풀 수 있는 문제다.
+assert.equal(run("data.cards.filter(playableRaw).length"),run("data.cards.filter(isPlayable).length"),'접힌 문제가 없다(모든 문제가 보인다)');
+// 1) 번호 순서: 문제집 Day 1 범위를 1번부터 끝까지 푼다(전부 맞힌다).
 run("openScope({subject:'영어',topic:'Day 1'})");
 const total=run("questionCount(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)))");
 const cardCount=run("data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).length");
 assert.equal(total,60,'Day 1 범위는 준비된 60문제');
 assert.equal(cardCount,total,'문제 하나가 카드 하나: 카드 '+cardCount+'장, 문제 '+total+'개');
 const countNow=()=>run("countLine(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)))");
-assert.equal(countNow(),'풀어야 할 문제 60/60','처음에는 60문제가 모두 지금 풀 차례');
+assert.equal(countNow(),'안 푼 문제 60/60','처음에는 60문제가 모두 안 푼 문제');
+assert.equal(nodes.get('#orderStatus')._text,'1/60 (번호 순서)','진행 줄: 번호 순서의 1번');
+const day1Order=Array.from(run("catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).map(c=>c.id)"));
 const points=run("new Set(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)).map(c=>ReviewPolicy.concept(c.id))).size");
 assert.equal(points,24,'Day 1 문법 포인트 24개');
-let normal=0;while(run('data.activePractice')&&normal<total){answerCurrent(false);normal++;}
-// v56까지는 카드 12장이 129문항을 돌려 내서 8문제 만에 막혔다. v57에서는 문법 포인트마다 한 문제씩 24문제 뒤 형제 간격으로 막혔다.
-// 지금은 같은 개념 간격이 다른 문제가 있을 때만 사이를 벌리고, 풀 문제가 같은 개념뿐이면 막지 않는다. 60문제가 모두 이어서 나온다.
-assert.equal(normal,total,'평소 모드에서 60문제가 막힘 없이 모두 나온다 ('+normal+'문제)');
+let normal=0;const day1Served=[];while(run('data.activePractice')&&normal<total){day1Served.push(run('data.activePractice.cardId'));answerCurrent(false);normal++;}
+// v56까지는 카드 12장이 129문항을 돌려 내서 8문제 만에 막혔다. v386부터는 같은 개념 간격도 없이 번호 순서 그대로 60문제가 이어서 나온다.
+assert.equal(normal,total,'번호 순서로 60문제가 막힘 없이 모두 나온다 ('+normal+'문제)');
+assert.deepEqual(day1Served,day1Order,'Day 1은 번호 순서 그대로 한 번씩');
+assert.equal(countNow(),'안 푼 문제 0/60','다 풀면 안 푼 문제 0');
+assert.ok(screen().includes('이 범위를 끝까지 풀었어요'),'끝까지 푼 범위 화면: '+screen().slice(0,60));
 assert.ok(!/비슷한 내용은 잠시 뒤/.test(screen()),'같은 개념 간격 때문에 막힌 화면이 뜨지 않는다: '+screen().slice(0,60));
 assert.ok(!nodes.get('#retryStatus')._text.includes('같은 개념의 문제'),'같은 개념 대기 안내가 남지 않는다: '+nodes.get('#retryStatus')._text);
 // 첫 화면, 과목, 범위, 진행상황의 수도 같은 단위("문제")다. 어느 화면에도 "문항", "카드"라는 말이 나오지 않는다.
@@ -74,53 +77,53 @@ assert.ok(!nodes.get('#retryStatus')._text.includes('같은 개념의 문제'),'
  const texts=sel=>[nodes.get(sel)._text,...nodes.get(sel).all.map(n=>n._text)].filter(Boolean).join(' | ');
  const menuDetail=(sel,title)=>{const b=nodes.get(sel).all.find(n=>n.tag==='button'&&n.children[0]?._text===title);return b?.children[1]?._text;};
  const en="data.cards.filter(c=>isPlayable(c)&&c.subject==='영어')";
- const enLine='풀어야 할 문제 '+run('questionCount(reviewQueue('+en+').ready)')+'/'+run('questionCount('+en+')');
+ const enTotal=run('questionCount('+en+')'),enLine='안 푼 문제 '+(enTotal-60)+'/'+enTotal;
  run("go('home')");assert.equal(menuDetail('#subjectList','영어'),enLine,'첫 화면 과목 줄');
  run("go('subject','영어')");assert.equal(nodes.get('#subjectSummary')._text,enLine+', 오늘 푼 문제 60개','과목 화면 요약(오늘 푼 문제는 서로 다른 문제 수)');
- run("go('range','영어')");assert.equal(menuDetail('#rangeList','Day 1 문장의 구조와 동사 유형'),'풀어야 할 문제 0/60, 첫 시도 60/60, 정답 60, 이 단원 문제 더 풀기 켬','범위 줄(단원 전체를 켠 채)');
+ run("go('range','영어')");assert.equal(menuDetail('#rangeList','Day 1 문장의 구조와 동사 유형'),'전체 60문제, 첫 시도 60/60, 정답 60, 번호 순서로 안 푼 문제부터','범위 줄(v386 번호 순서, 접기 없음)');
  // 영어 범위 화면의 '문제집 진도'는 Day 순서대로 나온다: Day 1 바로 다음이 Day 2이고, Day 2는 아직 풀지 않은 60문제다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d1=rows.indexOf('Day 1 문장의 구조와 동사 유형'),d2=rows.indexOf('Day 2 동사의 형태, 명사, 일치');
   assert.ok(d1>=0&&d2===d1+1,'문제집 진도는 Day 1 다음에 Day 2: '+rows.slice(0,4).join(' / '));
-  assert.equal(menuDetail('#rangeList','Day 2 동사의 형태, 명사, 일치'),'풀어야 할 문제 60/60, 첫 시도 0/60, 이 단원 문제 더 풀기 켬','Day 2 범위 줄');}
+  assert.equal(menuDetail('#rangeList','Day 2 동사의 형태, 명사, 일치'),'전체 60문제, 첫 시도 0/60, 번호 순서로 안 푼 문제부터','Day 2 범위 줄');}
  // Day 3은 Day 2 바로 다음에 나오고, 아직 풀지 않은 178문제다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d2=rows.indexOf('Day 2 동사의 형태, 명사, 일치'),d3=rows.indexOf('Day 3 분사, 준동사, 관사와 도치');
   assert.ok(d2>=0&&d3===d2+1,'문제집 진도는 Day 2 다음에 Day 3: '+rows.slice(0,5).join(' / '));
-  assert.equal(menuDetail('#rangeList','Day 3 분사, 준동사, 관사와 도치'),'풀어야 할 문제 178/178, 첫 시도 0/178, 이 단원 문제 더 풀기 켬','Day 3 범위 줄');}
+  assert.equal(menuDetail('#rangeList','Day 3 분사, 준동사, 관사와 도치'),'전체 178문제, 첫 시도 0/178, 번호 순서로 안 푼 문제부터','Day 3 범위 줄');}
  // Day 4는 Day 3 바로 다음에 나오고, 아직 풀지 않은 152문제다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d3=rows.indexOf('Day 3 분사, 준동사, 관사와 도치'),d4=rows.indexOf('Day 4 형용사, 부사와 비교 구문');
   assert.ok(d3>=0&&d4===d3+1,'문제집 진도는 Day 3 다음에 Day 4: '+rows.slice(0,6).join(' / '));
-  assert.equal(menuDetail('#rangeList','Day 4 형용사, 부사와 비교 구문'),'풀어야 할 문제 152/152, 첫 시도 0/152, 이 단원 문제 더 풀기 켬','Day 4 범위 줄');}
+  assert.equal(menuDetail('#rangeList','Day 4 형용사, 부사와 비교 구문'),'전체 152문제, 첫 시도 0/152, 번호 순서로 안 푼 문제부터','Day 4 범위 줄');}
  // Day 5는 Day 4 바로 다음에 나오고, 아직 풀지 않은 196문제다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d4=rows.indexOf('Day 4 형용사, 부사와 비교 구문'),d5=rows.indexOf('Day 5 접속사, 관계사, 가정법과 도치');
   assert.ok(d4>=0&&d5===d4+1,'문제집 진도는 Day 4 다음에 Day 5: '+rows.slice(0,7).join(' / '));
-  assert.equal(menuDetail('#rangeList','Day 5 접속사, 관계사, 가정법과 도치'),'풀어야 할 문제 196/196, 첫 시도 0/196, 이 단원 문제 더 풀기 켬','Day 5 범위 줄');}
+  assert.equal(menuDetail('#rangeList','Day 5 접속사, 관계사, 가정법과 도치'),'전체 196문제, 첫 시도 0/196, 번호 순서로 안 푼 문제부터','Day 5 범위 줄');}
  // Day 6, 7(v151)은 Day 5 바로 다음에 차례로 나오고, 아직 풀지 않은 220, 240문제다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d5=rows.indexOf('Day 5 접속사, 관계사, 가정법과 도치'),d6=rows.indexOf('Day 6 무작위 문법 포인트 찾기 훈련'),d7=rows.indexOf('Day 7 무작위 문법 포인트 찾기 훈련');
   assert.ok(d5>=0&&d6===d5+1&&d7===d6+1,'문제집 진도는 Day 5 다음에 Day 6, 7: '+rows.slice(0,9).join(' / '));
-  assert.equal(menuDetail('#rangeList','Day 6 무작위 문법 포인트 찾기 훈련'),'풀어야 할 문제 220/220, 첫 시도 0/220, 이 단원 문제 더 풀기 켬','Day 6 범위 줄');assert.equal(menuDetail('#rangeList','Day 7 무작위 문법 포인트 찾기 훈련'),'풀어야 할 문제 240/240, 첫 시도 0/240, 이 단원 문제 더 풀기 켬','Day 7 범위 줄');}
- // Day 8, 9, 10(v204)은 Day 7 바로 다음. 2026-10-07 더 풀기를 더해 89, 88, 86문제(핵심 20 + 접힘) — 이 검사는 모든 단원을 켠 채 돌므로 전체 수가 보인다(핵심 20, '더 풀기 N문제' 줄은 core20.test).
+  assert.equal(menuDetail('#rangeList','Day 6 무작위 문법 포인트 찾기 훈련'),'전체 220문제, 첫 시도 0/220, 번호 순서로 안 푼 문제부터','Day 6 범위 줄');assert.equal(menuDetail('#rangeList','Day 7 무작위 문법 포인트 찾기 훈련'),'전체 240문제, 첫 시도 0/240, 번호 순서로 안 푼 문제부터','Day 7 범위 줄');}
+ // Day 8, 9, 10(v204)은 Day 7 바로 다음, 89, 88, 86문제(v386부터 접지 않아 전체 수가 보인다).
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d7=rows.indexOf('Day 7 무작위 문법 포인트 찾기 훈련');
   assert.deepEqual(rows.slice(d7+1,d7+4),["Day 8 무작위 문법 포인트 찾기 훈련","Day 9 무작위 문법 포인트 찾기 훈련","Day 10 무작위 문법 포인트 찾기 훈련"],'Day 7 다음에 Day 8, 9, 10');
-  for(const n of ["Day 8 무작위 문법 포인트 찾기 훈련","Day 9 무작위 문법 포인트 찾기 훈련","Day 10 무작위 문법 포인트 찾기 훈련"]){const k={8:89,9:88,10:86}[n.split(' ')[1]];assert.equal(menuDetail('#rangeList',n),'풀어야 할 문제 '+k+'/'+k+', 첫 시도 0/'+k+', 이 단원 문제 더 풀기 켬',n+' 범위 줄');}}
- // Day 11(WEEK 03 실전문제 연습, 2026-10-07): Day 10 바로 다음, 83문제(핵심 20 + 접힘 63) — 이 검사는 모든 단원을 켠 채 돈다.
+  for(const n of ["Day 8 무작위 문법 포인트 찾기 훈련","Day 9 무작위 문법 포인트 찾기 훈련","Day 10 무작위 문법 포인트 찾기 훈련"]){const k={8:89,9:88,10:86}[n.split(' ')[1]];assert.equal(menuDetail('#rangeList',n),'전체 '+k+'문제, 첫 시도 0/'+k+', 번호 순서로 안 푼 문제부터',n+' 범위 줄');}}
+ // Day 11(WEEK 03 실전문제 연습, 2026-10-07): Day 10 바로 다음, 83문제(v386부터 접지 않아 전체 수가 보인다).
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text);assert.equal(rows.indexOf('Day 11 실전문제 연습'),rows.indexOf('Day 10 무작위 문법 포인트 찾기 훈련')+1,'Day 10 다음에 Day 11');
-  assert.equal(menuDetail('#rangeList','Day 11 실전문제 연습'),'풀어야 할 문제 83/83, 첫 시도 0/83, 이 단원 문제 더 풀기 켬','Day 11 범위 줄');}
- // Day 12(WEEK 03 실전문제 연습, 2026-10-07): Day 11 바로 다음, 83문제(핵심 20 + 접힘 63) — 이 검사는 모든 단원을 켠 채 돈다.
+  assert.equal(menuDetail('#rangeList','Day 11 실전문제 연습'),'전체 83문제, 첫 시도 0/83, 번호 순서로 안 푼 문제부터','Day 11 범위 줄');}
+ // Day 12(WEEK 03 실전문제 연습, 2026-10-07): Day 11 바로 다음, 83문제(v386부터 접지 않아 전체 수가 보인다).
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text);assert.equal(rows.indexOf('Day 12 실전문제 연습'),rows.indexOf('Day 11 실전문제 연습')+1,'Day 11 다음에 Day 12');
-  assert.equal(menuDetail('#rangeList','Day 12 실전문제 연습'),'풀어야 할 문제 83/83, 첫 시도 0/83, 이 단원 문제 더 풀기 켬','Day 12 범위 줄');}
- // Day 13(WEEK 03 실전문제 연습, 2026-10-07): Day 12 바로 다음, 80문제(핵심 20 + 접힘 60) — 이 검사는 모든 단원을 켠 채 돈다.
+  assert.equal(menuDetail('#rangeList','Day 12 실전문제 연습'),'전체 83문제, 첫 시도 0/83, 번호 순서로 안 푼 문제부터','Day 12 범위 줄');}
+ // Day 13(WEEK 03 실전문제 연습, 2026-10-07): Day 12 바로 다음, 80문제(v386부터 접지 않아 전체 수가 보인다).
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text);assert.equal(rows.indexOf('Day 13 실전문제 연습'),rows.indexOf('Day 12 실전문제 연습')+1,'Day 12 다음에 Day 13');
-  assert.equal(menuDetail('#rangeList','Day 13 실전문제 연습'),'풀어야 할 문제 80/80, 첫 시도 0/80, 이 단원 문제 더 풀기 켬','Day 13 범위 줄');}
- // Day 14(WEEK 03 실전문제 연습, 2026-10-07): Day 13 바로 다음, 91문제(핵심 20 + 접힘 71) — 이 검사는 모든 단원을 켠 채 돈다.
+  assert.equal(menuDetail('#rangeList','Day 13 실전문제 연습'),'전체 80문제, 첫 시도 0/80, 번호 순서로 안 푼 문제부터','Day 13 범위 줄');}
+ // Day 14(WEEK 03 실전문제 연습, 2026-10-07): Day 13 바로 다음, 91문제(v386부터 접지 않아 전체 수가 보인다).
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text);assert.equal(rows.indexOf('Day 14 실전문제 연습'),rows.indexOf('Day 13 실전문제 연습')+1,'Day 13 다음에 Day 14');
-  assert.equal(menuDetail('#rangeList','Day 14 실전문제 연습'),'풀어야 할 문제 91/91, 첫 시도 0/91, 이 단원 문제 더 풀기 켬','Day 14 범위 줄');}
- // Day 15(WEEK 03 실전문제 연습, 2026-10-07): Day 14 바로 다음, 93문제(핵심 20 + 접힘 73) — 이 검사는 모든 단원을 켠 채 돈다.
+  assert.equal(menuDetail('#rangeList','Day 14 실전문제 연습'),'전체 91문제, 첫 시도 0/91, 번호 순서로 안 푼 문제부터','Day 14 범위 줄');}
+ // Day 15(WEEK 03 실전문제 연습, 2026-10-07): Day 14 바로 다음, 93문제(v386부터 접지 않아 전체 수가 보인다).
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text);assert.equal(rows.indexOf('Day 15 실전문제 연습'),rows.indexOf('Day 14 실전문제 연습')+1,'Day 14 다음에 Day 15');
-  assert.equal(menuDetail('#rangeList','Day 15 실전문제 연습'),'풀어야 할 문제 93/93, 첫 시도 0/93, 이 단원 문제 더 풀기 켬','Day 15 범위 줄');}
+  assert.equal(menuDetail('#rangeList','Day 15 실전문제 연습'),'전체 93문제, 첫 시도 0/93, 번호 순서로 안 푼 문제부터','Day 15 범위 줄');}
  // 문법 공식 훈련(v98): 마지막 Day(v115부터 Day 5, v151부터 Day 7, v204부터 Day 10) 다음에 ‘공식 훈련 새 문제 전체’ 범위, 그 아래 영역별로 접힌 공식 범위가 나온다. 공식 범위는 그 공식의 Day 문제와 새 문제를 함께 담는다.
  {const rows=nodes.get('#rangeList').all.filter(n=>n.tag==='button').map(n=>n.children[0]?._text),d7=rows.indexOf('Day 15 실전문제 연습'),f=rows.indexOf('공식 훈련 새 문제 전체');
   assert.ok(d7>=0&&f===d7+1,'Day 15 다음에 공식 훈련: '+rows.slice(0,19).join(' / '));
-  assert.equal(menuDetail('#rangeList','공식 훈련 새 문제 전체'),'풀어야 할 문제 364/364, 첫 시도 0/364, 이 단원 문제 더 풀기 켬','공식 훈련 새 문제 범위 줄');
+  assert.equal(menuDetail('#rangeList','공식 훈련 새 문제 전체'),'전체 364문제, 첫 시도 0/364, 번호 순서로 안 푼 문제부터','공식 훈련 새 문제 범위 줄');
   assert.equal(rows.filter(t=>run('ENGLISH_FORMULAS.areas.flatMap(a=>a.rules.map(r=>r.title))').includes(t)).length,89,'공식 범위 89개');}
  run("go('progress')");assert.equal(nodes.get('#total')._text,String(run('questionCount(data.cards.filter(isPlayable))')),'진행상황의 전체 문제');
  assert.equal(nodes.get('#done')._text,'60','진행상황의 오늘 푼 문제');
@@ -268,7 +271,7 @@ for(const [SUBJ,round] of [['국어','paper-national9-2026-korean'],['영어','p
   assert.ok(!/문항|카드|변형/.test(screen().replace(/스마트 ?카드|신용 ?카드|IC ?카드|카드 ?결제|카드 ?번호|카드사|랜카드|천공 ?카드|그래픽 ?카드|인터페이스 ?카드|확장 ?카드|메모리 ?카드|LAN ?카드|사운드 ?카드|비디오 ?카드/g,'')),SUBJ+' 기출 해설 화면에 문항/카드/변형 없음: '+id);
   seen[wrong?'wrong':'right']++;next();}
  assert.ok(seen.wrong&&seen.right,SUBJ+' '+round+': 대입이 있는 기출을 틀리고 맞혀 봤다');}
-// 회차가 아닌 범위는 예전 그대로 복습 대기열을 따른다.
+// 회차가 아닌 범위도 v386부터 번호 순서다(아래 Day 2 검사).
 run("openScope({subject:'한국사',round:'lecture-02'})");
 // 국어 범위 화면: 『사고의 힘 논리』 묶음이 맨 위에 1장 → 2장 → 3장 → 4장 → 5장 → 6장 → 제2편 독해 1장 순서로 나오고, 모두 아직 풀지 않은 4지선다 문제다.
 // 2장을 열면 국어 문제만 나오고, 틀린 뒤 해설 화면에 정리, 출처, 같은 개념 안내가 나오며 문항/카드라는 말은 없다.
@@ -280,23 +283,23 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  assert.equal(heads[0],'사고의 힘 논리','국어 범위 화면의 첫 묶음: '+heads.slice(0,3).join(' / '));
  const rows=rangeRows();
  assert.deepEqual(rows.slice(0,6),['1장 논증의 개념과 유형','2장 명제 논리','3장 정언 논리','4장 술어 논리','5장 귀납 논증','6장 논리의 오류'],'사고의 힘 논리는 1장부터 6장까지 차례로: '+rows.slice(0,7).join(' / '));
- assert.equal(rowDetail('1장 논증의 개념과 유형'),'풀어야 할 문제 31/31, 첫 시도 0/31, 이 단원 문제 더 풀기 켬','1장 범위 줄');
- assert.equal(rowDetail('2장 명제 논리'),'풀어야 할 문제 179/179, 첫 시도 0/179, 이 단원 문제 더 풀기 켬','2장 범위 줄');
- assert.equal(rowDetail('3장 정언 논리'),'풀어야 할 문제 181/181, 첫 시도 0/181, 이 단원 문제 더 풀기 켬','3장 범위 줄');
- assert.equal(rowDetail('4장 술어 논리'),'풀어야 할 문제 147/147, 첫 시도 0/147, 이 단원 문제 더 풀기 켬','4장 범위 줄');
- assert.equal(rowDetail('5장 귀납 논증'),'풀어야 할 문제 128/128, 첫 시도 0/128, 이 단원 문제 더 풀기 켬','5장 범위 줄');
- assert.equal(rowDetail('6장 논리의 오류'),'풀어야 할 문제 329/329, 첫 시도 0/329, 이 단원 문제 더 풀기 켬','6장 범위 줄');
+ assert.equal(rowDetail('1장 논증의 개념과 유형'),'전체 31문제, 첫 시도 0/31, 번호 순서로 안 푼 문제부터','1장 범위 줄');
+ assert.equal(rowDetail('2장 명제 논리'),'전체 179문제, 첫 시도 0/179, 번호 순서로 안 푼 문제부터','2장 범위 줄');
+ assert.equal(rowDetail('3장 정언 논리'),'전체 181문제, 첫 시도 0/181, 번호 순서로 안 푼 문제부터','3장 범위 줄');
+ assert.equal(rowDetail('4장 술어 논리'),'전체 147문제, 첫 시도 0/147, 번호 순서로 안 푼 문제부터','4장 범위 줄');
+ assert.equal(rowDetail('5장 귀납 논증'),'전체 128문제, 첫 시도 0/128, 번호 순서로 안 푼 문제부터','5장 범위 줄');
+ assert.equal(rowDetail('6장 논리의 오류'),'전체 329문제, 첫 시도 0/329, 번호 순서로 안 푼 문제부터','6장 범위 줄');
  assert.equal(rows[6],'독해 1장 독해의 원리','제2편 독해 1장은 논리 6장 바로 다음 줄: '+rows.slice(0,8).join(' / '));
- assert.equal(rowDetail('독해 1장 독해의 원리'),'풀어야 할 문제 444/444, 첫 시도 0/444, 이 단원 문제 더 풀기 켬','독해 1장 범위 줄');
+ assert.equal(rowDetail('독해 1장 독해의 원리'),'전체 444문제, 첫 시도 0/444, 번호 순서로 안 푼 문제부터','독해 1장 범위 줄');
  assert.equal(rows[7],'독해 2장 독해와 논증','독해 2장은 독해 1장 바로 다음 줄');assert.equal(rows[8],'독해 3장 실전 독해 훈련','독해 3장은 독해 2장 바로 다음 줄');
-  // 국어 문법: 독해 3장 다음 '국어 문법' 묶음에 장 순서대로. 2026-10-07 더 풀기를 더해 89, 91문제(핵심 20 + 접힘) — 이 검사는 모든 단원을 켠 채 돌므로 전체 수가 보인다(핵심 20, '더 풀기 N문제' 줄은 core20.test).
+  // 국어 문법: 독해 3장 다음 '국어 문법' 묶음에 장 순서대로. 89, 91문제(v386부터 접지 않아 전체 수가 보인다).
   assert.equal(rows[9],'국어 문법 1장 음운론','문법 1장은 독해 3장 다음');assert.equal(rows[10],'국어 문법 2장 형태론','문법 2장은 문법 1장 다음');
-  assert.equal(rowDetail('국어 문법 1장 음운론'),'풀어야 할 문제 89/89, 첫 시도 0/89, 이 단원 문제 더 풀기 켬','문법 1장 범위 줄');assert.equal(rowDetail('국어 문법 2장 형태론'),'풀어야 할 문제 91/91, 첫 시도 0/91, 이 단원 문제 더 풀기 켬','문법 2장 범위 줄');
+  assert.equal(rowDetail('국어 문법 1장 음운론'),'전체 89문제, 첫 시도 0/89, 번호 순서로 안 푼 문제부터','문법 1장 범위 줄');assert.equal(rowDetail('국어 문법 2장 형태론'),'전체 91문제, 첫 시도 0/91, 번호 순서로 안 푼 문제부터','문법 2장 범위 줄');
   // 2026-10-07 국어 묶음: 문법 2장 다음 줄부터 문법 3장('국어 문법' 묶음), 공문서 수정 1~3장('국어 공문서 수정'), 어휘 1~2장('국어 어휘').
   {const at=rows.indexOf('국어 문법 2장 형태론');assert.deepEqual(rows.slice(at+1,at+7),["국어 문법 3장 통사론","국어 공문서 수정 1장 올바른 문장 쓰기","국어 공문서 수정 2장 문장 부호 바로 쓰기","국어 공문서 수정 3장 〈한글 맞춤법〉 바로 쓰기","국어 어휘 1장 구별해서 써야 하는 주요 어휘","국어 어휘 2장 독해에 필요한 주요 한자 어휘"],'문법 2장 다음에 새 단원 여섯');
-   for(const [t,k] of [["국어 문법 3장 통사론",149],["국어 공문서 수정 1장 올바른 문장 쓰기",103],["국어 공문서 수정 2장 문장 부호 바로 쓰기",79],["국어 공문서 수정 3장 〈한글 맞춤법〉 바로 쓰기",184],["국어 어휘 1장 구별해서 써야 하는 주요 어휘",112],["국어 어휘 2장 독해에 필요한 주요 한자 어휘",205]])assert.equal(rowDetail(t),'풀어야 할 문제 '+k+'/'+k+', 첫 시도 0/'+k+', 이 단원 문제 더 풀기 켬',t+' 범위 줄');
+   for(const [t,k] of [["국어 문법 3장 통사론",149],["국어 공문서 수정 1장 올바른 문장 쓰기",103],["국어 공문서 수정 2장 문장 부호 바로 쓰기",79],["국어 공문서 수정 3장 〈한글 맞춤법〉 바로 쓰기",184],["국어 어휘 1장 구별해서 써야 하는 주요 어휘",112],["국어 어휘 2장 독해에 필요한 주요 한자 어휘",205]])assert.equal(rowDetail(t),'전체 '+k+'문제, 첫 시도 0/'+k+', 번호 순서로 안 푼 문제부터',t+' 범위 줄');
    assert.ok(heads.includes('국어 공문서 수정')&&heads.includes('국어 어휘'),'새 범위 묶음 둘');}
- assert.equal(rowDetail('독해 2장 독해와 논증'),'풀어야 할 문제 122/122, 첫 시도 0/122, 이 단원 문제 더 풀기 켬','독해 2장 범위 줄');assert.equal(rowDetail('독해 3장 실전 독해 훈련'),'풀어야 할 문제 354/354, 첫 시도 0/354, 이 단원 문제 더 풀기 켬','독해 3장 범위 줄');
+ assert.equal(rowDetail('독해 2장 독해와 논증'),'전체 122문제, 첫 시도 0/122, 번호 순서로 안 푼 문제부터','독해 2장 범위 줄');assert.equal(rowDetail('독해 3장 실전 독해 훈련'),'전체 354문제, 첫 시도 0/354, 번호 순서로 안 푼 문제부터','독해 3장 범위 줄');
  assert.ok(rows.includes('국어 전체')&&heads.some(h=>h.startsWith('기출: 회차별')),'국어 기출과 국어 전체 범위는 그대로 있다');
  const rangeText=[...nodes.get('#rangeList').all.map(n=>n._text)].join(' | ');assert.ok(!/문항|카드/.test(rangeText),'국어 범위 화면에 문항/카드라는 말이 없다');
  run("openScope({subject:'국어',topic:'논리 2장'})");
@@ -318,7 +321,7 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  assert.ok(applyLast(heads2),'마지막 절은 이 문제에 대입: '+heads2.join(' / '));
  assert.ok(!shown.includes('규칙과 비교 예문 더 보기')&&!shown.includes(lesson.hook),'옛 정리 한 줄, 예문 상자는 기초 개념 상자로 바뀌었다');
  assert.ok(shown.includes('사고의 힘 논리 제1편 개념 기반 자체 제작 문제'),'출처 줄이 자체 제작임을 밝힌다');
- assert.ok(shown.includes('같은 개념의 다른 문제도 10분 뒤 이어서 나와요'),'같은 개념 문제가 이어서 나온다는 안내');
+ assert.ok(!/다시 나와요|이어서 나와요/.test(shown),'v386: 틀려도 다시 끼어들지 않으므로 다시 나온다는 안내가 없다');
  assert.ok(!/문항|카드/.test(shown),'국어 해설 화면에 문항/카드라는 말이 없다: '+shown.slice(0,120));
  next();
  // 3장 정언 논리: 181문제가 모두 국어 3장이고, 맞힌 답의 해설 화면에도 정리, 출처가 나오며 문항/카드라는 말은 없다.
@@ -426,62 +429,48 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  const en=titles();assert.ok(en.includes('영어 어법 공식')&&!en.some(t=>t.startsWith('정언')),'영어 화면은 영어 목록만: '+en.join(' | '));
  run("go('home','')");
 }
-// 대기열 모드(2026-09-20): 무엇을 먼저 낼지만 고른다. 늘 고른 범위 안에서만 돌고, 채점, 복습 일정은 모드와 무관하다.
+// v386 번호 순서(사용자 2026-10-18 "옵션도 많고… 사용자에게 맡기고 전적만"): 회차가 아닌 범위도 번호 순서로, 안 푼 첫 문제부터 낸다.
+// 대기열 모드, 외운 문제도 풀기, 틀렸던 문제만, 더 풀기 옵션은 화면에서 사라졌다. 건너뛰기, 이전, 번호 고르기는 자리만 옮긴다.
 {
  run("openScope({subject:'영어',topic:'Day 2'})");
  const inside=Array.from(run("catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).map(c=>c.id)"));
  assert.ok(inside.length>=6,'Day 2 범위 카드 수: '+inside.length);
  const outside=run("data.cards.filter(c=>isPlayable(c)&&!inCurrent(c)).map(c=>c.id)[0]");
- assert.ok(outside,'범위 밖 카드가 있어야 대조가 된다');
- // 오답 이력을 심는다. at을 옛날로 두어 형제 10분 간격이 끼어들지 않게 한다.
- const rows=[[inside[4],3],[inside[1],1],[outside,5]],history=[];
+ // 1, 2, 5번에 옛 오답 기록을 심는다(범위 밖 기록도 하나). 안 푼 첫 문제는 3번이다.
+ const rows=[[inside[0],2],[inside[4],3],[inside[1],1],[outside,5]],history=[];
  for(const [cardId,n] of rows)for(let i=0;i<n;i++)history.push({id:'wq-'+history.length,cardId,date:'2026-01-05',at:'2026-01-05T03:00:00.000Z',result:'wrong',mode:'quiz'});
- run("(()=>{const s=structuredClone(data);s.history="+JSON.stringify(history)+";commit(s);render();})()");
- const readyIds=()=>Array.from(run("reviewQueue(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).ready.map(c=>c.id)"));
-
- assert.equal(run('queueMode()'),'default','기본 모드가 기본값이다');
- const base=readyIds();
- assert.equal(base.length,inside.length,'기본 모드에서는 범위의 모든 문제가 지금 풀 차례다');
-
- // 틀린 문제 위주 — 오답 이력이 있는 문제만, 많이 틀린 순. 범위 밖은 절대 넘어오지 않는다.
- run("setQueueMode('wrong')");
- const wrong=readyIds();
- assert.deepEqual(wrong,[inside[4],inside[1]],'오답 이력이 있는 문제만 많이 틀린 순으로 나온다');
- assert.ok(!wrong.includes(outside),'범위 밖의 오답은 나오지 않는다');
- assert.equal(nodes.get('#queueModeLabel').hidden,false,'평소 화면에서는 모드를 고를 수 있다');
-
- // 안 푼 문제 먼저 — 카드가 빠지지 않고 순서만 바뀐다.
- run("setQueueMode('fresh')");
- const fresh=readyIds();
- assert.deepEqual([...fresh].sort(),[...base].sort(),'안 푼 문제 먼저는 순열이어야 한다(빠지는 카드 없음)');
- assert.deepEqual(fresh.slice(-2).sort(),[inside[4],inside[1]].sort(),'푼 적 있는 문제는 뒤로 밀린다');
-
- // 과목별 모드(v148): 영어에서 고른 모드는 한국사에 번지지 않고, 한국사에서 고른 모드도 영어를 바꾸지 않는다. 옛 공통 모드는 과목별로 처음 고를 때 지운다.
- run("openScope({subject:'한국사'})");
- assert.equal(run('queueMode()'),'default','영어의 안 푼 문제 먼저가 한국사로 번지지 않는다');
- run("setQueueMode('wrong')");assert.equal(run('queueMode()'),'wrong');
- assert.equal(run("queueMode('영어')"),'fresh','한국사를 바꿔도 영어는 그대로');
- run("setQueueMode('default')");assert.equal(run('JSON.stringify(data.queueModes)'),JSON.stringify({'영어':'fresh'}),'기본 모드는 적지 않는다');
- assert.equal(run('data.queueMode'),undefined,'옛 공통 모드는 남지 않는다');
- assert.throws(()=>run("validateBackup({version:3,cards:[],history:[],queueModes:{'영어':'nope'}})"),/대기열/,'잘못된 과목별 모드는 거절');
+ run("(()=>{const s=structuredClone(data);s.history="+JSON.stringify(history)+";commit(s);paperCursor=null;render();})()");
+ assert.equal(run('data.activePractice.cardId'),inside[2],'회차가 아닌 범위는 안 푼 첫 문제(3번)부터');
+ assert.equal(nodes.get('#orderStatus')._text,'3/'+inside.length+' (번호 순서)','진행 줄: 범위 안 차례');
+ assert.equal(run("countLine(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)))"),'안 푼 문제 '+(inside.length-3)+'/'+inside.length,'안 푼 문제 수는 기록이 한 번도 없는 문제');
+ for(const sel of ['#queueModeLabel','#masteredLabel','#paperWrongLabel','#moreLabel'])assert.equal(nodes.get(sel).hidden,true,sel+'는 숨김(고를 수 없음)');
+ const nav=()=>nodes.get('#card').all.find(n=>n.className==='paper-nav'),rowsBefore=run('data.history.length');
+ assert.ok(nav(),'회차가 아닌 범위에도 번호 이동 줄이 있다');
+ {const [prevB,pick,skipB]=nav().children;assert.equal(prevB._text,'← 이전');assert.equal(skipB._text,'건너뛰기 →');assert.equal(pick.children.length,inside.length);assert.equal(pick.children[0]._text,'1번','번호는 범위 안 차례');assert.equal(pick.value,'2');
+  skipB.onclick();}
+ assert.equal(run('data.activePractice.cardId'),inside[3],'건너뛰기는 다음 번호로');
+ nav().children[0].onclick();nav().children[0].onclick();assert.equal(run('data.activePractice.cardId'),inside[1],'이전은 앞 번호로(푼 문제에도 갈 수 있다)');
+ assert.equal(run('data.history.length'),rowsBefore,'자리만 옮기면 기록은 늘지 않는다');
+ answerCurrent(false);assert.equal(run('data.activePractice.cardId'),inside[2],'옮긴 자리에서 풀면 그다음 번호로');
+ // 처음 푸는 문제에는 '처음 푸는 문제' 줄, 기록이 있는 문제에는 지난 풀이 줄.
+ assert.ok(nodes.get('#card').all.some(n=>n.className==='past-record past-new'&&n._text==='처음 푸는 문제'),'처음 푸는 문제 줄');
+ nav().children[0].onclick();assert.ok(!nodes.get('#card').all.some(n=>n.className==='past-record past-new'),'기록이 있는 문제에는 처음 푸는 문제 줄이 없다');
+ // 파트 고르기(part-picker): 범위 전체 줄과 범위에 든 파트들.
+ const picker=nodes.get('#card').all.find(n=>n.className==='part-picker');
+ assert.ok(picker,'파트 고르기가 있다');{const sel=picker.children[1];assert.match(sel.children[0]._text,/^범위 전체 \(\d+파트\)$/,'파트 고르기 첫 줄');
+  const pid=sel.children[1].value;sel.value=pid;sel.onchange();assert.equal(run('scopeOf().round'),'part-'+pid,'파트를 고르면 그 파트 범위');
+  const back=nodes.get('#card').all.find(n=>n.className==='part-picker').children[1];assert.equal(back.children[0]._text,'← 파트 고르기 전 범위로');back.value='';back.onchange();
+  assert.equal(run('scopeOf().topic'),'Day 2','파트 고르기 전 범위로 돌아온다');}
+ // 대기열 모드 고르기는 사라졌다: 옛 저장에 모드가 남아 있어도 번호 순서다.
+ run("(()=>{const s=structuredClone(data);s.queueModes={'영어':'wrong'};commit(s);paperCursor=null;render();})()");
+ assert.equal(nodes.get('#queueModeLabel').hidden,true,'옛 모드가 남아 있어도 모드 고르기는 숨김');
+ assert.ok(inside.includes(run('data.activePractice.cardId'))&&/ \(번호 순서\)$/.test(nodes.get('#orderStatus')._text),'옛 모드가 남아 있어도 번호 순서: '+nodes.get('#orderStatus')._text);
+ run("(()=>{const s=structuredClone(data);delete s.queueModes;commit(s);})()");
+ assert.throws(()=>run("validateBackup({version:3,cards:[],history:[],queueModes:{'영어':'nope'}})"),/대기열/,'잘못된 과목별 모드는 거절(옛 저장 읽기)');
  // 화면 아래 출처 줄은 과목을 따른다(2026-09-24 신고: 국어를 푸는데 국사편찬위원회가 떠 있었다).
  assert.equal(run("footerText('국어')"),'자체 제작 복습 문제, 인사혁신처 공개 9급 기출');assert.equal(run("footerText('영어')"),'자체 제작 복습 문제, 인사혁신처 공개 9급 기출');
  assert.equal(run("footerText('컴퓨터일반')"),'자체 제작 복습 문제, 인사혁신처 공개 9급 기출');assert.match(run("footerText('한국사')"),/국사편찬위원회/);assert.equal(run("footerText('정보보호론')"),'자체 제작 복습 문제, 인사혁신처 공개 9급 기출');
- assert.equal(run("(()=>{const s=data.queueModes;delete data.queueModes;data.queueMode='wrong';const r=queueMode('국어');delete data.queueMode;data.queueModes=s;return r;})()"),'wrong','과목별 선택이 없던 옛 저장은 공통 모드를 그대로 읽는다');
- run("openScope({subject:'영어',topic:'Day 2'})");assert.equal(run('queueMode()'),'fresh');
-
- // 오답이 없는 범위에서 '틀린 문제 위주'를 켜면 막다른 길 대신 안내와 되돌리기를 준다.
- run("setQueueMode('wrong')");
- run("openScope({subject:'영어',topic:'Day 3'})");
- assert.deepEqual(readyIds(),[],'Day 3에는 오답 이력이 없다');
- assert.ok(screen().includes('틀렸던 문제가 없어요'),'오답이 없을 때 안내: '+screen().slice(0,60));
- const back=nodes.get('#card').all.find(n=>n.tag==='button'&&n._text==='기본 모드로 돌아가기');
- assert.ok(back,'기본 모드로 돌아가는 버튼이 있다');
- back.onclick();
- assert.equal(run('queueMode()'),'default','버튼을 누르면 기본 모드로 돌아온다');
- assert.ok(run('data.activePractice')!==null&&run('data.activePractice')!==undefined,'돌아오면 바로 풀 문제가 나온다');
-
- // 기출 회차는 대기열을 거치지 않으므로 모드를 숨긴다.
+ // 기출 회차도 모드 고르기가 없다.
  run("openScope({subject:'한국사',round:79})");
  assert.equal(nodes.get('#queueModeLabel').hidden,true,'기출 회차에서는 모드 선택을 숨긴다');
 }
@@ -521,5 +510,5 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  const b=run('underlineButton(btn('+JSON.stringify('① I '+ul('should have gone')+' home.')+',()=>{}),'+JSON.stringify('① I '+ul('should have gone')+' home.')+')');assert.deepEqual(b.children.map(n=>n.tag+':'+n._text),['#text:① I ','u:should have gone','#text: home.'],'네 문장 꼴 보기 단추의 밑줄');
  assert.equal(run('underlinedElem("div","밑줄 없음","question")')._text,'밑줄 없음','밑줄 없는 글은 글 그대로');
  const css=fs.readFileSync(__dirname+'/style.css','utf8');assert.match(css,/.q-ul {[^}]*text-decoration:underline/,'밑줄 꼴');}
-console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject/range/progress counts read "풀어야 할 문제 M/N" with no 문항/카드 wording, normal mode serves one question per grammar point ('+normal+'/'+total+') and holds the rest behind the sibling gap, records stay normal, no same-day interval inflation; 대기열 모드 3종(기본, 틀린 문제 위주, 안 푼 문제 먼저)은 범위 안에서만 돌고 카드를 잃지 않는다; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
+console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject counts read "안 푼 문제 M/N" and range rows "전체 N문제, 첫 시도 …" with no 문항/카드 wording, every range runs in number order from the first unsolved question ('+normal+'/'+total+') with 이전, 건너뛰기, 번호 고르기, 파트 고르기, records stay normal, no same-day interval inflation; 대기열 모드, 외운 문제, 틀렸던 문제만, 더 풀기 옵션은 숨김; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});

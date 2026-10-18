@@ -469,6 +469,11 @@ body[data-view="quiz"] main { padding-top:14px; }
 .menu-item.part-basics strong { font-size:16px; color:#ffd479; }
 #basicsBody .lesson.basics { margin-top:16px; }
 .basics-solve { margin-top:20px; }
+/* v386 파트 고르기: 문제 아래 이동 줄 밑, 화면 폭을 넘지 않게 */
+.part-picker { display:flex; gap:8px; align-items:center; margin:10px 0 4px; }
+.part-picker > span { color:#b9c0cc; font-size:14px; flex:0 0 auto; }
+.part-picker select { flex:1 1 auto; min-width:0; max-width:100%; min-height:40px; }
+.past-record.past-new { color:#9aa3b0; }
 /* 기초 개념 공부(v380): 읽은 파트는 흐리게, 아래 넘기기 단추는 세로로 쌓아 긴 파트 이름도 잘리지 않게 */
 .menu-item.concept-item.is-read { opacity:.62; }
 .concept-nav { display:flex; flex-direction:column; gap:10px; margin-top:20px; }
