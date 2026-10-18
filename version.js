@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v381-concepts-computer';
+globalThis.APP_BUILD='chagog-v382-concepts-english';
