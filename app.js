@@ -903,6 +903,7 @@ function updateReload(){keepView();try{saveNoteDraftNow();}catch{}const open=()=
 function foldSig(){try{return [view,viewSubject,view==='basics'?basicsPart:'',data.quizFeedback?.cardId||'',document.querySelector('#'+view+'View .question')?.textContent||''].join('|');}catch{return '';}}
 function foldEach(fn){try{const n=new Map();for(const d of document.querySelectorAll('#'+view+'View details')){const t=d.querySelector('summary')?.textContent||'',i=n.get(t)||0;n.set(t,i+1);fn(d,t+'\n'+i);}}catch{}}
 function render(){if(updater&&updater.safePoint())return;contentWait=false;
+ syncMemorizeShown();
  const before=foldSig(),keep=new Map(),y=window.scrollY||0;foldEach((d,k)=>keep.set(k,d.open));
  renderView();
  if(keep.size&&before&&foldSig()===before){foldEach((d,k)=>{const o=keep.get(k);if(o!==undefined&&d.open!==o)d.open=o;});if(window.scrollY!==y)window.scrollTo(0,y);}{const f=$('#siteFooter');if(f)f.textContent=footerText(footerSubject());}if(sessionDirty&&!contentWait){sessionDirty=false;stampSession();}}
@@ -954,6 +955,8 @@ let memorizeShown=new Set();
 // 사진 목록에서 한 줄에 놓을 사진 수(1~4). 기기마다 따로 기억한다(화면 폭이 기기마다 달라서 동기화하지 않는다).
 function photoCols(){try{const n=Number(localStorage.getItem('chagog-photo-cols'));if(n>=1&&n<=4)return n;}catch{}return 2;}
 function setPhotoCols(n){try{localStorage.setItem('chagog-photo-cols',String(n));}catch{}}
+// v387: 확인 표시와 기초 개념 읽음은 data.memorizeShown이 원본이다. 화면 그리기마다 다시 읽는다(전에는 외울 것 화면을 열 때만 읽어서, 새로 연 앱의 기초 개념 공부에 읽음이 안 보였고 읽음을 누르면 다른 확인 표시를 덮어썼다).
+function syncMemorizeShown(){memorizeShown=new Set(Array.isArray(data.memorizeShown)?data.memorizeShown:[]);}
 function memorizeSave(){data.memorizeShown=[...memorizeShown];data.memorizeAt=Math.max(Date.now(),(data.memorizeAt||0)+1);saveDraft();window.dispatchEvent(new Event('study-progress-saved'));}
 function renderMemorize(){
  memorizeShown=new Set(Array.isArray(data.memorizeShown)?data.memorizeShown:[]);
@@ -1486,7 +1489,7 @@ function conceptUnits(subject){if(!CONCEPT_SUBJECTS.has(subject))return [];const
 function conceptItems(subject){const out=[];for(const u of conceptUnits(subject)){const m=conceptUnitMap(u.id);for(const p of u.parts)if(m||partBasics(p).length)out.push({id:p.id,title:p.title,unit:u,part:p});if(m?.rest?.length)out.push({id:'rest:'+u.id,title:'그 밖의 개념',unit:u,part:null});}return out;}
 function conceptItem(id){if(typeof id!=='string')return null;const u=id.startsWith('rest:')?PARTS.units.find(x=>x.id===id.slice(5)):PARTS.unitOf(id);if(!u||!CONCEPT_SUBJECTS.has(u.subject))return null;return conceptItems(u.subject).find(x=>x.id===id)||null;}
 const conceptRead=id=>memorizeShown.has(CONCEPT_KEY+id);
-function conceptMark(id,on){const k=CONCEPT_KEY+id;if(on===memorizeShown.has(k))return;if(on)memorizeShown.add(k);else memorizeShown.delete(k);memorizeSave();}
+function conceptMark(id,on){syncMemorizeShown();const k=CONCEPT_KEY+id;if(on===memorizeShown.has(k))return;if(on)memorizeShown.add(k);else memorizeShown.delete(k);memorizeSave();}
 // 해설 화면의 상자가 가리킬 파트: 이 문제가 든 파트가 그 상자의 파트면 그 파트, 아니면(기출) 대입이 쓰는 줄을 가장 많이 가진 파트.
 // 상자째 과목(한국사 v384~)은 그 상자를 쓰는 첫 파트.
 function conceptFor(box,use,partId){const rule=Content.ruleOfBox(box);if(!rule)return null;const own=conceptItem(partId);if(own&&(conceptUnitMap(own.unit.id)?conceptUnitMap(own.unit.id).box===rule:partBasics(own.part).includes(rule)))return own;
@@ -1733,7 +1736,7 @@ globalThis.StudyProgress={
  session:()=>data.session?structuredClone(data.session):null,
  // 외울 것에서 연 칸: 이 기기에서 한 번이라도 바꾼 적이 있을 때만 보낸다. 받은 것이 더 새것이면 통째로 바꾼다(초기화도 같이 넘어온다).
  memo:()=>data.memorizeAt?{at:data.memorizeAt,shown:Array.isArray(data.memorizeShown)?[...data.memorizeShown]:[]}:null,
- mergeMemo(row){if(!(row.at>(data.memorizeAt||0)))return;data.memorizeShown=[...row.shown];data.memorizeAt=row.at;saveDraft();const v=$('#memorizeView');if(v&&!v.hidden)render();},
+ mergeMemo(row){if(!(row.at>(data.memorizeAt||0)))return;data.memorizeShown=[...row.shown];data.memorizeAt=row.at;saveDraft();syncMemorizeShown();if(['#memorizeView','#conceptsView','#basicsView','#subjectView'].some(id=>{const v=$(id);return v&&!v.hidden;}))render();},
  // A newer position from another device reopens the same scope, question and choice order.
  mergeSession(row){
   const remote=ProgressSync.session(row);if(remote.at<=(data.session?.at||0))return;

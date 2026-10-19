@@ -510,5 +510,11 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  const b=run('underlineButton(btn('+JSON.stringify('① I '+ul('should have gone')+' home.')+',()=>{}),'+JSON.stringify('① I '+ul('should have gone')+' home.')+')');assert.deepEqual(b.children.map(n=>n.tag+':'+n._text),['#text:① I ','u:should have gone','#text: home.'],'네 문장 꼴 보기 단추의 밑줄');
  assert.equal(run('underlinedElem("div","밑줄 없음","question")')._text,'밑줄 없음','밑줄 없는 글은 글 그대로');
  const css=fs.readFileSync(__dirname+'/style.css','utf8');assert.match(css,/.q-ul {[^}]*text-decoration:underline/,'밑줄 꼴');}
+// v387: 기초 개념 읽음은 저장된 data.memorizeShown에서 읽는다. 새로 연 앱(화면 기억이 빈 상태)에서도 읽음이 보이고, 읽음을 누르면 다른 확인 표시를 지우지 않는다.
+{run("(()=>{const s=structuredClone(data);s.memorizeShown=['concept:sq01-1','urgent:test-cell'];s.memorizeAt=Date.now();commit(s);memorizeShown=new Set();})()");
+ run("go('concepts','정보보호론')");assert.equal(run("conceptRead('sq01-1')"),true,'새로 연 앱에서도 저장된 읽음이 보인다');
+ {const t=[nodes.get('#conceptsBody')._text,...nodes.get('#conceptsBody').all.map(n=>n._text)].filter(Boolean).join(' | ');assert.match(t,/읽음 1\//,'목록의 읽음 수: '+t.slice(0,120));}
+ run("memorizeShown=new Set();conceptMark('sq01-2',true)");
+ assert.equal(run("JSON.stringify([...data.memorizeShown].sort())"),JSON.stringify(['concept:sq01-1','concept:sq01-2','urgent:test-cell']),'읽음을 눌러도 다른 표시는 남는다');}
 console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject counts read "안 푼 문제 M/N" and range rows "전체 N문제, 첫 시도 …" with no 문항/카드 wording, every range runs in number order from the first unsolved question ('+normal+'/'+total+') with 이전, 건너뛰기, 번호 고르기, 파트 고르기, records stay normal, no same-day interval inflation; 대기열 모드, 외운 문제, 틀렸던 문제만, 더 풀기 옵션은 숨김; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});

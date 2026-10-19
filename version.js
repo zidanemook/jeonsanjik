@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v386-simple-order';
+globalThis.APP_BUILD='chagog-v387-concept-read';
