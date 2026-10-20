@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v388-fetch-meaning';
+globalThis.APP_BUILD='chagog-v389-conditional-time';
