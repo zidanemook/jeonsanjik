@@ -478,6 +478,8 @@ body[data-view="quiz"] main { padding-top:14px; }
 .menu-item.concept-item.is-read { opacity:.62; }
 .concept-nav { display:flex; flex-direction:column; gap:10px; margin-top:20px; }
 .concept-nav button { width:100%; min-height:44px; text-align:left; white-space:normal; }
+.concept-list { min-height:40px; margin:0 0 10px; }
+.concept-nav .concept-read.is-read { border-color:#789ac4; font-weight:700; }
 .concept-open { display:block; width:100%; margin:12px 0 6px; min-height:40px; text-align:left; white-space:normal; }
 .b-shared { margin:16px 0 6px; padding:6px 10px; border:1px dashed #6b5a2e; border-radius:10px; }
 .b-shared > summary { color:#e8d9a8; cursor:pointer; min-height:32px; }
