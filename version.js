@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v393-choice-to-mix';
+globalThis.APP_BUILD='chagog-v394-odd-one-out';
