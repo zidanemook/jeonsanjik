@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v391-concept-resume';
+globalThis.APP_BUILD='chagog-v392-choice-pairs';
