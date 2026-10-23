@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v398-pubkey-slow';
+globalThis.APP_BUILD='chagog-v399-key-count';
