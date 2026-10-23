@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v396-cipher-pubkey';
+globalThis.APP_BUILD='chagog-v397-sw-needs';
