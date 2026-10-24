@@ -495,6 +495,18 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  const two=t.children[5];assert.ok(two.classes.has('b-photo-many'),'사진이 둘이면 나란히');assert.equal(two.all.filter(n=>n.tag==='img').length,2);assert.equal(two.all.find(n=>n.tag==='figcaption')._text,'▲ 무령왕릉 지석');assert.equal(p.all.find(n=>n.tag==='figcaption')._text,'▲ 익산 미륵사지 석탑','설명이 없으면 첫 칸 이름');assert.ok(t.children[1].classes.has('b-has-photo')&&!t.children[3].classes.has('b-has-photo'),'사진이 딸린 줄 표시');
  assert.equal(run("basicsHistTable({title:'요약 정리 — 탑',head:['탑','단서'],rows:[['익산 미륵사지 석탑','돌']]})").children.length,2,'요약 정리 표에는 사진 없음');assert.ok(!run("basicsHistTable({title:'탑',head:['탑','단서'],rows:[['없는 탑','돌']]})").classes.has('b-photos'),'사진이 없는 표는 그대로');
  const files=Object.values(run('HERITAGE_PHOTOS')).flat().map(x=>x[0]);assert.ok(files.length>=70);for(const f of files)assert.ok(fs.existsSync(__dirname+'/assets/heritage/'+f+'.webp'),'사진 파일: '+f);}
+// v403: 컴퓨터일반 기계 사진은 줄 id와 첫 칸 글이 맞는 표의 줄, 용어 id와 낱말이 맞는 용어에만 붙는다(새 줄을 만들지 않는다). 일부 줄만 그린 표도 줄 id를 맞춰 넘긴다.
+{const cls=(n,c)=>String(n.className||'').split(' ').includes(c);
+ const t=run("basicsHistTable({title:'초기 계산 도구',head:['도구','원리'],rows:[['주판','수동'],['파스칼의 계산기','톱니']],rowIds:['nba1','nba2']})");
+ assert.equal(t.children.length,5,'머리 1 + 줄 2 + 사진 줄 2');const img=t.children[2].all.find(n=>n.tag==='img');assert.equal(img.src,'assets/computer/abacus.webp');assert.equal(img.loading,'lazy');assert.equal(img.alt,'주판 사진');
+ const link=t.children[2].all.find(n=>n.tag==='a');assert.equal(link.href,'assets/computer/abacus.webp','누르면 크게');assert.equal(link.target,'_blank');
+ assert.ok(t.children[2].all.some(n=>cls(n,'b-credit')&&/^사진: HB, 퍼블릭 도메인$/.test(n._text)),'출처 줄');
+ assert.equal(run("basicsHistTable({title:'x',head:['도구','원리'],rows:[['주판','수동']],rowIds:['zz1']})").children.length,2,'줄 id가 다르면 사진 없음');
+ assert.equal(run("basicsHistTable({title:'x',head:['도구','원리'],rows:[['주판','수동']]})").children.length,2,'줄 id가 없는 표는 그대로');
+ const part=run("basicsRowsOf({title:'t',head:['a','b'],rows:[['주판','1'],['파스칼의 계산기','2']],rowIds:['nba1','nba2']},(r,i)=>i===1)");assert.deepEqual([...part.rowIds],['nba2']);assert.equal(part.rows.length,1);
+ const term=run("basicsTerm({id:'t3',word:'아날로그, 디지털 컴퓨터',mean:'뜻'})"),ph=term.find(n=>cls(n,'b-cphotos'));assert.ok(ph,'용어 아래 사진');assert.equal(ph.all.filter(n=>n.tag==='img').length,3,'계산자, 미분 해석기, 사격 통제 계산기');
+ assert.equal(ph.all.find(n=>n.tag==='figcaption')._text,'▲ 계산자: 가운데 자를 밀어 길이로 곱셈을 한다(아날로그)');
+ assert.ok(!run("basicsTerm({id:'t3',word:'다른 낱말',mean:'뜻'})").some(n=>cls(n,'b-cphotos')),'낱말이 다르면 사진 없음');}
 // v361: 9급 기출의 [그림:<파일>.webp] 자리는 원문 그림(assets/gichul-fig/)이 되고, 앞의 발문과 뒤의 글, 자료 상자는 전처럼 보인다.
 {const NL=String.fromCharCode(10),q='다음 회로의 출력은?'+NL+NL+'[그림:national9-2024-computer-02-0123456789.webp]'+NL+NL+'(단, 입력은 0 또는 1이다)'+NL+NL+'[자료]'+NL+'X | Y'+NL+'0 | 1';
  const ns=run('questionNodes('+JSON.stringify(q)+')');

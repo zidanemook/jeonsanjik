@@ -1353,13 +1353,43 @@ const HERITAGE_PHOTOS={
  "정선(겸재)":[["jeongseon-inwangjesaekdo-1611690","정선의 인왕제색도"]],
  "김홍도(단원)":[["danwon-ssireum-commons","김홍도의 씨름"]]
 };
-function basicsPhotoRow(t,row){const name=String(row[0]).split('\n')[0].replace(/\*\*/g,''),list=/^요약 정리/.test(t.title||'')?null:HERITAGE_PHOTOS[name];if(!list)return null;
- const tr=elem('tr',undefined,'b-photo'),td=elem('td');td.colSpan=row.length;if(list.length>1)tr.classList.add('b-photo-many');
- for(const [file,cap] of list){const fig=elem('figure'),img=elem('img');img.src='assets/heritage/'+file+'.webp';img.alt=(cap||name)+' 사진';img.loading='lazy';img.decoding='async';fig.append(img,elem('figcaption','▲ '+(cap||name)));td.append(fig);}
+// v403: 컴퓨터일반 초기 계산 도구와 옛 컴퓨터 사진(사용자 2026-10-24 "계산자니 뭐니 그런것들 간단한 설명과 이미지만 있어도 크게 도움이 되갔어").
+// 새 목록을 만들지 않고, 그 기계를 이미 설명하는 줄에 붙인다: 표의 줄은 '줄 id|첫 칸 글', 용어는 '용어 id|낱말'이 열쇠다(id만으로는 다른 상자의 같은 id에도 붙으므로 글까지 맞아야 붙는다).
+// 값은 [assets/computer의 파일 이름, 한 줄 설명, 사진 출처와 라이선스, Commons 파일 페이지]. 출처 대장은 assets/computer/CREDITS.md, 검사는 computer-photos.test.cjs.
+// 사진은 문화유산 사진처럼 미리 받지 않고 볼 때 받아 캐시한다(sw.js). 누르면 새 창에서 크게(기출 그림과 같은 방식).
+const COMPUTER_PHOTOS={
+ "nba1|주판":[["abacus","주판: 손으로 알을 올리고 내려 셈한다(수동식, 가장 먼저)","HB, 퍼블릭 도메인","https://commons.wikimedia.org/wiki/File:Boulier1.JPG"]],
+ "nba2|파스칼의 계산기":[["pascaline","파스칼의 계산기: 톱니바퀴가 맞물려 돌며 자리올림을 한다","David.Monniaux, CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Arts_et_Metiers_Pascaline_dsc03869.jpg"]],
+ "nba3|배비지의 차분 기관 / 분석 기관":[["difference-engine","배비지의 차분 기관(일부 모형): 톱니바퀴 기둥으로 계산하는 기계 장치","Marcin Wichary, CC BY 2.0","https://commons.wikimedia.org/wiki/File:Charles_Babbage_Difference_Engine_No1.jpg"]],
+ "nba4|천공 카드 도표 작성기":[["hollerith-tabulator","천공 카드 도표 작성기(홀러리스): 천공 카드의 구멍을 읽어 위쪽 계수판에 센다","Tomwsulcer, CC0","https://commons.wikimedia.org/wiki/File:Hollerith_census_machine_at_CHM_by_Tomwsulcer.jpg"]],
+ "nbt1|ENIAC":[["eniac","ENIAC(1946): 진공관 기계가 방을 채웠고, 전선과 스위치로 프로그램을 바꿨다","U.S. Army Photo, 퍼블릭 도메인","https://commons.wikimedia.org/wiki/File:Classic_shot_of_the_ENIAC.jpg"]],
+ "nbt2|MARK I":[["harvard-mark1","MARK I: 전기기계식, 종이 테이프의 명령어를 읽어 돌았다(프로그램 내장 아님)","Waldir Pimenta, 퍼블릭 도메인","https://commons.wikimedia.org/wiki/File:Harvard_Mark_I_2.jpg"]],
+ "nbt3|분석 기관":[["analytical-engine","분석 기관(배비지가 만든 시험 모형): 끝내 완성되지 못한 톱니바퀴 계산 기계","Daderot, CC0","https://commons.wikimedia.org/wiki/File:Analytical_engine_trial_model,_Charles_Babbage,_1834-1871_-_Science_Museum,_London_-_DSC05565.jpg"]],
+ "nbt4|UNIVAC I":[["univac1","UNIVAC I(1951): 미국 인구조사국이 사서 자료 처리에 쓴 상업용 컴퓨터","U.S. Census Bureau, 퍼블릭 도메인","https://commons.wikimedia.org/wiki/File:Univac_I_Census_dedication.jpg"]],
+ "nbt5|EDSAC, EDVAC":[["edsac","EDSAC(영국): 프로그램을 기억장치에 넣어 돌린 최초의 컴퓨터","Computer Laboratory, University of Cambridge, CC BY 2.0","https://commons.wikimedia.org/wiki/File:EDSAC_(12).jpg"],["edvac","EDVAC(미국): EDSAC 다음의 프로그램 내장 컴퓨터","U.S. Army Photo, 퍼블릭 도메인","https://commons.wikimedia.org/wiki/File:Edvac.jpg"]],
+ "nbt6|트랜지스터":[["transistor","트랜지스터: 진공관보다 작고 전력을 덜 쓰는 2세대 소자","Mister rf, CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Transistorer_(cropped).jpg"]],
+ "nbt7|인텔 4004":[["intel-4004","인텔 4004(1971): CPU를 칩 하나에 담은 최초의 마이크로프로세서(4비트)","Thomas Nguyen, CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Intel_C4004.jpg"]],
+ "nbb1|1세대":[["vacuum-tubes","진공관: 1세대 회로 소자, 크고 열이 많아 냉각이 필요했다","Stefan Riepl (Quark48), CC BY-SA 2.0 de","https://commons.wikimedia.org/wiki/File:Elektronenroehren-auswahl.jpg"]],
+ "nbb2|3세대":[["ic-chips","집적 회로(IC): 많은 소자를 칩 하나에 담았다(3세대)","Kimmo Palosaari, 퍼블릭 도메인","https://commons.wikimedia.org/wiki/File:IC_DIP_chips.JPG"],["ibm-s360","IBM S/360: 3세대 대형 컴퓨터(1966년, 미국 농무부)","U.S. Department of Agriculture, 퍼블릭 도메인","https://commons.wikimedia.org/wiki/File:IBM_System_360_at_USDA.jpg"],["pdp-11","PDP-11/40: DEC가 만든 3세대 미니컴퓨터","Stefan Kögl, CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Pdp-11-40.jpg"]],
+ "nbc1|1974년":[["altair-8800","알테어 8800(1974): 개인용 컴퓨터의 시초가 된 마이크로컴퓨터","Michael Holley, 퍼블릭 도메인","https://commons.wikimedia.org/wiki/File:Altair_8800_Computer.jpg"]],
+ "nbc2|1977년":[["apple-2","애플 II(1977): 1970년대 애플의 개인용 컴퓨터","FozzTexx, CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Apple_II_typical_configuration_1977.png"]],
+ "nbc3|1981년":[["ibm-pc","IBM PC(1981): 설계를 공개해 호환 기종이 쏟아진 표준 PC","Ruben de Rijcke, CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Ibm_pc_5150.jpg"]],
+ "t3|아날로그, 디지털 컴퓨터":[["slide-rule","계산자: 가운데 자를 밀어 길이로 곱셈을 한다(아날로그)","Jan1959, CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Slide_rule.jpg"],["differential-analyser","미분 해석기(1935, 맨체스터): 바퀴와 축이 도는 각도로 미분 방정식을 푼다(아날로그)","Daderot, CC0","https://commons.wikimedia.org/wiki/File:Differential_analyser_built_for_Manchester_University_physicists,_1935_-_Science_Museum,_London_-_DSC05581.jpg"],["fire-control","함포 사격 통제 계산기(Mark 1A): 손잡이로 배와 목표의 속도를 넣어 포 각도를 셈한다(아날로그)","U.S. Navy, 퍼블릭 도메인","https://commons.wikimedia.org/wiki/File:Mark_1A_Fire_Control_Computer_Controls.jpg"]]
+};
+function computerFigure([file,cap,credit,page]){const fig=elem('figure',undefined,'b-cfig'),a=elem('a'),img=elem('img'),src='assets/computer/'+file+'.webp',name=cap.split(':')[0];
+ a.href=src;a.target='_blank';a.rel='noopener';a.setAttribute('aria-label',name+' 사진 크게 보기');img.src=src;img.alt=name+' 사진';img.loading='lazy';img.decoding='async';a.append(img);
+ const by=elem('a','사진: '+credit,'b-credit');by.href=page;by.target='_blank';by.rel='noopener';fig.append(a,elem('figcaption','▲ '+cap),by);return fig;}
+function computerPhotos(key){const list=COMPUTER_PHOTOS[key];if(!list)return null;const d=elem('div',undefined,'b-cphotos'+(list.length>1?' many':''));for(const x of list)d.append(computerFigure(x));return d;}
+function basicsPhotoRow(t,row,rowId){const name=String(row[0]).split('\n')[0].replace(/\*\*/g,''),summary=/^요약 정리/.test(t.title||''),list=summary?null:HERITAGE_PHOTOS[name],comp=summary||!rowId?null:COMPUTER_PHOTOS[rowId+'|'+name];if(!list&&!comp)return null;
+ const tr=elem('tr',undefined,'b-photo'),td=elem('td');td.colSpan=row.length;if((list||comp).length>1)tr.classList.add('b-photo-many');
+ if(comp)for(const x of comp)td.append(computerFigure(x));
+ else for(const [file,cap] of list){const fig=elem('figure'),img=elem('img');img.src='assets/heritage/'+file+'.webp';img.alt=(cap||name)+' 사진';img.loading='lazy';img.decoding='async';fig.append(img,elem('figcaption','▲ '+(cap||name)));td.append(fig);}
  tr.append(td);return tr;}
+// 줄 일부만 그리는 표(해설 화면의 제자리 줄, 기초 개념 파트)는 그린 줄의 id만 남긴다(사진 열쇠가 줄 id라서).
+const basicsRowsOf=(t,keep)=>{const idx=t.rows.map((r,i)=>i).filter(i=>keep(t.rows[i],i));return {...t,rows:idx.map(i=>t.rows[i]),rowIds:t.rowIds?idx.map(i=>t.rowIds[i]):undefined};};
 function basicsHistTable(t){const table=basicsTable(t);table.classList.add('b-hist');
  [...table.children].slice(1).forEach((tr,r)=>[...tr.children].forEach((td,i)=>{const len=basicsPlainLen(t.rows[r][i]);if(i===0&&len<=6)td.classList.add('b-nowrap');else if(i>0&&len>20)td.classList.add('b-long');}));
- {const trs=[...table.children],out=[trs[0]];trs.slice(1).forEach((tr,r)=>{out.push(tr);const p=basicsPhotoRow(t,t.rows[r]);if(p){tr.classList.add('b-has-photo');out.push(p);}});if(out.length>trs.length){table.classList.add('b-photos');table.replaceChildren(...out);}}
+ {const trs=[...table.children],out=[trs[0]];trs.slice(1).forEach((tr,r)=>{out.push(tr);const p=basicsPhotoRow(t,t.rows[r],t.rowIds?.[r]);if(p){tr.classList.add('b-has-photo');out.push(p);}});if(out.length>trs.length){table.classList.add('b-photos');table.replaceChildren(...out);}}
  return table;}
 function basicsDiagram(nodes){const wrap=elem('div',undefined,'b-diagram');
  const draw=n=>{const d=elem('div',undefined,'b-bx b-bx-'+n.c+(n.side?' b-bx-side':''));if(n.label)d.append(elem('span',n.label,'b-bx-label b-'+(n.c==='gap'?'m':n.c)));if(n.text)d.append(basicsLines(n.text,'b-bx-text','div'));for(const k of n.kids||[])d.append(draw(k));return d;};
@@ -1392,6 +1422,7 @@ function basicsTermSplit(terms,rule,split,apply){
  return {keep,rest:terms.filter(t=>!keep.includes(t))};
 }
 function basicsTerm(t){const h=elem('div',undefined,'b-term');h.append(elem('span',t.word+(t.hanja?'('+t.hanja+')':''),'b-chip'));if(t.origin)h.append(elem('small',t.origin,'b-origin'));const out=[h,basicsLines(t.mean,'b-mean')];
+ {const ph=computerPhotos(t.id+'|'+t.word);if(ph)out.push(ph);}
  if(t.rows){const r=elem('div',undefined,'b-rows');for(const row of t.rows)r.append(basicsLines(row,undefined,'div'));out.push(r);}if(t.ex&&t.ex!=='—')out.push(basicsLines('예) '+t.ex,'b-ex'));return out;}
 // 규칙 묶음(v262): 규칙 줄의 g(묶음 제목)가 바뀌는 자리마다 작은 제목을 한 번 둔다 — 한 제목 아래에는 한 종류의 줄만(요소 / 헷갈리는 짝 가르기 / 판정 순서를 한 목록에 섞지 않는다).
 // 보이는 줄만 센다: 접힌 줄, 다른 상자로 간 공통 줄을 뺀 목록에서 같은 g가 이어지면 제목은 하나다.
@@ -1407,7 +1438,7 @@ function basicsLineSections(box,apply,partId){
  const split=xs=>[xs.filter(x=>use.has(x.id)),xs.filter(x=>!use.has(x.id))];
  const [inT,restT]=split(box.terms),[inR,restR]=split(box.rules.items),[inX,restX]=split(box.examples);
  const tables=(box.tables||[]).map(t=>{const all=use.has(t.id),keep=[],rest=[];t.rows.forEach((r,i)=>(all||use.has(t.rowIds?.[i])?keep:rest).push(r));return {t,keep,rest};});
- const sub=(t,rows)=>basicsHistTable({...t,rows});
+ const sub=(t,rows)=>basicsHistTable(basicsRowsOf(t,r=>rows.includes(r)));
  if(inT.length){head('먼저 알아 둘 말');for(const t of inT)out.push(...basicsTerm(t));}
  for(const {t,keep} of tables){const keyIn=!!t.key&&(use.has(t.id)||use.has(t.key.id));if(keep.length||keyIn){head(t.title);if(keep.length)out.push(sub(t,keep));if(keyIn)out.push(basicsLines(t.key.text,'b-key'));}}
  if(inR.length){head('규칙'+(box.rules.title?' — '+box.rules.title:''));out.push(...basicsRuleList(inR));}
@@ -1539,7 +1570,7 @@ function basicsPick(box,ids,out,head){
  const has=x=>ids.has(x.id),T=box.terms.filter(has),R=box.rules.items.filter(has),X=box.examples.filter(has);
  if(T.length){head('먼저 알아 둘 말');for(const t of T)out.push(...basicsTerm(t));}
  for(const t of box.tables||[]){const rows=t.rows.filter((r,i)=>ids.has(t.rowIds?.[i])),keyIn=!!t.key&&ids.has(t.key.id);
-  if(rows.length||keyIn){head(t.title);if(rows.length)out.push(basicsHistTable({...t,rows}));if(keyIn)out.push(basicsLines(t.key.text,'b-key'));}}
+  if(rows.length||keyIn){head(t.title);if(rows.length)out.push(basicsHistTable(basicsRowsOf(t,(r,i)=>ids.has(t.rowIds?.[i]))));if(keyIn)out.push(basicsLines(t.key.text,'b-key'));}}
  if(R.length){head('규칙'+(box.rules.title?' — '+box.rules.title:''));out.push(...basicsRuleList(R));}
  if(X.length){head('비교 예문');for(const x of X)out.push(basicsExample(x));}
  return T.length+R.length+X.length+(box.tables||[]).reduce((n,t)=>n+t.rows.filter((r,i)=>ids.has(t.rowIds?.[i])).length+(t.key&&ids.has(t.key.id)?1:0),0);

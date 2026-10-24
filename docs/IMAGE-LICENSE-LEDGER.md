@@ -452,3 +452,19 @@
   창덕궁은 난간 없는 낮은 기단). alt·해설의 판별 줄·외울 것 뒷면에 모두 이 단서를 적었다.
 - 작업 원자료: `research/heritage-photos-joseon-20260919/photos/`
   (`targets.json` · `scan.json` · `cand.json` · `imgsrc.json` · `picks.json` · `converted.json` · `cand/` · `webp/` · `view/`).
+
+## 11. 2026-10-24 — 컴퓨터일반 기계 사진 22장 (Wikimedia Commons, assets/computer)
+
+- **무엇**: 컴퓨터일반 단원 1 기초 개념 상자 `com-cg01`에서 이미 그 기계를 설명하는 줄(표 nba, nbb, nbc의 줄과 용어 t3,
+  nbt1~nbt7)에 사진 22장을 붙였다. 새 목록이나 새 절은 만들지 않았고, 상자의 id, 줄 순서, 글은 그대로다.
+- **출처 규칙**: 국가유산 사진(공공누리 제1유형)과 달리 이번 출처는 **Wikimedia Commons**다. 사진마다 Commons 파일 페이지를
+  Playwright + 시스템 Edge로 열어 Summary 표의 Author, Source 칸과 Licensing 절의 틀을 읽었다. 허용 라이선스는
+  퍼블릭 도메인, CC0, CC BY, CC BY-SA뿐이고 NC, ND, fair use 표시가 있는 파일은 쓰지 않았다.
+- **결과**: 퍼블릭 도메인 9장, CC0 3장, CC BY 2.0 2장, CC BY-SA 8장(2.0 de 1, 3.0 4, 4.0 3). 파일별 작성자, 라이선스,
+  페이지 주소, 붙은 줄 id는 `assets/computer/CREDITS.md` 표가 원장이다.
+- **가공**: 가로 480px, 세로 400px 안으로 축소, webp 품질 80, 장당 12~41KB(합계 약 490KB). 자르기, 합성 없음.
+  CC BY-SA 사진의 축소본은 같은 CC BY-SA로 배포한다.
+- **출처 표시**: 앱에서 사진마다 "사진: 작성자, 라이선스" 줄을 두고 누르면 Commons 파일 페이지가 열린다.
+- **오프라인**: 문화유산 사진과 같이 서비스 워커가 미리 받지 않고, 볼 때 받아 그 판의 캐시에 넣는다.
+- 작업 원자료: `E:\codelab\Gongmuwon\research\computer-images-20261024\`
+  (`picks.json`, `verified.json`, `page-text/`, `dl/w960/`, `out-webp/`, `scripts/`).

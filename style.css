@@ -445,6 +445,17 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-photo-many figure { max-width:47%; }
 .b-photo img { display:block; max-width:100%; max-height:240px; width:auto; height:auto; margin:0 auto; border-radius:6px; background:#fff; }
 .b-photo figcaption { margin-top:4px; font-size:13px; color:#aeb8c6; word-break:keep-all; }
+/* v403 컴퓨터일반 기계 사진(assets/computer): 용어 풀이 아래, 표의 줄 아래에 작은 사진. 누르면 새 창에서 원래 크기(가로 480px까지). 출처 줄은 작게. */
+.b-cphotos { display:flex; flex-wrap:wrap; gap:10px; margin:8px 0 6px; }
+.b-cphotos .b-cfig { flex:0 1 220px; }
+.b-cfig { margin:0; min-width:0; text-align:center; }
+.b-cfig > a { display:block; }
+.b-cfig img { display:block; max-width:100%; max-height:170px; width:auto; height:auto; margin:0 auto; border-radius:6px; background:#fff; }
+.b-photo .b-cfig img { max-height:170px; }
+.b-cfig figcaption { margin-top:4px; font-size:13px; line-height:1.45; color:#aeb8c6; word-break:keep-all; overflow-wrap:anywhere; text-align:left; }
+.b-cfig .b-credit { display:block; margin-top:2px; font-size:11px; color:#7f8896; text-align:left; text-decoration:none; overflow-wrap:anywhere; }
+/* 폰 폭에서는 한 줄에 한 장(계산자처럼 가로로 긴 사진이 반쪽 칸에서는 구조가 안 보인다). */
+@media (max-width:540px) { .b-cphotos .b-cfig { flex:1 1 100%; } .b-photo-many .b-cfig { display:block; max-width:100%; margin:0 0 10px; } .b-cfig img { max-height:200px; } .b-photo .b-cfig img { max-height:200px; } }
 .b-table td small { display:block; color:#9aa3b0; font-size:12px; }
 /* 2026-09-28 사용자: "표가 좌우 구분이 없어서 읽다가 헷갈린다" — 칸마다 세로줄, 머리줄, 첫 칸 음영, 한국사 표는 왼쪽 정렬 */
 .b-table { border:1px solid #3d4552; }

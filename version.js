@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v402-analog';
+globalThis.APP_BUILD='chagog-v403-computer-photos';
