@@ -950,6 +950,8 @@ function renderHome(){
 }
 // 외울 것: 목록 화면(viewSubject 비어 있음) → 한 목록 화면(viewSubject = 목록 id). 가림, 확인은 이 화면에서만 쓰고 저장하지 않는다.
 const MEMO_SCOPE='과목:';
+// 영작 연습 목록(memorize.js의 english-writing-day<N>)은 외울 것과 같은 화면에서 영작 카드로 그리고, 영어 연습 범위의 '영작 연습'에서도 연다.
+const WRITING_SET='english-writing-';
 // 외울 것에서 눌러 연 칸은 풀이 기록과 함께 저장한다(data.memorizeShown, 칸 이름의 목록). 새로 고쳐도, 목록을 다시 열어도 남고 '초기화'로만 가려진다.
 let memorizeShown=new Set();
 // 사진 목록에서 한 줄에 놓을 사진 수(1~4). 기기마다 따로 기억한다(화면 폭이 기기마다 달라서 동기화하지 않는다).
@@ -1002,6 +1004,17 @@ function renderMemorize(){
    if(line.startsWith('고리: ')){const hs=elem('span',undefined,'urgent-hooks');for(const h of line.slice(4).split(' / ')){const m=h.match(/^(.*)\(([^()]+ = [^()]+)\)$/),c=elem('span',m?m[1]:h,'urgent-hook'+(m?' num':''));if(m)c.append(elem('b',m[2]));hs.append(c);}host.append(hs);continue;}
    const step=line.startsWith('→ ');for(const part of (step?line.slice(2):line).split(' / ')){const p=elem('span',undefined,step?'urgent-step':'urgent-text');p.append(...yearNodes(part));host.append(p);}}
   return b;};
+ // 영작 연습(v400, research/english-writing-vocab-20261024/PLAN.md): 앞면 = 우리말 문장 + '재료: '(' / '로 나눈 묶음을 딱지로) + '꼴: ' 지시,
+ // 뒷면 = 답 문장 + '또는: '(같은 재료로 똑같이 옳은 문장) + '규칙: '(포인트 이름). 채점, XP, 복습 대기열 없이 눌러서 답만 본다(확인 표시는 외울 것과 같다).
+ const writingCell=(key,front,back)=>{keys.push(key);const open=memorizeShown.has(key),[ko,...rest]=front.split('\n');
+  const b=btn('',()=>{if(memorizeShown.has(key))memorizeShown.delete(key);else memorizeShown.add(key);memorizeSave();render();},'memorize-cell writing-card'+(open?' shown':''));
+  b.type='button';b.setAttribute('aria-pressed',String(open));b.append(elem('strong',ko));
+  for(const line of rest){if(line.startsWith('재료: ')){const row=elem('span',undefined,'writing-parts');row.append(elem('span','재료','writing-label'));for(const p of line.slice(4).split(' / '))row.append(elem('span',p,'writing-part'));b.append(row);}
+   else b.append(elem('span',line,'writing-form'));}
+  if(!open){b.append(elem('span','눌러서 답 확인','memorize-hidden'));return b;}
+  const [answer,...more]=back.split('\n');b.append(elem('span',answer,'writing-answer'));
+  for(const line of more)b.append(elem('span',line,line.startsWith('규칙: ')?'writing-rule':'writing-alt'));
+  return b;};
  const content=[];
  if(set.lines)set.lines.forEach((line,li)=>{
   const group=elem('div',undefined,'memorize-line'),grid=elem('div',undefined,'memorize-grid');
@@ -1016,7 +1029,7 @@ function renderMemorize(){
  else set.groups.forEach((g,gi)=>{
   const group=elem('div',undefined,'memorize-line'),grid=elem('div',undefined,'memorize-grid'+(g.cards.some(c=>c[2])?' photo-cols-'+photoCols():''));
   group.append(elem('p',g.title,'memorize-group-title'));
-  g.cards.forEach(([front,back,photo],ci)=>grid.append(set.id==='hanneung-urgent'&&!photo?urgentCell(set.id+':'+gi+':'+ci,front,back):cell(set.id+':'+gi+':'+ci,front,photo?back.split('\n')[0]:'',photo?back.split('\n').slice(1).join(' '):back,photo)));
+  g.cards.forEach(([front,back,photo],ci)=>grid.append(set.id.startsWith(WRITING_SET)?writingCell(set.id+':'+gi+':'+ci,front,back):set.id==='hanneung-urgent'&&!photo?urgentCell(set.id+':'+gi+':'+ci,front,back):cell(set.id+':'+gi+':'+ci,front,photo?back.split('\n')[0]:'',photo?back.split('\n').slice(1).join(' '):back,photo)));
   group.append(grid);content.push(group);
  });
  const bar=elem('div',undefined,'memorize-bar'),shown=keys.filter(k=>memorizeShown.has(k)).length;
@@ -1077,6 +1090,9 @@ function renderRange(){
   const exams=group('기출: 공무원 9급 ('+paperCount+'회차)',!paperScope(round));paperYears(exams,round);
   const other=group('그 밖의 범위',!(studyScope(round)!==null||round==='core'));option(other,'한국사 전체',scope(''));
  }else if(s==='영어'){const g=group('문제집 진도');option(g,'Day 1 문장의 구조와 동사 유형',scope('','Day 1'),moreNote(scope('','Day 1')));option(g,'Day 2 동사의 형태, 명사, 일치',scope('','Day 2'),moreNote(scope('','Day 2')));option(g,'Day 3 분사, 준동사, 관사와 도치',scope('','Day 3'),moreNote(scope('','Day 3')));option(g,'Day 4 형용사, 부사와 비교 구문',scope('','Day 4'),moreNote(scope('','Day 4')));option(g,'Day 5 접속사, 관계사, 가정법과 도치',scope('','Day 5'),moreNote(scope('','Day 5')));option(g,'Day 6 무작위 문법 포인트 찾기 훈련',scope('','Day 6'),moreNote(scope('','Day 6')));option(g,'Day 7 무작위 문법 포인트 찾기 훈련',scope('','Day 7'),moreNote(scope('','Day 7')));option(g,'Day 8 무작위 문법 포인트 찾기 훈련',scope('','Day 8'),moreNote(scope('','Day 8')));option(g,'Day 9 무작위 문법 포인트 찾기 훈련',scope('','Day 9'),moreNote(scope('','Day 9')));option(g,'Day 10 무작위 문법 포인트 찾기 훈련',scope('','Day 10'),moreNote(scope('','Day 10')));option(g,'Day 11 실전문제 연습',scope('','Day 11'),moreNote(scope('','Day 11')));option(g,'Day 12 실전문제 연습',scope('','Day 12'),moreNote(scope('','Day 12')));option(g,'Day 13 실전문제 연습',scope('','Day 13'),moreNote(scope('','Day 13')));option(g,'Day 14 실전문제 연습',scope('','Day 14'),moreNote(scope('','Day 14')));option(g,'Day 15 실전문제 연습',scope('','Day 15'),moreNote(scope('','Day 15')));
+  // 영작 연습(v400): 문제집 Day마다 채점 없는 영작 카드 목록. 누르면 외울 것 화면에서 그 목록을 연다.
+  {const sets=MEMORIZE.sets.filter(x=>x.id.startsWith(WRITING_SET));if(sets.length){const w=group('영작 연습 (채점 없이 눌러서 답 확인)');
+   for(const x of sets){const n=[...memorizeShown].filter(k=>k.startsWith(x.id+':')).length;w.append(menuItem(x.title,MEMORIZE.size(x)+'문장, 우리말과 재료를 보고 영작'+(n?', '+n+'문장 확인':''),()=>{if(data.memorizeLast!==x.id){data.memorizeLast=x.id;saveDraft();}go('memorize',x.id);}));}}}
   // 문법 공식 훈련: 공식(규칙) 하나가 범위 하나다. 그 공식의 문제집 Day 문제와 새 훈련 문제를 함께 담고, 영역별로 접어 둔다(지금 풀던 공식의 영역만 펼침).
   const formulas=group('문법 공식 훈련');option(formulas,'공식 훈련 새 문제 전체',scope('','문법 공식 훈련'),moreNote(scope('','문법 공식 훈련')));
   const nowFormula=(scopeOf().topic||'').startsWith('formula:')?scopeOf().topic.slice(8):'';

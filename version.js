@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v399-key-count';
+globalThis.APP_BUILD='chagog-v400-english-writing';

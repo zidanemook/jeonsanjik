@@ -534,3 +534,14 @@ body[data-view="quiz"] main { padding-top:14px; }
 @media (max-width:400px) { .memorize-cell.urgent-row.timeline { grid-template-columns:4.6rem minmax(0,1fr); column-gap:10px; } }
 .urgent-aside { display:flex; flex-direction:column; gap:3px; margin-top:8px; padding:8px 10px; border:1px dashed #5b6b82; border-radius:8px; background:#171f2b; }
 .urgent-aside-title { font-size:12px !important; font-weight:700; color:#8fc1ff !important; letter-spacing:.02em; }
+/* 영작 연습(v400): 우리말 문장, 재료 딱지, 꼴 지시. 열면 답 문장(굵게), 또는(다른 옳은 문장), 규칙 한 줄. */
+.memorize-cell.writing-card { gap:6px; }
+.memorize-cell.writing-card strong { font-size:17px; line-height:1.55; }
+.memorize-cell .writing-parts { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+.memorize-cell .writing-label { color:#8e99a8; font-size:13px; }
+.memorize-cell .writing-part { padding:2px 8px; border-radius:6px; background:#1f3048; color:#d4e5ff; font-size:15px; line-height:1.5; }
+.memorize-cell .writing-form { color:#ffd98a; font-size:14px; }
+.memorize-cell .writing-answer { margin-top:4px; padding-top:8px; border-top:1px solid #3a4d68; width:100%; color:#f2f5fa; font-size:17px; font-weight:600; line-height:1.55; }
+.memorize-cell .writing-alt { color:#c3cad4; font-size:15px; }
+.memorize-cell .writing-rule { color:#9fe0d6; font-size:14px; }
+.memorize-cell.writing-card.shown .writing-part { background:#33496a; }

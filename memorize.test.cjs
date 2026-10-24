@@ -103,9 +103,10 @@ const KING_TOKEN=/((?:[가-힣]+(?: 여왕| 마립간| 대왕)?)(?:, [가-힣]+(
 const KING_HEAD=new RegExp('^'+KING_TOKEN.source+'(?:, | / )?');
 const anchorsOf=back=>{let rest=back.split('\n')[0];const out=[];for(;;){const m=KING_HEAD.exec(rest);if(!m)break;for(const king of m[1].split(', '))out.push({king,country:m[2]});rest=rest.slice(m[0].length);}return out;};
 // 화살표는 줄 머리에만: 한 줄 가운데 ' → '가 있으면 서로 다른 묶음의 끝과 처음이 이어져 보인다(사용자 화면 '관세 철폐 움직임 → 조만식'). 괄호 안은 빼고 본다.
+// 영작 연습(english-writing-*)의 뒷면 '규칙: ' 줄은 포인트 이름 그대로라(since + 과거 시점 → 현재완료) 이 검사에서 뺀다. 그 목록의 검사는 writing.test.cjs.
 {const SKIP=new Set(['english-grammar-formulas','history-mnemonics','history-heritage-photos']);let backs=0,multi=0;
  const mid=line=>{let t=line;for(let g=0;g<50;g++){const u=t.replace(/\([^()]*\)|\[[^\[\]]*\]|‘[^‘’]*’|“[^“”]*”|『[^『』]*』|「[^「」]*」/g,'');if(u===t)break;t=u;}return / → /.test(t.replace(/^→ /,''));};
- for(const set of M.sets){if(SKIP.has(set.id))continue;const texts=[...(set.groups||[]).flatMap(g=>g.cards.map(c=>c[1])),...(set.pairs||[]).flatMap(p=>[p[1],p[3]])];
+ for(const set of M.sets){if(SKIP.has(set.id)||set.id.startsWith('english-writing-'))continue;const texts=[...(set.groups||[]).flatMap(g=>g.cards.map(c=>c[1])),...(set.pairs||[]).flatMap(p=>[p[1],p[3]])];
   for(const b of texts){backs++;const lines=b.split('\n');if(lines.some(l=>l.startsWith('→ ')))multi++;assert(!lines[0].startsWith('→ '),'첫 줄은 화살표로 시작하지 않는다: '+b.slice(0,40));for(const l of lines)assert(!mid(l),'화살표는 줄 머리에만(묶음마다 한 줄): '+set.id+' — '+l);}}
  assert(backs>1500&&multi>200,'뒷면 '+backs+' / 묶음이 여럿인 뒷면 '+multi);
  assert(mid('관세 철폐 움직임 → 조만식')&&!mid('→ 조만식, 평양')&&!mid('경학사(→ 부민단 → 한족회)'),'대조군: 줄 가운데 화살표를 잡는다');}
