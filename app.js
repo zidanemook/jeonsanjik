@@ -376,6 +376,8 @@ function paperNumber(card,i){const m=paperRoundScope(scopeOf())?/-(\d+)$/.exec(c
 function paperNav(chosen,at){
  const box=elem('div',undefined,'paper-nav'),prev=btn('← 이전',()=>paperJump(at-1)),skip=btn('건너뛰기 →',()=>paperJump(at+1)),pick=elem('select');
  prev.disabled=at<=0;skip.disabled=at>=chosen.length-1;
+ // v405: ← →도 이 두 단추와 같은 일을 한다(누를 수 없으면 키도 아무것도 안 한다).
+ keyAct.prev=prev.disabled?null:prev.onclick;keyAct.next=skip.disabled?null:skip.onclick;
  // 큰 범위(과목 전체 등 수천 문제)는 option을 문제마다 다시 그리지 않고 번호 칸 하나로 받는다.
  if(chosen.length>300){const num=elem('input');num.type='number';num.min='1';num.max=String(chosen.length);num.value=String(at+1);num.setAttribute('aria-label','문제 번호로 이동 (1~'+chosen.length+')');
   num.onchange=()=>{const n=Math.round(Number(num.value));if(n>=1&&n<=chosen.length&&n!==at+1)paperJump(n-1);else num.value=String(at+1);};box.append(prev,num,skip);return box;}
@@ -924,21 +926,33 @@ function countLine(cards){const {seen}=historyStats();return '안 푼 문제 '+q
 function solvedOn(ids,date){return new Set(data.history.filter(h=>h.date===date&&ids.has(h.cardId)).map(h=>h.cardId)).size;}
 function menuItem(title,detail,fn,cls='menu-item'){const b=btn('',fn,cls);b.type='button';b.append(elem('strong',title));if(detail)b.append(elem('span',detail));return b;}
 function lastScope(subject){const s=data.lastScopes?.[subject]||(data.practiceScope?.subject===subject?data.practiceScope:null);return s?{subject,topic:s.topic||'',round:s.round||''}:null;}
-function openScope(scope,resume=false){
- partFrom=null;
+function openScope(scope,resume=false,fromConcept=''){
+ partFrom=null;conceptSolve=fromConcept;
  scope={subject:scope.subject||'',topic:TOPIC_SUBJECTS.has(scope.subject)?scope.topic||'':'',round:hasRanges(scope.subject)?scope.round||'':''};
  if(resume&&sameScope(scopeOf(),scope)){go('quiz');return;}
  const next=structuredClone(data);next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:scope};delete next.quizFeedback;delete next.activePractice;
  paperCursor=null;
  if(commit(next)){sessionDirty=true;go('quiz');}
 }
+// v405 키보드로 풀기(research/keyboard-nav-20261024/SPEC.md, 사용자 기기 갤럭시 탭 + 키보드). 화면을 그릴 때 그 화면에서 키가 할 일(keyAct)을 단추와 같은 함수로 적어 두고, 키는 그것만 부른다(새 이동 규칙 없음).
+// pick(i) = i번째 보기(화면 번호 i+1, 섞인 순서 그대로) / prev, next = ← → / enter = 포커스 없이 누른 Enter / cards = 영작 카드 화면.
+let keyAct={},kbdSeen=false,kbdLast=false,kbdFocused='';
+// 다음 개념으로(SPEC 2절): 기초 개념의 '이 파트 문제 풀기'로 들어온 파트. 그 파트를 다 풀면(안 푼 문제 0) 다음 파트의 기초 개념을 여는 단추 하나(이어 읽기와 같은 conceptItems 차례). 다른 범위를 열면 지운다(openScope).
+let conceptSolve='';
+function conceptNextBtn(scope,chosen){
+ if(!conceptSolve||scope.round!=='part-'+conceptSolve||!chosen.length)return null;const {seen}=historyStats();if(chosen.some(c=>!seen.has(c.id)))return null;
+ const x=conceptItem(conceptSolve),xs=x?conceptItems(x.unit.subject):[],next=x?xs[xs.findIndex(y=>y.id===x.id)+1]:null;
+ return next?btn('다음 개념으로: '+next.title,()=>conceptOpen(next),'primary concept-after'):null;}
+function keyHints(){const q=$('#quizKeys'),w=$('#writingKeys');if(q)q.hidden=!kbdSeen;if(w)w.hidden=!kbdSeen||!keyAct.cards;}
 function renderView(){
+ keyAct={};
  $('#date').textContent=new Date().toLocaleDateString('ko-KR',{month:'long',day:'numeric',weekday:'short'});
  if((view==='subject'||view==='range')&&!viewSubject)view='home';
  for(const v of VIEWS)$('#'+v+'View').hidden=v!==view;document.body.dataset.view=view;
  // 과목 선택 화면을 벗어나면 승인 관리는 닫는다: 다시 돌아왔을 때 오래된 목록이 남지 않는다.
  if(view!=='home')$('#adminPanel').hidden=true;
  if(view==='home')renderHome();else if(view==='subject')renderSubject();else if(view==='range')renderRange();else if(view==='progress')renderProgress();else if(view==='memorize')renderMemorize();else if(view==='parts')renderParts();else if(view==='concepts')renderConcepts();else if(view==='basics')renderBasics();else renderQuiz();
+ keyHints();
 }
 function renderHome(){
  renderXp();renderScoreLine();const list=$('#subjectList'),playable=data.cards.filter(isPlayable);list.replaceChildren();
@@ -975,7 +989,7 @@ function renderMemorize(){
   {const cells=[...memorizeShown].filter(k=>!conceptKey(k)).length;if(cells){const reset=btn('외울 것 전체 초기화 ('+cells+'칸 확인함)',()=>{memorizeShown=new Set([...memorizeShown].filter(conceptKey));memorizeSave();render();notify('모든 목록의 확인 표시를 지웠어요.');});reset.type='button';body.append(reset);}}
   return;
  }
- const total=MEMORIZE.size(set),keys=[];
+ const total=MEMORIZE.size(set),keys=[];keyAct.cards=set.id.startsWith(WRITING_SET);
  const cell=(key,prompt,answer,detail,photo)=>{keys.push(key);const open=memorizeShown.has(key),b=btn('',()=>{if(memorizeShown.has(key))memorizeShown.delete(key);else memorizeShown.add(key);memorizeSave();render();},'memorize-cell'+(open?' shown':'')+(photo?' photo':''));
   b.type='button';b.setAttribute('aria-pressed',String(open));
   // 사진 칸: 앞면이 사진이고 누르면 이름이 나온다. 사진은 열려도 남겨 둔다 — 사진과 이름을 함께 봐야 외워진다.
@@ -1167,12 +1181,14 @@ function renderQuiz(){
    if(left>=0){// 건너뛴 문제가 남았으면 끝까지 왔다고만 알리고 그 문제로 보낸다.
     const k=chosen.filter(c=>!historyStats().seen.has(c.id)).length;
     root.append(elem('h2','이 범위의 마지막 번호까지 왔어요'),elem('p',scopeLabel(scope)+' '+chosen.length+'문제 가운데 아직 안 푼 문제가 '+k+'개 남았어요.'));
-    root.append(btn('안 푼 첫 문제로 ('+paperNumber(chosen[left],left)+')',()=>paperJump(left),'primary'),btn('처음부터 다시 풀기',()=>{paperRestart();render();window.scrollTo(0,0);}));
+    keyAct.enter=()=>paperJump(left);
+    root.append(btn('안 푼 첫 문제로 ('+paperNumber(chosen[left],left)+')',keyAct.enter,'primary'),btn('처음부터 다시 풀기',()=>{paperRestart();render();window.scrollTo(0,0);}));
     if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
     return;
    }
    root.append(elem('h2',paperWrongOnly?'틀렸던 문제를 끝까지 풀었어요':paperRoundScope(scope)?'이 회차를 끝까지 풀었어요':'이 범위를 끝까지 풀었어요'),elem('p',paperWrongOnly?scopeLabel(scope)+'에서 틀렸던 '+chosen.length+'문제를 원문 순서대로 모두 다시 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.':scopeLabel(scope)+' '+chosen.length+'문제를 1번부터 순서대로 모두 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.'));
-   root.append(btn('처음부터 다시 풀기',()=>{paperRestart();render();window.scrollTo(0,0);},'primary'));
+   {const nb=conceptNextBtn(scope,chosen);if(nb){keyAct.enter=nb.onclick;root.append(nb);}}
+   root.append(btn('처음부터 다시 풀기',()=>{paperRestart();render();window.scrollTo(0,0);},keyAct.enter?'':'primary'));
    if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
    return;
   }
@@ -1211,10 +1227,12 @@ function renderQuiz(){
  const lesson=PRACTICE_BANK[card.id],summary=STUDY_REVIEW_CATALOG.questions[card.id];
  const paperRow=Gichul.get(card.id);
  const label=elem('small',card.subject+' '+(lesson?.title||(paperRow?Gichul.title(paperRow):quiz.image?Hanneung.title(Hanneung.get(card.id))+(studyTopic(card.id)?', '+StudyTopics.title(studyTopic(card.id)):''):summary?StudyTopics.title(studyTopic(card.id))+' 복습 '+summary.number+'번, 자체 제작':'개념 복습'))+' ('+(quiz.type==='text'?'직접 쓰기':quiz.choiceImages?'사진 객관식':'객관식')+')');
- if(feedback){renderFeedback(root,card,quiz,lesson,label);const past=pastRecordLine(card.id,feedbackReviewId(data.quizFeedback));if(past&&label.isConnected)label.after(past);}
+ if(feedback){renderFeedback(root,card,quiz,lesson,label,conceptNextBtn(scope,chosen));const past=pastRecordLine(card.id,feedbackReviewId(data.quizFeedback));if(past&&label.isConnected)label.after(past);}
  else{
   root.append(label);{const past=pastRecordLine(card.id);root.append(past||elem('p','처음 푸는 문제','past-record past-new'));}root.append(...questionNodes(quiz.question));
   appendPaper(root,Hanneung.get(card.id));
+  // v405 숫자 키 = 화면에 보이는 그 번호의 보기(보기 단추와 같은 answerPractice, 섞인 순서는 quiz.choices가 이미 화면 순서다).
+  if(quiz.type==='choice'){keyAct.pick=i=>answerPractice(card.id,i);keyAct.count=quiz.choices.length;}
   if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(root,quiz,i=>answerPractice(card.id,i));
   else if(quiz.type==='choice'){
    const choices=elem('div',undefined,'quiz-choices');if(quiz.image)choices.classList.add('paper-choices');quiz.choices.forEach((choice,i)=>{const label=quiz.fixedOrder?choice:(i+1)+'. '+choice,button=underlineButton(btn(label,()=>answerPractice(card.id,i)),label);button.disabled=!!quiz.image;choices.append(button);});root.append(choices);
@@ -1232,6 +1250,8 @@ function renderQuiz(){
  Content.prefetch((sequential?chosen.slice(at+1,at+3):due.filter(c=>c.id!==card.id).slice(0,3)).map(c=>c.id));
  if(hadFocus&&$('#practiceInput')&&!feedback){$('#practiceInput').focus();$('#practiceInput').setSelectionRange(caret,caret);}
  if(noteFocus&&$('#noteInput')){$('#noteInput').focus();$('#noteInput').setSelectionRange(noteCaret,noteCaret);}
+ // v405: 키보드로 풀던 중이면(마지막 입력이 키) 직접 쓰기 문제의 칸에 한 번 포커스를 둔다(손가락으로 칸을 누르지 않게). 화면만 다시 그릴 때는 다시 넣지 않는다.
+ if(kbdLast&&!feedback&&quiz.type==='text'&&!hadFocus&&!noteFocus){const k=card.id+'|'+data.history.length,i=$('#practiceInput');if(i&&kbdFocused!==k){kbdFocused=k;i.focus({preventScroll:true});}}
 }
 // 조각을 받는 동안, 받지 못했을 때의 안내(풀이 화면, 기초 개념 보기, 외울 것 목록이 함께 쓴다). 막다른 화면이 없게 언제나 누를 것이 있다.
 function renderContentLoad(root,head,names,elsewhere,hold=false){
@@ -1600,7 +1620,7 @@ function conceptNav(x,body){
  nav.append(btn(done?'읽음 ✓':'읽음',()=>{conceptMark(x.id,!conceptRead(x.id));render();},'secondary concept-read'+(done?' is-read':'')));
  nav.append(next?btn('다음: '+next.title+' →',()=>to(next),'primary concept-go'):btn('목록으로',()=>go('concepts',u.subject,true),'primary concept-go'));
  body.append(nav);
- if(x.part)body.append(btn('이 파트 문제 풀기',()=>openScope({subject:u.subject,topic:'',round:'part-'+x.id}),'basics-solve'));
+ if(x.part)body.append(btn('이 파트 문제 풀기',()=>openScope({subject:u.subject,topic:'',round:'part-'+x.id},false,x.id),'basics-solve'));
 }
 // 파트 하나의 기초 개념만 모은 화면(시험 직전 외우기용). 뒤로 가면 파트별 상태로 돌아가고, 아래에서 그 파트를 바로 풀 수 있다.
 let basicsPart='',basicsFrom='parts';
@@ -1623,10 +1643,10 @@ function renderBasics(){
   for(const x of [...b.terms,...b.rules.items,b.table,...(b.tables||[])])if(x&&basicsShared(x,r,p.id))shown.add(JSON.stringify(x));
   d.open=!again;d.dataset.rule=r;body.append(d);}
  if(wx){conceptNav(wx,body);return;}
- body.append(btn('이 파트 문제 풀기',()=>openScope({subject:u.subject,topic:'',round:'part-'+p.id}),'primary basics-solve'));
+ body.append(btn('이 파트 문제 풀기',()=>openScope({subject:u.subject,topic:'',round:'part-'+p.id},false,p.id),'primary basics-solve'));
 }
 // Explanation page after grading: result first, explanation folded (opening it earns +1 minute), skippable.
-function renderFeedback(root,card,quiz,lesson,label){
+function renderFeedback(root,card,quiz,lesson,label,after){
  const f=data.quizFeedback,reviewId=feedbackReviewId(f),correct=quiz.type==='text'?quiz.answers.join(' / '):quiz.choices[quiz.correctIndex];
  root.append(elem('p','채점 결과와 해설','eyebrow'));
  const banner=elem('div',undefined,'result-banner result-'+f.result);
@@ -1647,6 +1667,8 @@ function renderFeedback(root,card,quiz,lesson,label){
  root.append(elem('p','풀이 완료: 환산 시간 +1분','study-credit-award'),elem('small','다음 복습: '+dueCard.due,'next-review'));
  const source=(Content.core(card.id)||card).source;if(quiz.type==='text'||source)root.append(elem('small',quiz.type==='text'?(card.id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조와 동사 유형 정리 기반 자체 제작 연습':card.id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습':card.id.startsWith('en-day3-')?'문제집 Day 3 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-day4-')?'문제집 Day 4 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-day5-')?'문제집 Day 5 문법 포인트 찾기 훈련 기반 자체 제작 연습':/^en-day1[1-5]-/.test(card.id)?'문제집 Day '+card.id.slice(6,card.id.indexOf('-',6))+' 실전문제 연습 기반 자체 제작 연습':/^en-day([6-9]|10)-/.test(card.id)?'문제집 Day '+card.id.slice(6,card.id.indexOf('-',6))+' 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-formula-')?'문법 공식 훈련 자체 제작 연습':'대화 학습과 수일치 정리 기반 자체 제작 연습'):source,'source-line'));
  const next=btn(nextLabel(reviewId),()=>{const state=structuredClone(data);delete state.quizFeedback;delete state.activePractice;if(commit(state)){sessionDirty=true;render();window.scrollTo(0,0);}},'primary next-question');next.id='nextQuestion';next.dataset.review=reviewId||'';root.append(next);
+ // v405: 채점 뒤 Enter와 →는 '다음 문제'. 이 답으로 기초 개념에서 들어온 파트를 다 풀었으면 '다음 개념으로'도 여기 둔다(건너뛴 문제를 마지막에 푼 때도 끝 화면까지 넘기지 않게).
+ keyAct.enter=keyAct.next=next.onclick;if(after){after.classList.remove('primary');root.append(after);}
  appendNoteBox(root,card,quiz,'explanation',label.textContent);
 }
 // 문제 의견: 버튼을 누르면 입력칸이 열린다. 쓰던 내용은 화면을 다시 그리거나 닫았다 열어도 남고,
@@ -1717,6 +1739,28 @@ function answerPractice(id,input){
 // 이제 이름을 보지 않고 대조한다. 기기에 없는 문제는 언제나 넣고, 넣을 것이 없으면 저장도 하지 않는다.
 // v247: 글을 아직 받지 않은 문제는 과목만 가진 일정 카드로 넣는다(일정 칸은 같다. 글은 조각이 붙을 때 채운다).
 function installCorePack(){const ids=new Set(data.cards.map(c=>c.id));const cards=[...cardContent()].filter(([id])=>!ids.has(id)).map(([id,c])=>c.question===undefined?{id,subject:c.subject,verified:true,created:day(),due:day(),ease:2.5,interval:0,streak:0}:({...newCard(c),id}));if(!cards.length)return;commit({...data,cards:[...data.cards,...cards]});}
+// v405 키 하나가 하는 일(SPEC 1절). 글 쓰는 칸, 고르기 칸 안에서는 끈다(Enter 제출은 칸이 그대로 하고, Esc는 칸에서 빠져나오기만).
+// Ctrl, Alt, Meta와 같이 누른 키는 보지 않는다. 뱃지 설명 창이 열려 있으면 Esc(창 닫기) 말고는 아무것도 하지 않는다.
+// 포커스가 단추, 링크, 접는 칸 머리에 있으면 Enter와 Space는 브라우저가 그것을 누른다(보기를 ↑ ↓로 고르고 Enter = 그 보기로 답하기).
+const typingIn=t=>!!t&&(!!t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName||''));
+function appKey(e){
+ if(e.ctrlKey||e.altKey||e.metaKey||e.isComposing)return;
+ const t=e.target,typing=typingIn(t),a=document.activeElement,k=e.key,stop=()=>e.preventDefault();
+ if(!typing&&k&&k!=='Unidentified'&&k!=='Process'){kbdLast=true;if(!kbdSeen){kbdSeen=true;keyHints();}}
+ if(k==='Escape'){if(badgeInfoOpen){closeBadgeInfo();return;}if(typing){t.blur();return;}if(view!=='home'){stop();goBack();}return;}
+ if(typing||badgeInfoOpen)return;
+ const control=!!a&&a!==document.body&&/^(BUTTON|A|SUMMARY|SELECT|INPUT|TEXTAREA)$/.test(a.tagName||'');
+ // 영작 카드: 화살표 = 앞뒤 카드로 포커스, Space(또는 Enter) = 그 카드 답 보기(포커스가 없으면 아직 안 연 첫 카드). 다시 그린 뒤에도 같은 카드에 포커스.
+ if(view==='memorize'&&keyAct.cards){const cards=()=>[...document.querySelectorAll('#memorizeBody .writing-card')],cs=cards(),i=cs.indexOf(a);if(!cs.length)return;
+  if(/^Arrow(Up|Down|Left|Right)$/.test(k)){stop();const d=k==='ArrowUp'||k==='ArrowLeft'?-1:1;cs[i<0?(d>0?0:cs.length-1):Math.max(0,Math.min(cs.length-1,i+d))].focus();return;}
+  if((k===' '||k==='Enter')&&(i>=0||!control)){stop();if(e.repeat)return;const j=i>=0?i:cs.findIndex(b=>!b.classList.contains('shown'));if(j<0)return;cs[j].click();cards()[j]?.focus();}
+  return;}
+ if(view!=='quiz')return;
+ if(/^[1-9]$/.test(k)){if(!keyAct.pick||e.repeat)return;const n=Number(k);if(n<=keyAct.count){stop();keyAct.pick(n-1);}return;}
+ if(k==='ArrowUp'||k==='ArrowDown'){const bs=[...document.querySelectorAll('#card > .quiz-choices button')].filter(b=>!b.disabled);if(!bs.length)return;stop();const i=bs.indexOf(a),d=k==='ArrowDown'?1:-1;bs[i<0?(d>0?0:bs.length-1):Math.max(0,Math.min(bs.length-1,i+d))].focus();return;}
+ if(k==='ArrowLeft'||k==='ArrowRight'){const f=k==='ArrowLeft'?keyAct.prev:keyAct.next;if(f){stop();f();}return;}
+ if(k==='Enter'&&!control&&keyAct.enter){stop();if(!e.repeat)keyAct.enter();}
+}
 // v248: 여기부터 첫 그리기까지는 저장 상태를 읽은 뒤에 돈다(startApp). IndexedDB 읽기는 storage.js가 맨 앞에서 시작해 두었다.
 function startApp(){
 installCorePack();
@@ -1740,7 +1784,9 @@ $('#paperWrong').onchange=e=>{paperWrongOnly=e.target.checked;paperCursor=null;r
 $('#includeMastered').onchange=e=>{const next=structuredClone(data);if(e.target.checked)next.includeMastered=true;else delete next.includeMastered;delete next.quizFeedback;delete next.activePractice;if(commit(next)){notify(e.target.checked?'이 범위의 외운 문제도 복습일이 되면 나와요.':'외운 문제는 이 범위에서 빼요.');render();}};
 $('#moreLecture').onchange=e=>{const lecture=moreScope(scopeOf());if(lecture)setLectureOpen(lecture,e.target.checked);else render();};
 $('#homeScore').onclick=()=>go('progress');
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&badgeInfoOpen)closeBadgeInfo();});
+document.addEventListener('keydown',appKey);
+// 손가락으로 누르면 '키보드로 풀던 중'을 끈다(직접 쓰기 칸에 저절로 포커스를 두지 않는다. 키 안내 줄은 그대로).
+document.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')kbdLast=false;});
 // 설명 밖(다른 뱃지 칩 제외)을 누르면 닫는다.
 document.addEventListener('click',e=>{if(badgeInfoOpen&&!e.target?.closest?.('#badgeInfo,.badge-chip'))closeBadgeInfo();});
 $('#targetSave').onclick=()=>{const t={name:$('#targetName').value.trim(),cutoff:Number($('#targetCutoff').value),bonus:Number($('#targetBonus').value||0)};

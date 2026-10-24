@@ -554,5 +554,65 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  run("(()=>{const s=structuredClone(data);s.memorizeShown=[...s.memorizeShown,'x:1'];commit(s);syncMemorizeShown();memorizeShown=new Set([...memorizeShown].filter(conceptKey));})()");assert.ok(JSON.parse(run('JSON.stringify([...memorizeShown])')).some(k=>k.startsWith('conceptAt:'))&&!JSON.parse(run('JSON.stringify([...memorizeShown])')).includes('urgent:test-cell'),'외울 것 초기화는 자리와 읽음을 남긴다');
  run("for(const x of conceptItems('정보보호론'))conceptMark(x.id,true);render()");assert.equal(hint(),'다 읽음 '+xs.length+'/'+xs.length+', 목록 보기');nodes.get('#openConcepts').onclick();assert.equal(run('view'),'concepts','다 읽었으면 목록');
  assert.equal(run('JSON.stringify(data.lastScopes||null)'),scopes,'문제 이어하기 자리는 그대로');}
+// v405 키보드로 풀기(research/keyboard-nav-20261024/SPEC.md). 키는 화면이 적어 둔 단추 함수(keyAct)만 부른다.
+// 숫자 = 화면 번호 그대로의 보기(섞인 순서) / Enter = 채점 뒤 다음 문제 / ← → = 이전, 건너뛰기 단추 / 칸 안에서는 꺼짐 / Esc = 뒤로.
+// 기초 개념의 '이 파트 문제 풀기'로 들어온 파트를 다 풀면(안 푼 문제 0) 끝 화면에 '다음 개념으로: <다음 파트>' 하나, Enter나 누르면 다음 파트의 기초 개념.
+{run("globalThis.press=(key,o={})=>{let stopped=false;appKey({target:document.body,...o,key,preventDefault(){stopped=true;}});return stopped;}");
+ const S='정보보호론',press=(k,o)=>run('press('+JSON.stringify(k)+(o?','+o:'')+')'),by=(sel,c)=>nodes.get(sel).all.filter(n=>String(n.className||'').split(' ').includes(c));
+ const inPart=id=>"data.cards.filter(c=>isPlayable(c)&&inScope(c,{subject:'"+S+"',topic:'',round:'part-"+id+"'}))";
+ const partCards=id=>run(inPart(id)+'.length'),fresh=id=>run(inPart(id)+'.every(c=>!historyStats().seen.has(c.id))');
+ const xs=run("conceptItems('"+S+"').map((x,i,a)=>({id:x.id,title:x.title,part:!!x.part,next:a[i+1]?a[i+1].id:'',nextTitle:a[i+1]?a[i+1].title:''}))");
+ const picks=xs.filter(x=>x.part&&x.next&&partCards(x.id)>=3&&partCards(x.id)<=40&&fresh(x.id));assert.ok(picks.length>=2,'안 푼 작은 파트 둘: '+picks.length);
+ const [A,B]=picks;assert.equal(run('kbdSeen'),false);assert.equal(nodes.get('#quizKeys').hidden,true,'키를 누르기 전에는 키 안내가 없다');
+ run("conceptOpen(conceptItem("+JSON.stringify(A.id)+"))");assert.equal(run('view'),'basics');
+ {const b=by('#basicsBody','basics-solve');assert.equal(b.length,1,'이 파트 문제 풀기');b[0].onclick();}
+ assert.equal(run('view'),'quiz');assert.equal(run('conceptSolve'),A.id,'기초 개념에서 들어온 파트를 기억한다');
+ const n=partCards(A.id),at=()=>run('paperCursor.index'),choiceTexts=()=>{const box=nodes.get('#card').children.find(c=>String(c.className||'').split(' ').includes('quiz-choices'));return box?box.children.map(b=>b._text):[];};
+ // 칸 안, 조합 키, 설명 창: 아무것도 안 한다(Esc만 칸에서 빠져나오기, 창 닫기).
+ for(const t of ["{target:{tagName:'INPUT'}}","{target:{tagName:'TEXTAREA'}}","{target:{tagName:'SELECT'}}","{target:{tagName:'DIV',isContentEditable:true}}","{ctrlKey:true}","{altKey:true}","{metaKey:true}"])
+  for(const k of ['1','ArrowRight','Enter'])assert.equal(press(k,t),false,k+' '+t);
+ assert.equal(run('!!data.quizFeedback'),false,'칸 안, 조합 키로는 답하지 않는다');assert.equal(at(),0);
+ run("globalThis.blurred=0");press('Escape',"{target:{tagName:'INPUT',blur(){blurred++;}}}");assert.equal(run('blurred'),1,'칸 안 Esc는 칸에서 빠져나오기');assert.equal(run('view'),'quiz','칸 안 Esc는 뒤로 가지 않는다');
+ assert.equal(run('kbdSeen'),false,'칸 안의 키는 키보드를 쓴 것으로 치지 않는다');
+ run("badgeInfoOpen={subject:'"+S+"',kind:'score'}");assert.equal(press('1'),false);assert.equal(press('ArrowRight'),false);assert.equal(run('!!data.quizFeedback'),false,'설명 창이 열려 있으면 숫자 키도 안 먹는다');press('Escape');assert.equal(run('badgeInfoOpen'),null,'Esc는 설명 창을 닫는다');assert.equal(run('view'),'quiz');
+ assert.equal(run('kbdSeen'),true);assert.equal(nodes.get('#quizKeys').hidden,false,'키를 쓰면 키 안내 한 줄');
+ // ← →: 첫 문제에서 ←는 없음, →는 건너뛰기, ←는 이전(단추와 같은 자리 옮기기).
+ assert.equal(press('ArrowLeft'),false,'첫 문제에서 ←는 아무것도 안 한다');assert.equal(at(),0);
+ const first=run('data.activePractice.cardId');assert.equal(press('ArrowRight'),true);assert.equal(at(),1,'→ = 건너뛰기');assert.notEqual(run('data.activePractice.cardId'),first);
+ assert.equal(press('ArrowLeft'),true);assert.equal(at(),0,'← = 이전');assert.equal(run('data.activePractice.cardId'),first);
+ // 숫자 + Enter로 끝까지. 숫자는 화면에 적힌 번호의 보기다(섞인 순서 그대로). 첫 문제는 일부러 틀린다.
+ let shuffled=0,solved=0;
+ while(run('!!data.activePractice')&&solved<n){
+  const q=run('data.activePractice.exercise'),id=run('data.activePractice.cardId');
+  if(q.type!=='choice')run('answerPractice('+JSON.stringify(id)+','+JSON.stringify(q.answers[0])+')');
+  else{const shown=choiceTexts();if(!q.fixedOrder)shown.forEach((t,i)=>assert.ok(t.startsWith((i+1)+'. '),'화면 번호 = 보기 순서: '+t));
+   if(JSON.stringify(run('QUIZ_OPTIONS['+JSON.stringify(id)+']?.choices||null'))!==JSON.stringify(q.choices))shuffled++;
+   const pick=solved===0?(q.correctIndex+1)%q.choices.length:q.correctIndex;
+   assert.equal(press(String(q.choices.length+1)),false,'없는 번호는 아무것도 안 한다');assert.equal(run('!!data.quizFeedback'),false);
+   assert.equal(press(String(pick+1)),true);assert.equal(run('data.quizFeedback.selectedIndex'),pick,(pick+1)+'번 키 = 화면의 '+(pick+1)+'번 보기');assert.equal(run('data.quizFeedback.result'),solved===0?'wrong':'correct');
+   assert.equal(press('1'),false,'채점 뒤 숫자 키는 아무것도 안 한다');assert.equal(run('data.quizFeedback.selectedIndex'),pick);}
+  solved++;
+  assert.equal(by('#card','concept-after').length,solved===n?1:0,'다음 개념으로는 안 푼 문제가 0일 때만 ('+solved+'/'+n+')');
+  assert.equal(press('Enter',"{repeat:true}"),true);assert.equal(run('!!data.quizFeedback'),true,'누르고 있는 Enter는 넘기지 않는다');
+  assert.equal(press('Enter'),true);assert.equal(run('!!data.quizFeedback'),false,'채점 뒤 Enter = 다음 문제');}
+ assert.equal(solved,n,'파트 '+n+'문제를 키로 모두 풀었다');assert.ok(shuffled>0,'섞인 보기도 화면 번호대로: '+shuffled);
+ assert.ok(screen().includes('이 범위를 끝까지 풀었어요'),'끝 화면: '+screen().slice(0,80));
+ {const g=by('#card','concept-after');assert.equal(g.length,1,'끝 화면에 다음 개념으로 하나');assert.equal(g[0]._text,'다음 개념으로: '+A.nextTitle);}
+ run("history.back=()=>{globalThis.backed=(globalThis.backed||0)+1;}");
+ assert.equal(press('Enter'),true);assert.equal(run('view'),'basics','끝 화면 Enter = 다음 개념으로');assert.equal(run('basicsPart'),A.next,'다음 파트(이어 읽기와 같은 차례)');assert.equal(run('basicsFrom'),'concepts');
+ // Esc = 앱의 뒤로 단추(goBack): 쌓인 기록이 있으면 history.back, 없으면 위 화면.
+ press('Escape');assert.equal(run('backed'),1,'Esc = 뒤로(history.back)');
+ run("history.replaceState({view:'basics',subject:'"+S+"',depth:0},'')");press('Escape');assert.equal(run('view'),'concepts','쌓인 기록이 없으면 Esc는 위 화면');
+ run("go('home','',true)");run("history.replaceState({view:'home',subject:'',depth:0},'')");assert.equal(press('Escape'),false,'첫 화면에서 Esc는 아무것도 안 한다');
+ // 같은 파트를 범위로 열면(기초 개념에서 온 것이 아님) 다 풀었어도 단추가 없다.
+ run("openScope({subject:'"+S+"',topic:'',round:'part-"+A.id+"'})");assert.equal(run('conceptSolve'),'');
+ for(let k=0;k<200&&run('!!data.activePractice');k++)if(!press('ArrowRight'))run('paperJump(paperCursor.index+1)');
+ assert.ok(screen().includes('이 범위를 끝까지 풀었어요'));assert.equal(by('#card','concept-after').length,0,'범위로 연 파트는 다음 개념으로가 없다');
+ // 기초 개념에서 들어왔어도 건너뛴 문제가 남으면 단추 대신 '안 푼 첫 문제로'(Enter도 그것).
+ run("conceptOpen(conceptItem("+JSON.stringify(B.id)+"))");by('#basicsBody','basics-solve')[0].onclick();assert.equal(run('conceptSolve'),B.id);
+ {const q=run('data.activePractice.exercise');if(q.type==='choice')press(String(q.correctIndex+1));else run('answerPractice(data.activePractice.cardId,'+JSON.stringify(q.answers?.[0])+')');press('Enter');}
+ for(let k=0;k<200&&run('!!data.activePractice');k++)if(!press('ArrowRight'))run('paperJump(paperCursor.index+1)');
+ assert.ok(screen().includes('마지막 번호까지 왔어요'),'건너뛴 문제가 남은 끝 화면: '+screen().slice(0,60));assert.equal(by('#card','concept-after').length,0,'안 푼 문제가 남으면 다음 개념으로가 없다');
+ assert.equal(press('Enter'),true);assert.equal(at(),1,'Enter = 안 푼 첫 문제로');}
 console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject counts read "안 푼 문제 M/N" and range rows "전체 N문제, 첫 시도 …" with no 문항/카드 wording, every range runs in number order from the first unsolved question ('+normal+'/'+total+') with 이전, 건너뛰기, 번호 고르기, 파트 고르기, records stay normal, no same-day interval inflation; 대기열 모드, 외운 문제, 틀렸던 문제만, 더 풀기 옵션은 숨김; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});

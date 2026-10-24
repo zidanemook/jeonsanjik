@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v404-hybrid-endian';
+globalThis.APP_BUILD='chagog-v405-keyboard';

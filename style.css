@@ -480,6 +480,10 @@ body[data-view="quiz"] main { padding-top:14px; }
 .menu-item.part-basics strong { font-size:16px; color:#ffd479; }
 #basicsBody .lesson.basics { margin-top:16px; }
 .basics-solve { margin-top:20px; }
+/* v405 키 안내: 키보드를 쓴 뒤에만 보이는 한 줄 */
+.key-hint { margin:10px 2px 0; color:#9aa3b0; font-size:13px; line-height:1.5; }
+#memorizeView .key-hint { margin:0 2px 10px; }
+.concept-after { width:100%; margin-top:12px; white-space:normal; text-align:left; }
 /* v386 파트 고르기: 문제 아래 이동 줄 밑, 화면 폭을 넘지 않게 */
 .part-picker { display:flex; gap:8px; align-items:center; margin:10px 0 4px; }
 .part-picker > span { color:#b9c0cc; font-size:14px; flex:0 0 auto; }
