@@ -7,13 +7,13 @@ const assert=require('node:assert/strict');
 const M=require('./memorize.js'),{loadSources}=require('./build-chunks.cjs');
 const bank=loadSources().PRACTICE_BANK;
 const DOT=new RegExp('['+[0xB7,0x2027,0x30FB,0x318D].map(c=>String.fromCharCode(c)).join('')+']');
-const IRREGULAR={be:['is','are','was','were','been','being','am'],have:['has','had'],lie:['lay','lain','lying'],lay:['laid'],rise:['rose','risen'],take:['took','taken'],find:['found'],see:['saw','seen'],make:['made'],cut:['cut'],ride:['rode','ridden'],know:['knew','known'],leave:['left'],lose:['lost'],say:['said'],tell:['told'],break:['broke','broken'],fall:['fell','fallen'],ring:['rang','rung'],eat:['ate','eaten'],catch:['caught'],give:['gave','given'],keep:['kept'],buy:['bought'],think:['thought'],stand:['stood'],come:['came'],get:['got','gotten'],can:['cannot','can’t','could'],run:['ran'],speak:['spoke','spoken'],read:['read'],put:['put'],let:['let'],hear:['heard'],begin:['began','begun']};
+const IRREGULAR={be:['is','are','was','were','been','being','am'],have:['has','had'],lie:['lay','lain','lying'],lay:['laid'],rise:['rose','risen'],take:['took','taken'],find:['found'],see:['saw','seen'],make:['made'],cut:['cut'],ride:['rode','ridden'],know:['knew','known'],leave:['left'],lose:['lost'],say:['said'],tell:['told'],break:['broke','broken'],fall:['fell','fallen'],ring:['rang','rung'],eat:['ate','eaten'],catch:['caught'],give:['gave','given'],keep:['kept'],buy:['bought'],think:['thought'],stand:['stood'],come:['came'],get:['got','gotten'],can:['cannot','can’t','could'],run:['ran'],speak:['spoke','spoken'],read:['read'],put:['put'],let:['let'],hear:['heard'],begin:['began','begun'],steal:['stole','stolen'],hold:['held'],write:['wrote','written'],choose:['chose','chosen'],grow:['grew','grown'],go:['went','gone'],send:['sent'],become:['became'],build:['built'],will:['would'],do:['did','done','does'],meet:['met']};
 const forms=w=>{const s=new Set([w,w+'s',w+'es',w+'ed',w+'d',w+'ing',w.replace(/e$/,'')+'ing',w.replace(/y$/,'ies'),w.replace(/y$/,'ied'),...(IRREGULAR[w]||[])]);
  if(/[^aeiou][aeiou][bdgmnprt]$/.test(w)){s.add(w+w.slice(-1)+'ed');s.add(w+w.slice(-1)+'ing');}return s;};
 const words=t=>(t.toLowerCase().match(/[a-z0-9’']+/g)||[]);
 const inAnswer=(w,answerWords)=>[...forms(w)].some(f=>answerWords.has(f));
 const sets=M.sets.filter(s=>s.id.startsWith('english-writing-'));
-assert.ok(sets.length>=2,'영작 연습 목록이 있다(Day 1, Day 2)');
+assert.ok(sets.length>=6,'영작 연습 목록이 있다(Day 1 ~ Day 6)');
 let total=0;
 for(const set of sets){
  const day=+set.id.match(/^english-writing-day(\d+)$/)[1],topic='Day '+day;
