@@ -1448,7 +1448,8 @@ function basicsTerm(t){const h=elem('div',undefined,'b-term');h.append(elem('spa
 // 보이는 줄만 센다: 접힌 줄, 다른 상자로 간 공통 줄을 뺀 목록에서 같은 g가 이어지면 제목은 하나다.
 function basicsRuleList(rs){const out=[];let g;for(const r of rs){if(r.g&&r.g!==g)out.push(elem('h5',r.g,'b-rgroup'));g=r.g;out.push(basicsRule(r));}return out;}
 // 본문이 여러 줄(목록 꼴)이면 이름 다음에 줄을 바꾼다(v382, 사용자: '동사로 가르기보면 기밀성'처럼 이름과 첫 줄이 붙어 읽힘).
-function basicsRule(r){const d=elem('div',undefined,'b-rule');d.append(elem('b',r.name));if(String(r.text).includes('\n'))d.append(elem('br'));String(r.text).split('\n').forEach((line,i)=>{if(i)d.append(elem('br'));d.append(...basicsInline(line));});return d;}
+// 본문이 굵은 글씨로 시작해도 바꾼다(v409, 사용자: '차분 공격과 선형 공격 차분 공격 = …'이 한 덩어리로 보임).
+function basicsRule(r){const d=elem('div',undefined,'b-rule');d.append(elem('b',r.name));if(String(r.text).includes('\n')||String(r.text).startsWith('**'))d.append(elem('br'));String(r.text).split('\n').forEach((line,i)=>{if(i)d.append(elem('br'));d.append(...basicsInline(line));});return d;}
 function basicsExample(x){const p=elem('p',undefined,'b-ex'+(x.ok?'':' bad'));p.append(elem('span',x.ok?'✓':'✗',x.ok?'b-ok':'b-no'),document.createTextNode(' '),...basicsInline(x.text),elem('br'));const s=elem('small');s.append(...basicsInline(x.why));p.append(s);return p;}
 // 한국사 상자(split:'lines', 파트마다 하나, 표가 여럿): 해설 화면에서는 이 문제의 대입이 쓰는 줄(용어, 표의 줄, 규칙, 비교 예문)만
 // 제자리에 두고, 나머지는 닫힌 '이 정리의 나머지 더 보기' 하나에 같은 순서로 모은다. 대입이 표 id를 쓰면 그 표 전체, 줄 id를 쓰면 그 줄만.
