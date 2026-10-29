@@ -393,11 +393,22 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  const flat=n=>(n._text||'')+n.children.map(flat).join('');
  const shown=(id,i)=>{const v=run('PRACTICE_BANK['+JSON.stringify(id)+'].variants[0]');return {v,node:run('markedChoice(PRACTICE_BANK['+JSON.stringify(id)+'].variants[0].choices['+i+'],PRACTICE_BANK['+JSON.stringify(id)+'].variants[0].marks['+i+'],okLabel(PRACTICE_BANK['+JSON.stringify(id)+'].variants[0]))')};};
  const ok=shown('en-day3-009',0);assert.equal(ok.v.correctIndex,0);assert.ok(flat(ok.node).endsWith(' (옳게 옮김)'),'옮기기 문제의 옳은 보기: '+flat(ok.node));assert.ok(!flat(ok.node).includes('어법상 옳음'));
- const bad=shown('en-day3-009',1),marks=bad.node.all.filter(n=>n.className==='choice-error').map(n=>n._text),fixes=bad.node.all.filter(n=>n.className==='choice-fix').map(n=>n._text);
- assert.deepEqual(marks,['participated']);assert.deepEqual(fixes,[' → participating']);assert.ok(!flat(bad.node).includes('옳'),'틀린 보기에는 꼬리표가 없다');
+ const bad=shown('en-day3-009',1),marks=bad.node.all.filter(n=>n.className==='choice-error choice-struck').map(n=>n._text),fixes=bad.node.all.filter(n=>n.className==='choice-fix').map(n=>n._text);
+ assert.deepEqual(marks,['participated']);assert.deepEqual(fixes,['participating']);assert.ok(!flat(bad.node).includes('옳'),'틀린 보기에는 꼬리표가 없다');
  const old=shown('en-day3-006',2);assert.equal(old.v.correctIndex,2);assert.ok(flat(old.node).endsWith(' (어법상 옳음)'),'어법 문제의 옳은 보기는 그대로: '+flat(old.node));
  const bracket=shown('en-formula-071',0);assert.ok(flat(bracket.node).endsWith(' (어법상 옳음)'),'옮길 때 대괄호 문제는 어법 꼬리표: '+flat(bracket.node));
  assert.ok(flat(run('markedChoice("A b.",null)')).endsWith(' (어법상 옳음)'),'꼬리표를 넘기지 않은 옛 호출도 그대로');
+ // v412(10/29 사용자 "let 을 삭제하면 안되자나"): 넣기만 하는 고침은 지울 낱말 없이 들어갈 자리에 ∨ 하나.
+ {const q='PRACTICE_BANK["en-day6-005"].variants[0]',struck=i=>run('markedChoice('+q+'.choices['+i+'],'+q+'.marks['+i+'],okLabel('+q+'),true)'),cls=(n,c)=>n.all.filter(x=>String(x.className||'').split(' ').includes(c));
+  for(const [i,before] of [[2,'He opened the window ∨ let in'],[1,'The report, ∨ contains many']]){const n=struck(i);assert.equal(cls(n,'choice-struck').length,0,'지우는 표시 없음: '+flat(n));assert.equal(cls(n,'choice-gap').length,1);assert.ok(flat(n).startsWith(before),'자리 표시: '+flat(n));}
+  const inline=run('markedChoice('+q+'.choices[2],'+q+'.marks[2])');assert.ok(flat(inline).startsWith('He opened the window to let in'),'내 답 줄은 들어갈 낱말을 그 자리에 초록으로: '+flat(inline));assert.equal(cls(inline,'choice-struck').length,0);assert.deepEqual(cls(inline,'choice-fix').map(n=>n._text),['to']);
+  // 빼기(approached to our → approached our)는 to만 긋고, 자리 바꾸기(why is the printer jammed)는 is를 긋고 jammed 앞에 ∨.
+  const words=(w,f,inl)=>run('strikeNodes('+JSON.stringify(w)+','+JSON.stringify(f)+','+inl+').map(n=>n.className?(n.className.includes("gap")?"∨":"["+n._text+"]"):n._text).join("")');
+  assert.equal(words('approached to our','approached our',false),'approached [to] our');
+  assert.equal(words('why is the printer jammed','why the printer is jammed',false),'why [is] the printer ∨ jammed');
+  assert.equal(words('why is the printer jammed','why the printer is jammed',true),'why [is] the printer [is] jammed');
+  assert.equal(words('tourists visited','tourists visiting',false),'tourists [visited]','바꾸는 고침은 그은 낱말만(∨ 없음)');
+  assert.equal(words('it','it is',false),'it ∨','끝에 넣기');}
 }
 // 새로 만든 문제가 '이미 쓰던 기기'에 들어오는지. 예전에는 팩 이름이 바뀔 때만 들어와서, 이름을 안 올린 배포의
 // 문항은 영영 안 들어왔다(2026-09-17 뒤 158문항). 이름이 그대로여도 기기에 없는 문제는 채워 넣어야 한다.

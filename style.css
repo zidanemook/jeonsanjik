@@ -216,6 +216,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .choice-fix { color:#82d6a4; font-weight:700; }
 .choice-ok { color:#9fb3c8; font-size:.9em; }
 .choice-struck { text-decoration:line-through 2px #ff9c9c; background:#5a2a30; color:#ffb3b3; }
+.choice-gap { text-decoration:none; font-weight:700; color:#ff9c9c; padding:0 3px; }
 .choice-sentence { margin:8px 0 4px; padding:10px 12px; border:1px solid #3d6b4f; border-radius:10px; background:#15221a; }
 .choice-fix-line { display:flex; gap:8px; align-items:baseline; margin:4px 0 0; line-height:1.55; }
 .choice-fix-check { color:#82d6a4; font-weight:700; flex:none; }

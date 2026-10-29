@@ -781,21 +781,30 @@ function feedbackReviewId(feedback){
 }
 function restoreExplanationPanels(keys){for(const node of document.querySelectorAll('[data-explanation-key]'))if(keys.has(node.dataset.explanationKey))node.open=true;}
 function appendCorrection(parent,snapshot){const update=ContentCorrections.find(snapshot);if(!update)return;const note=elem('div',undefined,'content-correction');note.append(elem('strong','문제와 해설 수정 안내'),elem('p','아래 기록은 수정 전 문제의 당시 채점 결과입니다.'),elem('p',update.note),elem('p','현재 문제: '+update.question),elem('p','현재 정답: '+update.answer),elem('p',update.explanation));parent.append(note);}
-// English sentence options carry per-option marks: null when the sentence is right, else [{wrong,fix}]. Show the wrong words and the fix in place.
-// A mark may carry neighbor words for uniqueness ("tourists visited" → "tourists visiting"); highlight only the words that change.
-function narrowMark(m){
- const w=m.wrong.split(' '),f=m.fix.split(' ');let a=0,b=0;
- while(a<w.length-1&&a<f.length-1&&w[a]===f[a])a++;
- while(b<w.length-a-1&&b<f.length-a-1&&w[w.length-1-b]===f[f.length-1-b])b++;
- const lead=w.slice(0,a).join(' ');return {skip:lead?lead.length+1:0,wrong:w.slice(a,w.length-b).join(' '),fix:f.slice(a,f.length-b).join(' ')};
-}
+// English sentence options carry per-option marks: null when the sentence is right, else [{wrong,fix}]. Show the change in place.
+// A mark may carry neighbor words for uniqueness ("tourists visited" → "tourists visiting"); strikeNodes paints only the words that change.
 // The right sentence gets a label that fits the question: translation items (우리말을 영어로 옳게 옮긴 것) are judged on meaning too.
 function okLabel(quiz){return /옳게 옮긴/.test(quiz?.question||'')?' (옳게 옮김)':' (어법상 옳음)';}
-// struck: the option's full corrected sentences follow underneath, so the wrong words are only struck out (no inline → fix).
+// 낱말 단위로 견주어 실제로 빠지는 낱말만 긋는다. 들어가는 낱말은 inline이면 그 자리에 초록 글씨(내 답 줄),
+// 아니면(아래에 고친 문장이 따로 나오는 해설) 빠지는 낱말 옆이 아닌 자리에만 ∨.
+// 예: approached to our → approached our = 'to'만, why is the printer jammed → why the printer is jammed = 'is'를 긋고 jammed 앞에 ∨(또는 is).
+function strikeNodes(wrong,fix,inline=false){
+ const a=wrong.split(' '),b=fix.split(' '),n=a.length,m=b.length,L=Array.from({length:n+1},()=>new Array(m+1).fill(0));
+ for(let i=n-1;i>=0;i--)for(let j=m-1;j>=0;j--)L[i][j]=a[i]===b[j]?L[i+1][j+1]+1:Math.max(L[i+1][j],L[i][j+1]);
+ const ops=[];let i=0,j=0;while(i<n||j<m){if(i<n&&j<m&&a[i]===b[j]){ops.push(['keep',a[i]]);i++;j++;}else if(i<n&&(j>=m||L[i+1][j]>=L[i][j+1]))ops.push(['del',a[i++]]);else{ops.push(['ins']);j++;}}
+ const out=[],word=(t,c)=>{if(out.length)out.push(document.createTextNode(' '));out.push(c?elem(c==='choice-fix'?'span':'mark',t,c):document.createTextNode(t));};
+ ops.forEach((o,k)=>{if(o[0]==='keep')word(o[1]);else if(o[0]==='del')word(o[1],'choice-error choice-struck');
+  else if(ops[k-1]?.[0]!=='ins'){const run=[];for(let x=k;ops[x]?.[0]==='ins';x++)run.push(x);const near=t=>t?.[0]==='del';
+   if(inline){const words=[];let jj=0;for(let x=0;x<=run.at(-1);x++)if(ops[x][0]!=='del'){if(x>=k)words.push(b[jj]);jj++;}word(words.join(' '),'choice-fix');}
+   else if(!near(ops[k-1])&&!near(ops[run.at(-1)+1])){const g=elem('mark','∨','choice-error choice-gap');g.title='여기에 낱말이 들어감';if(out.length)out.push(document.createTextNode(' '));out.push(g);}}});
+ return out;
+}
+// struck: the option's full corrected sentences follow underneath, so the words that go are only struck out (∨ where words come in).
 function markedChoice(text,marks,ok=' (어법상 옳음)',struck=false){
  const span=elem('span');let start=0;
- const hits=(marks||[]).map(m=>{const n=narrowMark(m),at=text.indexOf(m.wrong);return {m:n,at:at<0?-1:at+n.skip};}).filter(h=>h.at>=0).sort((a,b)=>a.at-b.at);
- for(const {m,at} of hits){if(at<start)continue;span.append(document.createTextNode(text.slice(start,at)));if(struck)span.append(elem('mark',m.wrong,'choice-error choice-struck'));else span.append(elem('mark',m.wrong,'choice-error'),elem('span',' → '+m.fix,'choice-fix'));start=at+m.wrong.length;}
+ const hits=(marks||[]).map(m=>({m,at:text.indexOf(m.wrong)})).filter(h=>h.at>=0).sort((a,b)=>a.at-b.at);
+ for(const {m,at} of hits){if(at<start)continue;span.append(document.createTextNode(text.slice(start,at)));
+  span.append(...strikeNodes(m.wrong,m.fix,!struck));start=at+m.wrong.length;}
  span.append(document.createTextNode(text.slice(start)));if(!marks)span.append(elem('span',ok,'choice-ok'));return span;
 }
 function markedLine(label,quiz,i){const p=elem('p',label+(i+1)+'. ');p.append(markedChoice(quiz.choices[i],quiz.marks[i],okLabel(quiz)));return p;}
