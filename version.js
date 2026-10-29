@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v409-rule-break';
+globalThis.APP_BUILD='chagog-v410-resume-sync';

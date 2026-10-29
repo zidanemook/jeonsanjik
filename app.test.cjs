@@ -614,5 +614,17 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  for(let k=0;k<200&&run('!!data.activePractice');k++)if(!press('ArrowRight'))run('paperJump(paperCursor.index+1)');
  assert.ok(screen().includes('마지막 번호까지 왔어요'),'건너뛴 문제가 남은 끝 화면: '+screen().slice(0,60));assert.equal(by('#card','concept-after').length,0,'안 푼 문제가 남으면 다음 개념으로가 없다');
  assert.equal(press('Enter'),true);assert.equal(at(),1,'Enter = 안 푼 첫 문제로');}
+// v410 이어가기: 과목별 자리는 기기마다 따로이고 기기 사이엔 마지막 과목 하나만 오간다(10/29 사용자: 태블릿에서 Day 11까지 풀었는데 폰은 Day 6).
+// 이 과목에서 더 나중에 푼 문제가 자리 범위 밖이면 그 문제의 파트로 이어 간다. 자리를 고른 뒤 아직 안 풀었으면 고른 자리 그대로.
+{const keep=run('JSON.stringify({lastScopes:data.lastScopes||null,practiceScope:data.practiceScope||null,history:data.history})'),en=id=>run("!!data.cards.find(c=>c.id==="+JSON.stringify(id)+"&&isPlayable(c))");
+ if(en('en-day11-030')&&en('en-day6-004')){
+  run("(()=>{const s=structuredClone(data);s.lastScopes={...(s.lastScopes||{}),'영어':{subject:'영어',topic:'',round:'part-en6-1'}};s.history=[...s.history,{id:'t-v410',cardId:'en-day11-030',date:'2026-10-28',result:'correct',mode:'quiz',at:Date.now()-60000}];commit(s);})()");
+  assert.equal(run("lastScope('영어').round"),'part-en11-3','다른 기기에서 더 푼 Day 11 파트로 이어 간다');
+  run("go('subject','영어')");assert.match(nodes.get('#resumeHint')._text,/Day 11|en11|동명사/,'이어가기 안내도 Day 11: '+nodes.get('#resumeHint')._text);
+  run("openScope({subject:'영어',topic:'',round:'part-en6-1'})");assert.equal(run("lastScope('영어').round"),'part-en6-1','방금 고른 자리는 그대로');
+  run("StudyProgress.mergeSession({at:Date.now()+5000,subject:'영어',topic:'',round:'part-en11-1',cardId:null})");assert.equal(run("lastScope('영어').round"),'part-en11-1','다른 기기에서 온 더 새 자리');
+  run("(()=>{const s=structuredClone(data);s.lastScopes={...s.lastScopes,'영어':{subject:'영어',topic:'',round:'part-en11-3',at:1}};commit(s);})()");assert.equal(run("lastScope('영어').round"),'part-en11-3','마지막 문제가 든 범위면 그대로');}
+ else console.log('skip v410: English Day 6 / Day 11 cards not loaded');
+ run("(()=>{const k="+JSON.stringify(keep)+",o=JSON.parse(k),s=structuredClone(data);if(o.lastScopes)s.lastScopes=o.lastScopes;else delete s.lastScopes;if(o.practiceScope)s.practiceScope=o.practiceScope;else delete s.practiceScope;s.history=o.history;commit(s);go('home');})()");}
 console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject counts read "안 푼 문제 M/N" and range rows "전체 N문제, 첫 시도 …" with no 문항/카드 wording, every range runs in number order from the first unsolved question ('+normal+'/'+total+') with 이전, 건너뛰기, 번호 고르기, 파트 고르기, records stay normal, no same-day interval inflation; 대기열 모드, 외운 문제, 틀렸던 문제만, 더 풀기 옵션은 숨김; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});

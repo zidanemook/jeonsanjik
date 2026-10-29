@@ -925,12 +925,20 @@ function countLine(cards){const {seen}=historyStats();return '안 푼 문제 '+q
 // 그날 푼 서로 다른 문제 수. 같은 문제를 여러 번 풀어도 한 문제로 센다(풀이 횟수는 학습량 환산 시간에 따로 나온다).
 function solvedOn(ids,date){return new Set(data.history.filter(h=>h.date===date&&ids.has(h.cardId)).map(h=>h.cardId)).size;}
 function menuItem(title,detail,fn,cls='menu-item'){const b=btn('',fn,cls);b.type='button';b.append(elem('strong',title));if(detail)b.append(elem('span',detail));return b;}
-function lastScope(subject){const s=data.lastScopes?.[subject]||(data.practiceScope?.subject===subject?data.practiceScope:null);return s?{subject,topic:s.topic||'',round:s.round||''}:null;}
+// 과목별 자리(lastScopes)는 이 기기에만 있고 기기 사이엔 마지막 과목 하나(session)만 오간다. 그래서 이 과목에서 마지막으로 푼 문제가
+// 자리를 고른 때보다 나중이고 그 범위 밖이면(다른 기기에서 더 풀었으면) 그 문제가 든 파트로 이어 간다. at 없는 옛 자리는 늘 맞춰 본다.
+function lastScope(subject){
+ const s=data.lastScopes?.[subject]||(data.practiceScope?.subject===subject?data.practiceScope:null);let scope=s?{subject,topic:s.topic||'',round:s.round||''}:null;
+ const subjectOf=new Map(data.cards.map(c=>[c.id,c]));let last=null;for(const h of data.history)if((h.at||0)>(last?.at||0)&&subjectOf.get(h.cardId)?.subject===subject)last=h;
+ const card=last&&last.at>(s?.at||0)&&subjectOf.get(last.cardId),part=card&&!(scope&&inScope(card,scope,true))&&PARTS.partOf(card.id);
+ if(part)scope={subject,topic:'',round:'part-'+part};
+ return scope;
+}
 function openScope(scope,resume=false,fromConcept=''){
  partFrom=null;conceptSolve=fromConcept;
  scope={subject:scope.subject||'',topic:TOPIC_SUBJECTS.has(scope.subject)?scope.topic||'':'',round:hasRanges(scope.subject)?scope.round||'':''};
  if(resume&&sameScope(scopeOf(),scope)){go('quiz');return;}
- const next=structuredClone(data);next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:scope};delete next.quizFeedback;delete next.activePractice;
+ const next=structuredClone(data);next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:{...scope,at:Date.now()}};delete next.quizFeedback;delete next.activePractice;
  paperCursor=null;
  if(commit(next)){sessionDirty=true;go('quiz');}
 }
@@ -1850,7 +1858,7 @@ globalThis.StudyProgress={
   // 그 문제의 조각을 아직 받지 않았으면 받은 뒤 같은 문제, 같은 보기 순서로 연다. 받지 못하면 범위만 옮긴다(받지 않은 기출 회차와 같다).
   if(remote.cardId){const names=Content.need(remote.cardId);if(!Content.ready(names)&&sessionWait!==remote.at){sessionWait=remote.at;const again=()=>{try{globalThis.StudyProgress.mergeSession(row);}catch{}};Content.load(names).then(again,again);return;}}
   paperCursor=null;
-  const next=structuredClone(data),scope={subject:remote.subject,topic:remote.topic,round:remote.round};next.session=remote;next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:scope};delete next.quizFeedback;
+  const next=structuredClone(data),scope={subject:remote.subject,topic:remote.topic,round:remote.round};next.session=remote;next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:{...scope,at:remote.at}};delete next.quizFeedback;
   const card=remote.cardId&&next.cards.find(c=>c.id===remote.cardId);let exercise=null;
   if(card&&isPlayable(card)&&Content.ready(Content.need(card.id))&&(!Gichul.known(card.id)||Gichul.ready(card.id)))exercise=Practice.refresh(Content.core(card.id)||card,{exerciseId:remote.exerciseId,variantIndex:remote.variantIndex,type:remote.type,choices:remote.choices},PRACTICE_BANK,QUIZ_OPTIONS);
   if(exercise&&exercise.exerciseId===Practice.canonical(remote.exerciseId)){const own=data.activePractice?.cardId===card.id&&data.activePractice.exercise?.exerciseId===exercise.exerciseId?data.activePractice:null;next.activePractice={...(own||{cardId:card.id,draft:'',assisted:false}),exercise};}else delete next.activePractice;
