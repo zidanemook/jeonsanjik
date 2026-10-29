@@ -929,8 +929,8 @@ function menuItem(title,detail,fn,cls='menu-item'){const b=btn('',fn,cls);b.type
 // 자리를 고른 때보다 나중이고 그 범위 밖이면(다른 기기에서 더 풀었으면) 그 문제가 든 파트로 이어 간다. at 없는 옛 자리는 늘 맞춰 본다.
 function lastScope(subject){
  const s=data.lastScopes?.[subject]||(data.practiceScope?.subject===subject?data.practiceScope:null);let scope=s?{subject,topic:s.topic||'',round:s.round||''}:null;
- const subjectOf=new Map(data.cards.map(c=>[c.id,c]));let last=null;for(const h of data.history)if((h.at||0)>(last?.at||0)&&subjectOf.get(h.cardId)?.subject===subject)last=h;
- const card=last&&last.at>(s?.at||0)&&subjectOf.get(last.cardId),part=card&&!(scope&&inScope(card,scope,true))&&PARTS.partOf(card.id);
+ const subjectOf=new Map(data.cards.map(c=>[c.id,c]));let last=null,lastAt=0;for(const h of data.history){const t=typeof h.at==='number'?h.at:Date.parse(h.at)||0;if(t>lastAt&&subjectOf.get(h.cardId)?.subject===subject){last=h;lastAt=t;}}
+ const card=last&&lastAt>(s?.at||0)&&subjectOf.get(last.cardId),part=card&&!(scope&&inScope(card,scope,true))&&PARTS.partOf(card.id);
  if(part)scope={subject,topic:'',round:'part-'+part};
  return scope;
 }

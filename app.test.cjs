@@ -618,7 +618,7 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
 // 이 과목에서 더 나중에 푼 문제가 자리 범위 밖이면 그 문제의 파트로 이어 간다. 자리를 고른 뒤 아직 안 풀었으면 고른 자리 그대로.
 {const keep=run('JSON.stringify({lastScopes:data.lastScopes||null,practiceScope:data.practiceScope||null,history:data.history})'),en=id=>run("!!data.cards.find(c=>c.id==="+JSON.stringify(id)+"&&isPlayable(c))");
  if(en('en-day11-030')&&en('en-day6-004')){
-  run("(()=>{const s=structuredClone(data);s.lastScopes={...(s.lastScopes||{}),'영어':{subject:'영어',topic:'',round:'part-en6-1'}};s.history=[...s.history,{id:'t-v410',cardId:'en-day11-030',date:'2026-10-28',result:'correct',mode:'quiz',at:Date.now()-60000}];commit(s);})()");
+  run("(()=>{const s=structuredClone(data);s.lastScopes={...(s.lastScopes||{}),'영어':{subject:'영어',topic:'',round:'part-en6-1'}};s.history=[...s.history,{id:'t-v410',cardId:'en-day11-030',date:'2026-10-28',result:'correct',mode:'quiz',at:new Date(Date.now()-60000).toISOString()}];commit(s);})()");
   assert.equal(run("lastScope('영어').round"),'part-en11-3','다른 기기에서 더 푼 Day 11 파트로 이어 간다');
   run("go('subject','영어')");assert.match(nodes.get('#resumeHint')._text,/Day 11|en11|동명사/,'이어가기 안내도 Day 11: '+nodes.get('#resumeHint')._text);
   run("openScope({subject:'영어',topic:'',round:'part-en6-1'})");assert.equal(run("lastScope('영어').round"),'part-en6-1','방금 고른 자리는 그대로');
