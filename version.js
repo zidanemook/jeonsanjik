@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v418-simplification';
+globalThis.APP_BUILD='chagog-v419-complement';
