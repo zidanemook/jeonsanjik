@@ -368,7 +368,10 @@ function paperLast(list){const at=new Map(list.map((c,i)=>[c.id,i]));for(let i=d
 function paperIndex(scope,list){const last=paperLast(list),seen=last?last.row:'';if(!paperCursor||!sameScope(paperCursor.scope,scope)||paperCursor.seen!==seen){
   // v386: 회차가 아닌 범위는 안 푼 첫 문제부터(다 풀었으면 회차처럼 마지막 푼 다음, 없으면 1번).
   const fresh=paperRoundScope(scope)?-1:list.findIndex(c=>!historyStats().seen.has(c.id));
-  paperCursor={scope:{subject:scope.subject||'',topic:scope.topic||'',round:scope.round||''},index:fresh>=0?fresh:last&&last.index<list.length-1?last.index+1:0,seen};}
+  let index=fresh>=0?fresh:last&&last.index<list.length-1?last.index+1:0;
+  // v420 이어하기: 마지막으로 본 문제부터(본 뒤 답했으면 그다음 번호).
+  if(paperWant){const w=paperWant,k=list.findIndex(c=>c.id===w.card);paperWant=null;if(k>=0){const answered=data.history.some(h=>h.cardId===w.card&&(typeof h.at==='number'?h.at:Date.parse(h.at)||0)>w.cardAt);index=answered&&k<list.length-1?k+1:k;}}
+  paperCursor={scope:{subject:scope.subject||'',topic:scope.topic||'',round:scope.round||''},index,seen};}
  return paperCursor.index;}
 function paperAdvance(){if(paperCursor)paperCursor={...paperCursor,index:paperCursor.index+1,seen:data.history.at(-1)?.id||''};}
 function paperJump(index){if(!paperCursor)return;paperCursor={...paperCursor,index};sessionDirty=true;render();window.scrollTo(0,0);}
@@ -943,12 +946,28 @@ function lastScope(subject){
  if(part)scope={subject,topic:'',round:'part-'+part};
  return scope;
 }
+// v420 이어하기 = 이 과목에서 마지막으로 누른 곳(10/31 사용자 "사람이 클릭하는거에 의존", "이어가기 버튼은 한개만").
+// 기초 개념을 눌러 열었으면(basics, basicsAt) 그 개념. 문제를 보고 있었으면 마지막으로 본 문제(card, cardAt, 건너뛴 문제도), 본 뒤 답했으면 그다음 번호.
+// 기초 개념 자리는 문제 범위를 열면(openScope) 지워지고, 그 뒤 답하거나 다른 문제를 보면 문제가 앞선다. '다 풀었으면 다음 개념' 같은 짐작은 하지 않는다.
+function lastSolvedAt(subject){const subjectOf=new Map(data.cards.map(c=>[c.id,c.subject]));let at=0;for(const h of data.history){const t=typeof h.at==='number'?h.at:Date.parse(h.at)||0;if(t>at&&subjectOf.get(h.cardId)===subject)at=t;}return at;}
+function resumeTarget(subject){
+ const seat=data.lastScopes?.[subject];
+ if(seat?.basics){const x=conceptItem(seat.basics);if(x&&x.unit.subject===subject&&(seat.basicsAt||0)>Math.max(lastSolvedAt(subject),seat.cardAt||0))return {basics:x};}
+ return {scope:lastScope(subject)};
+}
+function basicsSeat(id){const x=conceptItem(id);if(!x)return;const s=x.unit.subject,cur=data.lastScopes?.[s];if(cur?.basics===id&&Date.now()-(cur.basicsAt||0)<60000)return;
+ const next=structuredClone(data);next.lastScopes={...(next.lastScopes||{}),[s]:{...(cur||{subject:s,topic:'',round:''}),basics:id,basicsAt:Date.now()}};commit(next);}
+// 문제 화면에 문제가 바뀌어 보일 때마다 그 과목 자리에 적는다(그리기 중이라 commit 대신 저장만).
+function quizSeat(scope,id){const cur=data.lastScopes?.[scope.subject];if(!cur||!sameScope(cur,scope)||cur.card===id)return;data.lastScopes={...data.lastScopes,[scope.subject]:{...cur,card:id,cardAt:Date.now()}};persist();}
+// 이어하기로 연 범위에서 처음 잡을 번호(paperIndex가 한 번 쓰고 지운다).
+let paperWant=null;
 function openScope(scope,resume=false,fromConcept=''){
  partFrom=null;conceptSolve=fromConcept;
  scope={subject:scope.subject||'',topic:TOPIC_SUBJECTS.has(scope.subject)?scope.topic||'':'',round:hasRanges(scope.subject)?scope.round||'':''};
- if(resume&&sameScope(scopeOf(),scope)){go('quiz');return;}
- const next=structuredClone(data);next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:{...scope,at:Date.now()}};delete next.quizFeedback;delete next.activePractice;
- paperCursor=null;
+ const seat=data.lastScopes?.[scope.subject],want=resume&&seat?.card&&sameScope(seat,scope)?{card:seat.card,cardAt:seat.cardAt||0}:null;
+ if(resume&&sameScope(scopeOf(),scope)){if(seat?.basics){const next=structuredClone(data),{basics,basicsAt,...rest}=seat;next.lastScopes={...next.lastScopes,[scope.subject]:rest};commit(next);}if(want&&!data.quizFeedback){paperWant=want;paperCursor=null;}go('quiz');return;}
+ const next=structuredClone(data);next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:{...scope,at:Date.now(),...(want||{})}};delete next.quizFeedback;delete next.activePractice;
+ paperCursor=null;paperWant=want;
  if(commit(next)){sessionDirty=true;go('quiz');}
 }
 // v405 키보드로 풀기(research/keyboard-nav-20261024/SPEC.md, 사용자 기기 갤럭시 탭 + 키보드). 화면을 그릴 때 그 화면에서 키가 할 일(keyAct)을 단추와 같은 함수로 적어 두고, 키는 그것만 부른다(새 이동 규칙 없음).
@@ -1085,15 +1104,15 @@ function renderSubject(){
  if(sets.length)$('#memorizeHint').textContent=sets.length+'개 목록, '+sets.reduce((n,x)=>n+MEMORIZE.size(x),0)+'칸: '+sets.slice(0,3).map(x=>x.title).join(', ')+(sets.length>3?' 외':'');
  // 파트별 상태(v145): 파트가 있는 과목만.
  // 기초 개념 공부(v380): 켠 과목만. 읽음 수와 이어 읽을 파트.
- {const xs=conceptItems(s),b=$('#openConcepts');b.hidden=!xs.length;if(xs.length){const n=xs.filter(x=>conceptRead(x.id)).length,to=conceptResume(s);$('#conceptsHint').textContent=to?'이어 읽기: '+to.title+' (읽음 '+n+'/'+xs.length+')':'다 읽음 '+n+'/'+xs.length+', 목록 보기';}}
+ {const xs=conceptItems(s),b=$('#openConcepts');b.hidden=!xs.length;if(xs.length){const n=xs.filter(x=>conceptRead(x.id)).length;$('#conceptsHint').textContent='파트 목록, 읽음 '+n+'/'+xs.length;}}
  const units=PARTS.unitsFor(s),partsBtn=$('#openParts');partsBtn.hidden=!units.length;
  if(units.length){const byId=new Map(cards.map(c=>[c.id,c])),weak=units.reduce((n,u)=>n+u.parts.filter(p=>partStats(p,byId).weak).length,0);$('#partsHint').textContent=units.length+'개 단원, '+units.reduce((n,u)=>n+u.parts.length,0)+'파트: 외움, 복습 판정, 안 푼 문제'+(weak?' (약한 파트 '+weak+'개)':'');}
- const last=lastScope(s),open=sameScope(scopeOf(),last)&&(data.activePractice||data.quizFeedback);
- $('#resumeHint').textContent=last?scopeLabel(last)+(open?' (풀던 문제부터)':' (이어서 풀기)'):s+' 전체의 첫 문제부터 시작해요';
+ const to=resumeTarget(s),last=to.scope,open=last&&sameScope(scopeOf(),last)&&(data.activePractice||data.quizFeedback);
+ $('#resumeHint').textContent=to.basics?'기초 개념: '+to.basics.unit.short+': '+to.basics.title+' (이어 읽기)':last?scopeLabel(last)+(open?' (풀던 문제부터)':' (이어서 풀기)'):s+' 전체의 첫 문제부터 시작해요';
 }
 function renderRange(){
  const s=viewSubject,root=$('#rangeList'),cards=data.cards.filter(c=>isPlayable(c)&&c.subject===s);
- $('#rangeTitle').textContent=s+' 연습 범위';root.replaceChildren();
+ $('#rangeTitle').textContent=s+' 문제 선택';root.replaceChildren();
  const group=(title,folded)=>{const g=elem('div',undefined,'menu-list');if(folded){const d=elem('details',undefined,'range-fold');d.append(elem('summary',title,'range-heading'),g);root.append(d);}else root.append(elem('h3',title,'range-heading'),g);return g;};
  const scope=(round,topic='')=>({subject:s,topic,round});
  // 회차 범위는 대기열과 무관하게 1번부터 끝까지 나오므로 '지금 풀 차례' 수를 붙이지 않는다. 대신 순서를 알린다.
@@ -1181,6 +1200,7 @@ function renderQuiz(){
  // 기출 회차: 대기열을 거치지 않고 원문 순서 그대로 낸다. 드릴을 켜면 드릴이 우선한다(회차에서는 드릴 버튼을 감춘다).
  const feedback=data.quizFeedback&&chosen.find(c=>c.id===data.quizFeedback.cardId);
  const card=feedback||(sequential?chosen[at]:due.find(c=>c.id===data.activePractice?.cardId)||due[0]);
+ if(sequential&&card&&scope.subject)quizSeat(scope,card.id);
  const waiting=chosen.filter(c=>c.retryAt&&Date.parse(c.retryAt)>Date.now());$('#retryStatus').textContent=sequential||pr?'':waiting.length?waiting.length+'문제 재시도 대기: '+new Date(Math.min(...waiting.map(c=>Date.parse(c.retryAt)))).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+'부터 다시 풀 수 있어요.':'';
  if(!sequential&&queue.waiting.length)$('#retryStatus').textContent+=' 같은 개념의 문제 '+queue.waiting.length+'개는 '+new Date(queue.nextAt).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+'부터 풀 수 있어요.';
  // 대기열 모드는 대기열을 쓰는 화면에서만 고른다. 기출 회차와 전부 풀기는 대기열을 거치지 않는다.
@@ -1580,9 +1600,7 @@ const conceptRead=id=>memorizeShown.has(CONCEPT_KEY+id);
 // 그리기에서는 적지 않고 넘겨 열 때만 적는다(두 기기가 서로 다른 파트를 열어 둔 채 받을 때마다 다시 적어 주고받는 것을 막는다).
 const CONCEPT_AT='conceptAt:',conceptKey=k=>k.startsWith(CONCEPT_KEY)||k.startsWith(CONCEPT_AT);
 function conceptLast(subject){for(const k of Array.isArray(data.memorizeShown)?data.memorizeShown:[])if(k.startsWith(CONCEPT_AT)){const x=conceptItem(k.slice(CONCEPT_AT.length));if(x&&x.unit.subject===subject)return x;}return null;}
-function conceptVisit(id){const x=conceptItem(id);if(!x)return;syncMemorizeShown();const k=CONCEPT_AT+id;if(memorizeShown.has(k))return;for(const o of [...memorizeShown])if(o.startsWith(CONCEPT_AT)&&conceptItem(o.slice(CONCEPT_AT.length))?.unit.subject===x.unit.subject)memorizeShown.delete(o);memorizeShown.add(k);memorizeSave();}
-// 이어 읽을 곳: 마지막으로 본 파트를 아직 안 읽었으면 그 파트, 읽었으면 그 뒤 첫 안 읽은 파트, 없으면 앞에서 첫 안 읽은 파트. 다 읽었으면 없음(목록).
-function conceptResume(subject){const xs=conceptItems(subject),last=conceptLast(subject);if(last&&!conceptRead(last.id))return last;const i=last?xs.findIndex(y=>y.id===last.id):-1;return xs.slice(i+1).find(y=>!conceptRead(y.id))||conceptNext(subject);}
+function conceptVisit(id){const x=conceptItem(id);if(!x)return;basicsSeat(id);syncMemorizeShown();const k=CONCEPT_AT+id;if(memorizeShown.has(k))return;for(const o of [...memorizeShown])if(o.startsWith(CONCEPT_AT)&&conceptItem(o.slice(CONCEPT_AT.length))?.unit.subject===x.unit.subject)memorizeShown.delete(o);memorizeShown.add(k);memorizeSave();}
 function conceptOpen(x){conceptVisit(x.id);basicsPart=x.id;basicsFrom='concepts';go('basics',x.unit.subject);}
 function conceptMark(id,on){syncMemorizeShown();const k=CONCEPT_KEY+id;if(on===memorizeShown.has(k))return;if(on)memorizeShown.add(k);else memorizeShown.delete(k);memorizeSave();}
 // 해설 화면의 상자가 가리킬 파트: 이 문제가 든 파트가 그 상자의 파트면 그 파트, 아니면(기출) 대입이 쓰는 줄을 가장 많이 가진 파트.
@@ -1597,7 +1615,6 @@ function renderConcepts(){
  if(!xs.length){body.append(elem('p','이 과목은 아직 기초 개념 공부가 없어요.','status'));return;}
  const read=xs.filter(x=>conceptRead(x.id)).length,next=conceptNext(s);
  body.append(elem('p','파트마다 그 파트에서 쓰는 말, 표, 규칙만 모았어요. 파트 아래 읽음 버튼을 누르면 읽음으로 표시돼요. 읽음 '+read+'/'+xs.length+'.','status'));
- {const to=conceptResume(s);if(to)body.append(menuItem(read||conceptLast(s)?'이어 읽기':'처음부터 읽기',to.unit.short+': '+to.title,()=>openBasics(to.id),'menu-item primary concept-next'));}
  const openUnit=(next||xs[xs.length-1]).unit.id;
  for(const u of conceptUnits(s)){const items=xs.filter(x=>x.unit===u),n=items.filter(x=>conceptRead(x.id)).length;
   const fold=elem('details',undefined,'range-fold concept-unit'),g=elem('div',undefined,'menu-list');fold.open=u.id===openUnit;fold.dataset.unit=u.id;
@@ -1645,7 +1662,7 @@ function conceptNav(x,body){
 // 파트 하나의 기초 개념만 모은 화면(시험 직전 외우기용). 뒤로 가면 파트별 상태로 돌아가고, 아래에서 그 파트를 바로 풀 수 있다.
 let basicsPart='',basicsFrom='parts';
 // 들어온 곳(basicsFrom): 기초 개념 공부 목록이면 상자째 과목도 읽기 차례(앞 파트 상자 접기, 넘기기)로, 파트별 상태면 전처럼 상자를 모두 펼친다.
-function openBasics(partId){basicsPart=partId;basicsFrom=view==='concepts'?'concepts':'parts';if(basicsFrom==='concepts')conceptVisit(partId);go('basics',viewSubject);}
+function openBasics(partId){basicsPart=partId;basicsFrom=view==='concepts'?'concepts':'parts';if(basicsFrom==='concepts')conceptVisit(partId);else basicsSeat(partId);go('basics',viewSubject);}
 function renderBasics(){
  const body=$('#basicsBody');body.replaceChildren();
  const cx=conceptItem(basicsPart),cm=cx&&conceptUnitMap(cx.unit.id);
@@ -1789,12 +1806,13 @@ installCorePack();
 {const gone=id=>!!id&&!isPlayable(data.cards.find(c=>c.id===id));if(gone(data.quizFeedback?.cardId)||gone(data.activePractice?.cardId)){const next=structuredClone(data);if(gone(next.quizFeedback?.cardId))delete next.quizFeedback;if(gone(next.activePractice?.cardId))delete next.activePractice;commit(next);}}
 if(!data.quizUiVersion){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;next.quizUiVersion=1;commit(next);}
 else if(data.cards.some(c=>c.pendingAttempt)){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;if(commit(next))data=next;}
-$('#resumeStudy').onclick=()=>openScope(lastScope(viewSubject)||{subject:viewSubject},true);
+$('#resumeStudy').onclick=()=>{const to=resumeTarget(viewSubject);if(to.basics)conceptOpen(to.basics);else openScope(to.scope||{subject:viewSubject},true);};
 $('#chooseRange').onclick=()=>go('range');
 $('#openProgress').onclick=()=>go('progress');
 $('#openMemorize').onclick=()=>go('memorize',MEMO_SCOPE+viewSubject);
 $('#openParts').onclick=()=>go('parts');
-$('#openConcepts').onclick=()=>{const x=conceptResume(viewSubject);if(x)conceptOpen(x);else go('concepts');};
+// v420: 이어 읽기는 이어하기 하나로 합쳤다(10/31 사용자 "이어가기 버튼은 한개만 남길것"). 기초 개념 공부는 늘 파트 목록.
+$('#openConcepts').onclick=()=>go('concepts');
 for(const b of document.querySelectorAll('[data-back]'))b.onclick=goBack;
 $('#quizBack').onclick=goBack;
 $('#studyTimeMore').onclick=()=>{creditHistoryLimit+=30;renderStudyCredit();};

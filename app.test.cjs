@@ -544,11 +544,12 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  assert.equal(run("JSON.stringify([...data.memorizeShown].sort())"),JSON.stringify(['concept:sq01-1','concept:sq01-2','urgent:test-cell']),'읽음을 눌러도 다른 표시는 남는다');}
 // v391: 기초 개념 이어가기(2번안). '기초 개념 공부'는 목록을 거치지 않고 이어 읽을 파트를 바로 연다. 마지막으로 본 파트는 같은 저장 칸에 과목마다 하나('conceptAt:<파트>').
 // 읽음 버튼은 화면 그대로 켜고 끄고, 다음 버튼은 읽음 표시 없이 넘긴다. 문제 이어하기(lastScopes)는 그대로.
-{const S='정보보호론',xs=run("conceptItems('정보보호론').map(x=>({id:x.id,title:x.title}))"),scopes=run('JSON.stringify(data.lastScopes||null)');assert.ok(xs.length>3);
+{const S='정보보호론',xs=run("conceptItems('정보보호론').map(x=>({id:x.id,title:x.title}))"),scopes=run("JSON.stringify(Object.fromEntries(Object.entries(data.lastScopes||{}).map(([k,v])=>{const {basics,basicsAt,...r}=v;return [k,r];})))");assert.ok(xs.length>3);
  const by=(sel,c)=>nodes.get(sel).all.filter(n=>String(n.className||'').split(' ').includes(c)),keys=()=>JSON.parse(run('JSON.stringify([...data.memorizeShown].sort())')),hint=()=>nodes.get('#conceptsHint')._text;
  run("(()=>{const s=structuredClone(data);s.memorizeShown=['urgent:test-cell'];s.memorizeAt=Date.now();commit(s);syncMemorizeShown();})()");
- run("go('subject','정보보호론')");assert.equal(hint(),'이어 읽기: '+xs[0].title+' (읽음 0/'+xs.length+')','처음엔 첫 파트');
- nodes.get('#openConcepts').onclick();assert.equal(run('view'),'basics','목록을 거치지 않고 파트로');assert.equal(run('basicsPart'),xs[0].id);assert.equal(run('basicsFrom'),'concepts');
+ run("go('subject','정보보호론')");assert.equal(hint(),'파트 목록, 읽음 0/'+xs.length,'v420: 기초 개념 공부는 목록(이어 읽기는 이어하기 하나로)');
+ nodes.get('#openConcepts').onclick();assert.equal(run('view'),'concepts','v420: 늘 파트 목록');assert.equal(by('#conceptsBody','concept-next').length,0,'목록 안 이어 읽기 단추 없음');
+ run("openBasics("+JSON.stringify(xs[0].id)+")");assert.equal(run('view'),'basics');assert.equal(run('basicsPart'),xs[0].id);assert.equal(run('basicsFrom'),'concepts');
  assert.deepEqual(keys(),['conceptAt:'+xs[0].id,'urgent:test-cell'],'연 파트를 자리로 적고 다른 표시는 남긴다');
  assert.equal(by('#basicsBody','concept-list').length,1,'파트 화면 안 목록 버튼');
  {const r=()=>by('#basicsBody','concept-read')[0];assert.equal(r()._text,'읽음');r().onclick();assert.equal(run("conceptRead("+JSON.stringify(xs[0].id)+")"),true,'읽음 버튼은 읽음 표시');assert.equal(run('basicsPart'),xs[0].id,'화면 그대로');
@@ -557,14 +558,14 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  assert.equal(run('basicsPart'),xs[1].id,'다음 버튼은 넘기기만');assert.equal(run("conceptRead("+JSON.stringify(xs[1].id)+")"),false,'넘겨도 읽음 아님');
  assert.deepEqual(keys(),['concept:'+xs[0].id,'conceptAt:'+xs[1].id,'urgent:test-cell'],'자리는 과목마다 하나');
  by('#basicsBody','concept-list')[0].onclick();assert.equal(run('view'),'concepts','목록 버튼은 목록으로');
- run("go('subject','정보보호론')");assert.equal(hint(),'이어 읽기: '+xs[1].title+' (읽음 1/'+xs.length+')','안 읽은 채 떠난 파트로 이어 읽기');
- run("conceptMark("+JSON.stringify(xs[1].id)+",true);conceptMark("+JSON.stringify(xs[0].id)+",false);render()");assert.equal(hint(),'이어 읽기: '+xs[2].title+' (읽음 1/'+xs.length+')','다 읽었으면 그 뒤 첫 안 읽은 파트(앞의 안 읽은 파트보다 먼저)');
+ run("go('subject','정보보호론')");assert.equal(hint(),'파트 목록, 읽음 1/'+xs.length);assert.equal(run("conceptLast('정보보호론').id"),xs[1].id,'마지막으로 본 파트');
+ run("conceptMark("+JSON.stringify(xs[1].id)+",true);conceptMark("+JSON.stringify(xs[0].id)+",false);render()");assert.equal(hint(),'파트 목록, 읽음 1/'+xs.length);
  {const c=run("conceptItems('컴퓨터일반')[0].id");run("conceptVisit("+JSON.stringify(c)+")");assert.ok(keys().includes('conceptAt:'+c)&&keys().includes('conceptAt:'+xs[1].id),'다른 과목 자리는 따로');}
  assert.doesNotThrow(()=>run('ProgressSync.memo(StudyProgress.memo())'),'자리 열쇠도 동기화 글자 제한 안');
- run("StudyProgress.mergeMemo({at:data.memorizeAt+5,shown:[...data.memorizeShown.filter(k=>!k.startsWith('conceptAt:')),'conceptAt:"+xs[3].id+"']})");assert.equal(hint(),'이어 읽기: '+xs[3].title+' (읽음 1/'+xs.length+')','다른 기기에서 본 파트로 이어진다');
+ run("StudyProgress.mergeMemo({at:data.memorizeAt+5,shown:[...data.memorizeShown.filter(k=>!k.startsWith('conceptAt:')),'conceptAt:"+xs[3].id+"']})");assert.equal(run("conceptLast('정보보호론').id"),xs[3].id,'다른 기기에서 본 파트도 받는다');
  run("(()=>{const s=structuredClone(data);s.memorizeShown=[...s.memorizeShown,'x:1'];commit(s);syncMemorizeShown();memorizeShown=new Set([...memorizeShown].filter(conceptKey));})()");assert.ok(JSON.parse(run('JSON.stringify([...memorizeShown])')).some(k=>k.startsWith('conceptAt:'))&&!JSON.parse(run('JSON.stringify([...memorizeShown])')).includes('urgent:test-cell'),'외울 것 초기화는 자리와 읽음을 남긴다');
- run("for(const x of conceptItems('정보보호론'))conceptMark(x.id,true);render()");assert.equal(hint(),'다 읽음 '+xs.length+'/'+xs.length+', 목록 보기');nodes.get('#openConcepts').onclick();assert.equal(run('view'),'concepts','다 읽었으면 목록');
- assert.equal(run('JSON.stringify(data.lastScopes||null)'),scopes,'문제 이어하기 자리는 그대로');}
+ run("for(const x of conceptItems('정보보호론'))conceptMark(x.id,true);render()");assert.equal(hint(),'파트 목록, 읽음 '+xs.length+'/'+xs.length);nodes.get('#openConcepts').onclick();assert.equal(run('view'),'concepts','다 읽었어도 목록');
+ assert.equal(run("JSON.stringify(Object.fromEntries(Object.entries(data.lastScopes||{}).map(([k,v])=>{const {basics,basicsAt,...r}=v;return [k,r];})))"),scopes,'문제 이어하기 자리는 그대로(v420부터 기초 개념 자리 basics만 덧붙음)');}
 // v405 키보드로 풀기(research/keyboard-nav-20261024/SPEC.md). 키는 화면이 적어 둔 단추 함수(keyAct)만 부른다.
 // 숫자 = 화면 번호 그대로의 보기(섞인 순서) / Enter = 채점 뒤 다음 문제 / ← → = 이전, 건너뛰기 단추 / 칸 안에서는 꺼짐 / Esc = 뒤로.
 // 기초 개념의 '이 파트 문제 풀기'로 들어온 파트를 다 풀면(안 푼 문제 0) 끝 화면에 '다음 개념으로: <다음 파트>' 하나, Enter나 누르면 다음 파트의 기초 개념.
@@ -637,5 +638,23 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
   run("(()=>{const s=structuredClone(data);s.lastScopes={...s.lastScopes,'영어':{subject:'영어',topic:'',round:'part-en11-3',at:1}};commit(s);})()");assert.equal(run("lastScope('영어').round"),'part-en11-3','마지막 문제가 든 범위면 그대로');}
  else console.log('skip v410: English Day 6 / Day 11 cards not loaded');
  run("(()=>{const k="+JSON.stringify(keep)+",o=JSON.parse(k),s=structuredClone(data);if(o.lastScopes)s.lastScopes=o.lastScopes;else delete s.lastScopes;if(o.practiceScope)s.practiceScope=o.practiceScope;else delete s.practiceScope;s.history=o.history;commit(s);go('home');})()");}
+// v420 이어하기 = 이 과목에서 마지막으로 누른 곳(10/31 사용자 "사람이 클릭하는거에 의존", "이어가기 버튼은 한개만").
+// ① 기초 개념을 눌러 열었으면 그 개념 ② 문제 범위를 열면 문제 ③ 건너뛰어 본 문제도 마지막으로 본 문제부터 ④ 본 뒤 답했으면 그다음 번호 ⑤ 다 푼 파트도 짐작해서 넘기지 않는다.
+{const S='정보보호론',keep=run('JSON.stringify({lastScopes:data.lastScopes||null,practiceScope:data.practiceScope||null,history:data.history,memo:data.memorizeShown||null,memoAt:data.memorizeAt||null})');
+ const xs=run("conceptItems('"+S+"').map((x,i,a)=>({id:x.id,part:!!x.part,next:a[i+1]?a[i+1].id:''}))"),inPart=id=>"data.cards.filter(c=>isPlayable(c)&&inScope(c,{subject:'"+S+"',topic:'',round:'part-"+id+"'}))";
+ const C=xs.find(x=>x.part&&run(inPart(x.id)+'.length')>=4);assert.ok(C,'문제가 넷 이상인 파트');
+ const resume=()=>{run("go('subject','"+S+"')");const h=nodes.get('#resumeHint')._text;nodes.get('#resumeStudy').onclick();return h;};
+ const away=()=>run("openScope({subject:'컴퓨터일반',topic:'',round:''})"),order="catalogOrder("+inPart(C.id)+")";
+ run("conceptOpen(conceptItem("+JSON.stringify(C.id)+"))");assert.equal(run('view'),'basics');
+ {const h=resume();assert.match(h,/^기초 개념: /,'기초 개념을 보다 나가면 안내도 기초 개념: '+h);assert.equal(run('view'),'basics','이어하기 = 보던 기초 개념');assert.equal(run('basicsPart'),C.id);}
+ run("openScope({subject:'"+S+"',topic:'',round:'part-"+C.id+"'})");assert.equal(run('view'),'quiz');
+ {const h=resume();assert.doesNotMatch(h,/^기초 개념/,'문제 범위를 열면 안내는 문제: '+h);assert.equal(run('view'),'quiz','이어하기 = 풀던 문제');}
+ run('paperJump(2)');const want=run(order+'[2].id');assert.equal(run("data.lastScopes['"+S+"'].card"),want,'건너뛰어 본 문제를 자리로 적는다');
+ away();resume();assert.equal(run('view'),'quiz');assert.equal(run('paperCursor.index'),2,'다른 과목을 갔다 와도 마지막으로 본 문제(건너뛴 3번)');
+ run("(()=>{const s=structuredClone(data);s.history=[...s.history,{id:'t-v420-a',cardId:"+JSON.stringify(want)+",date:day(),result:'correct',mode:'quiz',at:new Date(Date.now()+1000).toISOString()}];delete s.activePractice;delete s.quizFeedback;commit(s);})()");
+ away();resume();assert.equal(run('paperCursor.index'),3,'본 뒤 답했으면 그다음 번호');
+ run("(()=>{const s=structuredClone(data),t=Date.now()+2000;s.history=[...s.history,..."+inPart(C.id)+".map((c,i)=>({id:'t-v420-'+i,cardId:c.id,date:day(),result:'correct',mode:'quiz',at:new Date(t+i).toISOString()}))];delete s.activePractice;delete s.quizFeedback;commit(s);})()");
+ {const h=resume();assert.doesNotMatch(h,/^기초 개념/,'다 푼 파트도 짐작해서 다음 개념으로 넘기지 않는다: '+h);assert.equal(run('view'),'quiz');}
+ run("(()=>{const o=JSON.parse("+JSON.stringify(keep)+"),s=structuredClone(data);if(o.lastScopes)s.lastScopes=o.lastScopes;else delete s.lastScopes;if(o.practiceScope)s.practiceScope=o.practiceScope;else delete s.practiceScope;s.history=o.history;if(o.memo)s.memorizeShown=o.memo;else delete s.memorizeShown;if(o.memoAt)s.memorizeAt=o.memoAt;else delete s.memorizeAt;delete s.activePractice;delete s.quizFeedback;commit(s);syncMemorizeShown();paperCursor=null;go('home');})()");}
 console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject counts read "안 푼 문제 M/N" and range rows "전체 N문제, 첫 시도 …" with no 문항/카드 wording, every range runs in number order from the first unsolved question ('+normal+'/'+total+') with 이전, 건너뛰기, 번호 고르기, 파트 고르기, records stay normal, no same-day interval inflation; 대기열 모드, 외운 문제, 틀렸던 문제만, 더 풀기 옵션은 숨김; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});

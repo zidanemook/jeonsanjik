@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v419-complement';
+globalThis.APP_BUILD='chagog-v420-resume-place';
