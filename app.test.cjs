@@ -615,10 +615,10 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  press('Escape');assert.equal(run('backed'),1,'Esc = 뒤로(history.back)');
  run("history.replaceState({view:'basics',subject:'"+S+"',depth:0},'')");press('Escape');assert.equal(run('view'),'concepts','쌓인 기록이 없으면 Esc는 위 화면');
  run("go('home','',true)");run("history.replaceState({view:'home',subject:'',depth:0},'')");assert.equal(press('Escape'),false,'첫 화면에서 Esc는 아무것도 안 한다');
- // 같은 파트를 범위로 열면(기초 개념에서 온 것이 아님) 다 풀었어도 단추가 없다.
+ // v417 같은 파트를 범위로 열어도(기초 개념에서 온 것이 아님, 새로 고친 뒤 포함) 다 풀었으면 단추가 있다(10/31 사용자 "버튼이 사라졌네").
  run("openScope({subject:'"+S+"',topic:'',round:'part-"+A.id+"'})");assert.equal(run('conceptSolve'),'');
  for(let k=0;k<200&&run('!!data.activePractice');k++)if(!press('ArrowRight'))run('paperJump(paperCursor.index+1)');
- assert.ok(screen().includes('이 범위를 끝까지 풀었어요'));assert.equal(by('#card','concept-after').length,0,'범위로 연 파트는 다음 개념으로가 없다');
+ assert.ok(screen().includes('이 범위를 끝까지 풀었어요'));{const g=by('#card','concept-after');assert.equal(g.length,1,'범위로 연 파트도 다 풀면 다음 개념으로');assert.equal(g[0]._text,'다음 개념으로: '+A.nextTitle);}
  // 기초 개념에서 들어왔어도 건너뛴 문제가 남으면 단추 대신 '안 푼 첫 문제로'(Enter도 그것).
  run("conceptOpen(conceptItem("+JSON.stringify(B.id)+"))");by('#basicsBody','basics-solve')[0].onclick();assert.equal(run('conceptSolve'),B.id);
  {const q=run('data.activePractice.exercise');if(q.type==='choice')press(String(q.correctIndex+1));else run('answerPractice(data.activePractice.cardId,'+JSON.stringify(q.answers?.[0])+')');press('Enter');}

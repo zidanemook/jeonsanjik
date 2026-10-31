@@ -1,4 +1,4 @@
-const CACHE='chagog-v416-writing7';
+const CACHE='chagog-v417-concept-next';
 const ASSETS=['./version.js?v=377','./update.js?v=377','./storage.js?v=377','./content-index.js?v=377','./content-store.js?v=377','./hanneung-topics.js?v=377','./topics.js?v=377','./hanneung-data.js?v=377','./hanneung.js?v=377','./gichul-index.js?v=377','./gichul.js?v=377','./study-credit.js?v=377','./xp.js?v=377','./score.js?v=377','./content-corrections.js?v=377','./review-record.js?v=377','./review-policy.js?v=377','./practice.js?v=377','./index.html?v=377','./parts.js?v=377','./concept-map.js?v=377','./part-check.js?v=377','./core-units.js?v=377','./app.js?v=377','./scheduler.js?v=377','./learning.js?v=377','./style.css?v=377','./sync-core.js?v=377','./sync.js?v=377','./firebase-config.js?v=377','./manifest.json','./icon.svg'];
 // v247: 자체 제작 문제의 글, 해설, 기초 개념 상자는 조각(chunks/<이름>.json?h=<지문>)으로 나뉘어 있고, 앱은 그 문제를 처음 낼 때 받는다(content-store.js).
 // 오프라인에서도 전부 풀 수 있게 설치할 때 모든 조각을 미리 받는다. 설치가 끝나야 이 워커가 켜지므로 켜진 캐시는 언제나 셸 + 색인 + 모든 조각이 같은 판이다.

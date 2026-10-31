@@ -954,11 +954,13 @@ function openScope(scope,resume=false,fromConcept=''){
 // v405 키보드로 풀기(research/keyboard-nav-20261024/SPEC.md, 사용자 기기 갤럭시 탭 + 키보드). 화면을 그릴 때 그 화면에서 키가 할 일(keyAct)을 단추와 같은 함수로 적어 두고, 키는 그것만 부른다(새 이동 규칙 없음).
 // pick(i) = i번째 보기(화면 번호 i+1, 섞인 순서 그대로) / prev, next = ← → / enter = 포커스 없이 누른 Enter / cards = 영작 카드 화면.
 let keyAct={},kbdSeen=false,kbdLast=false,kbdFocused='';
-// 다음 개념으로(SPEC 2절): 기초 개념의 '이 파트 문제 풀기'로 들어온 파트. 그 파트를 다 풀면(안 푼 문제 0) 다음 파트의 기초 개념을 여는 단추 하나(이어 읽기와 같은 conceptItems 차례). 다른 범위를 열면 지운다(openScope).
+// 다음 개념으로(SPEC 2절): 기초 개념이 있는 파트를 다 풀면(안 푼 문제 0) 다음 파트의 기초 개념을 여는 단추 하나(이어 읽기와 같은 conceptItems 차례). 다른 범위를 열면 지운다(openScope).
+// v417: 기초 개념에서 들어왔는지(conceptSolve)는 메모리에만 있어 범위 목록으로 열거나 새로 고치면 단추가 사라졌다(10/31 사용자 "다음 기본개념 넘어가는 버튼이 사라졌네") → 들어온 길과 상관없이 파트로 판단.
 let conceptSolve='';
 function conceptNextBtn(scope,chosen){
- if(!conceptSolve||scope.round!=='part-'+conceptSolve||!chosen.length)return null;const {seen}=historyStats();if(chosen.some(c=>!seen.has(c.id)))return null;
- const x=conceptItem(conceptSolve),xs=x?conceptItems(x.unit.subject):[],next=x?xs[xs.findIndex(y=>y.id===x.id)+1]:null;
+ const id=String(scope.round||'').startsWith('part-')?scope.round.slice(5):'';
+ if(!id||!chosen.length)return null;const {seen}=historyStats();if(chosen.some(c=>!seen.has(c.id)))return null;
+ const x=conceptItem(id),xs=x?conceptItems(x.unit.subject):[],next=x?xs[xs.findIndex(y=>y.id===x.id)+1]:null;
  return next?btn('다음 개념으로: '+next.title,()=>conceptOpen(next),'primary concept-after'):null;}
 function keyHints(){const q=$('#quizKeys'),w=$('#writingKeys');if(q)q.hidden=!kbdSeen;if(w)w.hidden=!kbdSeen||!keyAct.cards;}
 function renderView(){
