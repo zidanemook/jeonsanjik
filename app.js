@@ -369,8 +369,7 @@ function paperIndex(scope,list){const last=paperLast(list),seen=last?last.row:''
   // v386: 회차가 아닌 범위는 안 푼 첫 문제부터(다 풀었으면 회차처럼 마지막 푼 다음, 없으면 1번).
   const fresh=paperRoundScope(scope)?-1:list.findIndex(c=>!historyStats().seen.has(c.id));
   let index=fresh>=0?fresh:last&&last.index<list.length-1?last.index+1:0;
-  // v420 이어하기: 마지막으로 본 문제부터(본 뒤 답했으면 그다음 번호).
-  if(paperWant){const w=paperWant,k=list.findIndex(c=>c.id===w.card);paperWant=null;if(k>=0){const answered=data.history.some(h=>h.cardId===w.card&&(typeof h.at==='number'?h.at:Date.parse(h.at)||0)>w.cardAt);index=answered&&k<list.length-1?k+1:k;}}
+  if(paperWant){const k=list.findIndex(c=>c.id===paperWant);paperWant=null;if(k>=0)index=k;}
   paperCursor={scope:{subject:scope.subject||'',topic:scope.topic||'',round:scope.round||''},index,seen};}
  return paperCursor.index;}
 function paperAdvance(){if(paperCursor)paperCursor={...paperCursor,index:paperCursor.index+1,seen:data.history.at(-1)?.id||''};}
@@ -937,37 +936,44 @@ function countLine(cards){const {seen}=historyStats();return '안 푼 문제 '+q
 // 그날 푼 서로 다른 문제 수. 같은 문제를 여러 번 풀어도 한 문제로 센다(풀이 횟수는 학습량 환산 시간에 따로 나온다).
 function solvedOn(ids,date){return new Set(data.history.filter(h=>h.date===date&&ids.has(h.cardId)).map(h=>h.cardId)).size;}
 function menuItem(title,detail,fn,cls='menu-item'){const b=btn('',fn,cls);b.type='button';b.append(elem('strong',title));if(detail)b.append(elem('span',detail));return b;}
-// 과목별 자리(lastScopes)는 이 기기에만 있고 기기 사이엔 마지막 과목 하나(session)만 오간다. 그래서 이 과목에서 마지막으로 푼 문제가
-// 자리를 고른 때보다 나중이고 그 범위 밖이면(다른 기기에서 더 풀었으면) 그 문제가 든 파트로 이어 간다. at 없는 옛 자리는 늘 맞춰 본다.
-function lastScope(subject){
- const s=data.lastScopes?.[subject]||(data.practiceScope?.subject===subject?data.practiceScope:null);let scope=s?{subject,topic:s.topic||'',round:s.round||''}:null;
- const subjectOf=new Map(data.cards.map(c=>[c.id,c]));let last=null,lastAt=0;for(const h of data.history){const t=typeof h.at==='number'?h.at:Date.parse(h.at)||0;if(t>lastAt&&subjectOf.get(h.cardId)?.subject===subject){last=h;lastAt=t;}}
- const card=last&&lastAt>(s?.at||0)&&subjectOf.get(last.cardId),part=card&&!(scope&&inScope(card,scope,true))&&PARTS.partOf(card.id);
- if(part)scope={subject,topic:'',round:'part-'+part};
- return scope;
-}
-// v420 이어하기 = 이 과목에서 마지막으로 누른 곳(10/31 사용자 "사람이 클릭하는거에 의존", "이어가기 버튼은 한개만").
-// 기초 개념을 눌러 열었으면(basics, basicsAt) 그 개념. 문제를 보고 있었으면 마지막으로 본 문제(card, cardAt, 건너뛴 문제도), 본 뒤 답했으면 그다음 번호.
-// 기초 개념 자리는 문제 범위를 열면(openScope) 지워지고, 그 뒤 답하거나 다른 문제를 보면 문제가 앞선다. '다 풀었으면 다음 개념' 같은 짐작은 하지 않는다.
-function lastSolvedAt(subject){const subjectOf=new Map(data.cards.map(c=>[c.id,c.subject]));let at=0;for(const h of data.history){const t=typeof h.at==='number'?h.at:Date.parse(h.at)||0;if(t>at&&subjectOf.get(h.cardId)===subject)at=t;}return at;}
+// v422 이어하기(11/2 사용자 설계, "가장 최근에 본 위치 하나"): 이 과목에서 가장 나중에 일어난 일 하나만 본다.
+// ① 기초 개념을 봤으면 그 개념 ② 문제를 보고 답하지 않았으면 그 문제 ③ 답했으면 다음 번호, 파트 마지막 번호면 다음 기초 개념('다음 개념으로' 단추와 같은 곳).
+// 회차(1회독, 2회독)는 세지 않는다. 답한 기록은 기기끼리 맞춰지므로 다른 기기에서 더 풀었어도 그 문제 다음부터다.
+const timeOf=h=>typeof h.at==='number'?h.at:Date.parse(h.at)||0;
 function resumeTarget(subject){
- const seat=data.lastScopes?.[subject];
- if(seat?.basics){const x=conceptItem(seat.basics);if(x&&x.unit.subject===subject&&(seat.basicsAt||0)>Math.max(lastSolvedAt(subject),seat.cardAt||0))return {basics:x};}
- return {scope:lastScope(subject)};
+ const seat=data.lastScopes?.[subject]||{},bAt=seat.basics?seat.basicsAt||0:-1,cAt=seat.card?seat.cardAt||0:-1;
+ const subjectOf=new Map(data.cards.map(c=>[c.id,c.subject]));let ans=null,ansAt=-1;
+ for(const h of data.history){const t=timeOf(h);if(t>=ansAt&&subjectOf.get(h.cardId)===subject){ans=h.cardId;ansAt=t;}}
+ if(bAt>Math.max(cAt,ansAt)){const x=conceptItem(seat.basics);if(x&&x.unit.subject===subject)return {basics:x};}
+ if(cAt>ansAt){const p=cardPlace(subject,seat.card,seat);if(p)return {scope:p.scope,card:seat.card};}
+ if(ans){const p=cardPlace(subject,ans,seat);if(p){
+  if(p.k<p.list.length-1)return {scope:p.scope,card:p.list[p.k+1].id};
+  const part=String(p.scope.round).startsWith('part-')?p.scope.round.slice(5):'';
+  if(part){const x=conceptItem(part),xs=x?conceptItems(subject):[],nx=x?xs[xs.findIndex(y=>y.id===part)+1]:null;if(nx)return {basics:nx};
+   const ps=PARTS.unitsFor(subject).flatMap(u=>u.parts.map(q=>q.id)),np=ps[ps.indexOf(part)+1];if(np)return {scope:{subject,topic:'',round:'part-'+np}};}
+  return {scope:p.scope};}}
+ const s=data.lastScopes?.[subject]||(data.practiceScope?.subject===subject?data.practiceScope:null);
+ return {scope:s?{subject,topic:s.topic||'',round:s.round||''}:null};
+}
+// 문제가 놓인 자리: 그 문제를 보던 범위(seat) 안이면 그 범위, 아니면 그 문제의 파트. list는 문제 화면과 같은 차례(catalogOrder).
+function cardPlace(subject,id,seat){
+ const part=PARTS.partOf(id),scopes=[seat.subject?{subject,topic:seat.topic||'',round:seat.round||''}:null,part?{subject,topic:'',round:'part-'+part}:null];
+ for(const scope of scopes){if(!scope)continue;const list=catalogOrder(data.cards.filter(c=>isPlayable(c)&&inScope(c,scope))),k=list.findIndex(c=>c.id===id);if(k>=0)return {scope,list,k};}
+ return null;
 }
 function basicsSeat(id){const x=conceptItem(id);if(!x)return;const s=x.unit.subject,cur=data.lastScopes?.[s];if(cur?.basics===id&&Date.now()-(cur.basicsAt||0)<60000)return;
  const next=structuredClone(data);next.lastScopes={...(next.lastScopes||{}),[s]:{...(cur||{subject:s,topic:'',round:''}),basics:id,basicsAt:Date.now()}};commit(next);}
 // 문제 화면에 문제가 바뀌어 보일 때마다 그 과목 자리에 적는다(그리기 중이라 commit 대신 저장만).
 function quizSeat(scope,id){const cur=data.lastScopes?.[scope.subject];if(!cur||!sameScope(cur,scope)||cur.card===id)return;data.lastScopes={...data.lastScopes,[scope.subject]:{...cur,card:id,cardAt:Date.now()}};persist();}
-// 이어하기로 연 범위에서 처음 잡을 번호(paperIndex가 한 번 쓰고 지운다).
+// 이어하기가 고른 문제(paperIndex가 한 번 쓰고 지운다).
 let paperWant=null;
-function openScope(scope,resume=false,fromConcept=''){
+function openScope(scope,resume=false,fromConcept='',card=''){
  partFrom=null;conceptSolve=fromConcept;
  scope={subject:scope.subject||'',topic:TOPIC_SUBJECTS.has(scope.subject)?scope.topic||'':'',round:hasRanges(scope.subject)?scope.round||'':''};
- const seat=data.lastScopes?.[scope.subject],want=resume&&seat?.card&&sameScope(seat,scope)?{card:seat.card,cardAt:seat.cardAt||0}:null;
- if(resume&&sameScope(scopeOf(),scope)){if(seat?.basics){const next=structuredClone(data),{basics,basicsAt,...rest}=seat;next.lastScopes={...next.lastScopes,[scope.subject]:rest};commit(next);}if(want&&!data.quizFeedback){paperWant=want;paperCursor=null;}go('quiz');return;}
- const next=structuredClone(data);next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:{...scope,at:Date.now(),...(want||{})}};delete next.quizFeedback;delete next.activePractice;
- paperCursor=null;paperWant=want;
+ paperWant=card||null;
+ if(resume&&sameScope(scopeOf(),scope)){if(card&&!data.quizFeedback)paperCursor=null;go('quiz');return;}
+ const next=structuredClone(data);next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:{...scope,at:Date.now()}};delete next.quizFeedback;delete next.activePractice;
+ paperCursor=null;
  if(commit(next)){sessionDirty=true;go('quiz');}
 }
 // v405 키보드로 풀기(research/keyboard-nav-20261024/SPEC.md, 사용자 기기 갤럭시 탭 + 키보드). 화면을 그릴 때 그 화면에서 키가 할 일(keyAct)을 단추와 같은 함수로 적어 두고, 키는 그것만 부른다(새 이동 규칙 없음).
@@ -1806,7 +1812,7 @@ installCorePack();
 {const gone=id=>!!id&&!isPlayable(data.cards.find(c=>c.id===id));if(gone(data.quizFeedback?.cardId)||gone(data.activePractice?.cardId)){const next=structuredClone(data);if(gone(next.quizFeedback?.cardId))delete next.quizFeedback;if(gone(next.activePractice?.cardId))delete next.activePractice;commit(next);}}
 if(!data.quizUiVersion){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;next.quizUiVersion=1;commit(next);}
 else if(data.cards.some(c=>c.pendingAttempt)){const next=structuredClone(data);for(const c of next.cards)delete c.pendingAttempt;if(commit(next))data=next;}
-$('#resumeStudy').onclick=()=>{const to=resumeTarget(viewSubject);if(to.basics)conceptOpen(to.basics);else openScope(to.scope||{subject:viewSubject},true);};
+$('#resumeStudy').onclick=()=>{const to=resumeTarget(viewSubject);if(to.basics)conceptOpen(to.basics);else openScope(to.scope||{subject:viewSubject},true,'',to.card);};
 $('#chooseRange').onclick=()=>go('range');
 $('#openProgress').onclick=()=>go('progress');
 $('#openMemorize').onclick=()=>go('memorize',MEMO_SCOPE+viewSubject);

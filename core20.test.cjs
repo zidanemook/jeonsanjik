@@ -119,7 +119,7 @@ R("(()=>{const s=structuredClone(data);delete s.openLectures;commit(s);})()");
 // 02~05강을 가른 뒤(v278): 기기에 남아 있는 옛 값 옮기기.
 // (가) 저장된 범위 'lecture-02-05'(지금 범위, 과목별 마지막 범위)는 02강으로 이어 열린다 — 빈 화면, 오류 없음. 더 예전의 'lecture-02-03-04-05'도 같다.
 for(const old of ['lecture-02-05','lecture-02-03-04-05']){open(old);assert.equal(R('lectureScope(data.practiceScope.round)'),'02',old);assert.equal(R("scopeLabel(scopeOf())"),'한국사 02강 선사 시대');
- assert.equal(R(inCur+'.length'),47,old+': 02강 47문제 전부');assert.equal(node('#moreLabel').hidden,true);assert.equal(R("scopeLabel(lastScope('한국사'))"),'한국사 02강 선사 시대','과목의 마지막 범위도 02강으로 읽힌다');
+ assert.equal(R(inCur+'.length'),47,old+': 02강 47문제 전부');assert.equal(node('#moreLabel').hidden,true);assert.equal(R("scopeLabel(resumeTarget('한국사').scope)"),'한국사 02강 선사 시대','과목의 마지막 범위도 02강으로 읽힌다');
  assert.deepEqual(J('scopeUnits(scopeOf()).map(u=>u.id)'),['hist-02'],'파트 고르기, 파트별 상태도 02강 단원');assert.equal(R("currentPartUnit('한국사')"),'hist-02');}
 // (나) 옛 열쇠 '02-05'로 더 풀기를 켜 둔 기기: 읽을 때 네 강 열쇠로 풀어 쓴다(백업 호환). 수는 바뀌지 않는다.
 {R("(()=>{const s=structuredClone(data);s.openLectures=['12','02-05'];commit(s);})()");

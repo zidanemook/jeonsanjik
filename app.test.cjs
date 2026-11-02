@@ -626,35 +626,17 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  for(let k=0;k<200&&run('!!data.activePractice');k++)if(!press('ArrowRight'))run('paperJump(paperCursor.index+1)');
  assert.ok(screen().includes('마지막 번호까지 왔어요'),'건너뛴 문제가 남은 끝 화면: '+screen().slice(0,60));assert.equal(by('#card','concept-after').length,0,'안 푼 문제가 남으면 다음 개념으로가 없다');
  assert.equal(press('Enter'),true);assert.equal(at(),1,'Enter = 안 푼 첫 문제로');}
-// v410 이어가기: 과목별 자리는 기기마다 따로이고 기기 사이엔 마지막 과목 하나만 오간다(10/29 사용자: 태블릿에서 Day 11까지 풀었는데 폰은 Day 6).
-// 이 과목에서 더 나중에 푼 문제가 자리 범위 밖이면 그 문제의 파트로 이어 간다. 자리를 고른 뒤 아직 안 풀었으면 고른 자리 그대로.
-{const keep=run('JSON.stringify({lastScopes:data.lastScopes||null,practiceScope:data.practiceScope||null,history:data.history})'),en=id=>run("!!data.cards.find(c=>c.id==="+JSON.stringify(id)+"&&isPlayable(c))");
- if(en('en-day11-030')&&en('en-day6-004')){
-  run("(()=>{const s=structuredClone(data);s.lastScopes={...(s.lastScopes||{}),'영어':{subject:'영어',topic:'',round:'part-en6-1'}};s.history=[...s.history,{id:'t-v410',cardId:'en-day11-030',date:'2026-10-28',result:'correct',mode:'quiz',at:new Date(Date.now()-60000).toISOString()}];commit(s);})()");
-  assert.equal(run("lastScope('영어').round"),'part-en11-3','다른 기기에서 더 푼 Day 11 파트로 이어 간다');
-  run("go('subject','영어')");assert.match(nodes.get('#resumeHint')._text,/Day 11|en11|동명사/,'이어가기 안내도 Day 11: '+nodes.get('#resumeHint')._text);
-  run("openScope({subject:'영어',topic:'',round:'part-en6-1'})");assert.equal(run("lastScope('영어').round"),'part-en6-1','방금 고른 자리는 그대로');
-  run("StudyProgress.mergeSession({at:Date.now()+5000,subject:'영어',topic:'',round:'part-en11-1',cardId:null})");assert.equal(run("lastScope('영어').round"),'part-en11-1','다른 기기에서 온 더 새 자리');
-  run("(()=>{const s=structuredClone(data);s.lastScopes={...s.lastScopes,'영어':{subject:'영어',topic:'',round:'part-en11-3',at:1}};commit(s);})()");assert.equal(run("lastScope('영어').round"),'part-en11-3','마지막 문제가 든 범위면 그대로');}
- else console.log('skip v410: English Day 6 / Day 11 cards not loaded');
- run("(()=>{const k="+JSON.stringify(keep)+",o=JSON.parse(k),s=structuredClone(data);if(o.lastScopes)s.lastScopes=o.lastScopes;else delete s.lastScopes;if(o.practiceScope)s.practiceScope=o.practiceScope;else delete s.practiceScope;s.history=o.history;commit(s);go('home');})()");}
-// v420 이어하기 = 이 과목에서 마지막으로 누른 곳(10/31 사용자 "사람이 클릭하는거에 의존", "이어가기 버튼은 한개만").
-// ① 기초 개념을 눌러 열었으면 그 개념 ② 문제 범위를 열면 문제 ③ 건너뛰어 본 문제도 마지막으로 본 문제부터 ④ 본 뒤 답했으면 그다음 번호 ⑤ 다 푼 파트도 짐작해서 넘기지 않는다.
+// v422 이어하기 = 가장 최근에 본 위치 하나(11/2 사용자 설계). ① 본 기초 개념 ② 보고 답 안 한 문제 ③ 답했으면 다음 번호 ④ 파트 마지막 번호를 답했으면 다음 기초 개념.
 {const S='정보보호론',keep=run('JSON.stringify({lastScopes:data.lastScopes||null,practiceScope:data.practiceScope||null,history:data.history,memo:data.memorizeShown||null,memoAt:data.memorizeAt||null})');
- const xs=run("conceptItems('"+S+"').map((x,i,a)=>({id:x.id,part:!!x.part,next:a[i+1]?a[i+1].id:''}))"),inPart=id=>"data.cards.filter(c=>isPlayable(c)&&inScope(c,{subject:'"+S+"',topic:'',round:'part-"+id+"'}))";
- const C=xs.find(x=>x.part&&run(inPart(x.id)+'.length')>=4);assert.ok(C,'문제가 넷 이상인 파트');
- const resume=()=>{run("go('subject','"+S+"')");const h=nodes.get('#resumeHint')._text;nodes.get('#resumeStudy').onclick();return h;};
- const away=()=>run("openScope({subject:'컴퓨터일반',topic:'',round:''})"),order="catalogOrder("+inPart(C.id)+")";
- run("conceptOpen(conceptItem("+JSON.stringify(C.id)+"))");assert.equal(run('view'),'basics');
- {const h=resume();assert.match(h,/^기초 개념: /,'기초 개념을 보다 나가면 안내도 기초 개념: '+h);assert.equal(run('view'),'basics','이어하기 = 보던 기초 개념');assert.equal(run('basicsPart'),C.id);}
- run("openScope({subject:'"+S+"',topic:'',round:'part-"+C.id+"'})");assert.equal(run('view'),'quiz');
- {const h=resume();assert.doesNotMatch(h,/^기초 개념/,'문제 범위를 열면 안내는 문제: '+h);assert.equal(run('view'),'quiz','이어하기 = 풀던 문제');}
- run('paperJump(2)');const want=run(order+'[2].id');assert.equal(run("data.lastScopes['"+S+"'].card"),want,'건너뛰어 본 문제를 자리로 적는다');
- away();resume();assert.equal(run('view'),'quiz');assert.equal(run('paperCursor.index'),2,'다른 과목을 갔다 와도 마지막으로 본 문제(건너뛴 3번)');
- run("(()=>{const s=structuredClone(data);s.history=[...s.history,{id:'t-v420-a',cardId:"+JSON.stringify(want)+",date:day(),result:'correct',mode:'quiz',at:new Date(Date.now()+1000).toISOString()}];delete s.activePractice;delete s.quizFeedback;commit(s);})()");
- away();resume();assert.equal(run('paperCursor.index'),3,'본 뒤 답했으면 그다음 번호');
- run("(()=>{const s=structuredClone(data),t=Date.now()+2000;s.history=[...s.history,..."+inPart(C.id)+".map((c,i)=>({id:'t-v420-'+i,cardId:c.id,date:day(),result:'correct',mode:'quiz',at:new Date(t+i).toISOString()}))];delete s.activePractice;delete s.quizFeedback;commit(s);})()");
- {const h=resume();assert.doesNotMatch(h,/^기초 개념/,'다 푼 파트도 짐작해서 다음 개념으로 넘기지 않는다: '+h);assert.equal(run('view'),'quiz');}
+ const xs=run("conceptItems('"+S+"').map(x=>({id:x.id,part:!!x.part}))"),inPart=id=>"catalogOrder(data.cards.filter(c=>isPlayable(c)&&inScope(c,{subject:'"+S+"',topic:'',round:'part-"+id+"'})))";
+ const i=xs.findIndex((x,k)=>x.part&&xs[k+1]&&run(inPart(x.id)+'.length')>=3),C=xs[i],N=xs[i+1];assert.ok(C,'문제가 셋 이상인 파트');
+ const ids=run(inPart(C.id)+'.map(c=>c.id)'),resume=()=>{run("go('subject','"+S+"')");nodes.get('#resumeStudy').onclick();};
+ const away=()=>run("openScope({subject:'컴퓨터일반',topic:'',round:''})"),cur=()=>run('scopeOf().round')+'#'+run('paperCursor&&paperCursor.index');
+ const answer=(id,dt)=>run("(()=>{const s=structuredClone(data);s.history=[...s.history,{id:'t-v422-"+dt+"',cardId:"+JSON.stringify(id)+",date:day(),result:'correct',mode:'quiz',at:new Date(Date.now()+"+dt+").toISOString()}];delete s.activePractice;delete s.quizFeedback;commit(s);})()");
+ run("conceptOpen(conceptItem("+JSON.stringify(C.id)+"))");away();resume();assert.equal(run('view'),'basics');assert.equal(run('basicsPart'),C.id,'① 본 기초 개념');
+ run("openScope({subject:'"+S+"',topic:'',round:'part-"+C.id+"'})");run('paperJump(1)');away();resume();assert.equal(run('view'),'quiz');assert.equal(cur(),'part-'+C.id+'#1','② 보고 답 안 한 문제');
+ answer(ids[1],100000);away();resume();assert.equal(cur(),'part-'+C.id+'#2','③ 답했으면 다음 번호');
+ answer(ids.at(-1),200000);away();resume();assert.equal(run('view'),'basics');assert.equal(run('basicsPart'),N.id,'④ 파트 마지막 번호를 답했으면 다음 기초 개념');
  run("(()=>{const o=JSON.parse("+JSON.stringify(keep)+"),s=structuredClone(data);if(o.lastScopes)s.lastScopes=o.lastScopes;else delete s.lastScopes;if(o.practiceScope)s.practiceScope=o.practiceScope;else delete s.practiceScope;s.history=o.history;if(o.memo)s.memorizeShown=o.memo;else delete s.memorizeShown;if(o.memoAt)s.memorizeAt=o.memoAt;else delete s.memorizeAt;delete s.activePractice;delete s.quizFeedback;commit(s);syncMemorizeShown();paperCursor=null;go('home');})()");}
 console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject counts read "안 푼 문제 M/N" and range rows "전체 N문제, 첫 시도 …" with no 문항/카드 wording, every range runs in number order from the first unsolved question ('+normal+'/'+total+') with 이전, 건너뛰기, 번호 고르기, 파트 고르기, records stay normal, no same-day interval inflation; 대기열 모드, 외운 문제, 틀렸던 문제만, 더 풀기 옵션은 숨김; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});

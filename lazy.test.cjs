@@ -182,7 +182,7 @@ const screens=inst=>{const out={};const grab=(k,sels)=>{out[k]=sels.map(s=>inst.
  assert.ok(/약한 파트|복습 판정 \d/.test(a['한국사 파트']+a['영어 파트']+a['국어 파트']),'파트 화면에 복습 판정이 실제로 잡힌다');}
 tick('목록 화면');
 // 풀던 자리(채점 화면) 복원: 과목 화면의 '이어서'와 같은 길.
-{for(const inst of [F,L]){inst.run("openScope(lastScope('영어'),true)");await inst.settle();}
+{for(const inst of [F,L]){inst.run("openScope(resumeTarget('영어').scope,true)");await inst.settle();}
  assert.ok(/채점 결과와 해설/.test(F.card())&&/기초 개념/.test(F.card()),'채점 화면이 복원된다: '+F.card().slice(0,80));same(L.card(),F.card(),'복원된 채점 화면');
  D(L.net.log.map(u=>u.replace(/^chunks\/|\.json.*$/g,'')).sort(),L.run('StudyContent.need(data.quizFeedback.cardId)').slice().sort(),'채점 화면은 그 문제에 필요한 조각만 받아 그린다');assert.ok(L.net.log.length>=1&&L.net.log.length<=2);
  for(const inst of [F,L])await next(inst);same(L.card(),F.card(),'다음 문제');}
