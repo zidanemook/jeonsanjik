@@ -145,7 +145,8 @@ service cloud.firestore {
       }
       function validSession(d) {
         return d.keys().hasAll(['at','subject','topic','round','cardId','exerciseId','variantIndex','type','choices'])
-          && d.keys().hasOnly(['at','subject','topic','round','cardId','exerciseId','variantIndex','type','choices'])
+          && d.keys().hasOnly(['at','subject','topic','round','cardId','exerciseId','variantIndex','type','choices','basics'])
+          && (!('basics' in d) || d.basics == null || (d.basics is string && d.basics.size() <= 160))
           && d.at is int && d.at > 0
           && d.subject is string && d.subject.size() <= 80
           && d.topic is string && d.topic.size() <= 80

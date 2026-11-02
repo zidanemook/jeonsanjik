@@ -42,6 +42,7 @@ async function elapse(){for(let i=0;i<12&&clock.length;i++){for(const t of clock
  assert.throws(()=>core.session({...position(1,'x','c'),cardId:'bad id'}),/question/);
  assert.throws(()=>core.session({...position(0,'x')}),/Invalid session/);
  assert.deepEqual(core.session({at:5,subject:'',topic:'',round:''}),{at:5,subject:'',topic:'',round:'',cardId:null,exerciseId:null,variantIndex:null,type:null,choices:null});
+ assert.equal(core.session({at:6,subject:'정보보호론',topic:'',round:'',basics:'rest:secq-is02'}).basics,'rest:secq-is02');assert.throws(()=>core.session({at:6,subject:'',topic:'',round:'',basics:'bad id'}),/basics/);
  const a=client(),b=client();await settle();
  // Device A opens set 28 at question c; B follows.
  a.choose(1000,'study-20260910-28','c');await settle();

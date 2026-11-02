@@ -962,7 +962,10 @@ function cardPlace(subject,id,seat){
  return null;
 }
 function basicsSeat(id){const x=conceptItem(id);if(!x)return;const s=x.unit.subject,cur=data.lastScopes?.[s];if(cur?.basics===id&&Date.now()-(cur.basicsAt||0)<60000)return;
- const next=structuredClone(data);next.lastScopes={...(next.lastScopes||{}),[s]:{...(cur||{subject:s,topic:'',round:''}),basics:id,basicsAt:Date.now()}};commit(next);}
+ const at=Math.max(Date.now(),(data.session?.at||0)+1),next=structuredClone(data);next.lastScopes={...(next.lastScopes||{}),[s]:{...(cur||{subject:s,topic:'',round:''}),basics:id,basicsAt:at}};
+ // v423: 본 기초 개념도 다른 기기로 보낸다(세션 문서의 basics 칸).
+ try{next.session=ProgressSync.session({at,subject:s,topic:'',round:'',basics:id});}catch{}
+ if(commit(next))window.dispatchEvent(new Event('study-progress-saved'));}
 // 문제 화면에 문제가 바뀌어 보일 때마다 그 과목 자리에 적는다(그리기 중이라 commit 대신 저장만).
 function quizSeat(scope,id){const cur=data.lastScopes?.[scope.subject];if(!cur||!sameScope(cur,scope)||cur.card===id)return;data.lastScopes={...data.lastScopes,[scope.subject]:{...cur,card:id,cardAt:Date.now()}};persist();}
 // 이어하기가 고른 문제(paperIndex가 한 번 쓰고 지운다).
@@ -1890,10 +1893,12 @@ globalThis.StudyProgress={
  // A newer position from another device reopens the same scope, question and choice order.
  mergeSession(row){
   const remote=ProgressSync.session(row);if(remote.at<=(data.session?.at||0))return;
+  // v423 다른 기기에서 본 기초 개념: 이어하기 자리만 바꾸고 풀던 화면은 건드리지 않는다.
+  if(remote.basics){const next=structuredClone(data),cur=next.lastScopes?.[remote.subject];next.session=remote;if(remote.subject)next.lastScopes={...(next.lastScopes||{}),[remote.subject]:{...(cur||{subject:remote.subject,topic:'',round:''}),basics:remote.basics,basicsAt:remote.at}};if(!commit(next))throw Error('Local save failed');if(view==='subject')render();return;}
   // 그 문제의 조각을 아직 받지 않았으면 받은 뒤 같은 문제, 같은 보기 순서로 연다. 받지 못하면 범위만 옮긴다(받지 않은 기출 회차와 같다).
   if(remote.cardId){const names=Content.need(remote.cardId);if(!Content.ready(names)&&sessionWait!==remote.at){sessionWait=remote.at;const again=()=>{try{globalThis.StudyProgress.mergeSession(row);}catch{}};Content.load(names).then(again,again);return;}}
   paperCursor=null;
-  const next=structuredClone(data),scope={subject:remote.subject,topic:remote.topic,round:remote.round};next.session=remote;next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:{...scope,at:remote.at}};delete next.quizFeedback;
+  const next=structuredClone(data),scope={subject:remote.subject,topic:remote.topic,round:remote.round};next.session=remote;next.practiceScope=scope;if(scope.subject)next.lastScopes={...(next.lastScopes||{}),[scope.subject]:{...scope,at:remote.at,...(remote.cardId?{card:remote.cardId,cardAt:remote.at}:{})}};delete next.quizFeedback;
   const card=remote.cardId&&next.cards.find(c=>c.id===remote.cardId);let exercise=null;
   if(card&&isPlayable(card)&&Content.ready(Content.need(card.id))&&(!Gichul.known(card.id)||Gichul.ready(card.id)))exercise=Practice.refresh(Content.core(card.id)||card,{exerciseId:remote.exerciseId,variantIndex:remote.variantIndex,type:remote.type,choices:remote.choices},PRACTICE_BANK,QUIZ_OPTIONS);
   if(exercise&&exercise.exerciseId===Practice.canonical(remote.exerciseId)){const own=data.activePractice?.cardId===card.id&&data.activePractice.exercise?.exerciseId===exercise.exerciseId?data.activePractice:null;next.activePractice={...(own||{cardId:card.id,draft:'',assisted:false}),exercise};}else delete next.activePractice;

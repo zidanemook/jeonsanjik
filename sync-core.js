@@ -34,7 +34,11 @@
  function session(row){
   const id=/^[\w-]{1,160}$/,text=v=>typeof v==='string'&&v.length<=80;
   if(!row||!Number.isSafeInteger(row.at)||row.at<=0||!text(row.subject)||!text(row.topic)||!text(row.round))throw Error('Invalid session');
+  // v423 basics: 기초 개념을 본 자리(이어하기). 있으면 문제 칸은 비운다. 옛 앱이 보낸 줄엔 없다.
+  if(row.basics!==undefined&&row.basics!==null&&(typeof row.basics!=='string'||!/^[\w:-]{1,160}$/.test(row.basics)))throw Error('Invalid session basics');
   const out={at:row.at,subject:row.subject,topic:row.topic,round:row.round,cardId:null,exerciseId:null,variantIndex:null,type:null,choices:null};
+  // 비어 있으면 칸을 아예 두지 않는다(basics 칸을 모르는 옛 서버 규칙도 받아 주게).
+  if(row.basics){out.basics=row.basics;return out;}
   if(row.cardId===null||row.cardId===undefined)return out;
   if(typeof row.cardId!=='string'||!id.test(row.cardId)||typeof row.exerciseId!=='string'||!id.test(row.exerciseId)||!Number.isInteger(row.variantIndex)||row.variantIndex<0||row.variantIndex>99||!['choice','text'].includes(row.type))throw Error('Invalid session question');
   if(row.type==='choice'&&(!Array.isArray(row.choices)||!row.choices.length||row.choices.length>10||row.choices.some(c=>typeof c!=='string'||c.length>2000)))throw Error('Invalid session choices');
