@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v424-mode-names';
+globalThis.APP_BUILD='chagog-v425-mode-pictures';
