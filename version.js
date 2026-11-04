@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v428-gichul-lines';
+globalThis.APP_BUILD='chagog-v429-dh-explain';
