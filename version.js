@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v427-countdown';
+globalThis.APP_BUILD='chagog-v428-gichul-lines';

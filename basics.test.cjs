@@ -565,3 +565,12 @@ console.log('PASS basics(정보보호론 자체 제작): '+SECQ.length+'단원 '
 console.log('PASS basics(정보보호론, 컴퓨터일반): '+Object.entries(IT_DONE).map(([s,l])=>s+' '+l.length+'파트').join(', ')+' '+itQuestions.length+'문제(9급 기출) — 파트마다 상자 하나 + 기출마다 대입(쓴 줄 '+itUse+'개 모두 그 파트 상자의 줄), 줄 id 노출, 두문자 0, 해설 화면은 쓰는 줄만 제자리, 파트별 상태 기초 개념 보기');
 console.log('PASS basics(한국사): '+HIST_UNITS.join(', ')+' '+hDone.length+'파트 '+history.length+'문제 — 파트마다 상자 하나 + 문제마다 대입(쓴 줄 '+hUse+'개 모두 그 파트 상자의 줄), 표 칸 셋까지, 두문자, 비결, 줄 id 노출 0, 연도는 y 줄 '+hYearLines+'개에만, 해설 화면은 쓰는 줄만 제자리('+hTopLines+'/'+hAllLines+'줄) + 나머지 모음 '+hSplit+'문제(빠짐, 겹침 0), 파트별 상태 한국사 '+hDone.length+'파트 기초 개념 보기, 상자 끝 외울 것 '+memoBoxes+'상자 '+memoLines+'줄, 암기법 '+mnBoxes+'상자(블록 '+mnUsed.size+'개), 줄 안 고리 '+hookBoxes+'상자 '+hookCount+'개');
 console.log('PASS basics(국어, 영어, 한국사 기출): 기출 대응 원고가 짝지은 '+gichulBasics.length+'문제(국어 '+GICHUL_BASICS['국어']+', 영어 '+GICHUL_BASICS['영어']+', 9급 한국사 '+GICHUL_BASICS['한국사']+', 한능검 '+GICHUL_BASICS['한능검']+')마다 대입 — 상자 줄 '+gUse+'개 모두 그 상자의 줄, 공식 정답 번호, 줄 id 노출 0, 한국사 연도는 문제에 나온 것만');
+// v428 정보보호론 기출 줄 칠하기: gichul-hits.js는 basics.js의 9급 기출 대입에서 다시 만든 것과 같고(낡지 않음), 21상자 모두 있고, 줄 id는 모두 그 상자에 실제로 있는 줄이다.
+{const built=require('./build-gichul-hits.cjs').build(),cur=require('node:fs').readFileSync(__dirname+'/gichul-hits.js','utf8').replace(/\r\n/g,'\n');
+ assert.equal(cur,built,'gichul-hits.js 낡음: node build-gichul-hits.cjs');
+ const c={};require('node:vm').runInNewContext(built,c);const H=c.SEC_GICHUL_HITS,B=bctx.STUDY_BASICS;
+ assert.equal(Object.keys(H).length,21,'정보보호론 21상자');let lines=0;
+ for(const [bid,o] of Object.entries(H)){const b=B.boxes[bid];assert.ok(b,bid);const ids=new Set([...b.terms.map(x=>x.id),...b.rules.items.map(x=>x.id),...b.examples.map(x=>x.id),...(b.tables||[]).flatMap(t=>t.rowIds||[]),...(b.tables||[]).map(t=>t.key?.id).filter(Boolean)]);
+  for(const [id,n] of Object.entries(o)){assert.ok(n>=1&&Number.isInteger(n));lines++;if(!ids.has(id))throw Error(bid+' 없는 줄 '+id);}}
+ assert.ok(lines>=500,'기출 줄 '+lines);
+ console.log('PASS basics(정보보호론 기출 줄 v428): 21상자 '+lines+'줄, gichul-hits.js 낡지 않음');}

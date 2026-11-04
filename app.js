@@ -1464,6 +1464,7 @@ function basicsPhotoRow(t,row,rowId){const name=String(row[0]).split('\n')[0].re
 // 줄 일부만 그리는 표(해설 화면의 제자리 줄, 기초 개념 파트)는 그린 줄의 id만 남긴다(사진 열쇠가 줄 id라서).
 const basicsRowsOf=(t,keep)=>{const idx=t.rows.map((r,i)=>i).filter(i=>keep(t.rows[i],i));return {...t,rows:idx.map(i=>t.rows[i]),rowIds:t.rowIds?idx.map(i=>t.rowIds[i]):undefined};};
 function basicsHistTable(t){const table=basicsTable(t);table.classList.add('b-hist');
+ if(hitNow&&t.rowIds)[...table.children].slice(1).forEach((tr,r)=>{const td=tr.children?.[0];if(td&&hitNow[t.rowIds[r]]){hitMark(td,t.rowIds[r]);td.classList.remove('b-gichul');tr.classList.add('b-gichul');}});
  [...table.children].slice(1).forEach((tr,r)=>[...tr.children].forEach((td,i)=>{const len=basicsPlainLen(t.rows[r][i]);if(i===0&&len<=6)td.classList.add('b-nowrap');else if(i>0&&len>20)td.classList.add('b-long');}));
  {const trs=[...table.children],out=[trs[0]];trs.slice(1).forEach((tr,r)=>{out.push(tr);const p=basicsPhotoRow(t,t.rows[r],t.rowIds?.[r]);if(p){tr.classList.add('b-has-photo');out.push(p);}});if(out.length>trs.length){table.classList.add('b-photos');table.replaceChildren(...out);}}
  return table;}
@@ -1497,16 +1498,21 @@ function basicsTermSplit(terms,rule,split,apply){
  if(!keep.length){const text=split.rules.map(r=>r.name+' '+r.text).join(' ');keep=terms.filter(t=>{const w=t.word.replace(/\s*\([^)]*\)$/,'');return !!w&&text.includes(w);});}
  return {keep,rest:terms.filter(t=>!keep.includes(t))};
 }
-function basicsTerm(t){const h=elem('div',undefined,'b-term');h.append(elem('span',t.word+(t.hanja?'('+t.hanja+')':''),'b-chip'));if(t.origin)h.append(elem('small',t.origin,'b-origin'));const out=[h,basicsLines(t.mean,'b-mean')];
+// v428 정보보호론 기초 개념: 9급 기출이 쓴 줄을 노랗게 칠하고 나온 문제 수를 붙인다(gichul-hits.js, node build-gichul-hits.cjs로 만듦).
+// hitNow = 지금 그리는 상자의 {줄 id: 횟수}. 상자를 그리는 입구(basicsSections, conceptSection)에서 withHits로 정한다.
+let hitNow=null;
+function withHits(box,fn){const prev=hitNow,id=Content.ruleOfBox(box);hitNow=id&&String(id).startsWith('sec-')?(globalThis.SEC_GICHUL_HITS||{})[id]||null:null;try{return fn();}finally{hitNow=prev;}}
+function hitMark(node,id){const n=hitNow&&id?hitNow[id]:0;if(!n)return;node.classList.add('b-gichul');node.append(elem('span','기출 '+n,'b-gichul-n'));}
+function basicsTerm(t){const h=elem('div',undefined,'b-term');h.append(elem('span',t.word+(t.hanja?'('+t.hanja+')':''),'b-chip'));hitMark(h,t.id);if(t.origin)h.append(elem('small',t.origin,'b-origin'));const out=[h,basicsLines(t.mean,'b-mean')];
  {const ph=computerPhotos(t.id+'|'+t.word);if(ph)out.push(ph);}
- if(t.rows){const r=elem('div',undefined,'b-rows');for(const row of t.rows)r.append(basicsLines(row,undefined,'div'));out.push(r);}if(t.ex&&t.ex!=='—')out.push(basicsLines('예) '+t.ex,'b-ex'));return out;}
+ if(t.rows){const r=elem('div',undefined,'b-rows');for(const row of t.rows)r.append(basicsLines(row,undefined,'div'));out.push(r);}if(t.ex&&t.ex!=='—')out.push(basicsLines('예) '+t.ex,'b-ex'));if(hitNow?.[t.id])for(const n of out.slice(1))n.classList.add('b-gichul-cont');return out;}
 // 규칙 묶음(v262): 규칙 줄의 g(묶음 제목)가 바뀌는 자리마다 작은 제목을 한 번 둔다 — 한 제목 아래에는 한 종류의 줄만(요소 / 헷갈리는 짝 가르기 / 판정 순서를 한 목록에 섞지 않는다).
 // 보이는 줄만 센다: 접힌 줄, 다른 상자로 간 공통 줄을 뺀 목록에서 같은 g가 이어지면 제목은 하나다.
 function basicsRuleList(rs){const out=[];let g;for(const r of rs){if(r.g&&r.g!==g)out.push(elem('h5',r.g,'b-rgroup'));g=r.g;out.push(basicsRule(r));}return out;}
 // 본문이 여러 줄(목록 꼴)이면 이름 다음에 줄을 바꾼다(v382, 사용자: '동사로 가르기보면 기밀성'처럼 이름과 첫 줄이 붙어 읽힘).
 // 본문이 굵은 글씨로 시작해도 바꾼다(v409, 사용자: '차분 공격과 선형 공격 차분 공격 = …'이 한 덩어리로 보임).
-function basicsRule(r){const d=elem('div',undefined,'b-rule');d.append(elem('b',r.name));if(String(r.text).includes('\n')||String(r.text).startsWith('**'))d.append(elem('br'));String(r.text).split('\n').forEach((line,i)=>{if(i)d.append(elem('br'));d.append(...basicsInline(line));});return d;}
-function basicsExample(x){const p=elem('p',undefined,'b-ex'+(x.ok?'':' bad'));p.append(elem('span',x.ok?'✓':'✗',x.ok?'b-ok':'b-no'),document.createTextNode(' '),...basicsInline(x.text),elem('br'));const s=elem('small');s.append(...basicsInline(x.why));p.append(s);return p;}
+function basicsRule(r){const d=elem('div',undefined,'b-rule');d.append(elem('b',r.name));hitMark(d,r.id);if(String(r.text).includes('\n')||String(r.text).startsWith('**'))d.append(elem('br'));String(r.text).split('\n').forEach((line,i)=>{if(i)d.append(elem('br'));d.append(...basicsInline(line));});return d;}
+function basicsExample(x){const p=elem('p',undefined,'b-ex'+(x.ok?'':' bad'));p.append(elem('span',x.ok?'✓':'✗',x.ok?'b-ok':'b-no'),document.createTextNode(' '),...basicsInline(x.text));hitMark(p,x.id);p.append(elem('br'));const s=elem('small');s.append(...basicsInline(x.why));p.append(s);return p;}
 // 한국사 상자(split:'lines', 파트마다 하나, 표가 여럿): 해설 화면에서는 이 문제의 대입이 쓰는 줄(용어, 표의 줄, 규칙, 비교 예문)만
 // 제자리에 두고, 나머지는 닫힌 '이 정리의 나머지 더 보기' 하나에 같은 순서로 모은다. 대입이 표 id를 쓰면 그 표 전체, 줄 id를 쓰면 그 줄만.
 // 제자리에 둘 줄이 없는 절은 제목도 두지 않고 번호를 당긴다. 파트 모아 보기에서는 모두 펼친다(basicsSections의 다른 모드).
@@ -1559,7 +1565,8 @@ function basicsMemoSections(box,apply,head,out){
  if(rest.length){const d=elem('details',undefined,'b-more b-mn-rest');d.append(elem('summary',keep.length?'이 파트의 다른 암기법 '+rest.length+'개 더 보기':'이 파트의 암기법 '+rest.length+'개 보기'));for(const x of rest)d.append(basicsMnemonic(x.id));out.push(d);}
 }
 // mode: 'fold' = 공통 줄을 끝에 접어 둠, 'skip' = seen에 든(앞 상자에서 보인) 줄을 빼고 한 줄 안내 / 그 밖 = 모두 제자리에
-function basicsSections(box,apply,mode,seen,partId){
+function basicsSections(box,apply,mode,seen,partId){return withHits(box,()=>basicsSectionsIn(box,apply,mode,seen,partId));}
+function basicsSectionsIn(box,apply,mode,seen,partId){
  if(mode==='fold'&&box.split==='lines'&&apply)return basicsLineSections(box,apply,partId);
  const out=[];let n=0;const head=t=>out.push(elem('h4',(++n)+'. '+t,'b-h')),rule=Content.ruleOfBox(box);
  const moved=x=>mode==='fold'?basicsShared(x,rule,partId):mode==='skip'&&!!seen&&seen.has(JSON.stringify(x)),terms=box.terms.filter(t=>!moved(t)),rules=box.rules.items.filter(r=>!moved(r)),table=box.table&&!moved(box.table)?box.table:null;
@@ -1649,12 +1656,13 @@ function basicsPick(box,ids,out,head){
  if(X.length){head('비교 예문');for(const x of X)out.push(basicsExample(x));}
  return T.length+R.length+X.length+(box.tables||[]).reduce((n,t)=>n+t.rows.filter((r,i)=>ids.has(t.rowIds?.[i])).length+(t.key&&ids.has(t.key.id)?1:0),0);
 }
-function conceptSection(title,box,ids,cls){const d=elem('details',undefined,'lesson basics'+(cls?' '+cls:''));d.append(elem('summary',title));let n=0;const out=[];basicsPick(box,ids,out,t=>out.push(elem('h4',(++n)+'. '+t,'b-h')));d.append(...out);return {d,n:out.length};}
+function conceptSection(title,box,ids,cls){const d=elem('details',undefined,'lesson basics'+(cls?' '+cls:''));d.append(elem('summary',title));let n=0;const out=[];withHits(box,()=>basicsPick(box,ids,out,t=>out.push(elem('h4',(++n)+'. '+t,'b-h'))));d.append(...out);return {d,n:out.length};}
 function renderConceptPart(x,body){
  const u=x.unit,m=conceptUnitMap(u.id),box=BASICS.box(m.box),inUnit=conceptItems(u.subject).filter(y=>y.unit===u);
  $('#basicsTitle').textContent='기초 개념: '+x.title;
  body.append(conceptListBtn(u));
  body.append(elem('p',u.short+' — '+(inUnit.findIndex(y=>y.id===x.id)+1)+'/'+inUnit.length+(conceptRead(x.id)?', 읽음':''),'status'));
+ if(u.subject==='정보보호론')body.append(gichulNote());
  if(x.part&&u.parts[0]===x.part&&m.intro?.length){const s=conceptSection('이 장 들어가기',box,new Set(m.intro),'concept-intro');s.d.open=true;body.append(s.d);}
  const own=x.part?m.parts?.[x.id]?.own||[]:m.rest||[],also=x.part?m.parts?.[x.id]?.also||[]:[];
  const main=conceptSection(x.title,box,new Set(own));main.d.open=true;main.d.dataset.rule=m.box;
@@ -1664,6 +1672,7 @@ function renderConceptPart(x,body){
  conceptNav(x,body);
 }
 // 파트 화면 위: 목록(기록을 쌓지 않고 목록으로 바꾼다).
+function gichulNote(){return elem('p','노란 줄은 9급 기출에 나온 내용이에요. 숫자는 나온 문제 수.','b-gichul-note');}
 function conceptListBtn(u){return btn('목록',()=>go('concepts',u.subject,true),'secondary concept-list');}
 // 파트 화면 아래: 이전 / 읽음(누를 때마다 켜고 끔, 화면 그대로) / 다음(읽음 표시 없이 넘김, 마지막이면 목록으로) / 이 파트 문제 풀기.
 // 넘기기는 기록을 쌓지 않는다(뒤로 가면 과목 화면이나 목록). 넘긴 파트는 이어 읽기 자리로 적는다(v391 사용자: "읽은 버튼과 다음 넘어가는 버튼으로").
@@ -1692,6 +1701,7 @@ function renderBasics(){
  const wx=basicsFrom==='concepts'?cx:null,xs=wx?conceptItems(u.subject):[],seenBefore=new Set(wx?xs.slice(0,xs.findIndex(y=>y.id===wx.id)).flatMap(y=>partBasics(y.part)):[]),inUnit=xs.filter(y=>y.unit===u);
  if(wx)body.append(conceptListBtn(u));
  body.append(elem('p',wx?u.short+' — '+(inUnit.findIndex(y=>y.id===wx.id)+1)+'/'+inUnit.length+(conceptRead(wx.id)?', 읽음':''):u.short+': 이 파트 문제를 풀 때 필요한 말, 표, 규칙, 비교 예문을 한 화면에 모았어요. 정리 '+rules.length+'개.','status'));
+ if(u.subject==='정보보호론')body.append(gichulNote());
  const shown=new Set();
  for(const r of rules){const b=BASICS.box(r),again=seenBefore.has(r),d=basicsDetails((again?'앞 파트에서 본 정리: ':'')+b.title,b,null,'skip',new Set(shown));
   for(const x of [...b.terms,...b.rules.items,b.table,...(b.tables||[])])if(x&&basicsShared(x,r,p.id))shown.add(JSON.stringify(x));
