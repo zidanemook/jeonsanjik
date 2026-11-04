@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v426-memorize-modes';
+globalThis.APP_BUILD='chagog-v427-countdown';

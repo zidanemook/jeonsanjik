@@ -915,10 +915,17 @@ function updateReload(){keepView();try{saveNoteDraftNow();}catch{}const open=()=
 // 화면 이름에 지금 보이는 문제 글까지 넣는다(답하기 전 문제끼리 건너뛰어도 다른 화면으로 친다).
 function foldSig(){try{return [view,viewSubject,view==='basics'?basicsPart:'',data.quizFeedback?.cardId||'',document.querySelector('#'+view+'View .question')?.textContent||''].join('|');}catch{return '';}}
 function foldEach(fn){try{const n=new Map();for(const d of document.querySelectorAll('#'+view+'View details')){const t=d.querySelector('summary')?.textContent||'',i=n.get(t)||0;n.set(t,i+1);fn(d,t+'\n'+i);}}catch{}}
+// v427 카운트다운 타이머: 문제(60초)와 기초 개념(글자 수 비례 + 30초) 화면에 남은 시간을 표시한다.
+let timerKey='',timerStart=0,timerLimit=0,timerSeen=false,timerId=0;
+function timerText(sec){const over=sec<0,a=Math.abs(sec),m=Math.floor(a/60),s=a%60;return (over?'+':'')+m+':'+String(s).padStart(2,'0');}
+function timerTick(){const el=$('#countdown');if(!el)return;const sec=timerLimit-Math.floor((Date.now()-timerStart)/1000);el.textContent=timerText(sec);el.classList.toggle('over',sec<0);}
+function timerShow(key,limit){timerSeen=true;if(key!==timerKey){timerKey=key;timerStart=Date.now();timerLimit=limit;}const el=$('#countdown');if(el)el.hidden=false;timerTick();if(!timerId)timerId=setInterval(timerTick,1000);}
+function timerStop(){timerKey='';const el=$('#countdown');if(el){el.hidden=true;el.classList.remove('over');}clearInterval(timerId);timerId=0;}
+function basicsLimit(body){const n=String(body?.textContent||'').replace(/\s+/g,'').length;return Math.ceil(n/400*60)+30;}
 function render(){if(updater&&updater.safePoint())return;contentWait=false;
  syncMemorizeShown();
  const before=foldSig(),keep=new Map(),y=window.scrollY||0;foldEach((d,k)=>keep.set(k,d.open));
- renderView();
+ timerSeen=false;renderView();if(!timerSeen)timerStop();
  if(keep.size&&before&&foldSig()===before){foldEach((d,k)=>{const o=keep.get(k);if(o!==undefined&&d.open!==o)d.open=o;});if(window.scrollY!==y)window.scrollTo(0,y);}{const f=$('#siteFooter');if(f)f.textContent=footerText(footerSubject());}if(sessionDirty&&!contentWait){sessionDirty=false;stampSession();}}
 // Screens: home (subjects) → subject (resume / choose range) → range → quiz (question, then explanation). Progress is separate.
 const VIEWS=['home','subject','range','quiz','progress','memorize','parts','basics','concepts'];
@@ -1277,6 +1284,7 @@ function renderQuiz(){
  const label=elem('small',card.subject+' '+(lesson?.title||(paperRow?Gichul.title(paperRow):quiz.image?Hanneung.title(Hanneung.get(card.id))+(studyTopic(card.id)?', '+StudyTopics.title(studyTopic(card.id)):''):summary?StudyTopics.title(studyTopic(card.id))+' 복습 '+summary.number+'번, 자체 제작':'개념 복습'))+' ('+(quiz.type==='text'?'직접 쓰기':quiz.choiceImages?'사진 객관식':'객관식')+')');
  if(feedback){renderFeedback(root,card,quiz,lesson,label,conceptNextBtn(scope,chosen));const past=pastRecordLine(card.id,feedbackReviewId(data.quizFeedback));if(past&&label.isConnected)label.after(past);}
  else{
+  timerShow('q:'+card.id,60);
   root.append(label);{const past=pastRecordLine(card.id);root.append(past||elem('p','처음 푸는 문제','past-record past-new'));}root.append(...questionNodes(quiz.question));
   appendPaper(root,Hanneung.get(card.id));
   // v405 숫자 키 = 화면에 보이는 그 번호의 보기(보기 단추와 같은 answerPractice, 섞인 순서는 quiz.choices가 이미 화면 순서다).
@@ -1675,7 +1683,7 @@ function openBasics(partId){basicsPart=partId;basicsFrom=view==='concepts'?'conc
 function renderBasics(){
  const body=$('#basicsBody');body.replaceChildren();
  const cx=conceptItem(basicsPart),cm=cx&&conceptUnitMap(cx.unit.id);
- if(cm){const names=Content.needBoxes([cm.box]);if(!Content.ready(names)){$('#basicsTitle').textContent='기초 개념: '+cx.title;renderContentLoad(body,'',names,null);return;}renderConceptPart(cx,body);return;}
+ if(cm){const names=Content.needBoxes([cm.box]);if(!Content.ready(names)){$('#basicsTitle').textContent='기초 개념: '+cx.title;renderContentLoad(body,'',names,null);return;}renderConceptPart(cx,body);timerShow('b:'+basicsPart,basicsLimit(body));return;}
  const p=PARTS.part(basicsPart);
  if(!p){$('#basicsTitle').textContent='기초 개념';body.append(elem('p','파트를 찾지 못했어요. 뒤로 가서 파트를 다시 골라 주세요.','status'));return;}
  const rules=partBasics(p),u=PARTS.unitOf(p.id);$('#basicsTitle').textContent='기초 개념: '+p.title;
@@ -1688,8 +1696,9 @@ function renderBasics(){
  for(const r of rules){const b=BASICS.box(r),again=seenBefore.has(r),d=basicsDetails((again?'앞 파트에서 본 정리: ':'')+b.title,b,null,'skip',new Set(shown));
   for(const x of [...b.terms,...b.rules.items,b.table,...(b.tables||[])])if(x&&basicsShared(x,r,p.id))shown.add(JSON.stringify(x));
   d.open=!again;d.dataset.rule=r;body.append(d);}
- if(wx){conceptNav(wx,body);return;}
+ if(wx){conceptNav(wx,body);timerShow('b:'+basicsPart,basicsLimit(body));return;}
  body.append(btn('이 파트 문제 풀기',()=>openScope({subject:u.subject,topic:'',round:'part-'+p.id},false,p.id),'primary basics-solve'));
+ timerShow('b:'+basicsPart,basicsLimit(body));
 }
 // Explanation page after grading: result first, explanation folded (opening it earns +1 minute), skippable.
 function renderFeedback(root,card,quiz,lesson,label,after){
