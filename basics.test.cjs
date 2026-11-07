@@ -575,7 +575,7 @@ console.log('PASS basics(국어, 영어, 한국사 기출): 기출 대응 원고
  assert.ok(lines>=500,'기출 줄 '+lines);
  console.log('PASS basics(정보보호론 기출 줄 v428): 21상자 '+lines+'줄, gichul-hits.js 낡지 않음');}
 // v432 반드시 외울 것(must): 과목과 상관없이 must가 있는 상자는 범위 한 줄 + 외울 문장 3~8줄 + 버릴 것 한 줄, 줄마다 실제 9급 기출 출처(그 상자에 대입된 문제),
-// 가운뎃점과 내부 용어(카드, 문항) 없음. 정보보호론 21상자는 모두 있다.
+// 가운뎃점과 내부 용어(카드, 문항) 없음. 정보보호론 21상자, 컴퓨터일반 26상자(v433)는 모두 있다.
 {const B=bctx.STUDY_BASICS,gq=new Map();let boxes=0,lines=0;
  const has=id=>{const m=String(id).match(/^gichul-(.+)-(\d+)$/);if(!m)return false;if(!gq.has(m[1])){const f=__dirname+'/gichul/'+m[1]+'.json';gq.set(m[1],fs.existsSync(f)?new Set(JSON.parse(fs.readFileSync(f,'utf8')).questions.map(q=>q.n)):new Set());}return gq.get(m[1]).has(+m[2]);};
  for(const [bid,b] of Object.entries(B.boxes)){if(!b.must)continue;const m=b.must;boxes++;
@@ -583,4 +583,5 @@ console.log('PASS basics(국어, 영어, 한국사 기출): 기출 대응 원고
   for(const t of [m.scope,m.drop,...m.lines.map(l=>l.text)])assert.ok(!/[\u00b7\u318d\u30fb]/.test(t)&&!/카드|문항|변형/.test(noTech(t)),'must 금지 글자: '+bid+' '+t.slice(0,30));
   for(const l of m.lines){lines++;assert.ok(l.text&&l.src.length,'must 줄마다 문장과 출처: '+bid);for(const id of l.src){assert.ok(has(id),'must 출처가 실제 기출: '+bid+' '+id);assert.equal(B.apply[id]?.box,bid,'must 출처는 이 상자에 대입된 기출: '+bid+' '+id);}}}
  for(let i=1;i<=21;i++){const id='sec-is'+String(i).padStart(2,'0');assert.ok(B.boxes[id].must,'정보보호론 must: '+id);}
+ for(let i=1;i<=26;i++){const id='com-cg'+String(i).padStart(2,'0');assert.ok(B.boxes[id].must,'컴퓨터일반 must: '+id);}
  console.log('PASS basics(반드시 외울 것 v432): '+boxes+'상자 '+lines+'줄, 줄마다 그 상자의 9급 기출 출처');}
