@@ -663,5 +663,13 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  run('openBasics('+JSON.stringify(part)+')');m=marks();assert.ok(m.hit>0&&m.note,'파트 기초 개념(정보보호론): 기출 줄 '+m.hit);
  const ccx=run("conceptItems('컴퓨터일반').find(x=>x.part).id");run('openBasics('+JSON.stringify(ccx)+')');m=marks();assert.equal(m.hit,0,'컴퓨터일반은 칠하지 않음');assert.equal(m.note,false);
  assert.equal(run('hitNow'),null,'그린 뒤 횟수표를 비움');run("go('home')");}
+// v432 반드시 외울 것: must가 있는 상자의 단원 첫 파트는 펼친 블록(줄마다 '기출 N: 2017 국가 10' 꼴 출처), 다음 파트는 닫힌 블록.
+{const has=(n,c)=>n.classes.has(c)||String(n.className||'').split(' ').includes(c),blocks=()=>doc.querySelector('#basicsBody').all.filter(n=>has(n,'b-must'));
+ const xs=run("conceptItems('정보보호론').filter(x=>x.unit===conceptItems('정보보호론').find(y=>conceptUnitMap(y.unit.id).box==='sec-is04').unit).map(x=>x.id)");assert.ok(xs.length>=2,'sec-is04 파트');
+ run('openBasics('+JSON.stringify(xs[0])+')');let b=blocks();assert.equal(b.length,1,'첫 파트에 블록 하나');assert.equal(b[0].open,true,'첫 파트는 펼침');
+ const all=doc.querySelector('#basicsBody').all,src=all.filter(n=>has(n,'b-must-src')).map(n=>n.textContent);
+ assert.equal(src.length,run("BASICS.box('sec-is04').must.lines.length"),'줄마다 출처');assert.ok(src.every(t=>/^기출 \d+: \d{4} (국가|지방|지방 추가) \d+/.test(t)),'출처 꼴: '+src[0]);
+ assert.ok(all.some(n=>has(n,'b-must-scope'))&&all.some(n=>has(n,'b-must-drop')),'범위와 버릴 것');
+ run('openBasics('+JSON.stringify(xs[1])+')');b=blocks();assert.equal(b.length,1);assert.equal(b[0].open,false,'다음 파트는 닫힘');run("go('home')");}
 console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject counts read "안 푼 문제 M/N" and range rows "전체 N문제, 첫 시도 …" with no 문항/카드 wording, every range runs in number order from the first unsolved question ('+normal+'/'+total+') with 이전, 건너뛰기, 번호 고르기, 파트 고르기, records stay normal, no same-day interval inflation; 대기열 모드, 외운 문제, 틀렸던 문제만, 더 풀기 옵션은 숨김; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});

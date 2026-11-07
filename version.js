@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v431-cg02-twos-note';
+globalThis.APP_BUILD='chagog-v432-must-memorize';

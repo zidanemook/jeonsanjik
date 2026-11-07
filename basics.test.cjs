@@ -488,7 +488,7 @@ for(const p of logicParts){
  const entry=entries.find(n=>n.dataset.basics===p.id);entry.onclick();
  assert.equal(run('view'),'basics','기초 개념 화면으로: '+p.id);assert.equal(run('history.state.part'),p.id,'뒤로 가기용 기록에 파트가 남는다');
  assert.equal(nodes.get('#basicsTitle')._text,'기초 개념: '+p.title);
- const body=nodes.get('#basicsBody'),boxes=body.children.filter(n=>n.tag==='details');
+ const body=nodes.get('#basicsBody'),boxes=body.children.filter(n=>n.tag==='details'&&!cls(n).includes('b-must'));
  eqJ(boxes.map(d=>d.dataset.rule),[...new Set(p.ids.map(id=>bank[id].ruleId))],'파트의 상자 전부: '+p.id);
  assert.ok(boxes.every(d=>d.open),'모두 펼쳐져 있다: '+p.id);
  assert.ok(!body.all.some(n=>n.className==='b-h'&&/이 문제에 대입/.test(n._text)),'파트 화면에는 이 문제에 대입이 없다: '+p.id);
@@ -502,7 +502,7 @@ run("go('parts','영어')");
 {const en=nodes.get('#partsBody').all.filter(n=>cls(n).includes('part-basics'));
  eqJ(en.map(n=>n.dataset.basics).sort(),enParts.map(p=>p.id).sort(),'영어 기초 개념 보기 버튼 = 영어 파트 51개');
  for(const p of enParts){en.find(n=>n.dataset.basics===p.id).onclick();assert.equal(run('view'),'basics');
-  const body=nodes.get('#basicsBody'),boxes=body.children.filter(n=>n.tag==='details');
+  const body=nodes.get('#basicsBody'),boxes=body.children.filter(n=>n.tag==='details'&&!cls(n).includes('b-must'));
   eqJ(boxes.map(d=>d.dataset.rule),[...new Set(p.ids.map(id=>bank[id].ruleId))],'영어 파트의 상자 전부: '+p.id);assert.ok(boxes.every(d=>d.open));
   assert.ok(!body.all.some(n=>n.className==='b-more'),'파트 화면은 공식을 나누지 않는다: '+p.id);
   const shownRules=body.all.filter(n=>n.className==='b-rule').length,noted=body.all.filter(n=>n.className==='b-shared-note').length;
@@ -515,7 +515,7 @@ run("go('parts','한국사')");
  eqJ(hs.map(n=>n.dataset.basics).sort(),hDone.map(p=>p.id).sort(),'한국사 기초 개념 보기 버튼 = 상자를 붙인 파트');
  for(const p of hDone){eqJ(run('partBasics(PARTS.part('+JSON.stringify(p.id)+'))'),[p.box||'hist-'+p.id],'한국사 파트 상자: '+p.id);
   hs.find(n=>n.dataset.basics===p.id).onclick();assert.equal(run('view'),'basics');
-  const body=nodes.get('#basicsBody'),boxes=body.children.filter(n=>n.tag==='details');
+  const body=nodes.get('#basicsBody'),boxes=body.children.filter(n=>n.tag==='details'&&!cls(n).includes('b-must'));
   eqJ(boxes.map(d=>d.dataset.rule),[p.box||'hist-'+p.id],'파트의 상자: '+p.id);assert.ok(boxes[0].open,'펼쳐져 있다: '+p.id);
   assert.ok(!body.all.some(n=>n.className==='b-h'&&/이 문제에 대입/.test(n._text))&&!body.all.some(n=>String(n.className).includes('b-rest')),'파트 화면은 대입, 나머지 모음 없이 모두: '+p.id);
   const box=B.box(p.box||'hist-'+p.id);assert.equal(body.all.filter(n=>n.tag==='table').length,box.tables.length,'표 전부: '+p.id);
@@ -527,7 +527,7 @@ for(const s of Object.keys(IT_DONE)){const done=itDone.filter(p=>p.subject===s);
  eqJ(hs.map(n=>n.dataset.basics).sort(),done.map(p=>p.id).sort(),s+' 기초 개념 보기 버튼 = 상자를 붙인 파트');
  for(const p of done){const r=IT_PREFIX[s]+'-'+p.id;eqJ(run('partBasics(PARTS.part('+JSON.stringify(p.id)+'))'),[r],s+' 파트 상자: '+p.id);
   hs.find(n=>n.dataset.basics===p.id).onclick();assert.equal(run('view'),'basics');
-  const body=nodes.get('#basicsBody'),boxes=body.children.filter(n=>n.tag==='details');
+  const body=nodes.get('#basicsBody'),boxes=body.children.filter(n=>n.tag==='details'&&!cls(n).includes('b-must'));
   eqJ(boxes.map(d=>d.dataset.rule),[r],'파트의 상자: '+p.id);assert.ok(boxes[0].open,'펼쳐져 있다: '+p.id);
   assert.ok(!body.all.some(n=>n.className==='b-h'&&/이 문제에 대입/.test(n._text))&&!body.all.some(n=>String(n.className).includes('b-rest')),'파트 화면은 대입, 나머지 모음 없이 모두: '+p.id);
   assert.equal(body.all.filter(n=>n.tag==='table').length,B.box(r).tables.length,'표 전부: '+p.id);
@@ -574,3 +574,13 @@ console.log('PASS basics(국어, 영어, 한국사 기출): 기출 대응 원고
   for(const [id,n] of Object.entries(o)){assert.ok(n>=1&&Number.isInteger(n));lines++;if(!ids.has(id))throw Error(bid+' 없는 줄 '+id);}}
  assert.ok(lines>=500,'기출 줄 '+lines);
  console.log('PASS basics(정보보호론 기출 줄 v428): 21상자 '+lines+'줄, gichul-hits.js 낡지 않음');}
+// v432 반드시 외울 것(must): 과목과 상관없이 must가 있는 상자는 범위 한 줄 + 외울 문장 3~8줄 + 버릴 것 한 줄, 줄마다 실제 9급 기출 출처(그 상자에 대입된 문제),
+// 가운뎃점과 내부 용어(카드, 문항) 없음. 정보보호론 21상자는 모두 있다.
+{const B=bctx.STUDY_BASICS,gq=new Map();let boxes=0,lines=0;
+ const has=id=>{const m=String(id).match(/^gichul-(.+)-(\d+)$/);if(!m)return false;if(!gq.has(m[1])){const f=__dirname+'/gichul/'+m[1]+'.json';gq.set(m[1],fs.existsSync(f)?new Set(JSON.parse(fs.readFileSync(f,'utf8')).questions.map(q=>q.n)):new Set());}return gq.get(m[1]).has(+m[2]);};
+ for(const [bid,b] of Object.entries(B.boxes)){if(!b.must)continue;const m=b.must;boxes++;
+  assert.ok(m.scope&&m.drop&&Array.isArray(m.lines),'must 꼴: '+bid);assert.ok(m.lines.length>=3&&m.lines.length<=8,'must 3~8줄: '+bid+' '+m.lines.length);
+  for(const t of [m.scope,m.drop,...m.lines.map(l=>l.text)])assert.ok(!/[\u00b7\u318d\u30fb]/.test(t)&&!/카드|문항|변형/.test(noTech(t)),'must 금지 글자: '+bid+' '+t.slice(0,30));
+  for(const l of m.lines){lines++;assert.ok(l.text&&l.src.length,'must 줄마다 문장과 출처: '+bid);for(const id of l.src){assert.ok(has(id),'must 출처가 실제 기출: '+bid+' '+id);assert.equal(B.apply[id]?.box,bid,'must 출처는 이 상자에 대입된 기출: '+bid+' '+id);}}}
+ for(let i=1;i<=21;i++){const id='sec-is'+String(i).padStart(2,'0');assert.ok(B.boxes[id].must,'정보보호론 must: '+id);}
+ console.log('PASS basics(반드시 외울 것 v432): '+boxes+'상자 '+lines+'줄, 줄마다 그 상자의 9급 기출 출처');}

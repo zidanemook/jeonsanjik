@@ -1663,6 +1663,7 @@ function renderConceptPart(x,body){
  body.append(conceptListBtn(u));
  body.append(elem('p',u.short+' — '+(inUnit.findIndex(y=>y.id===x.id)+1)+'/'+inUnit.length+(conceptRead(x.id)?', 읽음':''),'status'));
  if(u.subject==='정보보호론')body.append(gichulNote());
+ {const first=inUnit[0]?.id===x.id,mb=mustBlock(box,{open:first,again:!first});if(mb)body.append(mb);}
  if(x.part&&u.parts[0]===x.part&&m.intro?.length){const s=conceptSection('이 장 들어가기',box,new Set(m.intro),'concept-intro');s.d.open=true;body.append(s.d);}
  const own=x.part?m.parts?.[x.id]?.own||[]:m.rest||[],also=x.part?m.parts?.[x.id]?.also||[]:[];
  const main=conceptSection(x.title,box,new Set(own));main.d.open=true;main.d.dataset.rule=m.box;
@@ -1673,6 +1674,19 @@ function renderConceptPart(x,body){
 }
 // 파트 화면 위: 목록(기록을 쌓지 않고 목록으로 바꾼다).
 function gichulNote(){return elem('p','노란 줄은 9급 기출에 나온 내용이에요. 숫자는 나온 문제 수.','b-gichul-note');}
+// '반드시 외울 것'(v432, 사용자 2026-11-07 "기출은 어디서 나왔다. 그래서 이건 반드시 외워야 한다"): 상자 칸 must = {scope, lines:[{text, src:[기출 id]}], drop}.
+// 과목과 상관없이 must가 있는 상자면 그린다. 기초 개념 공부는 단원 첫 파트에서 펼치고 나머지 파트는 닫아 둔다(요약 글을 달리 해 같은 화면 다시 그리기의 펼침 기억이 넘어오지 않게). 해설 화면은 이 문제가 근거인 줄이 있으면 펼치고 그 줄을 노랗게.
+const MUST_EXAM={national9:'국가',local9:'지방',local9extra:'지방 추가'};
+function mustSrcLabel(id){const m=String(id).match(/^gichul-([a-z0-9]+)-(\d{4})[a-z]?-[a-z]+-(\d+)$/);return m?m[2]+' '+(MUST_EXAM[m[1]]||m[1])+' '+(+m[3]):String(id);}
+function mustBlock(box,{open=false,hit='',again=false}={}){
+ const m=box&&box.must;if(!m||!Array.isArray(m.lines)||!m.lines.length)return null;
+ const d=elem('details',undefined,'b-must');d.open=open;d.append(elem('summary',(again?'이 장 반드시 외울 것 '+m.lines.length+'줄 다시 보기':'반드시 외울 것 '+m.lines.length+'줄 (기출 근거)')));
+ if(m.scope)d.append(basicsLines(m.scope,'b-must-scope'));
+ const ol=elem('ol',undefined,'b-must-lines');
+ for(const l of m.lines){const li=elem('li');li.append(...basicsInline(l.text));const src=[...(l.src||[])].sort((a,b)=>mustSrcLabel(b).localeCompare(mustSrcLabel(a))),shown=src.slice(0,4).map(mustSrcLabel);
+  li.append(elem('small','기출 '+src.length+': '+shown.join(', ')+(src.length>4?' 외 '+(src.length-4):''),'b-must-src'));if(hit&&src.includes(hit))li.classList.add('b-gichul');ol.append(li);}
+ d.append(ol);if(m.drop)d.append(basicsLines(m.drop,'b-must-drop'));return d;
+}
 function conceptListBtn(u){return btn('목록',()=>go('concepts',u.subject,true),'secondary concept-list');}
 // 파트 화면 아래: 이전 / 읽음(누를 때마다 켜고 끔, 화면 그대로) / 다음(읽음 표시 없이 넘김, 마지막이면 목록으로) / 이 파트 문제 풀기.
 // 넘기기는 기록을 쌓지 않는다(뒤로 가면 과목 화면이나 목록). 넘긴 파트는 이어 읽기 자리로 적는다(v391 사용자: "읽은 버튼과 다음 넘어가는 버튼으로").
@@ -1703,9 +1717,9 @@ function renderBasics(){
  body.append(elem('p',wx?u.short+' — '+(inUnit.findIndex(y=>y.id===wx.id)+1)+'/'+inUnit.length+(conceptRead(wx.id)?', 읽음':''):u.short+': 이 파트 문제를 풀 때 필요한 말, 표, 규칙, 비교 예문을 한 화면에 모았어요. 정리 '+rules.length+'개.','status'));
  if(u.subject==='정보보호론')body.append(gichulNote());
  const shown=new Set();
- for(const r of rules){const b=BASICS.box(r),again=seenBefore.has(r),d=basicsDetails((again?'앞 파트에서 본 정리: ':'')+b.title,b,null,'skip',new Set(shown));
+ for(const r of rules){const b=BASICS.box(r),again=seenBefore.has(r),mb=mustBlock(b,{open:!again}),d=basicsDetails((again?'앞 파트에서 본 정리: ':'')+b.title,b,null,'skip',new Set(shown));
   for(const x of [...b.terms,...b.rules.items,b.table,...(b.tables||[])])if(x&&basicsShared(x,r,p.id))shown.add(JSON.stringify(x));
-  d.open=!again;d.dataset.rule=r;body.append(d);}
+  d.open=!again;d.dataset.rule=r;if(mb)body.append(mb);body.append(d);}
  if(wx){conceptNav(wx,body);timerShow('b:'+basicsPart,basicsLimit(body));return;}
  body.append(btn('이 파트 문제 풀기',()=>openScope({subject:u.subject,topic:'',round:'part-'+p.id},false,p.id),'primary basics-solve'));
  timerShow('b:'+basicsPart,basicsLimit(body));
@@ -1722,7 +1736,7 @@ function renderFeedback(root,card,quiz,lesson,label,after){
  const main=elem('details',undefined,'lesson explanation-main');main.append(elem('summary','해설 보기'));const byChoice=Practice.explainByChoice(quiz);if(byChoice)main.append(choiceExplanations(quiz,byChoice,f.selectedIndex));else{if(quiz.marks)main.append(markedList(quiz));main.append(...explanationParts(quiz.explanation||card.explanation||''));}attachExplanationCredit(main,reviewId,'feedback');root.append(main);
  appendNewPaperExplanation(root,card.id,quiz.explanation||card.explanation,reviewId,'feedback-supplement');
  const basicsRule=lesson?lesson.ruleId:basicsRuleFor(card.id),basicsBox=basicsRule&&BASICS.box(basicsRule);
- if(basicsBox){const key=card.id+'|'+(reviewId||''),details=basicsDetails('기초 개념',basicsBox,BASICS.forQuestion(card.id),'fold',null,PARTS.partOf(card.id));details.open=basicsOpened.has(key);details.addEventListener('toggle',()=>{if(details.open)basicsOpened.add(key);else basicsOpened.delete(key);});attachExplanationCredit(details,reviewId,'basics');root.append(details);}
+ if(basicsBox){{const hit=basicsBox.must?.lines?.some(l=>(l.src||[]).includes(card.id)),mb=mustBlock(basicsBox,{open:!!hit,hit:card.id});if(mb)root.append(mb);}const key=card.id+'|'+(reviewId||''),details=basicsDetails('기초 개념',basicsBox,BASICS.forQuestion(card.id),'fold',null,PARTS.partOf(card.id));details.open=basicsOpened.has(key);details.addEventListener('toggle',()=>{if(details.open)basicsOpened.add(key);else basicsOpened.delete(key);});attachExplanationCredit(details,reviewId,'basics');root.append(details);}
  else if(lesson){root.append(elem('p',lesson.hook,'hook'));const details=elem('details',undefined,'lesson');details.append(elem('summary','규칙과 비교 예문 더 보기'),...ruleLines(lesson.rule,'rule-line'));for(const example of lesson.examples)details.append(...ruleLines(example,'example'));attachExplanationCredit(details,reviewId,'lesson');root.append(details);}
  const recap=elem('details',undefined,'lesson recap');recap.append(elem('summary','문제 다시 보기'),label,...questionNodes(quiz.question));appendPaper(recap,Hanneung.get(card.id));
  if(quiz.type==='choice'&&quiz.choiceImages)appendPhotoChoices(recap,quiz,null,f.selectedIndex);

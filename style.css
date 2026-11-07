@@ -572,3 +572,12 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-term.b-gichul{padding:2px 6px 2px 8px;margin-bottom:0}
 .b-gichul-n{display:inline-block;margin-left:6px;padding:0 6px;border-radius:999px;background:#f0b429;color:#1a1a1a;font-size:12px;font-weight:700;line-height:18px;vertical-align:middle;white-space:nowrap}
 .b-gichul-note{color:#f0b429;font-size:14px}
+/* v432 반드시 외울 것: 기출 근거 줄만, 범위 한 줄 + 외울 문장 + 출처 + 버릴 것. */
+.b-must{margin:12px 0;padding:10px 12px;border:1px solid #f0b429;border-radius:12px;background:#1d1a10}
+.b-must>summary{cursor:pointer;font-weight:700;color:#f0b429;min-height:32px}
+.b-must-scope{margin:6px 0;color:#d8dee8;font-size:15px}
+.b-must-lines{margin:6px 0;padding-left:22px}
+.b-must-lines li{margin:7px 0;line-height:1.55;overflow-wrap:anywhere}
+.b-must-lines li.b-gichul{padding:2px 6px}
+.b-must-src{display:block;color:#a9b2bf;font-size:12px;margin-top:1px}
+.b-must-drop{margin:8px 0 2px;color:#a9b2bf;font-size:14px}
