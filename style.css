@@ -132,6 +132,7 @@ body:not([data-view="home"]) .sync-line { display:none; }
 .range-heading { margin:26px 0 0; font-size:17px; color:#d4e5ff; }
 .quiz-bar { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px; }
 .quiz-bar .back { margin:0; flex:0 0 auto; }
+.back.up { margin-left:6px; }
 /* 이름표가 남는 자리를 먹어서 뒤따르는 조작부(대기열 모드, 전부 풀기)가 늘 오른쪽에 붙는다. */
 #scopeLabel { color:#d1d7e0; font-size:15px; overflow-wrap:anywhere; margin-right:auto; }
 .queue-mode { margin:0; flex:0 0 auto; }

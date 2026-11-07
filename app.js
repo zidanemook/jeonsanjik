@@ -933,7 +933,10 @@ function render(){if(updater&&updater.safePoint())return;contentWait=false;
 const VIEWS=['home','subject','range','quiz','progress','memorize','parts','basics','concepts'];
 let view='home',viewSubject='';
 function go(name,subject=viewSubject,replace=false){closeBadgeInfo();view=name;viewSubject=subject;const depth=(history.state?.depth||0)+(replace?0:1);try{history[replace?'replaceState':'pushState']({view:name,subject,depth,...(name==='basics'?{part:basicsPart,from:basicsFrom}:{})},'');}catch{}notify('');render();window.scrollTo(0,0);}
-function goBack(){if(history.state?.depth>0){history.back();return;}const parent=view==='basics'?(basicsFrom==='concepts'?'concepts':'parts'):view==='quiz'||view==='range'||view==='parts'||view==='concepts'?'subject':'home';go(parent,view==='quiz'?scopeOf().subject:viewSubject,true);}
+function upView(){return view==='basics'?(basicsFrom==='concepts'?'concepts':'parts'):view==='quiz'||view==='range'||view==='parts'||view==='concepts'?'subject':'home';}
+// v435 '↑ 상위'(11/7 사용자 "뒤로 버튼 옆에 상위버튼 추가"): 지나온 길(history)과 상관없이 바로 위 화면으로.
+function goUp(){go(upView(),view==='quiz'?scopeOf().subject:viewSubject,true);}
+function goBack(){if(history.state?.depth>0){history.back();return;}goUp();}
 try{history.replaceState({view:'home',subject:'',depth:0},'');}catch{}
 window.addEventListener('popstate',e=>{closeBadgeInfo();view=VIEWS.includes(e.state?.view)?e.state.view:'home';viewSubject=e.state?.subject||'';if(e.state?.part)basicsPart=e.state.part;if(e.state?.from)basicsFrom=e.state.from;notify('');render();window.scrollTo(0,0);});
 function subjectsList(){return [...new Set(data.cards.filter(isPlayable).map(c=>c.subject))];}
@@ -1862,6 +1865,7 @@ $('#openParts').onclick=()=>go('parts');
 $('#openConcepts').onclick=()=>go('concepts');
 for(const b of document.querySelectorAll('[data-back]'))b.onclick=goBack;
 $('#quizBack').onclick=goBack;
+for(const b of document.querySelectorAll('[data-back],#quizBack')){const u=document.createElement('button');u.type='button';u.className='back up';u.textContent='↑ 상위';u.onclick=goUp;b.after(u);}
 $('#studyTimeMore').onclick=()=>{creditHistoryLimit+=30;renderStudyCredit();};
 $('#subjectGoalSave').onclick=()=>{const v=Number($('#subjectGoalInput').value);if(!Number.isInteger(v)||v<1||v>500){notify('하루 목표는 1~500 사이의 숫자로 적어 주세요.');return;}setSubjectGoal(viewSubject,v);};
 $('#subjectGoalClear').onclick=()=>setSubjectGoal(viewSubject,null);

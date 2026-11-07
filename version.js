@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v434-must-memorize-com';
+globalThis.APP_BUILD='chagog-v435-up-button';
