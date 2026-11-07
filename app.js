@@ -376,8 +376,10 @@ function paperAdvance(){if(paperCursor)paperCursor={...paperCursor,index:paperCu
 function paperJump(index){if(!paperCursor)return;paperCursor={...paperCursor,index};sessionDirty=true;render();window.scrollTo(0,0);}
 function paperNumber(card,i){const m=paperRoundScope(scopeOf())?/-(\d+)$/.exec(card.id):null;return (m?Number(m[1]):i+1)+'번';}
 function paperNav(chosen,at){
- const box=elem('div',undefined,'paper-nav'),prev=btn('← 이전',()=>paperJump(at-1)),skip=btn('건너뛰기 →',()=>paperJump(at+1)),pick=elem('select');
- prev.disabled=at<=0;skip.disabled=at>=chosen.length-1;
+ // v433: 파트 마지막 문제에서는 건너뛰기가 꺼져 있어 다음 단원으로 못 갔다(11/7 사용자) → 마지막 문제면 다음 기초 개념으로 간다(안 푼 문제가 남아도, never-dead-end).
+ const last=at>=chosen.length-1,nx=last?conceptNextOf(scopeOf()):null;
+ const box=elem('div',undefined,'paper-nav'),prev=btn('← 이전',()=>paperJump(at-1)),skip=nx?btn('다음 개념으로 →',()=>conceptOpen(nx),'paper-skip-next'):btn('건너뛰기 →',()=>paperJump(at+1)),pick=elem('select');
+ prev.disabled=at<=0;skip.disabled=last&&!nx;
  // v405: ← →도 이 두 단추와 같은 일을 한다(누를 수 없으면 키도 아무것도 안 한다).
  keyAct.prev=prev.disabled?null:prev.onclick;keyAct.next=skip.disabled?null:skip.onclick;
  // 큰 범위(과목 전체 등 수천 문제)는 option을 문제마다 다시 그리지 않고 번호 칸 하나로 받는다.
@@ -992,10 +994,13 @@ let keyAct={},kbdSeen=false,kbdLast=false,kbdFocused='';
 // 다음 개념으로(SPEC 2절): 기초 개념이 있는 파트를 다 풀면(안 푼 문제 0) 다음 파트의 기초 개념을 여는 단추 하나(이어 읽기와 같은 conceptItems 차례). 다른 범위를 열면 지운다(openScope).
 // v417: 기초 개념에서 들어왔는지(conceptSolve)는 메모리에만 있어 범위 목록으로 열거나 새로 고치면 단추가 사라졌다(10/31 사용자 "다음 기본개념 넘어가는 버튼이 사라졌네") → 들어온 길과 상관없이 파트로 판단.
 let conceptSolve='';
+function conceptNextOf(scope){
+ const id=String(scope.round||'').startsWith('part-')?scope.round.slice(5):'';if(!id)return null;
+ const x=conceptItem(id),xs=x?conceptItems(x.unit.subject):[];return x?xs[xs.findIndex(y=>y.id===x.id)+1]||null:null;}
 function conceptNextBtn(scope,chosen){
  const id=String(scope.round||'').startsWith('part-')?scope.round.slice(5):'';
  if(!id||!chosen.length)return null;const {seen}=historyStats();if(chosen.some(c=>!seen.has(c.id)))return null;
- const x=conceptItem(id),xs=x?conceptItems(x.unit.subject):[],next=x?xs[xs.findIndex(y=>y.id===x.id)+1]:null;
+ const next=conceptNextOf(scope);
  return next?btn('다음 개념으로: '+next.title,()=>conceptOpen(next),'primary concept-after'):null;}
 function keyHints(){const q=$('#quizKeys'),w=$('#writingKeys');if(q)q.hidden=!kbdSeen;if(w)w.hidden=!kbdSeen||!keyAct.cards;}
 function renderView(){

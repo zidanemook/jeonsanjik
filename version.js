@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v432-must-memorize';
+globalThis.APP_BUILD='chagog-v433-part-end-skip';

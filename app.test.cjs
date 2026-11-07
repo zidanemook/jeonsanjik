@@ -618,12 +618,18 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  run("go('home','',true)");run("history.replaceState({view:'home',subject:'',depth:0},'')");assert.equal(press('Escape'),false,'첫 화면에서 Esc는 아무것도 안 한다');
  // v417 같은 파트를 범위로 열어도(기초 개념에서 온 것이 아님, 새로 고친 뒤 포함) 다 풀었으면 단추가 있다(10/31 사용자 "버튼이 사라졌네").
  run("openScope({subject:'"+S+"',topic:'',round:'part-"+A.id+"'})");assert.equal(run('conceptSolve'),'');
- for(let k=0;k<200&&run('!!data.activePractice');k++)if(!press('ArrowRight'))run('paperJump(paperCursor.index+1)');
+ for(let k=0;k<200&&run('!!data.activePractice')&&run('view')==='quiz';k++)if(!press('ArrowRight'))run('paperJump(paperCursor.index+1)');
+ // v433 파트 마지막 문제의 건너뛰기(→)는 꺼지지 않고 다음 기초 개념으로 간다(11/7 사용자 "마지막 문제서 건너뛰기 하면 다음 단원으로").
+ assert.equal(run('view'),'basics','마지막 문제에서 → = 다음 개념으로');assert.equal(run('basicsPart'),A.next);
+ run("openScope({subject:'"+S+"',topic:'',round:'part-"+A.id+"'})");run('paperJump(99999)');
  assert.ok(screen().includes('이 범위를 끝까지 풀었어요'));{const g=by('#card','concept-after');assert.equal(g.length,1,'범위로 연 파트도 다 풀면 다음 개념으로');assert.equal(g[0]._text,'다음 개념으로: '+A.nextTitle);}
  // 기초 개념에서 들어왔어도 건너뛴 문제가 남으면 단추 대신 '안 푼 첫 문제로'(Enter도 그것).
  run("conceptOpen(conceptItem("+JSON.stringify(B.id)+"))");by('#basicsBody','basics-solve')[0].onclick();assert.equal(run('conceptSolve'),B.id);
  {const q=run('data.activePractice.exercise');if(q.type==='choice')press(String(q.correctIndex+1));else run('answerPractice(data.activePractice.cardId,'+JSON.stringify(q.answers?.[0])+')');press('Enter');}
- for(let k=0;k<200&&run('!!data.activePractice');k++)if(!press('ArrowRight'))run('paperJump(paperCursor.index+1)');
+ for(let k=0;k<200&&run('!!data.activePractice')&&run('view')==='quiz';k++)if(!press('ArrowRight'))run('paperJump(paperCursor.index+1)');
+ // v433 안 푼 문제가 남아도 마지막 문제의 →는 다음 기초 개념(막지 않음). 끝 화면은 번호를 넘겨 확인.
+ assert.equal(run('view'),'basics','안 푼 문제가 남아도 마지막 → = 다음 개념');
+ run("openScope({subject:'"+S+"',topic:'',round:'part-"+B.id+"'})");run('conceptSolve='+JSON.stringify(B.id));run('paperJump(99999)');
  assert.ok(screen().includes('마지막 번호까지 왔어요'),'건너뛴 문제가 남은 끝 화면: '+screen().slice(0,60));assert.equal(by('#card','concept-after').length,0,'안 푼 문제가 남으면 다음 개념으로가 없다');
  assert.equal(press('Enter'),true);assert.equal(at(),1,'Enter = 안 푼 첫 문제로');}
 // v422 이어하기 = 가장 최근에 본 위치 하나(11/2 사용자 설계). ① 본 기초 개념 ② 보고 답 안 한 문제 ③ 답했으면 다음 번호 ④ 파트 마지막 번호를 답했으면 다음 기초 개념.
