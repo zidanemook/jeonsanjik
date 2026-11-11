@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v442-why-ko2';
+globalThis.APP_BUILD='chagog-v443-why-sec-rest';
