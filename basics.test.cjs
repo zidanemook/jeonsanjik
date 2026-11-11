@@ -9,6 +9,15 @@ const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),asse
 const bank=require('./practice-bank.js');
 const bctx={};vm.createContext(bctx);vm.runInContext(fs.readFileSync(__dirname+'/basics.js','utf8'),bctx,{filename:'basics.js'});
 const B=bctx.STUDY_BASICS;assert.ok(B&&B.boxes&&B.apply,'basics.js가 STUDY_BASICS를 내놓는다');
+// 초보자 설명은 기존 줄 id를 대체하지 않는 별도 데이터다.
+for(const id of ['sq06-1','sq06-2']){
+ const lesson=B.box('sec-is06').lessons?.[id];assert.ok(lesson,id+' 차근차근 설명');
+ assert.ok(lesson.steps.length>=6&&lesson.steps.length<=10,id+' 단계 수');
+ for(const step of lesson.steps){assert.ok(typeof step.h==='string'&&step.h.trim(),id+' 단계 제목');assert.ok(typeof step.text==='string'&&step.text.trim(),id+' 단계 본문');}
+ assert.ok(lesson.recap.length>=5&&lesson.recap.length<=8,id+' 정리표');
+ assert.ok(lesson.recap.every(row=>row.length===2&&row.every(cell=>typeof cell==='string'&&cell.trim())),id+' 외울 것 / 왜 두 열');
+ assert.ok(!/[\u00b7↔]|카드|문항/.test(JSON.stringify(lesson)),id+' 표기 규칙');
+}
 const logic=Object.keys(bank).filter(id=>/^ko-logic\d/.test(id));
 const byChapter=n=>logic.filter(id=>id.startsWith('ko-logic'+n+'-')).length;
 assert.deepEqual([1,2,3,4,5,6].map(byChapter),[31,179,181,147,128,329],'논리 1~6장 문제 수');

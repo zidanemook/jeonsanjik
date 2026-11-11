@@ -1665,6 +1665,11 @@ function basicsPick(box,ids,out,head){
  return T.length+R.length+X.length+(box.tables||[]).reduce((n,t)=>n+t.rows.filter((r,i)=>ids.has(t.rowIds?.[i])).length+(t.key&&ids.has(t.key.id)?1:0),0);
 }
 function conceptSection(title,box,ids,cls){const d=elem('details',undefined,'lesson basics'+(cls?' '+cls:''));d.append(elem('summary',title));let n=0;const out=[];withHits(box,()=>basicsPick(box,ids,out,t=>out.push(elem('h4',(++n)+'. '+t,'b-h'))));d.append(...out);return {d,n:out.length};}
+function conceptLesson(lesson){
+ const d=elem('details',undefined,'lesson basics b-steps');d.open=true;d.append(elem('summary','차근차근 설명'));
+ for(const step of lesson.steps){d.append(elem('h4',step.h,'b-h'));for(const text of step.text.split('\n'))if(text.trim())d.append(basicsLines(text,'b-step-text'));if(step.fig)d.append(elem('pre',step.fig,'b-fig'));}
+ d.append(elem('h4','외울 것과 그 까닭','b-h'),basicsHistTable({head:['외울 것','왜'],rows:lesson.recap}));return d;
+}
 function renderConceptPart(x,body){
  const u=x.unit,m=conceptUnitMap(u.id),box=BASICS.box(m.box),inUnit=conceptItems(u.subject).filter(y=>y.unit===u);
  $('#basicsTitle').textContent='기초 개념: '+x.title;
@@ -1674,7 +1679,8 @@ function renderConceptPart(x,body){
  {const first=inUnit[0]?.id===x.id,mb=mustBlock(box,{open:first,again:!first});if(mb)body.append(mb);}
  if(x.part&&u.parts[0]===x.part&&m.intro?.length){const s=conceptSection('이 장 들어가기',box,new Set(m.intro),'concept-intro');s.d.open=true;body.append(s.d);}
  const own=x.part?m.parts?.[x.id]?.own||[]:m.rest||[],also=x.part?m.parts?.[x.id]?.also||[]:[];
- const main=conceptSection(x.title,box,new Set(own));main.d.open=true;main.d.dataset.rule=m.box;
+ const lesson=box.lessons?.[x.id];if(lesson)body.append(conceptLesson(lesson));
+ const main=conceptSection(lesson?'요약 정리: '+x.title:x.title,box,new Set(own));main.d.open=!lesson;main.d.dataset.rule=m.box;
  if(!main.n)main.d.append(elem('p','이 파트만의 새 개념은 없어요. 아래 앞 파트에서 본 개념을 다시 확인해요.','status'));
  body.append(main.d);
  if(also.length){const s=conceptSection('앞 파트에서 본 개념 '+also.length+'줄 다시 보기',box,new Set(also),'b-more concept-also');body.append(s.d);}

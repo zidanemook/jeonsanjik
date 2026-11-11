@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v435-up-button';
+globalThis.APP_BUILD='chagog-v436-beginner-lessons';

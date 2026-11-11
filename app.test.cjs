@@ -677,5 +677,25 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  assert.equal(src.length,run("BASICS.box('sec-is04').must.lines.length"),'줄마다 출처');assert.ok(src.every(t=>/^기출 \d+: \d{4} (국가|지방|지방 추가) \d+/.test(t)),'출처 꼴: '+src[0]);
  assert.ok(all.some(n=>has(n,'b-must-scope'))&&all.some(n=>has(n,'b-must-drop')),'범위와 버릴 것');
  run('openBasics('+JSON.stringify(xs[1])+')');b=blocks();assert.equal(b.length,1);assert.equal(b[0].open,false,'다음 파트는 닫힘');run("go('home')");}
+// v436: 두 파트만 설명을 먼저 펼치고 기존 요약을 접는다.
+{
+ const has=(n,c)=>String(n.className||'').split(' ').includes(c)||n.classes.has(c);
+ for(const pid of ['sq06-1','sq06-2']){
+  run('openBasics('+JSON.stringify(pid)+')');
+  const body=nodes.get('#basicsBody'),details=body.children.filter(n=>n.tag==='details');
+  const lesson=details.find(n=>has(n,'b-steps')),summary=details.find(n=>n.children[0]?._text.startsWith('요약 정리: '));
+  assert.ok(lesson&&lesson.open,pid+' 설명은 펼침');assert.equal(lesson.children[0]._text,'차근차근 설명');
+  assert.ok(summary&&!summary.open,pid+' 요약은 접힘');assert.ok(details.indexOf(lesson)<details.indexOf(summary),'설명이 요약보다 먼저');
+  assert.ok(details.indexOf(lesson)>details.findIndex(n=>has(n,'b-must')),'반드시 외울 것 다음');
+  assert.equal(lesson.children.filter(n=>n.tag==='h4').length,9,'8단계와 정리표 제목');
+  assert.ok(lesson.all.some(n=>n.tag==='b'),'굵게 강조');assert.ok(lesson.all.some(n=>n.tag==='pre'&&has(n,'b-fig')),'흐름 그림');
+  const table=lesson.all.find(n=>n.tag==='table');assert.deepEqual(table.children[0].children.map(n=>n.children[0]._text),['외울 것','왜']);
+ }
+ run("openBasics('sq06-3')");const details=nodes.get('#basicsBody').children.filter(n=>n.tag==='details');
+ assert.ok(!details.some(n=>has(n,'b-steps')),'다른 파트에 설명 없음');
+ const main=details.find(n=>has(n,'basics'));assert.ok(main.open&&!main.children[0]._text.startsWith('요약 정리: '),'기존 파트는 제목과 펼침 유지');
+ const feedback=run("basicsDetails('기초 개념',BASICS.box('sec-is06'),null,'skip')");
+ assert.ok(!feedback.all.some(n=>has(n,'b-steps')),'해설의 기초 개념에는 추가하지 않음');run("go('home')");
+}
 console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject counts read "안 푼 문제 M/N" and range rows "전체 N문제, 첫 시도 …" with no 문항/카드 wording, every range runs in number order from the first unsolved question ('+normal+'/'+total+') with 이전, 건너뛰기, 번호 고르기, 파트 고르기, records stay normal, no same-day interval inflation; 대기열 모드, 외운 문제, 틀렸던 문제만, 더 풀기 옵션은 숨김; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});
