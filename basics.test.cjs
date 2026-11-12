@@ -9,6 +9,13 @@ const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),asse
 const bank=require('./practice-bank.js');
 const bctx={};vm.createContext(bctx);vm.runInContext(fs.readFileSync(__dirname+'/basics.js','utf8'),bctx,{filename:'basics.js'});
 const B=bctx.STUDY_BASICS;assert.ok(B&&B.boxes&&B.apply,'basics.js가 STUDY_BASICS를 내놓는다');
+// v453: 논리 1장 4상자의 읽기 4개 + 질문 10개, 기존 용어를 포함한 고정 수.
+const WHY_KO1=[['logic-ch1-argument',10,3],['logic-ch1-concept',7,2],['logic-ch1-deduction',8,3],['logic-ch1-induction',7,2]];
+for(const [id,total,questions]of WHY_KO1){const terms=B.box(id).terms;
+ assert.equal(terms.length,total,id+' 읽기와 질문 추가 후 용어 수');
+ assert.equal(terms[0].id,'tw1',id+' 읽기가 맨 앞');
+ assert.deepEqual(Array.from(terms.slice(1,questions+1),t=>t.id),Array.from({length:questions},(_,i)=>'twq'+(i+1)),id+' 질문은 읽기 바로 뒤');
+}
 // v450: 논리 4~6장 13상자의 읽기 13개 + 질문 29개, 기존 용어를 포함한 고정 수.
 const WHY_KO456=[['logic-ch4-inference',8,2],['logic-ch4-predicate',8,2],['logic-ch4-symbol',8,2],['logic-ch5-causal',7,3],['logic-ch5-induction',9,3],['logic-ch6-concept',8,2],['logic-ch6-formal',8,2],['logic-ch6-linguistic',9,2],['logic-ch6-material1',13,2],['logic-ch6-material2',13,3],['logic-ch6-psych',12,2],['logic-ch6-sort',7,2],['logic-ch6-syllogism',7,2]];
 for(const [id,total,questions]of WHY_KO456){const terms=B.box(id).terms;
