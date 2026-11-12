@@ -16,6 +16,13 @@ for(const [id,total,questions]of WHY_KR2){const terms=B.box(id).terms;
  assert.equal(terms[0].id,'tw1',id+' 읽기가 맨 앞');
  assert.deepEqual(Array.from(terms.slice(1,questions+1),t=>t.id),Array.from({length:questions},(_,i)=>'twq'+(i+1)),id+' 질문은 읽기 바로 뒤');
 }
+// v460: 독해 3장 11상자의 읽기 11개 + 질문 22개, 기존 용어를 포함한 고정 수.
+const WHY_KR3=[['reading-read3-contrast',8,2],['reading-read3-dialogue',10,2],['reading-read3-inference-form',8,2],['reading-read3-inference',8,2],['reading-read3-main-idea',8,2],['reading-read3-match',10,2],['reading-read3-omitted',8,2],['reading-read3-order',8,2],['reading-read3-outline',10,2],['reading-read3-revision',9,2],['reading-read3-strengthen',9,2]];
+for(const [id,total,questions]of WHY_KR3){const terms=B.box(id).terms;
+ assert.equal(terms.length,total,id+' 읽기와 질문 추가 후 용어 수');
+ assert.equal(terms[0].id,'tw1',id+' 읽기가 맨 앞');
+ assert.deepEqual(Array.from(terms.slice(1,questions+1),t=>t.id),Array.from({length:questions},(_,i)=>'twq'+(i+1)),id+' 질문은 읽기 바로 뒤');
+}
 // v453: 논리 1장 4상자의 읽기 4개 + 질문 10개, 기존 용어를 포함한 고정 수.
 const WHY_KO1=[['logic-ch1-argument',10,3],['logic-ch1-concept',7,2],['logic-ch1-deduction',8,3],['logic-ch1-induction',7,2]];
 for(const [id,total,questions]of WHY_KO1){const terms=B.box(id).terms;
