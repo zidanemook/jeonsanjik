@@ -9,6 +9,13 @@ const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),asse
 const bank=require('./practice-bank.js');
 const bctx={};vm.createContext(bctx);vm.runInContext(fs.readFileSync(__dirname+'/basics.js','utf8'),bctx,{filename:'basics.js'});
 const B=bctx.STUDY_BASICS;assert.ok(B&&B.boxes&&B.apply,'basics.js가 STUDY_BASICS를 내놓는다');
+// v457: 독해 2장 3상자의 읽기 3개 + 질문 6개, 기존 용어를 포함한 고정 수.
+const WHY_KR2=[['reading-read2-evaluation',8,2],['reading-read2-confirm',8,2],['reading-read2-strengthen',8,2]];
+for(const [id,total,questions]of WHY_KR2){const terms=B.box(id).terms;
+ assert.equal(terms.length,total,id+' 읽기와 질문 추가 후 용어 수');
+ assert.equal(terms[0].id,'tw1',id+' 읽기가 맨 앞');
+ assert.deepEqual(Array.from(terms.slice(1,questions+1),t=>t.id),Array.from({length:questions},(_,i)=>'twq'+(i+1)),id+' 질문은 읽기 바로 뒤');
+}
 // v453: 논리 1장 4상자의 읽기 4개 + 질문 10개, 기존 용어를 포함한 고정 수.
 const WHY_KO1=[['logic-ch1-argument',10,3],['logic-ch1-concept',7,2],['logic-ch1-deduction',8,3],['logic-ch1-induction',7,2]];
 for(const [id,total,questions]of WHY_KO1){const terms=B.box(id).terms;
