@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v481-cg18-why';
+globalThis.APP_BUILD='chagog-v482-cg19-why';
