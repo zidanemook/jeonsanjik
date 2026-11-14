@@ -678,6 +678,19 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  assert.equal(src.length,run("BASICS.box('sec-is04').must.lines.length"),'줄마다 출처');assert.ok(src.every(t=>/^기출 \d+: \d{4} (국가|지방|지방 추가) \d+/.test(t)),'출처 꼴: '+src[0]);
  assert.ok(all.some(n=>has(n,'b-must-scope'))&&all.some(n=>has(n,'b-must-drop')),'범위와 버릴 것');
  run('openBasics('+JSON.stringify(xs[1])+')');b=blocks();assert.equal(b.length,1);assert.equal(b[0].open,false,'다음 파트는 닫힘');run("go('home')");}
+// 고리는 본문 바로 아래, 출처 앞에 표시하며 고리가 없는 줄은 빈 요소를 만들지 않는다.
+{
+ const block=run("mustBlock(BASICS.box('sec-is05'))"),list=block.children.find(n=>n.tag==='ol');
+ const lines=run("BASICS.box('sec-is05').must.lines");
+ assert.equal(list.children.length,lines.length);
+ for(const [i,li]of list.children.entries()){
+  const hooks=li.children.filter(n=>n.className==='b-must-hook');
+  assert.equal(hooks.length,lines[i].hook?1:0,'고리 유무: '+i);
+  if(hooks.length){assert.equal(hooks[0].textContent,'고리: '+lines[i].hook);assert.equal(li.children.at(-2),hooks[0]);assert.equal(li.children.at(-1).className,'b-must-src');}
+ }
+ const literal=run("mustBlock({must:{lines:[{text:'본문',hook:'<b>고리</b>',src:[]}]}})");
+ assert.equal(literal.children[1].children[0].children[1].textContent,'고리: <b>고리</b>','고리는 HTML이 아닌 문자열로 표시');
+}
 // v436: 두 파트만 설명을 먼저 펼치고 기존 요약을 접는다.
 {
  const has=(n,c)=>String(n.className||'').split(' ').includes(c)||n.classes.has(c);

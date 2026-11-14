@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v491-wrong-guessed';
+globalThis.APP_BUILD='chagog-v492-must-hooks';

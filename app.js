@@ -1700,7 +1700,7 @@ function mustBlock(box,{open=false,hit='',again=false}={}){
  const d=elem('details',undefined,'b-must');d.open=open;d.append(elem('summary',(again?'이 장 반드시 외울 것 '+m.lines.length+'줄 다시 보기':'반드시 외울 것 '+m.lines.length+'줄 (기출 근거)')));
  if(m.scope)d.append(basicsLines(m.scope,'b-must-scope'));
  const ol=elem('ol',undefined,'b-must-lines');
- for(const l of m.lines){const li=elem('li');li.append(...basicsInline(l.text));const src=[...(l.src||[])].sort((a,b)=>mustSrcLabel(b).localeCompare(mustSrcLabel(a))),shown=src.slice(0,4).map(mustSrcLabel);
+ for(const l of m.lines){const li=elem('li');li.append(...basicsInline(l.text));if(l.hook)li.append(elem('small','고리: '+l.hook,'b-must-hook'));const src=[...(l.src||[])].sort((a,b)=>mustSrcLabel(b).localeCompare(mustSrcLabel(a))),shown=src.slice(0,4).map(mustSrcLabel);
   li.append(elem('small','기출 '+src.length+': '+shown.join(', ')+(src.length>4?' 외 '+(src.length-4):''),'b-must-src'));if(hit&&src.includes(hit))li.classList.add('b-gichul');ol.append(li);}
  d.append(ol);if(m.drop)d.append(basicsLines(m.drop,'b-must-drop'));return d;
 }

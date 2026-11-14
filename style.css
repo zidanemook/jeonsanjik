@@ -586,6 +586,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-must-lines li{margin:7px 0;line-height:1.55;overflow-wrap:anywhere}
 .b-must-lines li.b-gichul{padding:2px 6px}
 .b-must-src{display:block;color:#a9b2bf;font-size:12px;margin-top:1px}
+.b-must-hook{display:block;color:#79d9bb;font-size:12px;margin-top:1px}
 .b-must-drop{margin:8px 0 2px;color:#a9b2bf;font-size:14px}
 
 .guess-toggle { min-height:40px; padding:8px 12px; font-size:14px; }
