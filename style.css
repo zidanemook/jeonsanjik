@@ -587,3 +587,6 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-must-lines li.b-gichul{padding:2px 6px}
 .b-must-src{display:block;color:#a9b2bf;font-size:12px;margin-top:1px}
 .b-must-drop{margin:8px 0 2px;color:#a9b2bf;font-size:14px}
+
+.guess-toggle { min-height:40px; padding:8px 12px; font-size:14px; }
+.guess-toggle[aria-pressed="true"] { border-color:#789ac4; background:#344963; font-weight:700; }

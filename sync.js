@@ -70,6 +70,21 @@
    if(!later){void sendMemo();return;}
    memoTimer=later(()=>{memoTimer=null;void sendMemo();},3000);
   }
+  const withGuesses=typeof store.guesses==='function'&&typeof store.mergeGuesses==='function';
+  const guessRank=r=>r.at*2+(r.guess?0:1);
+  let knownGuesses=new Map(),guessesReady=false,guessesSending=false,unsubscribeGuesses=null;
+  async function pushGuesses(){
+   if(!withGuesses||!guessesReady||guessesSending||!uid||closed)return;const token=generation,user=uid;guessesSending=true;
+   try{for(;;){const rows=store.guesses().map(ProgressSync.guess).filter(r=>guessRank(r)>(knownGuesses.get(r.cardId)||0));if(!rows.length)return;for(const row of rows){if(token!==generation||closed)return;await db.collection('users').doc(user).collection('guessMarks').doc(row.cardId).set(row);if(token===generation)knownGuesses.set(row.cardId,Math.max(knownGuesses.get(row.cardId)||0,guessRank(row)));}}}catch{}finally{guessesSending=false;}
+  }
+  function subscribeGuesses(token){
+   if(!withGuesses||!uid)return;unsubscribeGuesses?.();
+   unsubscribeGuesses=db.collection('users').doc(uid).collection('guessMarks').onSnapshot({includeMetadataChanges:true},snapshot=>{
+    if(token!==generation)return;try{const rows=snapshot.docs.map(d=>{const row=ProgressSync.guess(d.data());if(row.cardId!==d.id)throw Error('Mismatched guess');return row;});merging=true;try{store.mergeGuesses(rows);}finally{merging=false;}
+     if(snapshot.metadata.fromCache||snapshot.metadata.hasPendingWrites)return;knownGuesses=new Map(rows.map(r=>[r.cardId,guessRank(r)]));guessesReady=true;void pushGuesses();
+    }catch{guessesReady=false;}
+   },()=>{guessesReady=false;});
+  }
   // `at` advances on every stamp, so an unchanged position is recognised by its body alone.
   function positionOf(row){const {at,...rest}=row;return JSON.stringify(rest);}
   function sessionDue(){
@@ -162,6 +177,7 @@
     async submit(){await (state.filed?gate.reask(user.uid):gate.submit(user));if(token===generation)say(FILED);}});
   }
   async function account(user){
+   unsubscribeGuesses?.();unsubscribeGuesses=null;guessesReady=false;knownGuesses=new Map();
    unsubscribeMemo?.();unsubscribeMemo=null;memoReady=false;knownMemo=0;cancel(memoTimer);memoTimer=null;
    const token=++generation;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribeNotes?.();unsubscribe=null;unsubscribeViews=null;unsubscribeSession=null;unsubscribeNotes=null;knownNotes=new Set();refusedNotes=new Set();notesReady=false;notesLive=false;notesWait=0;cancel(sessionCooldown);sessionCooldown=null;sessionPending=false;sentPosition='';knownSession=0;sessionReady=false;ready=false;reviewsReady=false;viewsReady=!withViews;known=new Set();knownViews=new Map();uid=null;
    access?.reset();
@@ -208,16 +224,16 @@
       knownMemo=Math.max(knownMemo,row?.at||0);memoReady=true;pushMemo();
      }catch{memoReady=false;}
     },()=>{memoReady=false;});
-    subscribeNotes(token);
+    subscribeNotes(token);subscribeGuesses(token);
    }catch(e){if(token===generation)say('연결 대기 중. 기록은 이 기기에 저장돼요.');}
   }
   const stopAuth=auth.onAuthStateChanged(user=>{void account(user);});
-  const saved=()=>{if(!merging){void flush();void pushSession();void flushNotes();pushMemo();}},retry=()=>{if(!ready)void account(auth.currentUser);else{void flush();void pushSession();void flushNotes();pushMemo();if(withNotes&&!notesLive&&++notesWait>=10)subscribeNotes(generation);}};
+  const saved=()=>{if(!merging){void flush();void pushSession();void flushNotes();pushMemo();void pushGuesses();}},retry=()=>{if(!ready)void account(auth.currentUser);else{void flush();void pushSession();void flushNotes();pushMemo();void pushGuesses();if(withGuesses&&!guessesReady)subscribeGuesses(generation);if(withNotes&&!notesLive&&++notesWait>=10)subscribeNotes(generation);}};
   const hidden=()=>{if(!root.document||root.document.visibilityState!=='visible')flushSession();};
   root.addEventListener('study-progress-saved',saved);root.addEventListener('online',retry);
   root.addEventListener('visibilitychange',hidden);root.addEventListener('pagehide',flushSession);
   const timer=setInterval(()=>{if(root.navigator.onLine)retry();},60000);
-  return {flush,retry,close(){closed=true;generation++;unsubscribeMemo?.();cancel(memoTimer);memoTimer=null;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribeNotes?.();stopAuth();clearInterval(timer);cancel(sessionCooldown);sessionCooldown=null;root.removeEventListener('study-progress-saved',saved);root.removeEventListener('online',retry);root.removeEventListener('visibilitychange',hidden);root.removeEventListener('pagehide',flushSession);}};
+  return {flush,retry,close(){closed=true;generation++;unsubscribeGuesses?.();unsubscribeMemo?.();cancel(memoTimer);memoTimer=null;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribeNotes?.();stopAuth();clearInterval(timer);cancel(sessionCooldown);sessionCooldown=null;root.removeEventListener('study-progress-saved',saved);root.removeEventListener('online',retry);root.removeEventListener('visibilitychange',hidden);root.removeEventListener('pagehide',flushSession);}};
  }
  root.ProgressCloud={connect};
  // Screen wiring for the approval flow. Everything starts hidden: an approved account that is

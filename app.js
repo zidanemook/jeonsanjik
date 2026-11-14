@@ -38,6 +38,7 @@ function foldIn(base,other){
  const ids=new Set(base.cards.map(c=>c.id));let next={...base,cards:[...base.cards,...other.cards.filter(c=>!ids.has(c.id))]};
  next=ProgressSync.merge(next,other.history);
  const hint=new Map(other.history.filter(h=>h.ex!==undefined).map(h=>[h.id,h]));for(const h of next.history){if(h.detail===undefined&&h.ex===undefined){const o=hint.get(h.id);if(o){h.ex=o.ex;h.cid=o.cid;}}}
+ next.guessMarks=ProgressSync.unionGuesses(base.guessMarks||[],other.guessMarks||[]);
  next.explanationViews=StudyCredit.unionExplanations(next.explanationViews||[],other.explanationViews||[]);
  next.notes=ProgressSync.unionNotes(cleanNotes(next.notes),cleanNotes(other.notes));
  return next;
@@ -98,7 +99,7 @@ function saveAlert(){const box=$('#saveAlert');if(box)box.hidden=!saveFailing;}
 // 아직 IndexedDB에 못 쓴 풀이(사본째), 그 무렵의 해설 열람, 의견을 localStorage에 넘겨 둔다. 다음에 열 때 foldIn으로 합친다.
 function writeSpill(key){
  try{const since=lastConfirmedAt-60000,rows=fullRows(data.history.filter(h=>pendingDetails.has(h.id)),pendingDetails);
-  localStorage.setItem(SPILL+key,JSON.stringify({version:3,cards:[],history:rows,explanationViews:(data.explanationViews||[]).filter(v=>v.openedAt>=since||pendingDetails.has(v.id)),notes:cleanNotes(data.notes).filter(n=>n.at>=since)}));spillKey=key;}catch{}
+  localStorage.setItem(SPILL+key,JSON.stringify({version:3,cards:[],history:rows,guessMarks:data.guessMarks||[],explanationViews:(data.explanationViews||[]).filter(v=>v.openedAt>=since||pendingDetails.has(v.id)),notes:cleanNotes(data.notes).filter(n=>n.at>=since)}));spillKey=key;}catch{}
 }
 function saveFailed(key){
  if(idb)writeSpill(key);
@@ -155,7 +156,7 @@ function validDay(s){if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(s))retu
 function validateContent(c){if(!c||typeof c!=='object'||['subject','question','answer'].some(k=>typeof c[k]!=='string'||!c[k].trim())||['explanation','source'].some(k=>c[k]!==undefined&&typeof c[k]!=='string'))throw Error('과목, 질문, 정답과 텍스트 형식을 확인하세요.');}
 // 의견은 학습 기록이 아니다. 형식이 맞지 않는 의견 하나 때문에 기록 불러오기(=저장 전체)가 멈추지 않도록 막지 않고 걸러낸다.
 function cleanNotes(list){const out=[];if(Array.isArray(list))for(const n of list){try{out.push(ProgressSync.note(n));}catch{}}return out;}
-function validateBackup(v){if(v?.explanationViews!==undefined){if(!Array.isArray(v.explanationViews))throw Error('Invalid explanation records');StudyCredit.unionExplanations([],v.explanationViews);}if(![1,2,3].includes(v?.version)||!Array.isArray(v.cards)||!Array.isArray(v.history))throw Error('지원하지 않는 백업입니다.');const ids=new Set();for(const c of v.cards){if(v.version!==3||c.question!==undefined)validateContent(c);if(typeof c.id!=='string'||ids.has(c.id)||!validDay(c.created)||!(c.due===null||validDay(c.due))||(v.version===1?(!Number.isInteger(c.stage)||c.stage<0||c.stage>4):(!Number.isFinite(c.ease)||c.ease<1.3||c.ease>3||!Number.isInteger(c.interval)||c.interval<0||c.interval>365||!Number.isInteger(c.streak)||c.streak<0||c.due===null)))throw Error('문제 일정 또는 ID가 올바르지 않습니다.');if(c.retryAt!==undefined&&!Number.isFinite(Date.parse(c.retryAt)))throw Error('잘못된 재학습 시간');if(c.pendingAttempt!==undefined&&(!['remember','partial','none'].includes(c.pendingAttempt.recall)||!validDay(c.pendingAttempt.date)||!Number.isFinite(Date.parse(c.pendingAttempt.at))||typeof c.pendingAttempt.delayedFirst!=='boolean'))throw Error('잘못된 회상 기록');ids.add(c.id);}for(const h of v.history){if(typeof h.id!=='string'||typeof h.cardId!=='string'||!validDay(h.date)||!['correct','unsure','wrong'].includes(h.result))throw Error('복습 기록이 올바르지 않습니다.');}if(v.quizFeedback!==undefined&&(!v.quizFeedback||typeof v.quizFeedback.cardId!=='string'||!Number.isInteger(v.quizFeedback.selectedIndex)||!['correct','wrong','unsure'].includes(v.quizFeedback.result)))throw Error('퀴즈 피드백이 올바르지 않습니다.');if(v.queueMode!==undefined&&!queueModeList().some(([m])=>m===v.queueMode))throw Error('대기열 모드가 올바르지 않습니다.');if(v.queueModes!==undefined&&(!v.queueModes||typeof v.queueModes!=='object'||Array.isArray(v.queueModes)||Object.entries(v.queueModes).some(([k,m])=>typeof k!=='string'||k.length>40||!queueModeList().some(([x])=>x===m))))throw Error('과목별 대기열 모드가 올바르지 않습니다.');if(v.targetExam!==undefined&&JSON.stringify(ExamScore.target(v.targetExam))!==JSON.stringify(v.targetExam))throw Error('목표 점수가 올바르지 않습니다.');if(v.dailyGoals!==undefined&&(!v.dailyGoals||typeof v.dailyGoals!=='object'||Array.isArray(v.dailyGoals)||Object.entries(v.dailyGoals).some(([k,g])=>typeof k!=='string'||k.length>40||!Number.isInteger(g)||g<1||g>500)))throw Error('과목별 하루 목표가 올바르지 않습니다.');if(v.includeMastered!==undefined&&v.includeMastered!==true)throw Error('외운 문제 옵션이 올바르지 않습니다.');if(v.openLectures!==undefined&&(!Array.isArray(v.openLectures)||v.openLectures.length>200||v.openLectures.some(x=>typeof x!=='string'||!x||x.length>60)))throw Error('이 강 문제 더 풀기 설정이 올바르지 않습니다.');if(v.scheduleVersion!==undefined&&!Number.isInteger(v.scheduleVersion))throw Error('일정 버전이 올바르지 않습니다.');if(v.dailyGoal!==undefined&&!(Number.isInteger(v.dailyGoal)&&v.dailyGoal>=1&&v.dailyGoal<=500))throw Error('하루 목표가 올바르지 않습니다.');}
+function validateBackup(v){if(v?.guessMarks!==undefined){if(!Array.isArray(v.guessMarks))throw Error('Invalid guess marks');ProgressSync.unionGuesses([],v.guessMarks);}if(v?.explanationViews!==undefined){if(!Array.isArray(v.explanationViews))throw Error('Invalid explanation records');StudyCredit.unionExplanations([],v.explanationViews);}if(![1,2,3].includes(v?.version)||!Array.isArray(v.cards)||!Array.isArray(v.history))throw Error('지원하지 않는 백업입니다.');const ids=new Set();for(const c of v.cards){if(v.version!==3||c.question!==undefined)validateContent(c);if(typeof c.id!=='string'||ids.has(c.id)||!validDay(c.created)||!(c.due===null||validDay(c.due))||(v.version===1?(!Number.isInteger(c.stage)||c.stage<0||c.stage>4):(!Number.isFinite(c.ease)||c.ease<1.3||c.ease>3||!Number.isInteger(c.interval)||c.interval<0||c.interval>365||!Number.isInteger(c.streak)||c.streak<0||c.due===null)))throw Error('문제 일정 또는 ID가 올바르지 않습니다.');if(c.retryAt!==undefined&&!Number.isFinite(Date.parse(c.retryAt)))throw Error('잘못된 재학습 시간');if(c.pendingAttempt!==undefined&&(!['remember','partial','none'].includes(c.pendingAttempt.recall)||!validDay(c.pendingAttempt.date)||!Number.isFinite(Date.parse(c.pendingAttempt.at))||typeof c.pendingAttempt.delayedFirst!=='boolean'))throw Error('잘못된 회상 기록');ids.add(c.id);}for(const h of v.history){if(typeof h.id!=='string'||typeof h.cardId!=='string'||!validDay(h.date)||!['correct','unsure','wrong'].includes(h.result))throw Error('복습 기록이 올바르지 않습니다.');}if(v.quizFeedback!==undefined&&(!v.quizFeedback||typeof v.quizFeedback.cardId!=='string'||!Number.isInteger(v.quizFeedback.selectedIndex)||!['correct','wrong','unsure'].includes(v.quizFeedback.result)))throw Error('퀴즈 피드백이 올바르지 않습니다.');if(v.queueMode!==undefined&&!queueModeList().some(([m])=>m===v.queueMode))throw Error('대기열 모드가 올바르지 않습니다.');if(v.queueModes!==undefined&&(!v.queueModes||typeof v.queueModes!=='object'||Array.isArray(v.queueModes)||Object.entries(v.queueModes).some(([k,m])=>typeof k!=='string'||k.length>40||!queueModeList().some(([x])=>x===m))))throw Error('과목별 대기열 모드가 올바르지 않습니다.');if(v.targetExam!==undefined&&JSON.stringify(ExamScore.target(v.targetExam))!==JSON.stringify(v.targetExam))throw Error('목표 점수가 올바르지 않습니다.');if(v.dailyGoals!==undefined&&(!v.dailyGoals||typeof v.dailyGoals!=='object'||Array.isArray(v.dailyGoals)||Object.entries(v.dailyGoals).some(([k,g])=>typeof k!=='string'||k.length>40||!Number.isInteger(g)||g<1||g>500)))throw Error('과목별 하루 목표가 올바르지 않습니다.');if(v.includeMastered!==undefined&&v.includeMastered!==true)throw Error('외운 문제 옵션이 올바르지 않습니다.');if(v.openLectures!==undefined&&(!Array.isArray(v.openLectures)||v.openLectures.length>200||v.openLectures.some(x=>typeof x!=='string'||!x||x.length>60)))throw Error('이 강 문제 더 풀기 설정이 올바르지 않습니다.');if(v.scheduleVersion!==undefined&&!Number.isInteger(v.scheduleVersion))throw Error('일정 버전이 올바르지 않습니다.');if(v.dailyGoal!==undefined&&!(Number.isInteger(v.dailyGoal)&&v.dailyGoal>=1&&v.dailyGoal<=500))throw Error('하루 목표가 올바르지 않습니다.');}
 function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.subject.trim(),question:c.question.trim(),answer:c.answer.trim(),explanation:c.explanation||'',source:c.source||'',verified:c.verified===true,created:day(),due:day(),ease:2.5,interval:0,streak:0};}
 // 공무원 기출은 회차 파일을 받기 전에도 풀 수 있는 카드다(색인에 있으면 된다). 보기는 그 회차의 문항을 처음 낼 때 받는다.
 function playableRaw(c){return !!c&&(Content.hasOptions(c.id)||!!Content.lesson(c.id)||Gichul.known(c.id));}
@@ -361,9 +362,11 @@ function setQueueMode(value){
 // v274: 위치는 푼 기록에서 찾는다. 이 회차에서 마지막으로 푼 문제의 다음 번호부터 이어진다(기록은 기기끼리 맞춰지므로 다른 기기에서 열어도 같다).
 // 마지막 번호까지 푼 회차를 다시 열면 1번부터다. 이어 풀기는 어제나 오늘 푼 기록만 본다(v276: 한 달 전에 1번만 풀어 둔 회차가 2번부터 열려 1번을 건너뛰었다). 번호를 골라 옮기면(paperJump) 새 답이 기록될 때까지 그 자리를 지킨다.
 let paperCursor=null;
-// 회차를 원문 순서로 풀 때 '틀렸던 문제만' 고르기(이 화면에서만, 저장하지 않는다). 한 번이라도 틀린 적이 있는 문제만 원문 순서로 낸다.
+// v491: 이 화면에서만 오답 이력과 찍음 표시를 합쳐 번호 순서로 거른다. 기본은 꺼짐.
 let paperWrongOnly=false;
 function everWrongIds(){const ids=new Set();for(const h of data.history)if(h.mode==='quiz'&&h.result==='wrong')ids.add(h.cardId);return ids;}
+function wrongOrGuessedIds(){const ids=everWrongIds();for(const row of data.guessMarks||[])if(row.guess)ids.add(row.cardId);return ids;}
+function toggleGuess(id){if(!data.cards.some(c=>c.id===id))return false;const rows=data.guessMarks||[],prev=rows.find(r=>r.cardId===id),row={cardId:id,guess:!prev?.guess,at:Math.max(Date.now(),(prev?.at||0)+1)};return commit({...data,guessMarks:ProgressSync.unionGuesses(rows,[row])});}
 function paperLast(list){const at=new Map(list.map((c,i)=>[c.id,i]));for(let i=data.history.length-1;i>=0;i--){const k=at.get(data.history[i].cardId);if(k!==undefined)return data.history[i].date>=plus(day(),-1)?{row:data.history[i].id,index:k}:null;}return null;}
 function paperIndex(scope,list){const last=paperLast(list),seen=last?last.row:'';if(!paperCursor||!sameScope(paperCursor.scope,scope)||paperCursor.seen!==seen){
   // v386: 회차가 아닌 범위는 안 푼 첫 문제부터(다 풀었으면 회차처럼 마지막 푼 다음, 없으면 1번).
@@ -1212,8 +1215,8 @@ function renderQuiz(){
  const scope=scopeOf(),playable=data.cards.filter(isPlayable),ordered=orderedScope(scope.round);
  $('#scopeLabel').textContent=scopeLabel(scope);renderScopeStatus(scope);
  const inside=playable.filter(c=>inScope(c,scope)),paperAll=catalogOrder(inside);
- // v386: '틀렸던 문제만' 고르기도 없앤다(옵션은 두지 않고 문제마다 전적만 보인다).
- const wrongIds=null,wrongN=wrongIds?paperAll.filter(c=>wrongIds.has(c.id)).length:0;if(!wrongN)paperWrongOnly=false;
+ // v491: 해당 범위에 오답 또는 찍음 표시가 있는 문제만 필터를 보인다.
+ const wrongIds=wrongOrGuessedIds(),wrongN=wrongIds?paperAll.filter(c=>wrongIds.has(c.id)).length:0;if(!wrongN)paperWrongOnly=false;
  const chosen=paperWrongOnly?paperAll.filter(c=>wrongIds.has(c.id)):paperAll;
  $('#paperWrongLabel').hidden=!wrongN;$('#paperWrong').checked=paperWrongOnly;$('#paperWrongCount').textContent=wrongN?'('+wrongN+'문제)':'';
  const sequential=sequentialScope(scope)&&chosen.length>0,at=sequential?paperIndex(scope,chosen):-1;
@@ -1236,7 +1239,7 @@ function renderQuiz(){
  modeSel.onchange=()=>setQueueMode(modeSel.value);
  const place=card?chosen.findIndex(c=>c.id===card.id)+1:chosen.length;
  const partLine=pr?partProgressLine(pr,feedback?.id):partMode&&chosen.length?'이 범위는 파트가 없어 기본 순서로 풀어요':'';
- $('#orderStatus').textContent=sequential?place+'/'+chosen.length+(paperWrongOnly?' (틀렸던 문제만, 원문 순서)':paperRoundScope(scope)?' (원문 순서 그대로)':' (번호 순서)'):partLine;$('#orderStatus').hidden=!sequential&&!partLine;
+ $('#orderStatus').textContent=sequential?place+'/'+chosen.length+(paperWrongOnly?' (틀렸거나 찍은 문제만, 원문 순서)':paperRoundScope(scope)?' (원문 순서 그대로)':' (번호 순서)'):partLine;$('#orderStatus').hidden=!sequential&&!partLine;
  const root=$('#card');root.replaceChildren();root.classList.toggle('paper-card',!!Hanneung.get(card?.id)&&!feedback);root.classList.toggle('gichul-card',!!Gichul.get(card?.id));root.classList.toggle('feedback-card',!!feedback);
  if(!card){
   if(sequentialScope(scope)&&chosen.length){
@@ -1249,7 +1252,7 @@ function renderQuiz(){
     if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
     return;
    }
-   root.append(elem('h2',paperWrongOnly?'틀렸던 문제를 끝까지 풀었어요':paperRoundScope(scope)?'이 회차를 끝까지 풀었어요':'이 범위를 끝까지 풀었어요'),elem('p',paperWrongOnly?scopeLabel(scope)+'에서 틀렸던 '+chosen.length+'문제를 원문 순서대로 모두 다시 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.':scopeLabel(scope)+' '+chosen.length+'문제를 1번부터 순서대로 모두 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.'));
+   root.append(elem('h2',paperWrongOnly?'틀렸거나 찍은 문제를 끝까지 풀었어요':paperRoundScope(scope)?'이 회차를 끝까지 풀었어요':'이 범위를 끝까지 풀었어요'),elem('p',paperWrongOnly?scopeLabel(scope)+'에서 틀렸거나 찍은 문제 '+chosen.length+'개를 원문 순서대로 모두 다시 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.':scopeLabel(scope)+' '+chosen.length+'문제를 1번부터 순서대로 모두 풀었어요. 채점 기록과 복습 일정은 평소대로 남았어요.'));
    {const nb=conceptNextBtn(scope,chosen);if(nb){keyAct.enter=nb.onclick;root.append(nb);}}
    root.append(btn('처음부터 다시 풀기',()=>{paperRestart();render();window.scrollTo(0,0);},keyAct.enter?'':'primary'));
    if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
@@ -1257,7 +1260,7 @@ function renderQuiz(){
   }
   if(pr?.done){renderPartSummary(root,scope,pr);return;}
   if(queueMode()==='wrong'&&chosen.length&&!waiting.length){
-   root.append(elem('h2','틀렸던 문제가 없어요'),elem('p',scopeLabel(scope)+'에서 아직 틀린 문제가 없어요. 기본 모드로 돌아가면 평소 순서대로 이어서 풀 수 있어요.'));
+   root.append(elem('h2','틀렸거나 찍은 문제가 없어요'),elem('p',scopeLabel(scope)+'에서 아직 틀렸거나 찍은 문제가 없어요. 기본 모드로 돌아가면 평소 순서대로 이어서 풀 수 있어요.'));
    root.append(btn('기본 모드로 돌아가기',()=>setQueueMode('default'),'primary'));
    if(scope.subject)root.append(btn('다른 범위 고르기',()=>go('range',scope.subject)));
    return;
@@ -1746,6 +1749,7 @@ function renderFeedback(root,card,quiz,lesson,label,after){
  banner.append(elem('strong',f.result==='correct'?'정답입니다':f.result==='unsure'?'정답이에요. 설명을 보고 풀어서 내일 다시 연습해요':'틀렸어요'));
  if(f.result==='wrong')banner.append(quiz.marks&&quiz.choices[f.selectedIndex]!==undefined?markedLine('내 답: ',quiz,f.selectedIndex):elem('p','내 답: '+(quiz.type==='text'?f.userAnswer:quiz.choices[f.selectedIndex]??'')));
  banner.append(quiz.marks?markedLine('정답: ',quiz,quiz.correctIndex):elem('p','정답: '+correct));root.append(banner);{const award=xpAwardNode(reviewId);if(award)root.append(award);}
+ const guessBtn=btn('찍었음',()=>{if(toggleGuess(card.id))paintGuess();},'secondary guess-toggle');guessBtn.id='guessToggle';function paintGuess(){guessBtn.setAttribute('aria-pressed',String(!!data.guessMarks?.find(r=>r.cardId===card.id)?.guess));const ids=wrongOrGuessedIds(),n=data.cards.filter(c=>isPlayable(c)&&inCurrent(c)&&ids.has(c.id)).length;$('#paperWrongLabel').hidden=!n;$('#paperWrongCount').textContent=n?'('+n+'문제)':'';}paintGuess();root.append(guessBtn);
  appendCorrection(root,quiz);
  const main=elem('details',undefined,'lesson explanation-main');main.append(elem('summary','해설 보기'));const byChoice=Practice.explainByChoice(quiz);if(byChoice)main.append(choiceExplanations(quiz,byChoice,f.selectedIndex));else{if(quiz.marks)main.append(markedList(quiz));main.append(...explanationParts(quiz.explanation||card.explanation||''));}attachExplanationCredit(main,reviewId,'feedback');root.append(main);
  appendNewPaperExplanation(root,card.id,quiz.explanation||card.explanation,reviewId,'feedback-supplement');
@@ -1802,7 +1806,7 @@ function answerPractice(id,input){
  const sequential=sequentialScope(scopeOf());
  // 회차에서는 대기열이 아니라 "지금 차례인 문항인가"만 본다.
  const pr=!sequential&&queueMode()==='parts'?partRound(scopeOf(),data.cards.filter(inCurrent)):null;
- if(sequential){const all=catalogOrder(data.cards.filter(inCurrent)),wrongIds=paperWrongOnly?everWrongIds():null,list=wrongIds?all.filter(c=>wrongIds.has(c.id)):all;if(list[paperIndex(scopeOf(),list)]?.id!==id){stale();return;}}
+ if(sequential){const all=catalogOrder(data.cards.filter(inCurrent)),wrongIds=paperWrongOnly?wrongOrGuessedIds():null,list=wrongIds?all.filter(c=>wrongIds.has(c.id)):all;if(list[paperIndex(scopeOf(),list)]?.id!==id){stale();return;}}
  // 파트별 점검: 지금 파트에서 낸 그 문제의 답만 받는다.
  else if(pr){if(pr.card?.id!==id){stale();return;}}
  // 같은 개념 간격으로 기다리던 문제는 화면이 앞당겨 보여 줄 수 있다. 그사이 다른 문제의 간격이 먼저 끝나도 보여 준 문제의 답은 받는다.
@@ -1926,6 +1930,8 @@ function begin(){
 let sessionWait=0;
 globalThis.StudyProgress={
  get:()=>structuredClone(data),
+ guesses:()=>structuredClone(data.guessMarks||[]),
+ mergeGuesses(rows){const guessMarks=ProgressSync.unionGuesses(data.guessMarks||[],rows);if(JSON.stringify(guessMarks)!==JSON.stringify(data.guessMarks||[])){if(!commit({...data,guessMarks}))throw Error('Local save failed');render();}},
  merge(rows){const next=ProgressSync.merge(data,rows);if(idb)next.history=slimRows(next.history);if(JSON.stringify(next)!==JSON.stringify(data)){if(!commit(next))throw Error('Local save failed');render();}},
  // 올릴 풀이 문서에 사본을 붙인다(IndexedDB 방식의 메모리 줄에는 사본이 없다). 읽기가 실패하면 던진다 — 사본 없이 올리면 서버 문서를 다시는 못 고친다.
  async withDetails(events){

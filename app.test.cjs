@@ -444,7 +444,7 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  run("go('home','')");
 }
 // v386 번호 순서(사용자 2026-10-18 "옵션도 많고… 사용자에게 맡기고 전적만"): 회차가 아닌 범위도 번호 순서로, 안 푼 첫 문제부터 낸다.
-// 대기열 모드, 외운 문제도 풀기, 틀렸던 문제만, 더 풀기 옵션은 화면에서 사라졌다. 건너뛰기, 이전, 번호 고르기는 자리만 옮긴다.
+// 대기열 모드, 외운 문제도 풀기, 더 풀기 옵션은 숨기고 오답/찍음 필터만 보인다. 건너뛰기, 이전, 번호 고르기는 자리만 옮긴다.
 {
  run("openScope({subject:'영어',topic:'Day 2'})");
  const inside=Array.from(run("catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).map(c=>c.id)"));
@@ -457,7 +457,8 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  assert.equal(run('data.activePractice.cardId'),inside[2],'회차가 아닌 범위는 안 푼 첫 문제(3번)부터');
  assert.equal(nodes.get('#orderStatus')._text,'3/'+inside.length+' (번호 순서)','진행 줄: 범위 안 차례');
  assert.equal(run("countLine(data.cards.filter(c=>isPlayable(c)&&inCurrent(c)))"),'안 푼 문제 '+(inside.length-3)+'/'+inside.length,'안 푼 문제 수는 기록이 한 번도 없는 문제');
- for(const sel of ['#queueModeLabel','#masteredLabel','#paperWrongLabel','#moreLabel'])assert.equal(nodes.get(sel).hidden,true,sel+'는 숨김(고를 수 없음)');
+ for(const sel of ['#queueModeLabel','#masteredLabel','#moreLabel'])assert.equal(nodes.get(sel).hidden,true,sel+'는 숨김(고를 수 없음)');
+ assert.equal(nodes.get('#paperWrongLabel').hidden,false,'오답이 있는 범위는 필터 표시');assert.equal(run('paperWrongOnly'),false,'기본 필터 꺼짐');
  const nav=()=>nodes.get('#card').all.find(n=>n.className==='paper-nav'),rowsBefore=run('data.history.length');
  assert.ok(nav(),'회차가 아닌 범위에도 번호 이동 줄이 있다');
  {const [prevB,pick,skipB]=nav().children;assert.equal(prevB._text,'← 이전');assert.equal(skipB._text,'건너뛰기 →');assert.equal(pick.children.length,inside.length);assert.equal(pick.children[0]._text,'1번','번호는 범위 안 차례');assert.equal(pick.value,'2');
@@ -697,5 +698,32 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  const feedback=run("basicsDetails('기초 개념',BASICS.box('sec-is06'),null,'skip')");
  assert.ok(!feedback.all.some(n=>has(n,'b-steps')),'해설의 기초 개념에는 추가하지 않음');run("go('home')");
 }
-console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject counts read "안 푼 문제 M/N" and range rows "전체 N문제, 첫 시도 …" with no 문항/카드 wording, every range runs in number order from the first unsolved question ('+normal+'/'+total+') with 이전, 건너뛰기, 번호 고르기, 파트 고르기, records stay normal, no same-day interval inflation; 대기열 모드, 외운 문제, 틀렸던 문제만, 더 풀기 옵션은 숨김; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
+// v491: guessed correct answers remain eligible, toggles do not change learning records.
+{
+ run("openScope({subject:'영어',topic:'Day 2'})");
+ run("paperWrongOnly=false;paperRestart();render()");
+ const id=run('data.activePractice.cardId'),quiz=run('data.activePractice.exercise');
+ run('answerPractice('+JSON.stringify(id)+','+JSON.stringify(quiz.type==='choice'?quiz.correctIndex:quiz.answers[0])+')');
+ const before=run('JSON.stringify({cards:data.cards,history:data.history,session:data.session,views:data.explanationViews})');
+ const toggle=()=>nodes.get('#card').all.find(n=>n.id==='guessToggle');
+ assert.equal(toggle()._text,'찍었음');assert.equal(toggle().attrs['aria-pressed'],'false');toggle().onclick();
+ assert.equal(toggle().attrs['aria-pressed'],'true');assert.ok(run('wrongOrGuessedIds().has('+JSON.stringify(id)+')'));
+ assert.equal(run('JSON.stringify({cards:data.cards,history:data.history,session:data.session,views:data.explanationViews})'),before,'표시는 일정, 점수 원본, 이어하기 불변');
+ assert.equal(run('readLegacy(localStorage.getItem(KEY),KEY,false).guessMarks.find(r=>r.cardId==='+JSON.stringify(id)+').guess'),true,'저장 후 불러와도 유지');
+ assert.equal(run('foldIn({...data,guessMarks:[]},data).guessMarks.find(r=>r.cardId==='+JSON.stringify(id)+').guess'),true,'저장소 병합 보존');
+ toggle().onclick();assert.equal(toggle().attrs['aria-pressed'],'false');
+ const chosen=Array.from(run('catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).slice(0,2).map(c=>c.id)'));
+ run('data.history=[];data.guessMarks=[];toggleGuess('+JSON.stringify(chosen[1])+');render()');
+ assert.equal(nodes.get('#paperWrongCount')._text,'(1문제)');
+ nodes.get('#paperWrong').onchange({target:{checked:true}});
+ assert.equal(run('data.activePractice.cardId'),chosen[1],'찍은 문제만 필터 순서');
+ const q=run('data.activePractice.exercise');run('answerPractice('+JSON.stringify(chosen[1])+','+JSON.stringify(q.type==='choice'?q.correctIndex:q.answers[0])+')');
+ assert.equal(run('data.quizFeedback.result'),'correct','같은 합집합으로 stale 없이 채점');
+ assert.ok(run('wrongOrGuessedIds().has('+JSON.stringify(chosen[1])+')'),'나중에 맞혀도 찍음 유지');
+ run('toggleGuess('+JSON.stringify(chosen[1])+');paperWrongOnly=false;render()');
+ assert.equal(nodes.get('#paperWrongLabel').hidden,true,'범위에 대상 0개면 숨김');
+ run('data.history.push({mode:"quiz",result:"wrong",cardId:'+JSON.stringify(chosen[0])+'});data.history.push({mode:"quiz",result:"correct",cardId:'+JSON.stringify(chosen[0])+'})');
+ assert.ok(run('wrongOrGuessedIds().has('+JSON.stringify(chosen[0])+')'),'이후 정답이어도 과거 오답 유지');
+}
+console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject counts read "안 푼 문제 M/N" and range rows "전체 N문제, 첫 시도 …" with no 문항/카드 wording, every range runs in number order from the first unsolved question ('+normal+'/'+total+') with 이전, 건너뛰기, 번호 고르기, 파트 고르기, records stay normal, no same-day interval inflation; 대기열 모드, 외운 문제, 더 풀기 옵션은 숨김, v491 오답/찍음 필터와 토글 검증; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});

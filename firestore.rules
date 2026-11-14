@@ -138,6 +138,21 @@ service cloud.firestore {
       allow update: if owner(uid) && request.resource.data == resource.data;
       allow delete: if false;
     }
+    // Independent per-question guess marks, including explicit removals.
+    match /users/{uid}/guessMarks/{id} {
+      function validGuess(d) {
+        return d.keys().hasAll(['cardId','guess','at']) && d.keys().hasOnly(['cardId','guess','at'])
+          && d.cardId == id && id.matches('^[A-Za-z0-9_-]{1,160}$') && d.guess is bool
+          && d.at is int && d.at > 0 && d.at <= request.time.toMillis() + 300000;
+      }
+      allow read: if owner(uid);
+      allow create: if owner(uid) && validGuess(request.resource.data);
+      allow update: if owner(uid) && validGuess(request.resource.data)
+        && (request.resource.data.at > resource.data.at
+          || (request.resource.data.at == resource.data.at && request.resource.data.guess == false)
+          || request.resource.data == resource.data);
+      allow delete: if false;
+    }
     // One shared study position per owner: scope and the open question.
     match /users/{uid}/state/{id} {
       function optionalId(v) {

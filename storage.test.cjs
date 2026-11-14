@@ -135,7 +135,7 @@ const time=async(label,fn)=>{const t=Date.now(),v=await fn();return [v,Date.now(
  // ── 1. 조각 ──
  {const ctx={localStorage:makeLocal(),setTimeout:()=>0,clearTimeout(){},navigator:{}};const b=createBackend(),c=b.connect();ctx.indexedDB=c.indexedDB;ctx.IDBKeyRange=c.IDBKeyRange;vm.createContext(ctx);source('storage.js','new').runInContext(ctx);
   const S=ctx.StudyStorage,boot0=await S.ready;assert.equal(boot0.available,true);assert.equal(boot0.loaded,null);assert.equal(boot0.key,'chagog-v1');
-  const state={version:3,cards:Array.from({length:300},(_,i)=>({id:'c'+i,created:'2026-10-01',due:'2026-10-01',ease:2.5,interval:0,streak:0})),quizUiVersion:1,history:Array.from({length:130},(_,i)=>({id:'h'+i,cardId:'c'+(i%7),date:'2026-10-02',result:'correct',ex:'e'+i,cid:'g'})),notes:[{a:1}],explanationViews:[{id:'h1',openedAt:5}],session:{at:1}};
+  const state={version:3,cards:Array.from({length:300},(_,i)=>({id:'c'+i,created:'2026-10-01',due:'2026-10-01',ease:2.5,interval:0,streak:0})),quizUiVersion:1,guessMarks:[{cardId:'c1',guess:true,at:10},{cardId:'c2',guess:false,at:20}],history:Array.from({length:130},(_,i)=>({id:'h'+i,cardId:'c'+(i%7),date:'2026-10-02',result:'correct',ex:'e'+i,cid:'g'})),notes:[{a:1}],explanationViews:[{id:'h1',openedAt:5}],session:{at:1}};
   const p=S.handle('chagog-v1',null,null);await S.write(p,state,new Map([['h0',{q:'문제'}],['h1',{q:'둘'}]]),{});
   same(p.counts,{c:3,h:3,v:1});assert.equal(p.rev,1);
   const loaded=await S.read('chagog-v1'),asm=S.assemble(loaded);assert.equal(JSON.stringify(asm.state),JSON.stringify(state),'다시 붙이면 열쇠 순서까지 같다');

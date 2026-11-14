@@ -61,5 +61,8 @@
   const key=/^[A-Za-z0-9_:-]{1,120}$/;if(row.shown.some(k=>typeof k!=='string'||!key.test(k)))throw Error('Invalid memorize key');
   return {at:row.at,shown:[...new Set(row.shown)]};
  }
- const api={event,union,merge,session,note,unionNotes,memo};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ProgressSync=api;
+ // Guess marks are independent of review events; removals override older marks.
+ function guess(row){if(!row||typeof row.cardId!=='string'||!/^[\w-]{1,160}$/.test(row.cardId)||typeof row.guess!=='boolean'||!Number.isSafeInteger(row.at)||row.at<=0)throw Error('Invalid guess mark');return {cardId:row.cardId,guess:row.guess,at:row.at};}
+ function unionGuesses(local,remote){const map=new Map();for(const input of [...local,...remote]){const row=guess(input),prev=map.get(row.cardId);if(!prev||row.at>prev.at||(row.at===prev.at&&!row.guess))map.set(row.cardId,row);}return [...map.values()].sort((a,b)=>a.cardId.localeCompare(b.cardId));}
+ const api={event,union,merge,session,note,unionNotes,memo,guess,unionGuesses};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ProgressSync=api;
 })(globalThis);
