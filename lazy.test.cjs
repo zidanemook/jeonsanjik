@@ -70,7 +70,7 @@ const chunks=new Map(names.map(n=>[n,JSON.parse(read('chunks/'+n+'.json'))]));
  for(const [n,c]of chunks)for(const [rule,box]of Object.entries(c.boxes||{}))for(const x of box.mnemonics||[]){const b=mnemonics.get(x.id);if(b)same(J(c.mnemonics?.[x.id]),J(b),'암기법 블록은 그 상자와 같은 조각에: '+n+' '+x.id);}
  globalThis.__shared={checked,sharedCount};}
 // ---------------------------------------------------------------- 가짜 DOM에서 앱 돌리기(app.test.cjs와 같은 틀)
-const FULL=['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','concept-map.js','part-check.js','memorize.js','basics.js','core-units.js','gichul-hits.js','content-store.js','app.js'];
+const FULL=['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','word-order.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','concept-map.js','part-check.js','memorize.js','basics.js','core-units.js','gichul-hits.js','content-store.js','app.js'];
 const html=read('index.html'),LAZY=[...html.matchAll(/<script src="([^"?]+)\?v=\d+"><\/script>/g)].map(m=>m[1]).filter(f=>f!=='firebase-config.js'&&f!=='sync.js');
 const text=new Map();const source=f=>{if(!text.has(f))text.set(f,read(f));return text.get(f);};
 const flush=()=>new Promise(r=>setImmediate(r));
@@ -78,6 +78,7 @@ const T=Date.now(),tick=label=>{if(process.env.LAZY_TIMING)console.error(((Date.
 const RealDate=Date,DAY=86400000,T0=RealDate.parse('2026-10-08T03:00:00Z');
 function boot({lazy,saved,now=T0}){
  function el(tag='div'){const node={tag,children:[],attrs:{},dataset:{},classes:new Set(),_text:'',hidden:false,disabled:false,open:false,
+  get ownerDocument(){return doc;},
   get textContent(){return node._text;},set textContent(v){node._text=String(v);node.children=[];},
   append(...k){node.children.push(...k);},replaceChildren(...k){node.children=k;},
   classList:{add:c=>node.classes.add(c),remove:c=>node.classes.delete(c),toggle:(c,on)=>on?node.classes.add(c):node.classes.delete(c),contains:c=>node.classes.has(c)},
@@ -95,7 +96,7 @@ function boot({lazy,saved,now=T0}){
   crypto:{randomUUID:()=>'id-'+(inst.uuid.n++)},
   history:{state:{depth:0},pushState(s){this.state=s;},replaceState(s){this.state=s;}},
   navigator:{},setInterval:()=>1,clearInterval(){},clearTimeout(){},structuredClone,addEventListener(){},dispatchEvent(){},scrollTo(){},location:{reload(){inst.reloads++;}},
-  Date:FakeDate,JSON,Math,Set,Map,Number,String,Object,Array,Error,RegExp,Intl,Promise,TextDecoder,Uint8Array,Event:class{constructor(t){this.type=t;}}};
+  Date:FakeDate,JSON,Math:Object.assign(Object.create(Math),{random:()=>0.5}),Set,Map,Number,String,Object,Array,Error,RegExp,Intl,Promise,TextDecoder,Uint8Array,Event:class{constructor(t){this.type=t;}}};
  ctx.window=ctx;ctx.self=ctx;vm.createContext(ctx);
  ctx.fetch=(url,opts)=>{inst.net.log.push(url+(opts?.cache?' ['+opts.cache+']':''));
   if(inst.net.offline)return Promise.reject(new TypeError('Failed to fetch'));

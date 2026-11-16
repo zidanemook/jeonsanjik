@@ -5,6 +5,19 @@
   color: #fff;
   background: #111318;
 }
+.word-order { min-width:0; margin:20px 0 0; padding:14px; border:1px solid #535d6b; border-radius:12px; overflow:clip; }
+.word-order h3 { margin:0; font-size:18px; }
+.word-order p { font-size:15px; margin:10px 0; }
+.word-order-sentence { line-height:2.8; overflow-wrap:anywhere; }
+.word-order-tray { display:flex; flex-wrap:wrap; gap:8px; min-width:0; min-height:48px; margin:12px 0; }
+.word-order button { max-width:100%; min-width:0; padding:8px 10px; overflow-wrap:anywhere; }
+.word-order-word, .word-order-slot { touch-action:none; user-select:none; position:relative; }
+.word-order-slot { margin:2px; vertical-align:baseline; min-width:48px !important; border-style:dashed; }
+.word-order .is-dragging { z-index:2; pointer-events:none; border-color:#a9cfff; }
+.word-order.is-correct .word-order-slot { border-color:#82d6a4; background:#183b2b; }
+.word-order.is-correct .word-order-status { color:#82d6a4; }
+.word-order .word-order-slot.is-wrong { border-color:#ff9c9c; background:#49282e; }
+.word-order-status { min-height:26px; }
 .paper-image { margin:18px 0; }
 .paper-image img { display:block; width:100%; height:auto; background:#fff; border-radius:6px; }
 .paper-image a { display:block; }
