@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v493-word-order';
+globalThis.APP_BUILD='chagog-v494-quiz-title';

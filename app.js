@@ -1292,7 +1292,10 @@ function renderQuiz(){
  const quiz=feedback?(data.quizFeedback.exercise||{...QUIZ_OPTIONS[card.id],type:'choice',question:QUIZ_OPTIONS[card.id]?.question||card.question,explanation:card.explanation}):active.exercise;
  const lesson=PRACTICE_BANK[card.id],summary=STUDY_REVIEW_CATALOG.questions[card.id];
  const paperRow=Gichul.get(card.id);
- const label=elem('small',card.subject+' '+(lesson?.title||(paperRow?Gichul.title(paperRow):quiz.image?Hanneung.title(Hanneung.get(card.id))+(studyTopic(card.id)?', '+StudyTopics.title(studyTopic(card.id)):''):summary?StudyTopics.title(studyTopic(card.id))+' 복습 '+summary.number+'번, 자체 제작':'개념 복습'))+' ('+(quiz.type==='text'?'직접 쓰기':quiz.choiceImages?'사진 객관식':'객관식')+')');
+ const format=quiz.type==='text'?'직접 쓰기':quiz.choiceImages?'사진 객관식':'객관식';
+ const title=card.subject+' '+(lesson?.title||(paperRow?Gichul.title(paperRow):quiz.image?Hanneung.title(Hanneung.get(card.id))+(studyTopic(card.id)?', '+StudyTopics.title(studyTopic(card.id)):''):summary?StudyTopics.title(studyTopic(card.id))+' 복습 '+summary.number+'번, 자체 제작':'개념 복습'))+' ('+format+')';
+ // Keep the full title for question notes; hide grammar hints only before answering en-day questions.
+ const label=elem('small',!feedback&&card.id.startsWith('en-day')?card.subject+' ('+format+')':title);
  if(feedback){renderFeedback(root,card,quiz,lesson,label,conceptNextBtn(scope,chosen));const past=pastRecordLine(card.id,feedbackReviewId(data.quizFeedback));if(past&&label.isConnected)label.after(past);}
  else{
   timerShow('q:'+card.id,60);
@@ -1310,7 +1313,7 @@ function renderQuiz(){
    const submit=elem('button','채점하기','primary');submit.type='submit';form.append(hint,input,submit);form.onsubmit=e=>{e.preventDefault();answerPractice(card.id,input.value);};root.append(form);
   }
   if(sequential){root.append(paperNav(chosen,at));const pp=partPicker(scope,chosen);if(pp)root.append(pp);}
-  appendNoteBox(root,card,quiz,'question',label.textContent);
+  appendNoteBox(root,card,quiz,'question',title);
  }
  restoreExplanationPanels(opened);
  // 다음에 낼 문제들의 조각을 미리 받아 둔다(과목, 단원이 섞인 대기열에서 문제 사이에 '불러오는 중'이 보이지 않게). 실패는 남기지 않는다.

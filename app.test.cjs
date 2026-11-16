@@ -20,7 +20,7 @@ const ctx={document:doc,console,
  localStorage:{getItem:k=>store.has(k)?store.get(k):null,setItem:(k,v)=>store.set(k,String(v)),removeItem:k=>store.delete(k)},
  crypto:{randomUUID:()=>'id-'+(store.size+Math.random()).toString(16).replace('.','-')},
  history:{state:{depth:0},pushState(s){this.state=s;},replaceState(s){this.state=s;}},
- navigator:{},setInterval:()=>1,clearInterval(){},structuredClone,addEventListener(){},dispatchEvent(){},scrollTo(){},
+ navigator:{},setInterval:()=>1,clearInterval(){},clearTimeout(){},structuredClone,addEventListener(){},dispatchEvent(){},scrollTo(){},
  Date,JSON,Math,Set,Map,Number,String,Object,Array,Error,RegExp,Intl,Promise,Event:class{constructor(t){this.type=t;}}};
 ctx.window=ctx;ctx.self=ctx;
 vm.createContext(ctx);
@@ -738,6 +738,52 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  assert.equal(nodes.get('#paperWrongLabel').hidden,true,'범위에 대상 0개면 숨김');
  run('data.history.push({mode:"quiz",result:"wrong",cardId:'+JSON.stringify(chosen[0])+'});data.history.push({mode:"quiz",result:"correct",cardId:'+JSON.stringify(chosen[0])+'})');
  assert.ok(run('wrongOrGuessedIds().has('+JSON.stringify(chosen[0])+')'),'이후 정답이어도 과거 오답 유지');
+}
+// v494: en-day hides the rule title only before answering; notes retain the original full title.
+{
+ const header=()=>nodes.get('#card').all.find(n=>n.tag==='small')._text;
+ const saveOpinion=(id,stage,expected)=>{
+  nodes.get('#card').all.find(n=>n.className==='note-toggle').onclick();
+  run('data.noteDraft.text="제목 회귀 검사";render()');
+  nodes.get('#card').all.find(n=>n.tag==='button'&&n._text==='보내기').onclick();
+  const note=run('data.notes.at(-1)');
+  assert.equal(note.cardId,id);assert.equal(note.stage,stage);assert.equal(note.question,expected,'의견에는 숨기기 전 제목과 문제 원문 보존');
+ };
+ const cases=[
+  {subject:'영어',topic:'Day 1'},
+  {subject:'영어',topic:'Day 7',id:'en-day7-026',wrong:true},
+  {subject:'영어',topic:'Day 15'},
+  {subject:'영어',prefix:'en-formula-'},
+  {subject:'영어',round:'paper-'+englishPaper},
+  {subject:'한국사',round:'lecture-02'},
+  {subject:'컴퓨터일반'},
+  {subject:'정보보호론'},
+  {subject:'국어',topic:'논리 1장'}
+ ];
+ for(const {id:target,prefix,wrong,...scope} of cases){
+  run('paperWrongOnly=false;data.history=[];delete data.quizFeedback;delete data.activePractice;openScope('+JSON.stringify(scope)+')');
+  for(let i=0;i<8&&!run('data.activePractice');i++)await flush();
+  if(target||prefix){
+   const ids=Array.from(run('catalogOrder(data.cards.filter(c=>isPlayable(c)&&inCurrent(c))).map(c=>c.id)'));
+   const index=target?ids.indexOf(target):ids.findIndex(id=>id.startsWith(prefix));
+   assert.ok(index>=0,'제목 검사 대상: '+(target||prefix));run('paperJump('+index+')');
+  }
+  const id=run('data.activePractice.cardId'),quiz=run('data.activePractice.exercise');
+  const format=quiz.type==='text'?'직접 쓰기':quiz.choiceImages?'사진 객관식':'객관식';
+  const full=run(`(()=>{const card=data.cards.find(c=>c.id===${JSON.stringify(id)}),lesson=PRACTICE_BANK[card.id],paper=Gichul.get(card.id),summary=STUDY_REVIEW_CATALOG.questions[card.id];return card.subject+' '+(lesson?.title||(paper?Gichul.title(paper):summary?StudyTopics.title(studyTopic(card.id))+' 복습 '+summary.number+'번, 자체 제작':'개념 복습'))+' (${format})';})()`);
+  const hidden=id.startsWith('en-day');
+  assert.equal(header(),hidden?'영어 ('+format+')':full,'답변 전 제목: '+id);
+  if(hidden){
+   saveOpinion(id,'question',full+'\n'+quiz.question);
+   run('render()');assert.equal(header(),'영어 ('+format+')','다시 그려도 규칙 제목 숨김');
+  }
+  const answer=quiz.type==='choice'?(wrong?(quiz.correctIndex+1)%quiz.choices.length:quiz.correctIndex):quiz.answers[0];
+  run('answerPractice('+JSON.stringify(id)+','+JSON.stringify(answer)+')');
+  assert.equal(run('data.quizFeedback.result'),wrong?'wrong':'correct');
+  assert.ok(nodes.get('#card').all.some(n=>n.tag==='small'&&n._text===full),'답변 후 원래 제목: '+id);
+  if(hidden)saveOpinion(id,'explanation',full+'\n'+quiz.question);
+ }
+ console.log('PASS app v494: en-day question titles hidden, feedback titles and note questions preserved; other subjects, English formulas and past papers unchanged');
 }
 console.log('PASS app: every card is one question (Day 1 '+total+'; 국어 사고의 힘 논리 range rows 1장 31 / 2장 179 / 3장 181 / 4장 147 / 5장 128 / 6장 329 / 독해 1장 444 and four-option feedback screens (2장 wrong with same-concept notice, 3장 correct) with lesson and source, 기초 개념 상자는 맞든 틀리든 처음에 닫힘(v273)), home/subject counts read "안 푼 문제 M/N" and range rows "전체 N문제, 첫 시도 …" with no 문항/카드 wording, every range runs in number order from the first unsolved question ('+normal+'/'+total+') with 이전, 건너뛰기, 번호 고르기, 파트 고르기, records stay normal, no same-day interval inflation; 대기열 모드, 외운 문제, 더 풀기 옵션은 숨김, v491 오답/찍음 필터와 토글 검증; 기출 회차는 '+paperOrder.length+'문항, 한능검 79회는 50문항을 원문 순서대로 게이트 없이 내고 풀던 곳부터 이어지고(v274, 번호 이동 줄) 끝까지 푼 회차는 다시 열면 1번부터 시작하며, 회차 점수와 기록은 그대로다; 기출 회차 파일은 시작 때 0개, 회차를 열 때 그 회차 하나만 받고, 받기 실패는 다시 불러오기로 복구된다; 국어, 영어, 9급 한국사, 한능검 기출도 대입이 있으면 해설 화면에 기초 개념 상자(틀림 펼침, 맞힘 접힘, 마지막 절 이 문제에 대입)');
 })().catch(e=>{console.error(e);process.exit(1);});
