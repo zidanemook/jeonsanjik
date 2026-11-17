@@ -1,11 +1,597 @@
+/* Theme palettes: dark values are the original appearance. */
+:root, :root[data-theme="green"] {
+  --ink-neutral-fff: #1e2a1e;
+  --surface-blue-111318: #e8f1e4;
+  --line-blue-535d6b: #194770;
+  --line-blue-a9cfff: #194770;
+  --line-success-82d6a4: #16522d;
+  --surface-success-183b2b: #dcebd9;
+  --ink-success-82d6a4: #16522d;
+  --line-danger-ff9c9c: #8b2034;
+  --surface-danger-49282e: #f8e4e6;
+  --surface-neutral-fff: #f4f7ef;
+  --ink-neutral-c9d1dc: #344034;
+  --surface-blue-111318ee: #e2ecf4;
+  --line-warm-79704e: #694400;
+  --ink-success-b4dcc2: #16522d;
+  --line-blue-414854: #194770;
+  --surface-blue-1b2028: #f4f7ef;
+  --ink-neutral-d1d7e0: #344034;
+  --surface-blue-343e4c: #e2ecf4;
+  --surface-blue-202630: #e2ecf4;
+  --shadow-neutral-0006: rgba(28,42,26,.12);
+  --surface-blue-252e3b: #e2ecf4;
+  --line-blue-789ac4: #194770;
+  --surface-blue-344963: #e2ecf4;
+  --line-blue-2c333f: #194770;
+  --line-blue-8eacd2: #194770;
+  --ink-neutral-d4e5ff: #344034;
+  --line-blue-8292a8: #194770;
+  --ink-success-98e7b6: #16522d;
+  --ink-danger-ffb1b1: #8b2034;
+  --ink-warm-ffe3a1: #694400;
+  --line-warm-eab866: #694400;
+  --surface-warm-322b20: #f5eacb;
+  --ink-neutral-b9c7dd: #344034;
+  --ink-danger-ffb4a8: #8b2034;
+  --line-warm-ffe3a1: #694400;
+  --surface-warm-3a3322: #f5eacb;
+  --surface-blue-0e1116: #e2ecf4;
+  --ink-neutral-c2c9d4: #344034;
+  --ink-neutral-e6ebf2: #344034;
+  --ink-neutral-c9d9f2: #344034;
+  --ink-neutral-8e99a8: #344034;
+  --surface-blue-243247: #e2ecf4;
+  --surface-danger-5a2a30: #f8e4e6;
+  --ink-neutral-ffe3e3: #344034;
+  --ink-blue-9fb3c8: #194770;
+  --ink-danger-ffb3b3: #8b2034;
+  --ink-danger-ff9c9c: #8b2034;
+  --line-success-3d6b4f: #16522d;
+  --surface-success-15221a: #dcebd9;
+  --surface-success-17301f: #dcebd9;
+  --ink-warm-ffd98a: #694400;
+  --line-warm-ffd98a: #694400;
+  --surface-warm-3a3018: #f5eacb;
+  --ink-neutral-c3cad4: #344034;
+  --ink-neutral-e6f7ec: #344034;
+  --ink-danger-ffd0d0: #8b2034;
+  --line-blue-4a5a70: #194770;
+  --surface-blue-1b2230: #e2ecf4;
+  --ink-neutral-e3e8ef: #344034;
+  --line-blue-6f8fb8: #194770;
+  --surface-blue-1c2635: #e2ecf4;
+  --ink-neutral-f2f5fa: #344034;
+  --surface-neutral-00000010: #f4f7ef;
+  --ink-danger-ffb38a: #8b2034;
+  --surface-blue-2c3646: #e2ecf4;
+  --surface-success-82d6a4: #dcebd9;
+  --surface-warm-ffd98a: #f5eacb;
+  --ink-blue-9cc4ff: #194770;
+  --surface-success-1f2a1f: #dcebd9;
+  --surface-warm-302a14: #f5eacb;
+  --surface-blue-161b22: #e2ecf4;
+  --ink-neutral-aab3c0: #344034;
+  --ink-warm-1a1206: #694400;
+  --surface-warm-f0b27a: #f5eacb;
+  --surface-warm-a8642e: #f5eacb;
+  --surface-neutral-f2f5fa: #f4f7ef;
+  --surface-neutral-9aa7b8: #f4f7ef;
+  --surface-warm-ffe8a3: #f5eacb;
+  --surface-warm-d9a520: #f5eacb;
+  --surface-success-c9fff0: #dcebd9;
+  --surface-success-43b89a: #dcebd9;
+  --surface-neutral-e6d9ff: #f4f7ef;
+  --surface-purple-8a6cff: #eee5f6;
+  --surface-neutral-c9ced6: #f4f7ef;
+  --surface-neutral-6b7280: #f4f7ef;
+  --surface-success-b9f5cf: #dcebd9;
+  --surface-success-1f9d55: #dcebd9;
+  --surface-danger-ffc2cc: #f8e4e6;
+  --surface-danger-d6324f: #f8e4e6;
+  --surface-neutral-e6f6ff: #f4f7ef;
+  --surface-blue-5aa9e6: #e2ecf4;
+  --ink-blue-0b1b2b: #194770;
+  --surface-danger-ffb3a7: #f8e4e6;
+  --surface-danger-b3261e: #f8e4e6;
+  --surface-warm-fff1b8: #f5eacb;
+  --surface-blue-3d7bff: #e2ecf4;
+  --surface-danger-ff8a8a: #f8e4e6;
+  --surface-blue-7ec8ff: #e2ecf4;
+  --surface-purple-b89cff: #eee5f6;
+  --line-warm-e0a24a: #694400;
+  --ink-warm-ffd08a: #694400;
+  --ink-neutral-bfe8c4: #344034;
+  --surface-neutral-cfe2fb: #f4f7ef;
+  --surface-blue-5b7ba6: #e2ecf4;
+  --ink-neutral-e8edf4: #344034;
+  --surface-blue-4a5364: #e2ecf4;
+  --shadow-neutral-rgba00055: rgba(28,42,26,.12);
+  --line-warm-6b5a2e: #694400;
+  --surface-warm-1a1812: #f5eacb;
+  --ink-warm-ffd479: #694400;
+  --ink-warm-e8d9a8: #694400;
+  --line-warm-4a4128: #694400;
+  --ink-neutral-b9c0cc: #344034;
+  --surface-warm-ffd47926: #f5eacb;
+  --line-success-7fd1a0: #16522d;
+  --surface-success-7fd1a012: #dcebd9;
+  --line-danger-ff8a80: #8b2034;
+  --surface-danger-ff8a8012: #f8e4e6;
+  --line-blue-8ec5ff: #194770;
+  --surface-blue-8ec5ff12: #e2ecf4;
+  --surface-warm-ffd4791a: #f5eacb;
+  --surface-neutral-ffffff0a: #f4f7ef;
+  --surface-blue-8ec5ff33: #e2ecf4;
+  --ink-blue-8ec5ff: #194770;
+  --surface-danger-ff9fb033: #f8e4e6;
+  --ink-danger-ff9fb0: #8b2034;
+  --surface-purple-b9a6ff33: #eee5f6;
+  --ink-purple-c7b8ff: #563078;
+  --surface-success-7fd1a033: #dcebd9;
+  --ink-success-8fe0b0: #16522d;
+  --surface-warm-ffb86b33: #f5eacb;
+  --ink-warm-ffc285: #694400;
+  --surface-neutral-ffffff14: #f4f7ef;
+  --ink-success-7fd1a0: #16522d;
+  --ink-danger-ff8a80: #8b2034;
+  --line-blue-353c47: #194770;
+  --surface-blue-2a3342: #e2ecf4;
+  --ink-neutral-aeb8c6: #344034;
+  --ink-neutral-7f8896: #344034;
+  --ink-neutral-9aa3b0: #344034;
+  --line-blue-3d4552: #194770;
+  --surface-blue-232a36: #e2ecf4;
+  --ink-warm-f0d9a8: #694400;
+  --surface-blue-1a1f28: #e2ecf4;
+  --surface-blue-16191f: #e2ecf4;
+  --line-neutral-6b7280: #344034;
+  --line-danger-ff9fb0: #8b2034;
+  --line-purple-c7b8ff: #563078;
+  --line-success-8fe0b0: #16522d;
+  --line-warm-ffc285: #694400;
+  --ink-blue-bcd0ea: #194770;
+  --line-warm-ffd479: #694400;
+  --surface-warm-ffd47910: #f5eacb;
+  --surface-purple-b9a6ff14: #eee5f6;
+  --line-purple-b9a6ff40: #563078;
+  --line-blue-4b5563: #194770;
+  --line-warm-c98a2b: #694400;
+  --surface-warm-3a2b12: #f5eacb;
+  --ink-warm-ffe9c2: #694400;
+  --shadow-neutral-rgba0005: rgba(28,42,26,.12);
+  --ink-neutral-8b93a1: #344034;
+  --ink-blue-8fc1ff: #194770;
+  --surface-blue-1f3048: #e2ecf4;
+  --surface-blue-1d3a37: #e2ecf4;
+  --ink-success-9fe0d6: #16522d;
+  --surface-warm-3a2a15: #f5eacb;
+  --ink-warm-f0b46a: #694400;
+  --line-blue-5b6b82: #194770;
+  --surface-blue-171f2b: #e2ecf4;
+  --line-blue-3a4d68: #194770;
+  --surface-blue-33496a: #e2ecf4;
+  --surface-neutral-rgba00065: #f4f7ef;
+  --surface-danger-c62828: #f8e4e6;
+  --surface-neutral-rgba2401804113: #f5eacb;
+  --shadow-warm-f0b429: #694400;
+  --surface-warm-3a3320: #f5eacb;
+  --surface-warm-f0b429: #f5eacb;
+  --ink-neutral-1a1a1a: #344034;
+  --ink-warm-f0b429: #694400;
+  --line-warm-f0b429: #694400;
+  --surface-warm-1d1a10: #f5eacb;
+  --ink-neutral-d8dee8: #344034;
+  --ink-neutral-a9b2bf: #344034;
+  --ink-success-79d9bb: #16522d;
+  --scheme: light;
+  --image-paper: #fff;
+  --image-border: #596657;
+  --photo-backdrop: #fff;
+  --link: #194770;
+  --placeholder: #494f45;
+  --badge-ink: #1a1206;
+  --highlight-badge: #f2d790;
+}
+
+:root[data-theme="cream"] {
+  --ink-neutral-fff: #2b2620;
+  --surface-blue-111318: #f7f1e3;
+  --line-blue-535d6b: #194770;
+  --line-blue-a9cfff: #194770;
+  --line-success-82d6a4: #16522d;
+  --surface-success-183b2b: #dcebd9;
+  --ink-success-82d6a4: #16522d;
+  --line-danger-ff9c9c: #8b2034;
+  --surface-danger-49282e: #f8e4e6;
+  --surface-neutral-fff: #fffaf0;
+  --ink-neutral-c9d1dc: #494036;
+  --surface-blue-111318ee: #e2ecf4;
+  --line-warm-79704e: #694400;
+  --ink-success-b4dcc2: #16522d;
+  --line-blue-414854: #194770;
+  --surface-blue-1b2028: #fffaf0;
+  --ink-neutral-d1d7e0: #494036;
+  --surface-blue-343e4c: #e2ecf4;
+  --surface-blue-202630: #e2ecf4;
+  --shadow-neutral-0006: rgba(28,42,26,.12);
+  --surface-blue-252e3b: #e2ecf4;
+  --line-blue-789ac4: #194770;
+  --surface-blue-344963: #e2ecf4;
+  --line-blue-2c333f: #194770;
+  --line-blue-8eacd2: #194770;
+  --ink-neutral-d4e5ff: #494036;
+  --line-blue-8292a8: #194770;
+  --ink-success-98e7b6: #16522d;
+  --ink-danger-ffb1b1: #8b2034;
+  --ink-warm-ffe3a1: #694400;
+  --line-warm-eab866: #694400;
+  --surface-warm-322b20: #f5eacb;
+  --ink-neutral-b9c7dd: #494036;
+  --ink-danger-ffb4a8: #8b2034;
+  --line-warm-ffe3a1: #694400;
+  --surface-warm-3a3322: #f5eacb;
+  --surface-blue-0e1116: #e2ecf4;
+  --ink-neutral-c2c9d4: #494036;
+  --ink-neutral-e6ebf2: #494036;
+  --ink-neutral-c9d9f2: #494036;
+  --ink-neutral-8e99a8: #494036;
+  --surface-blue-243247: #e2ecf4;
+  --surface-danger-5a2a30: #f8e4e6;
+  --ink-neutral-ffe3e3: #494036;
+  --ink-blue-9fb3c8: #194770;
+  --ink-danger-ffb3b3: #8b2034;
+  --ink-danger-ff9c9c: #8b2034;
+  --line-success-3d6b4f: #16522d;
+  --surface-success-15221a: #dcebd9;
+  --surface-success-17301f: #dcebd9;
+  --ink-warm-ffd98a: #694400;
+  --line-warm-ffd98a: #694400;
+  --surface-warm-3a3018: #f5eacb;
+  --ink-neutral-c3cad4: #494036;
+  --ink-neutral-e6f7ec: #494036;
+  --ink-danger-ffd0d0: #8b2034;
+  --line-blue-4a5a70: #194770;
+  --surface-blue-1b2230: #e2ecf4;
+  --ink-neutral-e3e8ef: #494036;
+  --line-blue-6f8fb8: #194770;
+  --surface-blue-1c2635: #e2ecf4;
+  --ink-neutral-f2f5fa: #494036;
+  --surface-neutral-00000010: #fffaf0;
+  --ink-danger-ffb38a: #8b2034;
+  --surface-blue-2c3646: #e2ecf4;
+  --surface-success-82d6a4: #dcebd9;
+  --surface-warm-ffd98a: #f5eacb;
+  --ink-blue-9cc4ff: #194770;
+  --surface-success-1f2a1f: #dcebd9;
+  --surface-warm-302a14: #f5eacb;
+  --surface-blue-161b22: #e2ecf4;
+  --ink-neutral-aab3c0: #494036;
+  --ink-warm-1a1206: #694400;
+  --surface-warm-f0b27a: #f5eacb;
+  --surface-warm-a8642e: #f5eacb;
+  --surface-neutral-f2f5fa: #fffaf0;
+  --surface-neutral-9aa7b8: #fffaf0;
+  --surface-warm-ffe8a3: #f5eacb;
+  --surface-warm-d9a520: #f5eacb;
+  --surface-success-c9fff0: #dcebd9;
+  --surface-success-43b89a: #dcebd9;
+  --surface-neutral-e6d9ff: #fffaf0;
+  --surface-purple-8a6cff: #eee5f6;
+  --surface-neutral-c9ced6: #fffaf0;
+  --surface-neutral-6b7280: #fffaf0;
+  --surface-success-b9f5cf: #dcebd9;
+  --surface-success-1f9d55: #dcebd9;
+  --surface-danger-ffc2cc: #f8e4e6;
+  --surface-danger-d6324f: #f8e4e6;
+  --surface-neutral-e6f6ff: #fffaf0;
+  --surface-blue-5aa9e6: #e2ecf4;
+  --ink-blue-0b1b2b: #194770;
+  --surface-danger-ffb3a7: #f8e4e6;
+  --surface-danger-b3261e: #f8e4e6;
+  --surface-warm-fff1b8: #f5eacb;
+  --surface-blue-3d7bff: #e2ecf4;
+  --surface-danger-ff8a8a: #f8e4e6;
+  --surface-blue-7ec8ff: #e2ecf4;
+  --surface-purple-b89cff: #eee5f6;
+  --line-warm-e0a24a: #694400;
+  --ink-warm-ffd08a: #694400;
+  --ink-neutral-bfe8c4: #494036;
+  --surface-neutral-cfe2fb: #fffaf0;
+  --surface-blue-5b7ba6: #e2ecf4;
+  --ink-neutral-e8edf4: #494036;
+  --surface-blue-4a5364: #e2ecf4;
+  --shadow-neutral-rgba00055: rgba(28,42,26,.12);
+  --line-warm-6b5a2e: #694400;
+  --surface-warm-1a1812: #f5eacb;
+  --ink-warm-ffd479: #694400;
+  --ink-warm-e8d9a8: #694400;
+  --line-warm-4a4128: #694400;
+  --ink-neutral-b9c0cc: #494036;
+  --surface-warm-ffd47926: #f5eacb;
+  --line-success-7fd1a0: #16522d;
+  --surface-success-7fd1a012: #dcebd9;
+  --line-danger-ff8a80: #8b2034;
+  --surface-danger-ff8a8012: #f8e4e6;
+  --line-blue-8ec5ff: #194770;
+  --surface-blue-8ec5ff12: #e2ecf4;
+  --surface-warm-ffd4791a: #f5eacb;
+  --surface-neutral-ffffff0a: #fffaf0;
+  --surface-blue-8ec5ff33: #e2ecf4;
+  --ink-blue-8ec5ff: #194770;
+  --surface-danger-ff9fb033: #f8e4e6;
+  --ink-danger-ff9fb0: #8b2034;
+  --surface-purple-b9a6ff33: #eee5f6;
+  --ink-purple-c7b8ff: #563078;
+  --surface-success-7fd1a033: #dcebd9;
+  --ink-success-8fe0b0: #16522d;
+  --surface-warm-ffb86b33: #f5eacb;
+  --ink-warm-ffc285: #694400;
+  --surface-neutral-ffffff14: #fffaf0;
+  --ink-success-7fd1a0: #16522d;
+  --ink-danger-ff8a80: #8b2034;
+  --line-blue-353c47: #194770;
+  --surface-blue-2a3342: #e2ecf4;
+  --ink-neutral-aeb8c6: #494036;
+  --ink-neutral-7f8896: #494036;
+  --ink-neutral-9aa3b0: #494036;
+  --line-blue-3d4552: #194770;
+  --surface-blue-232a36: #e2ecf4;
+  --ink-warm-f0d9a8: #694400;
+  --surface-blue-1a1f28: #e2ecf4;
+  --surface-blue-16191f: #e2ecf4;
+  --line-neutral-6b7280: #494036;
+  --line-danger-ff9fb0: #8b2034;
+  --line-purple-c7b8ff: #563078;
+  --line-success-8fe0b0: #16522d;
+  --line-warm-ffc285: #694400;
+  --ink-blue-bcd0ea: #194770;
+  --line-warm-ffd479: #694400;
+  --surface-warm-ffd47910: #f5eacb;
+  --surface-purple-b9a6ff14: #eee5f6;
+  --line-purple-b9a6ff40: #563078;
+  --line-blue-4b5563: #194770;
+  --line-warm-c98a2b: #694400;
+  --surface-warm-3a2b12: #f5eacb;
+  --ink-warm-ffe9c2: #694400;
+  --shadow-neutral-rgba0005: rgba(28,42,26,.12);
+  --ink-neutral-8b93a1: #494036;
+  --ink-blue-8fc1ff: #194770;
+  --surface-blue-1f3048: #e2ecf4;
+  --surface-blue-1d3a37: #e2ecf4;
+  --ink-success-9fe0d6: #16522d;
+  --surface-warm-3a2a15: #f5eacb;
+  --ink-warm-f0b46a: #694400;
+  --line-blue-5b6b82: #194770;
+  --surface-blue-171f2b: #e2ecf4;
+  --line-blue-3a4d68: #194770;
+  --surface-blue-33496a: #e2ecf4;
+  --surface-neutral-rgba00065: #fffaf0;
+  --surface-danger-c62828: #f8e4e6;
+  --surface-neutral-rgba2401804113: #f5eacb;
+  --shadow-warm-f0b429: #694400;
+  --surface-warm-3a3320: #f5eacb;
+  --surface-warm-f0b429: #f5eacb;
+  --ink-neutral-1a1a1a: #494036;
+  --ink-warm-f0b429: #694400;
+  --line-warm-f0b429: #694400;
+  --surface-warm-1d1a10: #f5eacb;
+  --ink-neutral-d8dee8: #494036;
+  --ink-neutral-a9b2bf: #494036;
+  --ink-success-79d9bb: #16522d;
+  --scheme: light;
+  --image-paper: #fff;
+  --image-border: #596657;
+  --photo-backdrop: #fff;
+  --link: #194770;
+  --placeholder: #494f45;
+  --badge-ink: #1a1206;
+  --highlight-badge: #f2d790;
+}
+
+:root[data-theme="dark"] {
+  --ink-neutral-fff: #fff;
+  --surface-blue-111318: #111318;
+  --line-blue-535d6b: #535d6b;
+  --line-blue-a9cfff: #a9cfff;
+  --line-success-82d6a4: #82d6a4;
+  --surface-success-183b2b: #183b2b;
+  --ink-success-82d6a4: #82d6a4;
+  --line-danger-ff9c9c: #ff9c9c;
+  --surface-danger-49282e: #49282e;
+  --surface-neutral-fff: #fff;
+  --ink-neutral-c9d1dc: #c9d1dc;
+  --surface-blue-111318ee: #111318ee;
+  --line-warm-79704e: #79704e;
+  --ink-success-b4dcc2: #b4dcc2;
+  --line-blue-414854: #414854;
+  --surface-blue-1b2028: #1b2028;
+  --ink-neutral-d1d7e0: #d1d7e0;
+  --surface-blue-343e4c: #343e4c;
+  --surface-blue-202630: #202630;
+  --shadow-neutral-0006: #0006;
+  --surface-blue-252e3b: #252e3b;
+  --line-blue-789ac4: #789ac4;
+  --surface-blue-344963: #344963;
+  --line-blue-2c333f: #2c333f;
+  --line-blue-8eacd2: #8eacd2;
+  --ink-neutral-d4e5ff: #d4e5ff;
+  --line-blue-8292a8: #8292a8;
+  --ink-success-98e7b6: #98e7b6;
+  --ink-danger-ffb1b1: #ffb1b1;
+  --ink-warm-ffe3a1: #ffe3a1;
+  --line-warm-eab866: #eab866;
+  --surface-warm-322b20: #322b20;
+  --ink-neutral-b9c7dd: #b9c7dd;
+  --ink-danger-ffb4a8: #ffb4a8;
+  --line-warm-ffe3a1: #ffe3a1;
+  --surface-warm-3a3322: #3a3322;
+  --surface-blue-0e1116: #0e1116;
+  --ink-neutral-c2c9d4: #c2c9d4;
+  --ink-neutral-e6ebf2: #e6ebf2;
+  --ink-neutral-c9d9f2: #c9d9f2;
+  --ink-neutral-8e99a8: #8e99a8;
+  --surface-blue-243247: #243247;
+  --surface-danger-5a2a30: #5a2a30;
+  --ink-neutral-ffe3e3: #ffe3e3;
+  --ink-blue-9fb3c8: #9fb3c8;
+  --ink-danger-ffb3b3: #ffb3b3;
+  --ink-danger-ff9c9c: #ff9c9c;
+  --line-success-3d6b4f: #3d6b4f;
+  --surface-success-15221a: #15221a;
+  --surface-success-17301f: #17301f;
+  --ink-warm-ffd98a: #ffd98a;
+  --line-warm-ffd98a: #ffd98a;
+  --surface-warm-3a3018: #3a3018;
+  --ink-neutral-c3cad4: #c3cad4;
+  --ink-neutral-e6f7ec: #e6f7ec;
+  --ink-danger-ffd0d0: #ffd0d0;
+  --line-blue-4a5a70: #4a5a70;
+  --surface-blue-1b2230: #1b2230;
+  --ink-neutral-e3e8ef: #e3e8ef;
+  --line-blue-6f8fb8: #6f8fb8;
+  --surface-blue-1c2635: #1c2635;
+  --ink-neutral-f2f5fa: #f2f5fa;
+  --surface-neutral-00000010: #00000010;
+  --ink-danger-ffb38a: #ffb38a;
+  --surface-blue-2c3646: #2c3646;
+  --surface-success-82d6a4: #82d6a4;
+  --surface-warm-ffd98a: #ffd98a;
+  --ink-blue-9cc4ff: #9cc4ff;
+  --surface-success-1f2a1f: #1f2a1f;
+  --surface-warm-302a14: #302a14;
+  --surface-blue-161b22: #161b22;
+  --ink-neutral-aab3c0: #aab3c0;
+  --ink-warm-1a1206: #1a1206;
+  --surface-warm-f0b27a: #f0b27a;
+  --surface-warm-a8642e: #a8642e;
+  --surface-neutral-f2f5fa: #f2f5fa;
+  --surface-neutral-9aa7b8: #9aa7b8;
+  --surface-warm-ffe8a3: #ffe8a3;
+  --surface-warm-d9a520: #d9a520;
+  --surface-success-c9fff0: #c9fff0;
+  --surface-success-43b89a: #43b89a;
+  --surface-neutral-e6d9ff: #e6d9ff;
+  --surface-purple-8a6cff: #8a6cff;
+  --surface-neutral-c9ced6: #c9ced6;
+  --surface-neutral-6b7280: #6b7280;
+  --surface-success-b9f5cf: #b9f5cf;
+  --surface-success-1f9d55: #1f9d55;
+  --surface-danger-ffc2cc: #ffc2cc;
+  --surface-danger-d6324f: #d6324f;
+  --surface-neutral-e6f6ff: #e6f6ff;
+  --surface-blue-5aa9e6: #5aa9e6;
+  --ink-blue-0b1b2b: #0b1b2b;
+  --surface-danger-ffb3a7: #ffb3a7;
+  --surface-danger-b3261e: #b3261e;
+  --surface-warm-fff1b8: #fff1b8;
+  --surface-blue-3d7bff: #3d7bff;
+  --surface-danger-ff8a8a: #ff8a8a;
+  --surface-blue-7ec8ff: #7ec8ff;
+  --surface-purple-b89cff: #b89cff;
+  --line-warm-e0a24a: #e0a24a;
+  --ink-warm-ffd08a: #ffd08a;
+  --ink-neutral-bfe8c4: #bfe8c4;
+  --surface-neutral-cfe2fb: #cfe2fb;
+  --surface-blue-5b7ba6: #5b7ba6;
+  --ink-neutral-e8edf4: #e8edf4;
+  --surface-blue-4a5364: #4a5364;
+  --shadow-neutral-rgba00055: rgba(0,0,0,.55);
+  --line-warm-6b5a2e: #6b5a2e;
+  --surface-warm-1a1812: #1a1812;
+  --ink-warm-ffd479: #ffd479;
+  --ink-warm-e8d9a8: #e8d9a8;
+  --line-warm-4a4128: #4a4128;
+  --ink-neutral-b9c0cc: #b9c0cc;
+  --surface-warm-ffd47926: #ffd47926;
+  --line-success-7fd1a0: #7fd1a0;
+  --surface-success-7fd1a012: #7fd1a012;
+  --line-danger-ff8a80: #ff8a80;
+  --surface-danger-ff8a8012: #ff8a8012;
+  --line-blue-8ec5ff: #8ec5ff;
+  --surface-blue-8ec5ff12: #8ec5ff12;
+  --surface-warm-ffd4791a: #ffd4791a;
+  --surface-neutral-ffffff0a: #ffffff0a;
+  --surface-blue-8ec5ff33: #8ec5ff33;
+  --ink-blue-8ec5ff: #8ec5ff;
+  --surface-danger-ff9fb033: #ff9fb033;
+  --ink-danger-ff9fb0: #ff9fb0;
+  --surface-purple-b9a6ff33: #b9a6ff33;
+  --ink-purple-c7b8ff: #c7b8ff;
+  --surface-success-7fd1a033: #7fd1a033;
+  --ink-success-8fe0b0: #8fe0b0;
+  --surface-warm-ffb86b33: #ffb86b33;
+  --ink-warm-ffc285: #ffc285;
+  --surface-neutral-ffffff14: #ffffff14;
+  --ink-success-7fd1a0: #7fd1a0;
+  --ink-danger-ff8a80: #ff8a80;
+  --line-blue-353c47: #353c47;
+  --surface-blue-2a3342: #2a3342;
+  --ink-neutral-aeb8c6: #aeb8c6;
+  --ink-neutral-7f8896: #7f8896;
+  --ink-neutral-9aa3b0: #9aa3b0;
+  --line-blue-3d4552: #3d4552;
+  --surface-blue-232a36: #232a36;
+  --ink-warm-f0d9a8: #f0d9a8;
+  --surface-blue-1a1f28: #1a1f28;
+  --surface-blue-16191f: #16191f;
+  --line-neutral-6b7280: #6b7280;
+  --line-danger-ff9fb0: #ff9fb0;
+  --line-purple-c7b8ff: #c7b8ff;
+  --line-success-8fe0b0: #8fe0b0;
+  --line-warm-ffc285: #ffc285;
+  --ink-blue-bcd0ea: #bcd0ea;
+  --line-warm-ffd479: #ffd479;
+  --surface-warm-ffd47910: #ffd47910;
+  --surface-purple-b9a6ff14: #b9a6ff14;
+  --line-purple-b9a6ff40: #b9a6ff40;
+  --line-blue-4b5563: #4b5563;
+  --line-warm-c98a2b: #c98a2b;
+  --surface-warm-3a2b12: #3a2b12;
+  --ink-warm-ffe9c2: #ffe9c2;
+  --shadow-neutral-rgba0005: rgba(0,0,0,.5);
+  --ink-neutral-8b93a1: #8b93a1;
+  --ink-blue-8fc1ff: #8fc1ff;
+  --surface-blue-1f3048: #1f3048;
+  --surface-blue-1d3a37: #1d3a37;
+  --ink-success-9fe0d6: #9fe0d6;
+  --surface-warm-3a2a15: #3a2a15;
+  --ink-warm-f0b46a: #f0b46a;
+  --line-blue-5b6b82: #5b6b82;
+  --surface-blue-171f2b: #171f2b;
+  --line-blue-3a4d68: #3a4d68;
+  --surface-blue-33496a: #33496a;
+  --surface-neutral-rgba00065: rgba(0,0,0,.65);
+  --surface-danger-c62828: #c62828;
+  --surface-neutral-rgba2401804113: rgba(240,180,41,.13);
+  --shadow-warm-f0b429: #f0b429;
+  --surface-warm-3a3320: #3a3320;
+  --surface-warm-f0b429: #f0b429;
+  --ink-neutral-1a1a1a: #1a1a1a;
+  --ink-warm-f0b429: #f0b429;
+  --line-warm-f0b429: #f0b429;
+  --surface-warm-1d1a10: #1d1a10;
+  --ink-neutral-d8dee8: #d8dee8;
+  --ink-neutral-a9b2bf: #a9b2bf;
+  --ink-success-79d9bb: #79d9bb;
+  --scheme: dark;
+  --image-paper: #fff;
+  --image-border: #535d6b;
+  --photo-backdrop: #00000010;
+  --link: #a9cfff;
+  --placeholder: #aab3c0;
+  --badge-ink: #1a1206;
+  --highlight-badge: #f2d790;
+}
+
 :root {
-  color-scheme: dark;
+  color-scheme: var(--scheme);
   font-family: system-ui, 'Malgun Gothic', sans-serif;
   font-size: 17px;
-  color: #fff;
-  background: #111318;
+  color: var(--ink-neutral-fff);
+  background: var(--surface-blue-111318);
 }
-.word-order { min-width:0; margin:20px 0 0; padding:14px; border:1px solid #535d6b; border-radius:12px; overflow:clip; }
+.word-order { min-width:0; margin:20px 0 0; padding:14px; border:1px solid var(--line-blue-535d6b); border-radius:12px; overflow:clip; }
 .word-order h3 { margin:0; font-size:18px; }
 .word-order p { font-size:15px; margin:10px 0; }
 .word-order-sentence { line-height:2.8; overflow-wrap:anywhere; }
@@ -13,21 +599,21 @@
 .word-order button { max-width:100%; min-width:0; padding:8px 10px; overflow-wrap:anywhere; }
 .word-order-word, .word-order-slot { touch-action:none; user-select:none; position:relative; }
 .word-order-slot { margin:2px; vertical-align:baseline; min-width:48px !important; border-style:dashed; }
-.word-order .is-dragging { z-index:2; pointer-events:none; border-color:#a9cfff; }
-.word-order.is-correct .word-order-slot { border-color:#82d6a4; background:#183b2b; }
-.word-order.is-correct .word-order-status { color:#82d6a4; }
-.word-order .word-order-slot.is-wrong { border-color:#ff9c9c; background:#49282e; }
+.word-order .is-dragging { z-index:2; pointer-events:none; border-color:var(--line-blue-a9cfff); }
+.word-order.is-correct .word-order-slot { border-color:var(--line-success-82d6a4); background:var(--surface-success-183b2b); }
+.word-order.is-correct .word-order-status { color:var(--ink-success-82d6a4); }
+.word-order .word-order-slot.is-wrong { border-color:var(--line-danger-ff9c9c); background:var(--surface-danger-49282e); }
 .word-order-status { min-height:26px; }
 .paper-image { margin:18px 0; }
-.paper-image img { display:block; width:100%; height:auto; background:#fff; border-radius:6px; }
+.paper-image img { display:block; width:100%; height:auto; background:var(--image-paper); border-radius:6px; }
 .paper-image a { display:block; }
 .paper-image small { display:block; margin-top:6px; }
 .paper-card { padding:16px; }
 /* 9급 기출의 원문 그림(회로도, 흐름도, 그래프): 어두운 화면에서도 보이게 흰 바탕 그대로 두고 모서리만 둥글게, 폰 폭을 넘지 않게. */
 .question-figure { margin:14px 0 0; }
 .question-figure a { display:block; }
-.question-figure img { display:block; max-width:100%; height:auto; margin:0 auto; background:#fff; border-radius:8px; }
-.question-figure small { display:block; margin-top:6px; color:#c9d1dc; font-size:13px; }
+.question-figure img { display:block; max-width:100%; height:auto; margin:0 auto; background:var(--image-paper); border-radius:8px; }
+.question-figure small { display:block; margin-top:6px; color:var(--ink-neutral-c9d1dc); font-size:13px; }
 .question-figure p { margin:8px 0 0; font-size:14px; }
 @media (min-width:850px) { .question-figure img { max-width:min(100%,640px); } }
 .paper-card .question { font-size:19px; }
@@ -36,18 +622,18 @@
 .gichul-card .quiz-choices button { font-size:16px; }
 /* 기출의 밑줄 친 부분(문제 글의 U+0332를 app.js가 u.q-ul로 바꾼다). 폰에서도 잘 보이게 2px, 글자와 조금 떼고, 낱말 사이도 끊지 않는다. */
 .q-ul { text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px; text-decoration-skip-ink:none; }
-.paper-choices { grid-template-columns:repeat(5,minmax(0,1fr)); position:sticky; bottom:8px; padding:8px; background:#111318ee; border-radius:14px; }
+.paper-choices { grid-template-columns:repeat(5,minmax(0,1fr)); position:sticky; bottom:8px; padding:8px; background:var(--surface-blue-111318ee); border-radius:14px; }
 .paper-choices button { text-align:center; padding:12px 0; font-size:24px; }
 .paper-choices button:disabled:not(.quiz-correct):not(.quiz-wrong) { opacity:.6; }
-#annulledQuestion { margin:16px 0; padding:12px; border:1px solid #79704e; border-radius:12px; }
+#annulledQuestion { margin:16px 0; padding:12px; border:1px solid var(--line-warm-79704e); border-radius:12px; }
 @media (min-width:850px) { article.paper-card { padding:24px; } .paper-card .paper-image { max-width:720px; margin:20px auto; } }
 .study-time h2 { font-size:20px; margin:0; }
-.study-credit-award { color:#b4dcc2; font-weight:700; }
-.explanation-credit { display:block; margin-top:12px; color:#b4dcc2; }
-.study-time { padding:18px; border:1px solid #414854; border-radius:16px; background:#1b2028; }
+.study-credit-award { color:var(--ink-success-b4dcc2); font-weight:700; }
+.explanation-credit { display:block; margin-top:12px; color:var(--ink-success-b4dcc2); }
+.study-time { padding:18px; border:1px solid var(--line-blue-414854); border-radius:16px; background:var(--surface-blue-1b2028); }
 .study-time-totals { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:16px 0; }
 .study-time-totals span,.study-time-totals strong { display:block; }
-.study-time-totals span { color:#d1d7e0; margin-bottom:4px; }
+.study-time-totals span { color:var(--ink-neutral-d1d7e0); margin-bottom:4px; }
 .study-time-totals strong { font-size:21px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
 .study-time p { margin:10px 0; font-size:14px; }
 .study-time small { display:block; line-height:1.6; }
@@ -55,44 +641,44 @@
 .study-time summary { cursor:pointer; min-height:32px; }
 #studyTimeHistory { padding-left:20px; line-height:1.9; font-variant-numeric:tabular-nums; }
 * { box-sizing: border-box; }
-body { margin: 0; background: #111318; color: #fff; }
+body { margin: 0; background: var(--surface-blue-111318); color: var(--ink-neutral-fff); }
 header, main { max-width: 1000px; margin: auto; padding: 24px; }
 header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 h1 { margin: 4px 0; font-size: 36px; letter-spacing: -.04em; }
 h2 { margin: 0 0 8px; font-size: 25px; }
-p { color: #fff; line-height: 1.7; }
-small, footer, .subject-counts, .status { color: #d1d7e0; }
+p { color: var(--ink-neutral-fff); line-height: 1.7; }
+small, footer, .subject-counts, .status { color: var(--ink-neutral-d1d7e0); }
 label { display: block; margin: 18px 0 8px; font-weight: 700; }
 select, button {
   min-height: 48px;
-  border: 1px solid #535d6b;
+  border: 1px solid var(--line-blue-535d6b);
   border-radius: 12px;
-  background: #1b2028;
-  color: #fff;
+  background: var(--surface-blue-1b2028);
+  color: var(--ink-neutral-fff);
   font: inherit;
 }
 select { display: block; width: 100%; margin-top: 8px; padding: 12px 13px; }
-select option { background: #1b2028; color: #fff; }
+select option { background: var(--surface-blue-1b2028); color: var(--ink-neutral-fff); }
 button { padding: 12px 18px; cursor: pointer; }
-button:hover { background: #343e4c; }
-button:focus-visible, select:focus-visible { outline: 3px solid #a9cfff; outline-offset: 3px; }
+button:hover { background: var(--surface-blue-343e4c); }
+button:focus-visible, select:focus-visible { outline: 3px solid var(--line-blue-a9cfff); outline-offset: 3px; }
 button:disabled { cursor: default; opacity: 1; }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0; }
-.stats div { padding: 16px; border-radius: 16px; background: #202630; }
+.stats div { padding: 16px; border-radius: 16px; background: var(--surface-blue-202630); }
 .stats strong { display: block; margin-bottom: 4px; font-size: 30px; }
-.stats span { color: #d1d7e0; font-size: 14px; }
+.stats span { color: var(--ink-neutral-d1d7e0); font-size: 14px; }
 .retention-line { margin: 8px 0; }
 .status:empty, #message:empty { display: none; }
-article { min-height: 280px; padding: 32px; border: 1px solid #414854; border-radius: 22px; background: #1b2028; box-shadow: 0 8px 30px #0006; }
+article { min-height: 280px; padding: 32px; border: 1px solid var(--line-blue-414854); border-radius: 22px; background: var(--surface-blue-1b2028); box-shadow: 0 8px 30px var(--shadow-neutral-0006); }
 .question { margin: 18px 0 0; font-size: 25px; font-weight: 700; line-height: 1.65; white-space: pre-wrap; }
 .quiz-choices { display: grid; gap: 12px; margin-top: 24px; }
 .quiz-choices button { width: 100%; padding: 15px 16px; text-align: left; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; }
-.quiz-choices .quiz-correct:disabled { border: 2px solid #82d6a4; background: #183b2b; }
-.quiz-choices .quiz-wrong:disabled { border: 2px solid #ff9c9c; background: #49282e; }
-.answer { margin: 22px 0; padding: 20px; border-radius: 14px; background: #252e3b; white-space: pre-wrap; line-height: 1.7; }
+.quiz-choices .quiz-correct:disabled { border: 2px solid var(--line-success-82d6a4); background: var(--surface-success-183b2b); }
+.quiz-choices .quiz-wrong:disabled { border: 2px solid var(--line-danger-ff9c9c); background: var(--surface-danger-49282e); }
+.answer { margin: 22px 0; padding: 20px; border-radius: 14px; background: var(--surface-blue-252e3b); white-space: pre-wrap; line-height: 1.7; }
 .answer p { margin-bottom: 0; }
-.primary { border-color: #789ac4; background: #344963; font-weight: 700; }
-#message { position: sticky; bottom: 10px; padding: 10px; border-radius: 10px; background: #202630; }
+.primary { border-color: var(--line-blue-789ac4); background: var(--surface-blue-344963); font-weight: 700; }
+#message { position: sticky; bottom: 10px; padding: 10px; border-radius: 10px; background: var(--surface-blue-202630); }
 footer { margin: 40px 0 10px; font-size: 13px; }
 [hidden] { display: none !important; }
 @media (min-width: 850px) {
@@ -114,60 +700,60 @@ footer { margin: 40px 0 10px; font-size: 13px; }
 .sync-line { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:20px 0; font-size:.9rem; }
 /* 로그인, 동기화, 승인 관리는 과목 선택 화면에서만 보인다. 문제를 푸는 동안에는 방해가 되지 않는다. */
 body:not([data-view="home"]) .sync-line { display:none; }
-.admin-panel { margin:16px 0; padding:14px; border:1px solid #2c333f; border-radius:12px; }
+.admin-panel { margin:16px 0; padding:14px; border:1px solid var(--line-blue-2c333f); border-radius:12px; }
 .admin-panel h2 { font-size:1rem; margin:0 0 8px; }
-.request-item { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; padding:10px 0; border-top:1px solid #2c333f; }
+.request-item { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; padding:10px 0; border-top:1px solid var(--line-blue-2c333f); }
 .request-item strong { display:block; word-break:break-all; }
 .request-item span { display:block; font-size:.85rem; opacity:.8; }
 .request-actions { display:flex; gap:8px; }
-.lesson { margin-top:20px; padding:16px; border:1px solid #535d6b; border-radius:12px; }
+.lesson { margin-top:20px; padding:16px; border:1px solid var(--line-blue-535d6b); border-radius:12px; }
 .lesson summary { cursor:pointer; font-weight:700; min-height:32px; }
-.lesson .example { white-space:pre-wrap; padding-left:12px; border-left:3px solid #8eacd2; }
-.hook { color:#d4e5ff; }
+.lesson .example { white-space:pre-wrap; padding-left:12px; border-left:3px solid var(--line-blue-8eacd2); }
+.hook { color:var(--ink-neutral-d4e5ff); }
 .practice-form { display:grid; gap:12px; margin:20px 0; }
-.practice-form input { width:100%; min-width:0; min-height:54px; padding:14px; border:1px solid #8292a8; border-radius:12px; background:#111318; color:#fff; font:inherit; }
-.practice-form input:focus-visible { outline:3px solid #a9cfff; outline-offset:3px; }
-.practice-form input:disabled { opacity:1; color:#fff; }
+.practice-form input { width:100%; min-width:0; min-height:54px; padding:14px; border:1px solid var(--line-blue-8292a8); border-radius:12px; background:var(--surface-blue-111318); color:var(--ink-neutral-fff); font:inherit; }
+.practice-form input:focus-visible { outline:3px solid var(--line-blue-a9cfff); outline-offset:3px; }
+.practice-form input:disabled { opacity:1; color:var(--ink-neutral-fff); }
 .question,.answer { overflow-wrap:anywhere; }
-.result-correct { color:#98e7b6; }
-.result-wrong { color:#ffb1b1; }
-.result-unsure { color:#ffe3a1; }
+.result-correct { color:var(--ink-success-98e7b6); }
+.result-wrong { color:var(--ink-danger-ffb1b1); }
+.result-unsure { color:var(--ink-warm-ffe3a1); }
 [hidden] { display:none !important; }
- .content-correction{border:1px solid #eab866;border-radius:12px;padding:12px;margin:10px 0;color:#fff;background:#322b20;white-space:pre-wrap;overflow-wrap:anywhere}
+ .content-correction{border:1px solid var(--line-warm-eab866);border-radius:12px;padding:12px;margin:10px 0;color:var(--ink-neutral-fff);background:var(--surface-warm-322b20);white-space:pre-wrap;overflow-wrap:anywhere}
 
 /* Step-by-step screens (v28) */
 .menu-list { display:grid; gap:12px; margin:16px 0; }
 .menu-item { display:flex; flex-direction:column; align-items:flex-start; gap:4px; width:100%; min-height:64px; padding:16px 18px; text-align:left; }
 .menu-item strong { font-size:19px; }
-.menu-item span { color:#d1d7e0; font-size:14px; line-height:1.5; }
+.menu-item span { color:var(--ink-neutral-d1d7e0); font-size:14px; line-height:1.5; }
 .menu-item.secondary { margin-top:12px; border-style:dashed; }
 .back { min-height:40px; padding:8px 14px; margin-bottom:12px; font-size:15px; }
-.range-heading { margin:26px 0 0; font-size:17px; color:#d4e5ff; }
+.range-heading { margin:26px 0 0; font-size:17px; color:var(--ink-neutral-d4e5ff); }
 .quiz-bar { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px; }
 .quiz-bar .back { margin:0; flex:0 0 auto; }
 .back.up { margin-left:6px; }
 /* 이름표가 남는 자리를 먹어서 뒤따르는 조작부(대기열 모드, 전부 풀기)가 늘 오른쪽에 붙는다. */
-#scopeLabel { color:#d1d7e0; font-size:15px; overflow-wrap:anywhere; margin-right:auto; }
+#scopeLabel { color:var(--ink-neutral-d1d7e0); font-size:15px; overflow-wrap:anywhere; margin-right:auto; }
 .queue-mode { margin:0; flex:0 0 auto; }
 .queue-mode select { display:block; width:auto; margin:0; min-height:40px; padding:8px 10px; font-size:14px; }
 .visually-hidden { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
-.order-status { color:#d4e5ff; font-weight:700; }
-.past-record { margin:.15rem 0 .6rem; font-size:.85rem; color:#b9c7dd; }
-.past-record strong { margin-right:.45rem; color:#d4e5ff; }
-.past-record.past-wrong strong { color:#ffb4a8; }
+.order-status { color:var(--ink-neutral-d4e5ff); font-weight:700; }
+.past-record { margin:.15rem 0 .6rem; font-size:.85rem; color:var(--ink-neutral-b9c7dd); }
+.past-record strong { margin-right:.45rem; color:var(--ink-neutral-d4e5ff); }
+.past-record.past-wrong strong { color:var(--ink-danger-ffb4a8); }
 .paper-nav { display:flex; gap:8px; align-items:stretch; margin-top:20px; }
 .paper-nav button { flex:1 1 0; min-width:0; margin:0; padding:10px 8px; font-size:15px; }
 .paper-nav select { flex:0 0 auto; width:auto; margin:0; min-height:44px; padding:8px 10px; font-size:15px; }
 #quizView article { min-height:0; }
 #quizView .status { margin:12px 4px; }
-.eyebrow { margin:0 0 10px; color:#d1d7e0; font-size:14px; }
-.result-banner { padding:16px 18px; border-radius:14px; background:#252e3b; border:2px solid #535d6b; }
+.eyebrow { margin:0 0 10px; color:var(--ink-neutral-d1d7e0); font-size:14px; }
+.result-banner { padding:16px 18px; border-radius:14px; background:var(--surface-blue-252e3b); border:2px solid var(--line-blue-535d6b); }
 .result-banner strong { font-size:23px; }
 .result-banner p { margin:6px 0 0; white-space:pre-wrap; overflow-wrap:anywhere; }
-.result-banner.result-correct { border-color:#82d6a4; background:#183b2b; }
-.result-banner.result-wrong { border-color:#ff9c9c; background:#49282e; }
-.result-banner.result-unsure { border-color:#ffe3a1; background:#3a3322; }
-.explanation-main { border-color:#8eacd2; }
+.result-banner.result-correct { border-color:var(--line-success-82d6a4); background:var(--surface-success-183b2b); }
+.result-banner.result-wrong { border-color:var(--line-danger-ff9c9c); background:var(--surface-danger-49282e); }
+.result-banner.result-unsure { border-color:var(--line-warm-ffe3a1); background:var(--surface-warm-3a3322); }
+.explanation-main { border-color:var(--line-blue-8eacd2); }
 .explanation-main summary { font-size:18px; }
 .explanation-text { white-space:pre-wrap; overflow-wrap:anywhere; }
 .recap .question { font-size:19px; }
@@ -176,12 +762,12 @@ body:not([data-view="home"]) .sync-line { display:none; }
 .next-question { width:100%; margin-top:20px; min-height:56px; font-size:18px; }
 .table-wrap { overflow-x:auto; margin:16px 0 24px; }
 .subject-table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
-.subject-table th, .subject-table td { padding:10px 8px; border-bottom:1px solid #414854; text-align:right; white-space:nowrap; }
+.subject-table th, .subject-table td { padding:10px 8px; border-bottom:1px solid var(--line-blue-414854); text-align:right; white-space:nowrap; }
 .subject-table th:first-child, .subject-table td:first-child { text-align:left; }
-.subject-table th { color:#d1d7e0; font-weight:600; font-size:14px; }
+.subject-table th { color:var(--ink-neutral-d1d7e0); font-weight:600; font-size:14px; }
 @media (max-width:540px) { .menu-item strong { font-size:18px; } .result-banner strong { font-size:21px; } }
 /* The question owns the top of the quiz screen. */
-body[data-view="quiz"] header { display:none; }
+body[data-view="quiz"] header { padding-top:12px; padding-bottom:8px; }
 body[data-view="quiz"] main { padding-top:14px; }
 .range-fold { margin-top:26px; }
 .range-fold > summary.range-heading { margin:0; cursor:pointer; min-height:40px; display:list-item; }
@@ -190,95 +776,95 @@ body[data-view="quiz"] main { padding-top:14px; }
 .photo-choices { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; align-items:start; }
 .photo-cell { display:grid; gap:6px; min-width:0; }
 .photo-choices .photo-choice { display:flex; flex-direction:column; gap:6px; width:100%; padding:8px; text-align:center; overflow-wrap:anywhere; }
-.photo-choices .photo-choice img { display:block; width:100%; aspect-ratio:4/3; object-fit:contain; background:#0e1116; border-radius:8px; }
+.photo-choices .photo-choice img { display:block; width:100%; aspect-ratio:4/3; object-fit:contain; background:var(--surface-blue-0e1116); border-radius:8px; }
 .photo-choices .photo-number { font-size:16px; font-weight:700; }
 .photo-name { display:block; text-align:center; line-height:1.45; }
 .photo-error { margin-top:10px; }
-.photo-credits { margin-top:14px; padding:10px 12px; border:1px solid #2c333f; border-radius:10px; font-size:12px; line-height:1.6; color:#c2c9d4; }
+.photo-credits { margin-top:14px; padding:10px 12px; border:1px solid var(--line-blue-2c333f); border-radius:10px; font-size:12px; line-height:1.6; color:var(--ink-neutral-c2c9d4); }
 .photo-credits p { margin:0 0 6px; }
 .photo-credits p:last-child { margin-bottom:0; }
-.photo-credit-head { font-weight:700; color:#e6ebf2; }
+.photo-credit-head { font-weight:700; color:var(--ink-neutral-e6ebf2); }
 @media (max-width: 540px) { .photo-choices .photo-choice { min-height:0; padding:6px; } }
 /* 공무원 기출 회차: 연도별 접기(range-fold 안의 range-fold). 휴대폰 한 화면에 연도 머리만 늘어서고, 연 연도만 회차가 보인다. */
 .menu-list > .paper-year { margin-top:0; }
-.paper-year > summary.range-heading { font-size:16px; color:#c9d9f2; min-height:44px; padding:10px 2px; }
+.paper-year > summary.range-heading { font-size:16px; color:var(--ink-neutral-c9d9f2); min-height:44px; padding:10px 2px; }
 .paper-year > .menu-list { margin:8px 0 6px; }
 /* 문제 의견: 문제, 해설 화면 아래의 버튼을 누르면 입력칸이 열린다. */
 .note-box { margin-top:20px; }
 .note-toggle { min-height:44px; padding:10px 14px; font-size:15px; border-style:dashed; }
-.note-count { display:block; margin-top:6px; color:#b4dcc2; }
-.note-panel { display:grid; gap:10px; margin-top:10px; padding:14px; border:1px solid #535d6b; border-radius:12px; }
-.note-panel label { color:#d1d7e0; font-size:14px; }
-.note-panel textarea { box-sizing:border-box; width:100%; min-width:0; min-height:120px; padding:12px; border:1px solid #8292a8; border-radius:12px; background:#111318; color:#fff; font:inherit; line-height:1.5; resize:vertical; }
-.note-panel textarea:focus-visible { outline:3px solid #a9cfff; outline-offset:3px; }
+.note-count { display:block; margin-top:6px; color:var(--ink-success-b4dcc2); }
+.note-panel { display:grid; gap:10px; margin-top:10px; padding:14px; border:1px solid var(--line-blue-535d6b); border-radius:12px; }
+.note-panel label { color:var(--ink-neutral-d1d7e0); font-size:14px; }
+.note-panel textarea { box-sizing:border-box; width:100%; min-width:0; min-height:120px; padding:12px; border:1px solid var(--line-blue-8292a8); border-radius:12px; background:var(--surface-blue-111318); color:var(--ink-neutral-fff); font:inherit; line-height:1.5; resize:vertical; }
+.note-panel textarea:focus-visible { outline:3px solid var(--line-blue-a9cfff); outline-offset:3px; }
 .note-actions { display:flex; gap:8px; justify-content:flex-end; }
 /* 외울 것: 가려 두고 떠올린 뒤 눌러서 확인한다. */
 .memorize-bar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:12px 0; }
-.memorize-count { margin-right:auto; color:#b4dcc2; font-weight:700; }
+.memorize-count { margin-right:auto; color:var(--ink-success-b4dcc2); font-weight:700; }
 .memorize-bar button { min-height:40px; padding:8px 12px; font-size:14px; }
 .memorize-line { margin:20px 0 0; }
-.memorize-chant { margin:0 0 8px; font-size:20px; letter-spacing:.15em; color:#d4e5ff; overflow-wrap:anywhere; }
+.memorize-chant { margin:0 0 8px; font-size:20px; letter-spacing:.15em; color:var(--ink-neutral-d4e5ff); overflow-wrap:anywhere; }
 .memorize-grid { display:grid; gap:8px; }
 .memorize-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:8px; }
 .memorize-cell { display:flex; flex-direction:column; align-items:flex-start; gap:4px; width:100%; min-height:52px; padding:12px 14px; text-align:left; line-height:1.5; overflow-wrap:anywhere; }
 .memorize-cell strong { font-size:17px; }
-.memorize-cell span { color:#d1d7e0; font-size:14px; }
-.memorize-cell .memorize-hidden { color:#8e99a8; }
-.memorize-cell.shown { border-color:#789ac4; background:#243247; }
+.memorize-cell span { color:var(--ink-neutral-d1d7e0); font-size:14px; }
+.memorize-cell .memorize-hidden { color:var(--ink-neutral-8e99a8); }
+.memorize-cell.shown { border-color:var(--line-blue-789ac4); background:var(--surface-blue-243247); }
 @media (max-width:380px) { .memorize-pair { grid-template-columns:1fr; } }
-.choice-error { background:#5a2a30; color:#ffe3e3; text-decoration:underline wavy #ff9c9c; text-underline-offset:3px; padding:0 2px; border-radius:3px; }
-.choice-fix { color:#82d6a4; font-weight:700; }
-.choice-ok { color:#9fb3c8; font-size:.9em; }
-.choice-struck { text-decoration:line-through 2px #ff9c9c; background:#5a2a30; color:#ffb3b3; }
-.choice-gap { text-decoration:none; font-weight:700; color:#ff9c9c; padding:0 3px; }
-.choice-sentence { margin:8px 0 4px; padding:10px 12px; border:1px solid #3d6b4f; border-radius:10px; background:#15221a; }
+.choice-error { background:var(--surface-danger-5a2a30); color:var(--ink-neutral-ffe3e3); text-decoration:underline wavy var(--line-danger-ff9c9c); text-underline-offset:3px; padding:0 2px; border-radius:3px; }
+.choice-fix { color:var(--ink-success-82d6a4); font-weight:700; }
+.choice-ok { color:var(--ink-blue-9fb3c8); font-size:.9em; }
+.choice-struck { text-decoration:line-through 2px var(--line-danger-ff9c9c); background:var(--surface-danger-5a2a30); color:var(--ink-danger-ffb3b3); }
+.choice-gap { text-decoration:none; font-weight:700; color:var(--ink-danger-ff9c9c); padding:0 3px; }
+.choice-sentence { margin:8px 0 4px; padding:10px 12px; border:1px solid var(--line-success-3d6b4f); border-radius:10px; background:var(--surface-success-15221a); }
 .choice-fix-line { display:flex; gap:8px; align-items:baseline; margin:4px 0 0; line-height:1.55; }
-.choice-fix-check { color:#82d6a4; font-weight:700; flex:none; }
-.choice-fix-word { background:#17301f; color:#82d6a4; font-weight:700; padding:0 3px; border-radius:4px; }
-.choice-fix-best { margin-left:6px; font-size:.75em; font-weight:700; color:#ffd98a; border:1px solid #ffd98a; border-radius:6px; padding:0 5px; white-space:nowrap; }
+.choice-fix-check { color:var(--ink-success-82d6a4); font-weight:700; flex:none; }
+.choice-fix-word { background:var(--surface-success-17301f); color:var(--ink-success-82d6a4); font-weight:700; padding:0 3px; border-radius:4px; }
+.choice-fix-best { margin-left:6px; font-size:.75em; font-weight:700; color:var(--ink-warm-ffd98a); border:1px solid var(--line-warm-ffd98a); border-radius:6px; padding:0 5px; white-space:nowrap; }
 .choice-explain .choice-explain-text { margin-top:6px; }
-.key-word { background:#3a3018; color:#ffd98a; font-weight:700; padding:0 3px; border-radius:4px; }
+.key-word { background:var(--surface-warm-3a3018); color:var(--ink-warm-ffd98a); font-weight:700; padding:0 3px; border-radius:4px; }
 .formula-box .formula-line { font-size:1.05em; font-weight:600; }
-.formula-bad { color:#ff9c9c; }
-.formula-example { color:#c3cad4; font-size:.95em; }
-.formula-example .key-word { background:#17301f; color:#82d6a4; }
+.formula-bad { color:var(--ink-danger-ff9c9c); }
+.formula-example { color:var(--ink-neutral-c3cad4); font-size:.95em; }
+.formula-example .key-word { background:var(--surface-success-17301f); color:var(--ink-success-82d6a4); }
 .rule-line { margin:8px 0; line-height:1.6; }
 .lesson p, .hook, .choice-explain p, .choice-sentence p { overflow-wrap:anywhere; }
-.rule-head { font-weight:700; color:#d4e5ff; margin-top:14px; }
-.lesson .rule-ok { border-left-color:#82d6a4; color:#e6f7ec; }
-.lesson .rule-bad { border-left-color:#ff9c9c; color:#ffd0d0; }
-.lesson .example .key-word { background:#17301f; color:#82d6a4; }
-.lesson .rule-bad .key-word { background:#5a2a30; color:#ffb3b3; text-decoration:line-through; }
+.rule-head { font-weight:700; color:var(--ink-neutral-d4e5ff); margin-top:14px; }
+.lesson .rule-ok { border-left-color:var(--line-success-82d6a4); color:var(--ink-neutral-e6f7ec); }
+.lesson .rule-bad { border-left-color:var(--line-danger-ff9c9c); color:var(--ink-danger-ffd0d0); }
+.lesson .example .key-word { background:var(--surface-success-17301f); color:var(--ink-success-82d6a4); }
+.lesson .rule-bad .key-word { background:var(--surface-danger-5a2a30); color:var(--ink-danger-ffb3b3); text-decoration:line-through; }
 .marked-choices { margin:8px 0 12px; }
 .marked-choices .example { margin:6px 0; }
-.choice-explain { border-left:3px solid #4a5a70; padding:4px 0 4px 10px; margin:12px 0; }
-.choice-explain.is-answer { border-left-color:#82d6a4; }
-.choice-explain.is-picked { border-left-color:#ff9c9c; }
+.choice-explain { border-left:3px solid var(--line-blue-4a5a70); padding:4px 0 4px 10px; margin:12px 0; }
+.choice-explain.is-answer { border-left-color:var(--line-success-82d6a4); }
+.choice-explain.is-picked { border-left-color:var(--line-danger-ff9c9c); }
 .choice-explain-sentence { margin:0 0 6px; font-weight:600; line-height:1.55; }
-.choice-explain-text { margin:0; color:#d1d7e0; line-height:1.6; }
+.choice-explain-text { margin:0; color:var(--ink-neutral-d1d7e0); line-height:1.6; }
 .choice-answer-tag, .choice-picked-tag { margin-left:6px; font-size:.78em; font-weight:700; padding:1px 7px; border-radius:9px; white-space:nowrap; }
-.choice-answer-tag { background:#183b2b; color:#82d6a4; }
-.choice-picked-tag { background:#49282e; color:#ff9c9c; }
-.memorize-group-title { margin:0 0 8px; font-size:18px; font-weight:700; color:#d4e5ff; }
-.question-clue { margin:14px 0 0; padding:12px 14px; border:1px solid #4a5a70; border-radius:10px; background:#1b2230; color:#e3e8ef; font-size:17px; font-weight:400; line-height:1.75; white-space:pre-wrap; overflow-wrap:anywhere; }
+.choice-answer-tag { background:var(--surface-success-183b2b); color:var(--ink-success-82d6a4); }
+.choice-picked-tag { background:var(--surface-danger-49282e); color:var(--ink-danger-ff9c9c); }
+.memorize-group-title { margin:0 0 8px; font-size:18px; font-weight:700; color:var(--ink-neutral-d4e5ff); }
+.question-clue { margin:14px 0 0; padding:12px 14px; border:1px solid var(--line-blue-4a5a70); border-radius:10px; background:var(--surface-blue-1b2230); color:var(--ink-neutral-e3e8ef); font-size:17px; font-weight:400; line-height:1.75; white-space:pre-wrap; overflow-wrap:anywhere; }
 .question-clue.mono { font-family:Consolas,'D2Coding','Noto Sans Mono CJK KR','Noto Sans Mono','Roboto Mono','Droid Sans Mono',ui-monospace,monospace; font-size:15px; line-height:1.7; tab-size:4; }
 .recap .question-clue { font-size:15px; }
 .recap .question-clue.mono { font-size:14px; }
 /* 문법 공식 훈련(v98): 해설 끝 외우기 상자와 외울 것 칸의 줄바꿈 */
-.formula-box { margin:14px 0 4px; padding:12px 14px; border:1px solid #6f8fb8; border-radius:12px; background:#1c2635; overflow-wrap:anywhere; }
+.formula-box { margin:14px 0 4px; padding:12px 14px; border:1px solid var(--line-blue-6f8fb8); border-radius:12px; background:var(--surface-blue-1c2635); overflow-wrap:anywhere; }
 .formula-box p { margin:0 0 6px; line-height:1.55; }
 .formula-box p:last-child { margin-bottom:0; }
-.formula-head { margin-top:10px !important; font-weight:700; color:#d4e5ff; }
+.formula-head { margin-top:10px !important; font-weight:700; color:var(--ink-neutral-d4e5ff); }
 .formula-box .formula-head:first-child { margin-top:0 !important; }
-.formula-line { color:#f2f5fa; }
-.formula-note { color:#d1d7e0; }
-.formula-note strong { color:#ffd98a; }
+.formula-line { color:var(--ink-neutral-f2f5fa); }
+.formula-note { color:var(--ink-neutral-d1d7e0); }
+.formula-note strong { color:var(--ink-warm-ffd98a); }
 .memorize-cell span { white-space:pre-line; }
 /* 국사 외우는 비결(v99): 해설 상자 둘째 줄의 외우는 말 */
 
 /* 사진 칸: 앞면이 사진이다. 사진은 열어도 남겨 두고 이름이 아래에 붙는다. */
 .memorize-cell.photo{display:flex;flex-direction:column;gap:6px;align-items:stretch;text-align:left}
-.memorize-cell.photo img{width:100%;aspect-ratio:3/4;object-fit:contain;background:var(--card-bg,#00000010);border-radius:8px}
+.memorize-cell.photo img{width:100%;aspect-ratio:3/4;object-fit:contain;background:var(--photo-backdrop);border-radius:8px}
 .memorize-cell.photo strong{font-size:.95rem;line-height:1.35}
 .photo-size-option{display:inline-flex;align-items:center;gap:4px;min-height:36px;margin:0;padding:2px 4px;font-size:14px;font-weight:400;cursor:pointer;white-space:nowrap}
 .photo-size-option input{width:18px;height:18px;margin:0;flex:none}
@@ -296,194 +882,194 @@ body[data-view="quiz"] main { padding-top:14px; }
 .memorize-grid.photo-cols-3 .memorize-cell.photo strong,.memorize-grid.photo-cols-4 .memorize-cell.photo strong{font-size:.8rem}
 .memorize-grid.photo-cols-3 .memorize-cell.photo span,.memorize-grid.photo-cols-4 .memorize-cell.photo span{font-size:12px}
 /* 경험치, 레벨(v120) */
-.xp-card { margin:0 0 18px; padding:14px 16px; border:1px solid #6f8fb8; border-radius:14px; background:#1c2635; }
+.xp-card { margin:0 0 18px; padding:14px 16px; border:1px solid var(--line-blue-6f8fb8); border-radius:14px; background:var(--surface-blue-1c2635); }
 .xp-top { display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap; }
-.xp-top strong { font-size:24px; color:#ffd98a; font-variant-numeric:tabular-nums; }
-.xp-streak { color:#ffb38a; font-weight:700; }
-.xp-bar { display:block; width:100%; height:12px; margin:10px 0 8px; border:0; border-radius:99px; background:#2c3646; overflow:hidden; appearance:none; -webkit-appearance:none; }
-.xp-bar::-webkit-progress-bar { background:#2c3646; border-radius:99px; }
-.xp-bar::-webkit-progress-value { background:linear-gradient(90deg,#82d6a4,#ffd98a); border-radius:99px; }
-.xp-bar::-moz-progress-bar { background:linear-gradient(90deg,#82d6a4,#ffd98a); border-radius:99px; }
-.xp-text { margin:0; color:#d1d7e0; font-size:15px; overflow-wrap:anywhere; }
-.xp-goal { margin:6px 0 0; font-weight:700; color:#82d6a4; }
+.xp-top strong { font-size:24px; color:var(--ink-warm-ffd98a); font-variant-numeric:tabular-nums; }
+.xp-streak { color:var(--ink-danger-ffb38a); font-weight:700; }
+.xp-bar { display:block; width:100%; height:12px; margin:10px 0 8px; border:0; border-radius:99px; background:var(--surface-blue-2c3646); overflow:hidden; appearance:none; -webkit-appearance:none; }
+.xp-bar::-webkit-progress-bar { background:var(--surface-blue-2c3646); border-radius:99px; }
+.xp-bar::-webkit-progress-value { background:linear-gradient(90deg,var(--ink-success-82d6a4),var(--ink-warm-ffd98a)); border-radius:99px; }
+.xp-bar::-moz-progress-bar { background:linear-gradient(90deg,var(--ink-success-82d6a4),var(--ink-warm-ffd98a)); border-radius:99px; }
+.xp-text { margin:0; color:var(--ink-neutral-d1d7e0); font-size:15px; overflow-wrap:anywhere; }
+.xp-goal { margin:6px 0 0; font-weight:700; color:var(--ink-success-82d6a4); }
 .xp-goal-edit { margin-top:8px; font-size:15px; }
-.xp-goal-edit summary { cursor:pointer; color:#9cc4ff; min-height:32px; }
+.xp-goal-edit summary { cursor:pointer; color:var(--ink-blue-9cc4ff); min-height:32px; }
 .xp-goal-edit label { display:block; margin:6px 0 4px; }
 .xp-goal-row { display:flex; gap:8px; flex-wrap:wrap; }
 .xp-goal-row input { width:7em; }
-.xp-award { display:flex; flex-wrap:wrap; gap:4px 10px; align-items:baseline; margin:10px 0; padding:10px 14px; border-radius:12px; background:#1f2a1f; border:1px solid #3d6b4f; }
-.xp-award strong { font-size:22px; color:#82d6a4; }
-.xp-award span { color:#c3cad4; font-size:15px; }
-.xp-award.is-bonus { background:#302a14; border-color:#ffd98a; }
-.xp-award.is-bonus strong { color:#ffd98a; }
-.xp-levelup { flex-basis:100%; margin:4px 0 0; font-size:18px; font-weight:700; color:#ffd98a; }
+.xp-award { display:flex; flex-wrap:wrap; gap:4px 10px; align-items:baseline; margin:10px 0; padding:10px 14px; border-radius:12px; background:var(--surface-success-1f2a1f); border:1px solid var(--line-success-3d6b4f); }
+.xp-award strong { font-size:22px; color:var(--ink-success-82d6a4); }
+.xp-award span { color:var(--ink-neutral-c3cad4); font-size:15px; }
+.xp-award.is-bonus { background:var(--surface-warm-302a14); border-color:var(--line-warm-ffd98a); }
+.xp-award.is-bonus strong { color:var(--ink-warm-ffd98a); }
+.xp-levelup { flex-basis:100%; margin:4px 0 0; font-size:18px; font-weight:700; color:var(--ink-warm-ffd98a); }
 /* 예상점수(v121) */
-.home-score { display:block; width:100%; margin-top:8px; padding:8px 10px; text-align:left; border:1px solid #414854; border-radius:10px; background:#161b22; color:#d4e5ff; font-size:15px; min-height:0; overflow-wrap:anywhere; }
-.score-card { margin:0 0 18px; padding:14px 16px; border:1px solid #6f8fb8; border-radius:14px; background:#1c2635; }
+.home-score { display:block; width:100%; margin-top:8px; padding:8px 10px; text-align:left; border:1px solid var(--line-blue-414854); border-radius:10px; background:var(--surface-blue-161b22); color:var(--ink-neutral-d4e5ff); font-size:15px; min-height:0; overflow-wrap:anywhere; }
+.score-card { margin:0 0 18px; padding:14px 16px; border:1px solid var(--line-blue-6f8fb8); border-radius:14px; background:var(--surface-blue-1c2635); }
 .score-card h2 { margin:0 0 6px; font-size:20px; }
-.score-target { margin:0; color:#c3cad4; font-size:15px; }
-.score-total { margin:10px 0 4px; font-size:19px; font-weight:700; color:#ffd98a; font-variant-numeric:tabular-nums; }
+.score-target { margin:0; color:var(--ink-neutral-c3cad4); font-size:15px; }
+.score-total { margin:10px 0 4px; font-size:19px; font-weight:700; color:var(--ink-warm-ffd98a); font-variant-numeric:tabular-nums; }
 .score-gap { margin:0 0 10px; font-weight:700; }
-.score-gap.is-over { color:#82d6a4; }
-.score-gap.is-under { color:#ffb38a; }
+.score-gap.is-over { color:var(--ink-success-82d6a4); }
+.score-gap.is-under { color:var(--ink-danger-ffb38a); }
 .score-table td, .score-table th { font-variant-numeric:tabular-nums; }
-.score-unranked td { color:#9fb3c8; }
-.score-card small { display:block; margin-top:8px; color:#aab3c0; line-height:1.55; }
+.score-unranked td { color:var(--ink-blue-9fb3c8); }
+.score-card small { display:block; margin-top:8px; color:var(--ink-neutral-aab3c0); line-height:1.55; }
 .target-edit { margin-top:10px; }
-.target-edit summary { cursor:pointer; color:#9cc4ff; min-height:32px; }
+.target-edit summary { cursor:pointer; color:var(--ink-blue-9cc4ff); min-height:32px; }
 .target-edit label { display:block; margin:8px 0 4px; }
 .target-edit input { width:100%; max-width:16em; }
 .score-table { font-size:15px; }
 .score-table .score-num { white-space:nowrap; }
-.score-table small { display:block; font-size:12px; color:#9fb3c8; }
-.score-total .score-sub { display:block; margin-top:2px; font-size:14px; font-weight:400; color:#c3cad4; }
+.score-table small { display:block; font-size:12px; color:var(--ink-blue-9fb3c8); }
+.score-total .score-sub { display:block; margin-top:2px; font-size:14px; font-weight:400; color:var(--ink-neutral-c3cad4); }
 .memorize-formula { display:flex; flex-direction:column; gap:4px; white-space:normal; }
 .memorize-formula span { display:block; font-size:15px; }
-.memorize-formula .formula-line { color:#f2f5fa; font-weight:600; }
-.memorize-formula .formula-bad { color:#ff9c9c; }
-.memorize-formula .formula-example { color:#c3cad4; }
+.memorize-formula .formula-line { color:var(--ink-neutral-f2f5fa); font-weight:600; }
+.memorize-formula .formula-bad { color:var(--ink-danger-ff9c9c); }
+.memorize-formula .formula-example { color:var(--ink-neutral-c3cad4); }
 .memorize-formula .key-word { display:inline; font-size:inherit; }
 /* 과목 레벨 뱃지(v124) */
-.level-badge { display:inline-flex; flex-direction:column; align-items:center; justify-content:center; flex:none; width:46px; height:52px; clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); color:#1a1206; line-height:1; font-variant-numeric:tabular-nums; }
+.level-badge { display:inline-flex; flex-direction:column; align-items:center; justify-content:center; flex:none; width:46px; height:52px; clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); color:var(--ink-warm-1a1206); line-height:1; font-variant-numeric:tabular-nums; }
 .level-badge small { font-size:10px; font-weight:700; letter-spacing:.04em; opacity:.8; }
 .level-badge b { font-size:19px; }
 .level-badge.big { width:60px; height:68px; }
 .level-badge.big b { font-size:25px; }
-.tier-bronze { background:linear-gradient(160deg,#f0b27a,#a8642e); }
-.tier-silver { background:linear-gradient(160deg,#f2f5fa,#9aa7b8); }
-.tier-gold { background:linear-gradient(160deg,#ffe8a3,#d9a520); }
-.tier-platinum { background:linear-gradient(160deg,#c9fff0,#43b89a); }
-.tier-diamond { background:linear-gradient(160deg,#e6d9ff,#8a6cff); color:#fff; }
+.tier-bronze { background:linear-gradient(160deg,var(--surface-warm-f0b27a),var(--surface-warm-a8642e)); }
+.tier-silver { background:linear-gradient(160deg,var(--surface-neutral-f2f5fa),var(--surface-neutral-9aa7b8)); }
+.tier-gold { background:linear-gradient(160deg,var(--surface-warm-ffe8a3),var(--surface-warm-d9a520)); }
+.tier-platinum { background:linear-gradient(160deg,var(--surface-success-c9fff0),var(--surface-success-43b89a)); }
+.tier-diamond { background:linear-gradient(160deg,var(--surface-neutral-e6d9ff),var(--surface-purple-8a6cff)); color:var(--ink-neutral-fff); }
 .menu-item.with-badge { display:grid; grid-template-columns:auto 1fr; column-gap:14px; align-items:center; }
 .menu-item.with-badge > strong, .menu-item.with-badge > span { grid-column:2; }
 .menu-item.with-badge > .level-badge { grid-column:1; grid-row:1 / span 2; }
 .subject-head { display:flex; align-items:center; gap:12px; }
 .subject-head h2 { margin:0; }
-.subject-level { margin:8px 0 14px; color:#c3cad4; font-size:14px; }
-.xp-subject { flex-basis:100%; display:flex; align-items:center; gap:8px; margin:4px 0 0; color:#d1d7e0; font-size:15px; }
+.subject-level { margin:8px 0 14px; color:var(--ink-neutral-c3cad4); font-size:14px; }
+.xp-subject { flex-basis:100%; display:flex; align-items:center; gap:8px; margin:4px 0 0; color:var(--ink-neutral-d1d7e0); font-size:15px; }
 .xp-subject .level-badge { width:30px; height:34px; }
 .xp-subject .level-badge small { display:none; }
 .xp-subject .level-badge b { font-size:14px; }
-.menu-item .level-badge, .level-badge b, .level-badge small { color:#1a1206; }
-.menu-item .level-badge.tier-diamond, .level-badge.tier-diamond b, .level-badge.tier-diamond small { color:#fff; }
+.menu-item .level-badge, .level-badge b, .level-badge small { color:var(--ink-warm-1a1206); }
+.menu-item .level-badge.tier-diamond, .level-badge.tier-diamond b, .level-badge.tier-diamond small { color:var(--ink-neutral-fff); }
 .menu-item .level-badge { font-size:inherit; line-height:1; }
 /* v127 세분화 뱃지 색 */
-.tier-iron { background:linear-gradient(160deg,#c9ced6,#6b7280); }
-.tier-emerald { background:linear-gradient(160deg,#b9f5cf,#1f9d55); }
-.tier-ruby { background:linear-gradient(160deg,#ffc2cc,#d6324f); }
-.tier-diamond { background:linear-gradient(160deg,#e6f6ff,#5aa9e6); color:#0b1b2b; }
-.tier-master { background:linear-gradient(160deg,#e6d9ff,#8a6cff); }
-.tier-grandmaster { background:linear-gradient(160deg,#ffb3a7,#b3261e); }
-.tier-challenger { background:linear-gradient(160deg,#fff1b8,#3d7bff); }
-.tier-legend { background:conic-gradient(from 200deg,#ff8a8a,#ffd98a,#82d6a4,#7ec8ff,#b89cff,#ff8a8a); }
-.level-badge.tier-diamond b, .level-badge.tier-diamond small, .menu-item .level-badge.tier-diamond { color:#0b1b2b; }
+.tier-iron { background:linear-gradient(160deg,var(--surface-neutral-c9ced6),var(--surface-neutral-6b7280)); }
+.tier-emerald { background:linear-gradient(160deg,var(--surface-success-b9f5cf),var(--surface-success-1f9d55)); }
+.tier-ruby { background:linear-gradient(160deg,var(--surface-danger-ffc2cc),var(--surface-danger-d6324f)); }
+.tier-diamond { background:linear-gradient(160deg,var(--surface-neutral-e6f6ff),var(--surface-blue-5aa9e6)); color:var(--ink-blue-0b1b2b); }
+.tier-master { background:linear-gradient(160deg,var(--surface-neutral-e6d9ff),var(--surface-purple-8a6cff)); }
+.tier-grandmaster { background:linear-gradient(160deg,var(--surface-danger-ffb3a7),var(--surface-danger-b3261e)); }
+.tier-challenger { background:linear-gradient(160deg,var(--surface-warm-fff1b8),var(--surface-blue-3d7bff)); }
+.tier-legend { background:conic-gradient(from 200deg,var(--surface-danger-ff8a8a),var(--surface-warm-ffd98a),var(--surface-success-82d6a4),var(--surface-blue-7ec8ff),var(--surface-purple-b89cff),var(--surface-danger-ff8a8a)); }
+.level-badge.tier-diamond b, .level-badge.tier-diamond small, .menu-item .level-badge.tier-diamond { color:var(--ink-blue-0b1b2b); }
 .level-badge.tier-master b, .level-badge.tier-master small, .menu-item .level-badge.tier-master,
-.level-badge.tier-grandmaster b, .level-badge.tier-grandmaster small, .menu-item .level-badge.tier-grandmaster { color:#fff; }
+.level-badge.tier-grandmaster b, .level-badge.tier-grandmaster small, .menu-item .level-badge.tier-grandmaster { color:var(--ink-neutral-fff); }
 .xp-top strong { display:inline-flex; align-items:center; gap:10px; }
 .xp-top strong .level-badge { width:40px; height:46px; }
 .xp-top strong .level-badge b { font-size:17px; }
-.tier-note { display:block; margin-top:4px; color:#aab3c0; font-size:14px; }
-.mastered-toggle { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:#d1d7e0; }
-.mastered-toggle small { color:#9fb3c8; }
+.tier-note { display:block; margin-top:4px; color:var(--ink-neutral-aab3c0); font-size:14px; }
+.mastered-toggle { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:var(--ink-neutral-d1d7e0); }
+.mastered-toggle small { color:var(--ink-blue-9fb3c8); }
 .subject-goal { margin:0 0 14px; }
 /* v145 파트별 상태, 파트별 점검 */
-.menu-item.part-item.is-weak { border-color:#e0a24a; }
-.menu-item.part-item.is-weak strong { color:#ffd08a; }
+.menu-item.part-item.is-weak { border-color:var(--line-warm-e0a24a); }
+.menu-item.part-item.is-weak strong { color:var(--ink-warm-ffd08a); }
 .part-result { margin:12px 0 18px; padding-left:20px; line-height:1.7; }
-.part-result li.is-weak { color:#ffd08a; }
-.part-result li.is-pass { color:#bfe8c4; }
+.part-result li.is-weak { color:var(--ink-warm-ffd08a); }
+.part-result li.is-pass { color:var(--ink-neutral-bfe8c4); }
 #partsView .menu-item span, .part-result li { overflow-wrap:anywhere; }
 /* v146 뱃지 둘(기출, 자체제작) + 누르면 뜨는 설명. 레벨 육각형은 색 없이(노력), 실력은 칩 두 개가 보여 준다. */
-.level-badge.lv-plain { background:linear-gradient(160deg,#cfe2fb,#5b7ba6); }
+.level-badge.lv-plain { background:linear-gradient(160deg,var(--surface-neutral-cfe2fb),var(--surface-blue-5b7ba6)); }
 .subject-row { display:grid; gap:6px; min-width:0; }
 .badge-chips { display:flex; flex-wrap:wrap; gap:6px 8px; align-items:center; min-width:0; }
 .subject-row > .badge-chips { padding:0 4px; }
-.badge-chip { display:inline-flex; align-items:center; gap:6px; min-height:36px; padding:4px 12px 4px 9px; border-radius:99px; font-size:14px; line-height:1.2; color:#e8edf4; background:#1b2028; }
-.badge-chip.is-empty { color:#aab3c0; border-style:dashed; }
+.badge-chip { display:inline-flex; align-items:center; gap:6px; min-height:36px; padding:4px 12px 4px 9px; border-radius:99px; font-size:14px; line-height:1.2; color:var(--ink-neutral-e8edf4); background:var(--surface-blue-1b2028); }
+.badge-chip.is-empty { color:var(--ink-neutral-aab3c0); border-style:dashed; }
 .chip-hex { display:inline-block; flex:none; width:16px; height:18px; clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); }
-:where(.chip-hex) { background:#4a5364; } /* 등급 없음(아직). 등급 색(.tier-*)이 언제나 이긴다 */
+:where(.chip-hex) { background:var(--surface-blue-4a5364); } /* 등급 없음(아직). 등급 색(.tier-*)이 언제나 이긴다 */
 .subject-level .badge-chips { margin:10px 0 2px; }
 .xp-badges { margin-top:8px; }
 .xp-subject { flex-wrap:wrap; }
 .xp-subject .badge-chip { min-height:32px; font-size:13px; }
-.badge-info { position:fixed; left:0; right:0; bottom:0; z-index:50; box-sizing:border-box; max-width:560px; max-height:72vh; margin:0 auto; overflow:auto; padding:14px 16px calc(18px + env(safe-area-inset-bottom)); background:#1c2635; border:1px solid #6f8fb8; border-bottom:0; border-radius:16px 16px 0 0; box-shadow:0 -8px 30px rgba(0,0,0,.55); }
+.badge-info { position:fixed; left:0; right:0; bottom:0; z-index:50; box-sizing:border-box; max-width:560px; max-height:72vh; margin:0 auto; overflow:auto; padding:14px 16px calc(18px + env(safe-area-inset-bottom)); background:var(--surface-blue-1c2635); border:1px solid var(--line-blue-6f8fb8); border-bottom:0; border-radius:16px 16px 0 0; box-shadow:0 -8px 30px var(--shadow-neutral-rgba00055); }
 .badge-info[hidden] { display:none; }
 .badge-info-head { display:flex; align-items:center; justify-content:space-between; gap:10px; }
 .badge-info-title { display:flex; align-items:center; gap:8px; min-width:0; margin:0; font-size:19px; word-break:keep-all; overflow-wrap:break-word; }
 .badge-info-title .chip-hex { width:20px; height:23px; }
 .badge-info-close { flex:none; min-height:40px; padding:6px 14px; }
 .badge-info-line { margin:8px 0 0; font-size:16px; line-height:1.5; word-break:keep-all; overflow-wrap:break-word; }
-.badge-info-weak { display:flex; flex-wrap:wrap; gap:6px 8px; align-items:center; margin-top:10px; color:#d1d7e0; font-size:15px; }
-.badge-info-part { min-height:36px; max-width:100%; padding:4px 12px; border-color:#e0a24a; color:#ffd08a; font-size:15px; text-align:left; word-break:keep-all; overflow-wrap:break-word; }
-.badge-info-part.is-plain { display:inline-block; border:1px solid #535d6b; border-radius:12px; color:#d1d7e0; }
-.badge-info-note { margin:10px 0 0; color:#aab3c0; font-size:14px; line-height:1.5; word-break:keep-all; overflow-wrap:break-word; }
+.badge-info-weak { display:flex; flex-wrap:wrap; gap:6px 8px; align-items:center; margin-top:10px; color:var(--ink-neutral-d1d7e0); font-size:15px; }
+.badge-info-part { min-height:36px; max-width:100%; padding:4px 12px; border-color:var(--line-warm-e0a24a); color:var(--ink-warm-ffd08a); font-size:15px; text-align:left; word-break:keep-all; overflow-wrap:break-word; }
+.badge-info-part.is-plain { display:inline-block; border:1px solid var(--line-blue-535d6b); border-radius:12px; color:var(--ink-neutral-d1d7e0); }
+.badge-info-note { margin:10px 0 0; color:var(--ink-neutral-aab3c0); font-size:14px; line-height:1.5; word-break:keep-all; overflow-wrap:break-word; }
 .xp-card .xp-text { word-break:keep-all; overflow-wrap:break-word; }
 /* 기초 개념(basics.js) — 해설 화면의 '기초 개념' 상자와 파트별 '기초 개념 보기' 화면. 용어 칩 노랑, 역할(S, P, M 등) 색 칩, 맞는 예문 초록 막대, 틀린 예문 빨강 막대. */
-.lesson.basics { border-color:#6b5a2e; background:#1a1812; line-height:1.6; }
+.lesson.basics { border-color:var(--line-warm-6b5a2e); background:var(--surface-warm-1a1812); line-height:1.6; }
 .lesson.basics { overflow-x:auto; }
-.lesson.basics > summary { color:#ffd479; }
+.lesson.basics > summary { color:var(--ink-warm-ffd479); }
 .basics p, .basics div, .basics td, .basics th { overflow-wrap:anywhere; word-break:keep-all; }
-.b-h { margin:22px 0 6px; font-size:15px; color:#e8d9a8; border-bottom:1px solid #4a4128; padding-bottom:4px; }
+.b-h { margin:22px 0 6px; font-size:15px; color:var(--ink-warm-e8d9a8); border-bottom:1px solid var(--line-warm-4a4128); padding-bottom:4px; }
 .basics.b-steps { min-width:0; overflow-x:hidden; line-height:1.85; }
 .b-steps .b-step-text { margin:10px 0; }
 .b-steps .b-fig { box-sizing:border-box; max-width:100%; margin:16px 0; padding:12px; border:1px solid; border-color:inherit; border-radius:8px; background:var(--card-bg,transparent); color:inherit; font-family:Consolas,monospace; font-size:13px; line-height:1.7; white-space:pre-wrap; overflow-wrap:anywhere; word-break:normal; }
 .b-steps .b-table { width:100%; table-layout:fixed; }
 .b-steps .b-table.b-hist td:first-child { white-space:normal; }
 .b-term { margin:18px 0 4px; }
-.b-origin { color:#b9c0cc; margin-left:6px; }
-.b-chip { display:inline-block; padding:2px 10px; border-radius:999px; background:#ffd47926; color:#ffd479; font-weight:700; }
+.b-origin { color:var(--ink-neutral-b9c0cc); margin-left:6px; }
+.b-chip { display:inline-block; padding:2px 10px; border-radius:999px; background:var(--surface-warm-ffd47926); color:var(--ink-warm-ffd479); font-weight:700; }
 .b-mean { margin:4px 0; }
 .b-rows div { margin:4px 0; }
-.b-ex { margin:6px 0; padding:6px 10px; border-left:3px solid #7fd1a0; background:#7fd1a012; border-radius:0 8px 8px 0; }
-.b-ex.bad { border-left-color:#ff8a80; background:#ff8a8012; }
-.b-ex small { color:#b9c0cc; }
-.b-this { margin:8px 0; padding:6px 10px; border-left:3px solid #8ec5ff; background:#8ec5ff12; border-radius:0 8px 8px 0; }
-.b-key { margin:8px 0; padding:8px 10px; border-radius:8px; background:#ffd4791a; }
-.b-rule { margin:6px 0; padding:6px 10px; border-radius:8px; background:#ffffff0a; }
-.b-rule > b { color:#ffd479; margin-right:6px; }
+.b-ex { margin:6px 0; padding:6px 10px; border-left:3px solid var(--line-success-7fd1a0); background:var(--surface-success-7fd1a012); border-radius:0 8px 8px 0; }
+.b-ex.bad { border-left-color:var(--line-danger-ff8a80); background:var(--surface-danger-ff8a8012); }
+.b-ex small { color:var(--ink-neutral-b9c0cc); }
+.b-this { margin:8px 0; padding:6px 10px; border-left:3px solid var(--line-blue-8ec5ff); background:var(--surface-blue-8ec5ff12); border-radius:0 8px 8px 0; }
+.b-key { margin:8px 0; padding:8px 10px; border-radius:8px; background:var(--surface-warm-ffd4791a); }
+.b-rule { margin:6px 0; padding:6px 10px; border-radius:8px; background:var(--surface-neutral-ffffff0a); }
+.b-rule > b { color:var(--ink-warm-ffd479); margin-right:6px; }
 .b-role { display:inline-block; min-width:1.6em; padding:0 6px; border-radius:6px; font-weight:700; text-align:center; }
-.b-s { background:#8ec5ff33; color:#8ec5ff; }
-.b-p { background:#ff9fb033; color:#ff9fb0; }
-.b-m { background:#b9a6ff33; color:#c7b8ff; }
-.b-q { background:#7fd1a033; color:#8fe0b0; }
-.b-r { background:#ffb86b33; color:#ffc285; }
-.b-code { font-family:Consolas,'D2Coding','Noto Sans Mono CJK KR','Noto Sans Mono','Roboto Mono','Droid Sans Mono',ui-monospace,monospace; font-size:.94em; padding:0 4px; border-radius:5px; background:#ffffff14; white-space:pre-wrap; overflow-wrap:anywhere; }
-.b-ok { color:#7fd1a0; font-weight:700; }
-.b-no { color:#ff8a80; font-weight:700; }
+.b-s { background:var(--surface-blue-8ec5ff33); color:var(--ink-blue-8ec5ff); }
+.b-p { background:var(--surface-danger-ff9fb033); color:var(--ink-danger-ff9fb0); }
+.b-m { background:var(--surface-purple-b9a6ff33); color:var(--ink-purple-c7b8ff); }
+.b-q { background:var(--surface-success-7fd1a033); color:var(--ink-success-8fe0b0); }
+.b-r { background:var(--surface-warm-ffb86b33); color:var(--ink-warm-ffc285); }
+.b-code { font-family:Consolas,'D2Coding','Noto Sans Mono CJK KR','Noto Sans Mono','Roboto Mono','Droid Sans Mono',ui-monospace,monospace; font-size:.94em; padding:0 4px; border-radius:5px; background:var(--surface-neutral-ffffff14); white-space:pre-wrap; overflow-wrap:anywhere; }
+.b-ok { color:var(--ink-success-7fd1a0); font-weight:700; }
+.b-no { color:var(--ink-danger-ff8a80); font-weight:700; }
 .b-table { width:100%; border-collapse:collapse; margin:6px 0; font-size:15px; }
-.b-table th, .b-table td { border-bottom:1px solid #353c47; padding:6px 4px; text-align:center; vertical-align:middle; }
+.b-table th, .b-table td { border-bottom:1px solid var(--line-blue-353c47); padding:6px 4px; text-align:center; vertical-align:middle; }
 .b-table td:first-child, .b-table th:first-child { text-align:left; }
 .b-table.b-hist td:first-child { word-break:keep-all; }
 .b-table.b-hist td.b-nowrap { white-space:nowrap; }
 .b-table.b-hist td.b-long { text-align:left; }
 .b-table.b-photos { border-collapse:separate; border-spacing:0; }
 .b-table.b-photos tr td + td { border-left:0; }
-.b-table.b-photos tr td:nth-child(n) { background:#2a3342; background-clip:padding-box; border-bottom:0; border-top:20px solid transparent; padding:9px 7px; }
+.b-table.b-photos tr td:nth-child(n) { background:var(--surface-blue-2a3342); background-clip:padding-box; border-bottom:0; border-top:20px solid transparent; padding:9px 7px; }
 .b-table.b-photos tr.b-has-photo td:nth-child(n) { padding-bottom:4px; }
 .b-table.b-photos tr.b-photo td:nth-child(n) { text-align:center; border-top:0; padding:4px 7px 12px; }
 .b-photo figure { display:inline-block; margin:0 2px; max-width:100%; vertical-align:top; }
 .b-photo-many figure { max-width:47%; }
-.b-photo img { display:block; max-width:100%; max-height:240px; width:auto; height:auto; margin:0 auto; border-radius:6px; background:#fff; }
-.b-photo figcaption { margin-top:4px; font-size:13px; color:#aeb8c6; word-break:keep-all; }
+.b-photo img { display:block; max-width:100%; max-height:240px; width:auto; height:auto; margin:0 auto; border-radius:6px; background:var(--image-paper); }
+.b-photo figcaption { margin-top:4px; font-size:13px; color:var(--ink-neutral-aeb8c6); word-break:keep-all; }
 /* v403 컴퓨터일반 기계 사진(assets/computer): 용어 풀이 아래, 표의 줄 아래에 작은 사진. 누르면 새 창에서 원래 크기(가로 480px까지). 출처 줄은 작게. */
 .b-cphotos { display:flex; flex-wrap:wrap; gap:10px; margin:8px 0 6px; }
 .b-cphotos .b-cfig { flex:0 1 220px; }
 .b-cfig { margin:0; min-width:0; text-align:center; }
 .b-cfig > a { display:block; }
-.b-cfig img { display:block; max-width:100%; max-height:170px; width:auto; height:auto; margin:0 auto; border-radius:6px; background:#fff; }
+.b-cfig img { display:block; max-width:100%; max-height:170px; width:auto; height:auto; margin:0 auto; border-radius:6px; background:var(--image-paper); }
 .b-photo .b-cfig img { max-height:170px; }
-.b-cfig figcaption { margin-top:4px; font-size:13px; line-height:1.45; color:#aeb8c6; word-break:keep-all; overflow-wrap:anywhere; text-align:left; }
-.b-cfig .b-credit { display:block; margin-top:2px; font-size:11px; color:#7f8896; text-align:left; text-decoration:none; overflow-wrap:anywhere; }
+.b-cfig figcaption { margin-top:4px; font-size:13px; line-height:1.45; color:var(--ink-neutral-aeb8c6); word-break:keep-all; overflow-wrap:anywhere; text-align:left; }
+.b-cfig .b-credit { display:block; margin-top:2px; font-size:11px; color:var(--ink-neutral-7f8896); text-align:left; text-decoration:none; overflow-wrap:anywhere; }
 /* 폰 폭에서는 한 줄에 한 장(계산자처럼 가로로 긴 사진이 반쪽 칸에서는 구조가 안 보인다). */
 @media (max-width:540px) { .b-cphotos .b-cfig { flex:1 1 100%; } .b-photo-many .b-cfig { display:block; max-width:100%; margin:0 0 10px; } .b-cfig img { max-height:200px; } .b-photo .b-cfig img { max-height:200px; } }
-.b-table td small { display:block; color:#9aa3b0; font-size:12px; }
+.b-table td small { display:block; color:var(--ink-neutral-9aa3b0); font-size:12px; }
 /* 2026-09-28 사용자: "표가 좌우 구분이 없어서 읽다가 헷갈린다" — 칸마다 세로줄, 머리줄, 첫 칸 음영, 한국사 표는 왼쪽 정렬 */
-.b-table { border:1px solid #3d4552; }
-.b-table th + th, .b-table td + td { border-left:1px solid #3d4552; }
-.b-table th { background:#232a36; color:#f0d9a8; padding:7px 6px; }
+.b-table { border:1px solid var(--line-blue-3d4552); }
+.b-table th + th, .b-table td + td { border-left:1px solid var(--line-blue-3d4552); }
+.b-table th { background:var(--surface-blue-232a36); color:var(--ink-warm-f0d9a8); padding:7px 6px; }
 .b-table td { padding:7px 6px; }
-.b-table td:first-child { background:#1a1f28; color:#d1d7e0; font-weight:600; }
-.b-table tr:nth-child(even) td + td { background:#16191f; }
+.b-table td:first-child { background:var(--surface-blue-1a1f28); color:var(--ink-neutral-d1d7e0); font-weight:600; }
+.b-table tr:nth-child(even) td + td { background:var(--surface-blue-16191f); }
 .b-table.b-hist th, .b-table.b-hist td { text-align:left; vertical-align:top; word-break:keep-all; overflow-wrap:break-word; }
 /* v262, v264: 표가 상자보다 넓어지던 일(393px에서 16파트) — 긴 낱말 때문에 칸들의 가장 좁은 너비 합이 화면을 넘었다. 첫 칸은 낱말을 지키고(가장 긴 낱말만큼은 차지), 둘째 칸부터는 낱말 안에서도 줄을 바꿀 수 있게 해 줄어들게 하되 4.5em 아래로는 눌리지 않게 바닥을 둔다(바닥이 없으면 짧은 칸이 한 글자 너비로 눌린다). */
 .b-table.b-hist th + th, .b-table.b-hist td + td { overflow-wrap:anywhere; min-width:4.5em; }
@@ -491,54 +1077,54 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-diagram { display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; margin:8px 0; }
 .b-diagram > .b-bx { flex:1 1 150px; min-width:0; }
 .b-diagram > .b-bx-side { flex:0 1 36%; }
-.b-bx { border:2px solid #6b7280; border-radius:16px; padding:8px 10px; margin:6px 0; font-size:13px; color:#b9c0cc; min-width:0; }
-.b-bx-s { border-color:#8ec5ff; } .b-bx-p { border-color:#ff9fb0; } .b-bx-m { border-color:#c7b8ff; } .b-bx-q { border-color:#8fe0b0; } .b-bx-r { border-color:#ffc285; }
-.b-bx-gap { border:1px dashed #6b7280; border-radius:10px; color:#9aa3b0; }
+.b-bx { border:2px solid var(--line-neutral-6b7280); border-radius:16px; padding:8px 10px; margin:6px 0; font-size:13px; color:var(--ink-neutral-b9c0cc); min-width:0; }
+.b-bx-s { border-color:var(--line-blue-8ec5ff); } .b-bx-p { border-color:var(--line-danger-ff9fb0); } .b-bx-m { border-color:var(--line-purple-c7b8ff); } .b-bx-q { border-color:var(--line-success-8fe0b0); } .b-bx-r { border-color:var(--line-warm-ffc285); }
+.b-bx-gap { border:1px dashed var(--line-neutral-6b7280); border-radius:10px; color:var(--ink-neutral-9aa3b0); }
 .b-bx-label { display:inline-block; padding:0 6px; border-radius:6px; font-size:12px; font-weight:700; margin-bottom:4px; }
 .b-bx-text { margin:2px 0; }
-.menu-item.part-basics { min-height:44px; padding:10px 18px; margin-left:18px; width:calc(100% - 18px); border-color:#6b5a2e; }
-.menu-item.part-basics strong { font-size:16px; color:#ffd479; }
+.menu-item.part-basics { min-height:44px; padding:10px 18px; margin-left:18px; width:calc(100% - 18px); border-color:var(--line-warm-6b5a2e); }
+.menu-item.part-basics strong { font-size:16px; color:var(--ink-warm-ffd479); }
 #basicsBody .lesson.basics { margin-top:16px; }
 .basics-solve { margin-top:20px; }
 /* v405 키 안내: 키보드를 쓴 뒤에만 보이는 한 줄 */
-.key-hint { margin:10px 2px 0; color:#9aa3b0; font-size:13px; line-height:1.5; }
+.key-hint { margin:10px 2px 0; color:var(--ink-neutral-9aa3b0); font-size:13px; line-height:1.5; }
 #memorizeView .key-hint { margin:0 2px 10px; }
 .concept-after { width:100%; margin-top:12px; white-space:normal; text-align:left; }
 /* v386 파트 고르기: 문제 아래 이동 줄 밑, 화면 폭을 넘지 않게 */
 .part-picker { display:flex; gap:8px; align-items:center; margin:10px 0 4px; }
-.part-picker > span { color:#b9c0cc; font-size:14px; flex:0 0 auto; }
+.part-picker > span { color:var(--ink-neutral-b9c0cc); font-size:14px; flex:0 0 auto; }
 .part-picker select { flex:1 1 auto; min-width:0; max-width:100%; min-height:40px; }
-.past-record.past-new { color:#9aa3b0; }
+.past-record.past-new { color:var(--ink-neutral-9aa3b0); }
 /* 기초 개념 공부(v380): 읽은 파트는 흐리게, 아래 넘기기 단추는 세로로 쌓아 긴 파트 이름도 잘리지 않게 */
 .menu-item.concept-item.is-read { opacity:.62; }
 .concept-nav { display:flex; flex-direction:column; gap:10px; margin-top:20px; }
 .concept-nav button { width:100%; min-height:44px; text-align:left; white-space:normal; }
 .concept-list { min-height:40px; margin:0 0 10px; }
-.concept-nav .concept-read.is-read { border-color:#789ac4; font-weight:700; }
+.concept-nav .concept-read.is-read { border-color:var(--line-blue-789ac4); font-weight:700; }
 .concept-open { display:block; width:100%; margin:12px 0 6px; min-height:40px; text-align:left; white-space:normal; }
-.b-shared { margin:16px 0 6px; padding:6px 10px; border:1px dashed #6b5a2e; border-radius:10px; }
-.b-shared > summary { color:#e8d9a8; cursor:pointer; min-height:32px; }
-.b-subh { margin:16px 0 6px; font-size:14px; color:#e8d9a8; }
+.b-shared { margin:16px 0 6px; padding:6px 10px; border:1px dashed var(--line-warm-6b5a2e); border-radius:10px; }
+.b-shared > summary { color:var(--ink-warm-e8d9a8); cursor:pointer; min-height:32px; }
+.b-subh { margin:16px 0 6px; font-size:14px; color:var(--ink-warm-e8d9a8); }
 /* 규칙 묶음 제목(v262): 규칙 절 안에서 줄들을 종류별로 가르는 작은 제목 — 절 제목(.b-h)보다 작고 규칙 줄 이름(노랑)과 다른 빛 */
-.b-rgroup { margin:14px 0 4px; padding-left:8px; border-left:3px solid #6f8fb8; font-size:14px; font-weight:700; color:#bcd0ea; word-break:keep-all; overflow-wrap:anywhere; }
+.b-rgroup { margin:14px 0 4px; padding-left:8px; border-left:3px solid var(--line-blue-6f8fb8); font-size:14px; font-weight:700; color:var(--ink-blue-bcd0ea); word-break:keep-all; overflow-wrap:anywhere; }
 .b-h + .b-rgroup { margin-top:6px; }
-.b-shared-note { margin:12px 0 4px; color:#9aa3b0; font-size:14px; }
-.b-memo-line { margin:4px 0; padding:4px 10px; border-left:3px solid #ffd479; background:#ffd47910; border-radius:0 8px 8px 0; }
-.b-memo-line b { color:#ffd479; }
-.b-mn { margin:8px 0; padding:8px 10px; border-radius:10px; background:#b9a6ff14; border:1px solid #b9a6ff40; }
+.b-shared-note { margin:12px 0 4px; color:var(--ink-neutral-9aa3b0); font-size:14px; }
+.b-memo-line { margin:4px 0; padding:4px 10px; border-left:3px solid var(--line-warm-ffd479); background:var(--surface-warm-ffd47910); border-radius:0 8px 8px 0; }
+.b-memo-line b { color:var(--ink-warm-ffd479); }
+.b-mn { margin:8px 0; padding:8px 10px; border-radius:10px; background:var(--surface-purple-b9a6ff14); border:1px solid var(--line-purple-b9a6ff40); }
 .b-mn p { margin:4px 0; }
-.b-mn-hook { font-weight:700; color:#c7b8ff; }
-.b-mn-item > b { color:#c7b8ff; }
-.b-mn-scene { color:#b9c0cc; font-size:14px; }
-.b-mn-trap { color:#ffc285; font-size:14px; }
-.b-more, .b-more-terms, .b-terms-fold { margin:12px 0 6px; padding:6px 10px; border:1px dashed #4b5563; border-radius:10px; }
-.b-more > summary, .b-more-terms > summary, .b-terms-fold > summary { color:#b9c0cc; cursor:pointer; min-height:32px; }
+.b-mn-hook { font-weight:700; color:var(--ink-purple-c7b8ff); }
+.b-mn-item > b { color:var(--ink-purple-c7b8ff); }
+.b-mn-scene { color:var(--ink-neutral-b9c0cc); font-size:14px; }
+.b-mn-trap { color:var(--ink-warm-ffc285); font-size:14px; }
+.b-more, .b-more-terms, .b-terms-fold { margin:12px 0 6px; padding:6px 10px; border:1px dashed var(--line-blue-4b5563); border-radius:10px; }
+.b-more > summary, .b-more-terms > summary, .b-terms-fold > summary { color:var(--ink-neutral-b9c0cc); cursor:pointer; min-height:32px; }
 /* 파트별 상태 범례(v184): 한 줄에 하나 */
 .part-legend { list-style:none; margin:4px 0 14px; padding:0; line-height:1.6; font-size:.92em; }
 .part-legend li { padding-left:1em; text-indent:-1em; overflow-wrap:anywhere; }
 .part-legend li::before { content:'- '; }
 /* v248: 저장이 실패한 동안 화면 위에 떠 있는 띠(막지 않는다), 진행상황 화면의 기록 파일 줄 */
-.save-alert { position: sticky; top: 8px; z-index: 5; margin: 0 0 12px; padding: 12px 14px; border: 1px solid #c98a2b; border-radius: 12px; background: #3a2b12; color: #ffe9c2; }
+.save-alert { position: sticky; top: 8px; z-index: 5; margin: 0 0 12px; padding: 12px 14px; border: 1px solid var(--line-warm-c98a2b); border-radius: 12px; background: var(--surface-warm-3a2b12); color: var(--ink-warm-ffe9c2); }
 .save-alert[hidden] { display: none; }
 .save-alert p { margin: 0 0 10px; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
 .save-alert-actions { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -546,61 +1132,83 @@ body[data-view="quiz"] main { padding-top:14px; }
 .export-line { margin-top: 16px; }
 .export-line small { display: block; margin-top: 8px; line-height: 1.6; }
 /* v259: 새 버전이 준비됐는데 문제를 풀고 있을 때 뜨는 작은 띠(화면을 밀지 않게 떠 있다. 풀이 화면의 뒤로 버튼을 가리지 않게 오른쪽 위), 화면 맨 아래의 지금 버전 */
-.update-banner { position: fixed; top: 8px; right: 12px; z-index: 60; display: flex; align-items: center; gap: 10px; max-width: calc(100% - 24px); box-sizing: border-box; padding: 6px 8px 6px 14px; border: 1px solid #6f8fb8; border-radius: 999px; background: #1c2635; color: #fff; font-size: 14px; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,0,0,.5); }
+.update-banner { position: fixed; top: 8px; right: 12px; z-index: 60; display: flex; align-items: center; gap: 10px; max-width: calc(100% - 24px); box-sizing: border-box; padding: 6px 8px 6px 14px; border: 1px solid var(--line-blue-6f8fb8); border-radius: 999px; background: var(--surface-blue-1c2635); color: var(--ink-neutral-fff); font-size: 14px; white-space: nowrap; box-shadow: 0 4px 16px var(--shadow-neutral-rgba0005); }
 .update-banner[hidden] { display: none; }
 .update-banner button { min-height: 36px; padding: 6px 12px; border-radius: 999px; font-size: 14px; }
-.app-version { margin: 0 0 10px; color: #8b93a1; font-size: 12px; }
+.app-version { margin: 0 0 10px; color: var(--ink-neutral-8b93a1); font-size: 12px; }
 .app-version:empty { display: none; }
 /* 급한 것 먼저(2026-10-15): 연표 꼴. 왼쪽 연도 칸, 오른쪽 사건과 줄로 나눈 내용, 고리 딱지 */
 .memorize-cell.urgent-row { display:grid; grid-template-columns:1fr; gap:4px; }
 .memorize-cell.urgent-row.timeline { grid-template-columns:5.6rem minmax(0,1fr); column-gap:12px; align-items:start; }
-.urgent-year { font-family:Consolas,'D2Coding',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:15px !important; font-weight:700; color:#f2f5fa !important; line-height:1.5; }
-.urgent-year.hidden-year { color:#8fc1ff !important; background:#1f3048; border-radius:6px; text-align:center; font-size:13px !important; padding:2px 0; }
+.urgent-year { font-family:Consolas,'D2Coding',ui-monospace,monospace; font-variant-numeric:tabular-nums; font-size:15px !important; font-weight:700; color:var(--ink-neutral-f2f5fa) !important; line-height:1.5; }
+.urgent-year.hidden-year { color:var(--ink-blue-8fc1ff) !important; background:var(--surface-blue-1f3048); border-radius:6px; text-align:center; font-size:13px !important; padding:2px 0; }
 .urgent-main { display:flex; flex-direction:column; gap:3px; min-width:0; }
-.urgent-main strong { font-size:16px; color:#f2f5fa; }
-.urgent-text, .urgent-step { color:#d1d7e0; font-size:14px; line-height:1.55; }
+.urgent-main strong { font-size:16px; color:var(--ink-neutral-f2f5fa); }
+.urgent-text, .urgent-step { color:var(--ink-neutral-d1d7e0); font-size:14px; line-height:1.55; }
 .urgent-step { padding-left:16px; position:relative; }
-.urgent-step::before { content:'→'; position:absolute; left:0; color:#8fc1ff; }
-.urgent-y { font-family:Consolas,'D2Coding',ui-monospace,monospace; color:#ffd98a !important; font-weight:700; font-size:13px !important; }
+.urgent-step::before { content:'→'; position:absolute; left:0; color:var(--ink-blue-8fc1ff); }
+.urgent-y { font-family:Consolas,'D2Coding',ui-monospace,monospace; color:var(--ink-warm-ffd98a) !important; font-weight:700; font-size:13px !important; }
 .urgent-hooks { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
-.urgent-hook { font-size:13px !important; padding:2px 8px; border-radius:6px; background:#1d3a37; color:#9fe0d6 !important; }
-.urgent-hook.num { background:#3a2a15; color:#f0b46a !important; font-weight:700; }
+.urgent-hook { font-size:13px !important; padding:2px 8px; border-radius:6px; background:var(--surface-blue-1d3a37); color:var(--ink-success-9fe0d6) !important; }
+.urgent-hook.num { background:var(--surface-warm-3a2a15); color:var(--ink-warm-f0b46a) !important; font-weight:700; }
 .urgent-hook.num b { margin-left:6px; font-family:Consolas,ui-monospace,monospace; font-size:12px; }
 @media (max-width:400px) { .memorize-cell.urgent-row.timeline { grid-template-columns:4.6rem minmax(0,1fr); column-gap:10px; } }
-.urgent-aside { display:flex; flex-direction:column; gap:3px; margin-top:8px; padding:8px 10px; border:1px dashed #5b6b82; border-radius:8px; background:#171f2b; }
-.urgent-aside-title { font-size:12px !important; font-weight:700; color:#8fc1ff !important; letter-spacing:.02em; }
+.urgent-aside { display:flex; flex-direction:column; gap:3px; margin-top:8px; padding:8px 10px; border:1px dashed var(--line-blue-5b6b82); border-radius:8px; background:var(--surface-blue-171f2b); }
+.urgent-aside-title { font-size:12px !important; font-weight:700; color:var(--ink-blue-8fc1ff) !important; letter-spacing:.02em; }
 /* 영작 연습(v400): 우리말 문장, 재료 딱지, 꼴 지시. 열면 답 문장(굵게), 또는(다른 옳은 문장), 규칙 한 줄. */
 .memorize-cell.writing-card { gap:6px; }
 .memorize-cell.writing-card strong { font-size:17px; line-height:1.55; }
 .memorize-cell .writing-parts { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
-.memorize-cell .writing-label { color:#8e99a8; font-size:13px; }
-.memorize-cell .writing-part { padding:2px 8px; border-radius:6px; background:#1f3048; color:#d4e5ff; font-size:15px; line-height:1.5; }
-.memorize-cell .writing-form { color:#ffd98a; font-size:14px; }
-.memorize-cell .writing-answer { margin-top:4px; padding-top:8px; border-top:1px solid #3a4d68; width:100%; color:#f2f5fa; font-size:17px; font-weight:600; line-height:1.55; }
-.memorize-cell .writing-alt { color:#c3cad4; font-size:15px; }
-.memorize-cell .writing-rule { color:#9fe0d6; font-size:14px; }
-.memorize-cell.writing-card.shown .writing-part { background:#33496a; }
+.memorize-cell .writing-label { color:var(--ink-neutral-8e99a8); font-size:13px; }
+.memorize-cell .writing-part { padding:2px 8px; border-radius:6px; background:var(--surface-blue-1f3048); color:var(--ink-neutral-d4e5ff); font-size:15px; line-height:1.5; }
+.memorize-cell .writing-form { color:var(--ink-warm-ffd98a); font-size:14px; }
+.memorize-cell .writing-answer { margin-top:4px; padding-top:8px; border-top:1px solid var(--line-blue-3a4d68); width:100%; color:var(--ink-neutral-f2f5fa); font-size:17px; font-weight:600; line-height:1.55; }
+.memorize-cell .writing-alt { color:var(--ink-neutral-c3cad4); font-size:15px; }
+.memorize-cell .writing-rule { color:var(--ink-success-9fe0d6); font-size:14px; }
+.memorize-cell.writing-card.shown .writing-part { background:var(--surface-blue-33496a); }
 /* 카운트다운 타이머(v427) */
-.countdown{position:fixed;top:8px;right:8px;z-index:50;padding:2px 10px;border-radius:999px;background:rgba(0,0,0,.65);color:#fff;font-variant-numeric:tabular-nums;font-size:15px;pointer-events:none}
-.countdown.over{background:#c62828}
+.countdown{position:fixed;top:8px;right:8px;z-index:50;padding:2px 10px;border-radius:999px;background:var(--surface-neutral-rgba00065);color:var(--ink-neutral-fff);font-variant-numeric:tabular-nums;font-size:15px;pointer-events:none}
+.countdown.over{background:var(--surface-danger-c62828)}
 /* 정보보호론 기초 개념: 9급 기출에 나온 줄(v428) */
-.b-gichul{background:rgba(240,180,41,.13);box-shadow:inset 3px 0 0 #f0b429}
-.b-table tr.b-gichul:nth-child(n) td:nth-child(n){background:#3a3320}
-.b-table tr.b-gichul:nth-child(n) td:first-child{box-shadow:inset 3px 0 0 #f0b429}
-.b-gichul-cont{background:rgba(240,180,41,.13);box-shadow:inset 3px 0 0 #f0b429;margin:0;padding:4px 8px}
+.b-gichul{background:var(--surface-neutral-rgba2401804113);box-shadow:inset 3px 0 0 var(--shadow-warm-f0b429)}
+.b-table tr.b-gichul:nth-child(n) td:nth-child(n){background:var(--surface-warm-3a3320)}
+.b-table tr.b-gichul:nth-child(n) td:first-child{box-shadow:inset 3px 0 0 var(--shadow-warm-f0b429)}
+.b-gichul-cont{background:var(--surface-neutral-rgba2401804113);box-shadow:inset 3px 0 0 var(--shadow-warm-f0b429);margin:0;padding:4px 8px}
 .b-term.b-gichul{padding:2px 6px 2px 8px;margin-bottom:0}
-.b-gichul-n{display:inline-block;margin-left:6px;padding:0 6px;border-radius:999px;background:#f0b429;color:#1a1a1a;font-size:12px;font-weight:700;line-height:18px;vertical-align:middle;white-space:nowrap}
-.b-gichul-note{color:#f0b429;font-size:14px}
+.b-gichul-n{display:inline-block;margin-left:6px;padding:0 6px;border-radius:999px;background:var(--surface-warm-f0b429);color:var(--ink-neutral-1a1a1a);font-size:12px;font-weight:700;line-height:18px;vertical-align:middle;white-space:nowrap}
+.b-gichul-note{color:var(--ink-warm-f0b429);font-size:14px}
 /* v432 반드시 외울 것: 기출 근거 줄만, 범위 한 줄 + 외울 문장 + 출처 + 버릴 것. */
-.b-must{margin:12px 0;padding:10px 12px;border:1px solid #f0b429;border-radius:12px;background:#1d1a10}
-.b-must>summary{cursor:pointer;font-weight:700;color:#f0b429;min-height:32px}
-.b-must-scope{margin:6px 0;color:#d8dee8;font-size:15px}
+.b-must{margin:12px 0;padding:10px 12px;border:1px solid var(--line-warm-f0b429);border-radius:12px;background:var(--surface-warm-1d1a10)}
+.b-must>summary{cursor:pointer;font-weight:700;color:var(--ink-warm-f0b429);min-height:32px}
+.b-must-scope{margin:6px 0;color:var(--ink-neutral-d8dee8);font-size:15px}
 .b-must-lines{margin:6px 0;padding-left:22px}
 .b-must-lines li{margin:7px 0;line-height:1.55;overflow-wrap:anywhere}
 .b-must-lines li.b-gichul{padding:2px 6px}
-.b-must-src{display:block;color:#a9b2bf;font-size:12px;margin-top:1px}
-.b-must-hook{display:block;color:#79d9bb;font-size:12px;margin-top:1px}
-.b-must-drop{margin:8px 0 2px;color:#a9b2bf;font-size:14px}
+.b-must-src{display:block;color:var(--ink-neutral-a9b2bf);font-size:12px;margin-top:1px}
+.b-must-hook{display:block;color:var(--ink-success-79d9bb);font-size:12px;margin-top:1px}
+.b-must-drop{margin:8px 0 2px;color:var(--ink-neutral-a9b2bf);font-size:14px}
 
 .guess-toggle { min-height:40px; padding:8px 12px; font-size:14px; }
-.guess-toggle[aria-pressed="true"] { border-color:#789ac4; background:#344963; font-weight:700; }
+.guess-toggle[aria-pressed="true"] { border-color:var(--line-blue-789ac4); background:var(--surface-blue-344963); font-weight:700; }
+
+/* The header exists in every view. The label always names the current choice. */
+.header-tools { display:flex; flex-wrap:wrap; justify-content:flex-end; align-items:center; gap:8px 12px; }
+.theme-toggle { min-height:44px; padding:8px 12px; font-size:14px; white-space:nowrap; }
+:root:not([data-theme="dark"]) a { color:var(--link); }
+:root:not([data-theme="dark"]) input::placeholder,
+:root:not([data-theme="dark"]) textarea::placeholder { color:var(--placeholder); opacity:1; }
+:root:not([data-theme="dark"]) .paper-image img,
+:root:not([data-theme="dark"]) .question-figure img,
+:root:not([data-theme="dark"]) .b-photo img,
+:root:not([data-theme="dark"]) .b-cfig img { outline:1px solid var(--image-border); outline-offset:-1px; }
+:root:not([data-theme="dark"]) .level-badge,
+:root:not([data-theme="dark"]) .level-badge b,
+:root:not([data-theme="dark"]) .level-badge small,
+:root:not([data-theme="dark"]) .menu-item .level-badge { color:var(--badge-ink); }
+:root:not([data-theme="dark"]) .b-gichul-n { background:var(--highlight-badge); color:var(--badge-ink); }
+/* Completion and disabled states keep full text contrast on light backgrounds. */
+:root:not([data-theme="dark"]) .paper-choices button:disabled,
+:root:not([data-theme="dark"]) .request-item span,
+:root:not([data-theme="dark"]) .level-badge small,
+:root:not([data-theme="dark"]) .menu-item.concept-item.is-read { opacity:1; }
+:root:not([data-theme="dark"]) .menu-item.concept-item.is-read { border-style:dashed; }

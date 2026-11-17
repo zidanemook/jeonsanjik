@@ -1,5 +1,24 @@
 'use strict';
 const $=s=>document.querySelector(s);
+// Appearance is device-local and never enters study data or account sync.
+const SCREEN_THEMES=['green','cream','dark'];
+const SCREEN_NAMES={green:'연한 초록',cream:'미색',dark:'어둡게'};
+function applyScreenTheme(theme){
+ if(!SCREEN_THEMES.includes(theme))theme='green';
+ if(document.documentElement)document.documentElement.dataset.theme=theme;
+ const meta=$('meta[name="theme-color"]');if(meta)meta.content=typeof getComputedStyle==='function'?getComputedStyle(document.documentElement).getPropertyValue('--surface-blue-111318').trim():meta.content;
+ const button=$('#themeToggle'),next=SCREEN_THEMES[(SCREEN_THEMES.indexOf(theme)+1)%3];
+ if(button){button.textContent='화면: '+SCREEN_NAMES[theme];button.setAttribute('aria-label',button.textContent+'. 누르면 '+SCREEN_NAMES[next]);}
+ return theme;
+}
+let screenTheme='green';
+try{screenTheme=localStorage.getItem('chagog-theme')||'green';}catch{}
+screenTheme=applyScreenTheme(screenTheme);
+if($('#themeToggle'))$('#themeToggle').onclick=()=>{
+ screenTheme=applyScreenTheme(SCREEN_THEMES[(SCREEN_THEMES.indexOf(screenTheme)+1)%3]);
+ try{localStorage.setItem('chagog-theme',screenTheme);}catch{}
+};
+
 function profileKey(uid){return uid?'chagog-user-'+uid:localStorage.getItem('chagog-owner')?'chagog-guest':'chagog-v1';}
 let KEY='chagog-v1';try{KEY=profileKey(localStorage.getItem('chagog-active-user'));}catch{}
 const {schedule,migrate}=ReviewSchedule;

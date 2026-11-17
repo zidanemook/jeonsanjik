@@ -3,16 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#111318">
+  <meta name="theme-color" content="#e8f1e4">
+
+  <script>
+    // Run before the stylesheet so the first paint uses this device's choice.
+    (() => {
+      const themes=['green','cream','dark'];
+      let theme='green';
+      try { const saved=localStorage.getItem('chagog-theme'); if(themes.includes(saved))theme=saved; } catch {}
+      document.documentElement.dataset.theme=theme;
+      document.querySelector('meta[name="theme-color"]').content={green:'#e8f1e4',cream:'#f7f1e3',dark:'#111318'}[theme];
+    })();
+  </script>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon.svg">
-  <link rel="stylesheet" href="style.css?v=445">
+  <link rel="stylesheet" href="style.css?v=446">
   <title>차곡 — 문제 복습</title>
 </head>
 <body>
   <header>
     <div><small>전산직 핵심 개념 복습</small><h1>차곡</h1></div>
-    <time id="date" aria-label="오늘 날짜"></time>
+    <div class="header-tools"><button id="themeToggle" class="theme-toggle" type="button" aria-label="화면: 연한 초록. 누르면 미색">화면: 연한 초록</button><time id="date" aria-label="오늘 날짜"></time></div>
   </header>
   <main>
     <div id="updateBanner" class="update-banner" role="status" hidden><span>새 버전이 있어요</span><button id="updateReload" type="button">다시 열기</button></div>
@@ -39,7 +50,7 @@
         <details id="subjectGoalEdit" class="xp-goal-edit"><summary>이 과목 하루 목표 정하기</summary>
           <label for="subjectGoalInput">이 과목을 하루에 풀 문제 수</label>
           <div class="xp-goal-row"><input id="subjectGoalInput" type="number" inputmode="numeric" min="1" max="500" step="1" placeholder="예: 30"><button id="subjectGoalSave" type="button">저장</button><button id="subjectGoalClear" type="button" class="secondary">목표 없애기</button></div>
-          <small>과목마다 따로 정해요. 홈 레벨 카드에 과목별 진행이 모여 보여요. 이 기기에만 저장돼요.</small>
+          <small>과목마다 따로 정해요. 홈 레벨 표시에 과목별 진행이 모여 보여요. 이 기기에만 저장돼요.</small>
         </details>
       </div>
       <p id="subjectSummary" class="status"></p>
@@ -70,7 +81,7 @@
     <section id="memorizeView" aria-labelledby="memorizeTitle" hidden>
       <button type="button" class="back" data-back>← 뒤로</button>
       <h2 id="memorizeTitle">외울 것</h2>
-      <p id="writingKeys" class="key-hint" hidden>키보드: Space 답 보기 / 화살표 카드 옮기기 / Esc 뒤로</p>
+      <p id="writingKeys" class="key-hint" hidden>키보드: Space 답 보기 / 화살표로 옮기기 / Esc 뒤로</p>
       <div id="memorizeBody"></div>
     </section>
     <section id="partsView" aria-labelledby="partsTitle" hidden>
@@ -135,35 +146,35 @@
     <footer id="siteFooter">자체 제작 복습 문제, 인사혁신처 공개 9급 기출</footer>
     <p id="appVersion" class="app-version" aria-label="앱 버전"></p>
   </main>
-  <script src="version.js?v=445"></script>
-  <script src="update.js?v=445"></script>
-  <script src="storage.js?v=445"></script>
-  <script src="scheduler.js?v=445"></script>
-  <script src="learning.js?v=445"></script>
-  <script src="content-index.js?v=445"></script>
-  <script src="hanneung-data.js?v=445"></script>
-  <script src="hanneung.js?v=445"></script>
-  <script src="gichul-index.js?v=445"></script>
-  <script src="gichul.js?v=445"></script>
-  <script src="practice.js?v=445"></script>
-  <script src="word-order.js?v=445"></script>
-  <script src="content-corrections.js?v=445"></script>
-  <script src="review-record.js?v=445"></script>
-  <script src="review-policy.js?v=445"></script>
-  <script src="sync-core.js?v=445"></script>
-  <script src="study-credit.js?v=445"></script>
-  <script src="xp.js?v=445"></script>
-  <script src="score.js?v=445"></script>
-  <script src="hanneung-topics.js?v=445"></script>
-  <script src="topics.js?v=445"></script>
-  <script src="parts.js?v=445"></script>
-  <script src="concept-map.js?v=445"></script>
-  <script src="part-check.js?v=445"></script>
-  <script src="core-units.js?v=445"></script>
-  <script src="gichul-hits.js?v=445"></script>
-  <script src="content-store.js?v=445"></script>
-  <script src="app.js?v=445"></script>
-  <script src="firebase-config.js?v=445"></script>
-  <script src="sync.js?v=445"></script>
+  <script src="version.js?v=446"></script>
+  <script src="update.js?v=446"></script>
+  <script src="storage.js?v=446"></script>
+  <script src="scheduler.js?v=446"></script>
+  <script src="learning.js?v=446"></script>
+  <script src="content-index.js?v=446"></script>
+  <script src="hanneung-data.js?v=446"></script>
+  <script src="hanneung.js?v=446"></script>
+  <script src="gichul-index.js?v=446"></script>
+  <script src="gichul.js?v=446"></script>
+  <script src="practice.js?v=446"></script>
+  <script src="word-order.js?v=446"></script>
+  <script src="content-corrections.js?v=446"></script>
+  <script src="review-record.js?v=446"></script>
+  <script src="review-policy.js?v=446"></script>
+  <script src="sync-core.js?v=446"></script>
+  <script src="study-credit.js?v=446"></script>
+  <script src="xp.js?v=446"></script>
+  <script src="score.js?v=446"></script>
+  <script src="hanneung-topics.js?v=446"></script>
+  <script src="topics.js?v=446"></script>
+  <script src="parts.js?v=446"></script>
+  <script src="concept-map.js?v=446"></script>
+  <script src="part-check.js?v=446"></script>
+  <script src="core-units.js?v=446"></script>
+  <script src="gichul-hits.js?v=446"></script>
+  <script src="content-store.js?v=446"></script>
+  <script src="app.js?v=446"></script>
+  <script src="firebase-config.js?v=446"></script>
+  <script src="sync.js?v=446"></script>
 </body>
 </html>

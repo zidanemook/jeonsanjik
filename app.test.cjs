@@ -531,7 +531,7 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  assert.equal(ns[1].all.find(n=>n.tag==='a').href,img.src,'누르면 크게 본다');
  const two=run('questionNodes('+JSON.stringify('보기 중 옳은 것은?'+NL+NL+'[그림:local9-2019-computer-19-0123456789.webp]')+')');assert.equal(two.map(n=>n.tag).join(' '),'div figure','글 끝의 그림');
  assert.equal(run('questionNodes('+JSON.stringify('그림 없는 문제'+NL+NL+'[그림]'+NL+'  A'+NL+' / '+NL+'B')+')').length,2,'글자 그림 상자([그림])는 전처럼 자료 상자');
- const css=fs.readFileSync(__dirname+'/style.css','utf8');assert.match(css,/\.question-figure img \{[^}]*max-width:100%[^}]*background:#fff/,'그림은 폰 폭을 넘지 않고 흰 바탕');}
+ const css=fs.readFileSync(__dirname+'/style.css','utf8');assert.match(css,/\.question-figure img \{[^}]*max-width:100%[^}]*background:var\(--image-paper\)/,'그림은 폰 폭을 넘지 않고 흰 바탕');}
 // 2026-10-16: 9급 기출의 밑줄 친 글자(글자마다 U+0332)는 이어진 덩어리가 밑줄(u.q-ul)이 되고 결합 문자는 화면 글에서 사라진다. 밑줄 없는 글은 전처럼 글 그대로.
 {const NL=String.fromCharCode(10),U=String.fromCharCode(0x332),ul=s=>[...s].map(c=>c+U).join(''),q='밑줄 친 부분 중 어법상 옳지 않은 것은?'+NL+NL+'Fire served humans besides ①'+ul('cooking')+'. They began ③'+ul('to have been')+' there.';
  const ns=run('questionNodes('+JSON.stringify(q)+')');assert.equal(ns.length,1);const kids=ns[0].children;
