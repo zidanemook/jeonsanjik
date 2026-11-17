@@ -1,8 +1,10 @@
+// History regression coverage runs with HIDDEN_SUBJECTS empty; default hiding is checked in hide-history.test.cjs.
 // 한국사 강마다 핵심 20문제(v179, 2026-09-28 사용자 "강 마다 20문제로").
 // 1) 자료: 강 범위(study-review-catalog.js lectures)마다 core = 강 하나에 20문제(02~05강은 강 넷이라 80, 22, 23강은 그 강 20문제 전부), 강 안의 문제, 강 순서, 파트마다 하나 이상, 같은 정답 두 번 없음.
 // 2) 앱(가짜 DOM): v386(2026-10-18 사용자 "기본적으로 문제는 항상 전부 보여지게")부터 접지 않는다. 강 범위, 파트, 과목 전체, 수, 뱃지 묶음, 대기열 모두 모든 문제,
 //    더 풀기 단추와 줄은 없다. 핵심 20을 다 풀어도 안 푼 첫 문제가 바로 나온다(막다른 화면 없음). 옛 더 풀기 설정은 저장에 남아도 수를 바꾸지 않는다.
 'use strict';
+const historyVm=(source,...args)=>vm.runInContext(source.replace("const HIDDEN_SUBJECTS=new Set(['한국사']);","const HIDDEN_SUBJECTS=new Set();"),...args);
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 function el(tag='div'){
  const node={tag,children:[],attrs:{},dataset:{},classes:new Set(),_text:'',hidden:false,disabled:false,open:false,checked:false,
@@ -29,8 +31,8 @@ function boot(store){
   fetch:()=>Promise.reject(Error('no fetch')),
   Date,JSON,Math,Set,Map,Number,String,Object,Array,Error,RegExp,Intl,Promise,Event:class{constructor(t){this.type=t;}}};
  ctx.window=ctx;ctx.self=ctx;vm.createContext(ctx);
- for(const f of FILES)vm.runInContext(SRC.get(f),ctx,{filename:f});
- const R=code=>vm.runInContext(code,ctx),J=code=>JSON.parse(JSON.stringify(R(code)));
+ for(const f of FILES)historyVm(SRC.get(f),ctx,{filename:f});
+ const R=code=>historyVm(code,ctx),J=code=>JSON.parse(JSON.stringify(R(code)));
  return {R,J,node:sel=>nodes.get(sel)||doc.querySelector(sel)};
 }
 const text=n=>n?n.textContent:'';

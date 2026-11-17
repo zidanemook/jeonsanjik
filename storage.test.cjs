@@ -1,3 +1,4 @@
+// History regression coverage runs with HIDDEN_SUBJECTS empty; default hiding is checked in hide-history.test.cjs.
 // v248 저장 방식(IndexedDB 조각 + localStorage 작은 표시) 검사. 가짜 IndexedDB(트랜잭션, 실패 주입) 위에서 app.js를 브라우저와 같은 방식(색인 + 조각)으로 돌린다.
 //  1 조각으로 나누기, 다시 붙이기        2 빈 기기              3 옛 상태 옮기기(44일 — 옛 판이 읽는 것과 같음, 옛 글, 사본 보존, 기록 파일)
 //  4 큰 상태 옮기기(풀이 3,000 / 10,000 / 60,000)   5 두 번 돌려도 같음    6 옮기다 끊김(쓰기 실패, 확인 전 끊김, 탭 닫힘)
@@ -5,6 +6,7 @@
 //  11 옛 글 치우기(14일)                  12 계정 바꾸기         13 옛 판 기기와 가짜 Firestore로 왕복
 // 사용자의 실제 기록은 쓰지 않는다. 옛 판 = fixtures/v247(f00a20e의 app.js, sync.js, sync-core.js).
 'use strict';
+const historyVm=(source,...args)=>vm.runInContext(source.replace("const HIDDEN_SUBJECTS=new Set(['한국사']);","const HIDDEN_SUBJECTS=new Set();"),...args);
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const Heavy=require('./fixtures/heavy-state.cjs');
 const DIR=__dirname,read=f=>fs.readFileSync(path.join(DIR,f),'utf8'),J=x=>JSON.stringify(x);
@@ -75,7 +77,7 @@ function createBackend(){
 // ── 앱 한 대(가짜 DOM + 가짜 시계). build: 'new' = 지금 파일, 'old' = fixtures/v247 ──
 const OLD=new Set(['app.js','sync.js','sync-core.js']);
 const scriptList=build=>[...read('index.html').matchAll(/<script src="([^"?]+)\?v=\d+"><\/script>/g)].map(m=>m[1]).filter(f=>f!=='firebase-config.js'&&!(build==='old'&&f==='storage.js'));
-const sources=new Map();const source=(f,build)=>{const k=build+'/'+f;if(!sources.has(k))sources.set(k,new vm.Script(build==='old'&&OLD.has(f)?read('fixtures/v247/'+f):read(f),{filename:(build==='old'&&OLD.has(f)?'v247/':'')+f}));return sources.get(k);};
+const sources=new Map();const source=(f,build)=>{const k=build+'/'+f;if(!sources.has(k))sources.set(k,new vm.Script((build==='old'&&OLD.has(f)?read('fixtures/v247/'+f):read(f)).replace("const HIDDEN_SUBJECTS=new Set(['한국사']);","const HIDDEN_SUBJECTS=new Set();"),{filename:(build==='old'&&OLD.has(f)?'v247/':'')+f}));return sources.get(k);};
 function el(tag='div'){const node={tag,children:[],attrs:{},dataset:{},_text:'',hidden:false,disabled:false,open:false,
  get textContent(){return node._text;},set textContent(v){node._text=String(v);node.children=[];},append(...k){node.children.push(...k);},replaceChildren(...k){node.children=k;},
  classList:{add(){},remove(){},toggle(){},contains(){return false;}},setAttribute(){},getAttribute(){},focus(){},setSelectionRange(){},addEventListener(){},click(){node.clicked=(node.clicked||0)+1;},remove(){},
@@ -104,7 +106,7 @@ async function boot({build='new',local,backend=null,now=Date.parse('2026-10-08T0
  ctx.fetch=url=>{let m=/^chunks\/([a-z]-[a-z0-9-]+)\.json/.exec(url);if(m){const b=fs.readFileSync(path.join(DIR,'chunks',m[1]+'.json'));return Promise.resolve({ok:true,status:200,arrayBuffer:()=>Promise.resolve(b.buffer.slice(b.byteOffset,b.byteOffset+b.length))});}
   m=/^gichul\/([a-z0-9-]+)\.json$/.exec(url);if(m)return Promise.resolve({ok:true,status:200,json:()=>Promise.resolve(JSON.parse(read('gichul/'+m[1]+'.json')))});return Promise.reject(Error('unexpected fetch '+url));};
  for(const f of scriptList(build)){if(f==='sync.js'&&!sync)continue;source(f,build).runInContext(ctx);}
- const run=code=>vm.runInContext(code,ctx),tick=()=>new Promise(r=>setImmediate(r)),settle=async(n=12)=>{for(let round=0;round<200;round++){for(let i=0;i<n;i++)await tick();if(!backend||!backend.busy())break;}for(let i=0;i<4;i++)await tick();};
+ const run=code=>historyVm(code,ctx),tick=()=>new Promise(r=>setImmediate(r)),settle=async(n=12)=>{for(let round=0;round<200;round++){for(let i=0;i<n;i++)await tick();if(!backend||!backend.busy())break;}for(let i=0;i<4;i++)await tick();};
  const app={build,ctx,run,nodes,clock,timers,local,backend,conn,blobs,settle,
   text:sel=>nodes.get(sel)?.textContent||'',
   mode:()=>build==='old'?'local':run('idb?"idb":"local"'),

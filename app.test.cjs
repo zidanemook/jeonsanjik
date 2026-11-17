@@ -1,3 +1,5 @@
+const historyVm=(source,...args)=>vm.runInContext(source.replace("const HIDDEN_SUBJECTS=new Set(['한국사']);","const HIDDEN_SUBJECTS=new Set();"),...args);
+// History regression coverage runs with HIDDEN_SUBJECTS empty; default hiding is checked in hide-history.test.cjs.
 // app.js를 가짜 DOM 위에서 실제로 돌려, 화면, 기록, 복습 일정이 어떻게 맞물리는지 확인한다.
 // 문제 하나가 카드 하나다. v386부터 모든 범위를 번호 순서로 낸다(앱이 차례를 고르지 않는다): 회차가 아니면 안 푼 첫 문제부터, 기출 회차는 원문 순서로 풀던 곳부터.
 // 건너뛰기, 이전, 번호 고르기로 자리만 옮긴다. 화면의 모든 수는 "문제" 한 단위다.
@@ -33,8 +35,8 @@ const flush=()=>new Promise(r=>setImmediate(r));
 // v177: 한국사 상자는 '이 문제에 대입' 뒤에 '외울 것', '암기법'이 올 수 있다(그 둘만, 이 순서로). 다른 상자는 대입이 마지막.
 const applyLast=hs=>{const t=hs.map(h=>h.replace(/^\d+\. /,'')),i=t.lastIndexOf('이 문제에 대입');return i>=0&&JSON.stringify(t.slice(i+1))===JSON.stringify(['외울 것','암기법'].slice(0,t.length-i-1));};
 for(const f of ['scheduler.js','learning.js','core-review-pack.js','quiz-options.js','hanneung-data.js','hanneung-explanations.js','hanneung.js','gichul-index.js','gichul.js','practice-bank.js','practice.js','word-order.js','content-corrections.js','review-record.js','review-policy.js','sync-core.js','study-credit.js','xp.js','score.js','study-review-catalog.js','hanneung-topics.js','topics.js','parts.js','concept-map.js','part-check.js','memorize.js','basics.js','core-units.js','gichul-hits.js','content-store.js','app.js'])
- vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
-const run=code=>vm.runInContext(code,ctx);
+ historyVm(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
+const run=code=>historyVm(code,ctx);
 // 시작할 때는 회차 파일을 하나도 받지 않는다. 그래도 카드, 과목 문항 수는 색인으로 모든 기출 문항을 센다.
 assert.deepEqual(fetched,[],'앱을 열 때 기출 회차 파일을 받지 않는다');
 const indexedComputer=run("Gichul.forSubject('컴퓨터일반').reduce((n,p)=>n+p.numbers.length,0)");

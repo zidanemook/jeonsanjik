@@ -97,7 +97,8 @@ function world(over={}){
  const w=world(),u=w.make();await Promise.all([u.check(),u.check(),u.check()]);assert.equal(w.fetches.length,1);assert.equal(await u.check(),'skipped');w.clock+=16000;assert.equal(await u.check(),'current');assert.equal(w.fetches.length,2);}
 // ---------------------------------------------------------------- 4) app.js와 함께(브라우저와 같은 스크립트 목록, 색인 + 조각)
 const LAZY=[...html.matchAll(/<script src="([^"?]+)\?v=\d+"><\/script>/g)].map(m=>m[1]).filter(f=>f!=='firebase-config.js'&&f!=='sync.js');
-const text=new Map();const source=f=>{if(!text.has(f))text.set(f,read(f));return text.get(f);};
+// Keep history reading/update regression coverage with hiding disabled.
+const text=new Map();const source=f=>{if(!text.has(f))text.set(f,read(f).replace("const HIDDEN_SUBJECTS=new Set(['한국사']);","const HIDDEN_SUBJECTS=new Set();"));return text.get(f);};
 // 기기 하나: localStorage(기록), sessionStorage(탭), 서버와 워커의 상태. page()가 그 탭에서 페이지를 한 번 연다(running = 그 페이지가 받은 판).
 function device(){return {local:new Map(),session:memory(),served:CACHE,worker:CACHE,online:true,netFail:false};}
 function page(dev,running=CACHE){

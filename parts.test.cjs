@@ -1,8 +1,10 @@
+// History regression coverage runs with HIDDEN_SUBJECTS empty; default hiding is checked in hide-history.test.cjs.
 // 파트(parts.js)와 파트 규칙(part-check.js), 앱의 파트 범위를 확인한다.
 // 1) 파트 규칙(5문제 → 틀리면 3문제씩 더 → 통과, 다시 볼 파트)  2) 파트 범위: 모든 문제가 정확히 한 파트에
 // 3) 앱을 가짜 DOM 위에서 돌려 19강을 번호 순서로(v386: 파트별 점검 모드는 화면에서 사라짐), 파트 고르기, 새로고침 뒤 이어짐
 // 4) 파트별 상태 화면의 수(문제, 외움, 복습 판정, 안 푼 문제 / 한국사 기출 첫 풀이)가 기록과 같다. 4-3) 복습 판정(v184): 하루 이상 지나 다시 푼 풀이만.
 'use strict';
+const historyVm=(source,...args)=>vm.runInContext(source.replace("const HIDDEN_SUBJECTS=new Set(['한국사']);","const HIDDEN_SUBJECTS=new Set();"),...args);
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const PartCheck=require('./part-check.js');
 
@@ -301,8 +303,8 @@ function boot(store=new Map()){
   fetch:()=>Promise.reject(Error('no fetch')),
   Date,JSON,Math,Set,Map,Number,String,Object,Array,Error,RegExp,Intl,Promise,Event:class{constructor(t){this.type=t;}}};
  ctx.window=ctx;ctx.self=ctx;vm.createContext(ctx);
- for(const f of FILES)vm.runInContext(SRC.get(f),ctx,{filename:f});
- const run=code=>vm.runInContext(code,ctx);
+ for(const f of FILES)historyVm(SRC.get(f),ctx,{filename:f});
+ const run=code=>historyVm(code,ctx);
  const text=sel=>nodes.get(sel)?.textContent||'';
  return {ctx,run,nodes,store,text};
 }

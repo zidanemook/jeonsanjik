@@ -1,8 +1,10 @@
+// History regression coverage runs with HIDDEN_SUBJECTS empty; default hiding is checked in hide-history.test.cjs.
 // 뱃지 둘(v146): 과목마다 레벨(숫자 하나) + 기출 뱃지(예상 점수) + 자체제작 뱃지(파트별 외운 비율의 평균).
 // 앱을 가짜 DOM 위에서 돌려 확인한다: 1) 자체제작 파트 묶음(파트 + 파트 없는 문제의 대체 묶음)이 과목의 자체제작 문제를 빠짐없이 한 번씩 덮는다
 // 2) 저장된 기록으로 과목 줄, 과목 화면, 홈 카드의 뱃지 색 3) 뱃지를 누르면 설명(다음 등급까지, 가장 약한 파트), 약한 파트를 누르면 그 파트 범위
 // 4) 풀이 뒤 해설 화면: 기출 뱃지가 처음 생기면 알림.
 'use strict';
+const historyVm=(source,...args)=>vm.runInContext(source.replace("const HIDDEN_SUBJECTS=new Set(['한국사']);","const HIDDEN_SUBJECTS=new Set();"),...args);
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 function el(tag='div'){
  const node={tag,children:[],attrs:{},dataset:{},classes:new Set(),_text:'',hidden:false,disabled:false,open:false,
@@ -27,8 +29,8 @@ const ctx={document:doc,console,
  fetch:()=>Promise.reject(Error('no fetch')),
  Date,JSON,Math,Set,Map,Number,String,Object,Array,Error,RegExp,Intl,Promise,Event:class{constructor(t){this.type=t;}}};
 ctx.window=ctx;ctx.self=ctx;vm.createContext(ctx);
-for(const f of FILES)vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
-const R=code=>vm.runInContext(code,ctx);
+for(const f of FILES)historyVm(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
+const R=code=>historyVm(code,ctx);
 // 가짜 DOM 쪽 객체는 다른 realm이라 deepStrictEqual 전에 이 realm으로 옮긴다.
 const J=code=>JSON.parse(JSON.stringify(R(code)));
 const node=sel=>nodes.get(sel);

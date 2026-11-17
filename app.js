@@ -12,6 +12,12 @@ function plus(date,n){const [y,m,d]=date.split('-').map(Number);return day(new D
 // 화면 코드의 규칙: 딱지(topic, formula, ruleId, 문제 수, 보기 있음, 상자 있음)는 Content에서 읽고, 글을 쓰는 화면은 먼저 Content.ready를 본다.
 const CARD_CONTENT=['subject','question','answer','explanation','source','verified'];
 const Content=globalThis.StudyContent;
+// Empty this set to show all subjects again. Saved content and progress stay intact.
+const HIDDEN_SUBJECTS=new Set(['한국사']);
+const subjectVisible=s=>!HIDDEN_SUBJECTS.has(s);
+function visibleRecords(rows=data.history){if(!HIDDEN_SUBJECTS.size)return rows;const hidden=new Set(data.cards.filter(c=>!subjectVisible(c.subject)).map(c=>c.id));return rows.filter(r=>!hidden.has(r.cardId));}
+function visibleViews(){if(!HIDDEN_SUBJECTS.size)return data.explanationViews||[];const byId=new Map(data.cards.map(c=>[c.id,c.subject])),hidden=new Set(data.history.filter(r=>!subjectVisible(byId.get(r.cardId))).map(r=>r.id));return (data.explanationViews||[]).filter(v=>!hidden.has(v.id));}
+
 // 묶음 카드에 없는 연습 문제의 출처 줄(내용 창고가 카드 내용을 만들 때 부른다).
 function bankSource(id,lesson){const rule=Content.core(lesson.ruleId);return lesson.srcLine?lesson.srcLine:id.startsWith('ko-read')?'국어 논리 독해 자체 제작 문제.':id.startsWith('ko-logic')?'국어 논리 자체 제작 문제.':id.startsWith('en-day1-')?'영어 문장의 구조와 동사 유형 자체 제작 연습.':id.startsWith('en-day2-')?'영어 동사의 형태, 명사, 일치 자체 제작 연습.':id.startsWith('en-day3-')?'영어 Day 3 문법 포인트 찾기 자체 제작 연습.':id.startsWith('en-day4-')?'영어 Day 4 문법 포인트 찾기 자체 제작 연습.':id.startsWith('en-day5-')?'영어 Day 5 문법 포인트 찾기 자체 제작 연습.':/^en-day1[1-5]-/.test(id)?'영어 Day '+id.slice(6,id.indexOf('-',6))+' 실전문제 연습 기반 자체 제작 연습.':/^en-day([6-9]|10)-/.test(id)?'영어 Day '+id.slice(6,id.indexOf('-',6))+' 문법 포인트 찾기 훈련 기반 자체 제작 연습.':id.startsWith('en-formula-')?'문법 공식 훈련 자체 제작 연습(영어 Day 1~4 문법 포인트를 공식별로 묶음).':rule?.source||'수일치 문서 기반 자체 제작 연습.';}
 function cardContent(){return Content.contentMap();}
@@ -159,7 +165,7 @@ function cleanNotes(list){const out=[];if(Array.isArray(list))for(const n of lis
 function validateBackup(v){if(v?.guessMarks!==undefined){if(!Array.isArray(v.guessMarks))throw Error('Invalid guess marks');ProgressSync.unionGuesses([],v.guessMarks);}if(v?.explanationViews!==undefined){if(!Array.isArray(v.explanationViews))throw Error('Invalid explanation records');StudyCredit.unionExplanations([],v.explanationViews);}if(![1,2,3].includes(v?.version)||!Array.isArray(v.cards)||!Array.isArray(v.history))throw Error('지원하지 않는 백업입니다.');const ids=new Set();for(const c of v.cards){if(v.version!==3||c.question!==undefined)validateContent(c);if(typeof c.id!=='string'||ids.has(c.id)||!validDay(c.created)||!(c.due===null||validDay(c.due))||(v.version===1?(!Number.isInteger(c.stage)||c.stage<0||c.stage>4):(!Number.isFinite(c.ease)||c.ease<1.3||c.ease>3||!Number.isInteger(c.interval)||c.interval<0||c.interval>365||!Number.isInteger(c.streak)||c.streak<0||c.due===null)))throw Error('문제 일정 또는 ID가 올바르지 않습니다.');if(c.retryAt!==undefined&&!Number.isFinite(Date.parse(c.retryAt)))throw Error('잘못된 재학습 시간');if(c.pendingAttempt!==undefined&&(!['remember','partial','none'].includes(c.pendingAttempt.recall)||!validDay(c.pendingAttempt.date)||!Number.isFinite(Date.parse(c.pendingAttempt.at))||typeof c.pendingAttempt.delayedFirst!=='boolean'))throw Error('잘못된 회상 기록');ids.add(c.id);}for(const h of v.history){if(typeof h.id!=='string'||typeof h.cardId!=='string'||!validDay(h.date)||!['correct','unsure','wrong'].includes(h.result))throw Error('복습 기록이 올바르지 않습니다.');}if(v.quizFeedback!==undefined&&(!v.quizFeedback||typeof v.quizFeedback.cardId!=='string'||!Number.isInteger(v.quizFeedback.selectedIndex)||!['correct','wrong','unsure'].includes(v.quizFeedback.result)))throw Error('퀴즈 피드백이 올바르지 않습니다.');if(v.queueMode!==undefined&&!queueModeList().some(([m])=>m===v.queueMode))throw Error('대기열 모드가 올바르지 않습니다.');if(v.queueModes!==undefined&&(!v.queueModes||typeof v.queueModes!=='object'||Array.isArray(v.queueModes)||Object.entries(v.queueModes).some(([k,m])=>typeof k!=='string'||k.length>40||!queueModeList().some(([x])=>x===m))))throw Error('과목별 대기열 모드가 올바르지 않습니다.');if(v.targetExam!==undefined&&JSON.stringify(ExamScore.target(v.targetExam))!==JSON.stringify(v.targetExam))throw Error('목표 점수가 올바르지 않습니다.');if(v.dailyGoals!==undefined&&(!v.dailyGoals||typeof v.dailyGoals!=='object'||Array.isArray(v.dailyGoals)||Object.entries(v.dailyGoals).some(([k,g])=>typeof k!=='string'||k.length>40||!Number.isInteger(g)||g<1||g>500)))throw Error('과목별 하루 목표가 올바르지 않습니다.');if(v.includeMastered!==undefined&&v.includeMastered!==true)throw Error('외운 문제 옵션이 올바르지 않습니다.');if(v.openLectures!==undefined&&(!Array.isArray(v.openLectures)||v.openLectures.length>200||v.openLectures.some(x=>typeof x!=='string'||!x||x.length>60)))throw Error('이 강 문제 더 풀기 설정이 올바르지 않습니다.');if(v.scheduleVersion!==undefined&&!Number.isInteger(v.scheduleVersion))throw Error('일정 버전이 올바르지 않습니다.');if(v.dailyGoal!==undefined&&!(Number.isInteger(v.dailyGoal)&&v.dailyGoal>=1&&v.dailyGoal<=500))throw Error('하루 목표가 올바르지 않습니다.');}
 function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.subject.trim(),question:c.question.trim(),answer:c.answer.trim(),explanation:c.explanation||'',source:c.source||'',verified:c.verified===true,created:day(),due:day(),ease:2.5,interval:0,streak:0};}
 // 공무원 기출은 회차 파일을 받기 전에도 풀 수 있는 카드다(색인에 있으면 된다). 보기는 그 회차의 문항을 처음 낼 때 받는다.
-function playableRaw(c){return !!c&&(Content.hasOptions(c.id)||!!Content.lesson(c.id)||Gichul.known(c.id));}
+function playableRaw(c){return !!c&&subjectVisible(c.subject)&&(Content.hasOptions(c.id)||!!Content.lesson(c.id)||Gichul.known(c.id));}
 // BEGIN CORE 20 — 한국사 강마다 핵심 20문제(v179, 2026-09-28 사용자 "20문제가 딱 좋은거 같어", "강 마다 20문제로").
 // '강'은 강: 02~05강도 2026-10-10(v278)부터 강 넷(02, 03, 04, 05)으로 갈라 강마다 20이다(그 전에는 한 범위에 핵심 80). 화면 문구의 수는 core 길이를 그대로 쓴다(coreSize).
 // 강 범위(STUDY_REVIEW_CATALOG.lectures)의 core = 한능검 심화 57~79회 빈도로 고른 20문제(research/core20-20260928). core가 없는 강은 전부 핵심.
@@ -461,7 +467,7 @@ function withoutMastered(cards,ranged){return cards.filter(c=>!isMastered(c)||c.
 // 모드는 과목마다 다르다: 호출부가 과목을 주지 않으면 카드들의 과목(여럿이 섞였으면 지금 범위의 과목)으로 고른다.
 const cardsSubject=cards=>cards.length&&cards.every(c=>c.subject===cards[0].subject)?cards[0].subject:scopeOf().subject;
 function reviewQueue(cards,ranged=false,subject=cardsSubject(cards)){
- cards=withoutMastered(cards,ranged);
+ cards=withoutMastered(cards.filter(isPlayable),ranged);
  // 파트별 점검은 풀이 화면에서만 따로 고른다(partRound). 수 세기, 목록 화면에서는 기본 대기열과 같다.
  const mode=queueMode(subject)==='parts'?'default':queueMode(subject);
  if(mode==='wrong')return wrongQueue(cards);
@@ -617,7 +623,7 @@ function renderParts(){
 // END PART CHECK
 // 경험치, 레벨(xp.js). 풀면 언제나 오르고, 처음 맞힘, 틀렸던 문제 맞힘이 크게 오른다. 하루 목표는 과목마다 사용자가 정했을 때만(전체 목표는 v135에서 없앰).
 function renderXp(){
- let s;try{s=StudyXp.summary(data.history,data.explanationViews||[],StudyXp.day());}catch{$('#xpCard').hidden=true;return;}
+ let s;try{s=StudyXp.summary(visibleRecords(),visibleViews(),StudyXp.day());}catch{$('#xpCard').hidden=true;return;}
  const o=StudyXp.overallBadges(subjectBadges());
  $('#xpCard').hidden=false;$('#xpLevel').replaceChildren(levelBadge(s.level),document.createTextNode(' Lv '+s.level));
  $('#xpAcc').replaceChildren(badgeChip(o.exam,null),badgeChip(o.self,null));
@@ -629,8 +635,8 @@ function renderXp(){
  $('#xpGoal').textContent=parts.length?'오늘 과목 목표: '+parts.join(', '):'';$('#xpGoal').hidden=!parts.length;
 }
 // 과목별 하루 목표(v135, 사용자: "오늘 풀 문제 목표도 과목별로 커스텀하게 — 현재는 구분이 안 되어 있음"). data.dailyGoals = {과목: 문제 수}.
-function subjectGoals(){const g=data.dailyGoals;return g&&typeof g==='object'?g:{};}
-function todayBySubject(){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));try{return StudyXp.solvesBySubject(data.history,id=>bySubject.get(id)||null,StudyXp.day());}catch{return {};}}
+function subjectGoals(){const g=data.dailyGoals;return g&&typeof g==='object'?Object.fromEntries(Object.entries(g).filter(([s])=>subjectVisible(s))):{};}
+function todayBySubject(){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));try{return StudyXp.solvesBySubject(visibleRecords(),id=>bySubject.get(id)||null,StudyXp.day());}catch{return {};}}
 function goalLine(done,goal){return done>=goal?'✅ 오늘 목표 달성 '+done+'/'+goal+'문제':'오늘 목표 '+done+'/'+goal+'문제';}
 function setSubjectGoal(subject,value){
  const next=structuredClone(data),goals={...(next.dailyGoals||{})};if(value===null)delete goals[subject];else goals[subject]=value;
@@ -644,7 +650,7 @@ function renderSubjectGoal(s){
  if(document.activeElement?.id!=='subjectGoalInput')$('#subjectGoalInput').value=goal||'';
 }
 // 과목 레벨(v124): 육각형 안의 숫자 = 레벨(노력). 색은 없다 — 실력은 v146부터 뱃지 둘(기출, 자체제작)이 따로 보여 준다.
-function subjectLevels(history=data.history){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));try{return StudyXp.bySubject(history,data.explanationViews||[],id=>bySubject.get(id)||null);}catch{return {};}}
+function subjectLevels(history=data.history){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));try{return StudyXp.bySubject(visibleRecords(history),visibleViews(),id=>bySubject.get(id)||null);}catch{return {};}}
 function levelBadge(level=1,big){const b=elem('span',undefined,'level-badge lv-plain'+(big?' big':''));b.setAttribute('aria-label','레벨 '+level);b.title='Lv '+level;b.append(elem('small','Lv'),elem('b',String(level)));return b;}
 // 뱃지(v146, 사용자 결정 2026-09-23) — 과목마다 둘:
 // , 기출 뱃지: 예상 점수(score.js, 공무원 9급 기출 첫 풀이)를 등급표(xp.js TIERS)에 %로 댄다. 20문제 미만이면 '아직'.
@@ -704,7 +710,7 @@ function renderBadgeInfo(){
 // 방금 푼 풀이의 경험치와 과목 레벨, 뱃지 변화. 뱃지는 등급이 오를 때(기출 뱃지가 처음 생길 때 포함)만 알린다 — 내려가는 건 설명에서 본다.
 const tierRank=t=>t?StudyXp.TIERS.length-StudyXp.TIERS.findIndex(x=>x[1]===t.id):0;
 function xpAwardNode(reviewId){
- let a;try{a=StudyXp.lastAward(data.history,data.explanationViews||[],reviewId);}catch{return null;}if(!a)return null;
+ let a;try{a=StudyXp.lastAward(visibleRecords(),visibleViews(),reviewId);}catch{return null;}if(!a)return null;
  const box=elem('div',undefined,'xp-award'+(a.parts.length>1?' is-bonus':''));
  box.append(elem('strong','+'+a.xp+' XP'),elem('span',a.parts.map(p=>p.label+' +'+p.xp).join(', ')));
  if(a.levelAfter>a.levelBefore)box.append(elem('p','🎉 레벨 '+a.levelAfter+' 달성!','xp-levelup'));
@@ -719,7 +725,7 @@ function xpAwardNode(reviewId){
  return box;
 }
 // 예상점수(score.js): 기출 첫 풀이만, 4과목 평균 + 가산점을 사용자가 정한 목표와 비교한다(기본 국가직 전산9급 95, 가산 5).
-function examScore(){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));return ExamScore.summary(data.history,id=>bySubject.get(id)||null,data.targetExam);}
+function examScore(){const bySubject=new Map(data.cards.map(c=>[c.id,c.subject]));return ExamScore.summary(visibleRecords(),id=>bySubject.get(id)||null,data.targetExam);}
 const fmt1=x=>Number.isInteger(x)?String(x):x.toFixed(1);
 function renderScoreLine(){
  let s;try{s=examScore();}catch{$('#homeScore').hidden=true;return;}$('#homeScore').hidden=false;
@@ -733,7 +739,7 @@ function renderScore(){
   $('#scoreGap').textContent=s.total.gap>=0?'✅ 목표보다 '+fmt1(s.total.gap)+'점 높아요':'목표까지 '+fmt1(-s.total.gap)+'점 더 필요해요';$('#scoreGap').className='score-gap '+(s.total.gap>=0?'is-over':'is-under');}
  else{$('#scoreTotal').textContent='4과목 모두 기출을 20문제 이상 처음 풀면 예상점수가 나와요.';$('#scoreGap').textContent='남은 것: '+s.missing.map(m=>m.subject+' '+m.need+'문제').join(', ');$('#scoreGap').className='score-gap';}
  const body=$('#scoreRows');body.replaceChildren();
- for(const x of s.subjects){if(!x.ranked&&!x.n&&!x.self)continue;const tr=elem('tr',undefined,x.ranked?'':'score-unranked');
+ for(const x of s.subjects){if(!subjectVisible(x.subject))continue;if(!x.ranked&&!x.n&&!x.self)continue;const tr=elem('tr',undefined,x.ranked?'':'score-unranked');
   const name=elem('td',x.subject);if(!x.ranked)name.append(elem('small',' 평균 제외'));const tried=elem('td',x.n?x.correct+'/'+x.n:'0');if(x.self)tried.append(elem('small','자체제작 '+x.self.rate+'% ('+x.self.n+')','score-self'));
   tr.append(name,elem('td',x.ready?String(x.score):'—','score-num'),elem('td',x.ready?x.low+'~'+x.high:x.n?x.need+'문제 더':'—','score-num'),tried);body.append(tr);}
  if(document.activeElement?.closest?.('#targetEdit'))return;
@@ -746,7 +752,7 @@ function saveTarget(value){
 let creditHistoryLimit=14;
 function renderStudyCredit(){
  try{
-  const s=StudyCredit.summary(data.history,StudyCredit.day(),data.explanationViews||[]);
+  const s=StudyCredit.summary(visibleRecords(),StudyCredit.day(),visibleViews());
   $('#studyToday').textContent=StudyCredit.format(s.todayMinutes);$('#studyTotal').textContent=StudyCredit.format(s.totalMinutes);
   $('#studyCreditCount').textContent='오늘 풀이 '+s.todayAttempts+'회, 해설 '+s.todayExplanations+'회 / 누적 풀이 '+s.attempts+'회, 해설 '+s.explanations+'회';
   $('#studyCreditExcluded').textContent=s.excluded?'문제풀이 여부가 확인되지 않는 이전 기록 '+s.excluded+'건은 제외했어요.':'';
@@ -902,7 +908,7 @@ let sessionDirty=false;
 function sessionSnapshot(){const s=data.practiceScope||{},a=data.activePractice,e=a?.exercise;return {subject:s.subject||'',topic:s.topic||'',round:s.round||'',cardId:e?a.cardId:null,exerciseId:e?.exerciseId||null,variantIndex:e?(e.variantIndex??0):null,type:e?e.type:null,choices:e?.type==='choice'?[...e.choices]:null};}
 function stampSession(){if(!storageOK)return;let session;try{session=ProgressSync.session({at:Math.max(Date.now(),(data.session?.at||0)+1),...sessionSnapshot()});}catch{return;}data.session=session;persist();window.dispatchEvent(new Event('study-progress-saved'));}
 // 화면 아래 출처 줄: 지금 보는 과목의 문제가 어디서 왔는지만 적는다(국어를 풀 때 국사편찬위원회가 뜨지 않게). 컴퓨터일반, 정보보호론은 자체 제작 단원이 있을 때만 자체 제작을 적는다.
-function footerText(subject){const exam='인사혁신처 공개 9급 기출',hist='국사편찬위원회 공개 한능검 심화 기출',own='자체 제작 복습 문제';if(subject==='한국사')return [own,exam,hist].join(', ');if(subject==='국어'||subject==='영어'||gichulSelf(subject).length)return [own,exam].join(', ');if(subject==='컴퓨터일반'||subject==='정보보호론')return exam;return [own,exam,hist].join(', ');}
+function footerText(subject){const exam='인사혁신처 공개 9급 기출',hist='국사편찬위원회 공개 한능검 심화 기출',own='자체 제작 복습 문제';if(subject==='한국사')return [own,exam,hist].join(', ');if(subject==='국어'||subject==='영어'||gichulSelf(subject).length)return [own,exam].join(', ');if(subject==='컴퓨터일반'||subject==='정보보호론')return exam;return [own,exam,...(subjectVisible('한국사')?[hist]:[])].join(', ');}
 function footerSubject(){if(view==='home')return '';if(view!=='quiz')return viewSubject;try{const sc=scopeOf();if(sc.subject)return sc.subject;const id=data.session&&data.session.cardId,c=id&&data.cards.find(x=>x.id===id);return c?c.subject:'';}catch{return viewSubject;}}
 // 풀이 화면이 조각을 받는 중이면(contentWait) 위치를 아직 찍지 않는다 — 받은 뒤 문제를 그릴 때 그 문제까지 담아 찍는다(받지 못하면 범위만 찍는다).
 // 받기 전에 찍어 버리면 범위를 연 직후의 위치에 문제가 빠져, 다른 기기가 같은 문제, 같은 보기 순서로 이어 받지 못한다.
@@ -928,6 +934,11 @@ function timerShow(key,limit){timerSeen=true;if(key!==timerKey){timerKey=key;tim
 function timerStop(){timerKey='';const el=$('#countdown');if(el){el.hidden=true;el.classList.remove('over');}clearInterval(timerId);timerId=0;}
 function basicsLimit(body){const n=String(body?.textContent||'').replace(/\s+/g,'').length;return Math.ceil(n/400*60)+30;}
 function render(){if(updater&&updater.safePoint())return;contentWait=false;
+ // Old links, browser back, update restore and remote sessions may point at a hidden subject.
+ const memoSubject=viewSubject.startsWith('과목:')?viewSubject.slice(3):MEMORIZE.sets.find(x=>x.id===viewSubject)?.subject;
+ if(!subjectVisible(viewSubject)||(view==='memorize'&&!subjectVisible(memoSubject))){view='home';viewSubject='';}
+ if(view==='quiz'&&!subjectVisible(scopeOf().subject)){view='subject';viewSubject=subjectsList()[0]||'';}
+
  syncMemorizeShown();
  const before=foldSig(),keep=new Map(),y=window.scrollY||0;foldEach((d,k)=>keep.set(k,d.open));
  timerSeen=false;renderView();if(!timerSeen)timerStop();
@@ -956,6 +967,7 @@ function menuItem(title,detail,fn,cls='menu-item'){const b=btn('',fn,cls);b.type
 // 회차(1회독, 2회독)는 세지 않는다. 답한 기록은 기기끼리 맞춰지므로 다른 기기에서 더 풀었어도 그 문제 다음부터다.
 const timeOf=h=>typeof h.at==='number'?h.at:Date.parse(h.at)||0;
 function resumeTarget(subject){
+ if(!subjectVisible(subject))return resumeTarget(subjectsList()[0]||'');
  const seat=data.lastScopes?.[subject]||{},bAt=seat.basics?seat.basicsAt||0:-1,cAt=seat.card?seat.cardAt||0:-1;
  const subjectOf=new Map(data.cards.map(c=>[c.id,c.subject]));let ans=null,ansAt=-1;
  for(const h of data.history){const t=timeOf(h);if(t>=ansAt&&subjectOf.get(h.cardId)===subject){ans=h.cardId;ansAt=t;}}
@@ -986,6 +998,7 @@ function quizSeat(scope,id){const cur=data.lastScopes?.[scope.subject];if(!cur||
 // 이어하기가 고른 문제(paperIndex가 한 번 쓰고 지운다).
 let paperWant=null;
 function openScope(scope,resume=false,fromConcept='',card=''){
+ if(!subjectVisible(scope.subject)){const s=subjectsList()[0];if(s){const to=resumeTarget(s);if(to.basics){conceptOpen(to.basics);return;}return openScope(to.scope||{subject:s},true,'',to.card);}go('home','');return;}
  partFrom=null;conceptSolve=fromConcept;
  scope={subject:scope.subject||'',topic:TOPIC_SUBJECTS.has(scope.subject)?scope.topic||'':'',round:hasRanges(scope.subject)?scope.round||'':''};
  paperWant=card||null;
@@ -1048,10 +1061,10 @@ function renderMemorize(){
  if(!subject&&!set&&Content.memoKnown(viewSubject)){$('#memorizeTitle').textContent=MEMORIZE.sets.find(x=>x.id===viewSubject)?.title||'외울 것';renderContentLoad(body,'',Content.needMemo(viewSubject),null);return;}
  if(!set){
   body.append(elem('p','가려 둔 칸을 먼저 떠올린 뒤 눌러서 확인해요. 공부한 범위까지만 들어 있어요.','status'));
-  const list=elem('div',undefined,'menu-list'),sets=subject?MEMORIZE.sets.filter(x=>x.subject===subject):MEMORIZE.sets;
+  const list=elem('div',undefined,'menu-list'),sets=MEMORIZE.sets.filter(x=>subjectVisible(x.subject)&&(!subject||x.subject===subject));
   for(const x of sets)list.append(menuItem(x.title,(subject?'':x.subject+', ')+MEMORIZE.size(x)+'칸'+((n=>n?', '+n+'칸 확인':'')([...memorizeShown].filter(k=>k.startsWith(x.id+':')).length))+(data.memorizeLast===x.id?', 마지막으로 본 목록':''),()=>{if(data.memorizeLast!==x.id){data.memorizeLast=x.id;saveDraft();}go('memorize',x.id);}));
   body.append(list);
-  {const cells=[...memorizeShown].filter(k=>!conceptKey(k)).length;if(cells){const reset=btn('외울 것 전체 초기화 ('+cells+'칸 확인함)',()=>{memorizeShown=new Set([...memorizeShown].filter(conceptKey));memorizeSave();render();notify('모든 목록의 확인 표시를 지웠어요.');});reset.type='button';body.append(reset);}}
+  {const visibleKey=k=>!conceptKey(k)&&MEMORIZE.sets.some(s=>subjectVisible(s.subject)&&k.startsWith(s.id+':')),cells=[...memorizeShown].filter(visibleKey).length;if(cells){const reset=btn('외울 것 전체 초기화 ('+cells+'칸 확인함)',()=>{memorizeShown=new Set([...memorizeShown].filter(k=>!visibleKey(k)));memorizeSave();render();notify('모든 목록의 확인 표시를 지웠어요.');});reset.type='button';body.append(reset);}}
   return;
  }
  const total=MEMORIZE.size(set),keys=[];keyAct.cards=set.id.startsWith(WRITING_SET);
@@ -1625,7 +1638,7 @@ function partBasics(p){return [...new Set(p.ids.map(basicsRuleFor).filter(r=>r&&
 // 정보보호론, 컴퓨터일반 단원 상자는 장마다 하나라 파트로 나눈다: concept-map.js(research/concept-parts-20261018)가 상자 줄마다 임자 파트를 정해 둔다
 // (그 파트 문제의 대입이 쓰는 줄은 처음 쓰는 파트, 안 쓰는 줄은 내용으로 배정, 단원 개관은 intro, 맞는 파트가 없으면 단원 끝 '그 밖의 개념').
 // 읽음 표시는 외울 것 확인 표시와 같은 저장 칸(memorizeShown, 기기끼리 맞춤)에 'concept:<파트>' 열쇠로 둔다. 과목은 차례로 켠다(사용자 "순차적으로").
-const CONCEPT_SUBJECTS=new Set(['정보보호론','컴퓨터일반','영어','국어','한국사']);
+const CONCEPT_SUBJECTS=new Set(['정보보호론','컴퓨터일반','영어','국어','한국사'].filter(subjectVisible));
 const conceptUnitMap=id=>globalThis.CONCEPT_MAP?.units?.[id]||null;
 const CONCEPT_KEY='concept:';
 // 줄 배정이 있는 과목(정보보호론, 컴퓨터일반)은 배정된 자체 제작 단원만, 나머지 과목(영어 v382~)은 파트마다 상자가 거의 하나라 상자째로 읽는다.

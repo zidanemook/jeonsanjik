@@ -1,13 +1,15 @@
+// History regression coverage runs with HIDDEN_SUBJECTS empty; default hiding is checked in hide-history.test.cjs.
 // 기초 개념(basics.js, v155 논리, v156 독해): 국어 논리 독해 1~6장과 제2편 독해 1~3장 모든 문제에 규칙별 기초 개념 상자가 붙는지,
 // 상자의 절 순서, 용어 풀이, 표기 규칙, 학습 자료 문장 겹침, 그리고 파트별 상태의 '기초 개념 보기' 화면을 확인한다.
 // 절 순서: 1. 먼저 알아 둘 말 → (표) → 규칙 → 비교 예문 → 이 문제에 대입. 표는 선택이다 — 외울 표가 없는 규칙도 있어서
 // 넣지 않고, 번호는 빠짐없이 이어 매긴다(표가 없으면 규칙이 2번). 파트 화면에는 '이 문제에 대입'을 넣지 않는다.
 'use strict';
+const historyVm=(source,...args)=>vm.runInContext(source.replace("const HIDDEN_SUBJECTS=new Set(['한국사']);","const HIDDEN_SUBJECTS=new Set();"),...args);
 const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),assert=require('node:assert/strict');
 
 // ── 1) 데이터: 모든 논리 문제 → 규칙 상자 + 문제별 대입
 const bank=require('./practice-bank.js');
-const bctx={};vm.createContext(bctx);vm.runInContext(fs.readFileSync(__dirname+'/basics.js','utf8'),bctx,{filename:'basics.js'});
+const bctx={};vm.createContext(bctx);historyVm(fs.readFileSync(__dirname+'/basics.js','utf8'),bctx,{filename:'basics.js'});
 const B=bctx.STUDY_BASICS;assert.ok(B&&B.boxes&&B.apply,'basics.js가 STUDY_BASICS를 내놓는다');
 // v457: 독해 2장 3상자의 읽기 3개 + 질문 6개, 기존 용어를 포함한 고정 수.
 const WHY_KR2=[['reading-read2-evaluation',8,2],['reading-read2-confirm',8,2],['reading-read2-strengthen',8,2]];
@@ -132,7 +134,7 @@ assert.deepEqual(Object.keys(B.boxes).sort(),[...rules,...rrules,...grules,/*KL1
 const GICHUL_BASICS={'국어':327,'영어':143,'한국사':277,'한능검':548};
 const GOWN=/^(?:gichul-[a-z0-9]+-\d{4}b?-(korean|english|history)-(\d{2})|hanneung-\d+-\d{2})$/;
 const gichulBasics=Object.keys(B.apply).filter(id=>GOWN.test(id));let gUse=0;
-{const GF=require('./gichul-files.cjs'),HC={};vm.createContext(HC);vm.runInContext(fs.readFileSync(__dirname+'/hanneung-data.js','utf8'),HC,{filename:'hanneung-data.js'});
+{const GF=require('./gichul-files.cjs'),HC={};vm.createContext(HC);historyVm(fs.readFileSync(__dirname+'/hanneung-data.js','utf8'),HC,{filename:'hanneung-data.js'});
  const hans=new Map(HC.HANNEUNG_DATA.map(r=>[r.id,r])),C='①②③④⑤',n={'국어':0,'영어':0,'한국사':0,'한능검':0};
  const TOK=/(?<![A-Za-z0-9_])([a-z]{1,2}\d{1,2}k?)(?![A-Za-z0-9])/g,plain=t=>String(t).replace(/\{[spmqrc]\|([^{}|]*)\}/g,'$1');
  for(const id of gichulBasics){const a=B.forQuestion(id),m=id.match(GOWN),box=B.box(a.box);
@@ -228,7 +230,7 @@ const SEC_TEXTBOOK=/*SEC-TEXTBOOK*/{"sec-is01":["tbt1","tbt2","tbt3","tct1","tct
  for(const [s,list] of Object.entries(IT_DONE)){if(!list.length)continue;for(const id of GF.ids().filter(x=>x.endsWith('-'+code[s])))for(const q of GF.read(id).questions)
   assert.ok(!/카드|문항|변형/.test(noTech(q.e||'')),'기출 해설에 카드, 문항, 변형: '+id+' '+q.n);}}
 let hYearLines=0;
-{const HC={};vm.createContext(HC);for(const f of ['core-review-pack.js','quiz-options.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),HC,{filename:f});
+{const HC={};vm.createContext(HC);for(const f of ['core-review-pack.js','quiz-options.js'])historyVm(fs.readFileSync(__dirname+'/'+f,'utf8'),HC,{filename:f});
  const card=new Map(HC.CORE_REVIEW_PACK.map(c=>[c.id,c]));
  const YEAR=/\d{3,4}\s*년|기원전|\d+\s*만\s*년|\d+\s*세기|(?<!\d)\d{3,4}(?!\d)/,ID=/(?<![A-Za-z])[a-z]\d{0,2}[a-z]?(?:\s*표)?\)|(?<![A-Za-z])[a-z]\d{1,2}[a-z]?(?![A-Za-z0-9])/,plain=t=>String(t).replace(/\{[spmqrc]\|([^{}|]*)\}/g,'$1');
  for(const r of hrules){const b=B.box(r);
@@ -306,8 +308,8 @@ const ctx={document:doc,console,localStorage:{getItem:k=>store.has(k)?store.get(
  navigator:{},setInterval:()=>1,clearInterval(){},setTimeout:()=>1,clearTimeout(){},structuredClone,addEventListener(){},dispatchEvent(){},scrollTo(){},
  fetch:()=>Promise.reject(Error('no fetch')),Date,JSON,Math,Set,Map,Number,String,Object,Array,Error,RegExp,Intl,Promise,Event:class{constructor(t){this.type=t;}}};
 ctx.window=ctx;ctx.self=ctx;vm.createContext(ctx);
-for(const f of FILES)vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
-const run=code=>{const v=vm.runInContext(code,ctx);return Array.isArray(v)?Array.from(v):v;};
+for(const f of FILES)historyVm(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
+const run=code=>{const v=historyVm(code,ctx);return Array.isArray(v)?Array.from(v):v;};
 const eqJ=(x,y,m)=>assert.deepEqual(JSON.parse(JSON.stringify(x)),JSON.parse(JSON.stringify(y)),m);
 const cls=n=>String(n.className||'').split(' ');
 // 5-1) 논리 995, 독해 920문제 모두: 상자를 그려 절 제목이 1부터 이어지고 순서가 맞는지.
@@ -436,7 +438,7 @@ const memoHeads=box=>[...(box.memorize?.length?['외울 것']:[]),...(box.mnemon
 //   (나) 화면: 해설 화면(fold)과 파트 화면 모두 대입 뒤에 외울 것 줄 수 그대로, 암기법 블록 수 그대로(블록 넷 이상이면 이 문제 대입에
 //        부르는 낱말이 나오는 블록만 제자리, 나머지는 닫힌 '이 파트의 다른 암기법 N개 더 보기'). 블록 글은 풀이 줄, 상상 장면, '소리만' 주의만.
 let memoLines=0,memoBoxes=0,mnBoxes=0;const mnUsed=new Set();
-{const MC={};vm.createContext(MC);for(const f of ['quiz-options.js','memorize.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),MC,{filename:f});
+{const MC={};vm.createContext(MC);for(const f of ['quiz-options.js','memorize.js'])historyVm(fs.readFileSync(__dirname+'/'+f,'utf8'),MC,{filename:f});
  const MN=MC.HISTORY_MNEMONICS,MEM=MC.STUDY_MEMORIZE||require('./memorize.js');
  const fronts=new Set();for(const set of MEM.sets){if(set.subject!=='한국사')continue;
   if(set.groups)for(const g of set.groups)for(const c of g.cards)fronts.add(c[0]);

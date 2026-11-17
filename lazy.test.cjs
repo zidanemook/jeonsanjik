@@ -1,3 +1,5 @@
+const historyVm=(source,...args)=>vm.runInContext(source.replace("const HIDDEN_SUBJECTS=new Set(['한국사']);","const HIDDEN_SUBJECTS=new Set();"),...args);
+// History regression coverage runs with HIDDEN_SUBJECTS empty; default hiding is checked in hide-history.test.cjs.
 // 자체 제작 내용을 필요할 때 받기(v247) 검사. 설계: research/lazy-load-20261008/DESIGN.md
 //  0) 만든 파일(content-index.js, chunks/, chunk-manifest.json)이 원본과 맞는가(낡았으면 실패 — 통합 뒤 node build-chunks.cjs를 잊은 경우).
 //  1) 색인의 모든 칸이 원본(practice-bank, basics, core-review-pack, quiz-options, study-review-catalog, memorize, hanneung-explanations)과 같은가.
@@ -19,7 +21,7 @@ const src=build.loadSources(),built=build.derive(src);
 {const bad=build.diff(built);D(bad,[],'조각, 색인이 원본과 다르다(낡았다). node build-chunks.cjs 를 돌리고 chunks/, content-index.js, chunk-manifest.json을 커밋할 것: '+bad.slice(0,8).join(' / '));}
 const pack=src.CORE_REVIEW_PACK,options=src.QUIZ_OPTIONS,bank=src.PRACTICE_BANK,basics=src.STUDY_BASICS,parts=src.STUDY_PARTS,catalog=src.STUDY_REVIEW_CATALOG,memo=src.MEMORIZE,explanations=src.HANNEUNG_EXPLANATIONS,mnemonics=src.HISTORY_MNEMONICS;
 // ---------------------------------------------------------------- 1) 색인 = 원본
-const index=(()=>{const c={};vm.createContext(c);vm.runInContext(read('content-index.js'),c,{filename:'content-index.js'});assert.equal(J(c.CORE_REVIEW_PACK),'[]');assert.equal(J(c.QUIZ_OPTIONS),'{}');return JSON.parse(J(c.CONTENT_INDEX));})();
+const index=(()=>{const c={};vm.createContext(c);historyVm(read('content-index.js'),c,{filename:'content-index.js'});assert.equal(J(c.CORE_REVIEW_PACK),'[]');assert.equal(J(c.QUIZ_OPTIONS),'{}');return JSON.parse(J(c.CONTENT_INDEX));})();
 same(J(index),J(built.index),'커밋된 색인 파일이 실행 결과와 다르다');
 const names=index.names;
 {D(index.core.ids,pack.map(c=>c.id),'묶음 카드 순서');
@@ -106,8 +108,8 @@ function boot({lazy,saved,now=T0}){
    return Promise.resolve({ok:true,status:200,arrayBuffer:()=>Promise.resolve(b.buffer.slice(b.byteOffset,b.byteOffset+b.length))});}
   m=/^gichul\/([a-z0-9-]+)\.json$/.exec(url);if(m)return Promise.resolve({ok:true,status:200,json:()=>Promise.resolve(require('./gichul-files.cjs').read(m[1]))});
   return Promise.reject(Error('unexpected fetch '+url));};
- for(const f of lazy?LAZY:FULL)vm.runInContext(source(f),ctx,{filename:f});
- inst.ctx=ctx;inst.run=code=>vm.runInContext(code,ctx);
+ for(const f of lazy?LAZY:FULL)historyVm(source(f),ctx,{filename:f});
+ inst.ctx=ctx;inst.run=code=>historyVm(code,ctx);
  inst.text=sel=>{const n=nodes.get(sel);return n?[n._text,...n.all.map(x=>x._text)].filter(Boolean).join(' | '):'';};
  inst.card=()=>inst.text('#card');
  inst.click=(sel,label)=>{const b=nodes.get(sel).all.find(n=>n.tag==='button'&&n._text===label);assert.ok(b,'버튼이 없다: '+label+' — '+inst.text(sel).slice(0,200));b.onclick();};
@@ -322,7 +324,7 @@ function device(){
  const caches={open:async name=>cacheOf(name),keys:async()=>[...stores.keys()],delete:async name=>stores.delete(name),async match(req){for(const m of stores.values()){const hit=m.get(abs(req));if(hit)return new Response(hit.buf,{status:hit.status});}return undefined;}};
  const fetch=async req=>{const href=abs(req);net.hits.push(href.slice(ORIGIN.length));if(net.offline)throw new TypeError('Failed to fetch');const body=net.serve(href.slice(ORIGIN.length));return body===null||body===undefined?new Response('',{status:404}):new Response(body,{status:200});};
  function worker(text){const on={},self={location:new URL(ORIGIN+'sw.js'),addEventListener:(k,f)=>{on[k]=f;},skipWaiting:async()=>{self.skipped=true;},clients:{claim:async()=>{}}};
-  const ctx={self,caches,fetch,Response,URL,console,Uint8Array,Promise,Error,Object,Array,Math};vm.createContext(ctx);vm.runInContext(text,ctx,{filename:'sw.js'});
+  const ctx={self,caches,fetch,Response,URL,console,Uint8Array,Promise,Error,Object,Array,Math};vm.createContext(ctx);historyVm(text,ctx,{filename:'sw.js'});
   const fire=async kind=>{let p=Promise.resolve();on[kind]({waitUntil(x){p=x;}});await p;};
   return {self,install:()=>fire('install'),activate:()=>fire('activate'),
    async get(rel,mode='cors'){let p;on.fetch({request:{method:'GET',url:ORIGIN+rel,mode},respondWith(x){p=x;}});if(!p)return null;try{return await p;}catch{return Response.error();}}};}

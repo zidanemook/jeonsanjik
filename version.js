@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v496-no-textbook-names';
+globalThis.APP_BUILD='chagog-v497-hide-history';
