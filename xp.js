@@ -108,7 +108,7 @@
  }
  // states: conceptStates(자체제작 풀이 행) / groups: [{id,title,ids,scope}] — 과목의 파트(+대체 묶음).
  // 약한 파트: 외운 비율이 낮은 순. 같으면 지금 틀려 있는(마지막에 틀리고 아직 다시 못 맞힌) 비율이 높은 파트 먼저,
- // 그다음 풀어 본 파트(안 푼 파트가 0%인 건 당연하니), 그다음 교재 순서.
+ // 그다음 풀어 본 파트(안 푼 파트가 0%인 건 당연하니), 그다음 진도 순서.
  function selfBadge(states,groups,conceptOf=id=>id,weakCount=2){
   const out=[];
   groups.forEach((g,order)=>{const keys=new Set(g.ids.filter(id=>!isExam(id)).map(conceptOf));if(!keys.size)return;let done=0,tried=0,missed=0;

@@ -10694,7 +10694,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼국의 조세, 공물, 역 구분",
         "역=요역, 군역(노동력 징발)"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 삼국의 경제"
+      "sourceSection": "07강 고대(경제, 사회), 삼국의 경제"
     },
     "lecture-hist-20260911-002": {
       "number": 227,
@@ -10703,7 +10703,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "철제 농기구, 우경 장려, 수리 시설, 황무지 개간",
         "농사철 부역 징발 금지"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 삼국의 경제"
+      "sourceSection": "07강 고대(경제, 사회), 삼국의 경제"
     },
     "lecture-hist-20260911-003": {
       "number": 228,
@@ -10711,7 +10711,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "관청 수공업: 수공업자 배정, 무기, 장신구 생산"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 삼국의 경제"
+      "sourceSection": "07강 고대(경제, 사회), 삼국의 경제"
     },
     "lecture-hist-20260911-004": {
       "number": 229,
@@ -10722,7 +10722,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백제 정사암(오답)",
         "발해 주자감(오답)"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 삼국의 경제"
+      "sourceSection": "07강 고대(경제, 사회), 삼국의 경제"
     },
     "lecture-hist-20260911-005": {
       "number": 230,
@@ -10731,7 +10731,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼국 대외 무역: 4세기 이후, 주로 공무역",
         "고구려—남북조, 유목 민족, 백제—남조, 왜"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 삼국의 경제"
+      "sourceSection": "07강 고대(경제, 사회), 삼국의 경제"
     },
     "lecture-hist-20260911-006": {
       "number": 231,
@@ -10739,7 +10739,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "신라: 고구려, 백제를 거친 교류 → 한강 유역 확보 후 당항성 직접 교역"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 삼국의 경제"
+      "sourceSection": "07강 고대(경제, 사회), 삼국의 경제"
     },
     "lecture-hist-20260911-007": {
       "number": 232,
@@ -10749,7 +10749,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성덕왕 정전 지급",
         "경덕왕 녹읍 부활"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 남북국 시대의 경제(통일 신라)"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 경제(통일 신라)"
     },
     "lecture-hist-20260911-008": {
       "number": 233,
@@ -10758,7 +10758,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "통일 신라 조세 1/10, 공물 촌락 단위, 역 16~60세 남자",
         "지대: 수확량 1/2 이상을 주인에게"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 남북국 시대의 경제(통일 신라)"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 경제(통일 신라)"
     },
     "lecture-hist-20260911-009": {
       "number": 234,
@@ -10767,7 +10767,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "민정 문서: 도다이사 쇼소인 발견",
         "서원경(청주) 부근 4개 촌"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 남북국 시대의 경제(통일 신라)"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 경제(통일 신라)"
     },
     "lecture-hist-20260911-010": {
       "number": 235,
@@ -10777,7 +10777,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "토지, 인구, 소와 말, 나무, 특산물 기록",
         "조세 징수, 노동력 징발에 활용"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 남북국 시대의 경제(통일 신라)"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 경제(통일 신라)"
     },
     "lecture-hist-20260911-011": {
       "number": 236,
@@ -10786,7 +10786,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지증왕 동시, 동시전",
         "통일 신라 서시, 남시 추가 설치"
       ],
-      "sourceSection": "07강 고대(경제, 사회) / 074쪽 삼국의 경제, 남북국 시대의 경제"
+      "sourceSection": "07강 고대(경제, 사회) / 삼국의 경제, 남북국 시대의 경제"
     },
     "lecture-hist-20260911-012": {
       "number": 237,
@@ -10796,7 +10796,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라소(관청)",
         "신라원(사원)"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 남북국 시대의 경제(통일 신라)"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 경제(통일 신라)"
     },
     "lecture-hist-20260911-013": {
       "number": 238,
@@ -10808,7 +10808,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "발해: 산둥반도 발해관(오답)",
         "발해: 솔빈부의 말(오답)"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 남북국 시대의 경제(통일 신라)"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 경제(통일 신라)"
     },
     "lecture-hist-20260911-014": {
       "number": 239,
@@ -10818,7 +10818,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라, 당, 일본 해상 무역권 장악",
         "법화원 설치"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074쪽 남북국 시대의 경제(통일 신라)"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 경제(통일 신라)"
     },
     "lecture-hist-20260911-015": {
       "number": 240,
@@ -10829,7 +10829,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "모피, 녹용, 사향 수출",
         "수공업(금속 공예, 직물, 도자기), 상경 상업"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 남북국 시대의 경제(발해)"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 경제(발해)"
     },
     "lecture-hist-20260911-016": {
       "number": 241,
@@ -10841,7 +10841,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "발해관: 당 산둥반도의 발해 사신 숙소(오답)",
         "솔빈부: 말 특산물(오답)"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 남북국 시대의 경제(발해)"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 경제(발해)"
     },
     "lecture-hist-20260911-017": {
       "number": 242,
@@ -10852,7 +10852,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "청해진: 장보고, 완도(오답)",
         "영주도: 발해의 당 교통로(오답)"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 074~075쪽 남북국 시대의 경제"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 경제"
     },
     "lecture-hist-20260911-018": {
       "number": 243,
@@ -10862,7 +10862,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백제 정사암(재상 선출)",
         "신라 화백 회의(만장일치)"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 삼국의 사회"
+      "sourceSection": "07강 고대(경제, 사회), 삼국의 사회"
     },
     "lecture-hist-20260911-019": {
       "number": 244,
@@ -10871,7 +10871,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고구려 지배층: 왕족 고씨, 5부 출신 귀족",
         "고국천왕 진대법(빈민 구제)"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 삼국의 사회"
+      "sourceSection": "07강 고대(경제, 사회), 삼국의 사회"
     },
     "lecture-hist-20260911-020": {
       "number": 245,
@@ -10883,7 +10883,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라: 진골, 화백 회의(오답)",
         "발해: 정당성 대내상(오답)"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 삼국의 사회"
+      "sourceSection": "07강 고대(경제, 사회), 삼국의 사회"
     },
     "lecture-hist-20260911-021": {
       "number": 246,
@@ -10893,7 +10893,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관직 진출 상한, 일상생활 규제",
         "통일 후 3두품 이하 평민화"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 삼국의 사회"
+      "sourceSection": "07강 고대(경제, 사회), 삼국의 사회"
     },
     "lecture-hist-20260911-022": {
       "number": 247,
@@ -10903,7 +10903,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "화랑(귀족)+낭도(귀족, 평민) 구성",
         "계층 간 대립, 갈등 완화"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 삼국의 사회"
+      "sourceSection": "07강 고대(경제, 사회), 삼국의 사회"
     },
     "lecture-hist-20260911-023": {
       "number": 248,
@@ -10912,7 +10912,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원광의 세속 5계를 행동 규범으로",
         "진흥왕 때 국가 조직으로 개편"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 삼국의 사회"
+      "sourceSection": "07강 고대(경제, 사회), 삼국의 사회"
     },
     "lecture-hist-20260911-024": {
       "number": 249,
@@ -10921,7 +10921,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백제, 고구려 귀족에게 관직 제수",
         "9서당: 신라인 외 고구려인, 백제인, 말갈인 포함"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 남북국 시대의 사회"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 사회"
     },
     "lecture-hist-20260911-025": {
       "number": 250,
@@ -10929,7 +10929,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "9주: 신라, 고구려, 백제 옛 땅에 각각 3주"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 남북국 시대의 사회"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 사회"
     },
     "lecture-hist-20260911-026": {
       "number": 251,
@@ -10940,7 +10940,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라 말 반신라적 성격",
         "대표 6두품 설계두, 설총, 최치원"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 남북국 시대의 사회"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 사회"
     },
     "lecture-hist-20260911-027": {
       "number": 252,
@@ -10950,7 +10950,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "진성 여왕에게 시무 10여 조 건의(수용 안 됨)",
         "토황소격문, 계원필경"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 남북국 시대의 사회"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 사회"
     },
     "lecture-hist-20260911-028": {
       "number": 253,
@@ -10960,7 +10960,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지방 호족 성장, 농민 반란",
         "중앙 정부의 지방 통제력 약화"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 남북국 시대의 사회"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 사회"
     },
     "lecture-hist-20260911-029": {
       "number": 254,
@@ -10969,7 +10969,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "발해 주민: 고구려인+말갈인",
         "당 제도, 문화 수용+고구려, 말갈 전통 유지"
       ],
-      "sourceSection": "07강 고대(경제, 사회), 075쪽 남북국 시대의 사회"
+      "sourceSection": "07강 고대(경제, 사회), 남북국 시대의 사회"
     },
     "lecture-hist-20260911-030": {
       "number": 255,
@@ -10978,7 +10978,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태학(중앙): 소수림왕, 귀족 자제에게 유교 경전, 역사서",
         "경당(지방): 유학과 무술"
       ],
-      "sourceSection": "08강 고대(문화 1), 086쪽 유학의 발달"
+      "sourceSection": "08강 고대(문화 1), 유학의 발달"
     },
     "lecture-hist-20260911-031": {
       "number": 256,
@@ -10987,7 +10987,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백제 오경박사, 의박사, 역박사",
         "왕인의 논어, 천자문 일본 전파"
       ],
-      "sourceSection": "08강 고대(문화 1), 086쪽 유학의 발달"
+      "sourceSection": "08강 고대(문화 1), 유학의 발달"
     },
     "lecture-hist-20260911-032": {
       "number": 257,
@@ -10998,7 +10998,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠지도: 백제의 제철 기술과 왜와의 교류(오답)",
         "광개토 태왕릉비: 장수왕 건립(오답)"
       ],
-      "sourceSection": "08강 고대(문화 1), 086쪽 유학의 발달"
+      "sourceSection": "08강 고대(문화 1), 유학의 발달"
     },
     "lecture-hist-20260911-033": {
       "number": 258,
@@ -11007,7 +11007,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원광의 세속 5계",
         "진평왕 때 수에 군사를 청하는 걸사표"
       ],
-      "sourceSection": "08강 고대(문화 1), 086쪽 유학의 발달"
+      "sourceSection": "08강 고대(문화 1), 유학의 발달"
     },
     "lecture-hist-20260911-034": {
       "number": 259,
@@ -11019,7 +11019,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 광종 과거제: 쌍기의 건의(오답)",
         "신라 골품제: 신분에 따른 관등 한계(오답)"
       ],
-      "sourceSection": "08강 고대(문화 1), 086쪽 유학의 발달"
+      "sourceSection": "08강 고대(문화 1), 유학의 발달"
     },
     "lecture-hist-20260911-035": {
       "number": 260,
@@ -11030,7 +11030,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김대문: 진골, 화랑세기, 고승전, 한산기(정답)",
         "혜초: 왕오천축국전(오답)"
       ],
-      "sourceSection": "08강 고대(문화 1), 086쪽 유학의 발달"
+      "sourceSection": "08강 고대(문화 1), 유학의 발달"
     },
     "lecture-hist-20260911-036": {
       "number": 261,
@@ -11039,7 +11039,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "발해 6부 유교식 명칭(충, 인, 의, 지, 예, 신)",
         "주자감(유교 경전 교육), 당에 유학생 파견"
       ],
-      "sourceSection": "08강 고대(문화 1), 086쪽 유학의 발달"
+      "sourceSection": "08강 고대(문화 1), 유학의 발달"
     },
     "lecture-hist-20260911-037": {
       "number": 262,
@@ -11047,7 +11047,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "고구려 태학, 통일 신라 국학, 발해 주자감 비교"
       ],
-      "sourceSection": "08강 고대(문화 1), 086쪽 유학의 발달"
+      "sourceSection": "08강 고대(문화 1), 유학의 발달"
     },
     "lecture-hist-20260911-038": {
       "number": 263,
@@ -11058,7 +11058,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라 진흥왕 거칠부 국사(오답)",
         "김대문: 『화랑세기』(오답)"
       ],
-      "sourceSection": "08강 고대(문화 1), 086쪽 역사서의 편찬"
+      "sourceSection": "08강 고대(문화 1), 역사서의 편찬"
     },
     "lecture-hist-20260911-039": {
       "number": 264,
@@ -11069,7 +11069,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백제 금동 대향로(능산리), 산수무늬 벽돌(외리)(정답)",
         "신라 천마총 천마도(오답)"
       ],
-      "sourceSection": "08강 고대(문화 1), 086쪽 도교의 발달"
+      "sourceSection": "08강 고대(문화 1), 도교의 발달"
     },
     "lecture-hist-20260911-040": {
       "number": 265,
@@ -11077,7 +11077,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "연개소문: 도교 진흥, 당에 도사 파견 요청"
       ],
-      "sourceSection": "08강 고대(문화 1), 086쪽 도교의 발달"
+      "sourceSection": "08강 고대(문화 1), 도교의 발달"
     },
     "lecture-hist-20260911-041": {
       "number": 266,
@@ -11086,7 +11086,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고구려 소수림왕: 전진 순도",
         "백제 침류왕: 동진 마라난타"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불교의 발달(삼국의 불교 수용)"
+      "sourceSection": "08강 고대(문화 1), 불교의 발달(삼국의 불교 수용)"
     },
     "lecture-hist-20260911-042": {
       "number": 267,
@@ -11095,7 +11095,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라: 눌지왕 때 고구려 승려 묵호자 전래",
         "법흥왕 때 이차돈의 순교를 계기로 공인"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불교의 발달(삼국의 불교 수용)"
+      "sourceSection": "08강 고대(문화 1), 불교의 발달(삼국의 불교 수용)"
     },
     "lecture-hist-20260911-043": {
       "number": 268,
@@ -11104,7 +11104,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원효: 아미타 신앙(나무아미타불, 극락)",
         "무애가로 불교 대중화"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불교의 발달(통일 신라)"
+      "sourceSection": "08강 고대(문화 1), 불교의 발달(통일 신라)"
     },
     "lecture-hist-20260911-044": {
       "number": 269,
@@ -11116,7 +11116,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혜초: 왕오천축국전(오답)",
         "도선: 풍수지리설(오답)"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불교의 발달(통일 신라)"
+      "sourceSection": "08강 고대(문화 1), 불교의 발달(통일 신라)"
     },
     "lecture-hist-20260911-045": {
       "number": 270,
@@ -11125,7 +11125,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의상: 당 유학, 화엄종 개창, 부석사 건립",
         "관음 신앙, 화엄일승법계도"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불교의 발달(통일 신라)"
+      "sourceSection": "08강 고대(문화 1), 불교의 발달(통일 신라)"
     },
     "lecture-hist-20260911-046": {
       "number": 271,
@@ -11134,7 +11134,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원효 vs 의상: 사상, 저술, 사찰 비교",
         "원효 아미타 신앙 ↔ 의상 관음 신앙(요약표의 짝)"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불교의 발달(통일 신라)"
+      "sourceSection": "08강 고대(문화 1), 불교의 발달(통일 신라)"
     },
     "lecture-hist-20260911-047": {
       "number": 272,
@@ -11145,7 +11145,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원효: 아미타 신앙, 불교 대중화(오답)",
         "자장: 황룡사 9층 목탑 건립 건의(오답)"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불교의 발달(통일 신라)"
+      "sourceSection": "08강 고대(문화 1), 불교의 발달(통일 신라)"
     },
     "lecture-hist-20260911-048": {
       "number": 273,
@@ -11155,7 +11155,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지방 호족의 사상적 배경",
         "9산 선문 성립, 승탑과 탑비 유행"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불교의 발달(통일 신라)"
+      "sourceSection": "08강 고대(문화 1), 불교의 발달(통일 신라)"
     },
     "lecture-hist-20260911-049": {
       "number": 274,
@@ -11163,7 +11163,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "도선: 풍수지리설에 큰 영향"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불교의 발달(통일 신라)"
+      "sourceSection": "08강 고대(문화 1), 불교의 발달(통일 신라)"
     },
     "lecture-hist-20260911-050": {
       "number": 275,
@@ -11172,7 +11172,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백제 서산 용현리 마애 여래 삼존상",
         "고구려 금동 연가 7년명 여래 입상, 신라 경주 배동 석조 여래 삼존 입상"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불상과 불탑"
+      "sourceSection": "08강 고대(문화 1), 불상과 불탑"
     },
     "lecture-hist-20260911-051": {
       "number": 276,
@@ -11182,7 +11182,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "발해 이불병좌상",
         "삼국 금동 미륵보살 반가 사유상"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불상과 불탑"
+      "sourceSection": "08강 고대(문화 1), 불상과 불탑"
     },
     "lecture-hist-20260911-052": {
       "number": 277,
@@ -11192,7 +11192,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고구려 목탑(현존 X)",
         "익산 미륵사지 석탑: 무왕, 목탑→석탑 과도기"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불상과 불탑"
+      "sourceSection": "08강 고대(문화 1), 불상과 불탑"
     },
     "lecture-hist-20260911-053": {
       "number": 278,
@@ -11201,7 +11201,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "황룡사 9층 목탑: 선덕 여왕, 자장의 건의",
         "고려 때 몽골 침입으로 소실"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불상과 불탑"
+      "sourceSection": "08강 고대(문화 1), 불상과 불탑"
     },
     "lecture-hist-20260911-054": {
       "number": 279,
@@ -11212,7 +11212,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "쌍봉사 철감선사탑: 선종 영향의 승탑",
         "불국사 다보탑"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불상과 불탑"
+      "sourceSection": "08강 고대(문화 1), 불상과 불탑"
     },
     "lecture-hist-20260911-055": {
       "number": 280,
@@ -11221,7 +11221,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "불국사 3층 석탑(석가탑, 무영탑)",
         "무구정광대다라니경 발견"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불상과 불탑"
+      "sourceSection": "08강 고대(문화 1), 불상과 불탑"
     },
     "lecture-hist-20260911-056": {
       "number": 281,
@@ -11232,7 +11232,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "미륵사지 석탑: 백제 무왕, 익산(오답)",
         "감은사지 3층 석탑: 신문왕, 쌍탑(오답)"
       ],
-      "sourceSection": "08강 고대(문화 1), 087쪽 불상과 불탑"
+      "sourceSection": "08강 고대(문화 1), 불상과 불탑"
     },
     "summary-hist-20260912-01": {
       "number": 282,
@@ -11324,7 +11324,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "익산 미륵사지 석탑: 백제 무왕, 현존 最古 석탑",
         "목탑 양식을 돌로 옮긴 과도기 석탑"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑"
     },
     "heritage-hist-20260912-02": {
       "number": 291,
@@ -11333,7 +11333,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백제 탑: 익산 미륵사지 석탑, 부여 정림사지 5층 석탑",
         "신라 탑, 통일 신라 탑과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑"
     },
     "heritage-hist-20260912-03": {
       "number": 292,
@@ -11342,7 +11342,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "선덕 여왕: 분황사 모전 석탑, 황룡사 9층 목탑",
         "무왕, 신문왕 탑과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑"
     },
     "heritage-hist-20260912-04": {
       "number": 293,
@@ -11351,7 +11351,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "화순 쌍봉사 철감선사탑: 통일 신라 하대 팔각원당형 승탑",
         "선종 유행과 승탑"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑"
     },
     "heritage-hist-20260912-05": {
       "number": 294,
@@ -11360,7 +11360,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금동 연가 7년명 여래 입상: 고구려, 명문 ‘연가 7년’",
         "백제, 신라, 발해 불상과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑"
     },
     "heritage-hist-20260912-06": {
       "number": 295,
@@ -11369,7 +11369,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금동 미륵보살 반가 사유상: 삼국 시대, 제작국 단정 어려움",
         "일본 고류사 목조 미륵보살 반가 사유상과의 유사성"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑"
     },
     "heritage-hist-20260912-07": {
       "number": 296,
@@ -11378,7 +11378,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이불병좌상: 발해, 고구려 불상 양식 계승",
         "석굴암 본존불, 연가 7년명 불상과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑"
     },
     "heritage-hist-20260912-08": {
       "number": 297,
@@ -11387,7 +11387,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백제 금동 대향로: 부여 능산리 절터",
         "도교(신선, 산악)와 불교(연꽃) 요소가 함께"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 08강 고대(문화 1) 086~087쪽 도교, 고분"
+      "sourceSection": "자체 제작(기출 원문 아님) / 08강 고대(문화 1) 도교, 고분"
     },
     "heritage-hist-20260912-09": {
       "number": 298,
@@ -11398,7 +11398,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경주 천마총: 신라 돌무지덧널무덤, 천마도(오답)",
         "김유신 묘: 통일 신라 굴식 돌방무덤, 12지신상(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 08강 고대(문화 1) 086~087쪽 도교, 고분"
+      "sourceSection": "자체 제작(기출 원문 아님) / 08강 고대(문화 1) 도교, 고분"
     },
     "heritage-hist-20260912-10": {
       "number": 299,
@@ -11407,7 +11407,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고구려 굴식 돌방무덤: 무용총 수렵도, 강서대묘 사신도 벽화",
         "신라 돌무지덧널무덤: 천마총 천마도는 말다래에 그린 그림"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 08강 고대(문화 1) 086~087쪽 도교, 고분"
+      "sourceSection": "자체 제작(기출 원문 아님) / 08강 고대(문화 1) 도교, 고분"
     },
     "daily-hist-20260912-01": {
       "number": 300,
@@ -11472,7 +11472,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백제 탑 사진 판별: 부여 정림사지 5층 석탑",
         "신라, 통일 신라 탑과의 시각적 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑, 사진 보기(공공누리 제1유형)"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑, 사진 보기(공공누리 제1유형)"
     },
     "photo-hist-20260912-02": {
       "number": 307,
@@ -11481,7 +11481,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "현존 최고(最古) 석탑 사진 판별: 익산 미륵사지 석탑",
         "목탑 양식 석탑의 시각적 특징"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑, 사진 보기(공공누리 제1유형)"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑, 사진 보기(공공누리 제1유형)"
     },
     "photo-hist-20260912-03": {
       "number": 308,
@@ -11490,7 +11490,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "무구정광대다라니경 발견 탑 사진 판별: 경주 불국사 3층 석탑",
         "석가탑과 다보탑의 시각적 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑, 사진 보기(공공누리 제1유형)"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑, 사진 보기(공공누리 제1유형)"
     },
     "photo-hist-20260912-04": {
       "number": 309,
@@ -11499,7 +11499,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "모전 석탑 사진 판별: 경주 분황사 모전 석탑",
         "선덕 여왕 시기 탑과 통일 신라 탑의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑, 사진 보기(공공누리 제1유형)"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑, 사진 보기(공공누리 제1유형)"
     },
     "photo-hist-20260912-05": {
       "number": 310,
@@ -11508,7 +11508,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "승탑 사진 판별: 화순 쌍봉사 철감선사탑",
         "팔각원당형 승탑과 석탑의 시각적 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑, 사진 보기(공공누리 제1유형)"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑, 사진 보기(공공누리 제1유형)"
     },
     "photo-hist-20260912-06": {
       "number": 311,
@@ -11517,7 +11517,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "황룡사 9층 목탑 소실과 목탑 터 사진 판별",
         "선덕 여왕, 자장, 몽골 침입 연결"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑, 사진 보기(공공누리 제1유형)"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑, 사진 보기(공공누리 제1유형)"
     },
     "photo-hist-20260912-07": {
       "number": 312,
@@ -11526,7 +11526,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "쌍탑 사진 판별: 경주 감은사지 동서 3층 석탑",
         "통일 신라 신문왕 시기 탑"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 087쪽 불상과 불탑, 사진 보기(공공누리 제1유형)"
+      "sourceSection": "자체 제작(기출 원문 아님), 08강 고대(문화 1) 불상과 불탑, 사진 보기(공공누리 제1유형)"
     },
     "core-hist-79-3": {
       "number": 313,
@@ -11615,7 +11615,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고구려 천문도와 조선 태조 천상열차분야지도",
         "삼국의 과학 기술 유물과 나라 연결"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-02": {
       "number": 322,
@@ -11628,7 +11628,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신문왕: 감은사, 국학(오답)",
         "경덕왕: 불국사, 석굴암 건립 시작(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-03": {
       "number": 323,
@@ -11637,7 +11637,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "상원사 동종(성덕왕)과 성덕대왕 신종의 구분",
         "성덕대왕 신종의 비천상 무늬"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-04": {
       "number": 324,
@@ -11648,7 +11648,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "황룡사: 신라 진흥왕(오답)",
         "왕궁리 유적: 백제 무왕, 익산(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-05": {
       "number": 325,
@@ -11660,7 +11660,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "포석정: 신라의 정원 시설(오답)",
         "안학궁: 고구려 장수왕, 평양(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-06": {
       "number": 326,
@@ -11669,7 +11669,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "상경성: 당 장안성과 유사한 구조, 주작대로",
         "온돌로 드러나는 고구려 계승"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-07": {
       "number": 327,
@@ -11678,7 +11678,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "돌무지덧널무덤: 입구, 벽화 없음, 도굴 어려움",
         "굴식 돌방무덤: 벽화 있음, 도굴 쉬움"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-08": {
       "number": 328,
@@ -11687,7 +11687,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김유신 묘: 굴식 돌방무덤, 둘레돌(호석)의 12지신상",
         "가야 고분: 김해 대성동(금관가야), 고령 지산동(대가야)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-09": {
       "number": 329,
@@ -11696,7 +11696,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "담징(종이, 먹, 호류사 금당 벽화), 혜자(쇼토쿠 태자의 스승)",
         "아직기, 왕인, 노리사치계가 전한 것"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-10": {
       "number": 330,
@@ -11705,7 +11705,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "아프라시아브 궁전 벽화의 고구려 사신, 각저총의 서역인",
         "신라 고분 유리그릇과 원성왕릉 무인석"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "goryeo-hist-20260912-01": {
       "number": 354,
@@ -11714,7 +11714,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "왕건: 궁예의 부하로 금성(나주) 점령 → 추대로 즉위",
         "국호 고려, 연호 천수, 송악 천도"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-02": {
       "number": 355,
@@ -11723,7 +11723,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태조의 사심관 제도와 기인 제도",
         "호족 통제책과 광종, 성종 정책의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-03": {
       "number": 356,
@@ -11732,7 +11732,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태조의 취민유도(세율 1/10)와 흑창",
         "역분전, 시정 전시과, 의창의 왕별 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-04": {
       "number": 357,
@@ -11741,7 +11741,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태조의 북진 정책(서경 전진 기지)과 만부교 사건",
         "훈요 10조와 정계, 계백료서"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-05": {
       "number": 358,
@@ -11750,7 +11750,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정종: 왕규의 난 진압과 광군 창설",
         "광군은 거란 대비"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-06": {
       "number": 359,
@@ -11759,7 +11759,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광종: 노비안검법, 과거제(쌍기), 공복 제정, 칭제건원",
         "광종과 성종 업적의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-07": {
       "number": 360,
@@ -11768,7 +11768,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경종의 시정 전시과가 태조의 역분전을 대신함",
         "역분전과 전시과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-08": {
       "number": 361,
@@ -11777,7 +11777,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종: 최승로 시무 28조, 12목과 지방관, 국자감",
         "의창, 상평창과 연등회 축소, 팔관회 폐지"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-09": {
       "number": 362,
@@ -11786,7 +11786,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중서문하성: 재신(2품 이상, 정책 심의, 결정)과 낭사(3품 이하, 비판)",
         "장관 문하시중과 상서성, 삼사의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-10": {
       "number": 363,
@@ -11795,7 +11795,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중추원: 추밀(2품 이상, 군사 기밀)과 승선(3품, 왕명 출납)",
         "중추원은 당, 송의 영향을 받은 기구"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-11": {
       "number": 364,
@@ -11807,7 +11807,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "어사대: 관리 감찰, 풍기 단속(오답)",
         "상서성: 6부를 두고 정책 집행(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-12": {
       "number": 365,
@@ -11816,7 +11816,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 삼사는 화폐, 곡식의 출납과 회계(조선 삼사는 언론)",
         "어사대와 중서문하성 낭사로 이루어진 대간"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-13": {
       "number": 366,
@@ -11827,7 +11827,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양계: 상비군 주진군(오답)",
         "양계: 동계, 북계의 군사 구역(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-14": {
       "number": 367,
@@ -11836,7 +11836,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중앙군 2군(응양군, 용호군, 국왕 친위)과 6위(수도 경비, 국경 방어)",
         "주현군(5도, 예비군)과 주진군(양계, 상비군)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "culture-hist-20260912-11": {
       "number": 331,
@@ -11845,7 +11845,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백제 칠지도: 제철, 금속 주조 기술과 왜와의 교류",
         "삼국 금속 공예 유물의 나라 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-12": {
       "number": 332,
@@ -11854,7 +11854,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라 금관, 금귀고리: 금, 은 세공 기술",
         "백제, 고구려, 발해 유물과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-13": {
       "number": 333,
@@ -11863,7 +11863,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "상원사 동종: 통일 신라 성덕왕",
         "성덕대왕 신종과 만든 왕의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-14": {
       "number": 334,
@@ -11875,7 +11875,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안학궁: 고구려 장수왕, 평양(오답)",
         "궁남지: 백제 무왕, 사비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-15": {
       "number": 335,
@@ -11887,7 +11887,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "불국사: 통일 신라 경덕왕(오답)",
         "감은사: 통일 신라 신문왕, 쌍탑(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-16": {
       "number": 336,
@@ -11896,7 +11896,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "불국사: 불국토의 이상 / 석굴암: 인공 석굴의 비례와 균형",
         "상경성, 안학궁과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-17": {
       "number": 337,
@@ -11905,7 +11905,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고구려 돌무지무덤(장군총, 벽화 없음) → 굴식 돌방무덤(벽화 있음)",
         "강서대묘, 무용총, 각저총은 굴식 돌방무덤"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-18": {
       "number": 338,
@@ -11914,7 +11914,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김해 대성동 고분군: 금관가야",
         "고령 지산동 고분군: 대가야"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-19": {
       "number": 339,
@@ -11923,7 +11923,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정혜 공주 묘: 굴식 돌방무덤, 모줄임천장, 돌사자상",
         "정효 공주 묘: 벽돌무덤, 벽화"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-20": {
       "number": 340,
@@ -11932,7 +11932,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정효 공주 묘: 당의 영향(벽돌무덤, 벽화) + 고구려식 천장",
         "정혜 공주 묘와의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-21": {
       "number": 341,
@@ -11941,7 +11941,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혜자: 쇼토쿠 태자의 스승 / 혜관: 불교 전파",
         "담징, 노리사치계와의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-22": {
       "number": 342,
@@ -11950,7 +11950,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "아직기: 한자 / 왕인: 천자문, 논어",
         "노리사치계, 담징과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-23": {
       "number": 343,
@@ -11962,7 +11962,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "왕인: 천자문, 논어(오답)",
         "담징: 종이와 먹(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-24": {
       "number": 344,
@@ -11971,7 +11971,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "호류사 금당 벽화: 고구려 담징",
         "호류사 백제 관음상"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-25": {
       "number": 345,
@@ -11983,7 +11983,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고구려: 담징의 종이와 먹, 호류사 금당 벽화(오답)",
         "백제: 노리사치계 불경, 불상, 왕인 천자문, 논어(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-26": {
       "number": 346,
@@ -11995,7 +11995,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백제: 아직기 한자, 왕인 천자문과 논어(오답)",
         "남북국: 하쿠호 문화에 영향(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-27": {
       "number": 347,
@@ -12004,7 +12004,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼국 → 아스카 문화",
         "남북국 → 하쿠호 문화"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-28": {
       "number": 348,
@@ -12016,7 +12016,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "아프라시아브 궁전 벽화: 고구려 사신(오답)",
         "정효 공주 묘 벽화: 발해, 당의 영향(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-29": {
       "number": 349,
@@ -12025,7 +12025,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라 고분의 유리그릇, 유리구슬, 금제 장식 보검",
         "통일 신라 범종, 백제 금속 유물과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-30": {
       "number": 350,
@@ -12034,7 +12034,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원성왕릉(괘릉) 무인석: 통일 신라의 서역 교류",
         "김유신 묘 둘레돌, 성덕대왕 신종과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-31": {
       "number": 351,
@@ -12043,7 +12043,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고구려: 북조, 북방 민족 교류, 강건한 문화",
         "백제: 남조 교류, 우아하고 세련된 문화"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-32": {
       "number": 352,
@@ -12052,7 +12052,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라: 고구려, 백제를 통한 중국 문물 수용",
         "한강 점령 뒤 중국과 직접 교류"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "culture-hist-20260912-33": {
       "number": 353,
@@ -12061,7 +12061,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "통일 신라: 당과 사신, 유학생, 승려, 상인의 활발한 교류",
         "발해: 문왕 이후 당과 친선"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 099쪽 과학 기술, 건축, 고분, 일본 전파"
+      "sourceSection": "자체 제작(기출 원문 아님) / 09강 고대(문화 2) 과학 기술, 건축, 고분, 일본 전파"
     },
     "goryeo-hist-20260912-15": {
       "number": 368,
@@ -12072,7 +12072,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "궁예: 철원 천도, 국호 태봉(오답)",
         "견훤: 완산주, 후백제 건국(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-16": {
       "number": 369,
@@ -12081,7 +12081,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사심관: 출신 지역의 일을 맡김",
         "기인: 호족의 자제를 개경에 둠"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-17": {
       "number": 370,
@@ -12090,7 +12090,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태조의 혼인 정책과 사성 정책",
         "광종, 성종의 호족 대책과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-18": {
       "number": 371,
@@ -12101,7 +12101,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "목종의 개정 전시과: 전현직, 관품 기준(오답)",
         "녹과전: 녹봉 보충, 경기 지역 한정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-19": {
       "number": 372,
@@ -12110,7 +12110,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서경(평양)을 북진의 전진 기지로 삼음",
         "청천강에서 영흥에 이르는 국경"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-20": {
       "number": 373,
@@ -12121,7 +12121,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "「시무 28조」: 최승로가 성종에게 올림(오답)",
         "봉사 10조: 최충헌의 개혁안(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-21": {
       "number": 374,
@@ -12132,7 +12132,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정계, 계백료서: 태조가 관리의 규범을 밝힘(오답)",
         "최충헌의 봉사 10조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-22": {
       "number": 375,
@@ -12143,7 +12143,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국청사: 의천의 해동 천태종(오답)",
         "익산 미륵사: 백제 무왕(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-23": {
       "number": 376,
@@ -12154,7 +12154,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주현군: 5도의 예비군(오답)",
         "주진군: 양계의 상비군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-24": {
       "number": 377,
@@ -12165,7 +12165,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광종: 노비안검법(오답)",
         "성종: 12목 설치, 지방관 파견(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-25": {
       "number": 378,
@@ -12174,7 +12174,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노비안검법의 목적: 공신, 호족 기반 약화, 국가 재정 확충",
         "역분전, 12목, 전시과와의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-26": {
       "number": 379,
@@ -12183,7 +12183,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과거제: 쌍기의 건의, 유교적 소양의 신진 등용",
         "최승로, 역분전, 12목과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-27": {
       "number": 380,
@@ -12192,7 +12192,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광종: 백관의 공복 제정(관리의 기강)",
         "성종의 의창, 12목, 경학박사와의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-28": {
       "number": 381,
@@ -12204,7 +12204,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "묘청의 난: 국호 대위, 연호 천개(오답)",
         "발해 무왕: 연호 인안, 장문휴의 등주 공격(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-29": {
       "number": 382,
@@ -12213,7 +12213,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광종: 후주와 사신 교환",
         "태조의 만부교 사건, 발해 유민 포용과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-30": {
       "number": 383,
@@ -12224,7 +12224,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광종: 쌍기의 건의로 과거제(오답)",
         "정종: 광군 창설(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-31": {
       "number": 384,
@@ -12233,7 +12233,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종의 향리 제도 정비, 호족 → 향리 전환",
         "태조, 광종의 호족 대책과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-32": {
       "number": 385,
@@ -12244,7 +12244,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "예종: 양현고(오답)",
         "인종: 경사 6학(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-33": {
       "number": 386,
@@ -12253,7 +12253,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종: 흑창을 의창으로 고치고 상평창 설치",
         "태조의 흑창, 취민유도, 정종의 광군과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-34": {
       "number": 387,
@@ -12262,7 +12262,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종: 연등회 축소, 팔관회 폐지",
         "국가적 불교 행사 억제와 국자감 설치의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-35": {
       "number": 388,
@@ -12271,7 +12271,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "상서성: 정책 집행, 아래에 6부",
         "중서문하성, 도병마사, 삼사와의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-36": {
       "number": 389,
@@ -12282,7 +12282,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "상서성: 6부를 두고 정책 집행(오답)",
         "삼사: 화폐, 곡식 출납과 회계(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-37": {
       "number": 390,
@@ -12291,7 +12291,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "도병마사: 재신+추밀 구성, 임시 → 상설",
         "원 간섭기에 도평의사사로 개편"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-38": {
       "number": 391,
@@ -12302,7 +12302,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "어사대: 감찰, 풍기 단속(오답)",
         "중추원: 군사 기밀, 왕명 출납(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-39": {
       "number": 392,
@@ -12311,7 +12311,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대간: 어사대 관원 + 중서문하성 낭사",
         "대간의 간쟁, 봉박, 서경 권한"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-40": {
       "number": 393,
@@ -12322,7 +12322,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "식목도감: 대내적 법제와 격식(오답)",
         "중추원: 군사 기밀, 왕명 출납(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-41": {
       "number": 394,
@@ -12331,7 +12331,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "낭사(3품 이하): 비판 / 승선(3품): 왕명 출납",
         "재신, 추밀과의 품계별 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-42": {
       "number": 395,
@@ -12340,7 +12340,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종 12목 → 5도 양계",
         "3경 4도호부 8목"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-43": {
       "number": 396,
@@ -12349,7 +12349,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지방관이 파견된 주현보다 속현이 더 많음",
         "속현의 실제 행정은 향리가 담당"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-44": {
       "number": 397,
@@ -12358,7 +12358,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향, 부곡, 소: 주현을 통한 간접 지배",
         "안찰사, 병마사, 진과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-45": {
       "number": 398,
@@ -12367,7 +12367,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "5도: 행정 구역, 안찰사",
         "양계: 동계, 북계의 군사 구역, 병마사와 진"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-46": {
       "number": 399,
@@ -12378,7 +12378,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주현군: 5도의 예비군(오답)",
         "주진군: 양계의 상비군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-47": {
       "number": 400,
@@ -12387,7 +12387,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중앙군: 직업 군인, 군인전, 직역 세습",
         "주현군, 주진군과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-48": {
       "number": 401,
@@ -12396,7 +12396,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "군역 대상: 16~59세 양인 장정",
         "중앙군, 지방군 편성과의 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-49": {
       "number": 402,
@@ -12405,7 +12405,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주현군: 5도, 평상시 농업, 예비군",
         "주진군: 양계, 국경 수비, 상비군"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-50": {
       "number": 403,
@@ -12414,7 +12414,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광종: 노비안검법 / 성종: 12목 설치",
         "태조 역분전, 경종 시정 전시과, 정종 광군의 왕 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-51": {
       "number": 404,
@@ -12423,7 +12423,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼사(회계), 어사대(감찰), 식목도감(법제)",
         "도병마사, 중추원, 상서성과의 기능 구분"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeo-hist-20260912-52": {
       "number": 405,
@@ -12432,7 +12432,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태조: 거란 배척과 만부교 사건, 발해 유민 포용",
         "정종: 거란 대비 광군 창설"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 10강 고려(초기 정치) 고려의 성립과 통치 체제"
     },
     "goryeomid-hist-20260914-001": {
       "number": 406,
@@ -12440,7 +12440,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "문벌 형성: 지방 호족과 6두품 출신 유학자 중심의 새 지배층"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-002": {
       "number": 407,
@@ -12448,7 +12448,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "문벌의 뜻: 여러 세대에 걸쳐 중앙 고위 관직자를 배출한 가문"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-003": {
       "number": 408,
@@ -12459,7 +12459,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신진 사대부: 공민왕이 등용(오답)",
         "신흥 무인 세력: 홍건적, 왜구 격퇴 과정에서 성장(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-004": {
       "number": 409,
@@ -12467,7 +12467,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "문벌의 경제 기반: 직역의 대가인 토지, 녹봉과 권력을 이용한 토지 확대"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-005": {
       "number": 410,
@@ -12475,7 +12475,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "문벌의 혼인: 폐쇄적 혼인, 왕실과 혼인해 외척으로 성장"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-006": {
       "number": 411,
@@ -12486,7 +12486,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "해주 최씨: 최충, 해동공자, 9재 학당(오답)",
         "파평 윤씨: 윤관, 동북 9성(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-007": {
       "number": 412,
@@ -12497,7 +12497,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "해주 최씨: 최충, 해동공자(오답)",
         "파평 윤씨: 윤관, 별무반 편성 건의(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-008": {
       "number": 413,
@@ -12508,7 +12508,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최우: 정방 설치(오답)",
         "최승로: 시무 28조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-009": {
       "number": 414,
@@ -12519,7 +12519,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경주 김씨: 김부식, 개경파, 신라 계승(오답)",
         "해주 최씨: 최충, 9재 학당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-010": {
       "number": 415,
@@ -12530,7 +12530,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원 간섭기: 권문세족의 도평의사사 장악(오답)",
         "고려 말: 신흥 무인 세력의 성장(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-011": {
       "number": 416,
@@ -12541,7 +12541,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김보당의 난: 의종 복위, 동계(오답)",
         "만적의 난: 사노비, 개경, 신분 해방(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-012": {
       "number": 417,
@@ -12549,7 +12549,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "이자겸의 난 배경: 경원 이씨의 중첩된 왕실 혼인, 외척 이자겸의 실권 장악"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-013": {
       "number": 418,
@@ -12560,7 +12560,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김보당의 난: 동북면 병마사, 의종 복위(오답)",
         "조위총의 난: 서경 유수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-014": {
       "number": 419,
@@ -12571,7 +12571,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김보당의 난: 동북면 병마사, 의종 복위(오답)",
         "조위총의 난: 서경 유수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-015": {
       "number": 420,
@@ -12579,7 +12579,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "이자겸의 난: 금의 사대 요구 수용"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-016": {
       "number": 421,
@@ -12587,7 +12587,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "이자겸의 난 수습: 인종이 척준경을 회유해 이자겸 제거"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-017": {
       "number": 422,
@@ -12595,7 +12595,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "이자겸 제거 후 척준경이 탄핵을 받아 축출"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-018": {
       "number": 423,
@@ -12603,7 +12603,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "이자겸의 난 전개 순서"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-019": {
       "number": 424,
@@ -12614,7 +12614,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광종: 노비안검법, 과거제(오답)",
         "성종: 시무 28조, 12목(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-020": {
       "number": 425,
@@ -12622,7 +12622,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "묘청의 서경 천도 운동 배경: 이자겸의 난 이후 개혁적 서경 세력과 보수적 개경 세력의 대립"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-021": {
       "number": 426,
@@ -12630,7 +12630,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "개혁적 서경 세력(묘청)과 보수적 개경 세력(김부식)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-022": {
       "number": 427,
@@ -12641,7 +12641,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "무신 정변: 정중부, 이의방, 보현원(오답)",
         "조위총의 난: 서경 유수, 반무신(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-023": {
       "number": 428,
@@ -12652,7 +12652,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "척준경: 이자겸과 난, 인종에게 회유(오답)",
         "최광수: 서경의 고구려 부흥(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-024": {
       "number": 429,
@@ -12660,7 +12660,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "서경파 사상(불교, 풍수지리설) vs 개경파 사상(유교)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-025": {
       "number": 430,
@@ -12668,7 +12668,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "역사의식: 서경파 고구려 계승 vs 개경파 신라 계승"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-026": {
       "number": 431,
@@ -12676,7 +12676,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "개경파: 유교, 신라 계승, 금에 대한 사대 인정"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-027": {
       "number": 432,
@@ -12684,7 +12684,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "대외 관계: 서경파 금 정벌 vs 개경파 금 사대 인정"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-028": {
       "number": 433,
@@ -12692,7 +12692,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "칭제건원: 황제를 칭하고 연호를 사용할 것, 서경파의 주장"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-029": {
       "number": 434,
@@ -12700,7 +12700,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "정지상이 속한 서경파의 주장: 금 정벌, 칭제건원"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-030": {
       "number": 435,
@@ -12708,7 +12708,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "이자겸(금 사대 요구 수용) vs 묘청(금 정벌) 판별"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-031": {
       "number": 436,
@@ -12716,7 +12716,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "이자겸의 난과 묘청의 난 판별: 척준경 vs 서경, 인종 회유 vs 김부식 진압"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-032": {
       "number": 437,
@@ -12724,7 +12724,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "묘청 등 서경 세력이 풍수지리설을 내세워 서경 천도 추진"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-033": {
       "number": 438,
@@ -12732,7 +12732,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "개경 세력의 반대로 서경 천도 중단"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-034": {
       "number": 439,
@@ -12740,7 +12740,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "묘청이 서경에서 난: 국호 대위, 연호 천개"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-035": {
       "number": 440,
@@ -12751,7 +12751,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김보당의 난: 동북면 병마사, 의종 복위(오답)",
         "조위총의 난: 서경 유수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-036": {
       "number": 441,
@@ -12762,7 +12762,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김보당의 난: 의종 복위(오답)",
         "이자겸의 난: 외척, 척준경(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-037": {
       "number": 442,
@@ -12773,7 +12773,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정중부: 보현원 무신 정변(오답)",
         "윤관: 별무반, 동북 9성(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-038": {
       "number": 443,
@@ -12781,7 +12781,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "묘청의 서경 천도 운동 전개 순서"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-039": {
       "number": 444,
@@ -12789,7 +12789,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "신채호: 묘청의 서경 천도 운동을 조선역사 일천년래 제일 대사건으로 평가"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-040": {
       "number": 445,
@@ -12800,7 +12800,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동명왕편: 이규보, 고구려 계승 의식(오답)",
         "계백료서: 태조, 관리의 규범(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-041": {
       "number": 446,
@@ -12808,7 +12808,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "묘청의 서경 천도 운동 결과: 소수 문벌의 권력 독점, 사회 모순 심화, 문벌 사회 동요"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 122쪽 문벌 사회의 성립과 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 문벌 사회의 성립과 동요"
     },
     "goryeomid-hist-20260914-042": {
       "number": 447,
@@ -12816,7 +12816,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "무신 정변 배경: 문신의 무반 고위직 독점, 무신 차별"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-043": {
       "number": 448,
@@ -12824,7 +12824,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "무신 정변 배경 vs 무신 집권기 사회 동요 배경 판별"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-044": {
       "number": 449,
@@ -12832,7 +12832,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "무신 정변 배경: 의종의 실정"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-045": {
       "number": 450,
@@ -12840,7 +12840,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "무신 정변: 보현원에서 정중부, 이의방 등이 정변"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-046": {
       "number": 451,
@@ -12851,7 +12851,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광종: 노비안검법, 과거제(오답)",
         "경종: 시정 전시과(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-047": {
       "number": 452,
@@ -12862,7 +12862,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정방: 최우, 인사 행정(오답)",
         "도병마사: 재신과 추밀, 국방, 군사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-048": {
       "number": 453,
@@ -12870,7 +12870,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "중방(정변 직후 무신) vs 교정도감(최충헌) 판별"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-049": {
       "number": 454,
@@ -12878,7 +12878,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "초기 무신 집권자 교체 순서: 이의방→정중부→경대승→이의민→최충헌"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-050": {
       "number": 455,
@@ -12886,7 +12886,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "정중부 다음 집권자: 경대승"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-051": {
       "number": 456,
@@ -12897,7 +12897,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최우: 정방 설치(오답)",
         "정중부, 이의방: 보현원 정변(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-052": {
       "number": 457,
@@ -12905,7 +12905,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "경대승→이의민→최충헌→최우 순서"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-053": {
       "number": 458,
@@ -12913,7 +12913,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "정중부: 이의방과 보현원 정변"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-054": {
       "number": 459,
@@ -12921,7 +12921,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "경대승: 정중부 다음 집권, 도방 창설"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-055": {
       "number": 460,
@@ -12929,7 +12929,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "이의민: 경대승 다음 집권, 이의민 때 도방 해체"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-056": {
       "number": 461,
@@ -12940,7 +12940,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태조의 훈요 10조(오답)",
         "태조의 계백료서(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-057": {
       "number": 462,
@@ -12951,7 +12951,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경대승: 정중부 제거, 도방 창설(오답)",
         "척준경: 이자겸과 난, 인종의 회유(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-058": {
       "number": 463,
@@ -12959,7 +12959,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "최씨 정권: 최충헌부터 4대 60여 년간 유지"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-059": {
       "number": 464,
@@ -12967,7 +12967,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "최충헌의 활동 판별: 정방은 최우"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-060": {
       "number": 465,
@@ -12975,7 +12975,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "최우의 활동: 서방 설치"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-061": {
       "number": 466,
@@ -12986,7 +12986,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서방: 최우, 문인 등용(오답)",
         "중방: 무신 정변 직후 중심 기구(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-062": {
       "number": 467,
@@ -12994,7 +12994,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "교정도감: 국정 총괄 최고 권력 기구, 우두머리 교정별감"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-063": {
       "number": 468,
@@ -13005,7 +13005,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동북면 병마사: 김보당(오답)",
         "서경 유수: 조위총(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-064": {
       "number": 469,
@@ -13016,7 +13016,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중방: 무신 정변 직후 중심 기구(오답)",
         "교정도감: 최충헌, 최고 권력 기구(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-065": {
       "number": 470,
@@ -13027,7 +13027,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "도방: 경대승 창설, 신변 경호 사병 집단(오답)",
         "식목도감: 법제와 격식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-066": {
       "number": 471,
@@ -13035,7 +13035,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "정방(인사) vs 서방(문인 등용) 판별"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-067": {
       "number": 472,
@@ -13043,7 +13043,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "교정도감(최충헌) vs 정방(최우) 설치자 판별"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-068": {
       "number": 473,
@@ -13051,7 +13051,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "최충헌(교정도감, 도방 부활) vs 최우(야별초) 판별"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-069": {
       "number": 474,
@@ -13059,7 +13059,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "도방: 신변 경호를 위한 사병 집단"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-070": {
       "number": 475,
@@ -13070,7 +13070,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최우: 야별초 설치(오답)",
         "정중부: 보현원 정변(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-071": {
       "number": 476,
@@ -13078,7 +13078,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "도방 변천: 경대승 창설→이의민 때 해체→최충헌 부활"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-072": {
       "number": 477,
@@ -13089,7 +13089,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최우: 서방 설치(오답)",
         "경대승: 정중부 제거, 도방 창설(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-073": {
       "number": 478,
@@ -13100,7 +13100,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중방: 무신 정변 직후 중심 기구(오답)",
         "서방: 문인 등용(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-074": {
       "number": 479,
@@ -13111,7 +13111,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "도방: 경대승, 신변 경호(오답)",
         "광군: 정종, 거란 대비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-075": {
       "number": 480,
@@ -13119,7 +13119,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "야별초: 최우가 개경 치안 유지를 위해 설치"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-076": {
       "number": 481,
@@ -13130,7 +13130,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "2군: 응양군, 용호군(오답)",
         "도방: 경대승, 신변 경호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-077": {
       "number": 482,
@@ -13138,7 +13138,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "삼별초: 야별초에서 시작, 정권 유지에 활용"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-078": {
       "number": 483,
@@ -13146,7 +13146,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "도방(경대승) vs 삼별초(최우의 야별초) 판별"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-079": {
       "number": 484,
@@ -13154,7 +13154,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "무신 정권 기구 분류: 정치(교정도감, 정방, 서방) vs 군사(도방, 삼별초)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-080": {
       "number": 485,
@@ -13162,7 +13162,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "무신 집권기 사회 동요 배경: 무신 간 권력 다툼으로 지방 통제력 약화"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-081": {
       "number": 486,
@@ -13173,7 +13173,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원 간섭기 수탈: 공녀, 금, 은, 인삼(오답)",
         "묘청의 난 배경: 서경 천도 좌절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-082": {
       "number": 487,
@@ -13181,7 +13181,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "김보당의 난: 동북면 병마사, 동계, 의종 복위 도모"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-083": {
       "number": 488,
@@ -13189,7 +13189,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "조위총의 난: 서경 유수, 서경"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-084": {
       "number": 489,
@@ -13197,7 +13197,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "김보당(동북면 병마사) vs 조위총(서경 유수) 판별"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-085": {
       "number": 490,
@@ -13208,7 +13208,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "만적의 난: 사노비, 신분 해방(오답)",
         "망이, 망소이의 난: 공주 명학소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-086": {
       "number": 491,
@@ -13216,7 +13216,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "봉기 성격 분류: 반무신 난(김보당, 조위총) vs 농민 저항(김사미, 효심)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-087": {
       "number": 492,
@@ -13227,7 +13227,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전주 관노비의 난: 경대승 집권기(오답)",
         "이연년 형제: 담양, 백제 부흥(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-088": {
       "number": 493,
@@ -13235,7 +13235,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "망이, 망소이의 난: 명학소를 충순현으로 승격해 무마 시도 후 무력 진압"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-089": {
       "number": 494,
@@ -13243,7 +13243,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "망이, 망소이의 난 전개: 명학소 봉기→충순현 승격 무마→무력 진압"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-090": {
       "number": 495,
@@ -13251,7 +13251,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "김사미(운문), 효심(초전)의 난"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-091": {
       "number": 496,
@@ -13259,7 +13259,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "농민의 저항: 망이, 망소이의 난, 김사미, 효심의 난"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-092": {
       "number": 497,
@@ -13270,7 +13270,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정중부 집권기: 망이, 망소이의 난(오답)",
         "경대승 집권기: 전주 관노비의 난(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-093": {
       "number": 498,
@@ -13281,7 +13281,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이의민 집권기: 김사미, 효심의 난(오답)",
         "최우 집권기: 이연년 형제의 백제 부흥 운동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-094": {
       "number": 499,
@@ -13292,7 +13292,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김보당의 난: 동북면 병마사(오답)",
         "조위총의 난: 서경 유수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-095": {
       "number": 500,
@@ -13300,7 +13300,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "만적의 난: 개경에서 봉기 시도, 신분 해방 운동의 성격"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-096": {
       "number": 501,
@@ -13311,7 +13311,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김사미, 효심의 난: 이의민 집권기(오답)",
         "만적의 난: 최충헌 집권기 사노비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-097": {
       "number": 502,
@@ -13319,7 +13319,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "만적(사노비, 개경) vs 전주 관노비의 난 판별"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-098": {
       "number": 503,
@@ -13330,7 +13330,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이연년 형제: 담양, 백제 부흥(오답)",
         "김사미, 효심: 운문, 초전 농민 봉기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-099": {
       "number": 504,
@@ -13341,7 +13341,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이연년 형제: 담양, 백제 부흥(오답)",
         "김보당: 동북면 병마사, 의종 복위(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-100": {
       "number": 505,
@@ -13352,7 +13352,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "망이, 망소이: 공주 명학소(오답)",
         "만적: 사노비, 개경(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-101": {
       "number": 506,
@@ -13360,7 +13360,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "삼국 부흥 운동 지역↔나라 판별"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-102": {
       "number": 507,
@@ -13368,7 +13368,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "삼국 부흥 운동 나라↔인물 판별"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeomid-hist-20260914-103": {
       "number": 508,
@@ -13376,7 +13376,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "서경에서 일어난 일 판별: 묘청, 조위총, 최광수 vs 담양 이연년"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 123쪽 무신 정권의 성립"
+      "sourceSection": "자체 제작(기출 원문 아님), 11강 고려(중기 정치~무신 정변) 무신 정권의 성립"
     },
     "goryeoforeign-hist-20260914-001": {
       "number": 509,
@@ -13384,7 +13384,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "거란 침입의 배경: 고려의 북진 정책과 친송 정책"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-002": {
       "number": 510,
@@ -13396,7 +13396,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "거란의 3차 침입: 소배압, 강동 6주 반환 요구(오답)",
         "몽골의 1차 침입: 저고여 피살 구실, 살리타(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-003": {
       "number": 511,
@@ -13407,7 +13407,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "살리타: 처인성에서 김윤후에게 사살(오답)",
         "저고여: 피살, 몽골 침입의 구실(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-004": {
       "number": 512,
@@ -13418,7 +13418,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "살리타: 처인성 사살(오답)",
         "배중손: 강화도 삼별초 지휘(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-005": {
       "number": 513,
@@ -13429,7 +13429,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "강감찬: 3차 침입, 귀주 대첩(오답)",
         "강조: 정변, 2차 침입의 구실(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-006": {
       "number": 514,
@@ -13437,7 +13437,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "1차 침입: 강동 6주 확보"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-007": {
       "number": 515,
@@ -13448,7 +13448,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "숙종: 별무반 편성(오답)",
         "고종: 강화 천도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-008": {
       "number": 516,
@@ -13459,7 +13459,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "저고여 피살: 몽골 침입의 구실(오답)",
         "철령위 설치 통보: 요동 정벌의 계기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-009": {
       "number": 517,
@@ -13467,7 +13467,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "2차 침입: 개경 함락, 현종의 나주 피란"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-010": {
       "number": 518,
@@ -13478,7 +13478,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "몽골 침입: 강화 천도(오답)",
         "거란 3차 침입: 강감찬의 귀주 대첩(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-011": {
       "number": 519,
@@ -13489,7 +13489,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서희: 거란 1차 침입, 외교 담판(오답)",
         "김윤후: 처인성, 살리타 사살(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-012": {
       "number": 520,
@@ -13500,7 +13500,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양규: 2차 침입 때 활약(오답)",
         "박서: 몽골 1차 침입 귀주성 전투(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-013": {
       "number": 521,
@@ -13508,7 +13508,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "3차 침입의 경과: 강동 6주 반환 요구, 소배압"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-014": {
       "number": 522,
@@ -13516,7 +13516,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "거란 침입의 대응 순서: 서희 → 양규 → 강감찬"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-015": {
       "number": 523,
@@ -13524,7 +13524,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "거란 1, 2, 3차 침입 당시의 왕"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-016": {
       "number": 524,
@@ -13532,7 +13532,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "소손녕(1차) vs 소배압(3차)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-017": {
       "number": 525,
@@ -13540,7 +13540,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "서희(1차) vs 양규(2차) vs 강감찬(3차)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-018": {
       "number": 526,
@@ -13551,7 +13551,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "명: 철령위 설치 통보(오답)",
         "몽골: 저고여 피살 구실(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-019": {
       "number": 527,
@@ -13559,7 +13559,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "거란 격퇴의 영향: 고려, 송, 거란 세력 균형"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-020": {
       "number": 528,
@@ -13570,7 +13570,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동북 9성: 윤관의 여진 정벌 뒤(오답)",
         "용장성: 삼별초의 진도 근거지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-021": {
       "number": 529,
@@ -13581,7 +13581,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동북 9성: 윤관의 여진 정벌 뒤(오답)",
         "용장성: 진도의 삼별초 근거지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-022": {
       "number": 530,
@@ -13589,7 +13589,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "천리장성(거란) vs 동북 9성(여진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-023": {
       "number": 531,
@@ -13600,7 +13600,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "교장: 의천, 교장도감(오답)",
         "해동고승전: 각훈, 승려 전기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-024": {
       "number": 532,
@@ -13608,7 +13608,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "초조대장경(거란) vs 팔만대장경(몽골)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-025": {
       "number": 533,
@@ -13619,7 +13619,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "거란 침입 때 초조대장경 제작(오답)",
         "여진 정벌과 동북 9성(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-026": {
       "number": 534,
@@ -13630,7 +13630,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "인종: 이자겸의 금 사대 요구 수용(오답)",
         "현종: 강감찬의 귀주 대첩(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-027": {
       "number": 535,
@@ -13641,7 +13641,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "인종: 묘청의 난(오답)",
         "고종: 강화 천도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-028": {
       "number": 536,
@@ -13652,7 +13652,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "2군: 응양군, 용호군(오답)",
         "지방군: 주현군, 주진군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-029": {
       "number": 537,
@@ -13663,7 +13663,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신보군: 보병(오답)",
         "신의군: 삼별초, 몽골 포로 출신(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-030": {
       "number": 538,
@@ -13671,7 +13671,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "별무반: 신기군(기병)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-031": {
       "number": 539,
@@ -13682,7 +13682,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광군: 정종, 거란 대비(오답)",
         "도방: 신변 경호 사병 집단(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-032": {
       "number": 540,
@@ -13690,7 +13690,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "별무반 vs 삼별초"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-033": {
       "number": 541,
@@ -13701,7 +13701,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나성: 거란 침입 뒤 개경(오답)",
         "용장성: 진도 삼별초(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-034": {
       "number": 542,
@@ -13709,7 +13709,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "여진의 반환 요청, 조공 약속 → 1년여 만에 9성 반환"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-035": {
       "number": 543,
@@ -13717,7 +13717,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "여진과의 관계 순서"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-036": {
       "number": 544,
@@ -13728,7 +13728,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "몽골: 저고여 피살 구실 침입(오답)",
         "명: 철령위 설치 통보(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-037": {
       "number": 545,
@@ -13736,7 +13736,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "이자겸이 정권 유지와 전쟁 방지를 위해 금의 사대 요구 수용"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-038": {
       "number": 546,
@@ -13744,7 +13744,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "금 건국 이후의 흐름: 거란 멸망 → 사대 요구 수용 → 묘청의 난"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-039": {
       "number": 547,
@@ -13752,7 +13752,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "국교 수립: 몽골에 쫓긴 거란족을 함께 토벌 → 국교 체결"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-040": {
       "number": 548,
@@ -13763,7 +13763,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "처인성 전투: 김윤후, 살리타 사살(오답)",
         "귀주 대첩: 강감찬, 거란 3차(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-041": {
       "number": 549,
@@ -13771,7 +13771,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "몽골 침입의 구실: 저고여 피살"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-042": {
       "number": 550,
@@ -13783,7 +13783,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "소배압: 강동 6주 반환 요구(오답)",
         "강조: 목종을 몰아낸 정변(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-043": {
       "number": 551,
@@ -13791,7 +13791,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "몽골 1차 침입 후 강화 천도(장기 항전 목적)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-044": {
       "number": 552,
@@ -13802,7 +13802,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "현종: 나주 피란(오답)",
         "충렬왕: 일본 원정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-045": {
       "number": 553,
@@ -13813,7 +13813,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "송문주: 죽주 전투(오답)",
         "강감찬: 귀주 대첩(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-046": {
       "number": 554,
@@ -13821,7 +13821,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "귀주 대첩(강감찬, 거란) vs 귀주성 전투(박서, 몽골)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-047": {
       "number": 555,
@@ -13832,7 +13832,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "송문주: 죽주 전투(오답)",
         "배중손: 강화도 삼별초(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-048": {
       "number": 556,
@@ -13840,7 +13840,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "김윤후: 처인성(살리타 사살) vs 충주성(노비와 천민)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-049": {
       "number": 557,
@@ -13851,7 +13851,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "충주성 전투: 김윤후, 노비와 천민(오답)",
         "강동성 전투: 고려, 몽골 연합, 거란족 토벌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-050": {
       "number": 558,
@@ -13859,7 +13859,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "박서(귀주성) vs 김윤후(처인성, 충주성)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-051": {
       "number": 559,
@@ -13867,7 +13867,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "충주 다인철소 주민의 저항"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-052": {
       "number": 560,
@@ -13875,7 +13875,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "몽골과의 전투 순서"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-053": {
       "number": 561,
@@ -13883,7 +13883,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "몽골과의 관계 흐름: 강동성 → 강화 천도 → 개경 환도 → 삼별초"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-054": {
       "number": 562,
@@ -13891,7 +13891,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "몽골과 강화 체결, 무신 정권 붕괴, 개경 환도"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-055": {
       "number": 563,
@@ -13902,7 +13902,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "충렬왕: 정동행성, 일본 원정(오답)",
         "현종: 나주 피란(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-056": {
       "number": 564,
@@ -13910,7 +13910,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "원종 때: 개경 환도에 반발한 삼별초 봉기"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-057": {
       "number": 565,
@@ -13921,7 +13921,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "교장: 의천, 교장도감(오답)",
         "삼국유사: 일연(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-058": {
       "number": 566,
@@ -13932,7 +13932,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "결혼도감: 공녀(오답)",
         "전민변정도감: 공민왕, 신돈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-059": {
       "number": 567,
@@ -13940,7 +13940,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "몽골 침입의 영향: 국토 황폐화, 초조대장경판 소실"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-060": {
       "number": 568,
@@ -13948,7 +13948,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "거란 vs 몽골 침입의 영향 짝"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-061": {
       "number": 569,
@@ -13956,7 +13956,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "삼별초 항쟁의 원인: 개경 환도 결정에 반발"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-062": {
       "number": 570,
@@ -13968,7 +13968,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "죽주 전투: 송문주(오답)",
         "강동성 전투: 고려, 몽골 연합의 거란족 토벌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-063": {
       "number": 571,
@@ -13979,7 +13979,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김윤후: 처인성, 충주성(오답)",
         "박위: 쓰시마섬 토벌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-064": {
       "number": 572,
@@ -13990,7 +13990,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "송문주: 귀주성, 죽주성(오답)",
         "정지: 관음포 전투(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-065": {
       "number": 573,
@@ -13998,7 +13998,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "배중손(강화도) vs 김통정(제주도)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-066": {
       "number": 574,
@@ -14009,7 +14009,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "처인성: 김윤후(오답)",
         "귀주성: 박서(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-067": {
       "number": 575,
@@ -14020,7 +14020,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "강동성: 고려, 몽골 연합, 거란족 토벌(오답)",
         "용장성: 진도 삼별초 근거지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-068": {
       "number": 576,
@@ -14028,7 +14028,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "삼별초 근거지 이동 순서: 강화도 → 진도 → 제주도"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-069": {
       "number": 577,
@@ -14036,7 +14036,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "진도–용장성 / 제주도–항파두리"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-070": {
       "number": 578,
@@ -14044,7 +14044,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "삼별초 항쟁의 결과: 고려, 몽골 연합군에 진압"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-071": {
       "number": 579,
@@ -14052,7 +14052,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "강화도: 강화 천도와 배중손의 항쟁"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 대외 관계"
     },
     "goryeoforeign-hist-20260914-072": {
       "number": 580,
@@ -14063,7 +14063,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "탐라총관부: 제주도, 목마장(오답)",
         "정동행성: 일본 원정, 내정 간섭(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-073": {
       "number": 581,
@@ -14074,7 +14074,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "탐라총관부: 제주도, 목마장(오답)",
         "정동행성: 충렬왕 때 설치, 이문소 폐지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-074": {
       "number": 582,
@@ -14082,7 +14082,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "영토 축소 3기구와 설치 지역"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-075": {
       "number": 583,
@@ -14090,7 +14090,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "철령 이북(쌍성총관부) vs 자비령 이북(동녕부)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-076": {
       "number": 584,
@@ -14098,7 +14098,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "탐라총관부: 삼별초 진압 후 제주도, 목마장 경영"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-077": {
       "number": 585,
@@ -14106,7 +14106,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "제주도: 탐라총관부"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-078": {
       "number": 586,
@@ -14114,7 +14114,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "영토 축소 기구가 아닌 것: 정동행성"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-079": {
       "number": 587,
@@ -14122,7 +14122,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "고려 왕이 원의 공주와 결혼(부마국)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-080": {
       "number": 588,
@@ -14130,7 +14130,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "왕실 호칭 격하: 짐→고 / 폐하→전하 / 조, 종→왕"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-081": {
       "number": 589,
@@ -14141,7 +14141,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관제 격하: 6부 → 4사(오답)",
         "도평의사사: 도병마사가 바뀜, 권문세족 장악(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-082": {
       "number": 590,
@@ -14149,7 +14149,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "관제 격하: 6부 → 4사, 중추원 → 밀직사"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-083": {
       "number": 591,
@@ -14160,7 +14160,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "4사: 6부(오답)",
         "도평의사사: 도병마사, 권문세족(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-084": {
       "number": 592,
@@ -14168,7 +14168,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "원 간섭기 관제 격하 vs 공민왕 관제 복구"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-085": {
       "number": 593,
@@ -14176,7 +14176,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "내정 간섭: 다루가치(감찰관) 파견"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-086": {
       "number": 594,
@@ -14184,7 +14184,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "정동행성: 충렬왕 때 일본 원정 추진"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-087": {
       "number": 595,
@@ -14195,7 +14195,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공민왕: 기철 숙청, 몽골풍 금지(오답)",
         "고종: 강화 천도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-088": {
       "number": 596,
@@ -14206,7 +14206,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안찰사: 5도 파견(오답)",
         "병마사: 양계 파견(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-089": {
       "number": 597,
@@ -14214,7 +14214,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "내정 간섭 항목"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-090": {
       "number": 598,
@@ -14222,7 +14222,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "결혼도감 설치, 공녀 강제 선발 → 조혼 풍습"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-091": {
       "number": 599,
@@ -14230,7 +14230,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "결혼도감"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-092": {
       "number": 600,
@@ -14241,7 +14241,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정방: 최우, 인사 행정(오답)",
         "서방: 최우, 문인 등용(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-093": {
       "number": 601,
@@ -14249,7 +14249,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "특산물 징발: 금, 은, 베, 인삼, 약재"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-094": {
       "number": 602,
@@ -14257,7 +14257,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "인적, 물적 수탈 항목"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-095": {
       "number": 603,
@@ -14268,7 +14268,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신진 사대부: 공민왕이 등용(오답)",
         "신흥 무인 세력: 홍건적, 왜구 격퇴(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-096": {
       "number": 604,
@@ -14276,7 +14276,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "권문세족: 음서, 대농장"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-097": {
       "number": 605,
@@ -14287,7 +14287,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "첨의부: 중서문하성, 상서성 격하(오답)",
         "전민변정도감: 공민왕, 신돈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-098": {
       "number": 606,
@@ -14295,7 +14295,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "공민왕 개혁에서 권문세족(억압) vs 신진 사대부(등용)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-099": {
       "number": 607,
@@ -14303,7 +14303,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "몽골풍(고려에 전래) vs 고려양(몽골에 전래)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-100": {
       "number": 608,
@@ -14314,7 +14314,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "몽골 음식: 소주, 만두(오답)",
         "몽골풍: 족두리, 연지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-101": {
       "number": 609,
@@ -14325,7 +14325,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조혼 풍습: 공녀 선발(오답)",
         "성리학: 『주자가례』 중시(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-102": {
       "number": 610,
@@ -14336,7 +14336,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "충렬왕: 일본 원정(오답)",
         "공민왕: 신돈 등용, 전민변정도감(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-103": {
       "number": 611,
@@ -14347,7 +14347,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공민왕: 쌍성총관부 공격(오답)",
         "충렬왕: 정동행성, 일본 원정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-104": {
       "number": 612,
@@ -14355,7 +14355,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "충선왕(사림원) vs 충목왕(정치도감)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-105": {
       "number": 613,
@@ -14366,7 +14366,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공민왕: 쌍성총관부 공격(오답)",
         "고종 때 대장도감, 팔만대장경(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-106": {
       "number": 614,
@@ -14377,7 +14377,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "충선왕: 사림원(오답)",
         "우왕: 최영과 요동 정벌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-107": {
       "number": 615,
@@ -14388,7 +14388,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사림원: 충선왕(오답)",
         "결혼도감: 공녀(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-108": {
       "number": 616,
@@ -14399,7 +14399,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤관: 동북 9성(오답)",
         "박위: 쓰시마섬 토벌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-109": {
       "number": 617,
@@ -14407,7 +14407,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "쌍성총관부 공격의 결과: 철령 이북 수복"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-110": {
       "number": 618,
@@ -14415,7 +14415,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "공민왕: 고려의 관제 복구"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-111": {
       "number": 619,
@@ -14423,7 +14423,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "공민왕: 몽골풍 금지"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-112": {
       "number": 620,
@@ -14434,7 +14434,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "결혼도감: 공녀(오답)",
         "대장도감: 팔만대장경(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-113": {
       "number": 621,
@@ -14442,7 +14442,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "전민변정도감: 권문세족 억압, 재정 기반 확대"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-114": {
       "number": 622,
@@ -14450,7 +14450,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "공민왕: 정방 폐지(국왕이 인사권 장악)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-115": {
       "number": 623,
@@ -14461,7 +14461,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "친원 세력: 공민왕이 숙청(오답)",
         "서경 세력: 묘청, 서경 천도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-116": {
       "number": 624,
@@ -14469,7 +14469,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "공민왕 반원 자주 vs 왕권 강화 정책 분류"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-117": {
       "number": 625,
@@ -14477,7 +14477,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "개혁의 결과: 권문세족 반발 → 신돈 제거, 공민왕 시해"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려 후기의 사회 변동"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려 후기의 사회 변동"
     },
     "goryeoforeign-hist-20260914-118": {
       "number": 626,
@@ -14488,7 +14488,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "거란: 강조의 정변, 나주 피란(오답)",
         "여진: 금 건국, 사대 요구(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-119": {
       "number": 627,
@@ -14496,7 +14496,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "홍건적: 한족 반란군"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-120": {
       "number": 628,
@@ -14507,7 +14507,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "강화도: 몽골 침입 때 천도(오답)",
         "제주도: 삼별초의 마지막 근거지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-121": {
       "number": 629,
@@ -14515,7 +14515,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "공민왕 때: 홍건적 침입, 안동 피신"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-122": {
       "number": 630,
@@ -14526,7 +14526,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "황산 대첩: 이성계(오답)",
         "관음포 전투: 정지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-123": {
       "number": 631,
@@ -14537,7 +14537,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이성계: 4불가론(오답)",
         "관음포 전투: 정지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-124": {
       "number": 632,
@@ -14545,7 +14545,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "진포 대첩: 화포 사용"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-125": {
       "number": 633,
@@ -14556,7 +14556,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "진포 대첩: 최무선(오답)",
         "관음포 전투: 정지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-126": {
       "number": 634,
@@ -14567,7 +14567,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최무선: 진포(오답)",
         "최영: 홍산(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-127": {
       "number": 635,
@@ -14578,7 +14578,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최무선: 진포 대첩, 화포(오답)",
         "이성계: 황산 대첩(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-128": {
       "number": 636,
@@ -14586,7 +14586,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "홍산(최영), 진포(최무선), 황산(이성계)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-129": {
       "number": 637,
@@ -14594,7 +14594,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "왜구 격퇴 순서: 홍산 → 진포 → 황산 → 관음포"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-130": {
       "number": 638,
@@ -14602,7 +14602,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "신흥 무인 세력의 성장"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-131": {
       "number": 639,
@@ -14613,7 +14613,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼별초: 배중손, 김통정(오답)",
         "권문세족: 도평의사사, 정방 장악(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-132": {
       "number": 640,
@@ -14621,7 +14621,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "요동 정벌의 계기: 명의 철령위 설치 통보"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-133": {
       "number": 641,
@@ -14632,7 +14632,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최무선: 진포 대첩(오답)",
         "정지: 관음포 전투(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-134": {
       "number": 642,
@@ -14640,7 +14640,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "요동 정벌: 최영(추진) vs 이성계(반대)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-135": {
       "number": 643,
@@ -14648,7 +14648,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "이성계의 위화도 회군"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-136": {
       "number": 644,
@@ -14659,7 +14659,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "역분전: 태조, 공신(오답)",
         "녹읍: 신라, 신문왕 때 폐지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-137": {
       "number": 645,
@@ -14667,7 +14667,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "고려 멸망 과정 순서"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-138": {
       "number": 646,
@@ -14675,7 +14675,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "고려 말 사건 순서: 홍건적 → 황산 → 위화도 회군 → 쓰시마섬 토벌"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-139": {
       "number": 647,
@@ -14683,7 +14683,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "우왕 때: 요동 정벌"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeoforeign-hist-20260914-140": {
       "number": 648,
@@ -14691,7 +14691,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "창왕(박위의 쓰시마섬 토벌) vs 공양왕(과전법)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 12강 고려(외교) 고려의 멸망"
     },
     "goryeostyle-hist-20260915-001": {
       "number": 649,
@@ -16552,7 +16552,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "녹과전: 고려 후기 녹봉 보충, 경기 지역(오답)",
         "과전법: 위화도 회군 뒤 급진 개혁파 신진 사대부 주도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 토지 제도"
     },
     "goryeoecon-hist-20260915-002": {
       "number": 806,
@@ -16562,7 +16562,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "시정 전시과: 관품과 인품을 함께 고려(정답)",
         "역분전: 공로에 따라 지급(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 토지 제도"
     },
     "goryeoecon-hist-20260915-003": {
       "number": 807,
@@ -16572,7 +16572,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "개정 전시과: 전현직, 관품 기준(오답)",
         "녹과전: 녹봉 보충, 경기 지역(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 토지 제도"
     },
     "goryeoecon-hist-20260915-004": {
       "number": 808,
@@ -16580,7 +16580,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "역분전 → 시정 전시과 → 개정 전시과 → 경정 전시과 순서(지급 대상, 기준으로 구분)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 토지 제도"
     },
     "goryeoecon-hist-20260915-005": {
       "number": 809,
@@ -16591,7 +16591,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "개정 전시과: 전현직, 관품 기준(오답)",
         "녹과전: 녹봉 보충, 경기 지역 한정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 토지 제도"
     },
     "goryeoecon-hist-20260915-006": {
       "number": 810,
@@ -16602,7 +16602,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경정 전시과(문종): 현직 관리만(오답)",
         "역분전(태조): 공로와 인품(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 토지 제도"
     },
     "goryeoecon-hist-20260915-007": {
       "number": 811,
@@ -16612,7 +16612,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공음전(오답)",
         "전시과 원칙: 등급에 따라 지급(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 토지 제도"
     },
     "goryeoecon-hist-20260915-008": {
       "number": 812,
@@ -16623,7 +16623,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권문세족: 대농장, 토지 개혁의 대상(오답)",
         "문벌 귀족: 과거, 음서, 공음전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 토지 제도"
     },
     "goryeoecon-hist-20260915-009": {
       "number": 813,
@@ -16633,7 +16633,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전시과 원칙: 문무 관리부터 군인, 한인까지 등급에 따라 지급(정답)",
         "역분전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 토지 제도"
     },
     "goryeoecon-hist-20260915-010": {
       "number": 814,
@@ -16641,7 +16641,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "조세: 논밭을 비옥도에 따라 3등급, 생산량의 1/10 징수(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 수취 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 수취 제도"
     },
     "goryeoecon-hist-20260915-011": {
       "number": 815,
@@ -16650,7 +16650,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조세, 공납, 역의 모습(자료 단서)",
         "조세를 조운을 통해 개경으로 운반(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 수취 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 수취 제도"
     },
     "goryeoecon-hist-20260915-012": {
       "number": 816,
@@ -16660,7 +16660,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "상공: 매년 일정하게 징수(오답)",
         "조세 1/10, 역(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 수취 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 수취 제도"
     },
     "goryeoecon-hist-20260915-013": {
       "number": 817,
@@ -16670,7 +16670,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공납: 집집마다 토산물, 광물 등 현물 징수(정답)",
         "조세, 역(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 수취 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 수취 제도"
     },
     "goryeoecon-hist-20260915-014": {
       "number": 818,
@@ -16679,7 +16679,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "역: 호적 작성, 정남에게 요역, 군역 부과(정답)",
         "조세: 양안(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 수취 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 수취 제도"
     },
     "goryeoecon-hist-20260915-015": {
       "number": 819,
@@ -16687,7 +16687,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "개간 장려: 주인 없는 땅 개간 시 소유권 인정(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-016": {
       "number": 820,
@@ -16696,7 +16696,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤작법, 『농상집요』(자료 단서)",
         "소를 이용한 깊이갈이 일반화(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-017": {
       "number": 821,
@@ -16707,7 +16707,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최무선: 진포, 화포(오답)",
         "안향: 성리학 소개(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-018": {
       "number": 822,
@@ -16716,7 +16716,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "문익점의 목화씨(자료 단서)",
         "이암이 원에서 『농상집요』를 들여옴(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-019": {
       "number": 823,
@@ -16724,7 +16724,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "이앙법(모내기법): 남부 지방 일부에서 시행(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-020": {
       "number": 824,
@@ -16732,7 +16732,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "벽란도: 송, 아라비아 상인 왕래, 코리아로 알려짐(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-021": {
       "number": 825,
@@ -16743,7 +16743,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『해동고승전』: 각훈(오답)",
         "『제왕운기』: 이승휴(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-022": {
       "number": 826,
@@ -16751,7 +16751,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "건원중보: 성종 때 우리나라 최초의 금속 화폐(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-023": {
       "number": 827,
@@ -16761,7 +16761,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "은병(활구), 해동통보 발행(정답)",
         "경시서, 상평창, 의창(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-024": {
       "number": 828,
@@ -16770,7 +16770,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "건원중보, 주전도감, 해동통보(자료 단서)",
         "벽란도 국제 무역항(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-025": {
       "number": 829,
@@ -16779,7 +16779,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "아라비아 상인, 코리아(자료 단서)",
         "경시서: 시전의 상행위 관리, 감독(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-026": {
       "number": 830,
@@ -16788,7 +16788,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "2년 3작, 목화 재배 시작(자료 단서)",
         "은병(활구) 발행(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-027": {
       "number": 831,
@@ -16797,7 +16797,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서적점, 다점, 상평창(자료 단서)",
         "수공업: 후기 사원, 민간 수공업 발달(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-028": {
       "number": 832,
@@ -16806,7 +16806,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경시서, 건원중보(자료 단서)",
         "서적점, 다점, 주점 등 관영 상점 운영(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-029": {
       "number": 833,
@@ -16817,7 +16817,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주전도감: 숙종, 은병, 해동통보(오답)",
         "의창: 흑창 계승, 춘대추납(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-030": {
       "number": 834,
@@ -16827,7 +16827,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤작법 2년 3작, 개간지 소작료 감면, 소(所) 수공업(오답 = 고려의 옳은 사실)",
         "조선 후기 설점수세제(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-031": {
       "number": 835,
@@ -16836,7 +16836,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "건원중보, 관영 상점(주점, 다점), 『노걸대』(오답 = 고려의 옳은 사실)",
         "조선 후기 송상, 송방(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-032": {
       "number": 836,
@@ -16845,7 +16845,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『농상집요』, 『노걸대』(자료 단서)",
         "문익점의 목화 재배 성공(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 경제 활동"
     },
     "goryeoecon-hist-20260915-033": {
       "number": 837,
@@ -16854,7 +16854,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "문무 양반: 고위 관직, 일부 문벌 형성(정답)",
         "중간 계층, 백정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 신분 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 신분 제도"
     },
     "goryeoecon-hist-20260915-034": {
       "number": 838,
@@ -16863,7 +16863,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중간 계층 구성: 서리, 남반, 향리, 하급 장교(정답)",
         "백정, 노비, 문벌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 신분 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 신분 제도"
     },
     "goryeoecon-hist-20260915-035": {
       "number": 839,
@@ -16873,7 +16873,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중간 계층: 직역 세습, 국가로부터 토지 받음(정답)",
         "노비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 신분 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 신분 제도"
     },
     "goryeoecon-hist-20260915-036": {
       "number": 840,
@@ -16882,7 +16882,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백정: 일반 농민, 조세, 공납, 역 부담(정답)",
         "향, 부곡, 소 주민, 중간 계층(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 신분 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 신분 제도"
     },
     "goryeoecon-hist-20260915-037": {
       "number": 841,
@@ -16891,7 +16891,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "명학소 봉기와 충순현 승격(자료 단서)",
         "향, 부곡, 소 주민: 일반 군현민보다 많은 세금 부담(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 신분 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 신분 제도"
     },
     "goryeoecon-hist-20260915-038": {
       "number": 842,
@@ -16900,7 +16900,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향, 부곡, 소 주민: 거주 이전 제한(정답)",
         "문무 양반(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 신분 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 신분 제도"
     },
     "goryeoecon-hist-20260915-039": {
       "number": 843,
@@ -16910,7 +16910,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "일천즉천(정답)",
         "백정, 중간 계층, 향, 부곡, 소 주민(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 신분 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 신분 제도"
     },
     "goryeoecon-hist-20260915-040": {
       "number": 844,
@@ -16918,7 +16918,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "신분 변동: 공을 세운 향, 부곡, 소의 일반 군현 승격(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 신분 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 신분 제도"
     },
     "goryeoecon-hist-20260915-041": {
       "number": 845,
@@ -16926,7 +16926,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "신분 변동: 상층 향리가 과거를 통해 문관 진출(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 신분 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 신분 제도"
     },
     "goryeoecon-hist-20260915-042": {
       "number": 846,
@@ -16934,7 +16934,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "향도: 매향 활동을 하는 불교 신앙 조직에서 기원(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-043": {
       "number": 847,
@@ -16943,7 +16943,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "매향 기원, 초기 불상, 석탑, 절(자료 단서)",
         "향도 후기: 혼례, 상장례, 마을 제사 주도(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-044": {
       "number": 848,
@@ -16951,7 +16951,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "향도 변화: 초기 불상, 석탑 제작 → 후기 혼례, 마을 제사 등 공동체 생활 주도(2×2 짝짓기)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-045": {
       "number": 849,
@@ -16961,7 +16961,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의창: 춘대추납(정답)",
         "제위보, 상평창(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-046": {
       "number": 850,
@@ -16970,7 +16970,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동서 대비원: 개경 설치, 질병 치료, 무의탁자, 행려자 구제(정답)",
         "제위보, 구제도감, 의창(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-047": {
       "number": 851,
@@ -16980,7 +16980,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "제위보: 기금 이자로 빈민 구제(정답)",
         "동서 대비원, 혜민국(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-048": {
       "number": 852,
@@ -16991,7 +16991,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "제위보: 기금 이자로 빈민 구제(오답)",
         "상평창: 물가 조절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-049": {
       "number": 853,
@@ -17000,7 +17000,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "제위보, 혜민국(자료 단서)",
         "구제도감, 구급도감: 재해 시 임시 기구(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-050": {
       "number": 854,
@@ -17008,7 +17008,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "법률: 당률보다 관습법 우선, 5형 적용(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-051": {
       "number": 855,
@@ -17017,7 +17017,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "출생순 호적, 일부일처제(자료 단서)",
         "자녀 균분 상속(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-052": {
       "number": 856,
@@ -17026,7 +17026,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "균분 상속, 윤행봉사(자료 단서)",
         "여성의 재가 자유, 재가녀 자녀 차별 없음(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-053": {
       "number": 857,
@@ -17035,7 +17035,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "재가 자유, 출생순 호적(자료 단서)",
         "사위, 조카, 외손자도 음서 혜택(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-054": {
       "number": 858,
@@ -17044,7 +17044,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여성 지위, 사위, 외손자 음서(자료 단서)",
         "아들이 없으면 딸이 제사 봉행, 윤행봉사(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-055": {
       "number": 859,
@@ -17052,7 +17052,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "호적: 딸, 아들 구분 없이 태어난 순서대로 기재(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-056": {
       "number": 860,
@@ -17060,7 +17060,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "가족 내 여성의 지위가 비교적 높음(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-057": {
       "number": 861,
@@ -17068,7 +17068,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "혼인: 일부일처제가 일반적(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-058": {
       "number": 862,
@@ -17077,7 +17077,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향도의 절 건립, 제위보(자료 단서)",
         "5형(태, 장, 도, 유, 사) 적용(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoecon-hist-20260915-059": {
       "number": 863,
@@ -17086,7 +17086,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중간 계층 구성, 일천즉천(자료 단서)",
         "백정: 일반 농민, 조세, 공납, 역 부담(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 신분 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 신분 제도"
     },
     "goryeoecon-hist-20260915-060": {
       "number": 864,
@@ -17095,7 +17095,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "흑창→의창, 구제도감(자료 단서)",
         "동서 대비원: 개경, 병자, 행려자 구제(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 147쪽 사회 모습"
+      "sourceSection": "자체 제작(기출 원문 아님), 13강 고려(경제, 사회) 사회 모습"
     },
     "goryeoculture-hist-20260915-001": {
       "number": 865,
@@ -17107,7 +17107,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정도전 『불씨잡변』(오답, 조선)",
         "권근 『입학도설』(오답, 조선)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 유학의 발달과 성리학의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 유학의 발달과 성리학의 도입"
     },
     "goryeoculture-hist-20260915-002": {
       "number": 866,
@@ -17119,7 +17119,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이제현 『사략』(오답)",
         "정도전 『불씨잡변』(오답, 조선)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 유학의 발달과 성리학의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 유학의 발달과 성리학의 도입"
     },
     "goryeoculture-hist-20260915-003": {
       "number": 867,
@@ -17131,7 +17131,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "묘청 서경 천도(오답, 인종)",
         "권근 『입학도설』(오답, 조선 초)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 유학의 발달과 성리학의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 유학의 발달과 성리학의 도입"
     },
     "goryeoculture-hist-20260915-004": {
       "number": 868,
@@ -17143,7 +17143,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최충 해동공자, 9재 학당(오답)",
         "정도전 『불씨잡변』(오답, 조선)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 유학의 발달과 성리학의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 유학의 발달과 성리학의 도입"
     },
     "goryeoculture-hist-20260915-005": {
       "number": 869,
@@ -17155,7 +17155,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최충 9재 학당(오답)",
         "권근 『입학도설』(오답, 조선)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 유학의 발달과 성리학의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 유학의 발달과 성리학의 도입"
     },
     "goryeoculture-hist-20260915-006": {
       "number": 870,
@@ -17167,7 +17167,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이제현 『역옹패설』, 만권당(오답)",
         "정도전 『불씨잡변』(오답, 조선)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 유학의 발달과 성리학의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 유학의 발달과 성리학의 도입"
     },
     "goryeoculture-hist-20260915-007": {
       "number": 871,
@@ -17179,7 +17179,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "천태종 교관겸수(오답)",
         "양명학 지행합일, 강화학파(오답, 조선 후기)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 유학의 발달과 성리학의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 유학의 발달과 성리학의 도입"
     },
     "goryeoculture-hist-20260915-008": {
       "number": 872,
@@ -17191,7 +17191,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권문세족 도평의사사, 대농장(오답)",
         "무신 중방(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 유학의 발달과 성리학의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 유학의 발달과 성리학의 도입"
     },
     "goryeoculture-hist-20260915-009": {
       "number": 873,
@@ -17202,7 +17202,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "무신 정변 이후 유학 위축(순서 항목)",
         "안향 성리학 소개(순서 항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 유학의 발달과 성리학의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 유학의 발달과 성리학의 도입"
     },
     "goryeoculture-hist-20260915-010": {
       "number": 874,
@@ -17214,7 +17214,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "후기 신진 사대부 개혁 사상 수용(오답)",
         "원 간섭기 안향 성리학 소개(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 유학의 발달과 성리학의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 유학의 발달과 성리학의 도입"
     },
     "goryeoculture-hist-20260915-011": {
       "number": 875,
@@ -17226,7 +17226,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조선 향교 교수, 훈도(오답)",
         "조선 성균관 생원, 진사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 교육 기관과 과거제"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 교육 기관과 과거제"
     },
     "goryeoculture-hist-20260915-012": {
       "number": 876,
@@ -17238,7 +17238,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조선 서원(오답)",
         "발해 주자감(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 교육 기관과 과거제"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 교육 기관과 과거제"
     },
     "goryeoculture-hist-20260915-013": {
       "number": 877,
@@ -17250,7 +17250,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "통일 신라 독서삼품과(오답)",
         "조선 현량과(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 교육 기관과 과거제"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 교육 기관과 과거제"
     },
     "goryeoculture-hist-20260915-014": {
       "number": 878,
@@ -17263,7 +17263,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조선 사액 서원(오답)",
         "조선 정조 초계문신제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 교육 기관과 과거제"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 교육 기관과 과거제"
     },
     "goryeoculture-hist-20260915-015": {
       "number": 879,
@@ -17275,7 +17275,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조선 4부 학당(오답)",
         "고구려 경당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 교육 기관과 과거제"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 교육 기관과 과거제"
     },
     "goryeoculture-hist-20260915-016": {
       "number": 880,
@@ -17287,7 +17287,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광종 승과(오답)",
         "성종 연등회, 팔관회 축소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 교육 기관과 과거제"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 교육 기관과 과거제"
     },
     "goryeoculture-hist-20260915-017": {
       "number": 881,
@@ -17299,7 +17299,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신진 사대부 권문세족 비판(오답, 뒤 시기)",
         "안향 성리학 소개(오답, 뒤 시기)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 교육 기관과 과거제"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 교육 기관과 과거제"
     },
     "goryeoculture-hist-20260915-018": {
       "number": 882,
@@ -17311,7 +17311,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조선 서원 백운동 서원(오답)",
         "최충 문헌공도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 교육 기관과 과거제"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 교육 기관과 과거제"
     },
     "goryeoculture-hist-20260915-019": {
       "number": 883,
@@ -17323,7 +17323,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『발해고』 남북국(오답, 조선 후기)",
         "『해동고승전』 승려 전기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 역사서의 편찬"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 역사서의 편찬"
     },
     "goryeoculture-hist-20260915-020": {
       "number": 884,
@@ -17336,7 +17336,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『해동고승전』 승려 전기(오답)",
         "『제왕운기』 단군~충렬왕 서사시(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 역사서의 편찬"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 역사서의 편찬"
     },
     "goryeoculture-hist-20260915-021": {
       "number": 885,
@@ -17348,7 +17348,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『사략』 성리학적 사관(오답)",
         "『삼국유사』 불교사, 민간 설화(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 역사서의 편찬"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 역사서의 편찬"
     },
     "goryeoculture-hist-20260915-022": {
       "number": 886,
@@ -17360,7 +17360,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『삼국사기』 기전체(오답)",
         "『사략』 성리학적 사관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 역사서의 편찬"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 역사서의 편찬"
     },
     "goryeoculture-hist-20260915-023": {
       "number": 887,
@@ -17372,7 +17372,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "「동명왕편」 고구려 시조 서사시(오답)",
         "『사략』 성리학적 사관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 역사서의 편찬"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 역사서의 편찬"
     },
     "goryeoculture-hist-20260915-024": {
       "number": 888,
@@ -17384,7 +17384,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『삼국사기』 기전체(오답)",
         "『해동고승전』 승려 전기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 역사서의 편찬"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 역사서의 편찬"
     },
     "goryeoculture-hist-20260915-025": {
       "number": 889,
@@ -17395,7 +17395,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『제왕운기』 원 간섭기(순서 항목)",
         "『사략』 고려 말(순서 항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 역사서의 편찬"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 역사서의 편찬"
     },
     "goryeoculture-hist-20260915-026": {
       "number": 890,
@@ -17406,7 +17406,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『사략』 성리학적 사관을 『해동고승전』 칸에 붙임(오답)",
         "「동명왕편」 고구려 계승을 『사략』 칸에 붙임(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 역사서의 편찬"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 역사서의 편찬"
     },
     "goryeoculture-hist-20260915-027": {
       "number": 891,
@@ -17418,7 +17418,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 말 『사략』 정통, 대의명분(오답)",
         "조선 후기 『발해고』 남북국(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 역사서의 편찬"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 역사서의 편찬"
     },
     "goryeoculture-hist-20260915-028": {
       "number": 892,
@@ -17430,7 +17430,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종 연등회, 팔관회 축소(오답)",
         "예종 양현고(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-029": {
       "number": 893,
@@ -17442,7 +17442,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태조 훈요 10조 불교 숭상(오답)",
         "성종 최승로 시무 28조, 팔관회 폐지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-030": {
       "number": 894,
@@ -17454,7 +17454,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태조 훈요 10조(오답)",
         "예종 청연각, 보문각(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-031": {
       "number": 895,
@@ -17466,7 +17466,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혜심 유불 일치설(오답)",
         "지눌 정혜쌍수, 돈오점수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-032": {
       "number": 896,
@@ -17478,7 +17478,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "균여 보현십원가(오답)",
         "일연 『삼국유사』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-033": {
       "number": 897,
@@ -17490,7 +17490,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "각훈 『해동고승전』(오답)",
         "요세 원묘국사, 백련사 결사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-034": {
       "number": 898,
@@ -17502,7 +17502,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혜심 유불 일치설, 성리학 수용 토대(오답)",
         "균여 보현십원가(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-035": {
       "number": 899,
@@ -17514,7 +17514,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의천 교장 간행(오답)",
         "혜심 『선문염송집』, 유불 일치설(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-036": {
       "number": 900,
@@ -17526,7 +17526,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "균여 보현십원가(오답)",
         "요세 백련사 결사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-037": {
       "number": 901,
@@ -17539,7 +17539,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "요세 원묘국사, 백련사 결사(오답)",
         "균여 보현십원가(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-038": {
       "number": 902,
@@ -17551,7 +17551,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혜심 『선문염송집』, 유불 일치설(오답)",
         "의천 해동 천태종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-039": {
       "number": 903,
@@ -17562,7 +17562,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "요세 백련사 결사를 혜심 칸에 붙임(오답)",
         "지눌 수선사 결사를 요세 칸에 붙임(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-040": {
       "number": 904,
@@ -17574,7 +17574,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종 시무 28조, 연등회, 팔관회 축소(오답)",
         "인종 경사 6학(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 불교의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 불교의 발달"
     },
     "goryeoculture-hist-20260915-041": {
       "number": 905,
@@ -17586,7 +17586,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『정감록』 조선 후기(오답)",
         "도교 초제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 풍수지리설의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 풍수지리설의 발달"
     },
     "goryeoculture-hist-20260915-042": {
       "number": 906,
@@ -17598,7 +17598,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성리학 조선 건국의 사상적 바탕(오답)",
         "혜심 유불 일치설 성리학 수용 토대(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 풍수지리설의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 풍수지리설의 발달"
     },
     "goryeoculture-hist-20260915-043": {
       "number": 907,
@@ -17610,7 +17610,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "천태종 의천 교관겸수(오답)",
         "도교 초제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 159쪽 풍수지리설의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 14강 고려(문화 I) 풍수지리설의 발달"
     },
     "typefill-hist-20260916-001": {
       "number": 908,
@@ -17643,7 +17643,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백제 정사암 재상 선출(정답)",
         "고구려 제가 회의, 신라 화백 회의, 발해 정당성 대내상, 통일 신라 외사정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 07강 075쪽 삼국의 사회(귀족 회의)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 07강 삼국의 사회(귀족 회의)"
     },
     "typefill-hist-20260916-004": {
       "number": 911,
@@ -17653,7 +17653,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고국천왕 진대법(정답)",
         "신라 화백 회의, 백제 부여씨와 8성 귀족, 발해 주자감, 통일 신라 민정 문서(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 학습 노트 §4 고구려(성립과 왕권 강화), 07강 075쪽 삼국의 사회"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 학습 노트 §4 고구려(성립과 왕권 강화), 07강 삼국의 사회"
     },
     "typefill-hist-20260916-005": {
       "number": 912,
@@ -17685,7 +17685,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "발해 주자감, 인안과 대흥 연호, 솔빈부 말, 문적원(맞는 진술)",
         "통일 신라 9주 5소경(틀린 진술)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 부정 발문), 추가노트 §6~§8 발해, 07강 075쪽 남북국 시대의 경제(발해)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 부정 발문), 추가노트 §6~§8 발해, 07강 남북국 시대의 경제(발해)"
     },
     "typefill-hist-20260916-008": {
       "number": 915,
@@ -17829,7 +17829,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최치원 진성 여왕에게 시무 10여 조(정답)",
         "설총 이두, 강수 청방인문표, 김대문 화랑세기, 원광 세속 5계(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 08강 086쪽 유학의 발달, 07강 075쪽 남북국 시대의 사회(6두품)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 08강 유학의 발달, 07강 남북국 시대의 사회(6두품)"
     },
     "typefill-hist-20260916-022": {
       "number": 929,
@@ -17839,7 +17839,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "선덕 여왕 때 자장의 건의로 황룡사 9층 목탑(정답)",
         "법흥왕 불교 공인, 진흥왕 국사 편찬, 진평왕 원광 걸사표, 무열왕 최초의 진골 왕(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 09강 099쪽 과학 기술(첨성대), 08강 087쪽 불상과 불탑(황룡사 9층 목탑)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 09강 과학 기술(첨성대), 08강 불상과 불탑(황룡사 9층 목탑)"
     },
     "typefill-hist-20260916-023": {
       "number": 930,
@@ -17849,7 +17849,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "묘청의 칭제 건원, 금 정벌 주장(정답, 이후)",
         "서희 담판, 귀주 대첩, 광군 조직, 별무반 편성(오답, 이전)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 이후), 12강 134쪽 고려의 대외 관계(여진과의 관계), 11강 122쪽 묘청의 서경 천도 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 이후), 12강 고려의 대외 관계(여진과의 관계), 11강 묘청의 서경 천도 운동"
     },
     "typefill-hist-20260916-024": {
       "number": 931,
@@ -17859,7 +17859,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "몽골 1차 침입(정답 시기)",
         "강동성 전투, 강화 천도(연표 경계)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 12강 134쪽 고려의 대외 관계(몽골과의 전쟁)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 12강 고려의 대외 관계(몽골과의 전쟁)"
     },
     "typefill-hist-20260916-025": {
       "number": 932,
@@ -17869,7 +17869,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "강감찬 귀주 대첩(정답, 이후)",
         "서희 담판, 광군 조직, 만부교 사건, 강조의 정변(오답, 이전)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 이후), 12강 134쪽 고려의 대외 관계(거란의 침입과 격퇴)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 이후), 12강 고려의 대외 관계(거란의 침입과 격퇴)"
     },
     "typefill-hist-20260916-026": {
       "number": 933,
@@ -17879,7 +17879,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최우 서방, 야별초, 강화 천도, 최충헌에게 권력 세습(맞는 진술)",
         "최충헌의 교정도감 설치(틀린 진술)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 부정 발문), 11강 123쪽 무신 정권의 권력 기구, 12강 134쪽 몽골과의 전쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 부정 발문), 11강 무신 정권의 권력 기구, 12강 몽골과의 전쟁"
     },
     "typefill-hist-20260916-027": {
       "number": 934,
@@ -17889,7 +17889,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과전법 실시(정답, 이후)",
         "홍산 대첩, 진포 대첩, 황산 대첩, 쌍성총관부 공격(오답, 이전)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 이후), 12강 135쪽 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 이후), 12강 고려의 멸망"
     },
     "typefill-hist-20260916-028": {
       "number": 935,
@@ -17899,7 +17899,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광종 과거제 실시(정답 시기)",
         "왕규의 난, 시정 전시과(연표 경계)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 10강 111쪽 고려의 성립과 통치 체제(광종)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 10강 고려의 성립과 통치 체제(광종)"
     },
     "typefill-hist-20260916-029": {
       "number": 936,
@@ -17909,7 +17909,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "993년 거란 1차 침입(정답 시기)",
         "12목 설치, 강조의 정변(연표 경계)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 12강 134쪽 고려의 대외 관계(거란의 침입과 격퇴)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 12강 고려의 대외 관계(거란의 침입과 격퇴)"
     },
     "typefill-hist-20260916-030": {
       "number": 937,
@@ -17919,7 +17919,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "충목왕 정치도감(정답 시기)",
         "일본 원정, 쌍성총관부 수복(연표 경계)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 12강 135쪽 고려 후기의 사회 변동(고려의 개혁 노력)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 12강 고려 후기의 사회 변동(고려의 개혁 노력)"
     },
     "typefill-hist-20260916-031": {
       "number": 938,
@@ -17929,7 +17929,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경대승 집권(정답 시기)",
         "망이, 망소이의 난, 만적의 난(연표 경계)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 11강 123쪽 무신 정권의 성립(초기 무신 정권)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 11강 무신 정권의 성립(초기 무신 정권)"
     },
     "typefill-hist-20260916-032": {
       "number": 939,
@@ -17939,7 +17939,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "진포 대첩(정답 시기)",
         "홍산 대첩, 위화도 회군(연표 경계)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 12강 135쪽 고려의 멸망(왜구의 침입)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 12강 고려의 멸망(왜구의 침입)"
     },
     "typefill-hist-20260916-033": {
       "number": 940,
@@ -17949,7 +17949,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금의 건국과 형제 관계 요구(정답 시기)",
         "동북 9성 축조, 이자겸의 난(연표 경계)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 12강 134쪽 고려의 대외 관계(여진과의 관계: 금 건국)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 연표 칸), 12강 고려의 대외 관계(여진과의 관계: 금 건국)"
     },
     "typefill-hist-20260916-034": {
       "number": 941,
@@ -17959,7 +17959,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "망이, 망소이의 난(정답, 이후)",
         "김보당의 난, 보현원 정변, 묘청의 난, 이자겸의 난(오답, 이전)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 이후), 11강 123쪽 무신 집권기 사회 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 이후), 11강 무신 집권기 사회 동요"
     },
     "typefill-hist-20260916-035": {
       "number": 942,
@@ -17969,7 +17969,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여원 연합군의 일본 원정(정답, 이후)",
         "강동성 전투, 강화 천도, 처인성 전투, 다인철소 항전(오답, 이전)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 이후), 12강 134~135쪽 삼별초의 항쟁, 원 간섭기"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 이후), 12강 삼별초의 항쟁, 원 간섭기"
     },
     "typefill-hist-20260916-036": {
       "number": 943,
@@ -17979,7 +17979,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이자겸의 금 사대 요구 수용(정답, 배경)",
         "무신 정변, 망이, 망소이의 난, 교정도감 설치, 강화 천도(오답, 뒤의 일)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 배경), 11강 122쪽 문벌 사회의 동요, 12강 134쪽 금 건국"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 배경), 11강 문벌 사회의 동요, 12강 금 건국"
     },
     "typefill-hist-20260916-037": {
       "number": 944,
@@ -17989,7 +17989,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "거란 격퇴 뒤 천리장성 축조(정답, 영향)",
         "동북 9성, 별무반(여진), 강화 천도(몽골), 정동행성(원)(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 영향), 12강 134쪽 고려의 대외 관계(거란 격퇴의 영향)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 영향), 12강 고려의 대외 관계(거란 격퇴의 영향)"
     },
     "typefill-hist-20260916-038": {
       "number": 945,
@@ -17999,7 +17999,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "저고여 피살을 구실로 한 몽골 침입(정답, 배경)",
         "충주성 전투, 다인철소, 개경 환도, 결혼도감(오답, 뒤의 일)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 배경), 12강 134쪽 고려의 대외 관계(몽골과의 전쟁)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 배경), 12강 고려의 대외 관계(몽골과의 전쟁)"
     },
     "typefill-hist-20260916-039": {
       "number": 946,
@@ -18009,7 +18009,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "개경 환도(정답, 이후)",
         "정방 설치, 만적의 난, 처인성 전투, 교정도감 설치(오답, 이전)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 이후), 11강 123쪽 최씨 무신 정권, 12강 134쪽 몽골과의 전쟁(개경 환도)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 이후), 11강 최씨 무신 정권, 12강 몽골과의 전쟁(개경 환도)"
     },
     "typefill-hist-20260916-040": {
       "number": 947,
@@ -18019,7 +18019,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "거란의 2차 침입, 현종 나주 피란(정답, 영향)",
         "서희 담판, 광군 조직, 시무 28조, 별무반(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 영향), 12강 134쪽 고려의 대외 관계(거란 2차 침입의 구실)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 영향), 12강 고려의 대외 관계(거란 2차 침입의 구실)"
     },
     "typefill-hist-20260916-041": {
       "number": 948,
@@ -18030,7 +18030,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "956 광종 노비안검법",
         "983 성종 12목 설치"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 순서 배열), 10강 111쪽 고려의 성립과 통치 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 순서 배열), 10강 고려의 성립과 통치 체제"
     },
     "typefill-hist-20260916-042": {
       "number": 949,
@@ -18041,7 +18041,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "1196 최충헌 형제의 봉사",
         "1198 만적의 난 모의"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(사료, 순서 배열) / 11강 123쪽 무신 정권의 성립, 무신 집권기 사회 동요"
+      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(사료, 순서 배열) / 11강 무신 정권의 성립, 무신 집권기 사회 동요"
     },
     "typefill-hist-20260916-043": {
       "number": 950,
@@ -18052,7 +18052,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "1232 김윤후 처인성 전투",
         "1253 김윤후 충주성 전투"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 순서 배열), 12강 134쪽 고려의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 순서 배열), 12강 고려의 대외 관계"
     },
     "typefill-hist-20260916-044": {
       "number": 951,
@@ -18063,7 +18063,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "1388 우왕, 최영의 요동 공격 논의",
         "1389 박위의 대마도(쓰시마섬) 정벌"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 순서 배열), 12강 135쪽 고려 후기의 사회 변동, 고려의 멸망"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 순서 배열), 12강 고려 후기의 사회 변동, 고려의 멸망"
     },
     "typefill-hist-20260916-045": {
       "number": 952,
@@ -18074,7 +18074,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "1076 문종 경정 전시과(양반 전시과 다시 정함)",
         "1391 공양왕 과전법"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 순서 배열), 13강 147쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 순서 배열), 13강 토지 제도"
     },
     "typefill-hist-20260916-046": {
       "number": 953,
@@ -18085,7 +18085,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "1109 예종 7재",
         "1367 공민왕 국학 중영, 이색 대사성"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 순서 배열), 14강 159쪽 교육 기관과 과거제, 유학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 순서 배열), 14강 교육 기관과 과거제, 유학의 발달"
     },
     "typefill-hist-20260916-047": {
       "number": 954,
@@ -18095,7 +18095,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "벽란도, 경시서, 관영 상점, 소를 이용한 깊이갈이(맞는 진술)",
         "신라 지증왕 동시전(틀린 진술)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 부정 발문), 13강 147쪽 경제 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 부정 발문), 13강 경제 활동"
     },
     "typefill-hist-20260916-048": {
       "number": 955,
@@ -18105,7 +18105,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "제위보, 동서 대비원, 혜민국, 구제도감(맞는 진술)",
         "고구려 부경(틀린 진술)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 부정 발문), 13강 147쪽 사회 모습(구휼)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 부정 발문), 13강 사회 모습(구휼)"
     },
     "typefill-hist-20260916-049": {
       "number": 956,
@@ -18115,7 +18115,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태조 흑창, 사심관, 기인 제도, 역분전(맞는 진술)",
         "광종 노비안검법(틀린 진술)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 부정 발문), 10강 111쪽 고려의 성립(태조의 정책)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 부정 발문), 10강 고려의 성립(태조의 정책)"
     },
     "typefill-hist-20260916-050": {
       "number": 957,
@@ -18125,7 +18125,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원효 무애가, 일심과 화쟁, 대승기신론소, 아미타 신앙(맞는 진술)",
         "의상 당 유학, 화엄종, 부석사(틀린 진술)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 부정 발문), 08강 087쪽 불교의 발달(통일 신라)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료, 부정 발문), 08강 불교의 발달(통일 신라)"
     },
     "typefill-hist-20260916-051": {
       "number": 958,
@@ -18135,7 +18135,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설총 화왕계(정답)",
         "강수 청방인문표, 최치원 시무 10여 조, 김대문 화랑세기, 원광 세속 5계(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 08강 086쪽 유학의 발달(통일 신라의 유학자)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 08강 유학의 발달(통일 신라의 유학자)"
     },
     "typefill-hist-20260916-052": {
       "number": 959,
@@ -18145,7 +18145,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "골품제의 관등 상한, 일상생활 제한(정답)",
         "고려 일천즉천, 향부곡소 거주 이전 제한, 백제 부여씨와 8성, 부여 사출도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 07강 075쪽 삼국의 사회(신라 골품제)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 07강 삼국의 사회(신라 골품제)"
     },
     "typefill-hist-20260916-053": {
       "number": 960,
@@ -18165,7 +18165,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원 간섭기 지배층의 변발, 호복 유행(정답)",
         "무신 집권기 만적, 고려 중기 사학 융성, 신라 하대 원종과 애노, 신라 6두품 빈공과(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 12강 135쪽 원 간섭기(인적, 물적 수탈, 문화 교류)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 12강 원 간섭기(인적, 물적 수탈, 문화 교류)"
     },
     "typefill-hist-20260916-055": {
       "number": 962,
@@ -18175,7 +18175,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이제현 『사략』(정답)",
         "안향 성리학 첫 소개, 김부식 삼국사기, 이규보 동명왕편, 최충 9재 학당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 14강 159쪽 유학의 발달과 성리학의 도입, 역사서의 편찬"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 14강 유학의 발달과 성리학의 도입, 역사서의 편찬"
     },
     "typefill-hist-20260916-056": {
       "number": 963,
@@ -18185,7 +18185,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『삼국사기』 기전체(정답)",
         "『제왕운기』, 『삼국유사』, 『해동고승전』, 『사략』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 14강 159쪽 역사서의 편찬"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 14강 역사서의 편찬"
     },
     "typefill-hist-20260916-057": {
       "number": 964,
@@ -18197,7 +18197,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서경 최광수의 고구려 부흥 운동(정답)",
         "담양 이연년, 경주 이비와 패좌, 공주 망이와 망소이, 개경 만적(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사), 14강 159쪽 풍수지리설, 11강 123쪽 삼국 부흥 운동, 10강 111쪽 태조의 북진 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사), 14강 풍수지리설, 11강 삼국 부흥 운동, 10강 태조의 북진 정책"
     },
     "typefill-hist-20260916-058": {
       "number": 965,
@@ -18208,7 +18208,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "배중손의 삼별초 봉기(정답)",
         "진도 용장성, 제주 항파두리, 충주성 김윤후, 귀주성 박서(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사), 12강 134쪽 몽골과의 전쟁, 삼별초의 항쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사), 12강 몽골과의 전쟁, 삼별초의 항쟁"
     },
     "typefill-hist-20260916-059": {
       "number": 966,
@@ -18219,7 +18219,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "개경 만적의 봉기 모의(정답)",
         "공주 망이, 망소이, 운문 김사미, 서경 조위총, 경주 이비와 패좌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(지역사) / 13강 147쪽 경제 활동, 사회 모습 / 11강 123쪽 무신 집권기 사회 동요"
+      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(지역사) / 13강 경제 활동, 사회 모습 / 11강 무신 집권기 사회 동요"
     },
     "typefill-hist-20260916-060": {
       "number": 967,
@@ -18230,7 +18230,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공주 명학소 망이, 망소이의 봉기(정답)",
         "개경 만적, 운문 김사미, 서경 최광수, 담양 이연년(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사), 학습 노트 §2 선사(유적 이름과 시대), §6 백제, 11강 123쪽 무신 집권기 사회 동요"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사), 학습 노트 §2 선사(유적 이름과 시대), §6 백제, 11강 무신 집권기 사회 동요"
     },
     "typefill-hist-20260916-061": {
       "number": 968,
@@ -18242,7 +18242,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이비, 패좌의 신라 부흥 운동(정답)",
         "서경 최광수, 담양 이연년, 공주 망이와 망소이, 운문 김사미(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사), 11강 123쪽 무신 집권기 사회 동요(삼국 부흥 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사), 11강 무신 집권기 사회 동요(삼국 부흥 운동)"
     },
     "typefill-hist-20260916-062": {
       "number": 969,
@@ -18253,7 +18253,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "거란 2차 침입 때 현종의 피란(정답)",
         "안동 공민왕 피신, 강화 천도, 진도 삼별초, 철원 천도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사, 사료), 10강 111쪽 고려의 성립(왕건의 금성 점령), 12강 134쪽 거란 2차 침입"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사, 사료), 10강 고려의 성립(왕건의 금성 점령), 12강 거란 2차 침입"
     },
     "typefill-hist-20260916-063": {
       "number": 970,
@@ -18264,7 +18264,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김통정의 항파두리 항전(정답)",
         "강화도 배중손, 진도 용장성, 충주성 김윤후, 귀주성 박서(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(지역사) / 학습 노트 §2 선사(유적 이름과 시대) / 12강 134~135쪽 삼별초의 항쟁, 원 간섭기"
+      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(지역사) / 학습 노트 §2 선사(유적 이름과 시대) / 12강 삼별초의 항쟁, 원 간섭기"
     },
     "typefill-hist-20260916-064": {
       "number": 971,
@@ -18276,7 +18276,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장수왕의 한성 함락, 개로왕 전사(정답)",
         "관산성 성왕, 황산벌 계백, 대야성 윤충, 평양성 고국원왕(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사), 09강 099쪽 고분(백제 한성기 돌무지무덤), 학습 노트 §6 백제, §7 진흥왕의 비석"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사), 09강 고분(백제 한성기 돌무지무덤), 학습 노트 §6 백제, §7 진흥왕의 비석"
     },
     "typefill-hist-20260916-065": {
       "number": 972,
@@ -18287,7 +18287,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "660년 나당 연합군의 사비성 함락(정답)",
         "한성 함락, 매소성 전투, 황산벌 결사대, 대야성 함락(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사), 08강 087쪽 불상과 불탑(정림사지 5층 석탑), 도교(금동 대향로), 학습 노트 §2 선사(송국리)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(지역사), 08강 불상과 불탑(정림사지 5층 석탑), 도교(금동 대향로), 학습 노트 §2 선사(송국리)"
     },
     "typefill-hist-20260916-066": {
       "number": 973,
@@ -18297,7 +18297,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지증왕 동시전 설치(정답)",
         "법흥왕 율령, 진흥왕 화랑도, 눌지 마립간 나제 동맹, 선덕 여왕 첨성대(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 학습 노트 §7 신라(왕호, 제도 정비, 팽창), 07강 074쪽 삼국의 경제"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 학습 노트 §7 신라(왕호, 제도 정비, 팽창), 07강 삼국의 경제"
     },
     "typefill-hist-20260916-067": {
       "number": 974,
@@ -18307,7 +18307,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신문왕 국학 설치(정답)",
         "문무왕 외사정, 성덕왕 정전, 경덕왕 녹읍 부활, 무열왕 최초의 진골 왕(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 09강 099쪽 건축(감은사), 추가노트 §2 통일 신라 왕과 업적"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 09강 건축(감은사), 추가노트 §2 통일 신라 왕과 업적"
     },
     "typefill-hist-20260916-068": {
       "number": 975,
@@ -18317,7 +18317,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정종 왕규의 난 진압(정답)",
         "태조 사심관, 광종 과거, 경종 시정 전시과, 성종 시무 28조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 10강 111쪽 고려의 성립과 통치 체제(정종)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 10강 고려의 성립과 통치 체제(정종)"
     },
     "typefill-hist-20260916-069": {
       "number": 976,
@@ -18327,7 +18327,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광종 노비안검법(정답)",
         "정종 광군, 성종 12목, 태조 흑창, 경종 시정 전시과(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 10강 111쪽 고려의 성립과 통치 체제(광종)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 10강 고려의 성립과 통치 체제(광종)"
     },
     "typefill-hist-20260916-070": {
       "number": 977,
@@ -18337,7 +18337,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "무신 정변(정답, 배경)",
         "망이, 망소이, 최충헌의 이의민 제거, 만적, 김사미와 효심(오답, 뒤의 일)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(사료, 배경) / 11강 123쪽 무신 정권의 성립, 무신 집권기 사회 동요(반무신 난)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(사료, 배경) / 11강 무신 정권의 성립, 무신 집권기 사회 동요(반무신 난)"
     },
     "typefill-hist-20260916-071": {
       "number": 978,
@@ -18347,7 +18347,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향, 부곡, 소 주민의 거주 이전 제한, 많은 세금(정답)",
         "백정, 중간 계층, 노비, 문무 양반(오답: 다른 신분의 옳은 설명)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 13강 147쪽 신분 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 13강 신분 제도"
     },
     "typefill-hist-20260916-072": {
       "number": 979,
@@ -18357,7 +18357,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "발해 모피, 녹용, 사향 수출(정답)",
         "통일 신라 울산항, 고려 벽란도, 고구려 부경, 신라 동시전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 07강 075쪽 남북국 시대의 경제(발해)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 07강 남북국 시대의 경제(발해)"
     },
     "typefill-hist-20260916-073": {
       "number": 980,
@@ -18367,7 +18367,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "예종 양현고 설치(정답)",
         "성종 국자감과 경학박사, 인종 경사 6학, 광종 승과, 공민왕 성균관 중영(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 14강 159쪽 교육 기관과 과거제(관학 진흥책)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 14강 교육 기관과 과거제(관학 진흥책)"
     },
     "typefill-hist-20260916-074": {
       "number": 981,
@@ -18377,7 +18377,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "숙종 때 은병(활구) 제작(정답)",
         "성종 건원중보, 예종 7재, 광종 노비안검법, 공양왕 과전법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 13강 147쪽 경제 활동(화폐)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 13강 경제 활동(화폐)"
     },
     "typefill-hist-20260916-075": {
       "number": 982,
@@ -18387,7 +18387,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의상 화엄일승법계도(정답)",
         "원효 무애가, 혜초 왕오천축국전, 원광 세속 5계, 자장 황룡사 9층 목탑 건의(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 08강 087쪽 불교의 발달(통일 신라)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 08강 불교의 발달(통일 신라)"
     },
     "typefill-hist-20260916-076": {
       "number": 983,
@@ -18397,7 +18397,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "선덕 여왕 첨성대(정답)",
         "진흥왕 국사 편찬, 법흥왕 불교 공인, 진평왕 원광 걸사표, 신문왕 감은사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 09강 099쪽 과학 기술(첨성대), 08강 087쪽 불상과 불탑(황룡사 9층 목탑)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 09강 과학 기술(첨성대), 08강 불상과 불탑(황룡사 9층 목탑)"
     },
     "typefill-hist-20260916-077": {
       "number": 984,
@@ -18407,7 +18407,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혜공왕 때 대공의 난(정답)",
         "신문왕 김흠돌의 난, 성덕왕 정전, 경덕왕 녹읍 부활, 헌덕왕 김헌창의 난(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 09강 099쪽 과학 기술(성덕대왕 신종), 추가노트 §4 신라 말(혜공왕)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 09강 과학 기술(성덕대왕 신종), 추가노트 §4 신라 말(혜공왕)"
     },
     "typefill-hist-20260916-078": {
       "number": 985,
@@ -18417,7 +18417,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종 상평창 설치(정답)",
         "광종 노비안검법, 태조 사심관, 정종 광군, 예종 7재(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 10강 111쪽 고려의 성립과 통치 체제(성종)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 10강 고려의 성립과 통치 체제(성종)"
     },
     "typefill-hist-20260916-079": {
       "number": 986,
@@ -18437,7 +18437,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최충헌의 도방 부활(정답)",
         "삼별초(야별초), 별무반, 광군, 중방(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 11강 123쪽 무신 정권의 권력 기구(도방)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 11강 무신 정권의 권력 기구(도방)"
     },
     "typefill-hist-20260916-081": {
       "number": 988,
@@ -18447,7 +18447,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최충헌 봉사 10조(정답)",
         "최우 정방, 경대승 도방, 김보당 의종 복위, 조위총 서경 봉기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(사료) / 11강 123쪽 최씨 무신 정권, 권력 기구"
+      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(사료) / 11강 최씨 무신 정권, 권력 기구"
     },
     "typefill-hist-20260916-082": {
       "number": 989,
@@ -18457,7 +18457,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원광의 세속 5계를 규범으로 삼은 화랑도: 화랑과 낭도 구성(정답)",
         "고구려 경당, 신라 화백 회의, 백제 정사암, 고구려 태학(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 07강 075쪽 삼국의 사회(화랑도)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(사료), 07강 삼국의 사회(화랑도)"
     },
     "typefill-hist-20260916-083": {
       "number": 990,
@@ -18467,7 +18467,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이규보 「동명왕편」(정답, 이후)",
         "최충 9재 학당, 예종 7재, 성종 국자감, 광종 승과(오답, 이전)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(이후), 14강 159쪽 역사서의 편찬, 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(이후), 14강 역사서의 편찬, 교육 기관"
     },
     "typefill-hist-20260916-084": {
       "number": 991,
@@ -18477,7 +18477,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원 간섭기 편찬(정답 시기)",
         "개경 환도, 쌍성총관부 수복(연표 경계)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(연표 칸), 14강 159쪽 역사서의 편찬(원 간섭기)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(연표 칸), 14강 역사서의 편찬(원 간섭기)"
     },
     "typefill-hist-20260916-085": {
       "number": 992,
@@ -18487,7 +18487,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과전법 실시(정답, 이후)",
         "성종 건원중보, 숙종 은병, 문종 경정 전시과, 원종 녹과전(오답, 이전)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(이후) / 13강 147쪽 경제 활동(목화), 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(이후) / 13강 경제 활동(목화), 토지 제도"
     },
     "typefill-hist-20260916-086": {
       "number": 993,
@@ -18497,7 +18497,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 제위보(정답)",
         "고구려 진대법, 통일 신라 민정 문서, 신라 동시전, 발해 솔빈부 말(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(사료) / 13강 147쪽 토지 제도(공음전), 사회 모습(동서 대비원)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 기출 유형 보강(사료) / 13강 토지 제도(공음전), 사회 모습(동서 대비원)"
     },
     "typefill-hist-20260916-087": {
       "number": 994,
@@ -18507,7 +18507,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혜공왕 때 완성(정답 시기)",
         "녹읍 부활, 혜공왕 피살(연표 경계)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(연표 칸), 09강 099쪽 과학 기술(성덕대왕 신종)"
+      "sourceSection": "자체 제작(기출 원문 아님), 기출 유형 보강(연표 칸), 09강 과학 기술(성덕대왕 신종)"
     },
     "goryeoculture2-hist-20260916-001": {
       "number": 995,
@@ -18518,7 +18518,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "발해 이불병좌상(오답)",
         "통일 신라 석굴암 본존불(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 불상"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 불상"
     },
     "goryeoculture2-hist-20260916-002": {
       "number": 996,
@@ -18529,7 +18529,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "부석사 소조 여래 좌상: 신라 양식 계승(오답)",
         "도피안사 철조 비로자나불 좌상: 신라 말 철불(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 불상"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 불상"
     },
     "goryeoculture2-hist-20260916-003": {
       "number": 997,
@@ -18541,7 +18541,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서산 용현리 마애 여래 삼존상: 백제(오답, 사진)",
         "경주 배동 석조 여래 삼존 입상: 신라(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 불상"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 불상"
     },
     "goryeoculture2-hist-20260916-004": {
       "number": 998,
@@ -18552,7 +18552,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "부석사 소조 여래 좌상(오답)",
         "서산 용현리 마애 여래 삼존상: 백제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 불상"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 불상"
     },
     "goryeoculture2-hist-20260916-005": {
       "number": 999,
@@ -18564,7 +18564,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금동 연가 7년명 여래 입상: 고구려(오답, 사진)",
         "배동 석조 여래 삼존 입상: 신라(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 불상"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 불상"
     },
     "goryeoculture2-hist-20260916-006": {
       "number": 1000,
@@ -18575,7 +18575,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "하사창동 철불(오답)",
         "석굴암 본존불: 통일 신라(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 불상"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 불상"
     },
     "goryeoculture2-hist-20260916-007": {
       "number": 1001,
@@ -18588,7 +18588,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "석굴암 본존불: 통일 신라(오답, 사진)",
         "금동 연가 7년명 여래 입상: 고구려(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 불상"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 불상"
     },
     "goryeoculture2-hist-20260916-008": {
       "number": 1002,
@@ -18601,7 +18601,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "배동 석조 여래 삼존 입상: 신라(오답, 사진)",
         "금동 연가 7년명 여래 입상: 고구려(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 불상"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 불상"
     },
     "goryeoculture2-hist-20260916-009": {
       "number": 1003,
@@ -18612,7 +18612,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이천동, 용미리 마애 석불(오답)",
         "금동 연가 7년명 여래 입상: 고구려(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 불상"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 불상"
     },
     "goryeoculture2-hist-20260916-010": {
       "number": 1004,
@@ -18624,7 +18624,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금동 연가 7년명 여래 입상: 고구려(오답, 사진)",
         "서산 용현리 마애 여래 삼존상: 백제(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 불상"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 불상"
     },
     "goryeoculture2-hist-20260916-011": {
       "number": 1005,
@@ -18635,7 +18635,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "천산대렵도: 공민왕 작품 추정(오답)",
         "정선 인왕제색도: 조선 후기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 회화"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 회화"
     },
     "goryeoculture2-hist-20260916-012": {
       "number": 1006,
@@ -18646,7 +18646,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정선 진경산수화: 조선 후기(오답)",
         "김홍도 풍속화: 조선 후기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 회화"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 회화"
     },
     "goryeoculture2-hist-20260916-013": {
       "number": 1007,
@@ -18658,7 +18658,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "씨름: 조선 후기 김홍도(오답, 사진)",
         "천마총 장니 천마도: 신라(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 회화"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 회화"
     },
     "goryeoculture2-hist-20260916-014": {
       "number": 1008,
@@ -18669,7 +18669,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "아미타래영도: 불화(오답)",
         "몽유도원도: 조선 전기 안견(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 회화"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 회화"
     },
     "goryeoculture2-hist-20260916-015": {
       "number": 1009,
@@ -18681,7 +18681,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고종: 팔만대장경(오답)",
         "현종: 초조대장경(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 회화"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 회화"
     },
     "goryeoculture2-hist-20260916-016": {
       "number": 1010,
@@ -18692,7 +18692,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고달사지 승탑: 신라 팔각원당형 계승(오답)",
         "홍법국사탑: 공 모양 탑신부(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 석탑과 승탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 석탑과 승탑"
     },
     "goryeoculture2-hist-20260916-017": {
       "number": 1011,
@@ -18704,7 +18704,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "불국사 3층 석탑: 통일 신라(오답, 사진)",
         "원각사지 10층 석탑: 조선(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 석탑과 승탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 석탑과 승탑"
     },
     "goryeoculture2-hist-20260916-018": {
       "number": 1012,
@@ -18715,7 +18715,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "분황사 모전 석탑: 신라(오답 짝)",
         "원각사지 10층 석탑: 조선(오답 짝)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 석탑과 승탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 석탑과 승탑"
     },
     "goryeoculture2-hist-20260916-019": {
       "number": 1013,
@@ -18726,7 +18726,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍법국사탑: 공 모양 탑신부, 기단 조각(오답)",
         "고달사지 승탑: 팔각원당형 계승(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 석탑과 승탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 석탑과 승탑"
     },
     "goryeoculture2-hist-20260916-020": {
       "number": 1014,
@@ -18739,7 +18739,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "미륵사지 석탑: 목탑 양식(오답)",
         "불국사 3층 석탑: 이중 기단 3층(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 석탑과 승탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 석탑과 승탑"
     },
     "goryeoculture2-hist-20260916-021": {
       "number": 1015,
@@ -18752,7 +18752,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "불국사 다보탑: 통일 신라(오답, 사진)",
         "미륵사지 석탑: 백제(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 석탑과 승탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 석탑과 승탑"
     },
     "goryeoculture2-hist-20260916-022": {
       "number": 1016,
@@ -18765,7 +18765,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "불국사 다보탑: 통일 신라(오답, 사진)",
         "정림사지 5층 석탑: 백제(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 석탑과 승탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 석탑과 승탑"
     },
     "goryeoculture2-hist-20260916-023": {
       "number": 1017,
@@ -18776,7 +18776,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경천사지 탑: 원의 영향, 대리석(오답)",
         "월정사: 다각 다층 석탑(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 석탑과 승탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 석탑과 승탑"
     },
     "goryeoculture2-hist-20260916-024": {
       "number": 1018,
@@ -18788,7 +18788,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원각사지 10층 석탑: 조선(오답, 사진)",
         "정림사지 5층 석탑: 백제(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 석탑과 승탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 석탑과 승탑"
     },
     "goryeoculture2-hist-20260916-025": {
       "number": 1019,
@@ -18799,7 +18799,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경천사지 탑: 원, 대리석(오답)",
         "월정사: 다각 다층탑(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 석탑과 승탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 석탑과 승탑"
     },
     "goryeoculture2-hist-20260916-026": {
       "number": 1020,
@@ -18811,7 +18811,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "분황사 모전 석탑: 신라(오답, 사진)",
         "원각사지 10층 석탑: 조선(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 석탑과 승탑"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 석탑과 승탑"
     },
     "goryeoculture2-hist-20260916-027": {
       "number": 1021,
@@ -18822,7 +18822,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나전 칠기(오답)",
         "은입사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 청자"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 청자"
     },
     "goryeoculture2-hist-20260916-028": {
       "number": 1022,
@@ -18833,7 +18833,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순청자: 고려 전기 주로 제작(오답)",
         "은입사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 청자"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 청자"
     },
     "goryeoculture2-hist-20260916-029": {
       "number": 1023,
@@ -18846,7 +18846,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백자 달항아리: 조선 후기(오답, 사진)",
         "도기 기마인물형 명기: 신라(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 청자"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 청자"
     },
     "goryeoculture2-hist-20260916-030": {
       "number": 1024,
@@ -18857,7 +18857,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라 금관, 금귀걸이(오답)",
         "조선 백자(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 공예"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 공예"
     },
     "goryeoculture2-hist-20260916-031": {
       "number": 1025,
@@ -18870,7 +18870,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "청동 은입사 포류수금문 정병: 고려(사진)",
         "청자 상감모란문 표주박모양 주전자: 고려(사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 공예"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 공예"
     },
     "goryeoculture2-hist-20260916-032": {
       "number": 1026,
@@ -18883,7 +18883,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "천마총 금관: 신라(오답, 사진)",
         "상원사 동종: 통일 신라(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 공예"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 공예"
     },
     "goryeoculture2-hist-20260916-033": {
       "number": 1027,
@@ -18894,7 +18894,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "상감 기법(오답)",
         "조선 청화 백자(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 공예"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 공예"
     },
     "goryeoculture2-hist-20260916-034": {
       "number": 1028,
@@ -18906,7 +18906,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성덕대왕 신종: 통일 신라(오답, 사진)",
         "백자 달항아리: 조선 후기(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170쪽 공예"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 공예"
     },
     "goryeoculture2-hist-20260916-035": {
       "number": 1029,
@@ -18914,7 +18914,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "하사창동 철불(고려 초기) → 부석사 소조 여래 좌상(고려 중기) → 경천사지 10층 석탑(고려 후기) → 원각사지 10층 석탑(조선) 순서(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 15강 고려(문화 2) 170쪽 불상, 석탑과 승탑"
+      "sourceSection": "자체 제작(기출 원문 아님) / 15강 고려(문화 2) 불상, 석탑과 승탑"
     },
     "goryeoculture2-hist-20260916-036": {
       "number": 1030,
@@ -18925,7 +18925,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "다포: 고려 후기 등장 → 조선 건축에 영향(오답)",
         "다포: 사리원 성불사 응진전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 건축"
     },
     "goryeoculture2-hist-20260916-037": {
       "number": 1031,
@@ -18936,7 +18936,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주심포: 봉정사 극락전(오답)",
         "주심포, 배흘림기둥: 부석사 무량수전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 건축"
     },
     "goryeoculture2-hist-20260916-038": {
       "number": 1032,
@@ -18949,7 +18949,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고구려, 발해 고분: 모줄임천장(오답)",
         "신라 분황사 모전 석탑(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 건축"
     },
     "goryeoculture2-hist-20260916-039": {
       "number": 1033,
@@ -18960,7 +18960,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "해인사 장경판전: 팔만대장경판 보관(오답)",
         "법주사 팔상전: 조선 후기 5층 목탑(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 건축"
     },
     "goryeoculture2-hist-20260916-040": {
       "number": 1034,
@@ -18972,7 +18972,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김제 금산사 미륵전: 조선 후기(오답, 사진)",
         "보은 법주사 팔상전: 조선 후기(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 건축"
     },
     "goryeoculture2-hist-20260916-041": {
       "number": 1035,
@@ -18985,7 +18985,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사리원 성불사 응진전: 고려 다포(오답, 사진)",
         "보은 법주사 팔상전: 조선 후기(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 건축"
     },
     "goryeoculture2-hist-20260916-042": {
       "number": 1036,
@@ -18996,7 +18996,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "봉정사 극락전: 가장 오래된 목조 건축물(오답)",
         "화엄사 각황전: 조선 후기 2층 불전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 건축"
     },
     "goryeoculture2-hist-20260916-043": {
       "number": 1037,
@@ -19008,7 +19008,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김제 금산사 미륵전: 조선 후기(오답, 사진)",
         "사리원 성불사 응진전: 고려 다포(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 건축"
     },
     "goryeoculture2-hist-20260916-044": {
       "number": 1038,
@@ -19019,7 +19019,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "부석사 무량수전: 영주, 소조 불상(오답)",
         "수덕사 대웅전: 예산, 주심포(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 건축"
     },
     "goryeoculture2-hist-20260916-045": {
       "number": 1039,
@@ -19031,7 +19031,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "예산 수덕사 대웅전: 주심포(오답)",
         "구례 화엄사 각황전: 조선 후기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 건축"
     },
     "goryeoculture2-hist-20260916-046": {
       "number": 1040,
@@ -19044,7 +19044,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경천사지 10층 석탑: 고려(사진)",
         "부석사 무량수전: 고려(사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 170~171쪽 문화유산 종합"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 문화유산 종합"
     },
     "goryeoculture2-hist-20260916-047": {
       "number": 1041,
@@ -19057,7 +19057,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "교장: 의천이 편찬(오답)",
         "직지심체요절: 청주 흥덕사 금속 활자(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 인쇄술"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 인쇄술"
     },
     "goryeoculture2-hist-20260916-048": {
       "number": 1042,
@@ -19068,7 +19068,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "교장: 의천(오답)",
         "『상정고금예문』: 인종 때 처음 편찬(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 인쇄술"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 인쇄술"
     },
     "goryeoculture2-hist-20260916-049": {
       "number": 1043,
@@ -19081,7 +19081,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "직지심체요절: 현존 세계 최고 금속 활자본(오답)",
         "무구정광대다라니경: 통일 신라(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 인쇄술"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 인쇄술"
     },
     "goryeoculture2-hist-20260916-050": {
       "number": 1044,
@@ -19092,7 +19092,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "직지: 프랑스 국립 도서관(오답)",
         "팔만대장경: 해인사 장경판전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 인쇄술"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 인쇄술"
     },
     "goryeoculture2-hist-20260916-051": {
       "number": 1045,
@@ -19105,7 +19105,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초조대장경: 거란 침입(오답)",
         "『향약구급방』: 전해지는 가장 오래된 의약서(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 인쇄술"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 인쇄술"
     },
     "goryeoculture2-hist-20260916-052": {
       "number": 1046,
@@ -19116,7 +19116,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "팔만대장경: 해인사 장경판전(오답)",
         "초조대장경: 거란 침입 때 목판(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 인쇄술"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 인쇄술"
     },
     "goryeoculture2-hist-20260916-053": {
       "number": 1047,
@@ -19129,7 +19129,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "무구정광대다라니경: 통일 신라(오답)",
         "『상정고금예문』: 현존하지 않음(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 인쇄술"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 인쇄술"
     },
     "goryeoculture2-hist-20260916-054": {
       "number": 1048,
@@ -19137,7 +19137,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "초조대장경(현종) → 『상정고금예문』 편찬(인종) → 팔만대장경(고종) → 『직지심체요절』(우왕) 순서(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 인쇄술"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 인쇄술"
     },
     "goryeoculture2-hist-20260916-055": {
       "number": 1049,
@@ -19149,7 +19149,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "화통도감: 우왕(오답)",
         "과거제: 광종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 인쇄술"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 인쇄술"
     },
     "goryeoculture2-hist-20260916-056": {
       "number": 1050,
@@ -19160,7 +19160,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "시헌력: 조선 후기(오답)",
         "첨성대: 신라(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 천문학과 의학"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 천문학과 의학"
     },
     "goryeoculture2-hist-20260916-057": {
       "number": 1051,
@@ -19173,7 +19173,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "자격루: 조선(오답)",
         "무구정광대다라니경: 통일 신라(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 천문학과 의학"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 천문학과 의학"
     },
     "goryeoculture2-hist-20260916-058": {
       "number": 1052,
@@ -19184,7 +19184,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『상정고금예문』: 인종 때 편찬, 현존하지 않음(오답)",
         "『동의보감』: 허준(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 천문학과 의학"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 천문학과 의학"
     },
     "goryeoculture2-hist-20260916-059": {
       "number": 1053,
@@ -19197,7 +19197,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『농사직설』: 조선 세종(오답)",
         "석굴암: 통일 신라(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 천문학과 의학"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 천문학과 의학"
     },
     "goryeoculture2-hist-20260916-060": {
       "number": 1054,
@@ -19208,7 +19208,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주전도감: 의천, 해동통보(오답)",
         "전민변정도감: 신돈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 무기의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 무기의 발달"
     },
     "goryeoculture2-hist-20260916-061": {
       "number": 1055,
@@ -19221,7 +19221,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이성계: 황산(오답)",
         "박위: 쓰시마섬 토벌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 무기의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 무기의 발달"
     },
     "goryeoculture2-hist-20260916-062": {
       "number": 1056,
@@ -19232,7 +19232,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "처인성: 몽골 살리타(오답)",
         "별무반: 여진(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 무기의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 무기의 발달"
     },
     "goryeoculture2-hist-20260916-063": {
       "number": 1057,
@@ -19244,7 +19244,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "현종: 초조대장경(오답)",
         "인종: 『상정고금예문』 편찬(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 171쪽 무기의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 15강 고려(문화 2) 무기의 발달"
     },
     "joseonearly-hist-20260919-001": {
       "number": 1058,
@@ -19255,7 +19255,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공민왕 쌍성총관부(오답)",
         "숙종 별무반(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 조선의 건국 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 조선의 건국 과정"
     },
     "joseonearly-hist-20260919-002": {
       "number": 1059,
@@ -19266,7 +19266,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최무선 화통도감(오답)",
         "최영 요동 정벌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 조선의 건국 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 조선의 건국 과정"
     },
     "joseonearly-hist-20260919-003": {
       "number": 1060,
@@ -19277,7 +19277,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "직전법(오답)",
         "역분전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 조선의 건국 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 조선의 건국 과정"
     },
     "joseonearly-hist-20260919-004": {
       "number": 1061,
@@ -19288,7 +19288,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "직전법(오답)",
         "의창(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 조선의 건국 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 조선의 건국 과정"
     },
     "joseonearly-hist-20260919-005": {
       "number": 1062,
@@ -19299,7 +19299,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종 훈민정음(오답)",
         "세조 직전법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonearly-hist-20260919-006": {
       "number": 1063,
@@ -19310,7 +19310,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안향 성리학(오답)",
         "김부식 삼국사기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonearly-hist-20260919-007": {
       "number": 1064,
@@ -19321,7 +19321,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의천 교장(오답)",
         "이제현 사략(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonearly-hist-20260919-008": {
       "number": 1065,
@@ -19332,7 +19332,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 태조 흑창(오답)",
         "고려 현종 나성(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonearly-hist-20260919-009": {
       "number": 1066,
@@ -19343,7 +19343,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종 홍문관(오답)",
         "세조 경국대전 편찬 시작(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태종"
     },
     "joseonearly-hist-20260919-010": {
       "number": 1067,
@@ -19354,7 +19354,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종 집현전 설치(오답)",
         "성종 국조오례의(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태종"
     },
     "joseonearly-hist-20260919-011": {
       "number": 1068,
@@ -19365,7 +19365,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세조 직전법(오답)",
         "고려 성종 의창(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태종"
     },
     "joseonearly-hist-20260919-012": {
       "number": 1069,
@@ -19376,7 +19376,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종 사림 등용(오답)",
         "태조 국호 조선(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태종"
     },
     "joseonearly-hist-20260919-013": {
       "number": 1070,
@@ -19387,7 +19387,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세조 6조 직계제 부활(오답)",
         "성종 경연 확대(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세종"
     },
     "joseonearly-hist-20260919-014": {
       "number": 1071,
@@ -19398,7 +19398,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세조 집현전 폐지(오답)",
         "고려 예종 양현고(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세종"
     },
     "joseonearly-hist-20260919-015": {
       "number": 1072,
@@ -19409,7 +19409,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 숙종 별무반(오답)",
         "고려 공민왕 쌍성총관부(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세종"
     },
     "joseonearly-hist-20260919-016": {
       "number": 1073,
@@ -19420,7 +19420,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최무선 화통도감(오답)",
         "윤관 동북 9성(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세종"
     },
     "joseonearly-hist-20260919-017": {
       "number": 1074,
@@ -19431,7 +19431,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최영 요동 정벌(오답)",
         "이성계 황산 대첩(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세종"
     },
     "joseonearly-hist-20260919-018": {
       "number": 1075,
@@ -19442,7 +19442,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국조오례의 성종(오답)",
         "조선경국전 정도전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세종"
     },
     "joseonearly-hist-20260919-019": {
       "number": 1076,
@@ -19453,7 +19453,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "연산군 무오사화(오답)",
         "중종 기묘사화(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세조"
     },
     "joseonearly-hist-20260919-020": {
       "number": 1077,
@@ -19465,7 +19465,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종 사림 등용(오답)",
         "세종 집현전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세조"
     },
     "joseonearly-hist-20260919-021": {
       "number": 1078,
@@ -19476,7 +19476,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "시정 전시과(오답)",
         "경정 전시과(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세조"
     },
     "joseonearly-hist-20260919-022": {
       "number": 1079,
@@ -19487,7 +19487,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종 훈민정음(오답)",
         "태조 국호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 16강 조선 전기(정치) 183쪽 세조, 성종"
+      "sourceSection": "자체 제작(기출 원문 아님) / 16강 조선 전기(정치) 세조, 성종"
     },
     "joseonearly-hist-20260919-023": {
       "number": 1080,
@@ -19498,7 +19498,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종 홍문관(오답)",
         "태종 사간원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세조"
     },
     "joseonearly-hist-20260919-024": {
       "number": 1081,
@@ -19509,7 +19509,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "망이, 망소이(오답)",
         "만적(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세조"
     },
     "joseonearly-hist-20260919-025": {
       "number": 1082,
@@ -19520,7 +19520,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세조 집현전 폐지(오답)",
         "태종 사간원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 성종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 성종"
     },
     "joseonearly-hist-20260919-026": {
       "number": 1083,
@@ -19531,7 +19531,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정도전 조선경국전(오답)",
         "국조오례의(오답 구분)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 성종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 성종"
     },
     "joseonearly-hist-20260919-027": {
       "number": 1084,
@@ -19542,7 +19542,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "불씨잡변(오답)",
         "경제문감(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 성종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 성종"
     },
     "joseonearly-hist-20260919-028": {
       "number": 1085,
@@ -19553,7 +19553,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태종 호패법(오답)",
         "세종 대마도 정벌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 성종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 성종"
     },
     "joseonearly-hist-20260919-029": {
       "number": 1086,
@@ -19564,7 +19564,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권문세족(오답)",
         "무신(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사림의 정치적 성장"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사림의 정치적 성장"
     },
     "joseonearly-hist-20260919-030": {
       "number": 1087,
@@ -19575,7 +19575,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신진 사대부(오답)",
         "권문세족(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 훈구와 사림"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 훈구와 사림"
     },
     "joseonearly-hist-20260919-031": {
       "number": 1088,
@@ -19586,7 +19586,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권문세족(오답)",
         "호족(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 훈구와 사림"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 훈구와 사림"
     },
     "joseonearly-hist-20260919-032": {
       "number": 1089,
@@ -19597,7 +19597,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권문세족(오답)",
         "무신(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 훈구와 사림"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 훈구와 사림"
     },
     "joseonearly-hist-20260919-033": {
       "number": 1090,
@@ -19608,7 +19608,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기묘사화(오답)",
         "을사사화(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-034": {
       "number": 1091,
@@ -19619,7 +19619,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조광조 현량과(오답)",
         "윤원형 벽서(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-035": {
       "number": 1092,
@@ -19630,7 +19630,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기묘사화(오답)",
         "을사사화(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-036": {
       "number": 1093,
@@ -19641,7 +19641,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기묘사화 조광조(오답)",
         "을사사화 이언적(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-037": {
       "number": 1094,
@@ -19652,7 +19652,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최승로(오답)",
         "신돈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-038": {
       "number": 1095,
@@ -19663,7 +19663,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "갑자사화(오답)",
         "을사사화(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-039": {
       "number": 1096,
@@ -19674,7 +19674,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "갑자사화(오답)",
         "기묘사화(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-040": {
       "number": 1097,
@@ -19685,7 +19685,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "갑자사화(오답)",
         "기묘사화(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-041": {
       "number": 1098,
@@ -19696,7 +19696,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 향도(오답)",
         "고려 사학 12도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사림의 세력 기반"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사림의 세력 기반"
     },
     "joseonearly-hist-20260919-042": {
       "number": 1099,
@@ -19707,7 +19707,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약(오답)",
         "홍문관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 16강 조선 전기(정치) 183쪽 세조, 사림의 세력 기반"
+      "sourceSection": "자체 제작(기출 원문 아님) / 16강 조선 전기(정치) 세조, 사림의 세력 기반"
     },
     "joseonearly-hist-20260919-043": {
       "number": 1100,
@@ -19718,7 +19718,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "연산군 사화(오답)",
         "세조 계유정난(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 붕당의 형성"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 붕당의 형성"
     },
     "joseonearly-hist-20260919-044": {
       "number": 1101,
@@ -19729,7 +19729,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조의제문(오답)",
         "폐비 윤씨(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 붕당의 형성"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 붕당의 형성"
     },
     "joseonearly-hist-20260919-045": {
       "number": 1102,
@@ -19740,7 +19740,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "훈구(오답)",
         "권문세족(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 붕당의 형성"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 붕당의 형성"
     },
     "joseonearly-hist-20260919-046": {
       "number": 1103,
@@ -19751,7 +19751,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "훈구(오답)",
         "사림 기원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 붕당의 형성"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 붕당의 형성"
     },
     "joseonearly-hist-20260919-047": {
       "number": 1104,
@@ -19762,7 +19762,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정도전(오답)",
         "안향(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 붕당의 형성"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 붕당의 형성"
     },
     "joseonearly-hist-20260919-048": {
       "number": 1105,
@@ -19773,7 +19773,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "훈구 몰락(오답)",
         "권문세족(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사림의 정치적 성장"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사림의 정치적 성장"
     },
     "joseonearly-hist-20260919-049": {
       "number": 1106,
@@ -19782,7 +19782,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사화 순서 배열(정답)",
         "왕 순서로 판단"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-050": {
       "number": 1107,
@@ -19791,7 +19791,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "왕 순서 배열(정답)",
         "태조, 태종, 세조, 성종"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 통치 기반 마련"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 통치 기반 마련"
     },
     "joseonearly-hist-20260919-051": {
       "number": 1108,
@@ -19802,7 +19802,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최승로(오답)",
         "이제현(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonearly-hist-20260919-052": {
       "number": 1109,
@@ -19813,7 +19813,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종 사림 등용(오답)",
         "세종 사가독서제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태종"
     },
     "joseonearly-hist-20260919-053": {
       "number": 1110,
@@ -19824,7 +19824,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태종 한양 재천도(오답)",
         "고려 태조 서경(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 16강 조선 전기(정치) 183쪽 태조, 정종, 태종"
+      "sourceSection": "자체 제작(기출 원문 아님) / 16강 조선 전기(정치) 태조, 정종, 태종"
     },
     "joseonearly-hist-20260919-054": {
       "number": 1111,
@@ -19835,7 +19835,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "종묘 태조(오답)",
         "사직 태조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태종"
     },
     "joseonearly-hist-20260919-055": {
       "number": 1112,
@@ -19846,7 +19846,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "현량과(오답)",
         "과거제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세종"
     },
     "joseonearly-hist-20260919-056": {
       "number": 1113,
@@ -19855,7 +19855,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경연 세 왕 비교(정답)",
         "세종 활성화, 세조 폐지, 성종 확대"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 16강 조선 전기(정치) 183쪽 세종, 세조, 성종"
+      "sourceSection": "자체 제작(기출 원문 아님) / 16강 조선 전기(정치) 세종, 세조, 성종"
     },
     "joseonearly-hist-20260919-057": {
       "number": 1114,
@@ -19866,7 +19866,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이징옥(오답)",
         "이시애(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세조"
     },
     "joseonearly-hist-20260919-058": {
       "number": 1115,
@@ -19877,7 +19877,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이종무 대마도(오답)",
         "정도전 도성 설계(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세조"
     },
     "joseonearly-hist-20260919-059": {
       "number": 1116,
@@ -19888,7 +19888,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국조오례의(오답)",
         "불씨잡변(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonearly-hist-20260919-060": {
       "number": 1117,
@@ -19899,7 +19899,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경제문감(오답)",
         "경국대전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonearly-hist-20260919-061": {
       "number": 1118,
@@ -19910,7 +19910,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유향소 폐지 세조(오답)",
         "사간원 독립 태종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-062": {
       "number": 1119,
@@ -19921,7 +19921,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국조오례의(오답)",
         "훈민정음(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-063": {
       "number": 1120,
@@ -19932,7 +19932,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "독서삼품과(오답)",
         "사가독서제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-064": {
       "number": 1121,
@@ -19943,7 +19943,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "갑자사화 결과(오답)",
         "을사사화 결과(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-065": {
       "number": 1122,
@@ -19954,7 +19954,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "갑자사화 김굉필(오답)",
         "기묘사화 조광조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-066": {
       "number": 1123,
@@ -19965,7 +19965,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김효원 동인(오답)",
         "심의겸 서인(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-067": {
       "number": 1124,
@@ -19976,7 +19976,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김종직(오답)",
         "조광조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-068": {
       "number": 1125,
@@ -19985,7 +19985,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "부관참시 두 사화 비교(정답)",
         "김종직 무오, 한명회 갑자"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-069": {
       "number": 1126,
@@ -19996,7 +19996,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "명종 을사(오답)",
         "성종 사림 등용(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 사화의 발생"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 사화의 발생"
     },
     "joseonearly-hist-20260919-070": {
       "number": 1127,
@@ -20007,7 +20007,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대윤, 소윤(오답)",
         "서경파, 개경파(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 붕당의 형성"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 붕당의 형성"
     },
     "joseonearly-hist-20260919-071": {
       "number": 1128,
@@ -20018,7 +20018,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍문관 성종(오답)",
         "사간원 태종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 16강 조선 전기(정치) 183쪽 태종, 세조"
+      "sourceSection": "자체 제작(기출 원문 아님) / 16강 조선 전기(정치) 태종, 세조"
     },
     "joseonearly-hist-20260919-072": {
       "number": 1129,
@@ -20029,7 +20029,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "집현전(오답)",
         "유향소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태종"
     },
     "joseonearly-hist-20260919-073": {
       "number": 1130,
@@ -20040,7 +20040,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "종묘(오답)",
         "사직(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonearly-hist-20260919-074": {
       "number": 1131,
@@ -20051,7 +20051,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국조오례의(오답)",
         "조선경국전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 세종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 세종"
     },
     "joseonearly-hist-20260919-075": {
       "number": 1132,
@@ -20062,7 +20062,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "6조(오답)",
         "유향소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 훈구와 사림"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 훈구와 사림"
     },
     "joseonearly-hist-20260919-076": {
       "number": 1133,
@@ -20073,7 +20073,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신진 사대부(오답)",
         "호족(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 훈구와 사림"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 훈구와 사림"
     },
     "joseonearly-hist-20260919-077": {
       "number": 1134,
@@ -20084,7 +20084,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대윤, 소윤(오답)",
         "서경파, 개경파(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 붕당의 형성"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 붕당의 형성"
     },
     "joseonearly-hist-20260919-078": {
       "number": 1135,
@@ -20095,7 +20095,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "훈구(오답)",
         "권문세족(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 붕당의 형성"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 붕당의 형성"
     },
     "joseonearly-hist-20260919-079": {
       "number": 1136,
@@ -20106,7 +20106,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최영(오답)",
         "이성계(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 조선의 건국 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 조선의 건국 과정"
     },
     "joseonearly-hist-20260919-080": {
       "number": 1137,
@@ -20115,7 +20115,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "왕과 업적 짝짓기(정답)",
         "태종, 세종, 세조, 성종"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 통치 기반 마련"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 통치 기반 마련"
     },
     "joseonphoto-hist-20260919-001": {
       "number": 1138,
@@ -20127,7 +20127,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안동 봉정사 극락전: 고려 목조 건축(오답, 사진)",
         "경주 첨성대: 신라 천문 관측대(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonphoto-hist-20260919-002": {
       "number": 1139,
@@ -20138,7 +20138,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사리원 성불사 응진전: 고려 다포 건축(오답, 사진)",
         "경주 황룡사지 목탑 터: 신라 절터(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonphoto-hist-20260919-003": {
       "number": 1140,
@@ -20149,7 +20149,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "개성 경천사지 10층 석탑: 고려 대리석 탑(오답, 사진)",
         "김유신 묘: 신라 무덤(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonphoto-hist-20260919-004": {
       "number": 1141,
@@ -20161,7 +20161,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "예산 수덕사 대웅전: 고려 주심포 건축(오답, 사진)",
         "안동 봉정사 극락전: 고려 목조 건축(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonphoto-hist-20260919-005": {
       "number": 1142,
@@ -20172,7 +20172,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안동 봉정사 극락전: 고려 목조 건축(오답, 사진)",
         "경주 첨성대: 신라 천문 관측대(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonphoto-hist-20260919-006": {
       "number": 1143,
@@ -20183,7 +20183,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "평창 월정사 8각 9층 석탑: 고려 다각 다층 석탑(오답, 사진)",
         "광개토 대왕릉비: 고구려 비석(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태조"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태조"
     },
     "joseonphoto-hist-20260919-007": {
       "number": 1144,
@@ -20195,7 +20195,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경주 첨성대: 신라 천문 관측대(오답, 사진)",
         "경주 황룡사지 목탑 터: 신라 절터(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태종"
     },
     "joseonphoto-hist-20260919-008": {
       "number": 1145,
@@ -20206,7 +20206,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "예산 수덕사 대웅전: 고려 주심포 건축(오답, 사진)",
         "김유신 묘: 신라 무덤(오답, 사진)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 183쪽 태종"
+      "sourceSection": "자체 제작(기출 원문 아님), 16강 조선 전기(정치) 태종"
     },
     "joseonorg-hist-20260921-001": {
       "number": 1146,
@@ -20217,7 +20217,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "승정원: 왕명 출납(오답)",
         "고려 도병마사: 국방, 군사 회의(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-002": {
       "number": 1147,
@@ -20228,7 +20228,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "춘추관: 역사서 편찬, 보관(오답)",
         "의금부: 반역죄, 강상죄 처결(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-003": {
       "number": 1148,
@@ -20239,7 +20239,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 상서성, 6부(오답)",
         "사간원: 간쟁, 논박(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-004": {
       "number": 1149,
@@ -20250,7 +20250,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍문관: 국왕 자문, 경연 주관(오답)",
         "승정원: 왕명 출납(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-005": {
       "number": 1150,
@@ -20261,7 +20261,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의금부: 국왕 직속 사법 기구(오답)",
         "경재소: 지방 출신 중앙 고위 관리(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-006": {
       "number": 1151,
@@ -20272,7 +20272,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "춘추관: 역사서 편찬, 보관(오답)",
         "장례원: 노비 소송, 호적(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-007": {
       "number": 1152,
@@ -20283,7 +20283,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍문관: 경연 주관, 경서 관리(오답)",
         "사역원: 외국어 통역, 번역(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-008": {
       "number": 1153,
@@ -20294,7 +20294,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 식목도감: 법제, 격식(오답)",
         "고려 삼사: 화폐, 곡식 회계(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-009": {
       "number": 1154,
@@ -20305,7 +20305,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사간원: 간쟁, 논박(오답)",
         "관상감: 천문, 지리, 기후(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-010": {
       "number": 1155,
@@ -20316,7 +20316,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의금부: 중범죄 처결(오답)",
         "성균관: 대사성, 최고 관립 교육 기관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-011": {
       "number": 1156,
@@ -20327,7 +20327,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 식목도감(오답)",
         "의금부: 반역죄, 강상죄(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-012": {
       "number": 1157,
@@ -20338,7 +20338,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의정부: 국정 총괄, 6조 관할(오답)",
         "한성부: 수도 행정, 치안(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-013": {
       "number": 1158,
@@ -20348,7 +20348,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍문관: 3사에만 속함(오답)",
         "승정원, 의금부: 왕권 강화 기구(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-014": {
       "number": 1159,
@@ -20359,7 +20359,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장례원: 노비 소송, 호적(오답)",
         "사헌부: 감찰, 풍속 교화(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-015": {
       "number": 1160,
@@ -20370,7 +20370,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍문관: 경연, 자문(오답)",
         "관상감: 천문, 지리, 기후(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-016": {
       "number": 1161,
@@ -20381,7 +20381,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍문관, 춘추관(오답)",
         "한성부, 성균관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-017": {
       "number": 1162,
@@ -20392,7 +20392,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "춘추관: 역사서 편찬, 보관(오답)",
         "사역원: 통역, 번역(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-018": {
       "number": 1163,
@@ -20403,7 +20403,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍문관: 자문, 경연(오답)",
         "한성부: 수도 행정, 치안(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-019": {
       "number": 1164,
@@ -20414,7 +20414,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의금부 별칭 조옥, 금부, 금오(오답)",
         "사헌부 별칭 상대, 오대, 백부(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-020": {
       "number": 1165,
@@ -20425,7 +20425,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금오 = 의금부(오답)",
         "미원 = 사간원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-021": {
       "number": 1166,
@@ -20436,7 +20436,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "도승지 = 승정원(오답)",
         "대사성 = 성균관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-022": {
       "number": 1167,
@@ -20447,7 +20447,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대제학 = 홍문관(오답)",
         "대사성 = 성균관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-023": {
       "number": 1168,
@@ -20457,7 +20457,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 어사대: 감찰(오답)",
         "조선 의금부: 국왕 직속 사법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-024": {
       "number": 1169,
@@ -20468,7 +20468,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성균관(오답)",
         "관상감(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-025": {
       "number": 1170,
@@ -20479,7 +20479,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장례원: 노비 소송, 호적(오답)",
         "춘추관: 역사서 편찬, 보관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-026": {
       "number": 1171,
@@ -20490,7 +20490,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관상감(오답)",
         "춘추관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-027": {
       "number": 1172,
@@ -20501,7 +20501,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한성부(오답)",
         "관상감(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-028": {
       "number": 1173,
@@ -20512,7 +20512,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관상감(오답)",
         "사역원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-029": {
       "number": 1174,
@@ -20523,7 +20523,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장례원(오답)",
         "성균관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-030": {
       "number": 1175,
@@ -20534,7 +20534,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍문관: 경연, 경서(오답)",
         "승정원: 왕명 출납(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-031": {
       "number": 1176,
@@ -20545,7 +20545,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의금부 반역죄 — 칸 바꿈(오답)",
         "홍문관: 경연, 경서(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-032": {
       "number": 1177,
@@ -20556,7 +20556,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍문관(오답)",
         "한성부(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 중앙 정치 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 중앙 정치 조직"
     },
     "joseonorg-hist-20260921-033": {
       "number": 1178,
@@ -20567,7 +20567,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "통일 신라 9주 5소경(오답)",
         "고려 속현이 주현보다 많음(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-034": {
       "number": 1179,
@@ -20578,7 +20578,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경재소: 지방 출신 중앙 고위 관리(오답)",
         "면, 리, 통 책임자: 인구 파악, 부역 징발(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-035": {
       "number": 1180,
@@ -20589,7 +20589,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유향소: 지방 사족, 수령 자문(오답)",
         "고려 병마사: 양계(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-036": {
       "number": 1181,
@@ -20600,7 +20600,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 향리: 외역전, 속현(오답)",
         "경재소 책임자(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-037": {
       "number": 1182,
@@ -20611,7 +20611,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라 말 호족 성주, 장군(오답)",
         "고려 향리 외역전, 속현(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-038": {
       "number": 1183,
@@ -20622,7 +20622,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 양계 병마사(오답)",
         "고려 속현 향리 행정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-039": {
       "number": 1184,
@@ -20633,7 +20633,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관찰사(오답)",
         "경재소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-040": {
       "number": 1185,
@@ -20644,7 +20644,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유향소: 향촌 자치(오답)",
         "관찰사: 수령 평가(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-041": {
       "number": 1186,
@@ -20655,7 +20655,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경재소(오답)",
         "관찰사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-042": {
       "number": 1187,
@@ -20666,7 +20666,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "면, 리, 통(오답)",
         "관찰사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-043": {
       "number": 1188,
@@ -20677,7 +20677,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "면, 리, 통(오답)",
         "관찰사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-044": {
       "number": 1189,
@@ -20686,7 +20686,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유향소 — 지방 사족 / 경재소 — 지방 출신 중앙 고위 관리(정답)",
         "구성원 맞바꿈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-045": {
       "number": 1190,
@@ -20697,7 +20697,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 태조 기인 제도(오답)",
         "고려 태조 사심관 제도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-046": {
       "number": 1191,
@@ -20708,7 +20708,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 향, 부곡, 소(오답)",
         "고려 5도 양계(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-047": {
       "number": 1192,
@@ -20719,7 +20719,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향리(오답)",
         "경재소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-048": {
       "number": 1193,
@@ -20730,7 +20730,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향리(오답)",
         "유향소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 194쪽 지방 행정 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 지방 행정 조직"
     },
     "joseonorg-hist-20260921-049": {
       "number": 1194,
@@ -20741,7 +20741,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "소과 합격자 대과 응시(오답)",
         "성균관 유생 대과 응시(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-050": {
       "number": 1195,
@@ -20752,7 +20752,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "천거(오답)",
         "취재(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-051": {
       "number": 1196,
@@ -20763,7 +20763,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "잡과: 해당 관청 기술관(오답)",
         "천거: 추천제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-052": {
       "number": 1197,
@@ -20774,7 +20774,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "잡과(오답)",
         "천거(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-053": {
       "number": 1198,
@@ -20785,7 +20785,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "잡과(오답)",
         "음서(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-054": {
       "number": 1199,
@@ -20796,7 +20796,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "무과(오답)",
         "현량과(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-055": {
       "number": 1200,
@@ -20807,7 +20807,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "병조(오답)",
         "호조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-056": {
       "number": 1201,
@@ -20818,7 +20818,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "취재(오답)",
         "소과(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-057": {
       "number": 1202,
@@ -20829,7 +20829,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "취재(오답)",
         "천거(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-058": {
       "number": 1203,
@@ -20840,7 +20840,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "현량과(오답)",
         "대과, 무과(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-059": {
       "number": 1204,
@@ -20851,7 +20851,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "천거(오답)",
         "현량과(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-060": {
       "number": 1205,
@@ -20862,7 +20862,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 전시과(오답)",
         "고려 기인 제도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-061": {
       "number": 1206,
@@ -20873,7 +20873,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서경(오답)",
         "천거(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-062": {
       "number": 1207,
@@ -20884,7 +20884,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라 골품제(오답)",
         "고려 무신 중방(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-063": {
       "number": 1208,
@@ -20895,7 +20895,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라 독서삼품과(오답)",
         "고려 음서(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-064": {
       "number": 1209,
@@ -20906,7 +20906,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대과 내용을 잡과에 붙임(오답)",
         "천거 내용을 무과에 붙임(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 관리 선발 방식"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 관리 선발 방식"
     },
     "joseonorg-hist-20260921-065": {
       "number": 1210,
@@ -20917,7 +20917,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 주진군(오답)",
         "고려 2군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-066": {
       "number": 1211,
@@ -20928,7 +20928,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "5위 갑사(오답)",
         "영진군 수군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-067": {
       "number": 1212,
@@ -20939,7 +20939,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 별무반(오답)",
         "잡색군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-068": {
       "number": 1213,
@@ -20950,7 +20950,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "잡색군(오답)",
         "고려 광군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-069": {
       "number": 1214,
@@ -20961,7 +20961,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "잡색군(오답)",
         "고려 주현군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-070": {
       "number": 1215,
@@ -20972,7 +20972,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "속오군 체제(오답)",
         "5위(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-071": {
       "number": 1216,
@@ -20983,7 +20983,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "5위(오답)",
         "고려 주진군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-072": {
       "number": 1217,
@@ -20992,7 +20992,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "진관 — 지역 단위 / 제승방략 — 도 단위(정답)",
         "방어 단위 맞바꿈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-073": {
       "number": 1218,
@@ -21003,7 +21003,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "잡색군(오답)",
         "고려 별무반(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-074": {
       "number": 1219,
@@ -21011,7 +21011,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "방어 체제 순서: 진관 → 제승방략 → 진관 복귀, 속오군(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-075": {
       "number": 1220,
@@ -21022,7 +21022,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "영진군(오답)",
         "고려 별무반(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-076": {
       "number": 1221,
@@ -21033,7 +21033,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "영진군(오답)",
         "고려 주현군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-077": {
       "number": 1222,
@@ -21044,7 +21044,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 주현군, 주진군(오답)",
         "고려 광군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonorg-hist-20260921-078": {
       "number": 1223,
@@ -21055,7 +21055,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 추밀, 승선(오답)",
         "도승지, 대사헌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 195쪽 군사 조직"
+      "sourceSection": "자체 제작(기출 원문 아님), 17강 조선(조직) 군사 조직"
     },
     "joseonforeign-hist-20260921-001": {
       "number": 1224,
@@ -21066,7 +21066,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "일본: 동평관(오답)",
         "일본: 3포 개항, 계해약조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-002": {
       "number": 1225,
@@ -21077,7 +21077,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최윤덕: 4군(오답)",
         "이종무: 쓰시마섬 정벌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-003": {
       "number": 1226,
@@ -21088,7 +21088,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이종무: 쓰시마섬(오답)",
         "김종서: 6진(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-004": {
       "number": 1227,
@@ -21099,7 +21099,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "일본 온건책: 3포(오답)",
         "여진 온건책: 귀순 장려(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-005": {
       "number": 1228,
@@ -21107,7 +21107,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "사대 = 명, 교린 = 일본, 여진, 유구(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-006": {
       "number": 1229,
@@ -21118,7 +21118,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 예종: 동북 9성(오답)",
         "고려 성종: 서희 강동 6주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-007": {
       "number": 1230,
@@ -21129,7 +21129,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 기인 제도(오답)",
         "조선 상피제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-008": {
       "number": 1231,
@@ -21140,7 +21140,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 초 경계(오답)",
         "고려 천리장성(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-009": {
       "number": 1232,
@@ -21151,7 +21151,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "일본 강경책: 쓰시마섬 정벌(오답)",
         "일본 온건책: 동평관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-010": {
       "number": 1233,
@@ -21162,7 +21162,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "일본 온건책: 3포 개항(오답)",
         "여진 강경책: 4군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-011": {
       "number": 1234,
@@ -21170,7 +21170,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "북평관 = 여진, 동평관 = 일본(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-012": {
       "number": 1235,
@@ -21181,7 +21181,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세조: 진관 체제(오답)",
         "성종: 『경국대전』 완성(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-013": {
       "number": 1236,
@@ -21191,7 +21191,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "일본에 4군 6진(오답)",
         "여진에 쓰시마섬 정벌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-014": {
       "number": 1237,
@@ -21201,7 +21201,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최무선: 진포(오답)",
         "최윤덕: 4군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-015": {
       "number": 1238,
@@ -21212,7 +21212,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여진: 4군 6진(오답)",
         "명: 사대 외교(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-016": {
       "number": 1239,
@@ -21223,7 +21223,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정묘호란: 형제의 맹약(오답)",
         "병자호란: 삼전도, 군신 관계(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-017": {
       "number": 1240,
@@ -21234,7 +21234,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중종: 비변사 설치(오답)",
         "명종: 비변사 상설화(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-018": {
       "number": 1241,
@@ -21245,7 +21245,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "명종: 비변사 상설화(오답, 뒤)",
         "선조: 의주 피란(오답, 뒤)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 조선 초기의 대외 관계"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 조선 초기의 대외 관계"
     },
     "joseonforeign-hist-20260921-019": {
       "number": 1242,
@@ -21256,7 +21256,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "훈련도감(오답)",
         "속오군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-020": {
       "number": 1243,
@@ -21267,7 +21267,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종: 쓰시마섬 정벌(오답)",
         "세종: 3포 개항(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-021": {
       "number": 1244,
@@ -21277,7 +21277,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기유약조(오답)",
         "훈련도감(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-022": {
       "number": 1245,
@@ -21288,7 +21288,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "명의 지원병 요청(오답)",
         "군신 관계 요구(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-023": {
       "number": 1246,
@@ -21296,7 +21296,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "임진왜란 초기 순서: 부산진, 동래성 → 탄금대 → 의주 피란(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-024": {
       "number": 1247,
@@ -21306,7 +21306,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신립: 탄금대(오답)",
         "김시민: 진주 대첩(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-025": {
       "number": 1248,
@@ -21317,7 +21317,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권율: 행주 대첩(오답)",
         "곽재우: 의병(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-026": {
       "number": 1249,
@@ -21328,7 +21328,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "명종: 비변사 상설화(오답)",
         "광해군: 기유약조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-027": {
       "number": 1250,
@@ -21339,7 +21339,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종: 계해약조(오답, 앞)",
         "인조반정(오답, 뒤)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-028": {
       "number": 1251,
@@ -21350,7 +21350,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "명량 대첩: 정유재란(오답)",
         "노량 해전: 정유재란(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-029": {
       "number": 1252,
@@ -21361,7 +21361,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "부산진, 동래성 함락(오답)",
         "의주 피란(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-030": {
       "number": 1253,
@@ -21372,7 +21372,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "행주 대첩: 권율(오답)",
         "평양성 전투: 조명 연합군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-031": {
       "number": 1254,
@@ -21381,7 +21381,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정유재란: 명량, 노량(정답)",
         "임진왜란 초기: 옥포, 한산도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-032": {
       "number": 1255,
@@ -21392,7 +21392,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "행주(오답)",
         "한산도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-033": {
       "number": 1256,
@@ -21403,7 +21403,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "에도 막부 통교 요청(오답)",
         "친명배금(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-034": {
       "number": 1257,
@@ -21414,7 +21414,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "속오군: 양반~노비(오답)",
         "5위: 중앙군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-035": {
       "number": 1258,
@@ -21425,7 +21425,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정묘호란: 정봉수(오답)",
         "세종: 최윤덕(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-036": {
       "number": 1259,
@@ -21436,7 +21436,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정묘호란: 정봉수, 이립(오답)",
         "고려: 박위(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-037": {
       "number": 1260,
@@ -21447,7 +21447,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조헌: 금산(오답)",
         "김시민: 진주 대첩(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-038": {
       "number": 1261,
@@ -21458,7 +21458,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "곽재우(오답)",
         "김시민(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-039": {
       "number": 1262,
@@ -21469,7 +21469,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "병자호란: 임경업, 김준룡(오답)",
         "관군: 정발, 송상현(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-040": {
       "number": 1263,
@@ -21480,7 +21480,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "탄금대(오답)",
         "한산도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-041": {
       "number": 1264,
@@ -21491,7 +21491,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정문부: 북관 대첩(오답)",
         "이순신: 한산도 대첩(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-042": {
       "number": 1265,
@@ -21499,7 +21499,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "순서: 진주 → 평양성 → 행주 → 휴전 협상(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-043": {
       "number": 1266,
@@ -21510,7 +21510,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "옥포: 이순신(오답)",
         "진주 대첩: 김시민(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-044": {
       "number": 1267,
@@ -21521,7 +21521,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "잡색군(오답)",
         "비변사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-045": {
       "number": 1268,
@@ -21532,7 +21532,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "5위(오답)",
         "비변사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-046": {
       "number": 1269,
@@ -21543,7 +21543,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "5위: 중앙군(오답)",
         "고려 별무반(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-047": {
       "number": 1270,
@@ -21553,7 +21553,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 2군 6위(오답)",
         "고려 주현군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-048": {
       "number": 1271,
@@ -21564,7 +21564,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정묘호란: 정봉수, 이립(오답)",
         "세종: 이종무(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 206쪽 임진왜란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 임진왜란의 전개"
     },
     "joseonforeign-hist-20260921-049": {
       "number": 1272,
@@ -21575,7 +21575,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태종: 사원 토지, 노비 몰수(오답)",
         "성종: 『경국대전』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-050": {
       "number": 1273,
@@ -21586,7 +21586,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "호패법(오답)",
         "속오군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-051": {
       "number": 1274,
@@ -21597,7 +21597,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종(오답)",
         "중종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-052": {
       "number": 1275,
@@ -21608,7 +21608,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "명종: 비변사 상설화(오답)",
         "세종: 계해약조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-053": {
       "number": 1276,
@@ -21619,7 +21619,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종: 4군 6진(오답)",
         "중종: 비변사 설치(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-054": {
       "number": 1277,
@@ -21629,7 +21629,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종(오답)",
         "인조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-055": {
       "number": 1278,
@@ -21640,7 +21640,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종: 3포 개항(오답)",
         "중종: 비변사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-056": {
       "number": 1279,
@@ -21651,7 +21651,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주화파, 척화파(오답)",
         "삼전도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-057": {
       "number": 1280,
@@ -21662,7 +21662,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "인조: 군신 관계 거부(오답)",
         "인조: 형제의 맹약(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-058": {
       "number": 1281,
@@ -21673,7 +21673,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "무오사화(오답)",
         "갑자사화(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-059": {
       "number": 1282,
@@ -21684,7 +21684,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동의보감』(오답, 앞)",
         "의주 피란(오답, 앞)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-060": {
       "number": 1283,
@@ -21695,7 +21695,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "병자호란: 볼모(오답)",
         "무오사화: 부관참시(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-061": {
       "number": 1284,
@@ -21706,7 +21706,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "창덕궁: 태종(오답)",
         "종묘: 태조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-062": {
       "number": 1285,
@@ -21717,7 +21717,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "훈구(오답)",
         "권문세족(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-063": {
       "number": 1286,
@@ -21725,7 +21725,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "순서: 기유약조 → 강홍립 출정 → 인조반정(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 광해군의 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 광해군의 정책"
     },
     "joseonforeign-hist-20260921-064": {
       "number": 1287,
@@ -21736,7 +21736,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정유재란 계기(오답)",
         "임진왜란 배경(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-065": {
       "number": 1288,
@@ -21747,7 +21747,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "병자호란: 김준룡(오답)",
         "임진왜란: 곽재우(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-066": {
       "number": 1289,
@@ -21758,7 +21758,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "병자호란: 남한산성(오답)",
         "병자호란: 삼전도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-067": {
       "number": 1290,
@@ -21769,7 +21769,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "임진왜란: 휴전 협상(오답)",
         "광해군: 기유약조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-068": {
       "number": 1291,
@@ -21777,7 +21777,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "정묘 형제의 맹약, 병자 군신 관계(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-069": {
       "number": 1292,
@@ -21788,7 +21788,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "임진왜란: 의주(오답)",
         "정묘호란: 용골산성(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-070": {
       "number": 1293,
@@ -21799,7 +21799,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "선조: 의주 피란(오답)",
         "명종: 비변사 상설화(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-071": {
       "number": 1294,
@@ -21810,7 +21810,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광해군: 명의 지원병 요청(오답)",
         "중종: 3포 왜란(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-072": {
       "number": 1295,
@@ -21821,7 +21821,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "임진왜란: 정문부(오답)",
         "세종: 최윤덕(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-073": {
       "number": 1296,
@@ -21832,7 +21832,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "일본: 계해약조(오답)",
         "명: 요동 정벌 갈등(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-074": {
       "number": 1297,
@@ -21843,7 +21843,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김상용: 강화도 순절(오답)",
         "권율: 행주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-075": {
       "number": 1298,
@@ -21854,7 +21854,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정묘호란: 정봉수, 이립(오답)",
         "임진왜란: 조헌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-076": {
       "number": 1299,
@@ -21865,7 +21865,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "임진왜란: 의주(오답)",
         "정묘호란: 형제의 맹약(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-077": {
       "number": 1300,
@@ -21875,7 +21875,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "임경업 백마산성(오답)",
         "신립 탄금대(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-078": {
       "number": 1301,
@@ -21886,7 +21886,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "임진왜란: 휴전 협상(오답)",
         "광해군: 기유약조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-079": {
       "number": 1302,
@@ -21897,7 +21897,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "볼모(오답, 뒤)",
         "북벌 운동(오답, 뒤)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-080": {
       "number": 1303,
@@ -21908,7 +21908,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정묘호란 의병(오답)",
         "병자호란 장수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-081": {
       "number": 1304,
@@ -21919,7 +21919,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이괄의 잔당(오답)",
         "기유약조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-082": {
       "number": 1305,
@@ -21930,7 +21930,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광해군: 기유약조(오답, 앞)",
         "북벌 운동(오답, 뒤)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonforeign-hist-20260921-083": {
       "number": 1306,
@@ -21938,7 +21938,7 @@ globalThis.STUDY_REVIEW_CATALOG={
       "coverage": [
         "순서: 인조반정 → 이괄 → 정묘 → 병자(정답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 207쪽 호란의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 18강 조선 전기(외교) 호란의 전개"
     },
     "joseonecosoc-hist-20260923-001": {
       "number": 1307,
@@ -21949,7 +21949,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "연분9등법(오답)",
         "직전법 폐지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-002": {
       "number": 1308,
@@ -21960,7 +21960,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "직전법(오답)",
         "직전법 폐지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-003": {
       "number": 1309,
@@ -21971,7 +21971,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관수관급제 목적(오답)",
         "공법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-004": {
       "number": 1310,
@@ -21982,7 +21982,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관수관급제(오답)",
         "직전법 폐지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-005": {
       "number": 1311,
@@ -21993,7 +21993,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "역분전(오답)",
         "녹과전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-006": {
       "number": 1312,
@@ -22004,7 +22004,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "직전법(오답)",
         "전분6등법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-007": {
       "number": 1313,
@@ -22015,7 +22015,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관수관급제(오답)",
         "직전법 폐지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-008": {
       "number": 1314,
@@ -22026,7 +22026,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "직전(오답)",
         "공음전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-009": {
       "number": 1315,
@@ -22035,7 +22035,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "수신전 아내, 휼양전 자녀(정답)",
         "짝 뒤바뀜(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-010": {
       "number": 1316,
@@ -22046,7 +22046,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관수관급제(오답)",
         "직전법 폐지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-011": {
       "number": 1317,
@@ -22057,7 +22057,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과전법 배경(오답)",
         "방납(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-012": {
       "number": 1318,
@@ -22068,7 +22068,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종: 공법(오답)",
         "명종: 직전법 폐지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-013": {
       "number": 1319,
@@ -22079,7 +22079,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신라 관료전, 정전(오답)",
         "고려 역분전, 녹과전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-014": {
       "number": 1320,
@@ -22090,7 +22090,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "명종: 구황촬요(오답)",
         "세종: 연분9등법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-015": {
       "number": 1321,
@@ -22101,7 +22101,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과전법 건의(오답)",
         "위화도 회군 세력(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-016": {
       "number": 1322,
@@ -22112,7 +22112,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과전법(오답)",
         "직전법 폐지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-017": {
       "number": 1323,
@@ -22123,7 +22123,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전시과(오답)",
         "녹과전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-018": {
       "number": 1324,
@@ -22134,7 +22134,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "직전법(오답)",
         "과전법 운영 결과(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-019": {
       "number": 1325,
@@ -22145,7 +22145,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "명종: 직전법 폐지(오답)",
         "세종: 공법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-020": {
       "number": 1326,
@@ -22156,7 +22156,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과전법(오답)",
         "수신전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-021": {
       "number": 1327,
@@ -22167,7 +22167,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세조: 직전법(오답)",
         "세종: 공법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-022": {
       "number": 1328,
@@ -22176,7 +22176,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나→라→가→다(정답)",
         "앞뒤 바꾼 배열(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-023": {
       "number": 1329,
@@ -22187,7 +22187,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공법(오답, 앞)",
         "임꺽정(오답, 뒤)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-024": {
       "number": 1330,
@@ -22196,7 +22196,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과전법 전현직, 직전법 현직(정답)",
         "대상 뒤바뀜(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-025": {
       "number": 1331,
@@ -22205,7 +22205,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종, 명종(정답)",
         "세조, 중종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-026": {
       "number": 1332,
@@ -22216,7 +22216,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "역분전(오답)",
         "휼양전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-027": {
       "number": 1333,
@@ -22227,7 +22227,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공음전(오답)",
         "직전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-028": {
       "number": 1334,
@@ -22238,7 +22238,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종: 관수관급제(오답)",
         "성종: 경국대전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 토지 제도"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 토지 제도"
     },
     "joseonecosoc-hist-20260923-029": {
       "number": 1335,
@@ -22249,7 +22249,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "16세기 4~6두(오답)",
         "타조법 지대(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-030": {
       "number": 1336,
@@ -22260,7 +22260,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장례원(오답)",
         "비변사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-031": {
       "number": 1337,
@@ -22271,7 +22271,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대동법(오답)",
         "관수관급제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-032": {
       "number": 1338,
@@ -22280,7 +22280,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전분 비옥도, 연분 풍흉(정답)",
         "기준 뒤바뀜(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-033": {
       "number": 1339,
@@ -22291,7 +22291,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관수관급제(오답)",
         "직전법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-034": {
       "number": 1340,
@@ -22302,7 +22302,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종: 관수관급제(오답)",
         "태종: 호패법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-035": {
       "number": 1341,
@@ -22313,7 +22313,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과전법 조세(오답)",
         "16세기 관행(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-036": {
       "number": 1342,
@@ -22324,7 +22324,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대동법(오답)",
         "16세기 관행(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-037": {
       "number": 1343,
@@ -22335,7 +22335,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과전법 조세(오답)",
         "광해군 대동법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-038": {
       "number": 1344,
@@ -22346,7 +22346,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "군역(오답)",
         "요역(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-039": {
       "number": 1345,
@@ -22357,7 +22357,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "역: 군역의 요역화(오답)",
         "조세: 4~6두(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-040": {
       "number": 1346,
@@ -22368,7 +22368,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방군수포(오답)",
         "병작반수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-041": {
       "number": 1347,
@@ -22379,7 +22379,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "요역(오답)",
         "공납(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-042": {
       "number": 1348,
@@ -22390,7 +22390,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조세 4~6두(오답)",
         "지대(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-043": {
       "number": 1349,
@@ -22401,7 +22401,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "군역의 요역화(오답)",
         "타조법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-044": {
       "number": 1350,
@@ -22412,7 +22412,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조세(오답)",
         "타조법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-045": {
       "number": 1351,
@@ -22423,7 +22423,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과전법 조세(오답)",
         "대립(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-046": {
       "number": 1352,
@@ -22434,7 +22434,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관수관급제(오답)",
         "연분9등법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-047": {
       "number": 1353,
@@ -22445,7 +22445,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대립(오답)",
         "관수관급제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-048": {
       "number": 1354,
@@ -22456,7 +22456,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 말 농장(오답)",
         "과전법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-049": {
       "number": 1355,
@@ -22467,7 +22467,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종: 관수관급제(오답)",
         "중종: 향약(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-050": {
       "number": 1356,
@@ -22478,7 +22478,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "수신전(오답)",
         "전제상정소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-051": {
       "number": 1357,
@@ -22489,7 +22489,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "망이, 망소이(오답)",
         "만적(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-052": {
       "number": 1358,
@@ -22500,7 +22500,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종 전제상정소(오답)",
         "광해군 대동법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-053": {
       "number": 1359,
@@ -22511,7 +22511,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방납, 유민(오답, 뒤)",
         "고려 말 농장(오답, 앞)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-054": {
       "number": 1360,
@@ -22522,7 +22522,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과전법 조세(오답)",
         "역: 대립, 방군수포(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 218쪽 수취 체제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 수취 체제"
     },
     "joseonecosoc-hist-20260923-055": {
       "number": 1361,
@@ -22533,7 +22533,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 신분 구조(오답)",
         "부여 호민, 하호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-056": {
       "number": 1362,
@@ -22542,7 +22542,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양인 자유민, 천인 비자유민(정답)",
         "뒤바뀜(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-057": {
       "number": 1363,
@@ -22553,7 +22553,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "골품제(오답)",
         "고려 신분 구조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-058": {
       "number": 1364,
@@ -22564,7 +22564,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신량역천(오답)",
         "노비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-059": {
       "number": 1365,
@@ -22575,7 +22575,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신량역천(오답)",
         "노비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-060": {
       "number": 1366,
@@ -22586,7 +22586,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "천민(오답)",
         "양반(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-061": {
       "number": 1367,
@@ -22597,7 +22597,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신량역천(오답)",
         "노비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-062": {
       "number": 1368,
@@ -22606,7 +22606,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서자 양인 첩, 얼자 천민 첩(정답)",
         "뒤바뀜(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-063": {
       "number": 1369,
@@ -22617,7 +22617,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노비(오답)",
         "백정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-064": {
       "number": 1370,
@@ -22628,7 +22628,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노비(오답)",
         "양반(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-065": {
       "number": 1371,
@@ -22639,7 +22639,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양반(오답)",
         "노비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-066": {
       "number": 1372,
@@ -22650,7 +22650,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양반(오답)",
         "노비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-067": {
       "number": 1373,
@@ -22661,7 +22661,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중인 의관(오답)",
         "백정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-068": {
       "number": 1374,
@@ -22672,7 +22672,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서얼(오답)",
         "중인(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-069": {
       "number": 1375,
@@ -22683,7 +22683,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서얼(오답)",
         "중인(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-070": {
       "number": 1376,
@@ -22694,7 +22694,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중인(오답)",
         "양반(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-071": {
       "number": 1377,
@@ -22705,7 +22705,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중인(오답)",
         "상민(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-072": {
       "number": 1378,
@@ -22716,7 +22716,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서얼(오답)",
         "양반(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-073": {
       "number": 1379,
@@ -22727,7 +22727,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중인(오답)",
         "양반(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-074": {
       "number": 1380,
@@ -22738,7 +22738,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노비 매매 신고(오답)",
         "군역 면제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-075": {
       "number": 1381,
@@ -22749,7 +22749,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서얼(오답)",
         "역관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-076": {
       "number": 1382,
@@ -22760,7 +22760,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "역졸(오답)",
         "광대(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-077": {
       "number": 1383,
@@ -22769,7 +22769,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신량역천 양인, 노비 천인(정답)",
         "뒤바뀜(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-078": {
       "number": 1384,
@@ -22780,7 +22780,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신량역천(오답)",
         "노비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 신분제"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 신분제"
     },
     "joseonecosoc-hist-20260923-079": {
       "number": 1385,
@@ -22791,7 +22791,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "호패법(오답)",
         "유향소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-080": {
       "number": 1386,
@@ -22802,7 +22802,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약(오답)",
         "유향소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-081": {
       "number": 1387,
@@ -22813,7 +22813,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약(오답)",
         "유향소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-082": {
       "number": 1388,
@@ -22822,7 +22822,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "두레 노동, 향도 상장제례(정답)",
         "뒤바뀜(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-083": {
       "number": 1389,
@@ -22833,7 +22833,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "제생원(오답)",
         "유향소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-084": {
       "number": 1390,
@@ -22844,7 +22844,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유향소(오답)",
         "직전법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-085": {
       "number": 1391,
@@ -22855,7 +22855,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향촌 기구(오답)",
         "군역 폐단(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-086": {
       "number": 1392,
@@ -22866,7 +22866,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약구급방(오답)",
         "동의보감(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-087": {
       "number": 1393,
@@ -22877,7 +22877,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중종: 향약(오답)",
         "성종: 유향소 재설치(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-088": {
       "number": 1394,
@@ -22886,7 +22886,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혜민서, 활인서(정답)",
         "뒤바뀜(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-089": {
       "number": 1395,
@@ -22897,7 +22897,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의창(오답)",
         "혜민국(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-090": {
       "number": 1396,
@@ -22908,7 +22908,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "활인서(오답)",
         "의창(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-091": {
       "number": 1397,
@@ -22919,7 +22919,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "제생원(오답)",
         "장례원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-092": {
       "number": 1398,
@@ -22930,7 +22930,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약(오답)",
         "의창(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-093": {
       "number": 1399,
@@ -22941,7 +22941,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "직전법(오답)",
         "공법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-094": {
       "number": 1400,
@@ -22952,7 +22952,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혜민서(오답)",
         "구황촬요(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-095": {
       "number": 1401,
@@ -22963,7 +22963,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향도(오답)",
         "유향소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-096": {
       "number": 1402,
@@ -22974,7 +22974,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "과실상규(오답)",
         "예속상교(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-097": {
       "number": 1403,
@@ -22985,7 +22985,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경재소(오답)",
         "두레(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-098": {
       "number": 1404,
@@ -22996,7 +22996,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "두레(오답)",
         "향도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-099": {
       "number": 1405,
@@ -23007,7 +23007,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오가작통법(오답)",
         "농본 정책(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-100": {
       "number": 1406,
@@ -23018,7 +23018,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오가작통법(오답)",
         "직전법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-101": {
       "number": 1407,
@@ -23029,7 +23029,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향도(오답)",
         "경재소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-102": {
       "number": 1408,
@@ -23040,7 +23040,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서원(오답)",
         "두레(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-103": {
       "number": 1409,
@@ -23051,7 +23051,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오가작통법(오답)",
         "제생원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-104": {
       "number": 1410,
@@ -23062,7 +23062,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종: 공법(오답)",
         "명종: 구황촬요(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-105": {
       "number": 1411,
@@ -23073,7 +23073,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약(오답)",
         "향회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-106": {
       "number": 1412,
@@ -23084,7 +23084,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서원(오답)",
         "연분(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-107": {
       "number": 1413,
@@ -23095,7 +23095,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약(오답)",
         "오가작통법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-108": {
       "number": 1414,
@@ -23106,7 +23106,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신량역천(오답)",
         "노비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-109": {
       "number": 1415,
@@ -23117,7 +23117,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "명종 구황촬요(오답)",
         "오가작통법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-110": {
       "number": 1416,
@@ -23128,7 +23128,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경재소(오답)",
         "두레(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-111": {
       "number": 1417,
@@ -23139,7 +23139,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "1책 12법(오답)",
         "고구려 제가 회의(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-112": {
       "number": 1418,
@@ -23150,7 +23150,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약 임원(오답)",
         "오가작통(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-113": {
       "number": 1419,
@@ -23161,7 +23161,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종: 공법(오답)",
         "세조: 직전법(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-114": {
       "number": 1420,
@@ -23170,7 +23170,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "다→가→라→나(정답)",
         "앞뒤 바꾼 배열(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonecosoc-hist-20260923-115": {
       "number": 1421,
@@ -23181,7 +23181,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공법(오답, 앞)",
         "대동법(오답, 뒤)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 219쪽 사회 제도와 법률"
+      "sourceSection": "자체 제작(기출 원문 아님), 19강 조선 전기(경제, 사회) 사회 제도와 법률"
     },
     "joseonculture1-hist-20260923-001": {
       "number": 1422,
@@ -23192,7 +23192,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "4부 학당(오답)",
         "서당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-002": {
       "number": 1423,
@@ -23203,7 +23203,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "4부 학당(오답)",
         "소수 서원 사액(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-003": {
       "number": 1424,
@@ -23214,7 +23214,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "4부 학당(오답)",
         "서당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-004": {
       "number": 1425,
@@ -23225,7 +23225,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성균관(오답)",
         "백운동 서원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-005": {
       "number": 1426,
@@ -23236,7 +23236,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서원(오답)",
         "4부 학당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-006": {
       "number": 1427,
@@ -23247,7 +23247,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사액 서원(오답)",
         "4부 학당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-007": {
       "number": 1428,
@@ -23258,7 +23258,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성균관(오답)",
         "서당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-008": {
       "number": 1429,
@@ -23269,7 +23269,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성균관(오답)",
         "4부 학당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-009": {
       "number": 1430,
@@ -23280,7 +23280,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성균관 ↔ 향교 교수 파견(오답)",
         "둘 다 틀림(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-010": {
       "number": 1431,
@@ -23291,7 +23291,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "4부 학당(오답)",
         "성균관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-011": {
       "number": 1432,
@@ -23302,7 +23302,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성균관(오답)",
         "4부 학당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-012": {
       "number": 1433,
@@ -23313,7 +23313,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유향소(오답)",
         "4부 학당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-013": {
       "number": 1434,
@@ -23324,7 +23324,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경재소(오답)",
         "향교(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-014": {
       "number": 1435,
@@ -23335,7 +23335,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서원(오답)",
         "4부 학당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-015": {
       "number": 1436,
@@ -23346,7 +23346,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성균관 섞임(오답)",
         "국립만(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-016": {
       "number": 1437,
@@ -23357,7 +23357,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "4부 학당(오답)",
         "서원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-017": {
       "number": 1438,
@@ -23368,7 +23368,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서당(오답)",
         "4부 학당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-018": {
       "number": 1439,
@@ -23379,7 +23379,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종(오답)",
         "세종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-019": {
       "number": 1440,
@@ -23390,7 +23390,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "선조(오답)",
         "세조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 교육 기관"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 교육 기관"
     },
     "joseonculture1-hist-20260923-020": {
       "number": 1441,
@@ -23401,7 +23401,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『석보상절』(오답)",
         "소격서(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-021": {
       "number": 1442,
@@ -23412,7 +23412,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고려 최충(오답)",
         "신라 국학(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-022": {
       "number": 1443,
@@ -23423,7 +23423,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김장생(오답)",
         "이이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-023": {
       "number": 1444,
@@ -23434,7 +23434,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조광조(오답)",
         "서거정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-024": {
       "number": 1445,
@@ -23445,7 +23445,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "위훈 삭제(오답)",
         "사단, 칠정 뒤바꿈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-025": {
       "number": 1446,
@@ -23456,7 +23456,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서경덕(오답)",
         "이이 기호학파(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-026": {
       "number": 1447,
@@ -23467,7 +23467,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김장생 『가례집람』(오답)",
         "세종 『삼강행실도』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-027": {
       "number": 1448,
@@ -23478,7 +23478,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이이 서원 향약(오답)",
         "주세붕(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-028": {
       "number": 1449,
@@ -23489,7 +23489,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "소론(오답)",
         "북인(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-029": {
       "number": 1450,
@@ -23500,7 +23500,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "북인(오답)",
         "소론(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-030": {
       "number": 1451,
@@ -23511,7 +23511,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기대승, 조광조(오답)",
         "건국 세력(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-031": {
       "number": 1452,
@@ -23522,7 +23522,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조식 북인(오답)",
         "이이 『격몽요결』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-032": {
       "number": 1453,
@@ -23533,7 +23533,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주세붕(오답)",
         "김장생(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-033": {
       "number": 1454,
@@ -23544,7 +23544,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조광조(오답)",
         "주세붕(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-034": {
       "number": 1455,
@@ -23555,7 +23555,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이황 사단칠정(오답)",
         "이황 영남학파(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-035": {
       "number": 1456,
@@ -23566,7 +23566,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이황 『주자서절요』(오답)",
         "김장생(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-036": {
       "number": 1457,
@@ -23577,7 +23577,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동몽수지』(오답)",
         "『성학집요』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-037": {
       "number": 1458,
@@ -23588,7 +23588,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서거정(오답)",
         "승정원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-038": {
       "number": 1459,
@@ -23599,7 +23599,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주세붕(오답)",
         "김장생(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-039": {
       "number": 1460,
@@ -23610,7 +23610,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "북인(오답)",
         "남인(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-040": {
       "number": 1461,
@@ -23621,7 +23621,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "둘 다 이황(오답)",
         "둘 다 이이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-041": {
       "number": 1462,
@@ -23632,7 +23632,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "둘 다 이황(오답)",
         "둘 다 이이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-042": {
       "number": 1463,
@@ -23643,7 +23643,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "둘 다 조식, 이황(오답)",
         "둘 다 이이, 성혼(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-043": {
       "number": 1464,
@@ -23654,7 +23654,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노론(오답)",
         "소론(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-044": {
       "number": 1465,
@@ -23665,7 +23665,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "둘 다 이이(오답)",
         "둘 다 성혼(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-045": {
       "number": 1466,
@@ -23676,7 +23676,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동인, 북인(오답)",
         "서인, 소론(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-046": {
       "number": 1467,
@@ -23687,7 +23687,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중종 소격서(오답)",
         "성종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 성리학의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 성리학의 발달"
     },
     "joseonculture1-hist-20260923-047": {
       "number": 1468,
@@ -23698,7 +23698,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『석보상절』(오답)",
         "소격서(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 불교와 도교"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 불교와 도교"
     },
     "joseonculture1-hist-20260923-048": {
       "number": 1469,
@@ -23709,7 +23709,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『석보상절』(오답)",
         "간경도감 불사 관장(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 불교와 도교"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 불교와 도교"
     },
     "joseonculture1-hist-20260923-049": {
       "number": 1470,
@@ -23720,7 +23720,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『악학궤범』(오답)",
         "『동국여지승람』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 불교와 도교"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 불교와 도교"
     },
     "joseonculture1-hist-20260923-050": {
       "number": 1471,
@@ -23731,7 +23731,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중종(오답)",
         "태종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 불교와 도교"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 불교와 도교"
     },
     "joseonculture1-hist-20260923-051": {
       "number": 1472,
@@ -23742,7 +23742,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종(오답)",
         "태종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 불교와 도교"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 불교와 도교"
     },
     "joseonculture1-hist-20260923-052": {
       "number": 1473,
@@ -23753,7 +23753,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태종 사원 몰수(오답)",
         "성종 『동국통감』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 불교와 도교"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 불교와 도교"
     },
     "joseonculture1-hist-20260923-053": {
       "number": 1474,
@@ -23764,7 +23764,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "승정원(오답)",
         "실록청(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 불교와 도교"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 불교와 도교"
     },
     "joseonculture1-hist-20260923-054": {
       "number": 1475,
@@ -23775,7 +23775,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "승정원(오답)",
         "성균관(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 불교와 도교"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 불교와 도교"
     },
     "joseonculture1-hist-20260923-055": {
       "number": 1476,
@@ -23786,7 +23786,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "불교 도첩제(오답)",
         "성리학 서원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 불교와 도교"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 불교와 도교"
     },
     "joseonculture1-hist-20260923-056": {
       "number": 1477,
@@ -23797,7 +23797,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "뒤 두 사건 뒤바꿈(오답)",
         "둘 다 뒤바꿈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 불교와 도교"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 불교와 도교"
     },
     "joseonculture1-hist-20260923-057": {
       "number": 1478,
@@ -23808,7 +23808,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『경국대전』(오답)",
         "『삼강행실도』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-058": {
       "number": 1479,
@@ -23819,7 +23819,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『고려사절요』(오답)",
         "『조선왕조실록』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-059": {
       "number": 1480,
@@ -23830,7 +23830,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "둘 다 기전체(오답)",
         "둘 다 편년체(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-060": {
       "number": 1481,
@@ -23841,7 +23841,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동국통감』(오답)",
         "『고려국사』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-061": {
       "number": 1482,
@@ -23852,7 +23852,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『고려사절요』(오답)",
         "『동국사략』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-062": {
       "number": 1483,
@@ -23863,7 +23863,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『고려국사』(오답)",
         "『동국사략』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-063": {
       "number": 1484,
@@ -23874,7 +23874,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세조(오답)",
         "중종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-064": {
       "number": 1485,
@@ -23885,7 +23885,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『고려사절요』(오답)",
         "『동국통감』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-065": {
       "number": 1486,
@@ -23896,7 +23896,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의궤(오답)",
         "『고려사절요』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-066": {
       "number": 1487,
@@ -23907,7 +23907,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의궤(오답)",
         "『동국여지승람』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-067": {
       "number": 1488,
@@ -23918,7 +23918,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의궤(오답)",
         "사초(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-068": {
       "number": 1489,
@@ -23929,7 +23929,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의궤(오답)",
         "『고려사절요』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-069": {
       "number": 1490,
@@ -23940,7 +23940,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동국통감』(오답)",
         "『승정원일기』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-070": {
       "number": 1491,
@@ -23951,7 +23951,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『승정원일기』만(오답)",
         "의궤(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-071": {
       "number": 1492,
@@ -23962,7 +23962,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『승정원일기』(오답)",
         "『삼강행실도』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-072": {
       "number": 1493,
@@ -23973,7 +23973,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "실록(오답)",
         "『삼강행실도』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-073": {
       "number": 1494,
@@ -23984,7 +23984,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종(오답)",
         "세조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-074": {
       "number": 1495,
@@ -23995,7 +23995,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동국여지승람』(오답)",
         "『해동제국기』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-075": {
       "number": 1496,
@@ -24006,7 +24006,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세조(오답)",
         "성종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-076": {
       "number": 1497,
@@ -24017,7 +24017,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "둘 다 세종(오답)",
         "둘 다 성종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-077": {
       "number": 1498,
@@ -24028,7 +24028,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『삼강행실도』(오답)",
         "『국조오례의』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-078": {
       "number": 1499,
@@ -24039,7 +24039,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『국조오례의』(오답)",
         "『경국대전』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-079": {
       "number": 1500,
@@ -24050,7 +24050,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혼일강리(오답)",
         "팔도도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-080": {
       "number": 1501,
@@ -24061,7 +24061,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종(오답)",
         "명종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-081": {
       "number": 1502,
@@ -24072,7 +24072,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혼일강리(오답)",
         "『동국통감』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-082": {
       "number": 1503,
@@ -24083,7 +24083,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동국통감』(오답)",
         "『국조오례의』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-083": {
       "number": 1504,
@@ -24094,7 +24094,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성현(오답)",
         "노사신, 양성지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-084": {
       "number": 1505,
@@ -24105,7 +24105,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태종(오답)",
         "세조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-085": {
       "number": 1506,
@@ -24116,7 +24116,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동몽선습』(오답)",
         "『가례집람』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-086": {
       "number": 1507,
@@ -24127,7 +24127,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의궤(오답)",
         "『국조오례의』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-087": {
       "number": 1508,
@@ -24138,7 +24138,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『가례집람』(오답)",
         "『경국대전』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-088": {
       "number": 1509,
@@ -24149,7 +24149,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "태종(오답)",
         "중종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-089": {
       "number": 1510,
@@ -24160,7 +24160,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『격몽요결』(오답)",
         "『삼강행실도』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-090": {
       "number": 1511,
@@ -24171,7 +24171,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『격몽요결』(오답)",
         "『가례집람』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-091": {
       "number": 1512,
@@ -24182,7 +24182,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동몽수지』(오답)",
         "『삼강행실도』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-092": {
       "number": 1513,
@@ -24193,7 +24193,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『국조오례의』(오답)",
         "『경제문감』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-093": {
       "number": 1514,
@@ -24204,7 +24204,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신숙주(오답)",
         "서거정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-094": {
       "number": 1515,
@@ -24215,7 +24215,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서거정(오답)",
         "신숙주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-095": {
       "number": 1516,
@@ -24226,7 +24226,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세조(오답)",
         "중종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-096": {
       "number": 1517,
@@ -24237,7 +24237,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "둘 다 세조~성종(오답)",
         "뒤바꿈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-097": {
       "number": 1518,
@@ -24248,7 +24248,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "둘 다 정간보(오답)",
         "둘 다 악학궤범(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-098": {
       "number": 1519,
@@ -24259,7 +24259,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "뒤 두 사건 뒤바꿈(오답)",
         "둘 다 뒤바꿈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "joseonculture1-hist-20260923-099": {
       "number": 1520,
@@ -24270,7 +24270,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『경제문감』(오답)",
         "『국조오례의』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 231쪽 편찬 사업"
+      "sourceSection": "자체 제작(기출 원문 아님), 20강 조선 전기(문화 I) 편찬 사업"
     },
     "hyang-hist-20260924-001": {
       "number": 1521,
@@ -24281,7 +24281,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약(오답)",
         "향도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 231쪽 교육 기관 + 19강 219쪽 사회 제도 + 13강 향도)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 교육 기관 + 19강 사회 제도 + 13강 향도)"
     },
     "hyang-hist-20260924-002": {
       "number": 1522,
@@ -24292,7 +24292,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약 4대 덕목(오답)",
         "향도 상장제례(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 231쪽 교육 기관 + 19강 219쪽 사회 제도 + 13강 향도)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 교육 기관 + 19강 사회 제도 + 13강 향도)"
     },
     "hyang-hist-20260924-003": {
       "number": 1523,
@@ -24303,7 +24303,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "둘 다 국립(오답)",
         "둘 다 사립(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 231쪽 교육 기관 + 19강 219쪽 사회 제도 + 13강 향도)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 교육 기관 + 19강 사회 제도 + 13강 향도)"
     },
     "hyang-hist-20260924-004": {
       "number": 1524,
@@ -24314,7 +24314,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "둘 다 교수, 훈도(오답)",
         "둘 다 좌수, 별감(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 231쪽 교육 기관 + 19강 219쪽 사회 제도 + 13강 향도)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 교육 기관 + 19강 사회 제도 + 13강 향도)"
     },
     "hyang-hist-20260924-005": {
       "number": 1525,
@@ -24325,7 +24325,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약(오답)",
         "향도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 231쪽 교육 기관 + 19강 219쪽 사회 제도 + 13강 향도)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 교육 기관 + 19강 사회 제도 + 13강 향도)"
     },
     "hyang-hist-20260924-006": {
       "number": 1526,
@@ -24336,7 +24336,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경재소(오답)",
         "신량역천(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 231쪽 교육 기관 + 19강 219쪽 사회 제도 + 13강 향도)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 교육 기관 + 19강 사회 제도 + 13강 향도)"
     },
     "hyang-hist-20260924-007": {
       "number": 1527,
@@ -24347,7 +24347,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향교(오답)",
         "향도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 231쪽 교육 기관 + 19강 219쪽 사회 제도 + 13강 향도)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 교육 기관 + 19강 사회 제도 + 13강 향도)"
     },
     "hyang-hist-20260924-008": {
       "number": 1528,
@@ -24358,7 +24358,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유향소(오답)",
         "향약(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 231쪽 교육 기관 + 19강 219쪽 사회 제도 + 13강 향도)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 교육 기관 + 19강 사회 제도 + 13강 향도)"
     },
     "hyang-hist-20260924-009": {
       "number": 1529,
@@ -24369,7 +24369,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약 ↔ 유향소 혼동(오답)",
         "둘 다 혼동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 231쪽 교육 기관 + 19강 219쪽 사회 제도 + 13강 향도)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 20강 조선 전기(문화 I) 보충 / 이름이 비슷한 향교, 유향소, 향약, 향도, 향리 가르기(20강 교육 기관 + 19강 사회 제도 + 13강 향도)"
     },
     "joseonculture2-hist-20260924-001": {
       "number": 1530,
@@ -24380,7 +24380,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『직지심체요절』(고려 우왕, 오답)",
         "사천대(고려 현종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-002": {
       "number": 1531,
@@ -24391,7 +24391,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "팔만대장경(고려 고종, 오답)",
         "무구정광대다라니경(통일 신라, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-003": {
       "number": 1532,
@@ -24402,7 +24402,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "천상열차분야지도(태조, 오답)",
         "『금양잡록』(성종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-004": {
       "number": 1533,
@@ -24413,7 +24413,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍문관(성종, 오답)",
         "직전법(세조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-005": {
       "number": 1534,
@@ -24424,7 +24424,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "계미자 세조(오답)",
         "세조, 성종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-006": {
       "number": 1535,
@@ -24435,7 +24435,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서운관(오답)",
         "간경도감(세조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-007": {
       "number": 1536,
@@ -24446,7 +24446,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "앙부일구(세종, 오답)",
         "자격루(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-008": {
       "number": 1537,
@@ -24457,7 +24457,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "팔도도(세종, 오답)",
         "앙부일구(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-009": {
       "number": 1538,
@@ -24468,7 +24468,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "자격루(세종, 오답)",
         "혼천의(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-010": {
       "number": 1539,
@@ -24479,7 +24479,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "앙부일구(세종, 오답)",
         "천상열차분야지도(태조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-011": {
       "number": 1540,
@@ -24490,7 +24490,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『칠정산』(세종, 오답)",
         "『농사직설』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-012": {
       "number": 1541,
@@ -24501,7 +24501,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지서(오답)",
         "간경도감(세조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-013": {
       "number": 1542,
@@ -24512,7 +24512,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "측우기(세종, 오답)",
         "천상열차분야지도(태조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-014": {
       "number": 1543,
@@ -24523,7 +24523,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "측우기(세종, 오답)",
         "혼천의(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-015": {
       "number": 1544,
@@ -24534,7 +24534,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "측우기(세종, 오답)",
         "천상열차분야지도(태조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-016": {
       "number": 1545,
@@ -24545,7 +24545,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "강희맹(금양잡록, 오답)",
         "정초(농사직설, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-017": {
       "number": 1546,
@@ -24556,7 +24556,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "측우기(세종, 오답)",
         "『칠정산』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-018": {
       "number": 1547,
@@ -24567,7 +24567,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "측우기(강우량, 오답)",
         "자격루, 측우기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-019": {
       "number": 1548,
@@ -24578,7 +24578,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "천상열차분야지도(태조, 오답)",
         "『동문선』(성종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-020": {
       "number": 1549,
@@ -24589,7 +24589,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『금양잡록』(성종, 오답)",
         "천상열차분야지도(태조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-021": {
       "number": 1550,
@@ -24600,7 +24600,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『금양잡록』(성종, 오답)",
         "『용비어천가』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-022": {
       "number": 1551,
@@ -24611,7 +24611,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『농사직설』(세종, 오답)",
         "『의방유취』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-023": {
       "number": 1552,
@@ -24622,7 +24622,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동국정운』(세종, 오답)",
         "『총통등록』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-024": {
       "number": 1553,
@@ -24633,7 +24633,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『칠정산』(세종, 오답)",
         "『농사직설』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-025": {
       "number": 1554,
@@ -24644,7 +24644,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "둘 다 집대성(오답)",
         "둘 다 우리 약재(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-026": {
       "number": 1555,
@@ -24655,7 +24655,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『금양잡록』(성종, 오답)",
         "『진법』(문종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-027": {
       "number": 1556,
@@ -24666,7 +24666,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "계미자(태종, 오답)",
         "『진법』(문종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-028": {
       "number": 1557,
@@ -24677,7 +24677,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『향약집성방』(세종, 오답)",
         "『칠정산』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-029": {
       "number": 1558,
@@ -24688,7 +24688,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『칠정산』(세종, 오답)",
         "계미자(태종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-030": {
       "number": 1559,
@@ -24699,7 +24699,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『농사직설』 세조(오답)",
         "세조, 태종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-031": {
       "number": 1560,
@@ -24710,7 +24710,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『진법』(오답)",
         "『의방유취』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-032": {
       "number": 1561,
@@ -24721,7 +24721,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『진법』(오답)",
         "『동국통감』(성종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-033": {
       "number": 1562,
@@ -24732,7 +24732,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동문선』(성종, 오답)",
         "갑인자(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-034": {
       "number": 1563,
@@ -24743,7 +24743,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "별무반(고려 숙종, 오답)",
         "개경 나성(고려 현종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-035": {
       "number": 1564,
@@ -24754,7 +24754,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "갑인자(세종, 오답)",
         "간경도감(세조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-036": {
       "number": 1565,
@@ -24765,7 +24765,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "세종, 성종을 바꾼 배열(오답)",
         "둘 다 바꾼 배열(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 과학 기술"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 과학 기술"
     },
     "joseonculture2-hist-20260924-037": {
       "number": 1566,
@@ -24776,7 +24776,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『향약집성방』(세종, 한문, 오답)",
         "『칠정산』(세종, 한문, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-038": {
       "number": 1567,
@@ -24787,7 +24787,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동문선』(성종, 오답)",
         "『진법』(문종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-039": {
       "number": 1568,
@@ -24798,7 +24798,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『용비어천가』(세종, 오답)",
         "『석보상절』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-040": {
       "number": 1569,
@@ -24809,7 +24809,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『석보상절』(세종, 오답)",
         "『삼강행실도』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-041": {
       "number": 1570,
@@ -24820,7 +24820,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동국정운』(세종, 오답)",
         "『삼강행실도』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-042": {
       "number": 1571,
@@ -24831,7 +24831,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『석보상절』(세종, 오답)",
         "『동문선』(성종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-043": {
       "number": 1572,
@@ -24842,7 +24842,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "앙부일구(세종, 오답)",
         "측우기(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-044": {
       "number": 1573,
@@ -24853,7 +24853,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『경국대전』(세조~성종, 오답)",
         "측우기(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-045": {
       "number": 1574,
@@ -24864,7 +24864,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『용비어천가』(오답)",
         "『석보상절』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-046": {
       "number": 1575,
@@ -24875,7 +24875,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "강희맹(오답)",
         "성현(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-047": {
       "number": 1576,
@@ -24886,7 +24886,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "측우기 배경(오답)",
         "지리서 편찬 배경(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-048": {
       "number": 1577,
@@ -24897,7 +24897,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『석보상절』(세종, 오답)",
         "『동문선』(성종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-049": {
       "number": 1578,
@@ -24908,7 +24908,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『석보상절』 내용을 붙인 짝(오답)",
         "둘 다 바꾼 짝(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 훈민정음 창제"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 훈민정음 창제"
     },
     "joseonculture2-hist-20260924-050": {
       "number": 1579,
@@ -24919,7 +24919,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "분황사 모전 석탑(신라, 오답)",
         "무령왕릉(백제, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-051": {
       "number": 1580,
@@ -24930,7 +24930,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "선농단(오답)",
         "문묘(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-052": {
       "number": 1581,
@@ -24941,7 +24941,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "선농단(오답)",
         "장경판전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-053": {
       "number": 1582,
@@ -24952,7 +24952,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "종묘(오답)",
         "문묘(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-054": {
       "number": 1583,
@@ -24963,7 +24963,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "수덕사 대웅전(고려 충렬왕, 오답)",
         "종묘(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-055": {
       "number": 1584,
@@ -24974,7 +24974,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "부석사 무량수전(고려, 오답)",
         "서원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-056": {
       "number": 1585,
@@ -24985,7 +24985,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "분황사 모전 석탑(신라, 오답)",
         "월정사 8각 9층 석탑(고려, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-057": {
       "number": 1586,
@@ -24996,7 +24996,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "월정사 8각 9층 석탑(고려, 오답)",
         "미륵사지 석탑(백제, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-058": {
       "number": 1587,
@@ -25007,7 +25007,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "분황사 모전 석탑(신라, 오답)",
         "불국사 3층 석탑(통일 신라, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-059": {
       "number": 1588,
@@ -25018,7 +25018,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동문선』(성종, 오답)",
         "『칠정산』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-060": {
       "number": 1589,
@@ -25029,7 +25029,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "미륵사지 석탑(백제, 오답)",
         "분황사 모전 석탑(신라, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-061": {
       "number": 1590,
@@ -25040,7 +25040,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장경판전(오답)",
         "향교(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-062": {
       "number": 1591,
@@ -25051,7 +25051,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동재(오답)",
         "서재(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-063": {
       "number": 1592,
@@ -25062,7 +25062,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "창절 서원을 넣은 묶음(오답)",
         "창절, 문회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-064": {
       "number": 1593,
@@ -25073,7 +25073,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이이(문회 서원, 오답)",
         "이이, 김장생(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-065": {
       "number": 1594,
@@ -25084,7 +25084,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "숭양 서원(정몽주, 오답)",
         "숭양, 창절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-066": {
       "number": 1595,
@@ -25095,7 +25095,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "창절 서원(박팽년, 오답)",
         "숭양 서원(정몽주, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-067": {
       "number": 1596,
@@ -25106,7 +25106,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이언적(옥산 서원, 오답)",
         "안향(소수 서원, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-068": {
       "number": 1597,
@@ -25117,7 +25117,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성균관(오답)",
         "서당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-069": {
       "number": 1598,
@@ -25128,7 +25128,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "향약(오답)",
         "경재소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 243쪽 건축"
+      "sourceSection": "자체 제작(기출 원문 아님), 21강 조선 전기(문화 II) 건축"
     },
     "joseonculture2-hist-20260924-070": {
       "number": 1599,
@@ -25139,7 +25139,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "상감 청자(고려, 오답)",
         "순청자(고려, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-071": {
       "number": 1600,
@@ -25150,7 +25150,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백자(조선, 오답)",
         "순청자(고려, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-072": {
       "number": 1601,
@@ -25161,7 +25161,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "청자 참외모양 병(고려, 오답)",
         "청자 상감모란문 표주박모양 주전자(고려, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-073": {
       "number": 1602,
@@ -25172,7 +25172,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "상감 청자(고려, 오답)",
         "나전 칠기(고려, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-074": {
       "number": 1603,
@@ -25183,7 +25183,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "청자 참외모양 병(고려, 오답)",
         "청자 상감모란문 표주박모양 주전자(고려, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-075": {
       "number": 1604,
@@ -25194,7 +25194,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초충도(오답)",
         "천산대렵도(고려 공민왕, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-076": {
       "number": 1605,
@@ -25205,7 +25205,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "송하보월도(이상좌, 오답)",
         "초충도(신사임당, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-077": {
       "number": 1606,
@@ -25216,7 +25216,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초충도(신사임당, 오답)",
         "수월관음도(고려, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-078": {
       "number": 1607,
@@ -25227,7 +25227,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "송하보월도(이상좌, 오답)",
         "천산대렵도(고려 공민왕, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-079": {
       "number": 1608,
@@ -25238,7 +25238,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "몽유도원도(세종, 오답)",
         "아미타래영도(고려, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-080": {
       "number": 1609,
@@ -25249,7 +25249,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고사관수도(강희안, 오답)",
         "송하보월도(이상좌, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-081": {
       "number": 1610,
@@ -25260,7 +25260,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고사관수도(오답)",
         "몽유도원도(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-082": {
       "number": 1611,
@@ -25271,7 +25271,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "몽유도원도(안견, 오답)",
         "초충도(신사임당, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-083": {
       "number": 1612,
@@ -25282,7 +25282,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고사관수도 안견(오답)",
         "안견, 이상좌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-084": {
       "number": 1613,
@@ -25293,7 +25293,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『용비어천가』(세종, 오답)",
         "「관동별곡」(선조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-085": {
       "number": 1614,
@@ -25304,7 +25304,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "계미자(태종, 오답)",
         "원각사지 10층 석탑(세조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-086": {
       "number": 1615,
@@ -25315,7 +25315,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "「관동별곡」(선조, 오답)",
         "「사미인곡」(선조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-087": {
       "number": 1616,
@@ -25326,7 +25326,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동문선』 정철(오답)",
         "정철, 강희맹(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-088": {
       "number": 1617,
@@ -25337,7 +25337,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『금오신화』(오답)",
         "『동문선』(성종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-089": {
       "number": 1618,
@@ -25348,7 +25348,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『금오신화』(오답)",
         "『용비어천가』(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-090": {
       "number": 1619,
@@ -25359,7 +25359,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서거정(오답)",
         "강희맹(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-091": {
       "number": 1620,
@@ -25370,7 +25370,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "송설체 안견(오답)",
         "안견, 이상좌(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-092": {
       "number": 1621,
@@ -25381,7 +25381,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "강희안(오답)",
         "신사임당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-093": {
       "number": 1622,
@@ -25392,7 +25392,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "직전법 폐지(명종, 오답)",
         "홍문관(성종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "joseonculture2-hist-20260924-094": {
       "number": 1623,
@@ -25403,7 +25403,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성종, 선조를 바꾼 배열(오답)",
         "둘 다 바꾼 배열(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 243쪽 공예, 그림, 문학, 글씨"
+      "sourceSection": "자체 제작(기출 원문 아님) / 21강 조선 전기(문화 II) 공예, 그림, 문학, 글씨"
     },
     "special-hist-20260924-001": {
       "number": 1624,
@@ -25414,7 +25414,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지(오답)",
         "중양절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-002": {
       "number": 1625,
@@ -25425,7 +25425,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일(오답)",
         "칠석(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-003": {
       "number": 1626,
@@ -25436,7 +25436,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 그네뛰기(오답)",
         "대보름 놋다리밟기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-004": {
       "number": 1627,
@@ -25447,7 +25447,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 놋다리밟기(오답)",
         "섣달그믐 묵은세배(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-005": {
       "number": 1628,
@@ -25458,7 +25458,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석 칠석 놀이와 시 짓기(오답)",
         "입동 김장(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-006": {
       "number": 1629,
@@ -25469,7 +25469,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 각시놀음(오답)",
         "백중 호미씻이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-007": {
       "number": 1630,
@@ -25480,7 +25480,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 활쏘기 대회(오답)",
         "대보름 부럼 깨기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-008": {
       "number": 1631,
@@ -25491,7 +25491,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 놋다리밟기(오답)",
         "삼짇날 화전놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-009": {
       "number": 1632,
@@ -25502,7 +25502,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 만석중놀이(오답)",
         "삼짇날 활쏘기 대회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-010": {
       "number": 1633,
@@ -25513,7 +25513,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 고싸움(오답)",
         "칠석 옷과 책 말리기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-011": {
       "number": 1634,
@@ -25524,7 +25524,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석 밀전병(오답)",
         "초파일 미나리, 검은콩(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-012": {
       "number": 1635,
@@ -25535,7 +25535,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지 팥죽(오답)",
         "유두 상화병(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-013": {
       "number": 1636,
@@ -25546,7 +25546,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 진달래화채(오답)",
         "추석 토란국(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-014": {
       "number": 1637,
@@ -25557,7 +25557,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석(오답)",
         "동지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-015": {
       "number": 1638,
@@ -25568,7 +25568,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중(오답)",
         "유두(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-016": {
       "number": 1639,
@@ -25579,7 +25579,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 만석중놀이(오답)",
         "백중 들돌들기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-017": {
       "number": 1640,
@@ -25590,7 +25590,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "섣달그믐 묵은세배(오답)",
         "설날 새해 덕담(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-018": {
       "number": 1641,
@@ -25601,7 +25601,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 만석중놀이(오답)",
         "설날 세배(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-019": {
       "number": 1642,
@@ -25612,7 +25612,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 동쪽 냇물에 머리 감기(오답)",
         "추석 가마싸움(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-020": {
       "number": 1643,
@@ -25623,7 +25623,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동 김장(오답)",
         "한식 갈고리 던지기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-021": {
       "number": 1644,
@@ -25634,7 +25634,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중 들돌들기(오답)",
         "칠석 옷과 책 말리기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-022": {
       "number": 1645,
@@ -25645,7 +25645,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 각시놀음(오답)",
         "유두 동쪽 냇물에 머리 감기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-023": {
       "number": 1646,
@@ -25656,7 +25656,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 각시놀음(오답)",
         "동지 팥죽으로 잡귀 쫓기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-024": {
       "number": 1647,
@@ -25667,7 +25667,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설날 식혜, 수정과(오답)",
         "추석 토란국(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-025": {
       "number": 1648,
@@ -25678,7 +25678,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석 토란국(오답)",
         "설날 떡국(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-026": {
       "number": 1649,
@@ -25689,7 +25689,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 찬 음식 먹기(오답)",
         "삼짇날 진달래화전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-027": {
       "number": 1650,
@@ -25700,7 +25700,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날(오답)",
         "초파일(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-028": {
       "number": 1651,
@@ -25711,7 +25711,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "섣달그믐(오답)",
         "동지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-029": {
       "number": 1652,
@@ -25722,7 +25722,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 놋다리밟기(오답)",
         "입동 김장(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-030": {
       "number": 1653,
@@ -25733,7 +25733,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 만석중놀이(오답)",
         "칠석 칠석 놀이와 시 짓기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-031": {
       "number": 1654,
@@ -25744,7 +25744,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설날 세배(오답)",
         "칠석 옷과 책 말리기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-032": {
       "number": 1655,
@@ -25755,7 +25755,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동 김장(오답)",
         "섣달그믐 묵은세배(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-033": {
       "number": 1656,
@@ -25766,7 +25766,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절 국화전(오답)",
         "단오 수리취떡(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-034": {
       "number": 1657,
@@ -25777,7 +25777,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성주제(오답)",
         "대보름(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-035": {
       "number": 1658,
@@ -25788,7 +25788,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석(오답)",
         "설날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-036": {
       "number": 1659,
@@ -25799,7 +25799,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오(오답)",
         "동지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-037": {
       "number": 1660,
@@ -25810,7 +25810,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동 겨울이 시작되는 날(오답)",
         "동지 밤이 가장 긴 날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-038": {
       "number": 1661,
@@ -25821,7 +25821,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 봉산 탈춤(오답)",
         "초파일 만석중놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-039": {
       "number": 1662,
@@ -25832,7 +25832,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 그네뛰기(오답)",
         "초파일 욕불 행사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-040": {
       "number": 1663,
@@ -25843,7 +25843,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 달집태우기(오답)",
         "동지 팥죽으로 잡귀 쫓기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-041": {
       "number": 1664,
@@ -25854,7 +25854,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 약초 떡(오답)",
         "중양절 국화전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-042": {
       "number": 1665,
@@ -25865,7 +25865,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석 밀전병(오답)",
         "중양절 국화전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-043": {
       "number": 1666,
@@ -25876,7 +25876,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석 토란국(오답)",
         "유두 상화병(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-044": {
       "number": 1667,
@@ -25887,7 +25887,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지(오답)",
         "입동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-045": {
       "number": 1668,
@@ -25898,7 +25898,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오(오답)",
         "설날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-046": {
       "number": 1669,
@@ -25909,7 +25909,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절 양수가 겹친 날(오답)",
         "유두 탁족 놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-047": {
       "number": 1670,
@@ -25920,7 +25920,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 개사초(산소 손질)(오답)",
         "백중 호미씻이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-048": {
       "number": 1671,
@@ -25931,7 +25931,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설날 새해 덕담(오답)",
         "백중 들돌들기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-049": {
       "number": 1672,
@@ -25942,7 +25942,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 화전놀이(오답)",
         "입동 김장(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-050": {
       "number": 1673,
@@ -25953,7 +25953,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설날 제기차기(오답)",
         "한식 갈고리 던지기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-051": {
       "number": 1674,
@@ -25964,7 +25964,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석 송편(오답)",
         "단오 수리취떡(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-052": {
       "number": 1675,
@@ -25975,7 +25975,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석 송편(오답)",
         "칠석 밀국수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-053": {
       "number": 1676,
@@ -25986,7 +25986,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석(오답)",
         "중양절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-054": {
       "number": 1677,
@@ -25997,7 +25997,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일(오답)",
         "칠석(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-055": {
       "number": 1678,
@@ -26008,7 +26008,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절(오답)",
         "백중(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-056": {
       "number": 1679,
@@ -26019,7 +26019,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동 김장(오답)",
         "설날 새해 덕담(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-057": {
       "number": 1680,
@@ -26030,7 +26030,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 갈고리 던지기(오답)",
         "설날 연날리기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-058": {
       "number": 1681,
@@ -26041,7 +26041,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 만석중놀이(오답)",
         "설날 세배(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-059": {
       "number": 1682,
@@ -26052,7 +26052,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 화전놀이(오답)",
         "칠석 칠석 놀이와 시 짓기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-060": {
       "number": 1683,
@@ -26063,7 +26063,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 동쪽 냇물에 머리 감기(오답)",
         "삼짇날 각시놀음(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-061": {
       "number": 1684,
@@ -26074,7 +26074,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 귀밝이술(오답)",
         "칠석 호박전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-062": {
       "number": 1685,
@@ -26085,7 +26085,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절 국화전(오답)",
         "한식 찬 음식 먹기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-063": {
       "number": 1686,
@@ -26096,7 +26096,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설날 식혜, 수정과(오답)",
         "초파일 미나리, 검은콩(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-064": {
       "number": 1687,
@@ -26107,7 +26107,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 수단(오답)",
         "삼짇날 진달래화채(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-065": {
       "number": 1688,
@@ -26118,7 +26118,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름(오답)",
         "동지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-066": {
       "number": 1689,
@@ -26129,7 +26129,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중(오답)",
         "대보름(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-067": {
       "number": 1690,
@@ -26140,7 +26140,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중 호미씻이(오답)",
         "대보름 쥐불놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-068": {
       "number": 1691,
@@ -26151,7 +26151,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 욕불 행사(오답)",
         "동지 팥죽으로 잡귀 쫓기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-069": {
       "number": 1692,
@@ -26162,7 +26162,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 앵두화채(오답)",
         "대보름 오곡밥(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-070": {
       "number": 1693,
@@ -26173,7 +26173,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절 국화주(오답)",
         "삼짇날 진달래화채(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-071": {
       "number": 1694,
@@ -26184,7 +26184,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 앵두화채(오답)",
         "중양절 국화주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-072": {
       "number": 1695,
@@ -26195,7 +26195,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식(오답)",
         "입동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-073": {
       "number": 1696,
@@ -26206,7 +26206,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날(오답)",
         "설날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-074": {
       "number": 1697,
@@ -26217,7 +26217,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 석전(돌싸움)(오답)",
         "중양절 제비가 강남으로 떠나는 날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-075": {
       "number": 1698,
@@ -26228,7 +26228,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 욕불 행사(오답)",
         "추석 강강술래(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-076": {
       "number": 1699,
@@ -26239,7 +26239,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 그네뛰기(오답)",
         "설날 설빔(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-077": {
       "number": 1700,
@@ -26250,7 +26250,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 앵두화채(오답)",
         "유두 상화병(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-078": {
       "number": 1701,
@@ -26261,7 +26261,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지 팥죽(오답)",
         "중양절 국화주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-079": {
       "number": 1702,
@@ -26272,7 +26272,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 상화병(오답)",
         "삼짇날 진달래화채(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-080": {
       "number": 1703,
@@ -26283,7 +26283,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동(오답)",
         "섣달그믐(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-081": {
       "number": 1704,
@@ -26294,7 +26294,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성주제(오답)",
         "중양절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-082": {
       "number": 1705,
@@ -26305,7 +26305,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석(오답)",
         "중양절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-083": {
       "number": 1706,
@@ -26316,7 +26316,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 탑돌이(오답)",
         "중양절 제비가 강남으로 떠나는 날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-084": {
       "number": 1707,
@@ -26327,7 +26327,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 탁족 놀이(오답)",
         "입동 치계미(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-085": {
       "number": 1708,
@@ -26338,7 +26338,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 창포물에 머리 감기(오답)",
         "칠석 옷과 책 말리기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-086": {
       "number": 1709,
@@ -26349,7 +26349,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름(오답)",
         "백중(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-087": {
       "number": 1710,
@@ -26360,7 +26360,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성주제(오답)",
         "대보름(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-088": {
       "number": 1711,
@@ -26371,7 +26371,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지(오답)",
         "중양절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-089": {
       "number": 1712,
@@ -26382,7 +26382,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중 들돌들기(오답)",
         "섣달그믐 밤새우기(해지킴)(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-090": {
       "number": 1713,
@@ -26393,7 +26393,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 갈고리 던지기(오답)",
         "삼짇날 각시놀음(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-091": {
       "number": 1714,
@@ -26404,7 +26404,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 놋다리밟기(오답)",
         "설날 설빔(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-092": {
       "number": 1715,
@@ -26415,7 +26415,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동 치계미(오답)",
         "대보름 쥐불놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-093": {
       "number": 1716,
@@ -26426,7 +26426,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 탑돌이(오답)",
         "백중 호미씻이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-094": {
       "number": 1717,
@@ -26437,7 +26437,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 오곡밥(오답)",
         "유두 유두면(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-095": {
       "number": 1718,
@@ -26448,7 +26448,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절 밤떡(오답)",
         "대보름 오곡밥(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-096": {
       "number": 1719,
@@ -26459,7 +26459,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동(오답)",
         "유두(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-097": {
       "number": 1720,
@@ -26470,7 +26470,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날(오답)",
         "설날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-098": {
       "number": 1721,
@@ -26481,7 +26481,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날(오답)",
         "동지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-099": {
       "number": 1722,
@@ -26492,7 +26492,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중 들돌들기(오답)",
         "유두 탁족 놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-100": {
       "number": 1723,
@@ -26503,7 +26503,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 달집태우기(오답)",
         "백중 들돌들기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-101": {
       "number": 1724,
@@ -26514,7 +26514,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "단오 수리취떡(오답)",
         "한식 찬 음식 먹기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-102": {
       "number": 1725,
@@ -26525,7 +26525,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 유두면(오답)",
         "단오 약초 떡(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-103": {
       "number": 1726,
@@ -26536,7 +26536,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 오곡밥(오답)",
         "단오 수리취떡(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-104": {
       "number": 1727,
@@ -26547,7 +26547,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "섣달그믐(오답)",
         "입동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-105": {
       "number": 1728,
@@ -26558,7 +26558,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중(오답)",
         "대보름(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-106": {
       "number": 1729,
@@ -26569,7 +26569,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 달집태우기(오답)",
         "백중 호미씻이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-107": {
       "number": 1730,
@@ -26580,7 +26580,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "초파일 미나리, 검은콩(오답)",
         "한식 찬 음식 먹기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-108": {
       "number": 1731,
@@ -26591,7 +26591,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백중(오답)",
         "단오(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-109": {
       "number": 1732,
@@ -26602,7 +26602,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "섣달그믐(오답)",
         "동지(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-110": {
       "number": 1733,
@@ -26613,7 +26613,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 개사초(산소 손질)(오답)",
         "대보름 달맞이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-111": {
       "number": 1734,
@@ -26624,7 +26624,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 화전놀이(오답)",
         "한식 갈고리 던지기(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-112": {
       "number": 1735,
@@ -26635,7 +26635,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대보름 쥐불놀이(오답)",
         "섣달그믐 밤새우기(해지킴)(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-113": {
       "number": 1736,
@@ -26646,7 +26646,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식(오답)",
         "설날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-114": {
       "number": 1737,
@@ -26657,7 +26657,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "입동(오답)",
         "한식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-115": {
       "number": 1738,
@@ -26668,7 +26668,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석(오답)",
         "중양절(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-116": {
       "number": 1739,
@@ -26679,7 +26679,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "설날 설빔(오답)",
         "추석 수확에 감사하는 날(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-117": {
       "number": 1740,
@@ -26690,7 +26690,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유두 유두면(오답)",
         "설날 만두(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-118": {
       "number": 1741,
@@ -26701,7 +26701,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식 개사초(산소 손질)(오답)",
         "백중 호미씻이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-119": {
       "number": 1742,
@@ -26712,7 +26712,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼짇날 진달래화채(오답)",
         "칠석 밀국수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-120": {
       "number": 1743,
@@ -26723,7 +26723,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식(오답)",
         "대보름(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-121": {
       "number": 1744,
@@ -26734,7 +26734,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한식(오답)",
         "입동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-122": {
       "number": 1745,
@@ -26745,7 +26745,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지(오답)",
         "추석(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-123": {
       "number": 1746,
@@ -26756,7 +26756,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "칠석 옷과 책 말리기(오답)",
         "입동 김장(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-124": {
       "number": 1747,
@@ -26767,7 +26767,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지 팥죽으로 잡귀 쫓기(오답)",
         "대보름 쥐불놀이(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-125": {
       "number": 1748,
@@ -26778,7 +26778,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성주제 햇곡식 술, 시루떡(오답)",
         "중양절 국화주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-126": {
       "number": 1749,
@@ -26789,7 +26789,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석 송편(오답)",
         "유두 수단(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-127": {
       "number": 1750,
@@ -26800,7 +26800,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동지—송편(오답)",
         "단오—송편(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-128": {
       "number": 1751,
@@ -26811,7 +26811,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "쥐불놀이—백중(오답)",
         "가마싸움—백중(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-129": {
       "number": 1752,
@@ -26822,7 +26822,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "중양절—느티떡(오답)",
         "삼짇날—느티떡(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-130": {
       "number": 1753,
@@ -26833,7 +26833,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "옷과 책 말리기—단오(오답)",
         "탁족 놀이—단오(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-131": {
       "number": 1754,
@@ -26844,7 +26844,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "묵은세배—입동(오답)",
         "세배—입동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-132": {
       "number": 1755,
@@ -26855,7 +26855,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "치계미—한식(오답)",
         "호미씻이—한식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-133": {
       "number": 1756,
@@ -26866,7 +26866,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "연등 행사—백중(오답)",
         "찬 음식 먹기—백중(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-134": {
       "number": 1757,
@@ -26877,7 +26877,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "추석—작은설(오답)",
         "단오—작은설(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 250쪽"
+      "sourceSection": "자체 제작(기출 원문 아님), 특강 세시 풍속 "
     },
     "special-hist-20260924-135": {
       "number": 1758,
@@ -26888,7 +26888,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김홍집(오답)",
         "유길준(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-136": {
       "number": 1759,
@@ -26899,7 +26899,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준 A03-1(오답)",
         "김옥균 A04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-137": {
       "number": 1760,
@@ -26910,7 +26910,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김홍집 A02-2(오답)",
         "유길준 A03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-138": {
       "number": 1761,
@@ -26921,7 +26921,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김옥균 A04-3(오답)",
         "서재필 A06-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-139": {
       "number": 1762,
@@ -26932,7 +26932,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박정양 A05-5(오답)",
         "서재필 A06-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-140": {
       "number": 1763,
@@ -26943,7 +26943,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준(오답)",
         "박정양(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-141": {
       "number": 1764,
@@ -26954,7 +26954,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박정양 A05-5(오답)",
         "박규수 A01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-142": {
       "number": 1765,
@@ -26965,7 +26965,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박정양 A05-3(오답)",
         "박규수 A01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-143": {
       "number": 1766,
@@ -26976,7 +26976,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서재필 A06-4(오답)",
         "유길준 A03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-144": {
       "number": 1767,
@@ -26987,7 +26987,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수(오답)",
         "서재필(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-145": {
       "number": 1768,
@@ -26998,7 +26998,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수 A01-1(오답)",
         "박정양 A05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-146": {
       "number": 1769,
@@ -27009,7 +27009,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서재필 A06-4(오답)",
         "김옥균 A04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-147": {
       "number": 1770,
@@ -27020,7 +27020,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김홍집 A02-3(오답)",
         "박규수 A01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-148": {
       "number": 1771,
@@ -27031,7 +27031,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서재필 A06-3(오답)",
         "김옥균 A04-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-149": {
       "number": 1772,
@@ -27042,7 +27042,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박정양 A05-2(오답)",
         "김옥균 A04-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-150": {
       "number": 1773,
@@ -27053,7 +27053,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수(오답)",
         "유길준(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-151": {
       "number": 1774,
@@ -27064,7 +27064,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서재필 A06-3(오답)",
         "박정양 A05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-152": {
       "number": 1775,
@@ -27075,7 +27075,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박정양 A05-5(오답)",
         "유길준 A03-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-153": {
       "number": 1776,
@@ -27086,7 +27086,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박정양 A05-5(오답)",
         "서재필 A06-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-154": {
       "number": 1777,
@@ -27097,7 +27097,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준(오답)",
         "서재필(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-155": {
       "number": 1778,
@@ -27108,7 +27108,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서재필 A06-3(오답)",
         "박규수 A01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-156": {
       "number": 1779,
@@ -27119,7 +27119,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수 A01-2(오답)",
         "김옥균 A04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-157": {
       "number": 1780,
@@ -27130,7 +27130,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서재필 A06-1(오답)",
         "박규수 A01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-158": {
       "number": 1781,
@@ -27141,7 +27141,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준 A03-1(오답)",
         "박규수 A01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-159": {
       "number": 1782,
@@ -27152,7 +27152,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준 A03-3(오답)",
         "박규수 A01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-160": {
       "number": 1783,
@@ -27163,7 +27163,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준(오답)",
         "박규수(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-161": {
       "number": 1784,
@@ -27174,7 +27174,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준 A03-5(오답)",
         "김홍집 A02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-162": {
       "number": 1785,
@@ -27185,7 +27185,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유길준 A03-3(오답)",
         "김옥균 A04-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-163": {
       "number": 1786,
@@ -27196,7 +27196,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수 A01-2(오답)",
         "유길준 A03-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-164": {
       "number": 1787,
@@ -27207,7 +27207,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수 A01-2(오답)",
         "김옥균 A04-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-165": {
       "number": 1788,
@@ -27218,7 +27218,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『사민필지』—서재필(오답)",
         "『서유견문』—서재필(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-166": {
       "number": 1789,
@@ -27229,7 +27229,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "허위(오답)",
         "신돌석(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-167": {
       "number": 1790,
@@ -27240,7 +27240,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-3(오답)",
         "최익현 B04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-168": {
       "number": 1791,
@@ -27251,7 +27251,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-3(오답)",
         "최익현 B04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-169": {
       "number": 1792,
@@ -27262,7 +27262,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-3(오답)",
         "허위 B05-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-170": {
       "number": 1793,
@@ -27273,7 +27273,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석(오답)",
         "최제우(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-171": {
       "number": 1794,
@@ -27284,7 +27284,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "손병희 B03-5(오답)",
         "허위 B05-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-172": {
       "number": 1795,
@@ -27295,7 +27295,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석 B06-1(오답)",
         "허위 B05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-173": {
       "number": 1796,
@@ -27306,7 +27306,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "허위 B05-3(오답)",
         "최익현 B04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-174": {
       "number": 1797,
@@ -27317,7 +27317,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "허위 B05-2(오답)",
         "최익현 B04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-175": {
       "number": 1798,
@@ -27328,7 +27328,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석(오답)",
         "허위(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-176": {
       "number": 1799,
@@ -27339,7 +27339,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-4(오답)",
         "신돌석 B06-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-177": {
       "number": 1800,
@@ -27350,7 +27350,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최익현 B04-3(오답)",
         "전봉준 B02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-178": {
       "number": 1801,
@@ -27361,7 +27361,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-4(오답)",
         "허위 B05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-179": {
       "number": 1802,
@@ -27372,7 +27372,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석 B06-1(오답)",
         "최익현 B04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-180": {
       "number": 1803,
@@ -27383,7 +27383,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최익현 B04-4(오답)",
         "전봉준 B02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-181": {
       "number": 1804,
@@ -27394,7 +27394,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "허위 B05-4(오답)",
         "신돌석 B06-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-182": {
       "number": 1805,
@@ -27405,7 +27405,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "손병희(오답)",
         "전봉준(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-183": {
       "number": 1806,
@@ -27416,7 +27416,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-3(오답)",
         "최제우 B01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-184": {
       "number": 1807,
@@ -27427,7 +27427,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-3(오답)",
         "손병희 B03-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-185": {
       "number": 1808,
@@ -27438,7 +27438,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최제우 B01-2(오답)",
         "손병희 B03-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-186": {
       "number": 1809,
@@ -27449,7 +27449,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "허위 B05-4(오답)",
         "전봉준 B02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-187": {
       "number": 1810,
@@ -27460,7 +27460,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준(오답)",
         "손병희(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-188": {
       "number": 1811,
@@ -27471,7 +27471,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석 B06-3(오답)",
         "전봉준 B02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-189": {
       "number": 1812,
@@ -27482,7 +27482,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석 B06-3(오답)",
         "손병희 B03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-190": {
       "number": 1813,
@@ -27493,7 +27493,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "손병희 B03-5(오답)",
         "최제우 B01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-191": {
       "number": 1814,
@@ -27504,7 +27504,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-3(오답)",
         "최익현 B04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-192": {
       "number": 1815,
@@ -27515,7 +27515,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준(오답)",
         "손병희(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-193": {
       "number": 1816,
@@ -27526,7 +27526,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전봉준 B02-4(오답)",
         "최익현 B04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-194": {
       "number": 1817,
@@ -27537,7 +27537,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최익현 B04-2(오답)",
         "전봉준 B02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-195": {
       "number": 1818,
@@ -27548,7 +27548,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "손병희 B03-3(오답)",
         "전봉준 B02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-196": {
       "number": 1819,
@@ -27559,7 +27559,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『여유당전서』 간행—손병희(오답)",
         "『동경대전』—손병희(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-197": {
       "number": 1820,
@@ -27570,7 +27570,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설(오답)",
         "이위종(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-198": {
       "number": 1821,
@@ -27581,7 +27581,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁 D05-1(오답)",
         "안창호 D06-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-199": {
       "number": 1822,
@@ -27592,7 +27592,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-1(오답)",
         "양기탁 D05-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-200": {
       "number": 1823,
@@ -27603,7 +27603,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-3(오답)",
         "양기탁 D05-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-201": {
       "number": 1824,
@@ -27614,7 +27614,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-4(오답)",
         "이상설 D03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-202": {
       "number": 1825,
@@ -27625,7 +27625,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈(오답)",
         "안창호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-203": {
       "number": 1826,
@@ -27636,7 +27636,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-2(오답)",
         "양기탁 D05-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-204": {
       "number": 1827,
@@ -27647,7 +27647,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-6(오답)",
         "안창호 D06-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-205": {
       "number": 1828,
@@ -27658,7 +27658,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재 D01-4(오답)",
         "조지 쇼 E03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-206": {
       "number": 1829,
@@ -27669,7 +27669,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-6(오답)",
         "안창호 D06-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-207": {
       "number": 1830,
@@ -27680,7 +27680,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁(오답)",
         "이승훈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-208": {
       "number": 1831,
@@ -27691,7 +27691,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-4(오답)",
         "이준 D02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-209": {
       "number": 1832,
@@ -27702,7 +27702,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-1(오답)",
         "안창호 D06-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-210": {
       "number": 1833,
@@ -27713,7 +27713,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-7(오답)",
         "이상재 D01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-211": {
       "number": 1834,
@@ -27724,7 +27724,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-7(오답)",
         "이준 D02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-212": {
       "number": 1835,
@@ -27735,7 +27735,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재 D01-1(오답)",
         "안창호 D06-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-213": {
       "number": 1836,
@@ -27746,7 +27746,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈(오답)",
         "안창호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-214": {
       "number": 1837,
@@ -27757,7 +27757,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-6(오답)",
         "이승훈 D07-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-215": {
       "number": 1838,
@@ -27768,7 +27768,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁 D05-4(오답)",
         "이준 D02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-216": {
       "number": 1839,
@@ -27779,7 +27779,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-6(오답)",
         "안창호 D06-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-217": {
       "number": 1840,
@@ -27790,7 +27790,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재(오답)",
         "이승훈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-218": {
       "number": 1841,
@@ -27801,7 +27801,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설 D03-2(오답)",
         "이준 D02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-219": {
       "number": 1842,
@@ -27812,7 +27812,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재 D01-3(오답)",
         "안창호 D06-7(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-220": {
       "number": 1843,
@@ -27823,7 +27823,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설 D03-2(오답)",
         "이상재 D01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-221": {
       "number": 1844,
@@ -27834,7 +27834,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-7(오답)",
         "이승훈 D07-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-222": {
       "number": 1845,
@@ -27845,7 +27845,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이준(오답)",
         "이승훈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-223": {
       "number": 1846,
@@ -27856,7 +27856,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁 D05-2(오답)",
         "이상설 D03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-224": {
       "number": 1847,
@@ -27867,7 +27867,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이준 D02-1(오답)",
         "이상재 D01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-225": {
       "number": 1848,
@@ -27878,7 +27878,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재 D01-4(오답)",
         "이승훈 D07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-226": {
       "number": 1849,
@@ -27889,7 +27889,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁 D05-3(오답)",
         "이상설 D03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-227": {
       "number": 1850,
@@ -27900,7 +27900,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설 D03-1(오답)",
         "양기탁 D05-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-228": {
       "number": 1851,
@@ -27911,7 +27911,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이승훈 D07-6(오답)",
         "이준 D02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-229": {
       "number": 1852,
@@ -27922,7 +27922,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설 D03-2(오답)",
         "이준 D02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-230": {
       "number": 1853,
@@ -27933,7 +27933,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁(오답)",
         "안창호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-231": {
       "number": 1854,
@@ -27944,7 +27944,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁 D05-3(오답)",
         "이상재 D01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-232": {
       "number": 1855,
@@ -27955,7 +27955,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설 D03-1(오답)",
         "양기탁 D05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-233": {
       "number": 1856,
@@ -27966,7 +27966,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상설 D03-1(오답)",
         "이위종 D04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-234": {
       "number": 1857,
@@ -27977,7 +27977,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재 D01-4(오답)",
         "안창호 D06-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-235": {
       "number": 1858,
@@ -27988,7 +27988,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-6(오답)",
         "이상재 D01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-236": {
       "number": 1859,
@@ -27999,7 +27999,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양기탁 D05-4(오답)",
         "이상재 D01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-237": {
       "number": 1860,
@@ -28010,7 +28010,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한인 애국단—김원봉(오답)",
         "흥사단—김원봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-238": {
       "number": 1861,
@@ -28021,7 +28021,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘—신흥 강습소(오답)",
         "이상설—신흥 강습소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-239": {
       "number": 1862,
@@ -28032,7 +28032,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "파리 강화 회의 대표—안창호(오답)",
         "헤이그 특사—안창호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-240": {
       "number": 1863,
@@ -28043,7 +28043,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코(오답)",
         "스코필드(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-241": {
       "number": 1864,
@@ -28054,7 +28054,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코 E06-2(오답)",
         "조지 쇼 E03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-242": {
       "number": 1865,
@@ -28065,7 +28065,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼 E03-3(오답)",
         "스코필드 E05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-243": {
       "number": 1866,
@@ -28076,7 +28076,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼 E03-2(오답)",
         "후세 다쓰지 E04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-244": {
       "number": 1867,
@@ -28087,7 +28087,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "헐버트(오답)",
         "가네코 후미코(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-245": {
       "number": 1868,
@@ -28098,7 +28098,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "헐버트 E01-2(오답)",
         "스코필드 E05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-246": {
       "number": 1869,
@@ -28109,7 +28109,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코 E06-1(오답)",
         "후세 다쓰지 E04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-247": {
       "number": 1870,
@@ -28120,7 +28120,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코 E06-3(오답)",
         "후세 다쓰지 E04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-248": {
       "number": 1871,
@@ -28131,7 +28131,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "후세 다쓰지(오답)",
         "헐버트(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-249": {
       "number": 1872,
@@ -28142,7 +28142,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코 E06-2(오답)",
         "이승훈 D07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-250": {
       "number": 1873,
@@ -28153,7 +28153,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "스코필드 E05-3(오답)",
         "후세 다쓰지 E04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-251": {
       "number": 1874,
@@ -28164,7 +28164,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼(오답)",
         "스코필드(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-252": {
       "number": 1875,
@@ -28175,7 +28175,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-1(오답)",
         "이준 D02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-253": {
       "number": 1876,
@@ -28186,7 +28186,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "스코필드 E05-2(오답)",
         "헐버트 E01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-254": {
       "number": 1877,
@@ -28197,7 +28197,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "스코필드 E05-1(오답)",
         "조지 쇼 E03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-255": {
       "number": 1878,
@@ -28208,7 +28208,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "스코필드 E05-2(오답)",
         "베델 E02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-256": {
       "number": 1879,
@@ -28219,7 +28219,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼(오답)",
         "가네코 후미코(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-257": {
       "number": 1880,
@@ -28230,7 +28230,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코 E06-2(오답)",
         "조지 쇼 E03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-258": {
       "number": 1881,
@@ -28241,7 +28241,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "베델 E02-3(오답)",
         "후세 다쓰지 E04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-259": {
       "number": 1882,
@@ -28252,7 +28252,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "헐버트 E01-3(오답)",
         "베델 E02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-260": {
       "number": 1883,
@@ -28263,7 +28263,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가네코 후미코 E06-2(오답)",
         "조지 쇼 E03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-261": {
       "number": 1884,
@@ -28274,7 +28274,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼(오답)",
         "베델(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-262": {
       "number": 1885,
@@ -28285,7 +28285,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "베델 E02-2(오답)",
         "헐버트 E01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-263": {
       "number": 1886,
@@ -28296,7 +28296,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼 E03-3(오답)",
         "스코필드 E05-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-264": {
       "number": 1887,
@@ -28307,7 +28307,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "베델 E02-1(오답)",
         "헐버트 E01-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-265": {
       "number": 1888,
@@ -28318,7 +28318,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조지 쇼—대한매일신보(오답)",
         "가네코 후미코—대한매일신보(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-266": {
       "number": 1889,
@@ -28329,7 +28329,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전명운(오답)",
         "헐버트(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-267": {
       "number": 1890,
@@ -28340,7 +28340,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘 F06-4(오답)",
         "이동녕 F04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-268": {
       "number": 1891,
@@ -28351,7 +28351,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형(오답)",
         "이동녕(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-269": {
       "number": 1892,
@@ -28362,7 +28362,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-3(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-270": {
       "number": 1893,
@@ -28373,7 +28373,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘 F06-4(오답)",
         "최재형 F05-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-271": {
       "number": 1894,
@@ -28384,7 +28384,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘 F06-4(오답)",
         "이상룡 F03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-272": {
       "number": 1895,
@@ -28395,7 +28395,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동녕 F04-1(오답)",
         "이동휘 F06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-273": {
       "number": 1896,
@@ -28406,7 +28406,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-1(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-274": {
       "number": 1897,
@@ -28417,7 +28417,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형(오답)",
         "스코필드(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-275": {
       "number": 1898,
@@ -28428,7 +28428,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘 F06-4(오답)",
         "최재형 F05-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-276": {
       "number": 1899,
@@ -28439,7 +28439,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동녕 F04-4(오답)",
         "최재형 F05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-277": {
       "number": 1900,
@@ -28450,7 +28450,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "베델 E02-3(오답)",
         "최재형 F05-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-278": {
       "number": 1901,
@@ -28461,7 +28461,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형(오답)",
         "가네코 후미코(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-279": {
       "number": 1902,
@@ -28472,7 +28472,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-5(오답)",
         "이동휘 F06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-280": {
       "number": 1903,
@@ -28483,7 +28483,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-1(오답)",
         "이시영 F02-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-281": {
       "number": 1904,
@@ -28494,7 +28494,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-2(오답)",
         "최재형 F05-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-282": {
       "number": 1905,
@@ -28505,7 +28505,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-2(오답)",
         "이시영 F02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-283": {
       "number": 1906,
@@ -28516,7 +28516,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-5(오답)",
         "이상룡 F03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-284": {
       "number": 1907,
@@ -28527,7 +28527,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-6(오답)",
         "이시영 F02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-285": {
       "number": 1908,
@@ -28538,7 +28538,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영(오답)",
         "이동녕(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-286": {
       "number": 1909,
@@ -28549,7 +28549,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘 F06-1(오답)",
         "이시영 F02-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-287": {
       "number": 1910,
@@ -28560,7 +28560,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-5(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-288": {
       "number": 1911,
@@ -28571,7 +28571,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-5(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-289": {
       "number": 1912,
@@ -28582,7 +28582,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동녕 F04-2(오답)",
         "이동휘 F06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-290": {
       "number": 1913,
@@ -28593,7 +28593,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-2(오답)",
         "이상룡 F03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-291": {
       "number": 1914,
@@ -28604,7 +28604,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상룡 F03-1(오답)",
         "이동휘 F06-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-292": {
       "number": 1915,
@@ -28615,7 +28615,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동녕(오답)",
         "이상룡(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-293": {
       "number": 1916,
@@ -28626,7 +28626,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-1(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-294": {
       "number": 1917,
@@ -28637,7 +28637,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-5(오답)",
         "이재명 G04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-295": {
       "number": 1918,
@@ -28648,7 +28648,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-1(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-296": {
       "number": 1919,
@@ -28659,7 +28659,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최재형 F05-6(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-297": {
       "number": 1920,
@@ -28670,7 +28670,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이시영 F02-5(오답)",
         "이동녕 F04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-298": {
       "number": 1921,
@@ -28681,7 +28681,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동녕 F04-1(오답)",
         "최재형 F05-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-299": {
       "number": 1922,
@@ -28692,7 +28692,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이동휘—경학사(오답)",
         "최재형—경학사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-300": {
       "number": 1923,
@@ -28703,7 +28703,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김익상(오답)",
         "나석주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-301": {
       "number": 1924,
@@ -28714,7 +28714,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤봉길 G09-1(오답)",
         "전명운 G02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-302": {
       "number": 1925,
@@ -28725,7 +28725,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명 G04-2(오답)",
         "윤봉길 G09-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-303": {
       "number": 1926,
@@ -28736,7 +28736,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김익상(오답)",
         "김원봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-304": {
       "number": 1927,
@@ -28747,7 +28747,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤봉길 G09-1(오답)",
         "김원봉 G10-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-305": {
       "number": 1928,
@@ -28758,7 +28758,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김익상(오답)",
         "김원봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-306": {
       "number": 1929,
@@ -28769,7 +28769,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나석주 G06-1(오답)",
         "장인환 G01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-307": {
       "number": 1930,
@@ -28780,7 +28780,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박상진 G05-1(오답)",
         "김원봉 G10-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-308": {
       "number": 1931,
@@ -28791,7 +28791,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전명운 G02-1(오답)",
         "윤봉길 G09-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-309": {
       "number": 1932,
@@ -28802,7 +28802,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박상진 G05-3(오답)",
         "전명운 G02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-310": {
       "number": 1933,
@@ -28813,7 +28813,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이봉창 G08-1(오답)",
         "전명운 G02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-311": {
       "number": 1934,
@@ -28824,7 +28824,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김익상(오답)",
         "박상진(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-312": {
       "number": 1935,
@@ -28835,7 +28835,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장인환 G01-1(오답)",
         "이봉창 G08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-313": {
       "number": 1936,
@@ -28846,7 +28846,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장인환 G01-2(오답)",
         "나석주 G06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-314": {
       "number": 1937,
@@ -28857,7 +28857,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박상진 G05-3(오답)",
         "윤봉길 G09-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-315": {
       "number": 1938,
@@ -28868,7 +28868,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김익상(오답)",
         "전명운(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-316": {
       "number": 1939,
@@ -28879,7 +28879,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이봉창 G08-1(오답)",
         "안중근 G03-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-317": {
       "number": 1940,
@@ -28890,7 +28890,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김원봉 G10-3(오답)",
         "안중근 G03-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-318": {
       "number": 1941,
@@ -28901,7 +28901,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전명운 G02-2(오답)",
         "김익상 G07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-319": {
       "number": 1942,
@@ -28912,7 +28912,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전명운(오답)",
         "이재명(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-320": {
       "number": 1943,
@@ -28923,7 +28923,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명 G04-2(오답)",
         "안중근 G03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-321": {
       "number": 1944,
@@ -28934,7 +28934,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장인환 G01-2(오답)",
         "이재명 G04-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-322": {
       "number": 1945,
@@ -28945,7 +28945,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명 G04-3(오답)",
         "김익상 G07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-323": {
       "number": 1946,
@@ -28956,7 +28956,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장인환(오답)",
         "전명운(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-324": {
       "number": 1947,
@@ -28967,7 +28967,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전명운 G02-2(오답)",
         "나석주 G06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-325": {
       "number": 1948,
@@ -28978,7 +28978,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명 G04-3(오답)",
         "전명운 G02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-326": {
       "number": 1949,
@@ -28989,7 +28989,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박상진(오답)",
         "안중근(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-327": {
       "number": 1950,
@@ -29000,7 +29000,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명 G04-1(오답)",
         "장인환 G01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-328": {
       "number": 1951,
@@ -29011,7 +29011,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장인환(오답)",
         "김익상(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-329": {
       "number": 1952,
@@ -29022,7 +29022,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안중근 G03-5(오답)",
         "김원봉 G10-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-330": {
       "number": 1953,
@@ -29033,7 +29033,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명(오답)",
         "윤봉길(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-331": {
       "number": 1954,
@@ -29044,7 +29044,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장인환 G01-1(오답)",
         "이봉창 G08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-332": {
       "number": 1955,
@@ -29055,7 +29055,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이상재 D01-2(오답)",
         "장인환 G01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-333": {
       "number": 1956,
@@ -29066,7 +29066,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안중근 G03-2(오답)",
         "전명운 G02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-334": {
       "number": 1957,
@@ -29077,7 +29077,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명 G04-1(오답)",
         "장인환 G01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-335": {
       "number": 1958,
@@ -29088,7 +29088,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안중근 G03-4(오답)",
         "이봉창 G08-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-336": {
       "number": 1959,
@@ -29099,7 +29099,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대한 광복회—김구(오답)",
         "의열단—김구(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-337": {
       "number": 1960,
@@ -29110,7 +29110,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안중근—공립 협회(오답)",
         "장인환—공립 협회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-338": {
       "number": 1961,
@@ -29121,7 +29121,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한국 광복군 총사령관—김좌진(오답)",
         "조선 의용대—김좌진(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-339": {
       "number": 1962,
@@ -29132,7 +29132,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "훙커우 공원—이봉창(오답)",
         "하얼빈역—이봉창(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-340": {
       "number": 1963,
@@ -29143,7 +29143,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김익상—일왕의 마차 행렬(오답)",
         "나석주—일왕의 마차 행렬(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-341": {
       "number": 1964,
@@ -29154,7 +29154,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린(오답)",
         "서일(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-342": {
       "number": 1965,
@@ -29165,7 +29165,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "양세봉 H05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-343": {
       "number": 1966,
@@ -29176,7 +29176,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "서일 H03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-344": {
       "number": 1967,
@@ -29187,7 +29187,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서일 H03-3(오답)",
         "노백린 H06-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-345": {
       "number": 1968,
@@ -29198,7 +29198,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양세봉 H05-2(오답)",
         "지청천 H04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-346": {
       "number": 1969,
@@ -29209,7 +29209,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린(오답)",
         "윤희순(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-347": {
       "number": 1970,
@@ -29220,7 +29220,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "전명운 G02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-348": {
       "number": 1971,
@@ -29231,7 +29231,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양세봉(오답)",
         "지청천(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-349": {
       "number": 1972,
@@ -29242,7 +29242,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-1(오답)",
         "홍범도 H01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-350": {
       "number": 1973,
@@ -29253,7 +29253,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "홍범도 H01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-351": {
       "number": 1974,
@@ -29264,7 +29264,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "김마리아 I03-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-352": {
       "number": 1975,
@@ -29275,7 +29275,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "남자현 I02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-353": {
       "number": 1976,
@@ -29286,7 +29286,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍범도(오답)",
         "양세봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-354": {
       "number": 1977,
@@ -29297,7 +29297,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍범도 H01-4(오답)",
         "양세봉 H05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-355": {
       "number": 1978,
@@ -29308,7 +29308,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-2(오답)",
         "안중근 G03-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-356": {
       "number": 1979,
@@ -29319,7 +29319,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "남자현 I02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-357": {
       "number": 1980,
@@ -29330,7 +29330,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍범도 H01-4(오답)",
         "노백린 H06-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-358": {
       "number": 1981,
@@ -29341,7 +29341,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-3(오답)",
         "홍범도 H01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-359": {
       "number": 1982,
@@ -29352,7 +29352,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서일(오답)",
         "노백린(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-360": {
       "number": 1983,
@@ -29363,7 +29363,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지청천 H04-3(오답)",
         "김좌진 H02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-361": {
       "number": 1984,
@@ -29374,7 +29374,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노백린 H06-1(오답)",
         "홍범도 H01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-362": {
       "number": 1985,
@@ -29385,7 +29385,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서일(오답)",
         "양세봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-363": {
       "number": 1986,
@@ -29396,7 +29396,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지청천 H04-4(오답)",
         "홍범도 H01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-364": {
       "number": 1987,
@@ -29407,7 +29407,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서일 H03-3(오답)",
         "지청천 H04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-365": {
       "number": 1988,
@@ -29418,7 +29418,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍범도 H01-2(오답)",
         "지청천 H04-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-366": {
       "number": 1989,
@@ -29429,7 +29429,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지청천 H04-4(오답)",
         "홍범도 H01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-367": {
       "number": 1990,
@@ -29440,7 +29440,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "자신회—신규식(오답)",
         "중광단—신규식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-368": {
       "number": 1991,
@@ -29451,7 +29451,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한국 독립군—홍범도(오답)",
         "조선 혁명군—홍범도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-369": {
       "number": 1992,
@@ -29462,7 +29462,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대한 독립군—양세봉(오답)",
         "북로 군정서—양세봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-370": {
       "number": 1993,
@@ -29473,7 +29473,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "쌍성보 전투—양세봉(오답)",
         "봉오동 전투—양세봉(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-371": {
       "number": 1994,
@@ -29484,7 +29484,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김마리아(오답)",
         "남자현(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-372": {
       "number": 1995,
@@ -29495,7 +29495,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-4(오답)",
         "권기옥 I07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-373": {
       "number": 1996,
@@ -29506,7 +29506,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김마리아 I03-3(오답)",
         "박차정 I04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-374": {
       "number": 1997,
@@ -29517,7 +29517,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권기옥 I07-1(오답)",
         "오광심 I05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-375": {
       "number": 1998,
@@ -29528,7 +29528,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심(오답)",
         "박차정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-376": {
       "number": 1999,
@@ -29539,7 +29539,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤희순 I01-2(오답)",
         "오광심 I05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-377": {
       "number": 2000,
@@ -29550,7 +29550,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박차정 I04-2(오답)",
         "오광심 I05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-378": {
       "number": 2001,
@@ -29561,7 +29561,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-4(오답)",
         "김마리아 I03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-379": {
       "number": 2002,
@@ -29572,7 +29572,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-2(오답)",
         "김마리아 I03-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-380": {
       "number": 2003,
@@ -29583,7 +29583,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박차정 I04-4(오답)",
         "윤희순 I01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-381": {
       "number": 2004,
@@ -29594,7 +29594,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유관순 I06-1(오답)",
         "오광심 I05-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-382": {
       "number": 2005,
@@ -29605,7 +29605,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유관순(오답)",
         "스코필드(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-383": {
       "number": 2006,
@@ -29616,7 +29616,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-2(오답)",
         "남자현 I02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-384": {
       "number": 2007,
@@ -29627,7 +29627,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현 I02-4(오답)",
         "오광심 I05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-385": {
       "number": 2008,
@@ -29638,7 +29638,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤희순 I01-2(오답)",
         "권기옥 I07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-386": {
       "number": 2009,
@@ -29649,7 +29649,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-4(오답)",
         "남자현 I02-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-387": {
       "number": 2010,
@@ -29660,7 +29660,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심(오답)",
         "김마리아(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-388": {
       "number": 2011,
@@ -29671,7 +29671,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현 I02-4(오답)",
         "윤희순 I01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-389": {
       "number": 2012,
@@ -29682,7 +29682,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현 I02-2(오답)",
         "윤희순 I01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-390": {
       "number": 2013,
@@ -29693,7 +29693,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현 I02-6(오답)",
         "김마리아 I03-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-391": {
       "number": 2014,
@@ -29704,7 +29704,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권기옥 I07-1(오답)",
         "남자현 I02-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-392": {
       "number": 2015,
@@ -29715,7 +29715,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현(오답)",
         "김마리아(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-393": {
       "number": 2016,
@@ -29726,7 +29726,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박차정 I04-1(오답)",
         "윤희순 I01-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-394": {
       "number": 2017,
@@ -29737,7 +29737,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤희순 I01-2(오답)",
         "박차정 I04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-395": {
       "number": 2018,
@@ -29748,7 +29748,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유관순 I06-2(오답)",
         "남자현 I02-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-396": {
       "number": 2019,
@@ -29759,7 +29759,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이위종 D04-3(오답)",
         "권기옥 I07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-397": {
       "number": 2020,
@@ -29770,7 +29770,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현(오답)",
         "윤희순(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-398": {
       "number": 2021,
@@ -29781,7 +29781,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-4(오답)",
         "권기옥 I07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-399": {
       "number": 2022,
@@ -29792,7 +29792,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남자현 I02-3(오답)",
         "권기옥 I07-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-400": {
       "number": 2023,
@@ -29803,7 +29803,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "오광심 I05-4(오답)",
         "남자현 I02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-401": {
       "number": 2024,
@@ -29814,7 +29814,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유관순(오답)",
         "박차정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-402": {
       "number": 2025,
@@ -29825,7 +29825,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유관순 I06-3(오답)",
         "김마리아 I03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-403": {
       "number": 2026,
@@ -29836,7 +29836,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "지청천 H04-4(오답)",
         "김창숙 J07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-404": {
       "number": 2027,
@@ -29847,7 +29847,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김마리아 I03-4(오답)",
         "남자현 I02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-405": {
       "number": 2028,
@@ -29858,7 +29858,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권기옥—근우회(오답)",
         "남자현—근우회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-406": {
       "number": 2029,
@@ -29869,7 +29869,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장준하(오답)",
         "신규식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-407": {
       "number": 2030,
@@ -29880,7 +29880,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여운형 J05-4(오답)",
         "조소앙 J03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-408": {
       "number": 2031,
@@ -29891,7 +29891,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식 J04-4(오답)",
         "여운형 J05-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-409": {
       "number": 2032,
@@ -29902,7 +29902,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-2(오답)",
         "조소앙 J03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-410": {
       "number": 2033,
@@ -29913,7 +29913,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-4(오답)",
         "여운형 J05-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-411": {
       "number": 2034,
@@ -29924,7 +29924,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-3(오답)",
         "김규식 J04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-412": {
       "number": 2035,
@@ -29935,7 +29935,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안희제(오답)",
         "김병로(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-413": {
       "number": 2036,
@@ -29946,7 +29946,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장준하 J09-4(오답)",
         "김창숙 J07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-414": {
       "number": 2037,
@@ -29957,7 +29957,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-4(오답)",
         "김병로 J08-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-415": {
       "number": 2038,
@@ -29968,7 +29968,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식 J04-2(오답)",
         "김병로 J08-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-416": {
       "number": 2039,
@@ -29979,7 +29979,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-1(오답)",
         "김규식 J04-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-417": {
       "number": 2040,
@@ -29990,7 +29990,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여운형 J05-4(오답)",
         "김구 J01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-418": {
       "number": 2041,
@@ -30001,7 +30001,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식 J04-5(오답)",
         "김구 J01-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-419": {
       "number": 2042,
@@ -30012,7 +30012,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙(오답)",
         "여운형(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-420": {
       "number": 2043,
@@ -30023,7 +30023,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-5(오답)",
         "김구 J01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-421": {
       "number": 2044,
@@ -30034,7 +30034,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-4(오답)",
         "여운형 J05-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-422": {
       "number": 2045,
@@ -30045,7 +30045,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식 J04-4(오답)",
         "신규식 J02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-423": {
       "number": 2046,
@@ -30056,7 +30056,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김구 J01-5(오답)",
         "김창숙 J07-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-424": {
       "number": 2047,
@@ -30067,7 +30067,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안희제(오답)",
         "신규식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-425": {
       "number": 2048,
@@ -30078,7 +30078,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-3(오답)",
         "김구 J01-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-426": {
       "number": 2049,
@@ -30089,7 +30089,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-5(오답)",
         "김구 J01-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-427": {
       "number": 2050,
@@ -30100,7 +30100,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-3(오답)",
         "조소앙 J03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-428": {
       "number": 2051,
@@ -30111,7 +30111,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-3(오답)",
         "장준하 J09-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-429": {
       "number": 2052,
@@ -30122,7 +30122,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조소앙 J03-4(오답)",
         "장준하 J09-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-430": {
       "number": 2053,
@@ -30133,7 +30133,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안희제(오답)",
         "신규식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-431": {
       "number": 2054,
@@ -30144,7 +30144,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조소앙 J03-2(오답)",
         "안희제 J06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-432": {
       "number": 2055,
@@ -30155,7 +30155,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장준하 J09-2(오답)",
         "김창숙 J07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-433": {
       "number": 2056,
@@ -30166,7 +30166,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-1(오답)",
         "김병로 J08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-434": {
       "number": 2057,
@@ -30177,7 +30177,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-2(오답)",
         "신규식 J02-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-435": {
       "number": 2058,
@@ -30188,7 +30188,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안희제 J06-1(오답)",
         "김창숙 J07-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-436": {
       "number": 2059,
@@ -30199,7 +30199,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김구 J01-4(오답)",
         "김창숙 J07-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-437": {
       "number": 2060,
@@ -30210,7 +30210,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식(오답)",
         "김규식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-438": {
       "number": 2061,
@@ -30221,7 +30221,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-5(오답)",
         "여운형 J05-6(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-439": {
       "number": 2062,
@@ -30232,7 +30232,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-2(오답)",
         "김병로 J08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-440": {
       "number": 2063,
@@ -30243,7 +30243,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김창숙 J07-6(오답)",
         "조소앙 J03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-441": {
       "number": 2064,
@@ -30254,7 +30254,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식(오답)",
         "장준하(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-442": {
       "number": 2065,
@@ -30265,7 +30265,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-3(오답)",
         "김규식 J04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-443": {
       "number": 2066,
@@ -30276,7 +30276,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-1(오답)",
         "신규식 J02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-444": {
       "number": 2067,
@@ -30287,7 +30287,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-3(오답)",
         "장준하 J09-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-445": {
       "number": 2068,
@@ -30298,7 +30298,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-3(오답)",
         "신규식 J02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-446": {
       "number": 2069,
@@ -30309,7 +30309,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조소앙 J03-1(오답)",
         "김규식 J04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-447": {
       "number": 2070,
@@ -30320,7 +30320,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-3(오답)",
         "안희제 J06-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-448": {
       "number": 2071,
@@ -30331,7 +30331,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식(오답)",
         "조소앙(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-449": {
       "number": 2072,
@@ -30342,7 +30342,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-1(오답)",
         "김창숙 J07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-450": {
       "number": 2073,
@@ -30353,7 +30353,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여운형 J05-6(오답)",
         "조소앙 J03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-451": {
       "number": 2074,
@@ -30364,7 +30364,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신규식 J02-2(오답)",
         "여운형 J05-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-452": {
       "number": 2075,
@@ -30375,7 +30375,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안희제 J06-1(오답)",
         "김창숙 J07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-453": {
       "number": 2076,
@@ -30386,7 +30386,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식(오답)",
         "여운형(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-454": {
       "number": 2077,
@@ -30397,7 +30397,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식 J04-5(오답)",
         "김구 J01-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-455": {
       "number": 2078,
@@ -30408,7 +30408,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이준 D02-2(오답)",
         "김구 J01-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-456": {
       "number": 2079,
@@ -30419,7 +30419,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여운형 J05-4(오답)",
         "김창숙 J07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-457": {
       "number": 2080,
@@ -30430,7 +30430,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김병로 J08-1(오답)",
         "신규식 J02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-458": {
       "number": 2081,
@@ -30441,7 +30441,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대동 청년당—김병로(오답)",
         "동제사—김병로(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-459": {
       "number": 2082,
@@ -30452,7 +30452,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "민족 자주 연맹—장준하(오답)",
         "신한 청년당—장준하(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-460": {
       "number": 2083,
@@ -30463,7 +30463,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조소앙—한인 애국단(오답)",
         "여운형—한인 애국단(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-461": {
       "number": 2084,
@@ -30474,7 +30474,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백남운(오답)",
         "이윤재(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-462": {
       "number": 2085,
@@ -30485,7 +30485,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-4(오답)",
         "최현배 K03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-463": {
       "number": 2086,
@@ -30496,7 +30496,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나철 K09-2(오답)",
         "최현배 K03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-464": {
       "number": 2087,
@@ -30507,7 +30507,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백남운 K08-1(오답)",
         "박은식 K04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-465": {
       "number": 2088,
@@ -30518,7 +30518,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-1(오답)",
         "정인보 K06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-466": {
       "number": 2089,
@@ -30529,7 +30529,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안재홍 K07-2(오답)",
         "이윤재 K02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-467": {
       "number": 2090,
@@ -30540,7 +30540,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안재홍(오답)",
         "정인보(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-468": {
       "number": 2091,
@@ -30551,7 +30551,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안재홍 K07-3(오답)",
         "신채호 K05-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-469": {
       "number": 2092,
@@ -30562,7 +30562,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정인보 K06-1(오답)",
         "박은식 K04-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-470": {
       "number": 2093,
@@ -30573,7 +30573,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안창호 D06-4(오답)",
         "박은식 K04-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-471": {
       "number": 2094,
@@ -30584,7 +30584,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경 K01-1(오답)",
         "최현배 K03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-472": {
       "number": 2095,
@@ -30595,7 +30595,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-2(오답)",
         "나철 K09-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-473": {
       "number": 2096,
@@ -30606,7 +30606,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박은식(오답)",
         "백남운(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-474": {
       "number": 2097,
@@ -30617,7 +30617,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-4(오답)",
         "안재홍 K07-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-475": {
       "number": 2098,
@@ -30628,7 +30628,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박은식 K04-4(오답)",
         "안재홍 K07-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-476": {
       "number": 2099,
@@ -30639,7 +30639,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박은식 K04-3(오답)",
         "이윤재 K02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-477": {
       "number": 2100,
@@ -30650,7 +30650,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경 K01-1(오답)",
         "안재홍 K07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-478": {
       "number": 2101,
@@ -30661,7 +30661,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경(오답)",
         "나철(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-479": {
       "number": 2102,
@@ -30672,7 +30672,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최현배 K03-4(오답)",
         "주시경 K01-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-480": {
       "number": 2103,
@@ -30683,7 +30683,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최현배 K03-4(오답)",
         "이윤재 K02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-481": {
       "number": 2104,
@@ -30694,7 +30694,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-3(오답)",
         "안재홍 K07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-482": {
       "number": 2105,
@@ -30705,7 +30705,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-2(오답)",
         "안재홍 K07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-483": {
       "number": 2106,
@@ -30716,7 +30716,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-2(오답)",
         "나철 K09-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-484": {
       "number": 2107,
@@ -30727,7 +30727,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최현배 K03-4(오답)",
         "이윤재 K02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-485": {
       "number": 2108,
@@ -30738,7 +30738,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최현배(오답)",
         "주시경(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-486": {
       "number": 2109,
@@ -30749,7 +30749,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백남운 K08-2(오답)",
         "박은식 K04-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-487": {
       "number": 2110,
@@ -30760,7 +30760,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-4(오답)",
         "나철 K09-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-488": {
       "number": 2111,
@@ -30771,7 +30771,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-5(오답)",
         "안재홍 K07-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-489": {
       "number": 2112,
@@ -30782,7 +30782,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경 K01-1(오답)",
         "이윤재 K02-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-490": {
       "number": 2113,
@@ -30793,7 +30793,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경(오답)",
         "나철(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-491": {
       "number": 2114,
@@ -30804,7 +30804,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나철 K09-3(오답)",
         "백남운 K08-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-492": {
       "number": 2115,
@@ -30815,7 +30815,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백남운 K08-2(오답)",
         "박은식 K04-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-493": {
       "number": 2116,
@@ -30826,7 +30826,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경(오답)",
         "나철(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-494": {
       "number": 2117,
@@ -30837,7 +30837,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-3(오답)",
         "백남운 K08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-495": {
       "number": 2118,
@@ -30848,7 +30848,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-4(오답)",
         "나철 K09-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-496": {
       "number": 2119,
@@ -30859,7 +30859,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나철 K09-3(오답)",
         "박은식 K04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-497": {
       "number": 2120,
@@ -30870,7 +30870,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-4(오답)",
         "나철 K09-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-498": {
       "number": 2121,
@@ -30881,7 +30881,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백남운 K08-3(오답)",
         "박은식 K04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-499": {
       "number": 2122,
@@ -30892,7 +30892,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재(오답)",
         "최현배(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-500": {
       "number": 2123,
@@ -30903,7 +30903,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재 K02-3(오답)",
         "박은식 K04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-501": {
       "number": 2124,
@@ -30914,7 +30914,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박은식 K04-5(오답)",
         "나철 K09-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-502": {
       "number": 2125,
@@ -30925,7 +30925,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박은식 K04-3(오답)",
         "나철 K09-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-503": {
       "number": 2126,
@@ -30936,7 +30936,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안재홍(오답)",
         "최현배(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-504": {
       "number": 2127,
@@ -30947,7 +30947,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-1(오답)",
         "주시경 K01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-505": {
       "number": 2128,
@@ -30958,7 +30958,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-2(오답)",
         "이윤재 K02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-506": {
       "number": 2129,
@@ -30969,7 +30969,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신채호 K05-2(오답)",
         "안재홍 K07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 253쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-507": {
       "number": 2130,
@@ -30980,7 +30980,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이윤재—동제사(오답)",
         "주시경—동제사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-508": {
       "number": 2131,
@@ -30991,7 +30991,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『조선상고사』—정인보(오답)",
         "『한국통사』—정인보(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 252쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-509": {
       "number": 2132,
@@ -31002,7 +31002,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『조선상고사감』—신채호(오답)",
         "『조선사회경제사』—신채호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-510": {
       "number": 2133,
@@ -31013,7 +31013,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『조선상고사감』—백남운(오답)",
         "「5천 년간 조선의 얼」—백남운(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-511": {
       "number": 2134,
@@ -31024,7 +31024,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『우리말본』—이윤재(오답)",
         "『국어문법』—이윤재(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-512": {
       "number": 2135,
@@ -31035,7 +31035,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "「독사신론」—국혼 강조(오답)",
         "「조선 혁명 선언」—국혼 강조(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-513": {
       "number": 2136,
@@ -31046,7 +31046,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전형필(오답)",
         "윤동주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-514": {
       "number": 2137,
@@ -31057,7 +31057,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "심훈 L02-3(오답)",
         "이육사 L03-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-515": {
       "number": 2138,
@@ -31068,7 +31068,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤동주 L04-3(오답)",
         "정세권 L08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-516": {
       "number": 2139,
@@ -31079,7 +31079,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전형필 L07-1(오답)",
         "이육사 L03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-517": {
       "number": 2140,
@@ -31090,7 +31090,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-3(오답)",
         "윤동주 L04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-518": {
       "number": 2141,
@@ -31101,7 +31101,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "심훈 L02-2(오답)",
         "나운규 L06-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-519": {
       "number": 2142,
@@ -31112,7 +31112,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나운규(오답)",
         "정세권(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-520": {
       "number": 2143,
@@ -31123,7 +31123,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-3(오답)",
         "윤동주 L04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-521": {
       "number": 2144,
@@ -31134,7 +31134,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-4(오답)",
         "이육사 L03-5(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-522": {
       "number": 2145,
@@ -31145,7 +31145,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정세권 L08-2(오답)",
         "방정환 L05-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-523": {
       "number": 2146,
@@ -31156,7 +31156,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤동주 L04-4(오답)",
         "이육사 L03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-524": {
       "number": 2147,
@@ -31167,7 +31167,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤동주(오답)",
         "방정환(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-525": {
       "number": 2148,
@@ -31178,7 +31178,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-2(오답)",
         "심훈 L02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-526": {
       "number": 2149,
@@ -31189,7 +31189,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한용운 L01-2(오답)",
         "전형필 L07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-527": {
       "number": 2150,
@@ -31200,7 +31200,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정세권 L08-2(오답)",
         "나운규 L06-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-528": {
       "number": 2151,
@@ -31211,7 +31211,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정세권 L08-2(오답)",
         "윤동주 L04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-529": {
       "number": 2152,
@@ -31222,7 +31222,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나운규 L06-2(오답)",
         "심훈 L02-3(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-530": {
       "number": 2153,
@@ -31233,7 +31233,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이육사(오답)",
         "심훈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-531": {
       "number": 2154,
@@ -31244,7 +31244,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-2(오답)",
         "심훈 L02-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-532": {
       "number": 2155,
@@ -31255,7 +31255,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정세권 L08-2(오답)",
         "전형필 L07-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-533": {
       "number": 2156,
@@ -31266,7 +31266,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한용운 L01-2(오답)",
         "정세권 L08-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-534": {
       "number": 2157,
@@ -31277,7 +31277,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "심훈 L02-4(오답)",
         "정세권 L08-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-535": {
       "number": 2158,
@@ -31288,7 +31288,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정세권(오답)",
         "심훈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-536": {
       "number": 2159,
@@ -31299,7 +31299,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한용운 L01-5(오답)",
         "나운규 L06-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-537": {
       "number": 2160,
@@ -31310,7 +31310,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이육사 L03-1(오답)",
         "한용운 L01-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-538": {
       "number": 2161,
@@ -31321,7 +31321,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한용운 L01-4(오답)",
         "윤동주 L04-1(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-539": {
       "number": 2162,
@@ -31332,7 +31332,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤동주 L04-2(오답)",
         "이육사 L03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-540": {
       "number": 2163,
@@ -31343,7 +31343,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이육사(오답)",
         "정인보(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-541": {
       "number": 2164,
@@ -31354,7 +31354,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이육사 L03-5(오답)",
         "윤동주 L04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-542": {
       "number": 2165,
@@ -31365,7 +31365,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-1(오답)",
         "윤동주 L04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-543": {
       "number": 2166,
@@ -31376,7 +31376,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "심훈(오답)",
         "윤동주(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-544": {
       "number": 2167,
@@ -31387,7 +31387,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "주시경 K01-4(오답)",
         "윤동주 L04-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-545": {
       "number": 2168,
@@ -31398,7 +31398,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정세권 L08-1(오답)",
         "이육사 L03-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-546": {
       "number": 2169,
@@ -31409,7 +31409,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나운규(오답)",
         "전형필(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-547": {
       "number": 2170,
@@ -31420,7 +31420,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "윤동주 L04-3(오답)",
         "전형필 L07-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-548": {
       "number": 2171,
@@ -31431,7 +31431,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "방정환 L05-4(오답)",
         "심훈 L02-4(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-549": {
       "number": 2172,
@@ -31442,7 +31442,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이육사 L03-3(오답)",
         "윤동주 L04-2(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 255쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-550": {
       "number": 2173,
@@ -31453,7 +31453,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "근화회—남자현(오답)",
         "색동회—남자현(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-551": {
       "number": 2174,
@@ -31464,7 +31464,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동양 평화론』—박은식(오답)",
         "『조선불교유신론』—박은식(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 254쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "special-hist-20260924-552": {
       "number": 2175,
@@ -31475,7 +31475,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『하늘과 바람과 별과 시』—이육사(오답)",
         "『상록수』—이육사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 256쪽"
+      "sourceSection": "자체 제작(기출 원문 아님) / 특강 근, 현대 인물 "
     },
     "joseonlate1-hist-20260927-001": {
       "number": 2176,
@@ -31488,7 +31488,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기사환국(숙종, 오답, 뒤)",
         "이인좌의 난(영조, 오답, 뒤)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 012쪽 붕당 정치의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 붕당 정치의 전개"
     },
     "joseonlate1-hist-20260927-002": {
       "number": 2177,
@@ -31500,7 +31500,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경신환국(숙종, 오답)",
         "서인, 남인 공존(인조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 012쪽 붕당 정치의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 붕당 정치의 전개"
     },
     "joseonlate1-hist-20260927-003": {
       "number": 2178,
@@ -31513,7 +31513,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이인좌의 난(영조, 경계)",
         "신해통공(정조, 경계)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 012쪽 붕당 정치의 변질(예송)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 붕당 정치의 변질(예송)"
     },
     "joseonlate1-hist-20260927-004": {
       "number": 2179,
@@ -31524,7 +31524,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기사환국 발단(숙종, 오답)",
         "동인의 남북 분화(선조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 012쪽 붕당 정치의 변질(예송)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 붕당 정치의 변질(예송)"
     },
     "joseonlate1-hist-20260927-005": {
       "number": 2180,
@@ -31536,7 +31536,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "허적 유악(숙종, 오답)",
         "이인좌(영조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 012쪽 붕당 정치의 변질(예송)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 붕당 정치의 변질(예송)"
     },
     "joseonlate1-hist-20260927-006": {
       "number": 2181,
@@ -31548,7 +31548,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "인조반정(오답, 앞)",
         "기축옥사(선조, 오답, 앞)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 012쪽 붕당 정치의 변질(환국)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 붕당 정치의 변질(환국)"
     },
     "joseonlate1-hist-20260927-007": {
       "number": 2182,
@@ -31561,7 +31561,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기축옥사(선조, 오답, 앞)",
         "탕평비(영조, 오답, 뒤)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 012쪽 붕당 정치의 변질(환국)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 붕당 정치의 변질(환국)"
     },
     "joseonlate1-hist-20260927-008": {
       "number": 2183,
@@ -31572,7 +31572,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "완론 탕평(영조, 오답)",
         "세도 정치(순조~철종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 012쪽 붕당 정치의 변질(환국)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 붕당 정치의 변질(환국)"
     },
     "joseonlate1-hist-20260927-009": {
       "number": 2184,
@@ -31584,7 +31584,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대동법 경기도(광해군, 오답)",
         "경신환국(숙종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 013쪽 탕평 정치(영조)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 탕평 정치(영조)"
     },
     "joseonlate1-hist-20260927-010": {
       "number": 2185,
@@ -31596,7 +31596,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동문휘고』(정조, 오답)",
         "북벌(효종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 013쪽 탕평 정치(영조)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 탕평 정치(영조)"
     },
     "joseonlate1-hist-20260927-011": {
       "number": 2186,
@@ -31608,7 +31608,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "갑술환국(숙종, 오답)",
         "예송(현종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 013쪽 탕평 정치(정조)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 탕평 정치(정조)"
     },
     "joseonlate1-hist-20260927-012": {
       "number": 2187,
@@ -31620,7 +31620,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동국문헌비고』(영조, 오답)",
         "기사환국(숙종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 013쪽 탕평 정치(정조)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 탕평 정치(정조)"
     },
     "joseonlate1-hist-20260927-013": {
       "number": 2188,
@@ -31632,7 +31632,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기사환국(숙종, 오답)",
         "북인 독점(광해군, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 013쪽 탕평 정치(정조)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 탕평 정치(정조)"
     },
     "joseonlate1-hist-20260927-014": {
       "number": 2189,
@@ -31643,7 +31643,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『속오례의』(영조, 오답 칸)",
         "『무예도보통지』(정조, 오답 칸)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 013쪽 탕평 정치(정조)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 탕평 정치(정조)"
     },
     "joseonlate1-hist-20260927-015": {
       "number": 2190,
@@ -31655,7 +31655,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "완론 탕평(영조, 오답)",
         "북인 독점(광해군, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 013쪽 세도 정치"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 세도 정치"
     },
     "joseonlate1-hist-20260927-016": {
       "number": 2191,
@@ -31664,7 +31664,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "황구첨정, 인징(정답)",
         "백골징포, 족징(오답 칸)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 013쪽 세도 정치"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 세도 정치"
     },
     "joseonlate1-hist-20260927-017": {
       "number": 2192,
@@ -31676,7 +31676,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장용영(정조, 오답)",
         "경신환국(숙종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 013쪽 탕평 정치(영조)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 탕평 정치(영조)"
     },
     "joseonlate1-hist-20260927-018": {
       "number": 2193,
@@ -31688,7 +31688,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기사환국(숙종, 오답)",
         "인조반정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 013쪽 탕평 정치(영조)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 탕평 정치(영조)"
     },
     "joseonlate1-hist-20260927-019": {
       "number": 2194,
@@ -31700,7 +31700,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "예송(현종, 오답)",
         "대동법 경기도(광해군, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 013쪽 탕평 정치(정조)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 탕평 정치(정조)"
     },
     "joseonlate1-hist-20260927-020": {
       "number": 2195,
@@ -31712,7 +31712,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동국문헌비고』(영조, 오답)",
         "갑술환국(숙종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 013쪽 탕평 정치(정조)"
+      "sourceSection": "자체 제작(기출 원문 아님), 22강 조선 후기(정치) 탕평 정치(정조)"
     },
     "joseonlate2-hist-20260928-001": {
       "number": 2196,
@@ -31726,7 +31726,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍문관(오답)",
         "승정원(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 통치 체제의 변화(비변사)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 통치 체제의 변화(비변사)"
     },
     "joseonlate2-hist-20260928-002": {
       "number": 2197,
@@ -31738,7 +31738,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금위영(숙종, 오답)",
         "속오군(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 통치 체제의 변화(군사 제도)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 통치 체제의 변화(군사 제도)"
     },
     "joseonlate2-hist-20260928-003": {
       "number": 2198,
@@ -31750,7 +31750,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기유약조(광해군, 오답)",
         "금위영(숙종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 청과의 관계(북벌 정책)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 청과의 관계(북벌 정책)"
     },
     "joseonlate2-hist-20260928-004": {
       "number": 2199,
@@ -31762,7 +31762,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "안용복(숙종, 오답)",
         "두모포 왜관(선조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 청과의 관계(간도 문제)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 청과의 관계(간도 문제)"
     },
     "joseonlate2-hist-20260928-005": {
       "number": 2200,
@@ -31774,7 +31774,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "비변사 상설화(명종, 오답, 앞)",
         "제승방략 체제(16세기, 오답, 앞)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 일본과의 외교(관계 회복)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 일본과의 외교(관계 회복)"
     },
     "joseonlate2-hist-20260928-006": {
       "number": 2201,
@@ -31785,7 +31785,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나선 정벌(효종, 오답)",
         "백두산정계비(숙종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 일본과의 외교(관계 회복)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 일본과의 외교(관계 회복)"
     },
     "joseonlate2-hist-20260928-007": {
       "number": 2202,
@@ -31798,7 +31798,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "간도 협약(오답)",
         "백두산정계비(숙종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 일본과의 외교(독도 문제)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 일본과의 외교(독도 문제)"
     },
     "joseonlate2-hist-20260928-008": {
       "number": 2203,
@@ -31809,7 +31809,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금위영(숙종, 오답)",
         "5위(임진왜란 이전, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 통치 체제의 변화(군사 제도)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 통치 체제의 변화(군사 제도)"
     },
     "joseonlate2-hist-20260928-009": {
       "number": 2204,
@@ -31821,7 +31821,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "훈련도감(선조, 오답)",
         "금위영(숙종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 통치 체제의 변화(비변사)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 통치 체제의 변화(비변사)"
     },
     "joseonlate2-hist-20260928-010": {
       "number": 2205,
@@ -31833,7 +31833,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "비변사 처음 설치(중종, 오답, 앞)",
         "금위영(숙종, 오답, 뒤)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 통치 체제의 변화(군사 제도)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 통치 체제의 변화(군사 제도)"
     },
     "joseonlate2-hist-20260928-011": {
       "number": 2206,
@@ -31845,7 +31845,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기유약조(광해군, 오답)",
         "회답 겸 쇄환사(선조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 통치 체제의 변화(군사 제도)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 통치 체제의 변화(군사 제도)"
     },
     "joseonlate2-hist-20260928-012": {
       "number": 2207,
@@ -31857,7 +31857,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금위영(숙종, 오답)",
         "기유약조(광해군, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 청과의 관계(북벌 정책)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 청과의 관계(북벌 정책)"
     },
     "joseonlate2-hist-20260928-013": {
       "number": 2208,
@@ -31870,7 +31870,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이인좌의 난(영조, 경계)",
         "신해통공(정조, 경계)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 청과의 관계(북벌 정책)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 청과의 관계(북벌 정책)"
     },
     "joseonlate2-hist-20260928-014": {
       "number": 2209,
@@ -31882,7 +31882,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "북벌론 재제기(숙종, 오답)",
         "친명배금(인조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 청과의 관계(북학론)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 청과의 관계(북학론)"
     },
     "joseonlate2-hist-20260928-015": {
       "number": 2210,
@@ -31894,7 +31894,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백두산정계비(숙종, 오답)",
         "금위영(숙종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 일본과의 외교(관계 회복)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 일본과의 외교(관계 회복)"
     },
     "joseonlate2-hist-20260928-016": {
       "number": 2211,
@@ -31906,7 +31906,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백두산정계비(숙종, 오답, 앞)",
         "태정관 지령(고종, 오답, 앞)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 일본과의 외교(독도 문제)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 일본과의 외교(독도 문제)"
     },
     "joseonlate2-hist-20260928-017": {
       "number": 2212,
@@ -31918,7 +31918,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의금부(오답)",
         "규장각(정조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 통치 체제의 변화(비변사)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 통치 체제의 변화(비변사)"
     },
     "joseonlate2-hist-20260928-018": {
       "number": 2213,
@@ -31929,7 +31929,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "총융청(인조)",
         "금위영(숙종)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 통치 체제의 변화(군사 제도)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 통치 체제의 변화(군사 제도)"
     },
     "joseonlate2-hist-20260928-019": {
       "number": 2214,
@@ -31941,7 +31941,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "통신사(오답)",
         "회답 겸 쇄환사(선조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 청과의 관계(간도 문제)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 청과의 관계(간도 문제)"
     },
     "joseonlate2-hist-20260928-020": {
       "number": 2215,
@@ -31953,7 +31953,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신류 나선 정벌(효종, 오답)",
         "송시열 북벌(효종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 025쪽 일본과의 외교(독도 문제)"
+      "sourceSection": "자체 제작(기출 원문 아님), 23강 조선 후기(조직, 외교) 일본과의 외교(독도 문제)"
     },
     "joseonlate3-hist-20260928-001": {
       "number": 2216,
@@ -31964,7 +31964,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "결작, 선무군관포(균역법, 영조, 오답)",
         "연분 9등법(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 수취 체제의 개편"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 수취 체제의 개편"
     },
     "joseonlate3-hist-20260928-002": {
       "number": 2217,
@@ -31976,7 +31976,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『농사직설』(세종, 오답)",
         "관료전(신문왕, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 농촌 경제의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 농촌 경제의 변화"
     },
     "joseonlate3-hist-20260928-003": {
       "number": 2218,
@@ -31988,7 +31988,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "내상(오답)",
         "경강상인(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 상업의 발달(사상, 장시, 포구)"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 상업의 발달(사상, 장시, 포구)"
     },
     "joseonlate3-hist-20260928-004": {
       "number": 2219,
@@ -31999,7 +31999,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼포 개항, 계해약조(세종, 오답)",
         "청해진(흥덕왕, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 상업의 발달(대외 무역)"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 상업의 발달(대외 무역)"
     },
     "joseonlate3-hist-20260928-005": {
       "number": 2220,
@@ -32011,7 +32011,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "영정법(인조, 오답)",
         "균역법(영조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 화폐 경제의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 화폐 경제의 발달"
     },
     "joseonlate3-hist-20260928-006": {
       "number": 2221,
@@ -32023,7 +32023,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동시전(지증왕, 오답)",
         "은병(고려 숙종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 수공업과 광업의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 수공업과 광업의 발달"
     },
     "joseonlate3-hist-20260928-007": {
       "number": 2222,
@@ -32035,7 +32035,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "호포제(고종, 오답)",
         "연분 9등법(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 수취 체제의 개편"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 수취 체제의 개편"
     },
     "joseonlate3-hist-20260928-008": {
       "number": 2223,
@@ -32047,7 +32047,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "만상(오답)",
         "공인(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 상업의 발달(사상, 장시, 포구)"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 상업의 발달(사상, 장시, 포구)"
     },
     "joseonlate3-hist-20260928-009": {
       "number": 2224,
@@ -32059,7 +32059,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "호포제(고종, 오답)",
         "공법(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 수취 체제의 개편"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 수취 체제의 개편"
     },
     "joseonlate3-hist-20260928-010": {
       "number": 2225,
@@ -32071,7 +32071,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관료전(신문왕, 오답)",
         "과전법(공양왕, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 농촌 경제의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 농촌 경제의 변화"
     },
     "joseonlate3-hist-20260928-011": {
       "number": 2226,
@@ -32083,7 +32083,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경강상인(오답)",
         "보부상(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 상업의 발달(대외 무역)"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 상업의 발달(대외 무역)"
     },
     "joseonlate3-hist-20260928-012": {
       "number": 2227,
@@ -32095,7 +32095,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "객주, 여각(오답)",
         "공인(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 상업의 발달(사상, 장시, 포구)"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 상업의 발달(사상, 장시, 포구)"
     },
     "joseonlate3-hist-20260928-013": {
       "number": 2228,
@@ -32107,7 +32107,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "잠채(오답)",
         "선대제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 수공업과 광업의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 수공업과 광업의 발달"
     },
     "joseonlate3-hist-20260928-014": {
       "number": 2229,
@@ -32119,7 +32119,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "직전법(세조, 오답)",
         "균역법(영조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 수취 체제의 개편"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 수취 체제의 개편"
     },
     "joseonlate3-hist-20260928-015": {
       "number": 2230,
@@ -32131,7 +32131,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "청해진(흥덕왕, 오답)",
         "건원중보(고려 성종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 상업의 발달(사상, 장시, 포구)"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 상업의 발달(사상, 장시, 포구)"
     },
     "joseonlate3-hist-20260928-016": {
       "number": 2231,
@@ -32143,7 +32143,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "도고(오답)",
         "잠채(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 화폐 경제의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 화폐 경제의 발달"
     },
     "joseonlate3-hist-20260928-017": {
       "number": 2232,
@@ -32155,7 +32155,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "관료전(신문왕, 오답)",
         "과전법(공양왕, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 농촌 경제의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 농촌 경제의 변화"
     },
     "joseonlate3-hist-20260928-018": {
       "number": 2233,
@@ -32165,7 +32165,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "영정법, 대동법 내용 뒤바꿈(오답)",
         "연분 9등법(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 수취 체제의 개편"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 수취 체제의 개편"
     },
     "joseonlate3-hist-20260928-019": {
       "number": 2234,
@@ -32177,7 +32177,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "청해진(흥덕왕, 오답)",
         "계해약조(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 상업의 발달(대외 무역)"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 상업의 발달(대외 무역)"
     },
     "joseonlate3-hist-20260928-020": {
       "number": 2235,
@@ -32189,7 +32189,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "해동통보(고려 숙종, 오답)",
         "관료전(신문왕, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 037쪽 상업의 발달(사상, 장시, 포구)"
+      "sourceSection": "자체 제작(기출 원문 아님), 24강 조선 후기(경제) 상업의 발달(사상, 장시, 포구)"
     },
     "joseonlate4-hist-20260928-001": {
       "number": 2236,
@@ -32201,7 +32201,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "독서삼품과(원성왕, 오답)",
         "화랑도(진흥왕, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 신분 제도의 변화(신분제의 동요)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 신분 제도의 변화(신분제의 동요)"
     },
     "joseonlate4-hist-20260928-002": {
       "number": 2237,
@@ -32213,7 +32213,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신향 향전(오답)",
         "공노비 해방(순조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 신분 제도의 변화(중인층의 신분 상승 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 신분 제도의 변화(중인층의 신분 상승 운동)"
     },
     "joseonlate4-hist-20260928-003": {
       "number": 2238,
@@ -32225,7 +32225,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노비종모법(영조, 오답)",
         "갑오개혁(고종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 신분 제도의 변화(노비의 신분 상승)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 신분 제도의 변화(노비의 신분 상승)"
     },
     "joseonlate4-hist-20260928-004": {
       "number": 2239,
@@ -32236,7 +32236,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사심관, 기인(고려 태조, 오답)",
         "향약 보급(중종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 향촌 질서의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 향촌 질서의 변화"
     },
     "joseonlate4-hist-20260928-005": {
       "number": 2240,
@@ -32248,7 +32248,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "병인박해, 병인양요(고종, 오답)",
         "조프 조약(고종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(천주교)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(천주교)"
     },
     "joseonlate4-hist-20260928-006": {
       "number": 2241,
@@ -32260,7 +32260,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이용태 안핵사(고종, 오답)",
         "호포제(고종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(농민의 저항)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(농민의 저항)"
     },
     "joseonlate4-hist-20260928-007": {
       "number": 2242,
@@ -32272,7 +32272,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "천주교 제사 거부(오답)",
         "『정감록』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(동학)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(동학)"
     },
     "joseonlate4-hist-20260928-008": {
       "number": 2243,
@@ -32284,7 +32284,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박규수 안핵사(철종, 오답)",
         "고부 봉기(고종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(농민의 저항)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(농민의 저항)"
     },
     "joseonlate4-hist-20260928-009": {
       "number": 2244,
@@ -32296,7 +32296,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서얼 검서관(정조, 오답)",
         "공노비 해방(순조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 신분 제도의 변화(중인층의 신분 상승 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 신분 제도의 변화(중인층의 신분 상승 운동)"
     },
     "joseonlate4-hist-20260928-010": {
       "number": 2245,
@@ -32308,7 +32308,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "망이, 망소이(고려 명종, 오답)",
         "원종, 애노(진성 여왕, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(예언 사상)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(예언 사상)"
     },
     "joseonlate4-hist-20260928-011": {
       "number": 2246,
@@ -32320,7 +32320,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동학 인내천(오답)",
         "동학 포접제(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(천주교)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(천주교)"
     },
     "joseonlate4-hist-20260928-012": {
       "number": 2247,
@@ -32331,7 +32331,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍경래의 난(순조, 오답)",
         "이용태, 청군 요청(고종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(농민의 저항)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(농민의 저항)"
     },
     "joseonlate4-hist-20260928-013": {
       "number": 2248,
@@ -32343,7 +32343,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍경래(순조, 오답)",
         "황사영(순조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(동학)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(동학)"
     },
     "joseonlate4-hist-20260928-014": {
       "number": 2249,
@@ -32354,7 +32354,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신유박해, 황사영(순조, 오답)",
         "병인박해(고종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(천주교)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(천주교)"
     },
     "joseonlate4-hist-20260928-015": {
       "number": 2250,
@@ -32365,7 +32365,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼정이정청(철종, 오답)",
         "동학 농민 운동(고종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(농민의 저항)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(농민의 저항)"
     },
     "joseonlate4-hist-20260928-016": {
       "number": 2251,
@@ -32377,7 +32377,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "천주교 서학 전래(오답)",
         "미륵 신앙(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(동학)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(동학)"
     },
     "joseonlate4-hist-20260928-017": {
       "number": 2252,
@@ -32389,7 +32389,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "음서, 공음전(고려, 오답)",
         "향, 부곡, 소(고려, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 신분 제도의 변화(신분제의 동요)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 신분 제도의 변화(신분제의 동요)"
     },
     "joseonlate4-hist-20260928-018": {
       "number": 2253,
@@ -32401,7 +32401,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신향(오답)",
         "공노비(순조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 신분 제도의 변화(중인층의 신분 상승 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 신분 제도의 변화(중인층의 신분 상승 운동)"
     },
     "joseonlate4-hist-20260928-019": {
       "number": 2254,
@@ -32413,7 +32413,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍경래(순조, 오답)",
         "이승훈(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(동학)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(동학)"
     },
     "joseonlate4-hist-20260928-020": {
       "number": 2255,
@@ -32425,7 +32425,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고부 봉기(고종, 오답)",
         "망이, 망소이(고려 명종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 049쪽 사회 변혁의 움직임(농민의 저항)"
+      "sourceSection": "자체 제작(기출 원문 아님), 25강 조선 후기(사회) 사회 변혁의 움직임(농민의 저항)"
     },
     "joseonlate5-hist-20260930-001": {
       "number": 2256,
@@ -32437,7 +32437,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍대용 무한 우주론(오답)",
         "정제두 양명학(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 실학의 발달(농업 중심의 개혁론)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 실학의 발달(농업 중심의 개혁론)"
     },
     "joseonlate5-hist-20260930-002": {
       "number": 2257,
@@ -32449,7 +32449,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유수원 『우서』(오답)",
         "홍대용 『의산문답』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 실학의 발달(상공업 중심의 개혁론)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 실학의 발달(상공업 중심의 개혁론)"
     },
     "joseonlate5-hist-20260930-003": {
       "number": 2258,
@@ -32461,7 +32461,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유형원 균전론(오답)",
         "박제가 소비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 실학의 발달(농업 중심의 개혁론)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 실학의 발달(농업 중심의 개혁론)"
     },
     "joseonlate5-hist-20260930-004": {
       "number": 2259,
@@ -32473,7 +32473,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이수광 『지봉유설』(오답)",
         "박제가 소비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 실학의 발달(상공업 중심의 개혁론)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 실학의 발달(상공업 중심의 개혁론)"
     },
     "joseonlate5-hist-20260930-005": {
       "number": 2260,
@@ -32485,7 +32485,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박세당 『사변록』(오답)",
         "이수광 『지봉유설』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 양명학의 수용"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 양명학의 수용"
     },
     "joseonlate5-hist-20260930-006": {
       "number": 2261,
@@ -32497,7 +32497,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이종휘 『동사』(오답)",
         "『연려실기술』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 국학의 발달(역사)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 국학의 발달(역사)"
     },
     "joseonlate5-hist-20260930-007": {
       "number": 2262,
@@ -32509,7 +32509,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『동국여지승람』(성종, 오답)",
         "『동의보감』(광해군, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 국학의 발달(백과사전, 한글)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 국학의 발달(백과사전, 한글)"
     },
     "joseonlate5-hist-20260930-008": {
       "number": 2263,
@@ -32521,7 +32521,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유형원 균전론(오답)",
         "유수원 『우서』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 실학의 발달(농업 중심의 개혁론)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 실학의 발달(농업 중심의 개혁론)"
     },
     "joseonlate5-hist-20260930-009": {
       "number": 2264,
@@ -32533,7 +32533,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정제두 양명학(오답)",
         "이수광 『지봉유설』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 조선 후기 성리학의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 조선 후기 성리학의 변화"
     },
     "joseonlate5-hist-20260930-010": {
       "number": 2265,
@@ -32545,7 +32545,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍대용 무한 우주론(오답)",
         "이익 한전론(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 실학의 발달(상공업 중심의 개혁론)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 실학의 발달(상공업 중심의 개혁론)"
     },
     "joseonlate5-hist-20260930-011": {
       "number": 2266,
@@ -32557,7 +32557,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『해동역사』(오답)",
         "『연려실기술』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 국학의 발달(역사)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 국학의 발달(역사)"
     },
     "joseonlate5-hist-20260930-012": {
       "number": 2267,
@@ -32569,7 +32569,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정약용 여전론(오답)",
         "박제가 소비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 실학의 발달(농업 중심의 개혁론)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 실학의 발달(농업 중심의 개혁론)"
     },
     "joseonlate5-hist-20260930-013": {
       "number": 2268,
@@ -32581,7 +32581,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혼일강리역대국도지도(태종, 오답)",
         "『택리지』(영조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 국학의 발달(지리서, 지도)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 국학의 발달(지리서, 지도)"
     },
     "joseonlate5-hist-20260930-014": {
       "number": 2269,
@@ -32593,7 +32593,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유형원 균전론(오답)",
         "홍대용 『의산문답』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 실학의 발달(상공업 중심의 개혁론)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 실학의 발달(상공업 중심의 개혁론)"
     },
     "joseonlate5-hist-20260930-015": {
       "number": 2270,
@@ -32605,7 +32605,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유형원 균전론(오답)",
         "유수원 『우서』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 실학의 발달(농업 중심의 개혁론)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 실학의 발달(농업 중심의 개혁론)"
     },
     "joseonlate5-hist-20260930-016": {
       "number": 2271,
@@ -32617,7 +32617,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『임원경제지』(오답)",
         "『동국문헌비고』(영조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 국학의 발달(백과사전, 한글)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 국학의 발달(백과사전, 한글)"
     },
     "joseonlate5-hist-20260930-017": {
       "number": 2272,
@@ -32629,7 +32629,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "성리학 절대화(오답)",
         "예학 『가례집람』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 실학의 발달(실학의 등장)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 실학의 발달(실학의 등장)"
     },
     "joseonlate5-hist-20260930-018": {
       "number": 2273,
@@ -32641,7 +32641,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정제두 양명학(오답)",
         "박제가 소비(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 실학의 발달(상공업 중심의 개혁론)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 실학의 발달(상공업 중심의 개혁론)"
     },
     "joseonlate5-hist-20260930-019": {
       "number": 2274,
@@ -32653,7 +32653,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정상기 동국지도(영조, 오답)",
         "정약전 『자산어보』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 실학의 발달(상공업 중심의 개혁론)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 실학의 발달(상공업 중심의 개혁론)"
     },
     "joseonlate5-hist-20260930-020": {
       "number": 2275,
@@ -32665,7 +32665,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『아방강역고』(순조, 오답)",
         "『지구전요』(철종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 061쪽 국학의 발달(지리서, 지도)"
+      "sourceSection": "자체 제작(기출 원문 아님), 26강 조선 후기(문화 1) 국학의 발달(지리서, 지도)"
     },
     "joseonlate6-hist-20260930-001": {
       "number": 2276,
@@ -32677,7 +32677,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "판소리(옳은 장면)",
         "탈춤(옳은 장면)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 서민 문화의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 서민 문화의 발달"
     },
     "joseonlate6-hist-20260930-002": {
       "number": 2277,
@@ -32689,7 +32689,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정선 작품(오답)",
         "김정희 작품(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 073쪽 한문학, 예술의 새 경향(회화, 서예)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 한문학, 예술의 새 경향(회화, 서예)"
     },
     "joseonlate6-hist-20260930-003": {
       "number": 2278,
@@ -32701,7 +32701,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김육 시헌력(오답)",
         "박세당 『색경』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 과학 기술의 발달(농서, 기술)"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 과학 기술의 발달(농서, 기술)"
     },
     "joseonlate6-hist-20260930-004": {
       "number": 2279,
@@ -32713,7 +32713,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『마과회통』(오답)",
         "『침구경험방』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 과학 기술의 발달(의학)"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 과학 기술의 발달(의학)"
     },
     "joseonlate6-hist-20260930-005": {
       "number": 2280,
@@ -32725,7 +32725,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "부석사 무량수전(오답)",
         "봉정사 극락전(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 예술의 새 경향(공예, 건축)"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 예술의 새 경향(공예, 건축)"
     },
     "joseonlate6-hist-20260930-006": {
       "number": 2281,
@@ -32737,7 +32737,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사설시조(오답)",
         "한글 소설(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 서민 문화의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 서민 문화의 발달"
     },
     "joseonlate6-hist-20260930-007": {
       "number": 2282,
@@ -32749,7 +32749,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김홍도 풍속화(오답)",
         "김정희 추사체(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 073쪽 한문학, 예술의 새 경향(회화, 서예)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 한문학, 예술의 새 경향(회화, 서예)"
     },
     "joseonlate6-hist-20260930-008": {
       "number": 2283,
@@ -32761,7 +32761,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대동여지도(철종, 오답)",
         "동국지도(영조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 서양 문물의 수용"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 서양 문물의 수용"
     },
     "joseonlate6-hist-20260930-009": {
       "number": 2284,
@@ -32773,7 +32773,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정선(오답)",
         "강세황(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 073쪽 한문학, 예술의 새 경향(회화, 서예)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 한문학, 예술의 새 경향(회화, 서예)"
     },
     "joseonlate6-hist-20260930-010": {
       "number": 2285,
@@ -32785,7 +32785,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정두원(인조, 오답)",
         "신속 『농가집성』(효종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 과학 기술의 발달(천문학, 역법)"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 과학 기술의 발달(천문학, 역법)"
     },
     "joseonlate6-hist-20260930-011": {
       "number": 2286,
@@ -32797,7 +32797,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "「호질」(오답)",
         "「양반전」(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 서민 문화의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 서민 문화의 발달"
     },
     "joseonlate6-hist-20260930-012": {
       "number": 2287,
@@ -32809,7 +32809,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김득신 파적도(오답)",
         "김정희 세한도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 073쪽 한문학, 예술의 새 경향(회화, 서예)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 한문학, 예술의 새 경향(회화, 서예)"
     },
     "joseonlate6-hist-20260930-013": {
       "number": 2288,
@@ -32821,7 +32821,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『산림경제』(오답)",
         "『임원경제지』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 과학 기술의 발달(농서, 기술)"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 과학 기술의 발달(농서, 기술)"
     },
     "joseonlate6-hist-20260930-014": {
       "number": 2289,
@@ -32833,7 +32833,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "분청사기(오답)",
         "순청자(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 예술의 새 경향(공예, 건축)"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 예술의 새 경향(공예, 건축)"
     },
     "joseonlate6-hist-20260930-015": {
       "number": 2290,
@@ -32845,7 +32845,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "강세황 영통동구도(오답)",
         "김홍도 풍속화(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 073쪽 한문학, 예술의 새 경향(회화, 서예)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 한문학, 예술의 새 경향(회화, 서예)"
     },
     "joseonlate6-hist-20260930-016": {
       "number": 2291,
@@ -32857,7 +32857,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사설시조(오답)",
         "『홍길동전』(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 서민 문화의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 서민 문화의 발달"
     },
     "joseonlate6-hist-20260930-017": {
       "number": 2292,
@@ -32869,7 +32869,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "청해진(흥덕왕, 오답)",
         "동시전(지증왕, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 서민 문화의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 서민 문화의 발달"
     },
     "joseonlate6-hist-20260930-018": {
       "number": 2293,
@@ -32881,7 +32881,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신윤복(오답)",
         "강세황(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 073쪽 한문학, 예술의 새 경향(회화, 서예)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 한문학, 예술의 새 경향(회화, 서예)"
     },
     "joseonlate6-hist-20260930-019": {
       "number": 2294,
@@ -32893,7 +32893,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신윤복 월하정인(오답)",
         "강세황 영통동구도(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 073쪽 한문학, 예술의 새 경향(회화, 서예)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 27강 조선 후기(문화 2) 한문학, 예술의 새 경향(회화, 서예)"
     },
     "joseonlate6-hist-20260930-020": {
       "number": 2295,
@@ -32905,7 +32905,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "시헌력(효종, 오답)",
         "『동의보감』(광해군, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 073쪽 과학 기술의 발달(농서, 기술)"
+      "sourceSection": "자체 제작(기출 원문 아님), 27강 조선 후기(문화 2) 과학 기술의 발달(농서, 기술)"
     },
     "opening1-hist-20260930-001": {
       "number": 2296,
@@ -32917,7 +32917,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "균역법(영조, 오답)",
         "대동법(광해군, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 흥선 대원군의 개혁 정치(왕권 강화)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 흥선 대원군의 개혁 정치(왕권 강화)"
     },
     "opening1-hist-20260930-002": {
       "number": 2297,
@@ -32929,7 +32929,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "장용영(정조, 오답)",
         "금위영(숙종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 흥선 대원군의 개혁 정치(민생 안정, 평가)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 흥선 대원군의 개혁 정치(민생 안정, 평가)"
     },
     "opening1-hist-20260930-003": {
       "number": 2298,
@@ -32941,7 +32941,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최익현(오답)",
         "어재연(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 흥선 대원군의 개혁 정치(왕권 강화)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 흥선 대원군의 개혁 정치(왕권 강화)"
     },
     "opening1-hist-20260930-004": {
       "number": 2299,
@@ -32953,7 +32953,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "진주 농민 봉기(철종, 오답)",
         "신유박해(순조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 서양 열강의 침입과 대응(양요, 척화비)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 서양 열강의 침입과 대응(양요, 척화비)"
     },
     "opening1-hist-20260930-005": {
       "number": 2300,
@@ -32965,7 +32965,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "외규장각 약탈(병인양요, 오답)",
         "오페르트 도굴(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 서양 열강의 침입과 대응(양요, 척화비)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 서양 열강의 침입과 대응(양요, 척화비)"
     },
     "opening1-hist-20260930-006": {
       "number": 2301,
@@ -32977,7 +32977,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "병인양요(오답)",
         "신미양요(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 통상 수교 거부 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 통상 수교 거부 정책"
     },
     "opening1-hist-20260930-007": {
       "number": 2302,
@@ -32989,7 +32989,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백두산정계비(숙종, 오답)",
         "쓰시마섬 정벌(세종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 흥선 대원군의 개혁 정치(19세기 조선의 정세)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 흥선 대원군의 개혁 정치(19세기 조선의 정세)"
     },
     "opening1-hist-20260930-008": {
       "number": 2303,
@@ -33001,7 +33001,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공노비 해방(순조, 오답)",
         "신해통공(정조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 흥선 대원군의 개혁 정치(왕권 강화)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 흥선 대원군의 개혁 정치(왕권 강화)"
     },
     "opening1-hist-20260930-009": {
       "number": 2304,
@@ -33013,7 +33013,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『대전통편』(정조, 오답)",
         "6조 직계제(태종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 흥선 대원군의 개혁 정치(왕권 강화)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 흥선 대원군의 개혁 정치(왕권 강화)"
     },
     "opening1-hist-20260930-010": {
       "number": 2305,
@@ -33025,7 +33025,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양전 사업(전정, 오답)",
         "상평창(고려 성종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 흥선 대원군의 개혁 정치(민생 안정, 평가)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 흥선 대원군의 개혁 정치(민생 안정, 평가)"
     },
     "opening1-hist-20260930-011": {
       "number": 2306,
@@ -33037,7 +33037,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "어재연(신미양요, 오답)",
         "초지진, 덕진진(신미양요, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 서양 열강의 침입과 대응(양요, 척화비)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 서양 열강의 침입과 대응(양요, 척화비)"
     },
     "opening1-hist-20260930-012": {
       "number": 2307,
@@ -33049,7 +33049,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백두산정계비(숙종, 오답)",
         "북한산비(진흥왕, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 서양 열강의 침입과 대응(양요, 척화비)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 서양 열강의 침입과 대응(양요, 척화비)"
     },
     "opening1-hist-20260930-013": {
       "number": 2308,
@@ -33061,7 +33061,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "외규장각(오답)",
         "삼군부(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 통상 수교 거부 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 통상 수교 거부 정책"
     },
     "opening1-hist-20260930-014": {
       "number": 2309,
@@ -33073,7 +33073,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사직(오답)",
         "백운동 서원(중종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 흥선 대원군의 개혁 정치(왕권 강화)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 흥선 대원군의 개혁 정치(왕권 강화)"
     },
     "opening1-hist-20260930-015": {
       "number": 2310,
@@ -33085,7 +33085,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "해동통보(고려 숙종, 오답)",
         "은병(고려 숙종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 흥선 대원군의 개혁 정치(왕권 강화)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 흥선 대원군의 개혁 정치(왕권 강화)"
     },
     "opening1-hist-20260930-016": {
       "number": 2311,
@@ -33097,7 +33097,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공노비 해방(순조, 오답)",
         "삼정이정청(철종, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 흥선 대원군의 개혁 정치(민생 안정, 평가)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 흥선 대원군의 개혁 정치(민생 안정, 평가)"
     },
     "opening1-hist-20260930-017": {
       "number": 2312,
@@ -33106,7 +33106,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나→라→가→다(정답)",
         "병인박해, 오페르트, 신미양요, 척화비(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 통상 수교 거부 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 통상 수교 거부 정책"
     },
     "opening1-hist-20260930-018": {
       "number": 2313,
@@ -33118,7 +33118,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "균역법 결작(영조, 오답)",
         "대동법(광해군, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 흥선 대원군의 개혁 정치(민생 안정, 평가)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 흥선 대원군의 개혁 정치(민생 안정, 평가)"
     },
     "opening1-hist-20260930-019": {
       "number": 2314,
@@ -33130,7 +33130,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신유박해(순조, 오답)",
         "제너럴 셔먼호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 통상 수교 거부 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 통상 수교 거부 정책"
     },
     "opening1-hist-20260930-020": {
       "number": 2315,
@@ -33142,7 +33142,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "병인박해 구실 (나)(오답)",
         "외규장각 (나)(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 085쪽 서양 열강의 침입과 대응(양요, 척화비)"
+      "sourceSection": "자체 제작(기출 원문 아님), 28강 개항기(흥선 대원군) 서양 열강의 침입과 대응(양요, 척화비)"
     },
     "opening2-hist-20260930-001": {
       "number": 2316,
@@ -33154,7 +33154,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "흥선 대원군 재집권(임오군란, 오답)",
         "제물포 조약(임오군란, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 갑신정변"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 갑신정변"
     },
     "opening2-hist-20260930-002": {
       "number": 2317,
@@ -33166,7 +33166,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "개화당 정부(갑신정변, 오답)",
         "톈진 조약(갑신정변, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 개화 정책에 대한 반발(임오군란)"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 개화 정책에 대한 반발(임오군란)"
     },
     "opening2-hist-20260930-003": {
       "number": 2318,
@@ -33178,7 +33178,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "일본군 주둔(제물포 조약, 오답)",
         "파병 시 통보(톈진 조약, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 강화도 조약(조일 수호 조규)"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 강화도 조약(조일 수호 조규)"
     },
     "opening2-hist-20260930-004": {
       "number": 2319,
@@ -33190,7 +33190,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼군부(흥선 대원군, 오답)",
         "장용영(정조, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 정부의 개화 정책 추진"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 정부의 개화 정책 추진"
     },
     "opening2-hist-20260930-005": {
       "number": 2320,
@@ -33202,7 +33202,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "비밀리 시찰(조사 시찰단, 오답)",
         "민영익(보빙사, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 정부의 개화 정책 추진"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 정부의 개화 정책 추진"
     },
     "opening2-hist-20260930-006": {
       "number": 2321,
@@ -33214,7 +33214,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "통상 요구(이항로, 오답)",
         "을미사변, 단발령(을미의병, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 개화 정책에 대한 반발(위정척사 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 개화 정책에 대한 반발(위정척사 운동)"
     },
     "opening2-hist-20260930-007": {
       "number": 2322,
@@ -33226,7 +33226,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조선책략 도입(뒤, 오답)",
         "임오군란(뒤, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 개화 정책에 대한 반발(위정척사 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 개화 정책에 대한 반발(위정척사 운동)"
     },
     "opening2-hist-20260930-008": {
       "number": 2323,
@@ -33238,7 +33238,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "왜양일체(최익현, 오답)",
         "척화주전(이항로, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 갑신정변"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 갑신정변"
     },
     "opening2-hist-20260930-009": {
       "number": 2324,
@@ -33250,7 +33250,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "수륙 무역 장정(임오군란, 오답)",
         "흥선 대원군 납치(임오군란, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 갑신정변"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 갑신정변"
     },
     "opening2-hist-20260930-010": {
       "number": 2325,
@@ -33262,7 +33262,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "톈진 조약(갑신정변, 오답)",
         "통리기무아문(앞선 일, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 개화 정책에 대한 반발(임오군란)"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 개화 정책에 대한 반발(임오군란)"
     },
     "opening2-hist-20260930-011": {
       "number": 2326,
@@ -33274,7 +33274,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조선책략(수신사, 오답)",
         "비밀리 시찰(조사 시찰단, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 정부의 개화 정책 추진"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 정부의 개화 정책 추진"
     },
     "opening2-hist-20260930-012": {
       "number": 2327,
@@ -33286,7 +33286,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "구식 군인 봉기 계기(제물포 조약, 오답)",
         "갑신정변 뒤처리(한성, 톈진, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 강화도 조약(조일 수호 조규)"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 강화도 조약(조일 수호 조규)"
     },
     "opening2-hist-20260930-013": {
       "number": 2328,
@@ -33298,7 +33298,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "통상 요구(이항로, 오답)",
         "병인양요(이항로, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 개화 정책에 대한 반발(위정척사 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 개화 정책에 대한 반발(위정척사 운동)"
     },
     "opening2-hist-20260930-014": {
       "number": 2329,
@@ -33310,7 +33310,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공사관 신축비(한성 조약, 오답)",
         "청 상인 내륙(장정, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 갑신정변"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 갑신정변"
     },
     "opening2-hist-20260930-015": {
       "number": 2330,
@@ -33322,7 +33322,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사흘 만에 실패(갑신정변, 오답)",
         "우정총국(갑신정변, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 개화 정책에 대한 반발(임오군란)"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 개화 정책에 대한 반발(임오군란)"
     },
     "opening2-hist-20260930-016": {
       "number": 2331,
@@ -33334,7 +33334,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "청 상무위원 치외 법권(장정, 오답)",
         "일본군 주둔(제물포 조약, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 강화도 조약(조일 수호 조규)"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 강화도 조약(조일 수호 조규)"
     },
     "opening2-hist-20260930-017": {
       "number": 2332,
@@ -33346,7 +33346,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "운요호 사건(오답)",
         "조선책략 유포(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 개화 정책에 대한 반발(임오군란)"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 개화 정책에 대한 반발(임오군란)"
     },
     "opening2-hist-20260930-018": {
       "number": 2333,
@@ -33358,7 +33358,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "통리기무아문(앞선 일, 오답)",
         "영남 만인소(앞선 일, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 개화 정책에 대한 반발(임오군란)"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 개화 정책에 대한 반발(임오군란)"
     },
     "opening2-hist-20260930-019": {
       "number": 2334,
@@ -33367,7 +33367,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "다→라→가→나(정답)",
         "운요호, 통리기무아문, 임오군란, 갑신정변(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 강화도 조약(조일 수호 조규)"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 강화도 조약(조일 수호 조규)"
     },
     "opening2-hist-20260930-020": {
       "number": 2335,
@@ -33379,7 +33379,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "비밀리 시찰(조사 시찰단, 오답)",
         "민영익(보빙사, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 097쪽 정부의 개화 정책 추진"
+      "sourceSection": "자체 제작(기출 원문 아님), 29강 개항기(개항 ~ 갑신정변) 정부의 개화 정책 추진"
     },
     "reform1-hist-20260930-001": {
       "number": 2336,
@@ -33391,7 +33391,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "건양(을미개혁, 오답)",
         "구본신참(광무개혁, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 근대적 개혁의 추진(갑오개혁)"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 근대적 개혁의 추진(갑오개혁)"
     },
     "reform1-hist-20260930-002": {
       "number": 2337,
@@ -33403,7 +33403,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "23부(2차 갑오, 오답)",
         "태양력, 단발령(을미, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 대한 제국의 수립과 광무개혁"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 대한 제국의 수립과 광무개혁"
     },
     "reform1-hist-20260930-003": {
       "number": 2338,
@@ -33415,7 +33415,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "절영도(뒤, 오답)",
         "척화비(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 갑신정변 이후의 국내외 정세"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 갑신정변 이후의 국내외 정세"
     },
     "reform1-hist-20260930-004": {
       "number": 2339,
@@ -33427,7 +33427,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "전주 화약(1차, 오답)",
         "백산(1차, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 동학 농민 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 동학 농민 운동"
     },
     "reform1-hist-20260930-005": {
       "number": 2340,
@@ -33439,7 +33439,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "개국 기년(1차 갑오, 오답)",
         "홍범 14조(2차 갑오, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 근대적 개혁의 추진(을미개혁)"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 근대적 개혁의 추진(을미개혁)"
     },
     "reform1-hist-20260930-006": {
       "number": 2341,
@@ -33451,7 +33451,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "집강소(동학 농민군, 오답)",
         "영남 만인소(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 독립 협회"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 독립 협회"
     },
     "reform1-hist-20260930-007": {
       "number": 2342,
@@ -33463,7 +33463,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "보은 집회(앞, 오답)",
         "최제우 처형(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 동학 농민 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 동학 농민 운동"
     },
     "reform1-hist-20260930-008": {
       "number": 2343,
@@ -33475,7 +33475,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "2영(개화 정책, 오답)",
         "군국기무처(1차 갑오, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 대한 제국의 수립과 광무개혁"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 대한 제국의 수립과 광무개혁"
     },
     "reform1-hist-20260930-009": {
       "number": 2344,
@@ -33487,7 +33487,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "건양, 태양력(을미, 오답)",
         "원수부(광무, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 근대적 개혁의 추진(갑오개혁)"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 근대적 개혁의 추진(갑오개혁)"
     },
     "reform1-hist-20260930-010": {
       "number": 2345,
@@ -33499,7 +33499,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대한 제국 선포(앞, 오답)",
         "홍범 14조(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 독립 협회"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 독립 협회"
     },
     "reform1-hist-20260930-011": {
       "number": 2346,
@@ -33511,7 +33511,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "군국기무처(1차 갑오, 오답)",
         "통리기무아문(개화 정책, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 동학 농민 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 동학 농민 운동"
     },
     "reform1-hist-20260930-012": {
       "number": 2347,
@@ -33523,7 +33523,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "2영(개화 정책, 오답)",
         "7부, 재판소(2차 갑오, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 근대적 개혁의 추진(을미개혁)"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 근대적 개혁의 추진(을미개혁)"
     },
     "reform1-hist-20260930-013": {
       "number": 2348,
@@ -33535,7 +33535,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "톈진 조약(앞, 오답)",
         "경복궁 점령(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 근대적 개혁의 추진(을미개혁)"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 근대적 개혁의 추진(을미개혁)"
     },
     "reform1-hist-20260930-014": {
       "number": 2349,
@@ -33547,7 +33547,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "교육 입국 조서(2차 갑오, 오답)",
         "지계(광무, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 근대적 개혁의 추진(갑오개혁)"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 근대적 개혁의 추진(갑오개혁)"
     },
     "reform1-hist-20260930-015": {
       "number": 2350,
@@ -33559,7 +33559,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "문명개화(급진 개화파, 오답)",
         "홍범 14조(2차 갑오, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 대한 제국의 수립과 광무개혁"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 대한 제국의 수립과 광무개혁"
     },
     "reform1-hist-20260930-016": {
       "number": 2351,
@@ -33568,7 +33568,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나→라→가→다(정답)",
         "을미사변, 아관 파천, 대한 제국, 헌의 6조(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 근대적 개혁의 추진(을미개혁)"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 근대적 개혁의 추진(을미개혁)"
     },
     "reform1-hist-20260930-017": {
       "number": 2352,
@@ -33580,7 +33580,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공사 노비법(1차 갑오, 오답)",
         "친위대, 진위대(을미, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 근대적 개혁의 추진(갑오개혁)"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 근대적 개혁의 추진(갑오개혁)"
     },
     "reform1-hist-20260930-018": {
       "number": 2353,
@@ -33592,7 +33592,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "홍범 14조(앞, 오답)",
         "군국기무처(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 근대적 개혁의 추진(을미개혁)"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 근대적 개혁의 추진(을미개혁)"
     },
     "reform1-hist-20260930-019": {
       "number": 2354,
@@ -33601,7 +33601,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가→다→나→라(정답)",
         "고부, 전주성, 논산, 우금치(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 동학 농민 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 동학 농민 운동"
     },
     "reform1-hist-20260930-020": {
       "number": 2355,
@@ -33613,7 +33613,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "우금치(동학 농민군, 오답)",
         "황국 협회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 109쪽 독립 협회"
+      "sourceSection": "자체 제작(기출 원문 아님), 30강 개항기(동학 농민 운동 ~ 대한 제국) 독립 협회"
     },
     "empire1-hist-20260930-001": {
       "number": 2356,
@@ -33625,7 +33625,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대한 자강회(오답)",
         "헌정 연구회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 애국 계몽 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 애국 계몽 운동"
     },
     "empire1-hist-20260930-002": {
       "number": 2357,
@@ -33637,7 +33637,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "사법권(기유각서, 오답)",
         "군사 요충지(의정서, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 일제의 국권 침탈 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 일제의 국권 침탈 과정"
     },
     "empire1-hist-20260930-003": {
       "number": 2358,
@@ -33649,7 +33649,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신돌석(을사의병, 오답)",
         "최익현 태인(을사의병, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 항일 의병 운동의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 항일 의병 운동의 전개"
     },
     "empire1-hist-20260930-004": {
       "number": 2359,
@@ -33661,7 +33661,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "일본군 주둔(제물포 조약, 오답)",
         "아관 파천(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 일제의 국권 침탈 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 일제의 국권 침탈 과정"
     },
     "empire1-hist-20260930-005": {
       "number": 2360,
@@ -33673,7 +33673,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "강제 퇴위 반대(대한 자강회, 오답)",
         "일진회 규탄(헌정 연구회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 애국 계몽 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 애국 계몽 운동"
     },
     "empire1-hist-20260930-006": {
       "number": 2361,
@@ -33685,7 +33685,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "13도 창의군(정미의병, 오답)",
         "안규홍(호남 의병, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 항일 의병 운동의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 항일 의병 운동의 전개"
     },
     "empire1-hist-20260930-007": {
       "number": 2362,
@@ -33697,7 +33697,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이재명(오답)",
         "나철, 오기호(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 항일 의거 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 항일 의거 활동"
     },
     "empire1-hist-20260930-008": {
       "number": 2363,
@@ -33709,7 +33709,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "차관(앞, 오답)",
         "기유각서(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 일제의 국권 침탈 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 일제의 국권 침탈 과정"
     },
     "empire1-hist-20260930-009": {
       "number": 2364,
@@ -33721,7 +33721,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "비밀 결사, 공화 정체(신민회, 오답)",
         "만민 공동회(독립 협회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 애국 계몽 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 애국 계몽 운동"
     },
     "empire1-hist-20260930-010": {
       "number": 2365,
@@ -33733,7 +33733,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "평민 의병장(을사의병, 오답)",
         "교전 단체(정미의병, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 항일 의병 운동의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 항일 의병 운동의 전개"
     },
     "empire1-hist-20260930-011": {
       "number": 2366,
@@ -33745,7 +33745,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "차관(신협약, 오답)",
         "군사 요충지(의정서, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 일제의 국권 침탈 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 일제의 국권 침탈 과정"
     },
     "empire1-hist-20260930-012": {
       "number": 2367,
@@ -33757,7 +33757,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이완용(이재명, 오답)",
         "자신회(나철, 오기호, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 항일 의거 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 항일 의거 활동"
     },
     "empire1-hist-20260930-013": {
       "number": 2368,
@@ -33769,7 +33769,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "해산(을미의병, 오답)",
         "민종식, 최익현(을사의병, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 항일 의병 운동의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 항일 의병 운동의 전개"
     },
     "empire1-hist-20260930-014": {
       "number": 2369,
@@ -33781,7 +33781,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "만민 공동회(독립 협회, 오답)",
         "강제 퇴위 반대(대한 자강회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 애국 계몽 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 애국 계몽 운동"
     },
     "empire1-hist-20260930-015": {
       "number": 2370,
@@ -33793,7 +33793,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "강제 병합(경술국치, 오답)",
         "황무지 개간권(보안회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 일제의 국권 침탈 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 일제의 국권 침탈 과정"
     },
     "empire1-hist-20260930-016": {
       "number": 2371,
@@ -33805,7 +33805,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼국 간섭(앞, 오답)",
         "거문도(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 일제의 국권 침탈 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 일제의 국권 침탈 과정"
     },
     "empire1-hist-20260930-017": {
       "number": 2372,
@@ -33817,7 +33817,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼국 간섭(앞, 오답)",
         "아관 파천(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 일제의 국권 침탈 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 일제의 국권 침탈 과정"
     },
     "empire1-hist-20260930-018": {
       "number": 2373,
@@ -33829,7 +33829,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "통감부(을사늑약, 오답)",
         "군사 요충지(의정서, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 일제의 국권 침탈 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 일제의 국권 침탈 과정"
     },
     "empire1-hist-20260930-019": {
       "number": 2374,
@@ -33838,7 +33838,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "라→다→가→나(정답)",
         "의정서, 제1차 협약, 신협약, 기유각서(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 일제의 국권 침탈 과정"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 일제의 국권 침탈 과정"
     },
     "empire1-hist-20260930-020": {
       "number": 2375,
@@ -33850,7 +33850,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "해산 군인(앞, 오답)",
         "을미의병 해산(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 121쪽 항일 의병 운동의 전개"
+      "sourceSection": "자체 제작(기출 원문 아님), 31강 국권 피탈과 저항 항일 의병 운동의 전개"
     },
     "liberation1-hist-20261005-001": {
       "number": 2376,
@@ -33862,7 +33862,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "귀속 재산 처리법(오답)",
         "유엔 소총회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 대한민국 정부 수립과 활동(제헌 국회)"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 대한민국 정부 수립과 활동(제헌 국회)"
     },
     "liberation1-hist-20261005-002": {
       "number": 2377,
@@ -33874,7 +33874,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남북 협상파 참여(오답)",
         "제주도 모든 선거구(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 대한민국 정부 수립과 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 대한민국 정부 수립과 활동"
     },
     "liberation1-hist-20261005-003": {
       "number": 2378,
@@ -33886,7 +33886,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "치안대(조선 건국 준비 위원회, 앞, 오답)",
         "제1차 미소 공동 위원회(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
     },
     "liberation1-hist-20261005-004": {
       "number": 2379,
@@ -33898,7 +33898,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유엔 소총회(오답)",
         "미소 공동 위원회 휴회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 6.25 전쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 6.25 전쟁"
     },
     "liberation1-hist-20261005-005": {
       "number": 2380,
@@ -33910,7 +33910,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "북조선 임시 인민 위원회(오답)",
         "반민특위(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
     },
     "liberation1-hist-20261005-006": {
       "number": 2381,
@@ -33922,7 +33922,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "반민족 행위자 토지 몰수(한계, 오답)",
         "모든 토지(한계, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 대한민국 정부 수립과 활동(제헌 국회)"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 대한민국 정부 수립과 활동(제헌 국회)"
     },
     "liberation1-hist-20261005-007": {
       "number": 2382,
@@ -33934,7 +33934,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "반민족 행위 처벌법(앞, 오답)",
         "5.10 총선거(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 6.25 전쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 6.25 전쟁"
     },
     "liberation1-hist-20261005-008": {
       "number": 2383,
@@ -33946,7 +33946,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가능한 지역 총선거(유엔 소총회, 오답)",
         "외국 군대 철수(남북 협상, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
     },
     "liberation1-hist-20261005-009": {
       "number": 2384,
@@ -33958,7 +33958,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "미소 공동 위원회 결렬(오답)",
         "김구 암살(남북 협상, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 대한민국 정부 수립과 활동(제헌 국회)"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 대한민국 정부 수립과 활동(제헌 국회)"
     },
     "liberation1-hist-20261005-010": {
       "number": 2385,
@@ -33970,7 +33970,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "좌우 합작 7원칙(앞, 오답)",
         "흥남 철수(뒤, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 대한민국 정부 수립과 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 대한민국 정부 수립과 활동"
     },
     "liberation1-hist-20261005-011": {
       "number": 2386,
@@ -33982,7 +33982,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서울 함락(뒤, 오답)",
         "반민족 행위 처벌법(뒤, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
     },
     "liberation1-hist-20261005-012": {
       "number": 2387,
@@ -33994,7 +33994,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국회 프락치 사건(오답)",
         "포로 송환 갈등(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 대한민국 정부 수립과 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 대한민국 정부 수립과 활동"
     },
     "liberation1-hist-20261005-013": {
       "number": 2388,
@@ -34006,7 +34006,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여수, 순천 10.19 사건(전, 오답)",
         "국회 프락치 사건(전, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 6.25 전쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 6.25 전쟁"
     },
     "liberation1-hist-20261005-014": {
       "number": 2389,
@@ -34018,7 +34018,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "무장봉기(제주 4.3 사건, 오답)",
         "남북 지도자 협의회(남북 협상, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
     },
     "liberation1-hist-20261005-015": {
       "number": 2390,
@@ -34030,7 +34030,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유엔군 참전(앞, 오답)",
         "다부동 전투(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 6.25 전쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 6.25 전쟁"
     },
     "liberation1-hist-20261005-016": {
       "number": 2391,
@@ -34042,7 +34042,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여수, 순천 10.19 사건(오답)",
         "제주 4.3 사건(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 6.25 전쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 6.25 전쟁"
     },
     "liberation1-hist-20261005-017": {
       "number": 2392,
@@ -34054,7 +34054,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "반공 포로 석방(뒤, 오답)",
         "애치슨 선언(전, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 6.25 전쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 6.25 전쟁"
     },
     "liberation1-hist-20261005-018": {
       "number": 2393,
@@ -34066,7 +34066,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "좌우 대립 완화(오답)",
         "미군정 불참(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
     },
     "liberation1-hist-20261005-019": {
       "number": 2394,
@@ -34078,7 +34078,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "공위 속개(좌우 합작 7원칙, 오답)",
         "가능한 지역 선거(유엔 소총회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 8.15 광복 직후의 한반도 내 동향, 통일 정부 수립을 위한 노력"
     },
     "liberation1-hist-20261005-020": {
       "number": 2395,
@@ -34087,7 +34087,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나 → 가 → 라 → 다(정답)",
         "낙동강, 인천, 흥남, 반공 포로(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 205쪽 6.25 전쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 38강 현대(광복 ~ 6.25 전쟁) 6.25 전쟁"
     },
     "openecon1-hist-20261005-001": {
       "number": 2396,
@@ -34099,7 +34099,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대한 천일 은행(오답)",
         "국채 보상 운동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 일본의 토지 약탈과 금융 지배"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 일본의 토지 약탈과 금융 지배"
     },
     "openecon1-hist-20261005-002": {
       "number": 2397,
@@ -34111,7 +34111,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "외국 상인 철수 요구(황국 중앙 총상회, 오답)",
         "황무지 개간권 철회(보안회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 경제적 구국 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 경제적 구국 운동"
     },
     "openecon1-hist-20261005-003": {
       "number": 2398,
@@ -34123,7 +34123,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "청 상인 내지 통상(수륙 무역 장정, 오답)",
         "방곡령 규정(조일 통상 장정, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 개항 초기 경제 침탈"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 개항 초기 경제 침탈"
     },
     "openecon1-hist-20261005-004": {
       "number": 2399,
@@ -34135,7 +34135,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한러 은행 폐쇄(독립 협회, 오답)",
         "방곡령(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 경제적 구국 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 경제적 구국 운동"
     },
     "openecon1-hist-20261005-005": {
       "number": 2400,
@@ -34147,7 +34147,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "개항장 객주(상회소, 오답)",
         "만민 공동회(독립 협회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 경제적 구국 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 경제적 구국 운동"
     },
     "openecon1-hist-20261005-006": {
       "number": 2401,
@@ -34159,7 +34159,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경의선(프랑스, 오답)",
         "당현 금광(독일, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 열강의 이권 침탈"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 열강의 이권 침탈"
     },
     "openecon1-hist-20261005-007": {
       "number": 2402,
@@ -34171,7 +34171,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "상회소(오답)",
         "절영도(독립 협회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 경제적 구국 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 경제적 구국 운동"
     },
     "openecon1-hist-20261005-008": {
       "number": 2403,
@@ -34183,7 +34183,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "제너럴셔먼호(앞, 오답)",
         "병인양요(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 개항 초기 경제 침탈"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 개항 초기 경제 침탈"
     },
     "openecon1-hist-20261005-009": {
       "number": 2404,
@@ -34195,7 +34195,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "절영도(오답)",
         "청 상인 점포(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 일본의 토지 약탈과 금융 지배"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 일본의 토지 약탈과 금융 지배"
     },
     "openecon1-hist-20261005-010": {
       "number": 2405,
@@ -34207,7 +34207,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조미 수호 통상 조약(오답)",
         "조일 통상 장정(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 개항 초기 경제 침탈"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 개항 초기 경제 침탈"
     },
     "openecon1-hist-20261005-011": {
       "number": 2406,
@@ -34219,7 +34219,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "임오군란(앞, 오답)",
         "운요호(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 열강의 이권 침탈"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 열강의 이권 침탈"
     },
     "openecon1-hist-20261005-012": {
       "number": 2407,
@@ -34231,7 +34231,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "황무지 개간권(보안회, 오답)",
         "외국 상인 불법 상업(황국 중앙 총상회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 경제적 구국 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 경제적 구국 운동"
     },
     "openecon1-hist-20261005-013": {
       "number": 2408,
@@ -34243,7 +34243,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "당오전(개항 초기, 오답)",
         "같은 값 교환(사실과 반대, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 일본의 토지 약탈과 금융 지배"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 일본의 토지 약탈과 금융 지배"
     },
     "openecon1-hist-20261005-014": {
       "number": 2409,
@@ -34255,7 +34255,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "황국 중앙 총상회(앞, 오답)",
         "함경도 방곡령(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 일본의 토지 약탈과 금융 지배"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 일본의 토지 약탈과 금융 지배"
     },
     "openecon1-hist-20261005-015": {
       "number": 2410,
@@ -34267,7 +34267,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경부선(일본, 오답)",
         "경원선(일본, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 열강의 이권 침탈"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 열강의 이권 침탈"
     },
     "openecon1-hist-20261005-016": {
       "number": 2411,
@@ -34279,7 +34279,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "농광 회사(오답)",
         "국채 보상 기성회(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 경제적 구국 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 경제적 구국 운동"
     },
     "openecon1-hist-20261005-017": {
       "number": 2412,
@@ -34291,7 +34291,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "일본 화폐(부록, 오답)",
         "부산 외 두 항구(강화도 조약, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 개항 초기 경제 침탈"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 개항 초기 경제 침탈"
     },
     "openecon1-hist-20261005-018": {
       "number": 2413,
@@ -34303,7 +34303,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "제일 은행권(오답)",
         "국채 보상(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 경제적 구국 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 경제적 구국 운동"
     },
     "openecon1-hist-20261005-019": {
       "number": 2414,
@@ -34315,7 +34315,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "황무지 개간권(보안회, 오답)",
         "은행 설립(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 경제적 구국 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 경제적 구국 운동"
     },
     "openecon1-hist-20261005-020": {
       "number": 2415,
@@ -34324,7 +34324,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "다 → 나 → 라 → 가(정답)",
         "무역 규칙, 조미, 수륙 장정, 통상 장정(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 133쪽 개항 초기 경제 침탈"
+      "sourceSection": "자체 제작(기출 원문 아님), 32강 개항기(경제) 개항 초기 경제 침탈"
     },
     "openculture1-hist-20261005-001": {
       "number": 2416,
@@ -34336,7 +34336,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동문학(앞, 오답)",
         "육영 공원(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 근대 교육의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 근대 교육의 발달"
     },
     "openculture1-hist-20261005-002": {
       "number": 2417,
@@ -34348,7 +34348,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "상업 광고(한성주보, 오답)",
         "부녀자(제국신문, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 언론의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 언론의 발달"
     },
     "openculture1-hist-20261005-003": {
       "number": 2418,
@@ -34360,7 +34360,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "동문학(오답)",
         "오산, 대성 학교(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 근대 교육의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 근대 교육의 발달"
     },
     "openculture1-hist-20261005-004": {
       "number": 2419,
@@ -34372,7 +34372,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경향신문(천주교, 오답)",
         "유교 구신론(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 문예와 국학, 종교의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 문예와 국학, 종교의 변화"
     },
     "openculture1-hist-20261005-005": {
       "number": 2420,
@@ -34384,7 +34384,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "이종일(제국신문, 오답)",
         "남궁억(황성신문, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 언론의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 언론의 발달"
     },
     "openculture1-hist-20261005-006": {
       "number": 2421,
@@ -34396,7 +34396,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "원각사(오답)",
         "독사신론(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 문예와 국학, 종교의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 문예와 국학, 종교의 변화"
     },
     "openculture1-hist-20261005-007": {
       "number": 2422,
@@ -34408,7 +34408,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "육영 공원(오답)",
         "오산, 대성 학교(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 근대 교육의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 근대 교육의 발달"
     },
     "openculture1-hist-20261005-008": {
       "number": 2423,
@@ -34420,7 +34420,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광혜원(오답)",
         "한성 전기 회사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 근대 문물과 기술의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 근대 문물과 기술의 도입"
     },
     "openculture1-hist-20261005-009": {
       "number": 2424,
@@ -34432,7 +34432,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한성 사범 학교, 소학교(오답)",
         "이화 학당(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 근대 교육의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 근대 교육의 발달"
     },
     "openculture1-hist-20261005-010": {
       "number": 2425,
@@ -34444,7 +34444,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "박문국(오답)",
         "한성 전기 회사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 근대 문물과 기술의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 근대 문물과 기술의 도입"
     },
     "openculture1-hist-20261005-011": {
       "number": 2426,
@@ -34456,7 +34456,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금수회의록(오답)",
         "해에게서 소년에게(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 문예와 국학, 종교의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 문예와 국학, 종교의 변화"
     },
     "openculture1-hist-20261005-012": {
       "number": 2427,
@@ -34468,7 +34468,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "황성신문(오답)",
         "대한매일신보(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 언론의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 언론의 발달"
     },
     "openculture1-hist-20261005-013": {
       "number": 2428,
@@ -34480,7 +34480,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "독사신론(오답)",
         "유교 구신론(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 근대 교육의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 근대 교육의 발달"
     },
     "openculture1-hist-20261005-014": {
       "number": 2429,
@@ -34492,7 +34492,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "광혜원(오답)",
         "원각사(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 근대 문물과 기술의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 근대 문물과 기술의 도입"
     },
     "openculture1-hist-20261005-015": {
       "number": 2430,
@@ -34504,7 +34504,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경향신문(천주교, 오답)",
         "한용운(불교, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 문예와 국학, 종교의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 문예와 국학, 종교의 변화"
     },
     "openculture1-hist-20261005-016": {
       "number": 2431,
@@ -34516,7 +34516,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "독사신론(오답)",
         "조선 불교 유신론(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 문예와 국학, 종교의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 문예와 국학, 종교의 변화"
     },
     "openculture1-hist-20261005-017": {
       "number": 2432,
@@ -34528,7 +34528,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순 한문 관보(한성순보, 오답)",
         "경향신문(천주교, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 언론의 발달"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 언론의 발달"
     },
     "openculture1-hist-20261005-018": {
       "number": 2433,
@@ -34540,7 +34540,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "프랑스(경의선, 오답)",
         "미국(경인선, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 근대 문물과 기술의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 근대 문물과 기술의 도입"
     },
     "openculture1-hist-20261005-019": {
       "number": 2434,
@@ -34552,7 +34552,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "독립신문(오답)",
         "만세보(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 문예와 국학, 종교의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 문예와 국학, 종교의 변화"
     },
     "openculture1-hist-20261005-020": {
       "number": 2435,
@@ -34561,7 +34561,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "다 → 라 → 나 → 가(정답)",
         "우정총국, 전신, 전등, 전차(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 145쪽 근대 문물과 기술의 도입"
+      "sourceSection": "자체 제작(기출 원문 아님), 33강 개항기(문화) 근대 문물과 기술의 도입"
     },
     "colonial1-hist-20261005-001": {
       "number": 2436,
@@ -34573,7 +34573,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "애국반(민족 말살 통치, 오답)",
         "경성 제국 대학(문화 통치, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1910년대 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1910년대 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-002": {
       "number": 2437,
@@ -34585,7 +34585,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국가 총동원법(민족 말살 통치, 오답)",
         "예방 구금령(민족 말살 통치, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1910년대 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1910년대 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-003": {
       "number": 2438,
@@ -34597,7 +34597,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "치안 유지법(문화 통치, 오답)",
         "헌병 경찰(무단 통치, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1930년대 이후 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1930년대 이후 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-004": {
       "number": 2439,
@@ -34609,7 +34609,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "조선일보, 동아일보 허용(문화 통치, 오답)",
         "회사령(무단 통치, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1930년대 이후 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1930년대 이후 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-005": {
       "number": 2440,
@@ -34621,7 +34621,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "회사령(무단 통치, 오답)",
         "신사 참배(민족 말살 통치, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1920년대 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1920년대 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-006": {
       "number": 2441,
@@ -34633,7 +34633,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국민학교(민족 말살 통치, 오답)",
         "학도 지원병(민족 말살 통치, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1920년대 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1920년대 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-007": {
       "number": 2442,
@@ -34645,7 +34645,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "회사령(무단 통치, 오답)",
         "경성 제국 대학(문화 통치, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1930년대 이후 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1930년대 이후 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-008": {
       "number": 2443,
@@ -34657,7 +34657,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남면북양(오답)",
         "조선 농지령(농촌 진흥 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1920년대 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1920년대 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-009": {
       "number": 2444,
@@ -34669,7 +34669,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "애국반(민족 말살 통치, 오답)",
         "보호 관찰(민족 말살 통치, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1910년대 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1910년대 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-010": {
       "number": 2445,
@@ -34681,7 +34681,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "회사령 철폐(오답)",
         "농촌 진흥 운동(오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1910년대 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1910년대 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-011": {
       "number": 2446,
@@ -34693,7 +34693,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "회사령 철폐(오답)",
         "토지 신고(토지 조사 사업, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1930년대 이후 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1930년대 이후 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-012": {
       "number": 2447,
@@ -34705,7 +34705,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "제복과 칼(무단 통치, 오답)",
         "창씨개명(민족 말살 통치, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1920년대 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1920년대 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-013": {
       "number": 2448,
@@ -34717,7 +34717,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "토지 조사 사업(무단 통치, 오답)",
         "관세 철폐(문화 통치, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1930년대 이후 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1930년대 이후 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-014": {
       "number": 2449,
@@ -34729,7 +34729,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "도 평의회(문화 통치, 오답)",
         "회사령(무단 통치, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1930년대 이후 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1930년대 이후 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-015": {
       "number": 2450,
@@ -34741,7 +34741,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "두 신문 폐간(민족 말살 통치, 오답)",
         "칼(무단 통치, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1920년대 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1920년대 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-016": {
       "number": 2451,
@@ -34753,7 +34753,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "재정 마련(토지 조사 사업, 오답)",
         "일본 기업 진출(회사령 철폐, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1930년대 이후 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1930년대 이후 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-017": {
       "number": 2452,
@@ -34765,7 +34765,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "토지 조사 사업(앞, 오답)",
         "국가 총동원법(뒤, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1920년대 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1920년대 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-018": {
       "number": 2453,
@@ -34777,7 +34777,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금속 공출(민족 말살 통치, 오답)",
         "소작 쟁의 억제(농촌 진흥 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1920년대 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1920년대 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-019": {
       "number": 2454,
@@ -34789,7 +34789,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "회사령(무단 통치, 오답)",
         "토지 신고(토지 조사 사업, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1930년대 이후 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1930년대 이후 일제의 식민지 지배 정책"
     },
     "colonial1-hist-20261005-020": {
       "number": 2455,
@@ -34798,7 +34798,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가 → 라 → 나 → 다(정답)",
         "회사령, 산미 증식, 치안 유지법, 국가 총동원법(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 157쪽 1910년대 일제의 식민지 지배 정책"
+      "sourceSection": "자체 제작(기출 원문 아님), 34강 일제 강점기(식민 통치) 1910년대 일제의 식민지 지배 정책"
     },
     "resist1-hist-20261005-001": {
       "number": 2456,
@@ -34810,7 +34810,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서전서숙(북간도, 오답)",
         "숭무 학교(멕시코, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동 이전의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동 이전의 민족 운동"
     },
     "resist1-hist-20261005-002": {
       "number": 2457,
@@ -34822,7 +34822,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "김규식 파견(신한 청년당, 오답)",
         "권업신문(권업회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동 이전의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동 이전의 민족 운동"
     },
     "resist1-hist-20261005-003": {
       "number": 2458,
@@ -34834,7 +34834,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "치안 유지법(뒤, 오답)",
         "순종 장례(6.10 만세 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동"
     },
     "resist1-hist-20261005-004": {
       "number": 2459,
@@ -34846,7 +34846,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "흥사단(미국 본토, 오답)",
         "중광단(북간도, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동 이전의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동 이전의 민족 운동"
     },
     "resist1-hist-20261005-005": {
       "number": 2460,
@@ -34858,7 +34858,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신간회 진상 조사단(광주 학생 항일 운동, 오답)",
         "이상재 모금(민립 대학 설립 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동"
     },
     "resist1-hist-20261005-006": {
       "number": 2461,
@@ -34870,7 +34870,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "숭무 학교(멕시코, 오답)",
         "국권 반환 요구서(독립 의군부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 대한민국 임시 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 대한민국 임시 정부"
     },
     "resist1-hist-20261005-007": {
       "number": 2462,
@@ -34882,7 +34882,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대한인 국민회 중앙 총회(미국 본토, 오답)",
         "명동 학교(북간도, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동 이전의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동 이전의 민족 운동"
     },
     "resist1-hist-20261005-008": {
       "number": 2463,
@@ -34894,7 +34894,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대동단결 선언(수립 전, 오답)",
         "민족 대표 33인(3.1 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 대한민국 임시 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 대한민국 임시 정부"
     },
     "resist1-hist-20261005-009": {
       "number": 2464,
@@ -34906,7 +34906,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "파리 강화 회의(신한 청년당, 오답)",
         "신흥 강습소(서간도, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동 이전의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동 이전의 민족 운동"
     },
     "resist1-hist-20261005-010": {
       "number": 2465,
@@ -34918,7 +34918,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신간회 지원(광주 학생 항일 운동, 오답)",
         "사회주의 계열(6.10 만세 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동"
     },
     "resist1-hist-20261005-011": {
       "number": 2466,
@@ -34930,7 +34930,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "권업회(연해주, 오답)",
         "대한인 국민회(미국 본토, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동 이전의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동 이전의 민족 운동"
     },
     "resist1-hist-20261005-012": {
       "number": 2467,
@@ -34942,7 +34942,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "서전서숙(북간도, 오답)",
         "권업회(연해주, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 대한민국 임시 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 대한민국 임시 정부"
     },
     "resist1-hist-20261005-013": {
       "number": 2468,
@@ -34954,7 +34954,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신흥 강습소(서간도, 오답)",
         "대한 광복군 정부(연해주, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동 이전의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동 이전의 민족 운동"
     },
     "resist1-hist-20261005-014": {
       "number": 2469,
@@ -34966,7 +34966,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신간회(6.10 만세 운동, 오답)",
         "갑오개혁(동학 농민 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동"
     },
     "resist1-hist-20261005-015": {
       "number": 2470,
@@ -34978,7 +34978,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼원보(서간도, 오답)",
         "서전서숙(북간도, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동 이전의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동 이전의 민족 운동"
     },
     "resist1-hist-20261005-016": {
       "number": 2471,
@@ -34990,7 +34990,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "경학사(서간도, 오답)",
         "대한 광복군 정부(연해주, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 대한민국 임시 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 대한민국 임시 정부"
     },
     "resist1-hist-20261005-017": {
       "number": 2472,
@@ -35002,7 +35002,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대구 군자금(대한 광복회, 오답)",
         "권업신문(권업회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동 이전의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동 이전의 민족 운동"
     },
     "resist1-hist-20261005-018": {
       "number": 2473,
@@ -35014,7 +35014,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신간회 조사단(광주 학생 항일 운동, 오답)",
         "사회주의 계열(6.10 만세 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동"
     },
     "resist1-hist-20261005-019": {
       "number": 2474,
@@ -35026,7 +35026,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순종 장례(6.10 만세 운동, 오답)",
         "국민 대표 회의(뒤, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 3.1 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 3.1 운동"
     },
     "resist1-hist-20261005-020": {
       "number": 2475,
@@ -35035,7 +35035,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순서 나 → 라 → 가 → 다(정답)",
         "대동단결 선언, 통합 임시 정부, 국민 대표 회의, 박은식(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 169쪽 대한민국 임시 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 35강 일제 강점기(1910년대 저항) 대한민국 임시 정부"
     },
     "resist2-hist-20261005-001": {
       "number": 2476,
@@ -35047,7 +35047,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "평양 조만식(물산 장려 운동, 오답)",
         "근우(근우회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 36강 일제 강점기(1920년대 저항) 181쪽 국내 사회, 경제적 민족 운동(실력 양성, 농민, 노동, 대중 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 36강 일제 강점기(1920년대 저항) 국내 사회, 경제적 민족 운동(실력 양성, 농민, 노동, 대중 운동)"
     },
     "resist2-hist-20261005-002": {
       "number": 2477,
@@ -35059,7 +35059,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가갸날(조선어 연구회, 오답)",
         "자작회(물산 장려 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 의열 투쟁, 민족 문화 수호 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 의열 투쟁, 민족 문화 수호 운동"
     },
     "resist2-hist-20261005-003": {
       "number": 2478,
@@ -35071,7 +35071,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "토산품 애용(물산 장려 운동, 오답)",
         "자유시 이동(대한 독립군단, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 신간회 결성과 활동, 학생 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 신간회 결성과 활동, 학생 운동"
     },
     "resist2-hist-20261005-004": {
       "number": 2479,
@@ -35083,7 +35083,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "어린이날(천도교 소년회, 오답)",
         "한글 교재 보급(문자 보급 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 36강 일제 강점기(1920년대 저항) 181쪽 국내 사회, 경제적 민족 운동(실력 양성, 농민, 노동, 대중 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 36강 일제 강점기(1920년대 저항) 국내 사회, 경제적 민족 운동(실력 양성, 농민, 노동, 대중 운동)"
     },
     "resist2-hist-20261005-005": {
       "number": 2480,
@@ -35095,7 +35095,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "자유시 참변(뒤, 오답)",
         "3부 통합(뒤, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 국외 무장 독립 전쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 국외 무장 독립 전쟁"
     },
     "resist2-hist-20261005-006": {
       "number": 2481,
@@ -35107,7 +35107,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한일 학생 충돌(광주 학생 항일 운동, 오답)",
         "민족 대표 33인(3.1 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 신간회 결성과 활동, 학생 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 신간회 결성과 활동, 학생 운동"
     },
     "resist2-hist-20261005-007": {
       "number": 2482,
@@ -35119,7 +35119,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가갸날(조선어 연구회, 오답)",
         "아리랑(나운규, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 의열 투쟁, 민족 문화 수호 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 의열 투쟁, 민족 문화 수호 운동"
     },
     "resist2-hist-20261005-008": {
       "number": 2483,
@@ -35131,7 +35131,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "회사령(앞, 오답)",
         "토지 조사령(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 36강 일제 강점기(1920년대 저항) 181쪽 국내 사회, 경제적 민족 운동(실력 양성, 농민, 노동, 대중 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 36강 일제 강점기(1920년대 저항) 국내 사회, 경제적 민족 운동(실력 양성, 농민, 노동, 대중 운동)"
     },
     "resist2-hist-20261005-009": {
       "number": 2484,
@@ -35143,7 +35143,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "백정 차별 철폐(형평 운동, 오답)",
         "순종의 인산일(6.10 만세 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 36강 일제 강점기(1920년대 저항) 181쪽 국내 사회, 경제적 민족 운동(실력 양성, 농민, 노동, 대중 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 36강 일제 강점기(1920년대 저항) 국내 사회, 경제적 민족 운동(실력 양성, 농민, 노동, 대중 운동)"
     },
     "resist2-hist-20261005-010": {
       "number": 2485,
@@ -35155,7 +35155,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "봉오동 전투(대한 독립군, 오답)",
         "백정 차별 철폐(형평 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 의열 투쟁, 민족 문화 수호 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 의열 투쟁, 민족 문화 수호 운동"
     },
     "resist2-hist-20261005-011": {
       "number": 2486,
@@ -35167,7 +35167,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "고종의 인산일(3.1 운동, 오답)",
         "민족 대표 33인(3.1 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 신간회 결성과 활동, 학생 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 신간회 결성과 활동, 학생 운동"
     },
     "resist2-hist-20261005-012": {
       "number": 2487,
@@ -35179,7 +35179,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기성회(민립 대학 설립 운동, 오답)",
         "좌우 여성(근우회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 36강 일제 강점기(1920년대 저항) 181쪽 국내 사회, 경제적 민족 운동(실력 양성, 농민, 노동, 대중 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 36강 일제 강점기(1920년대 저항) 국내 사회, 경제적 민족 운동(실력 양성, 농민, 노동, 대중 운동)"
     },
     "resist2-hist-20261005-013": {
       "number": 2488,
@@ -35191,7 +35191,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신흥 강습소(앞, 오답)",
         "대한 광복회(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 국외 무장 독립 전쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 국외 무장 독립 전쟁"
     },
     "resist2-hist-20261005-014": {
       "number": 2489,
@@ -35203,7 +35203,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "의열단(앞, 오답)",
         "대한민국 임시 정부(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 신간회 결성과 활동, 학생 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 신간회 결성과 활동, 학생 운동"
     },
     "resist2-hist-20261005-015": {
       "number": 2490,
@@ -35215,7 +35215,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "『근우』(근우회, 오답)",
         "「아리랑」(나운규, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 의열 투쟁, 민족 문화 수호 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 의열 투쟁, 민족 문화 수호 운동"
     },
     "resist2-hist-20261005-016": {
       "number": 2491,
@@ -35227,7 +35227,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순종 장례(6.10 만세 운동, 오답)",
         "한일 학생 충돌(광주 학생 항일 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님) / 36강 일제 강점기(1920년대 저항) 181쪽 국내 사회, 경제적 민족 운동(실력 양성, 농민, 노동, 대중 운동)"
+      "sourceSection": "자체 제작(기출 원문 아님) / 36강 일제 강점기(1920년대 저항) 국내 사회, 경제적 민족 운동(실력 양성, 농민, 노동, 대중 운동)"
     },
     "resist2-hist-20261005-017": {
       "number": 2492,
@@ -35239,7 +35239,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "가갸날(조선어 연구회, 오답)",
         "어린이날(천도교 소년회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 의열 투쟁, 민족 문화 수호 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 의열 투쟁, 민족 문화 수호 운동"
     },
     "resist2-hist-20261005-018": {
       "number": 2493,
@@ -35251,7 +35251,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대한 독립군단(앞, 오답)",
         "간도 참변(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 국외 무장 독립 전쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 국외 무장 독립 전쟁"
     },
     "resist2-hist-20261005-019": {
       "number": 2494,
@@ -35260,7 +35260,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순서 나 → 가 → 라 → 다(정답)",
         "6.10 만세 운동, 신간회 창립, 광주 학생 항일 운동, 신간회 해소(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 신간회 결성과 활동, 학생 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 신간회 결성과 활동, 학생 운동"
     },
     "resist2-hist-20261005-020": {
       "number": 2495,
@@ -35269,7 +35269,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순서 나 → 라 → 다 → 가(정답)",
         "봉오동 전투, 자유시 참변, 미쓰야 협정, 3부 통합(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 181쪽 국외 무장 독립 전쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 36강 일제 강점기(1920년대 저항) 국외 무장 독립 전쟁"
     },
     "resist3-hist-20261005-001": {
       "number": 2496,
@@ -35281,7 +35281,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "나석주(의열단, 오답)",
         "우한 창설(조선 의용대, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 1930년대 의열 투쟁, 한중 연합 작전"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 1930년대 의열 투쟁, 한중 연합 작전"
     },
     "resist3-hist-20261005-002": {
       "number": 2497,
@@ -35293,7 +35293,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "호가장(조선 의용대, 오답)",
         "봉오동(대한 독립군, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 1930년대 의열 투쟁, 한중 연합 작전"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 1930년대 의열 투쟁, 한중 연합 작전"
     },
     "resist3-hist-20261005-003": {
       "number": 2498,
@@ -35305,7 +35305,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "정규군(한국 광복군, 오답)",
         "북만주(한국 독립군, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 중국 관내에서의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 중국 관내에서의 민족 운동"
     },
     "resist3-hist-20261005-004": {
       "number": 2499,
@@ -35317,7 +35317,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국문 연구소(대한 제국, 오답)",
         "진단 학보(진단 학회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 1930년대 민족 문화 수호 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 1930년대 민족 문화 수호 운동"
     },
     "resist3-hist-20261005-005": {
       "number": 2500,
@@ -35329,7 +35329,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "진단 학회(이병도, 오답)",
         "국혼(박은식, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 1930년대 민족 문화 수호 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 1930년대 민족 문화 수호 운동"
     },
     "resist3-hist-20261005-006": {
       "number": 2501,
@@ -35341,7 +35341,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "흥경성(조선 혁명군, 오답)",
         "호가장(조선 의용대, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 건국 준비 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 건국 준비 활동"
     },
     "resist3-hist-20261005-007": {
       "number": 2502,
@@ -35353,7 +35353,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "낭가사상(신채호, 오답)",
         "국혼(박은식, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 1930년대 민족 문화 수호 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 1930년대 민족 문화 수호 운동"
     },
     "resist3-hist-20261005-008": {
       "number": 2503,
@@ -35365,7 +35365,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국내 여운형(조선 건국 동맹, 오답)",
         "민중 직접 혁명론(신채호, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 건국 준비 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 건국 준비 활동"
     },
     "resist3-hist-20261005-009": {
       "number": 2504,
@@ -35377,7 +35377,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한국 독립당(한국 독립군, 오답)",
         "훙커우 공원(한인 애국단, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 1930년대 의열 투쟁, 한중 연합 작전"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 1930년대 의열 투쟁, 한중 연합 작전"
     },
     "resist3-hist-20261005-010": {
       "number": 2505,
@@ -35389,7 +35389,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "혁신 의회(앞, 오답)",
         "대전자령(한국 독립군, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 중국 관내에서의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 중국 관내에서의 민족 운동"
     },
     "resist3-hist-20261005-011": {
       "number": 2506,
@@ -35401,7 +35401,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "「아리랑」(나운규, 오답)",
         "얼(정인보, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 1930년대 민족 문화 수호 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 1930년대 민족 문화 수호 운동"
     },
     "resist3-hist-20261005-012": {
       "number": 2507,
@@ -35413,7 +35413,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "민립 대학 기성회(앞, 오답)",
         "물산 장려 운동(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 1930년대 민족 문화 수호 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 1930년대 민족 문화 수호 운동"
     },
     "resist3-hist-20261005-013": {
       "number": 2508,
@@ -35425,7 +35425,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "우한 창설(조선 의용대, 오답)",
         "북만주(한국 독립군, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 건국 준비 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 건국 준비 활동"
     },
     "resist3-hist-20261005-014": {
       "number": 2509,
@@ -35437,7 +35437,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "양세봉(조선 혁명군, 오답)",
         "우한(조선 의용대, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 건국 준비 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 건국 준비 활동"
     },
     "resist3-hist-20261005-015": {
       "number": 2510,
@@ -35449,7 +35449,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여운형(조선 건국 동맹, 오답)",
         "북만주(한국 독립당, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 중국 관내에서의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 중국 관내에서의 민족 운동"
     },
     "resist3-hist-20261005-016": {
       "number": 2511,
@@ -35461,7 +35461,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국민 대표 회의(앞, 오답)",
         "연통제(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 건국 준비 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 건국 준비 활동"
     },
     "resist3-hist-20261005-017": {
       "number": 2512,
@@ -35473,7 +35473,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "얼(정인보, 오답)",
         "맞춤법 통일안(조선어 학회, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 1930년대 민족 문화 수호 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 1930년대 민족 문화 수호 운동"
     },
     "resist3-hist-20261005-018": {
       "number": 2513,
@@ -35485,7 +35485,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "문화 통치(3.1 운동의 영향, 오답)",
         "간도 참변(봉오동, 청산리의 결과, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 1930년대 의열 투쟁, 한중 연합 작전"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 1930년대 의열 투쟁, 한중 연합 작전"
     },
     "resist3-hist-20261005-019": {
       "number": 2514,
@@ -35494,7 +35494,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순서 나 → 라 → 다 → 가(정답)",
         "한인 애국단, 한국 광복군, 대일 선전 포고, 부주석제(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 건국 준비 활동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 건국 준비 활동"
     },
     "resist3-hist-20261005-020": {
       "number": 2515,
@@ -35503,7 +35503,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순서 나 → 라 → 가 → 다(정답)",
         "민족 혁명당, 조선 민족 전선 연맹, 조선 의용대, 조선 의용군(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 193쪽 중국 관내에서의 민족 운동"
+      "sourceSection": "자체 제작(기출 원문 아님), 37강 일제 강점기(1930년대 이후 저항) 중국 관내에서의 민족 운동"
     },
     "democracy1-hist-20261005-001": {
       "number": 2516,
@@ -35515,7 +35515,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "통일 주체 국민 회의(유신 헌법, 오답)",
         "3회 연임(3선 개헌, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 이승만 정부의 장기 집권, 4.19 혁명과 장면 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 이승만 정부의 장기 집권, 4.19 혁명과 장면 정부"
     },
     "democracy1-hist-20261005-002": {
       "number": 2517,
@@ -35527,7 +35527,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "반민족 행위 처벌법(앞, 오답)",
         "농지 개혁법(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 이승만 정부의 장기 집권, 4.19 혁명과 장면 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 이승만 정부의 장기 집권, 4.19 혁명과 장면 정부"
     },
     "democracy1-hist-20261005-003": {
       "number": 2518,
@@ -35539,7 +35539,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "유신 붕괴(부마 민주 항쟁, 오답)",
         "비상계엄 확대(5.18 민주화 운동, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 이승만 정부의 장기 집권, 4.19 혁명과 장면 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 이승만 정부의 장기 집권, 4.19 혁명과 장면 정부"
     },
     "democracy1-hist-20261005-004": {
       "number": 2519,
@@ -35551,7 +35551,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "3회 연임(3선 개헌, 오답)",
         "양원제(발췌, 3차 개헌, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 5.16 군사 정변과 박정희 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 5.16 군사 정변과 박정희 정부"
     },
     "democracy1-hist-20261005-005": {
       "number": 2520,
@@ -35563,7 +35563,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "3당 합당(노태우 정부, 오답)",
         "하나회 해체(김영삼 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 5.16 군사 정변과 박정희 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 5.16 군사 정변과 박정희 정부"
     },
     "democracy1-hist-20261005-006": {
       "number": 2521,
@@ -35575,7 +35575,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "5년 단임 직선제(6월 민주 항쟁, 오답)",
         "부산, 마산(부마 민주 항쟁, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 5.18 민주화 운동과 전두환 정부, 6월 민주 항쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 5.18 민주화 운동과 전두환 정부, 6월 민주 항쟁"
     },
     "democracy1-hist-20261005-007": {
       "number": 2522,
@@ -35587,7 +35587,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금융 실명제(김영삼 정부, 오답)",
         "진보당 사건(이승만 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 5.18 민주화 운동과 전두환 정부, 6월 민주 항쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 5.18 민주화 운동과 전두환 정부, 6월 민주 항쟁"
     },
     "democracy1-hist-20261005-008": {
       "number": 2523,
@@ -35599,7 +35599,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국가 인권 위원회(김대중 정부, 오답)",
         "친일 진상 규명 위원회(노무현 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 민주주의의 발전"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 민주주의의 발전"
     },
     "democracy1-hist-20261005-009": {
       "number": 2524,
@@ -35611,7 +35611,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "진보당 등록 취소(앞, 오답)",
         "보안법 파동(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 이승만 정부의 장기 집권, 4.19 혁명과 장면 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 이승만 정부의 장기 집권, 4.19 혁명과 장면 정부"
     },
     "democracy1-hist-20261005-010": {
       "number": 2525,
@@ -35623,7 +35623,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "삼청 교육대(전두환 정부, 오답)",
         "하나회 해체(김영삼 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 이승만 정부의 장기 집권, 4.19 혁명과 장면 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 이승만 정부의 장기 집권, 4.19 혁명과 장면 정부"
     },
     "democracy1-hist-20261005-011": {
       "number": 2526,
@@ -35635,7 +35635,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "대통령 선거인단(전두환 정부, 오답)",
         "국가 재건 최고 회의(군정, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 이승만 정부의 장기 집권, 4.19 혁명과 장면 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 이승만 정부의 장기 집권, 4.19 혁명과 장면 정부"
     },
     "democracy1-hist-20261005-012": {
       "number": 2527,
@@ -35647,7 +35647,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "5.16 군사 정변(앞, 오답)",
         "내각 책임제 개헌(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 5.16 군사 정변과 박정희 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 5.16 군사 정변과 박정희 정부"
     },
     "democracy1-hist-20261005-013": {
       "number": 2528,
@@ -35659,7 +35659,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "5년 단임 직선제(9차 개헌, 오답)",
         "지방 자치제 전면 실시(김영삼 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 5.16 군사 정변과 박정희 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 5.16 군사 정변과 박정희 정부"
     },
     "democracy1-hist-20261005-014": {
       "number": 2529,
@@ -35671,7 +35671,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "3선 개헌(앞, 오답)",
         "3.1 민주 구국 선언(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 5.16 군사 정변과 박정희 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 5.16 군사 정변과 박정희 정부"
     },
     "democracy1-hist-20261005-015": {
       "number": 2530,
@@ -35683,7 +35683,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "시민군(5.18 민주화 운동, 오답)",
         "김주열(4.19 혁명, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 5.18 민주화 운동과 전두환 정부, 6월 민주 항쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 5.18 민주화 운동과 전두환 정부, 6월 민주 항쟁"
     },
     "democracy1-hist-20261005-016": {
       "number": 2531,
@@ -35695,7 +35695,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "진보당 사건(앞, 오답)",
         "교수단 퇴진 요구(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 5.16 군사 정변과 박정희 정부"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 5.16 군사 정변과 박정희 정부"
     },
     "democracy1-hist-20261005-017": {
       "number": 2532,
@@ -35707,7 +35707,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "국가 인권 위원회(김대중 정부, 오답)",
         "3당 합당(노태우 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 민주주의의 발전"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 민주주의의 발전"
     },
     "democracy1-hist-20261005-018": {
       "number": 2533,
@@ -35719,7 +35719,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "여성부(김대중 정부, 오답)",
         "언론 기본법(전두환 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 민주주의의 발전"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 민주주의의 발전"
     },
     "democracy1-hist-20261005-019": {
       "number": 2534,
@@ -35728,7 +35728,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순서 나 → 라 → 가 → 다(정답)",
         "발췌 개헌, 사사오입 개헌, 유신 헌법, 9차 개헌(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 5.18 민주화 운동과 전두환 정부, 6월 민주 항쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 5.18 민주화 운동과 전두환 정부, 6월 민주 항쟁"
     },
     "democracy1-hist-20261005-020": {
       "number": 2535,
@@ -35737,7 +35737,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순서 나 → 다 → 라 → 가(정답)",
         "4.19 혁명, 부마 민주 항쟁, 5.18 민주화 운동, 6월 민주 항쟁(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 217쪽 5.18 민주화 운동과 전두환 정부, 6월 민주 항쟁"
+      "sourceSection": "자체 제작(기출 원문 아님), 39강 현대(민주주의의 발전) 5.18 민주화 운동과 전두환 정부, 6월 민주 항쟁"
     },
     "economy1-hist-20261005-001": {
       "number": 2536,
@@ -35749,7 +35749,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금융 실명제(김영삼 정부, 오답)",
         "삼백 산업(이승만 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
     },
     "economy1-hist-20261005-002": {
       "number": 2537,
@@ -35761,7 +35761,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "신고한 땅(토지 조사 사업, 오답)",
         "소작 기간 보장(농지령, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
     },
     "economy1-hist-20261005-003": {
       "number": 2538,
@@ -35773,7 +35773,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "3저 호황(전두환 정부, 오답)",
         "수출 100억 달러(박정희 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(전두환 정부 이후)"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 산업화와 경제 정책(전두환 정부 이후)"
     },
     "economy1-hist-20261005-004": {
       "number": 2539,
@@ -35785,7 +35785,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "OECD 가입(김영삼 정부, 오답)",
         "이산가족 상봉(전두환 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
     },
     "economy1-hist-20261005-005": {
       "number": 2540,
@@ -35797,7 +35797,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "노사정 위원회(뒤, 오답)",
         "최저 임금법(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(전두환 정부 이후)"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 산업화와 경제 정책(전두환 정부 이후)"
     },
     "economy1-hist-20261005-006": {
       "number": 2541,
@@ -35809,7 +35809,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한, 칠레 FTA(김대중 정부, 오답)",
         "부실기업 정리(전두환 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
     },
     "economy1-hist-20261005-007": {
       "number": 2542,
@@ -35821,7 +35821,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "제1차 경제 개발 계획(앞, 오답)",
         "농지 개혁(앞, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
     },
     "economy1-hist-20261005-008": {
       "number": 2543,
@@ -35833,7 +35833,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "기초 생활 보장법(김대중 정부, 오답)",
         "3저 호황(전두환 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
     },
     "economy1-hist-20261005-009": {
       "number": 2544,
@@ -35845,7 +35845,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "한미 FTA(노무현 정부, 오답)",
         "금융 실명제(김영삼 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
     },
     "economy1-hist-20261005-010": {
       "number": 2545,
@@ -35857,7 +35857,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금 모으기(김대중 정부, 오답)",
         "삼백 산업(이승만 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(전두환 정부 이후)"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 산업화와 경제 정책(전두환 정부 이후)"
     },
     "economy1-hist-20261005-011": {
       "number": 2546,
@@ -35869,7 +35869,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "구제 금융(김영삼 정부, 오답)",
         "남북 정상 회담(김대중 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 산업화와 경제 정책(이승만, 박정희 정부), 사회의 변화"
     },
     "economy1-hist-20261005-012": {
       "number": 2547,
@@ -35881,7 +35881,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "개성 공단(김대중 정부, 오답)",
         "제2차 정상 회담(노무현 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 통일을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 통일을 위한 노력"
     },
     "economy1-hist-20261005-013": {
       "number": 2548,
@@ -35893,7 +35893,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "최초 정상 회담(김대중 정부, 오답)",
         "제2차 정상 회담(노무현 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 통일을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 통일을 위한 노력"
     },
     "economy1-hist-20261005-014": {
       "number": 2549,
@@ -35905,7 +35905,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "비핵화 공동 선언(노태우 정부, 오답)",
         "고향 방문단(전두환 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 통일을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 통일을 위한 노력"
     },
     "economy1-hist-20261005-015": {
       "number": 2550,
@@ -35914,7 +35914,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순서 다 → 가 → 라 → 나(정답)",
         "7.4, 이산가족 상봉, 남북 기본 합의서, 정상 회담(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 통일을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 통일을 위한 노력"
     },
     "economy1-hist-20261005-016": {
       "number": 2551,
@@ -35926,7 +35926,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "햇볕 정책(김대중 정부, 오답)",
         "판문점 정상 회담(문재인 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 통일을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 통일을 위한 노력"
     },
     "economy1-hist-20261005-017": {
       "number": 2552,
@@ -35938,7 +35938,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "남북 조절 위원회(박정희 정부, 오답)",
         "고향 방문단(전두환 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 통일을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 통일을 위한 노력"
     },
     "economy1-hist-20261005-018": {
       "number": 2553,
@@ -35950,7 +35950,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "3대 원칙(박정희 정부, 오답)",
         "비핵화 공동 선언(노태우 정부, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 통일을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 통일을 위한 노력"
     },
     "economy1-hist-20261005-019": {
       "number": 2554,
@@ -35962,7 +35962,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "금강산 해로 관광(뒤, 오답)",
         "10.4 선언(뒤, 오답)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 통일을 위한 노력"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 통일을 위한 노력"
     },
     "economy1-hist-20261005-020": {
       "number": 2555,
@@ -35971,7 +35971,7 @@ globalThis.STUDY_REVIEW_CATALOG={
         "순서 나 → 라 → 가 → 다(정답)",
         "농지 개혁, 수출 100억 달러, 3저 호황, IMF 구제 금융(항목)"
       ],
-      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 229쪽 산업화와 경제 정책(전두환 정부 이후)"
+      "sourceSection": "자체 제작(기출 원문 아님), 40강 현대(경제 발전과 통일 정책) 산업화와 경제 정책(전두환 정부 이후)"
     },
     "modernorder-hist-20261005-001": {
       "number": 2556,

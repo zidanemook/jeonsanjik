@@ -1109,7 +1109,7 @@
  // END LECTURE 15 GROUPS
  // BEGIN ENGLISH ONE-QUESTION GROUPS
  // 영어 규칙 카드를 문제 하나씩으로 나눈 뒤(v57)에도 "하나를 틀리면 같은 규칙의 다른 문제가 형제 간격 뒤에 이어서 나온다"가 그대로 동작하도록 묶는다.
- // <규칙 id>-vN은 원래 규칙 id와 같은 개념(원래 규칙이 다른 규칙과 묶여 있었다면 그 묶음)이다. 문제집 Day 1~15는 문법 포인트(point) 하나가 개념 하나다(Day 8~15는 포인트마다 4~5문제 — 핵심 20 + 더 풀기). 문법 공식 훈련(en-formula-*)은 공식(규칙) 하나가 개념 하나다(grammar-formula-*).
+ // <규칙 id>-vN은 원래 규칙 id와 같은 개념(원래 규칙이 다른 규칙과 묶여 있었다면 그 묶음)이다. 영어 Day 1~15는 문법 포인트(point) 하나가 개념 하나다(Day 8~15는 포인트마다 4~5문제 — 핵심 20 + 더 풀기). 문법 공식 훈련(en-formula-*)은 공식(규칙) 하나가 개념 하나다(grammar-formula-*).
  // content-audit.cjs가 practice-bank.js의 ruleId, point와 이 목록이 어긋나지 않는지 검사한다.
  Object.assign(groups,{
   "en-session-20260909-wish-v1": "en-session-20260909-wish",
@@ -3393,7 +3393,7 @@
  });
  // END ENGLISH ONE-QUESTION GROUPS
  // BEGIN KOREAN LOGIC GROUPS
- // 국어 사고의 힘 논리(1장~6장): 개념(point) 하나가 개념 묶음 하나다. 대우, 드모르간, 조건문의 진릿값, 후건 긍정의 오류처럼
+ // 국어 논리 독해(1장~6장): 개념(point) 하나가 개념 묶음 하나다. 대우, 드모르간, 조건문의 진릿값, 후건 긍정의 오류처럼
  // 같은 개념의 문제를 하나 틀리면 나머지가 이어서 나온다. content-audit.cjs가 practice-bank.js의 point와 이 목록이 어긋나지 않는지 검사한다.
  Object.assign(groups,{
   "ko-logic1-01": "korean-logic-inference",
@@ -4394,7 +4394,7 @@
  });
  // END KOREAN LOGIC GROUPS
  // BEGIN KOREAN READING GROUPS
- // 국어 사고의 힘 논리 제2편 독해 1장(독해의 원리): 개념(point) 하나가 개념 묶음 하나다. ‘A but B’ 유형, 구조화 개념, 선택지 구성 방식처럼
+ // 국어 논리 독해 제2편 독해 1장(독해의 원리): 개념(point) 하나가 개념 묶음 하나다. ‘A but B’ 유형, 구조화 개념, 선택지 구성 방식처럼
  // 같은 개념의 쌍둥이 문제를 하나 틀리면 나머지가 이어서 나온다. content-audit.cjs가 practice-bank.js의 point와 이 목록이 어긋나지 않는지 검사한다.
  Object.assign(groups,{
   "ko-read1-001": "korean-reading-coord-subord",
@@ -4844,9 +4844,9 @@
  });
  // END KOREAN READING GROUPS
  // BEGIN KOREAN READING 2-3 GROUPS
- // 국어 사고의 힘 논리 제2편 독해 2장(독해와 논증), 3장(실전 독해 훈련): 개념(point) 하나가 개념 묶음 하나다. 3장 개념은 교재 문제 하나가
- // 요구하는 기술이다. 교재 문장은 싣지 않았고(--book=none) 기술마다 자체 제작 문제만 둔다.
- // 교재 문제 가운데 기출과 같은 23개는 기출 카드(gichul-*)로만 두고 새로 만들지 않았다(기출 첫 풀이 점수가 흐려지지 않게).
+ // 국어 논리 독해 제2편 독해 2장(독해와 논증), 3장(실전 독해 훈련): 개념(point) 하나가 개념 묶음 하나다. 3장 개념은 학습 자료 문제 하나가
+ // 요구하는 기술이다. 학습 자료 문장은 싣지 않았고(--book=none) 기술마다 자체 제작 문제만 둔다.
+ // 학습 자료 문제 가운데 기출과 같은 23개는 기출 카드(gichul-*)로만 두고 새로 만들지 않았다(기출 첫 풀이 점수가 흐려지지 않게).
  Object.assign(groups,{
   "ko-read2-001": "korean-reading2-eval-meaning",
   "ko-read2-002": "korean-reading2-eval-meaning",

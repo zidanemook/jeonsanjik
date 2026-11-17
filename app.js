@@ -13,7 +13,7 @@ function plus(date,n){const [y,m,d]=date.split('-').map(Number);return day(new D
 const CARD_CONTENT=['subject','question','answer','explanation','source','verified'];
 const Content=globalThis.StudyContent;
 // 묶음 카드에 없는 연습 문제의 출처 줄(내용 창고가 카드 내용을 만들 때 부른다).
-function bankSource(id,lesson){const rule=Content.core(lesson.ruleId);return lesson.srcLine?lesson.srcLine:id.startsWith('ko-read')?'사고의 힘 논리 제2편 추론 강화 독해 1장 개념 기반 자체 제작 문제(교재 문장과 예문은 옮기지 않음).':id.startsWith('ko-logic')?'사고의 힘 논리 제1편 개념 기반 자체 제작 문제(교재 문장과 예문은 옮기지 않음).':id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조와 동사 유형 정리 기반 자체 제작 연습.':id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습.':id.startsWith('en-day3-')?'문제집 Day 3 문법 포인트 찾기 훈련 기반 자체 제작 연습.':id.startsWith('en-day4-')?'문제집 Day 4 문법 포인트 찾기 훈련 기반 자체 제작 연습.':id.startsWith('en-day5-')?'문제집 Day 5 문법 포인트 찾기 훈련 기반 자체 제작 연습.':/^en-day1[1-5]-/.test(id)?'문제집 Day '+id.slice(6,id.indexOf('-',6))+' 실전문제 연습 기반 자체 제작 연습.':/^en-day([6-9]|10)-/.test(id)?'문제집 Day '+id.slice(6,id.indexOf('-',6))+' 문법 포인트 찾기 훈련 기반 자체 제작 연습.':id.startsWith('en-formula-')?'문법 공식 훈련 자체 제작 연습(문제집 Day 1~4 문법 포인트를 공식별로 묶음).':rule?.source||'수일치 문서 기반 자체 제작 연습.';}
+function bankSource(id,lesson){const rule=Content.core(lesson.ruleId);return lesson.srcLine?lesson.srcLine:id.startsWith('ko-read')?'국어 논리 독해 자체 제작 문제.':id.startsWith('ko-logic')?'국어 논리 자체 제작 문제.':id.startsWith('en-day1-')?'영어 문장의 구조와 동사 유형 자체 제작 연습.':id.startsWith('en-day2-')?'영어 동사의 형태, 명사, 일치 자체 제작 연습.':id.startsWith('en-day3-')?'영어 Day 3 문법 포인트 찾기 자체 제작 연습.':id.startsWith('en-day4-')?'영어 Day 4 문법 포인트 찾기 자체 제작 연습.':id.startsWith('en-day5-')?'영어 Day 5 문법 포인트 찾기 자체 제작 연습.':/^en-day1[1-5]-/.test(id)?'영어 Day '+id.slice(6,id.indexOf('-',6))+' 실전문제 연습 기반 자체 제작 연습.':/^en-day([6-9]|10)-/.test(id)?'영어 Day '+id.slice(6,id.indexOf('-',6))+' 문법 포인트 찾기 훈련 기반 자체 제작 연습.':id.startsWith('en-formula-')?'문법 공식 훈련 자체 제작 연습(영어 Day 1~4 문법 포인트를 공식별로 묶음).':rule?.source||'수일치 문서 기반 자체 제작 연습.';}
 function cardContent(){return Content.contentMap();}
 // 앱 파일이 기준이다. 저장된 옛 사본이 있어도 앱 파일 문장으로 덮어쓴다(문장 수정이 바로 반영된다).
 // v131 복습 일정 규칙(7일 → 14일 → 30일 → 외운 문제)으로 한 번 다시 계산한다. 일정은 풀이 기록에서 나오므로 기록은 그대로다.
@@ -161,7 +161,7 @@ function newCard(c){validateContent(c);return {id:crypto.randomUUID(),subject:c.
 // 공무원 기출은 회차 파일을 받기 전에도 풀 수 있는 카드다(색인에 있으면 된다). 보기는 그 회차의 문항을 처음 낼 때 받는다.
 function playableRaw(c){return !!c&&(Content.hasOptions(c.id)||!!Content.lesson(c.id)||Gichul.known(c.id));}
 // BEGIN CORE 20 — 한국사 강마다 핵심 20문제(v179, 2026-09-28 사용자 "20문제가 딱 좋은거 같어", "강 마다 20문제로").
-// '강'은 교재 강: 02~05강도 2026-10-10(v278)부터 교재 강 넷(02, 03, 04, 05)으로 갈라 강마다 20이다(그 전에는 한 범위에 핵심 80). 화면 문구의 수는 core 길이를 그대로 쓴다(coreSize).
+// '강'은 강: 02~05강도 2026-10-10(v278)부터 강 넷(02, 03, 04, 05)으로 갈라 강마다 20이다(그 전에는 한 범위에 핵심 80). 화면 문구의 수는 core 길이를 그대로 쓴다(coreSize).
 // 강 범위(STUDY_REVIEW_CATALOG.lectures)의 core = 한능검 심화 57~79회 빈도로 고른 20문제(research/core20-20260928). core가 없는 강은 전부 핵심.
 // 나머지 문제는 지우지 않고 접어 둔다: 강마다 '이 강 문제 더 풀기'를 켜면(data.openLectures, 이 기기 설정 — 대기열 모드처럼) 다시 모든 범위, 대기열, 수, 뱃지에 들어온다.
 // 접힌 문제는 어디에서도 풀 수 있는 문제로 치지 않는다(isPlayable) — 수, 복습 대기열, 파트, 뱃지가 모두 보이는 문제로만 계산된다. 풀이 기록과 일정은 그대로 남는다.
@@ -207,7 +207,7 @@ function topicScope(value){return topicRange(value)?.id||null;}
 const STUDY_LECTURES=STUDY_REVIEW_CATALOG.lectures||[];
 const LECTURE_BY_ID=new Map(STUDY_LECTURES.flatMap(l=>l.ids.map(id=>[id,l.id])));
 // 2026-09-16 없앤 범위: 07, 08강 덩어리는 07강으로, 따로 떠 있던 기출형 연습은 그 문제들이 처음 들어간 강으로 이어 연다(저장된 범위가 빈 화면이 되지 않게).
-// 2026-10-10(v278) 02~05강 범위를 교재 강 넷으로 갈랐다: 저장된 'lecture-02-05'(지금 범위, 과목별 마지막 범위, 다른 기기에서 온 범위)는 첫 강인 02강으로 이어 연다. 푼 기록은 문제 id에 달려 있어 그대로다.
+// 2026-10-10(v278) 02~05강 범위를 강 넷으로 갈랐다: 저장된 'lecture-02-05'(지금 범위, 과목별 마지막 범위, 다른 기기에서 온 범위)는 첫 강인 02강으로 이어 연다. 푼 기록은 문제 id에 달려 있어 그대로다.
 const RETIRED_LECTURES={'07-08':'07','02-03-04-05':'02','02-05':'02','05-06':'06','10-12':'10','250-256':'250'};
 function lectureScope(value){const match=/^lecture-([0-9][0-9-]*)$/.exec(value||'');if(!match)return null;const id=RETIRED_LECTURES[match[1]]||match[1];return STUDY_LECTURES.some(l=>l.id===id)?id:null;}
 function lectureTitle(id){return STUDY_LECTURES.find(l=>l.id===id)?.title||'';}
@@ -233,9 +233,9 @@ function roundMatch(c,round){
  if(round==='core')return !Hanneung.get(c.id)&&!Gichul.get(c.id)&&!studySet(c.id);
  return Hanneung.get(c.id)?.round===Number(round);
 }
-// 교재 진도(topic) 범위를 가진 과목: 영어는 문제집 Day, 국어는 『사고의 힘 논리』의 장.
+// 진도(topic) 범위를 가진 과목: 영어는 학습 Day, 국어는 논리 독해의 장.
 const TOPIC_SUBJECTS=new Set(['영어','국어','컴퓨터일반','정보보호론']);
-// 컴퓨터일반 자체 제작(2026-10-07~): parts.js에서 scope.topic이 있는 컴퓨터일반 단원('comq-<파트>' — 교재의 장 하나, topic '컴일 <파트>')이 범위 하나다. 9급 기출 단원(com-u1~)은 scope가 비어 있다.
+// 컴퓨터일반 자체 제작(2026-10-07~): parts.js에서 scope.topic이 있는 컴퓨터일반 단원('comq-<파트>' — 단원 하나, topic '컴일 <파트>')이 범위 하나다. 9급 기출 단원(com-u1~)은 scope가 비어 있다.
 // 단원 id는 그 장과 같은 주제의 9급 기출 파트 id에 'comq-'를 붙인 것이라, 범위 목록은 기출 단원(com-u1~) 아래에 그 파트 순서로 묶는다. 핵심 20, '이 단원 문제 더 풀기'는 영어 Day, 국어 장과 같은 길(core-units.js).
 const COMPUTER_SELF=PARTS.units.filter(u=>u.subject==='컴퓨터일반'&&!!u.scope?.topic);
 // 정보보호론 자체 제작(2026-10-14~): 컴퓨터일반과 같은 틀. 단원 'secq-<파트>'(기출 파트 is01~is20의 주제, topic '정보 <파트>')가 범위 하나이고, 범위 목록은 기출 단원(sec-u1~) 아래에 그 파트 순서로 묶는다.
@@ -243,15 +243,15 @@ const SECURITY_SELF=PARTS.units.filter(u=>u.subject==='정보보호론'&&!!u.sco
 // 9급 기출 파트가 있는 과목의 자체 제작 단원과 단원 id 앞머리(같은 주제의 기출 파트 id 앞에 붙는다). 범위 이름, 범위 목록, 파트 범례, 출처 줄이 이것을 본다.
 const GICHUL_SELF={'컴퓨터일반':{units:COMPUTER_SELF,prefix:'comq-'},'정보보호론':{units:SECURITY_SELF,prefix:'secq-'}};
 const gichulSelf=s=>GICHUL_SELF[s]?.units||[];
-// 국어 문법(v219~): 『사고의 힘 논리』와 다른 책(선재국어 제3편 개념 중심 문법 독해)이라 범위 묶음을 따로 둔다.
+// 국어 문법(v219~): 논리 독해와 주제가 달라 범위 묶음을 따로 둔다.
 const KOREAN_GRAMMAR_TOPICS={'문법 1장':'국어 문법 1장 음운론','문법 2장':'국어 문법 2장 형태론','문법 3장':'국어 문법 3장 통사론'};
-// 같은 책의 제4편 공문서 수정하기, 제5편 문맥의 힘 어휘(2026-10-07): 범위 묶음을 하나씩 더 둔다.
+// 공문서 수정, 국어 어휘(2026-10-07): 범위 묶음을 하나씩 더 둔다.
 const KOREAN_DOC_TOPICS={'공문서 1장':'국어 공문서 수정 1장 올바른 문장 쓰기','공문서 2장':'국어 공문서 수정 2장 문장 부호 바로 쓰기','공문서 3장':'국어 공문서 수정 3장 〈한글 맞춤법〉 바로 쓰기'};
 const KOREAN_VOCAB_TOPICS={'어휘 1장':'국어 어휘 1장 구별해서 써야 하는 주요 어휘','어휘 2장':'국어 어휘 2장 독해에 필요한 주요 한자 어휘'};
 // 2025년부터 바뀐 출제 기조의 논리 추론(명제 추론, 강화와 약화, 숨은 전제, 토론 분석) 자체 제작(2026-10-17): 범위 묶음 '국어 새 기조'.
 const KOREAN_NEW_TOPICS={'논리 추론':'국어 논리 추론(새 기조)'};
 const KOREAN_TOPICS={'논리 1장':'1장 논증의 개념과 유형','논리 2장':'2장 명제 논리','논리 3장':'3장 정언 논리','논리 4장':'4장 술어 논리','논리 5장':'5장 귀납 논증','논리 6장':'6장 논리의 오류','독해 1장':'독해 1장 독해의 원리','독해 2장':'독해 2장 독해와 논증','독해 3장':'독해 3장 실전 독해 훈련'};
-// 영어 ‘문법 공식 훈련’의 공식 하나 범위는 topic을 'formula:<공식 id>'로 두고, 그 공식에 속한 문제집 Day 문제와 새 훈련 문제를 함께 담는다.
+// 영어 ‘문법 공식 훈련’의 공식 하나 범위는 topic을 'formula:<공식 id>'로 두고, 그 공식에 속한 영어 Day 문제와 새 훈련 문제를 함께 담는다.
 function topicMatch(lesson,topic){return !!lesson&&(lesson.topic===topic||(topic.startsWith('formula:')&&lesson.formula===topic.slice(8)));}
 // all: 접힌 문제(핵심 20 밖)도 센다 — '이 강 문제 더 풀기'에 붙일 수를 셀 때만.
 function inScope(c,scope,all=false){const subject=scope.subject||'',topic=TOPIC_SUBJECTS.has(subject)?scope.topic||'':'',round=hasRanges(subject)?scope.round||'':'';return (all?playableRaw(c):isPlayable(c))&&(!subject||c.subject===subject)&&(!topic||topicMatch(Content.lesson(c.id),topic))&&roundMatch(c,round);}
@@ -264,7 +264,7 @@ function scopeLabel(scope){
  const paper=hasRanges(s)?paperScope(scope.round):null;if(paper)return s+' 기출 '+Gichul.paper(paper).range;
  if(s==='영어'&&(scope.topic||'').startsWith('formula:'))return '영어 문법 공식: '+ENGLISH_FORMULAS.title(scope.topic.slice(8));
  if(s==='영어')return '영어 '+({'':'전체','수일치':'수일치','영문법':'그 밖의 문법 연습','문법 공식 훈련':'문법 공식 훈련 새 문제'}[scope.topic||'']??scope.topic);
- if(s==='국어'&&KOREAN_TOPICS[scope.topic])return '국어 사고의 힘 논리 '+KOREAN_TOPICS[scope.topic];
+ if(s==='국어'&&KOREAN_TOPICS[scope.topic])return '국어 논리 독해 '+KOREAN_TOPICS[scope.topic];
  if(s==='국어'&&KOREAN_GRAMMAR_TOPICS[scope.topic])return '국어 '+KOREAN_GRAMMAR_TOPICS[scope.topic];
  if(s==='국어'&&(KOREAN_DOC_TOPICS[scope.topic]||KOREAN_VOCAB_TOPICS[scope.topic]||KOREAN_NEW_TOPICS[scope.topic]))return '국어 '+(KOREAN_DOC_TOPICS[scope.topic]||KOREAN_VOCAB_TOPICS[scope.topic]||KOREAN_NEW_TOPICS[scope.topic]).replace(/^국어 /,'');
  {const u=scope.topic?gichulSelf(s).find(x=>x.scope.topic===scope.topic):null;if(u)return s+' '+u.title;}
@@ -481,7 +481,7 @@ function reviewQueue(cards,ranged=false,subject=cardsSubject(cards)){
 }
 // END QUEUE MODES
 // BEGIN PART CHECK — 파트별 점검(대기열 모드 'parts', 규칙은 part-check.js). 고른 범위(강, Day, 장, 파트 하나, 과목 전체)의 파트를
-// 교재 순서대로 하나씩: 5문제 → 틀리면 3문제씩 더 → 통과하거나 파트 문제가 바닥나면 다음 파트. 채점, 기록, 복습 일정은 다른 모드와 똑같다.
+// 진도 순서대로 하나씩: 5문제 → 틀리면 3문제씩 더 → 통과하거나 파트 문제가 바닥나면 다음 파트. 채점, 기록, 복습 일정은 다른 모드와 똑같다.
 // 판의 표시는 범위마다 시작 시각 하나(data.partChecks, 이 기기에만)이고, 진행은 그 뒤의 풀이 기록에서 다시 계산한다(새로고침해도 이어진다).
 // 막다른 화면 없음: 파트에 낼 문제가 남아 있으면 언제나 한 문제를 낸다(재시도 대기, 같은 개념 간격을 기다리지 않는다).
 function scopeUnits(scope){
@@ -1162,17 +1162,17 @@ function renderRange(){
  const paperCount=Gichul.forSubject(s).length;
  if(s==='한국사'){
   const round=scopeOf().round;
-  // 자체 제작은 교재 진도순, 기출은 회차별. 같은 문제를 여러 순서로 제공하면 어디까지 풀었는지
+  // 자체 제작은 진도순, 기출은 회차별. 같은 문제를 여러 순서로 제공하면 어디까지 풀었는지
   // 알기 어려워진다. 문항 화면은 여전히 시대 주제를 표시하므로 분류 자체는 살아 있다.
-  const lectures=group('교재 강별');for(const l of STUDY_LECTURES){const sc=scope('lecture-'+l.id),open=openLectureSet().has(l.id),more=hasFold(l.id)?moreCount(sc,l.id):0;option(lectures,l.title,sc,more?(open?'이 강 문제 더 풀기 켬':'더 풀기 '+more+'문제'):'');}
+  const lectures=group('강별');for(const l of STUDY_LECTURES){const sc=scope('lecture-'+l.id),open=openLectureSet().has(l.id),more=hasFold(l.id)?moreCount(sc,l.id):0;option(lectures,l.title,sc,more?(open?'이 강 문제 더 풀기 켬':'더 풀기 '+more+'문제'):'');}
   const papers=group('기출: 회차별 심화 ('+Math.min(...Hanneung.rounds)+'~'+Math.max(...Hanneung.rounds)+'회)',!Hanneung.rounds.includes(Number(round)));for(const n of Hanneung.rounds){const count=Hanneung.rows.filter(r=>r.round===n&&Hanneung.hasExplanation(r.id)).length;option(papers,n+'회',scope(String(n)),count?'해설 '+count+'개':'');}
   const exams=group('기출: 공무원 9급 ('+paperCount+'회차)',!paperScope(round));paperYears(exams,round);
   const other=group('그 밖의 범위',!(studyScope(round)!==null||round==='core'));option(other,'한국사 전체',scope(''));
- }else if(s==='영어'){const g=group('문제집 진도');option(g,'Day 1 문장의 구조와 동사 유형',scope('','Day 1'),moreNote(scope('','Day 1')));option(g,'Day 2 동사의 형태, 명사, 일치',scope('','Day 2'),moreNote(scope('','Day 2')));option(g,'Day 3 분사, 준동사, 관사와 도치',scope('','Day 3'),moreNote(scope('','Day 3')));option(g,'Day 4 형용사, 부사와 비교 구문',scope('','Day 4'),moreNote(scope('','Day 4')));option(g,'Day 5 접속사, 관계사, 가정법과 도치',scope('','Day 5'),moreNote(scope('','Day 5')));option(g,'Day 6 무작위 문법 포인트 찾기 훈련',scope('','Day 6'),moreNote(scope('','Day 6')));option(g,'Day 7 무작위 문법 포인트 찾기 훈련',scope('','Day 7'),moreNote(scope('','Day 7')));option(g,'Day 8 무작위 문법 포인트 찾기 훈련',scope('','Day 8'),moreNote(scope('','Day 8')));option(g,'Day 9 무작위 문법 포인트 찾기 훈련',scope('','Day 9'),moreNote(scope('','Day 9')));option(g,'Day 10 무작위 문법 포인트 찾기 훈련',scope('','Day 10'),moreNote(scope('','Day 10')));option(g,'Day 11 실전문제 연습',scope('','Day 11'),moreNote(scope('','Day 11')));option(g,'Day 12 실전문제 연습',scope('','Day 12'),moreNote(scope('','Day 12')));option(g,'Day 13 실전문제 연습',scope('','Day 13'),moreNote(scope('','Day 13')));option(g,'Day 14 실전문제 연습',scope('','Day 14'),moreNote(scope('','Day 14')));option(g,'Day 15 실전문제 연습',scope('','Day 15'),moreNote(scope('','Day 15')));
-  // 영작 연습(v400): 문제집 Day마다 채점 없는 영작 카드 목록. 누르면 외울 것 화면에서 그 목록을 연다.
+ }else if(s==='영어'){const g=group('학습 진도');option(g,'Day 1 문장의 구조와 동사 유형',scope('','Day 1'),moreNote(scope('','Day 1')));option(g,'Day 2 동사의 형태, 명사, 일치',scope('','Day 2'),moreNote(scope('','Day 2')));option(g,'Day 3 분사, 준동사, 관사와 도치',scope('','Day 3'),moreNote(scope('','Day 3')));option(g,'Day 4 형용사, 부사와 비교 구문',scope('','Day 4'),moreNote(scope('','Day 4')));option(g,'Day 5 접속사, 관계사, 가정법과 도치',scope('','Day 5'),moreNote(scope('','Day 5')));option(g,'Day 6 무작위 문법 포인트 찾기 훈련',scope('','Day 6'),moreNote(scope('','Day 6')));option(g,'Day 7 무작위 문법 포인트 찾기 훈련',scope('','Day 7'),moreNote(scope('','Day 7')));option(g,'Day 8 무작위 문법 포인트 찾기 훈련',scope('','Day 8'),moreNote(scope('','Day 8')));option(g,'Day 9 무작위 문법 포인트 찾기 훈련',scope('','Day 9'),moreNote(scope('','Day 9')));option(g,'Day 10 무작위 문법 포인트 찾기 훈련',scope('','Day 10'),moreNote(scope('','Day 10')));option(g,'Day 11 실전문제 연습',scope('','Day 11'),moreNote(scope('','Day 11')));option(g,'Day 12 실전문제 연습',scope('','Day 12'),moreNote(scope('','Day 12')));option(g,'Day 13 실전문제 연습',scope('','Day 13'),moreNote(scope('','Day 13')));option(g,'Day 14 실전문제 연습',scope('','Day 14'),moreNote(scope('','Day 14')));option(g,'Day 15 실전문제 연습',scope('','Day 15'),moreNote(scope('','Day 15')));
+  // 영작 연습(v400): 학습 Day마다 채점 없는 영작 카드 목록. 누르면 외울 것 화면에서 그 목록을 연다.
   {const sets=MEMORIZE.sets.filter(x=>x.id.startsWith(WRITING_SET));if(sets.length){const w=group('영작 연습 (채점 없이 눌러서 답 확인)');
    for(const x of sets){const n=[...memorizeShown].filter(k=>k.startsWith(x.id+':')).length;w.append(menuItem(x.title,MEMORIZE.size(x)+'문장, 우리말과 재료를 보고 영작'+(n?', '+n+'문장 확인':''),()=>{if(data.memorizeLast!==x.id){data.memorizeLast=x.id;saveDraft();}go('memorize',x.id);}));}}}
-  // 문법 공식 훈련: 공식(규칙) 하나가 범위 하나다. 그 공식의 문제집 Day 문제와 새 훈련 문제를 함께 담고, 영역별로 접어 둔다(지금 풀던 공식의 영역만 펼침).
+  // 문법 공식 훈련: 공식(규칙) 하나가 범위 하나다. 그 공식의 영어 Day 문제와 새 훈련 문제를 함께 담고, 영역별로 접어 둔다(지금 풀던 공식의 영역만 펼침).
   const formulas=group('문법 공식 훈련');option(formulas,'공식 훈련 새 문제 전체',scope('','문법 공식 훈련'),moreNote(scope('','문법 공식 훈련')));
   const nowFormula=(scopeOf().topic||'').startsWith('formula:')?scopeOf().topic.slice(8):'';
   for(const area of ENGLISH_FORMULAS.areas){const fold=elem('details',undefined,'range-fold formula-area'),box=elem('div',undefined,'menu-list');fold.open=area.rules.some(r=>r.id===nowFormula);
@@ -1180,13 +1180,13 @@ function renderRange(){
    for(const rule of area.rules){const sc=scope('','formula:'+rule.id);option(box,rule.title,sc,moreNote(sc));}}
   const exams=group('기출: 회차별 ('+paperCount+'회차)',!paperScope(scopeOf().round));paperYears(exams,scopeOf().round);
   const rest=group('그 밖의 범위',true);option(rest,'수일치',scope('','수일치'));option(rest,'그 밖의 문법 연습',scope('','영문법'));option(rest,'영어 전체',scope(''));}
- // 국어는 교재(사고의 힘 논리) 장별 자체 제작 문제를 먼저 두고, 기출은 영어처럼 풀던 회차가 없으면 접어 둔다.
- else if(s==='국어'){const g=group('사고의 힘 논리');for(const [topic,title]of Object.entries(KOREAN_TOPICS))option(g,title,scope('',topic),moreNote(scope('',topic)));
+ // 국어는 장별 자체 제작 문제를 먼저 두고, 기출은 영어처럼 풀던 회차가 없으면 접어 둔다.
+ else if(s==='국어'){const g=group('논리 독해');for(const [topic,title]of Object.entries(KOREAN_TOPICS))option(g,title,scope('',topic),moreNote(scope('',topic)));
   {const gg=group('국어 문법');for(const [topic,title]of Object.entries(KOREAN_GRAMMAR_TOPICS))option(gg,title,scope('',topic),moreNote(scope('',topic)));}
   for(const [name,topics]of [['국어 공문서 수정',KOREAN_DOC_TOPICS],['국어 어휘',KOREAN_VOCAB_TOPICS],['국어 새 기조',KOREAN_NEW_TOPICS]]){const gg=group(name);for(const [topic,title]of Object.entries(topics))option(gg,title,scope('',topic),moreNote(scope('',topic)));}
   const exams=group('기출: 회차별 ('+paperCount+'회차)',!paperScope(scopeOf().round));paperYears(exams,scopeOf().round);
   option(group('그 밖의 범위',true),'국어 전체',scope(''));}
- // 컴퓨터일반, 정보보호론: 교재 장별 자체 제작 문제(기출 단원 제목 아래에 그 단원의 장들)를 먼저 두고, 기출 회차는 그대로 펼쳐 둔다.
+ // 컴퓨터일반, 정보보호론: 단원별 자체 제작 문제(기출 단원 제목 아래에 그 단원의 장들)를 먼저 두고, 기출 회차는 그대로 펼쳐 둔다.
  else if(gichulSelf(s).length){
   for(const u of PARTS.unitsFor(s)){if(u.scope?.topic)continue;const mine=u.parts.map(p=>gichulSelf(s).find(x=>x.id===GICHUL_SELF[s].prefix+p.id)).filter(Boolean);if(!mine.length)continue;
    const g=group('자체 제작: '+u.title);for(const x of mine){const sc=scope('',x.scope.topic);option(g,x.short,sc,moreNote(sc));}}
@@ -1765,7 +1765,7 @@ function renderFeedback(root,card,quiz,lesson,label,after){
  root.append(recap);
  const dueCard=data.cards.find(c=>c.id===card.id);
  root.append(elem('p','풀이 완료: 환산 시간 +1분','study-credit-award'),elem('small','다음 복습: '+dueCard.due,'next-review'));
- const source=(Content.core(card.id)||card).source;if(quiz.type==='text'||source)root.append(elem('small',quiz.type==='text'?(card.id.startsWith('en-day1-')?'문제집 PART 01 문장의 구조와 동사 유형 정리 기반 자체 제작 연습':card.id.startsWith('en-day2-')?'문제집 PART 02 동사의 형태, 명사, 일치 정리 기반 자체 제작 연습':card.id.startsWith('en-day3-')?'문제집 Day 3 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-day4-')?'문제집 Day 4 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-day5-')?'문제집 Day 5 문법 포인트 찾기 훈련 기반 자체 제작 연습':/^en-day1[1-5]-/.test(card.id)?'문제집 Day '+card.id.slice(6,card.id.indexOf('-',6))+' 실전문제 연습 기반 자체 제작 연습':/^en-day([6-9]|10)-/.test(card.id)?'문제집 Day '+card.id.slice(6,card.id.indexOf('-',6))+' 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-formula-')?'문법 공식 훈련 자체 제작 연습':'대화 학습과 수일치 정리 기반 자체 제작 연습'):source,'source-line'));
+ const source=(Content.core(card.id)||card).source;if(quiz.type==='text'||source)root.append(elem('small',quiz.type==='text'?(card.id.startsWith('en-day1-')?'영어 문장의 구조와 동사 유형 자체 제작 연습':card.id.startsWith('en-day2-')?'영어 동사의 형태, 명사, 일치 자체 제작 연습':card.id.startsWith('en-day3-')?'영어 Day 3 문법 포인트 찾기 자체 제작 연습':card.id.startsWith('en-day4-')?'영어 Day 4 문법 포인트 찾기 자체 제작 연습':card.id.startsWith('en-day5-')?'영어 Day 5 문법 포인트 찾기 자체 제작 연습':/^en-day1[1-5]-/.test(card.id)?'영어 Day '+card.id.slice(6,card.id.indexOf('-',6))+' 실전문제 연습 기반 자체 제작 연습':/^en-day([6-9]|10)-/.test(card.id)?'영어 Day '+card.id.slice(6,card.id.indexOf('-',6))+' 문법 포인트 찾기 훈련 기반 자체 제작 연습':card.id.startsWith('en-formula-')?'문법 공식 훈련 자체 제작 연습':'대화 학습과 수일치 정리 기반 자체 제작 연습'):source,'source-line'));
  const next=btn(nextLabel(reviewId),()=>{const state=structuredClone(data);delete state.quizFeedback;delete state.activePractice;if(commit(state)){sessionDirty=true;render();window.scrollTo(0,0);}},'primary next-question');next.id='nextQuestion';next.dataset.review=reviewId||'';root.append(next);
  // v405: 채점 뒤 Enter와 →는 '다음 문제'. 이 답으로 기초 개념에서 들어온 파트를 다 풀었으면 '다음 개념으로'도 여기 둔다(건너뛴 문제를 마지막에 푼 때도 끝 화면까지 넘기지 않게).
  keyAct.enter=keyAct.next=next.onclick;if(after){after.classList.remove('primary');root.append(after);}
@@ -1832,7 +1832,7 @@ function answerPractice(id,input){
  next.quizFeedback={cardId:id,reviewId,selectedIndex:quiz.type==='choice'?input:-1,userAnswer:quiz.type==='text'?String(input):'',result,exercise:quiz};
  delete next.activePractice;notify('');if(commit(next)){if(sequential)paperAdvance();sessionDirty=true;render();window.scrollTo(0,0);}
 }
-// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제, 문제집 Day 1~15, 문법 공식 훈련 / 국어: 사고의 힘 논리 1~6장, 독해 1~3장, 국어 문법, 공문서 수정, 어휘)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
+// 설치 묶음에 없는 연습 문제(영어: 나뉜 규칙 문제, 영어 Day 1~15, 문법 공식 훈련 / 국어: 논리 독해 1~6장, 독해 1~3장, 국어 문법, 공문서 수정, 어휘)는 그 문제 자체에서 카드 내용을 만든다. 문제 하나 = 카드 하나다.
 // 과목은 연습 문제에 적힌 subject를 따르고, 적혀 있지 않으면 영어다(기존 영어 문제는 subject를 따로 적지 않았다).
 // 새로 만든 문제는 '팩 이름'이 바뀔 때만 기기에 들어왔다. 배포할 때 이름을 손으로 안 올리면 영영 안 들어온다 —
 // 2026-09-17 뒤에 만든 158문항(16강 80, 문화유산 사진 70, 궁궐 사진 8)이 그래서 이미 쓰던 기기에서 안 보였다.

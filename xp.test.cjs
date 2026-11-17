@@ -68,7 +68,7 @@ const many=Array.from({length:5},(_,i)=>row('b'+i,'k'+i,'2026-09-21','correct'))
   assert.deepEqual(b.groups.map(g=>g.pct),[100,25,0,0]);
   assert.equal(b.pct,31.2,'(100+25+0+0)/4 = 31.25 → 31.2 (버림)');assert.equal(b.tier.id,'bronze');
   assert.deepEqual(b.next,{id:'silver',name:'실버',pct:50,gap:18.8});
-  assert.deepEqual(b.weakest.map(g=>g.id),['p3','p4'],'가장 약한 파트: 0% 중 풀어 본 파트 먼저, 그다음 교재 순서');
+  assert.deepEqual(b.weakest.map(g=>g.id),['p3','p4'],'가장 약한 파트: 0% 중 풀어 본 파트 먼저, 그다음 진도 순서');
   // 같은 0%면 지금 틀려 있는 비율이 높은 파트가 먼저(맞힌 문제만 있는 파트, 안 푼 파트보다)
   const st3=X.conceptStates(X.ledger([...h,R('d1',5,'wrong'),R('e1',5,'wrong'),R('e2',5,'correct')]),id=>id);
   assert.deepEqual(X.selfBadge(st3,[...groups,P('p5',['e1','e2','e3'])]).weakest.map(g=>g.id),['p4','p5'],'p4: 1/2 틀려 있음 > p5: 1/3 > p3: 0');

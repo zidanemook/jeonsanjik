@@ -86,7 +86,7 @@ assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-day7-006'?{...x,les
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-formula-inversion')||x.exercise.type!=='text')),/At least 1 written questions required: grammar-formula-inversion/);
 assert.throws(()=>audit.coverage(list.filter(x=>!ofRule(x,'grammar-formula-voice'))),/Missing coverage/);
 assert.throws(()=>audit.concepts(list.map(x=>x.card.id==='en-formula-006'?{...x,lesson:{...x.lesson,point:list.find(y=>y.card.id==='en-formula-001').lesson.point}}:x)),/One grammar point, one concept/);
-// 국어 사고의 힘 논리: 개념(point) 하나가 개념 묶음 하나(1, 2장 56개 + 3장 27개 + 4장 14개 + 5장 14개 + 6장 43개 = 154개)다. 영어의 직접쓰기 하한은 걸리지 않고, 장별 문제 수 하한, 필수 개념, 4지선다만을 요구한다.
+// 국어 논리 독해: 개념(point) 하나가 개념 묶음 하나(1, 2장 56개 + 3장 27개 + 4장 14개 + 5장 14개 + 6장 43개 = 154개)다. 영어의 직접쓰기 하한은 걸리지 않고, 장별 문제 수 하한, 필수 개념, 4지선다만을 요구한다.
 {const ko=list.filter(x=>x.card.id.startsWith('ko-logic'));assert.equal(ko.length,995);assert.ok(ko.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-logic-')));assert.equal(new Set(ko.map(x=>x.conceptId)).size,154);
  assert.equal(policy.concept('ko-logic6-017'),'korean-logic-spot-denying-antecedent');assert.equal(policy.concept('ko-logic6-017'),policy.concept('ko-logic6-018'),'전건 부정 판별 문제끼리 같은 개념');assert.notEqual(policy.concept('ko-logic6-018'),policy.concept('ko-logic6-027'),'전건 부정과 후건 긍정은 다른 개념');
  {const kr=list.filter(x=>x.card.id.startsWith('ko-read1-'));assert.equal(kr.length,444);assert.ok(kr.every(x=>x.card.subject==='국어'&&x.exercise.type==='choice'&&x.exercise.choices.length===4&&x.conceptId.startsWith('korean-reading-')));assert.equal(new Set(kr.map(x=>x.conceptId)).size,61);
