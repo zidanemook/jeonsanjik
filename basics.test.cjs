@@ -618,8 +618,10 @@ console.log('PASS basics(국어, 영어, 한국사 기출): 기출 대응 원고
 {const B=bctx.STUDY_BASICS,gq=new Map();let boxes=0,lines=0;
  const has=id=>{const m=String(id).match(/^gichul-(.+)-(\d+)$/);if(!m)return false;if(!gq.has(m[1])){const f=__dirname+'/gichul/'+m[1]+'.json';gq.set(m[1],fs.existsSync(f)?new Set(JSON.parse(fs.readFileSync(f,'utf8')).questions.map(q=>q.n)):new Set());}return gq.get(m[1]).has(+m[2]);};
  for(const [bid,b] of Object.entries(B.boxes)){if(!b.must)continue;const m=b.must;boxes++;
-  assert.ok(m.scope&&m.drop&&Array.isArray(m.lines),'must 꼴: '+bid);assert.ok(m.lines.length>=3&&m.lines.length<=8,'must 3~8줄: '+bid+' '+m.lines.length);
-  for(const t of [m.scope,m.drop,...m.lines.map(l=>l.text)])assert.ok(!/[\u00b7\u318d\u30fb]/.test(t)&&!/카드|문항|변형/.test(noTech(t)),'must 금지 글자: '+bid+' '+t.slice(0,30));
+  assert.ok(m.scope&&m.drop&&Array.isArray(m.lines),'must 꼴: '+bid);assert.ok(m.lines.length>=3&&m.lines.length<=160,'must 3~160줄: '+bid+' '+m.lines.length);
+  // v500: 소제목(groups) 5~12개, 줄마다 group이 groups 안에 있고 소제목 순서대로 모여 있으며 빈 소제목은 없다.
+  if(m.groups){assert.ok(m.groups.length>=5&&m.groups.length<=12,'must 소제목 5~12개: '+bid+' '+m.groups.length);const order=m.lines.map(l=>m.groups.indexOf(l.group));assert.ok(order.every((g,k)=>g>=0&&(k===0||g>=order[k-1])),'must 줄이 소제목 순서대로: '+bid);assert.ok(m.groups.every(g=>m.lines.some(l=>l.group===g)),'빈 소제목 없음: '+bid);}
+  for(const t of [m.scope,m.drop,...m.lines.map(l=>l.text),...m.lines.map(l=>l.hook||''),...(m.groups||[])])assert.ok(!/[\u00b7\u318d\u30fb]/.test(t)&&!/카드|문항|변형/.test(noTech(t)),'must 금지 글자: '+bid+' '+t.slice(0,30));
   for(const l of m.lines){lines++;assert.ok(l.text&&l.src.length,'must 줄마다 문장과 출처: '+bid);for(const id of l.src){assert.ok(has(id),'must 출처가 실제 기출: '+bid+' '+id);assert.equal(B.apply[id]?.box,bid,'must 출처는 이 상자에 대입된 기출: '+bid+' '+id);}}}
  for(let i=1;i<=21;i++){const id='sec-is'+String(i).padStart(2,'0');assert.ok(B.boxes[id].must,'정보보호론 must: '+id);}
  for(let i=1;i<=26;i++){const id='com-cg'+String(i).padStart(2,'0');assert.ok(B.boxes[id].must,'컴퓨터일반 must: '+id);}

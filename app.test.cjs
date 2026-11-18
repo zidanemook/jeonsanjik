@@ -683,10 +683,14 @@ run("openScope({subject:'한국사',round:'lecture-02'})");
  run('openBasics('+JSON.stringify(xs[1])+')');b=blocks();assert.equal(b.length,1);assert.equal(b[0].open,false,'다음 파트는 닫힘');run("go('home')");}
 // 고리는 본문 바로 아래, 출처 앞에 표시하며 고리가 없는 줄은 빈 요소를 만들지 않는다.
 {
- const block=run("mustBlock(BASICS.box('sec-is05'))"),list=block.children.find(n=>n.tag==='ol');
- const lines=run("BASICS.box('sec-is05').must.lines");
- assert.equal(list.children.length,lines.length);
- for(const [i,li]of list.children.entries()){
+ const block=run("mustBlock(BASICS.box('sec-is05'))"),lists=block.children.filter(n=>n.tag==='ol'),items=lists.flatMap(n=>n.children);
+ const lines=run("BASICS.box('sec-is05').must.lines"),groups=run("BASICS.box('sec-is05').must.groups");
+ assert.equal(items.length,lines.length);
+ // v500: 소제목마다 머리 줄 하나와 목록 하나, 번호는 이어진다(두 번째 목록부터 start).
+ const heads=block.children.filter(n=>n.classes?.has('b-must-group')||String(n.className||'').split(' ').includes('b-must-group')).map(n=>n.textContent);
+ assert.equal(JSON.stringify(heads),JSON.stringify(groups),'소제목 머리 줄');assert.equal(lists.length,groups.length,'소제목마다 목록');
+ {let c=0;for(const [k,ol]of lists.entries()){if(k)assert.equal(String(ol.getAttribute('start')),String(c+1),'번호 이어짐');c+=ol.children.length;}}
+ for(const [i,li]of items.entries()){
   const hooks=li.children.filter(n=>n.className==='b-must-hook');
   assert.equal(hooks.length,lines[i].hook?1:0,'고리 유무: '+i);
   if(hooks.length){assert.equal(hooks[0].textContent,'고리: '+lines[i].hook);assert.equal(li.children.at(-2),hooks[0]);assert.equal(li.children.at(-1).className,'b-must-src');}

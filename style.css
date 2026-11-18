@@ -1182,6 +1182,7 @@ body[data-view="quiz"] main { padding-top:14px; }
 .b-must>summary{cursor:pointer;font-weight:700;color:var(--ink-warm-f0b429);min-height:32px}
 .b-must-scope{margin:6px 0;color:var(--ink-neutral-d8dee8);font-size:15px}
 .b-must-lines{margin:6px 0;padding-left:22px}
+.b-must-group{margin:14px 0 2px;padding-bottom:2px;border-bottom:1px solid var(--line-warm-f0b429);font-weight:700;font-size:15px}
 .b-must-lines li{margin:7px 0;line-height:1.55;overflow-wrap:anywhere}
 .b-must-lines li.b-gichul{padding:2px 6px}
 .b-must-src{display:block;color:var(--ink-neutral-a9b2bf);font-size:12px;margin-top:1px}

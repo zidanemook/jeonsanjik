@@ -1734,10 +1734,11 @@ function mustBlock(box,{open=false,hit='',again=false}={}){
  const m=box&&box.must;if(!m||!Array.isArray(m.lines)||!m.lines.length)return null;
  const d=elem('details',undefined,'b-must');d.open=open;d.append(elem('summary',(again?'이 장 반드시 외울 것 '+m.lines.length+'줄 다시 보기':'반드시 외울 것 '+m.lines.length+'줄 (기출 근거)')));
  if(m.scope)d.append(basicsLines(m.scope,'b-must-scope'));
- const ol=elem('ol',undefined,'b-must-lines');
- for(const l of m.lines){const li=elem('li');li.append(...basicsInline(l.text));if(l.hook)li.append(elem('small','고리: '+l.hook,'b-must-hook'));const src=[...(l.src||[])].sort((a,b)=>mustSrcLabel(b).localeCompare(mustSrcLabel(a))),shown=src.slice(0,4).map(mustSrcLabel);
+ // v500: 소제목(group)이 있으면 소제목마다 머리 줄 + 번호가 이어지는 목록(ol start), 없으면 전처럼 목록 하나.
+ let ol=elem('ol',undefined,'b-must-lines'),group=null,count=0;const groups=Array.isArray(m.groups)&&m.groups.length;
+ for(const l of m.lines){if(groups&&l.group!==group){if(ol.children.length)d.append(ol);group=l.group;d.append(elem('div',group,'b-must-group'));ol=elem('ol',undefined,'b-must-lines');if(count)ol.setAttribute('start',String(count+1));}count++;const li=elem('li');li.append(...basicsInline(l.text));if(l.hook)li.append(elem('small','고리: '+l.hook,'b-must-hook'));const src=[...(l.src||[])].sort((a,b)=>mustSrcLabel(b).localeCompare(mustSrcLabel(a))),shown=src.slice(0,4).map(mustSrcLabel);
   li.append(elem('small','기출 '+src.length+': '+shown.join(', ')+(src.length>4?' 외 '+(src.length-4):''),'b-must-src'));if(hit&&src.includes(hit))li.classList.add('b-gichul');ol.append(li);}
- d.append(ol);if(m.drop)d.append(basicsLines(m.drop,'b-must-drop'));return d;
+ if(ol.children.length||!groups)d.append(ol);if(m.drop)d.append(basicsLines(m.drop,'b-must-drop'));return d;
 }
 function conceptListBtn(u){return btn('목록',()=>go('concepts',u.subject,true),'secondary concept-list');}
 // 파트 화면 아래: 이전 / 읽음(누를 때마다 켜고 끔, 화면 그대로) / 다음(읽음 표시 없이 넘김, 마지막이면 목록으로) / 이 파트 문제 풀기.

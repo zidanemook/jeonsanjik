@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v499-private-book';
+globalThis.APP_BUILD='chagog-v500-must-rewrite';
