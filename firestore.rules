@@ -32,6 +32,9 @@ service cloud.firestore {
     // The first allowedUsers/{owner UID} document is provisioned through the admin console and
     // carries `admin: true`. After that the owner approves accounts from inside the app; no one
     // else can grant themselves access, and no one but the owner may enumerate the collection.
+    match /privateBook/{doc=**} {
+      allow read, write: if isAdmin();
+    }
     match /allowedUsers/{uid} {
       function validAllowed(d) {
         return d.keys().hasAll(['at'])

@@ -180,7 +180,7 @@
    unsubscribeGuesses?.();unsubscribeGuesses=null;guessesReady=false;knownGuesses=new Map();
    unsubscribeMemo?.();unsubscribeMemo=null;memoReady=false;knownMemo=0;cancel(memoTimer);memoTimer=null;
    const token=++generation;unsubscribe?.();unsubscribeViews?.();unsubscribeSession?.();unsubscribeNotes?.();unsubscribe=null;unsubscribeViews=null;unsubscribeSession=null;unsubscribeNotes=null;knownNotes=new Set();refusedNotes=new Set();notesReady=false;notesLive=false;notesWait=0;cancel(sessionCooldown);sessionCooldown=null;sessionPending=false;sentPosition='';knownSession=0;sessionReady=false;ready=false;reviewsReady=false;viewsReady=!withViews;known=new Set();knownViews=new Map();uid=null;
-   access?.reset();
+   access?.reset();root.StudyPrivateBook?.session(null);
    if(!user){try{await store.switchUser(null);if(token===generation)say('이 기기에 저장 중. 로그인하면 자동 동기화돼요.');}catch{if(token===generation)say('이 기기의 저장 공간을 확인해 주세요.');}return;}
    say('동기화 계정 확인 중…');
    try{
@@ -189,7 +189,7 @@
     await store.switchUser(user.uid);if(token!==generation)return;uid=user.uid;
     // The rules mark the owner on their own allowlist document, which was just read: the admin
     // section costs no extra read, and an approved account without the flag renders nothing.
-    if(allowed.data?.()?.role==='owner')access?.admin(gate);
+    if(allowed.data?.()?.role==='owner'){access?.admin(gate);root.StudyPrivateBook?.session({user,projectId:db.app.options.projectId});}
     unsubscribe=db.collection('users').doc(uid).collection('events').onSnapshot({includeMetadataChanges:true},snapshot=>{
      if(token!==generation)return;
      try{

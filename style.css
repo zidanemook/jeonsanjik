@@ -1212,3 +1212,13 @@ body[data-view="quiz"] main { padding-top:14px; }
 :root:not([data-theme="dark"]) .level-badge small,
 :root:not([data-theme="dark"]) .menu-item.concept-item.is-read { opacity:1; }
 :root:not([data-theme="dark"]) .menu-item.concept-item.is-read { border-style:dashed; }
+
+.private-book{margin-top:1rem;padding:1rem;border:1px solid var(--line-blue-414854);border-radius:12px;background:var(--surface-blue-1b2028);color:var(--ink-neutral-fff)}
+.private-book summary{cursor:pointer;font-weight:700}
+.private-page{margin-top:1rem;padding-bottom:1rem;border-bottom:1px solid var(--line-blue-414854)}
+.private-meta{color:var(--ink-neutral-c9d1dc);font-size:.9rem;overflow-wrap:anywhere}
+.private-zoom{display:block;width:100%;padding:0;border:0;background:transparent;cursor:zoom-in}
+.private-page img{display:block;width:100%;height:auto}
+.private-text{overflow-wrap:anywhere;line-height:1.8}.private-text ul{padding-left:1.5rem}
+.private-dialog{max-width:96vw;max-height:96vh;overflow:auto;background:var(--surface-blue-1b2028);color:var(--ink-neutral-fff);border:1px solid var(--line-blue-414854)}
+.private-dialog img{display:block;max-width:none;width:auto;height:auto}.private-dialog::backdrop{background:var(--shadow-neutral-0006)}

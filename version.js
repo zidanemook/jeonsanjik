@@ -1,1 +1,1 @@
-globalThis.APP_BUILD='chagog-v498-light-theme';
+globalThis.APP_BUILD='chagog-v499-private-book';

@@ -1651,7 +1651,7 @@ function basicsSectionsIn(box,apply,mode,seen,partId){
  basicsMemoSections(box,apply,head,out);
  return out;
 }
-function basicsDetails(summary,box,apply,mode,seen,partId){const d=elem('details',undefined,'lesson basics');d.append(elem('summary',summary),...basicsSections(box,apply,mode,seen,partId));return d;}
+function basicsDetails(summary,box,apply,mode,seen,partId){const d=elem('details',undefined,'lesson basics');d.append(elem('summary',summary),...basicsSections(box,apply,mode,seen,partId));globalThis.StudyPrivateBook?.mount(d,Content.ruleOfBox(box));return d;}
 function partBasics(p){return [...new Set(p.ids.map(basicsRuleFor).filter(r=>r&&Content.hasBox(r)))];}
 // 기초 개념 공부(v380, 사용자 2026-10-18 "기본개념만 따로 한번 보는게 시간 아낄거 같아서"): 과목 화면 → 단원별 파트 목록 → 파트 하나씩 읽기.
 // 정보보호론, 컴퓨터일반 단원 상자는 장마다 하나라 파트로 나눈다: concept-map.js(research/concept-parts-20261018)가 상자 줄마다 임자 파트를 정해 둔다
@@ -1720,7 +1720,7 @@ function renderConceptPart(x,body){
  const lesson=box.lessons?.[x.id];if(lesson)body.append(conceptLesson(lesson));
  const main=conceptSection(lesson?'요약 정리: '+x.title:x.title,box,new Set(own));main.d.open=!lesson;main.d.dataset.rule=m.box;
  if(!main.n)main.d.append(elem('p','이 파트만의 새 개념은 없어요. 아래 앞 파트에서 본 개념을 다시 확인해요.','status'));
- body.append(main.d);
+ globalThis.StudyPrivateBook?.mount(main.d,m.box);body.append(main.d);
  if(also.length){const s=conceptSection('앞 파트에서 본 개념 '+also.length+'줄 다시 보기',box,new Set(also),'b-more concept-also');body.append(s.d);}
  conceptNav(x,body);
 }
